@@ -8,10 +8,15 @@
 <body>
   <h1>CPR Case Recorder</h1>
   <form id="cprForm">
-    <label>Date: <input type="date" name="date" required></label>
-    <label>Patient Name: <input type="text" name="patientName" required></label>
-    <label>Age: <input type="number" name="age" min="0" required></label>
-    <label>Event Details: <input type="text" name="eventDetails"></label>
+    <fieldset>
+      <legend>Patient Information</legend>
+      <label>Date: <input type="date" name="date" required></label>
+      <label>Time: <input type="time" name="time" required></label>
+      <label>HN: <input type="text" name="hn" required></label>
+      <label>Patient Name: <input type="text" name="patientName" required></label>
+      <label>Age: <input type="number" name="age" min="0" required></label>
+      <label>Event Details: <input type="text" name="eventDetails"></label>
+    </fieldset>
     <button type="button" id="addCycleBtn">Add CPR Cycle</button>
     <div id="cyclesContainer"></div>
     <button type="submit">Save Case</button>
