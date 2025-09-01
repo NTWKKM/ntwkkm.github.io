@@ -1,6 +1,6 @@
 // --- Supabase setup ---
-const supabaseUrl = 'YOUR_SUPABASE_URL';
-const supabaseKey = 'YOUR_SUPABASE_ANON_KEY';
+const supabaseUrl = 'https://elzfuojueoxxrzxevrss.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVsemZ1b2p1ZW94eHJ6eGV2cnNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY3NDQ0MzgsImV4cCI6MjA3MjMyMDQzOH0.rNZDYWyInotfXpTgXWEO_rFqbgvJr5xI7f_N_vfKIP4';
 const supabase = Supabase.createClient(supabaseUrl, supabaseKey);
 
 const currentUser = JSON.parse(localStorage.getItem('user'));
