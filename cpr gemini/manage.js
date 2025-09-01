@@ -3,7 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // --- Passcode Protection ---
-    const CORRECT_PASSCODE = 'MNRHCPR','pimpon';
+    const CORRECT_PASSCODE = 'MNRHCPR';
     const enteredPasscode = prompt('Please enter the passcode to access this page:');
 
     if (enteredPasscode !== CORRECT_PASSCODE) {
