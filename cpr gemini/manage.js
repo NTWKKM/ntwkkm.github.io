@@ -3,12 +3,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // --- Passcode Protection ---
-    const CORRECT_PASSCODE = 'MNRHCPR';
+    const CORRECT_PASSCODE = 'MNRHCPR','pimpon';
     const enteredPasscode = prompt('Please enter the passcode to access this page:');
 
     if (enteredPasscode !== CORRECT_PASSCODE) {
         alert('Incorrect passcode. You will be redirected.');
-        window.location.href = 'manage.html'; // Redirect to the main page
+        window.location.href = 'index.html'; // Redirect to the main page
         return; // Stop the script from running further
     }
     
