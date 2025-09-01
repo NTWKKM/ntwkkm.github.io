@@ -1,0 +1,105 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+h1 { margin-top: 0; }
+form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+fieldset {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 1px solid #38b2ac;
+  background: #f4f9fe;
+  padding: 14px;
+}
+legend {
+  padding: 0 10px;
+  font-weight: 700;
+  color: #2b6cb0;
+}
+#cyclesContainer {
+  margin: 15px 0;
+  padding: 10px;
+  border: 1px dashed #aaa;
+  background: #fff;
+}
+.cycle-block {
+  border: 1px solid #cbd5e0;
+  margin: 10px 0;
+  padding: 10px;
+  background: #edf2f7;
+  border-radius: 10px;
+  position: relative;
+}
+.cycle-block h3 {
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cycle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px 16px;
+  align-items: end;
+}
+.cycle-block .removeCycleBtn {
+  color: #d00;
+  background: #fff;
+  border: 1px solid #d00;
+  cursor: pointer;
+  font-size: 0.9em;
+  border-radius: 6px;
+  padding: 2px 10px;
+}
+.meds-list label { margin-right: 10px; }
+.meds-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px 14px; align-items: end; }
+.investigation-list { margin: 10px 0; }
+.investigation-list li { margin-bottom: 6px; }
+.addInvestigationBtn, .addMedBtn {
+  margin-top: 6px;
+  margin-bottom: 10px;
+  background: #38b2ac;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.removeInvestigationBtn {
+  background: #d00;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-left: 10px;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+.primary {
+  background: #2b6cb0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+.danger {
+  background: #c53030;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+.actions { display: flex; gap: 10px; }
+.small-note { font-size: 0.9em; color: #4a5568; }
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #2c5282;
+  color: #fff;
+  font-size: 12px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CPR Case Recorder (v3)</title>
+  <link rel="stylesheet" href="cpr.css" />
+</head>
+<body>
+  <h1>CPR Case Recorder (v3)</h1>
+
+  <form id="cprForm">
+    <fieldset>
+      <legend>Patient Information</legend>
+      <label>Date: <input type="date" name="date" required></label>
+      <label>Time: <input type="time" name="time" required></label>
+      <label>HN: <input type="text" name="hn" required></label>
+      <label>Patient Name: <input type="text" name="patientName" required></label>
+      <label>Age: <input type="number" name="age" min="0" required></label>
+      <label>Event Details: <input type="text" name="eventDetails" placeholder="e.g., witnessed collapse, in-ED, etc."></label>
+      <label>ROSC Time (if achieved): <input type="time" name="roscTime"></label>
+      <label>Hct (patient): <input type="text" name="hctPatient"></label>
+      <label>Dtx-1: <input type="text" name="dtx1"></label>
+      <div id="dtxContainer">
+        <label>Dtx-2: <input type="text" name="dtx2"></label>
+      </div>
+      <button type="button" id="addDtxBtn" class="primary">+ Add Dtx</button>
+    </fieldset>
+
+    <fieldset>
+      <legend>CPR Cycles</legend>
+      
+      <div id="cyclesContainer"></div>
+    </fieldset>
+
+    <button type="submit" class="primary">Save Case</button>
+  </form>
+
+  <hr>
+  <h2>Saved CPR Cases</h2>
+  <ul id="caseList"></ul>
+  <div class="actions">
+    <button id="exportBtn" class="primary">Export All Cases (Excel)</button>
+    <button id="clearAllBtn" class="danger">Clear All</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="cpr.js"></script>
+</body>
+</html>
