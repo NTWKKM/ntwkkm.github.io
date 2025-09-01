@@ -1,17 +1,64 @@
-document.getElementById('signupForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const newPasscode = document.getElementById('newPasscode').value.trim().toLowerCase();
-    if (!newPasscode) return;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPR Recorder</title>
+    <link rel="stylesheet" href="cpr.css">
+</head>
+<body>
+    <div class="header-nav">
+        <h1>CPR Recorder</h1>
+        <div class="nav-links">
+            <span class="user-display">User: <b id="currentUserDisplay"></b></span>
+            <a href="manage.html" class="nav-link">Manage My Cases</a>
+            <button id="logoutBtn" class="danger-outline">Logout</button>
+        </div>
+    </div>
 
-    const appData = getAppData();
+    <form id="cprForm">
+        <fieldset>
+            <legend>Patient & Event Details</legend>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
 
-    if (appData.users.includes(newPasscode)) {
-        alert('This passcode already exists. Please choose another one.');
-    } else {
-        appData.users.push(newPasscode);
-        appData.cases[newPasscode] = []; // Initialize empty case list for the new user
-        setAppData(appData);
-        alert('Passcode created successfully! You can now log in.');
-        window.location.href = 'login.html';
-    }
-});
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="hn">Hospital No. (HN):</label>
+            <input type="text" id="hn" name="hn">
+
+            <label for="patientName">Patient Name:</label>
+            <input type="text" id="patientName" name="patientName">
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age">
+
+            <label for="sex">Sex:</label>
+            <select id="sex" name="sex">
+                <option value="">- Select -</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="eventDetails">Event Details:</label>
+            <textarea id="eventDetails" name="eventDetails"></textarea>
+
+            <label for="roscTime">ROSC Time:</label>
+            <input type="text" id="roscTime" name="roscTime">
+        </fieldset>
+
+        <fieldset>
+            <legend>CPR Cycles</legend>
+            <div id="cyclesContainer"></div>
+            <button type="button" id="addCycleBtn">Add New Cycle</button>
+        </fieldset>
+        
+        <button type="submit" class="primary">Save Case</button>
+    </form>
+
+    <script src="shared.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
