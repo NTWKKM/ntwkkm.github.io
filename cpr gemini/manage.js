@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (enteredPasscode !== CORRECT_PASSCODE) {
         alert('Incorrect passcode. You will be redirected.');
-        window.location.href = 'index.html'; // Redirect to the main page
+        window.location.href = 'manage.html'; // Redirect to the main page
         return; // Stop the script from running further
     }
     
