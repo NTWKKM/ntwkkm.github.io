@@ -1,4 +1,4 @@
-// CPR Recorder v2
+// CPR Recorder v2 - Enhanced
 // Local storage helpers
 function getCases() {
   return JSON.parse(localStorage.getItem("cprCases") || "[]");
@@ -17,7 +17,7 @@ function renderCases() {
     if (c.cycles && c.cycles.length) {
       cyclesHtml = "<ul>";
       c.cycles.forEach((cy, i) => {
-        const drugList = (cy.medicines || []).map(m => `${m.name}${m.dose ? " " + m.dose : ""} ${m.route ? "(" + m.route + ")" : ""} @ ${m.time || "n/a"}`).join(", ") || "None";
+        const drugList = (cy.medicines || []).map(m => `${m.name}${m.dose ? " " + m.dose : ""} ${m.route ? " (" + m.route + ")" : ""} @ ${m.time || "n/a"}`).join(", ") || "None";
         let invList = "";
         if (cy.investigations && cy.investigations.length) {
           invList = "<ul>";
@@ -28,6 +28,7 @@ function renderCases() {
           <b>Cycle ${i+1}</b> <span class="badge">${cy.ekg || "-"}</span><br>
           Start: ${cy.startTime || "-"} | CPR Duration: ${cy.cprDuration || "-"} min | Pulse Check: ${cy.pulseCheck || "-"}<br>
           Shock: ${cy.shockDelivered ? "Yes" : "No"} ${cy.shockDelivered ? `(Energy: ${cy.shockEnergy || "-"} J @ ${cy.shockTime || "-"})` : ""} | Airway: ${cy.airway || "-"}<br>
+          <b>Quick Entry:</b> Hct: ${cy.hct || "-"} | Dtx: ${(cy.dtx || []).join(', ') || "-"}<br>
           <b>Medicines:</b> ${drugList}<br>
           <b>Investigations:</b> ${invList || "None"}
         </li>`;
@@ -82,14 +83,13 @@ document.getElementById("exportBtn").addEventListener("click", function() {
     alert("No cases to export.");
     return;
   }
-  // Flatten cycles for Excel
   const exportData = [];
   cases.forEach(c => {
     if (!c.cycles || !c.cycles.length) {
       exportData.push({ 
         date: c.date, time: c.time, hn: c.hn, patientName: c.patientName, age: c.age, eventDetails: c.eventDetails, roscTime: c.roscTime,
         cycle: "", startTime: "", cprDuration: "", ekg: "", pulseCheck: "", shockDelivered: "", shockEnergy: "", shockTime: "", airway: "",
-        medicine: "", investigation: ""
+        Hct: "", Dtx: "", medicine: "", investigation: ""
       });
     } else {
       c.cycles.forEach((cy, i) => {
@@ -105,7 +105,9 @@ document.getElementById("exportBtn").addEventListener("click", function() {
           shockEnergy: cy.shockDelivered ? (cy.shockEnergy || "") : "",
           shockTime: cy.shockDelivered ? (cy.shockTime || "") : "",
           airway: cy.airway || "",
-          medicine: (cy.medicines || []).map(m => `${m.name}${m.dose ? " " + m.dose : ""} ${m.route ? "(" + m.route + ")" : ""} @ ${m.time || "n/a"}`).join(", "),
+          Hct: cy.hct || "",
+          Dtx: (cy.dtx || []).join('; ') || "",
+          medicine: (cy.medicines || []).map(m => `${m.name}${m.dose ? " " + m.dose : ""} ${m.route ? " (" + m.route + ")" : ""} @ ${m.time || "n/a"}`).join(", "),
           investigation: invs || ""
         });
       });
@@ -130,14 +132,8 @@ function addCycleBlock() {
     <h3>CPR Cycle ${idx} <button type="button" class="removeCycleBtn">Remove</button></h3>
 
     <div class="cycle-grid">
-      <label>Start Time
-        <input type="time" class="cycleInput" name="cycleStartTime">
-      </label>
-
-      <label>CPR Duration (min)
-        <input type="number" min="0" step="0.5" class="cycleInput cycleDuration" placeholder="e.g., 2">
-      </label>
-
+      <label>Start Time <input type="time" class="cycleInput cycleStartTime"></label>
+      <label>CPR Duration (min) <input type="number" min="0" step="0.5" class="cycleInput cycleDuration" placeholder="e.g., 2"></label>
       <label>EKG Rhythm
         <select class="cycleInput cycleEKG">
           <option value="PEA">PEA</option>
@@ -148,55 +144,43 @@ function addCycleBlock() {
           <option value="NR">NR (No resuscitate)</option>
         </select>
       </label>
-
       <label>Pulse Check
-        <select class="cycleInput cyclePulse">
-          <option value="">-</option>
-          <option value="No pulse">No pulse</option>
-          <option value="Pulse">Pulse</option>
-        </select>
+        <select class="cycleInput cyclePulse"><option value="">-</option><option value="No pulse">No pulse</option><option value="Pulse">Pulse</option></select>
       </label>
-
       <label>Airway
-        <select class="cycleInput cycleAirway">
-          <option value="">-</option>
-          <option value="BVM">BVM</option>
-          <option value="ETT">ETT</option>
-          <option value="SGA">SGA</option>
-          <option value="Tracheostomy">Tracheostomy</option>
-        </select>
+        <select class="cycleInput cycleAirway"><option value="">-</option><option value="BVM">BVM</option><option value="ETT">ETT</option><option value="SGA">SGA</option><option value="Tracheostomy">Tracheostomy</option></select>
       </label>
-
       <label>Shock Delivered?
-        <select class="cycleInput cycleShockYN">
-          <option value="No">No</option>
-          <option value="Yes">Yes</option>
-        </select>
+        <select class="cycleInput cycleShockYN"><option value="No">No</option><option value="Yes">Yes</option></select>
       </label>
-
-      <label>Shock Energy (J)
-        <input type="number" min="0" step="1" class="cycleInput cycleShockEnergy" placeholder="e.g., 200">
-      </label>
-
-      <label>Shock Time
-        <input type="time" class="cycleInput cycleShockTime">
-      </label>
+      <label>Shock Energy (J) <input type="number" min="0" step="1" class="cycleInput cycleShockEnergy" placeholder="e.g., 200"></label>
+      <label>Shock Time <input type="time" class="cycleInput cycleShockTime"></label>
     </div>
+
+    <fieldset>
+      <legend>Quick Entry</legend>
+      <div class="quick-entry-grid">
+        <label>Hct (%) <input type="number" class="quickHct" placeholder="e.g., 45"></label>
+        <div>
+          <label>Dtx (mg/dL) <input type="number" class="quickDtxValue" placeholder="e.g., 80"></label>
+          <button type="button" class="addDtxBtn">Add Dtx</button>
+        </div>
+      </div>
+      <ul class="dtxList"></ul>
+    </fieldset>
 
     <fieldset class="meds-list">
       <legend>Medicines</legend>
-      <div class="small-note">Select meds, optionally add dose/route, set time, then click "Add Medicine".</div>
+      <div class="small-note">Select meds, add details, then click "Add Medicine".</div>
       <div class="meds-grid">
         <label><input type="checkbox" class="medAdrenaline"> Adrenaline</label>
         <label><input type="checkbox" class="medCalcium"> 10% Calcium Gluconate</label>
         <label><input type="checkbox" class="medNaHCO3"> 7.5% NaHCO₃</label>
         <label><input type="checkbox" class="medPRC"> Gr.O low titer PRC</label>
         <label>Other: <input type="text" class="medOther" placeholder="Medicine Name"></label>
-
         <label>Dose <input type="text" class="medDose" placeholder="e.g., 1 mg, 1 amp"></label>
         <label>Route <input type="text" class="medRoute" placeholder="e.g., IV, IO"></label>
         <label>Time Given <input type="time" class="medTime"></label>
-
         <button type="button" class="addMedBtn">Add Medicine</button>
       </div>
       <ul class="medList"></ul>
@@ -204,32 +188,46 @@ function addCycleBlock() {
 
     <fieldset>
       <legend>Investigations</legend>
-      <div class="meds-grid">
-        <label>Type:
-          <select class="invType">
-            <option value="Blood Gas Analysis">Blood Gas Analysis</option>
-            <option value="Ultrasound Bedside">Ultrasound Bedside</option>
-            <option value="Other">Other</option>
-          </select>
-        </label>
-        <label>Result:
-          <input type="text" class="invResult" placeholder="Investigation Result">
-        </label>
-        <button type="button" class="addInvestigationBtn">Add Investigation</button>
+      
+      <div class="investigation-block">
+        <strong>Blood Gas Analysis</strong>
+        <div class="blood-gas-grid">
+          <label>pH <input type="number" step="0.01" class="invBgPh" placeholder="7.35"></label>
+          <label>PCO₂ <input type="number" step="0.1" class="invBgPco2" placeholder="40"></label>
+          <label>HCO₃⁻ <input type="number" step="0.1" class="invBgHco3" placeholder="24"></label>
+          <label>K⁺ <input type="number" step="0.1" class="invBgK" placeholder="4.0"></label>
+          <label>Hct <input type="number" step="0.1" class="invBgHct" placeholder="45"></label>
+        </div>
+        <button type="button" class="addBloodGasBtn">Add Blood Gas Result</button>
+        <ul class="investigation-list bg-list"></ul>
       </div>
-      <ul class="investigation-list"></ul>
+      <hr>
+      <div class="investigation-block">
+        <strong>Ultrasound Bedside</strong>
+        <div class="meds-grid">
+           <label>Result: <input type="text" class="invUsResult" placeholder="e.g., Cardiac standstill"></label>
+           <button type="button" class="addUltrasoundBtn">Add Ultrasound</button>
+        </div>
+        <ul class="investigation-list us-list"></ul>
+      </div>
+      <hr>
+      <div class="investigation-block">
+        <strong>Other</strong>
+        <div class="meds-grid">
+           <label>Type: <input type="text" class="invOtherType" placeholder="e.g., Chest X-Ray"></label>
+           <label>Result: <input type="text" class="invOtherResult" placeholder="Investigation Result"></label>
+           <button type="button" class="addOtherInvBtn">Add Other</button>
+        </div>
+        <ul class="investigation-list other-inv-list"></ul>
+      </div>
     </fieldset>
   `;
 
-  // Rhythm-based hints to encourage ACLS-aligned actions
+  // Rhythm-based hints
   const ekgSelect = div.querySelector(".cycleEKG");
   ekgSelect.addEventListener("change", () => {
     const shockYN = div.querySelector(".cycleShockYN");
-    if (["VF", "Pulseless VT"].includes(ekgSelect.value)) {
-      shockYN.value = "Yes"; // suggest shockable
-    } else {
-      shockYN.value = "No";
-    }
+    if (["VF", "Pulseless VT"].includes(ekgSelect.value)) shockYN.value = "Yes"; else shockYN.value = "No";
   });
 
   div.querySelector(".removeCycleBtn").onclick = function() {
@@ -237,69 +235,107 @@ function addCycleBlock() {
     updateCycleHeaders();
   };
 
+  // Quick-Entry Dtx logic
+  const dtxUL = div.querySelector(".dtxList");
+  div.querySelector(".addDtxBtn").onclick = function() {
+    const dtxInput = div.querySelector(".quickDtxValue");
+    const dtxValue = dtxInput.value.trim();
+    if (!dtxValue) return;
+    const li = document.createElement("li");
+    li.textContent = `Dtx: ${dtxValue} mg/dL`;
+    li.dataset.value = dtxValue;
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.className = "removeBtn";
+    removeBtn.onclick = () => li.remove();
+    li.appendChild(removeBtn);
+    dtxUL.appendChild(li);
+    dtxInput.value = "";
+  }
+
   // Medicine adding logic
-  const medsUL = div.querySelector(".medList");
-  div.querySelector(".addMedBtn").onclick = function() {
-    let meds = [];
-    if (div.querySelector(".medAdrenaline").checked) meds.push("Adrenaline");
-    if (div.querySelector(".medCalcium").checked) meds.push("10% Calcium Gluconate");
-    if (div.querySelector(".medNaHCO3").checked) meds.push("7.5% NaHCO₃");
-    if (div.querySelector(".medPRC").checked) meds.push("Gr.O low titer PRC");
-    const otherVal = (div.querySelector(".medOther").value || "").trim();
-    if (otherVal) meds.push(otherVal);
-
-    const doseVal = (div.querySelector(".medDose").value || "").trim();
-    const routeVal = (div.querySelector(".medRoute").value || "").trim();
-    const timeVal = div.querySelector(".medTime").value || "n/a";
-
-    meds.forEach(med => {
-      const li = document.createElement("li");
-      const display = `${med}${doseVal ? " " + doseVal : ""}${routeVal ? " (" + routeVal + ")" : ""} @ ${timeVal}`;
-      li.textContent = display;
-      li.dataset.name = med;
-      li.dataset.dose = doseVal;
-      li.dataset.route = routeVal;
-      li.dataset.time = timeVal;
-
-      const remove = document.createElement("button");
-      remove.textContent = "Remove";
-      remove.className = "removeInvestigationBtn";
-      remove.onclick = () => li.remove();
-      li.appendChild(remove);
-
-      medsUL.appendChild(li);
-    });
-
-    // Reset inputs
-    div.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = false);
-    div.querySelector(".medOther").value = "";
-    div.querySelector(".medDose").value = "";
-    div.querySelector(".medRoute").value = "";
-    div.querySelector(".medTime").value = "";
-  };
+  setupMedicineAdder(div);
 
   // Investigation adding logic
-  const invUL = div.querySelector(".investigation-list");
-  div.querySelector(".addInvestigationBtn").onclick = function() {
-    const type = div.querySelector(".invType").value;
-    const result = (div.querySelector(".invResult").value || "").trim();
-    if (!result) return;
+  setupInvestigationAdders(div);
+
+  document.getElementById("cyclesContainer").appendChild(div);
+}
+
+function setupMedicineAdder(div) {
+    const medsUL = div.querySelector(".medList");
+    div.querySelector(".addMedBtn").onclick = function() {
+        let meds = [];
+        if (div.querySelector(".medAdrenaline").checked) meds.push("Adrenaline");
+        if (div.querySelector(".medCalcium").checked) meds.push("10% Calcium Gluconate");
+        if (div.querySelector(".medNaHCO3").checked) meds.push("7.5% NaHCO₃");
+        if (div.querySelector(".medPRC").checked) meds.push("Gr.O low titer PRC");
+        const otherVal = (div.querySelector(".medOther").value || "").trim();
+        if (otherVal) meds.push(otherVal);
+
+        const doseVal = (div.querySelector(".medDose").value || "").trim();
+        const routeVal = (div.querySelector(".medRoute").value || "").trim();
+        const timeVal = div.querySelector(".medTime").value || "n/a";
+
+        meds.forEach(med => {
+            const li = document.createElement("li");
+            li.textContent = `${med}${doseVal ? " " + doseVal : ""}${routeVal ? " (" + routeVal + ")" : ""} @ ${timeVal}`;
+            li.dataset.name = med; li.dataset.dose = doseVal; li.dataset.route = routeVal; li.dataset.time = timeVal;
+            const remove = document.createElement("button");
+            remove.textContent = "Remove"; remove.className = "removeBtn"; remove.onclick = () => li.remove();
+            li.appendChild(remove);
+            medsUL.appendChild(li);
+        });
+
+        div.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = false);
+        div.querySelector(".medOther").value = ""; div.querySelector(".medDose").value = "";
+        div.querySelector(".medRoute").value = ""; div.querySelector(".medTime").value = "";
+    };
+}
+
+function setupInvestigationAdders(div) {
+  // Blood Gas
+  div.querySelector(".addBloodGasBtn").onclick = function() {
+    const ph = div.querySelector('.invBgPh').value; const pco2 = div.querySelector('.invBgPco2').value;
+    const hco3 = div.querySelector('.invBgHco3').value; const k = div.querySelector('.invBgK').value;
+    const hct = div.querySelector('.invBgHct').value;
+    if (!ph && !pco2 && !hco3 && !k && !hct) return; // Don't add if all are empty
+    
+    const resultString = `pH:${ph || '-'} PCO₂:${pco2 || '-'} HCO₃⁻:${hco3 || '-'} K⁺:${k || '-'} Hct:${hct || '-'}`;
+    addInvestigationToList(div.querySelector(".bg-list"), "Blood Gas Analysis", resultString, { ph, pco2, hco3, k, hct });
+
+    div.querySelector('.invBgPh').value = ''; div.querySelector('.invBgPco2').value = '';
+    div.querySelector('.invBgHco3').value = ''; div.querySelector('.invBgK').value = '';
+    div.querySelector('.invBgHct').value = '';
+  }
+  // Ultrasound
+  div.querySelector(".addUltrasoundBtn").onclick = function() {
+    const resultInput = div.querySelector('.invUsResult');
+    if (!resultInput.value.trim()) return;
+    addInvestigationToList(div.querySelector(".us-list"), "Ultrasound Bedside", resultInput.value.trim());
+    resultInput.value = '';
+  }
+  // Other
+  div.querySelector(".addOtherInvBtn").onclick = function() {
+    const typeInput = div.querySelector('.invOtherType');
+    const resultInput = div.querySelector('.invOtherResult');
+    if (!typeInput.value.trim() || !resultInput.value.trim()) return;
+    addInvestigationToList(div.querySelector(".other-inv-list"), typeInput.value.trim(), resultInput.value.trim());
+    typeInput.value = ''; resultInput.value = '';
+  }
+}
+
+function addInvestigationToList(ulElement, type, result, data = {}) {
     const li = document.createElement("li");
     li.textContent = `${type}: ${result}`;
     li.dataset.type = type;
     li.dataset.result = result;
-
+    Object.keys(data).forEach(key => { li.dataset[key] = data[key]; }); // Store structured data if available
     const removeBtn = document.createElement("button");
-    removeBtn.textContent = "Remove";
-    removeBtn.className = "removeInvestigationBtn";
+    removeBtn.textContent = "Remove"; removeBtn.className = "removeBtn";
     removeBtn.onclick = function() { li.remove(); };
     li.appendChild(removeBtn);
-
-    invUL.appendChild(li);
-    div.querySelector(".invResult").value = "";
-  };
-
-  document.getElementById("cyclesContainer").appendChild(div);
+    ulElement.appendChild(li);
 }
 
 function updateCycleHeaders() {
@@ -316,31 +352,25 @@ function updateCycleHeaders() {
 function collectCycles() {
   const cycles = [];
   document.querySelectorAll(".cycle-block").forEach(div => {
-    const startTime = div.querySelector("input[name=cycleStartTime]").value;
-    const cprDuration = div.querySelector(".cycleDuration").value;
-    const ekg = div.querySelector(".cycleEKG").value;
-    const pulseCheck = div.querySelector(".cyclePulse").value;
-    const airway = div.querySelector(".cycleAirway").value;
-    const shockDelivered = div.querySelector(".cycleShockYN").value === "Yes";
-    const shockEnergy = div.querySelector(".cycleShockEnergy").value;
-    const shockTime = div.querySelector(".cycleShockTime").value;
-
-    const medicines = [];
-    div.querySelectorAll(".medList li").forEach(li => {
-      medicines.push({
-        name: li.dataset.name,
-        dose: li.dataset.dose,
-        route: li.dataset.route,
-        time: li.dataset.time
-      });
-    });
-
-    const investigations = [];
-    div.querySelectorAll(".investigation-list li").forEach(li => {
-      investigations.push({ type: li.dataset.type, result: li.dataset.result });
-    });
-
-    cycles.push({ startTime, cprDuration, ekg, pulseCheck, airway, shockDelivered, shockEnergy, shockTime, medicines, investigations });
+    const cycleData = {
+      startTime: div.querySelector(".cycleStartTime").value,
+      cprDuration: div.querySelector(".cycleDuration").value,
+      ekg: div.querySelector(".cycleEKG").value,
+      pulseCheck: div.querySelector(".cyclePulse").value,
+      airway: div.querySelector(".cycleAirway").value,
+      shockDelivered: div.querySelector(".cycleShockYN").value === "Yes",
+      shockEnergy: div.querySelector(".cycleShockEnergy").value,
+      shockTime: div.querySelector(".cycleShockTime").value,
+      hct: div.querySelector(".quickHct").value,
+      dtx: Array.from(div.querySelectorAll(".dtxList li")).map(li => li.dataset.value),
+      medicines: Array.from(div.querySelectorAll(".medList li")).map(li => ({
+        name: li.dataset.name, dose: li.dataset.dose, route: li.dataset.route, time: li.dataset.time
+      })),
+      investigations: Array.from(div.querySelectorAll(".investigation-list li")).map(li => ({
+        type: li.dataset.type, result: li.dataset.result
+      }))
+    };
+    cycles.push(cycleData);
   });
   return cycles;
 }
