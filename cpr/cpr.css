@@ -67,6 +67,9 @@ legend {
   padding: 6px 12px;
   cursor: pointer;
 }
+#addCycleBtn {
+  margin-top: 15px;
+}
 .removeBtn {
   background: #d00;
   color: white;
