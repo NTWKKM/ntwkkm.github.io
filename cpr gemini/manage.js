@@ -2,15 +2,16 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- Passcode Protection ---
-    const CORRECT_PASSCODE = ['MNRHCPR', 'pimpon', 'plan'];
-    const enteredPasscode = prompt('Please enter the passcode to access this page:');
+   // --- Passcode Protection ---
+const CORRECT_PASSCODE = ['MNRHCPR', 'pimpon', 'plan']; // Correct way to define an array
+const enteredPasscode = prompt('Please enter the passcode to access this page:');
 
-    if (enteredPasscode !== CORRECT_PASSCODE) {
-        alert('Incorrect passcode. You will be redirected.');
-        window.location.href = 'index.html'; // Redirect to the main page
-        return; // Stop the script from running further
-    }
+// Check if the entered passcode is one of the valid passcodes
+if (!CORRECT_PASSCODE.includes(enteredPasscode)) {
+    alert('Incorrect passcode. You will be redirected.');
+    window.location.href = 'index.html'; // Redirect to the main page
+    return; // Stop the script from running further
+}
     
     // --- If passcode is correct, show the content and run the app ---
     document.getElementById('mainContent').style.display = 'block';
