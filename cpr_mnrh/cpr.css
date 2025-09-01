@@ -1,0 +1,51 @@
+/* Add these styles to your cpr.css file */
+.centered-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f4f6;
+}
+.form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+.form-container input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    box-sizing: border-box;
+}
+.form-container button {
+    width: 100%;
+}
+.sub-link {
+    text-align: center;
+    margin-top: 1rem;
+}
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.user-display {
+    color: #4b5563;
+}
+.danger-outline {
+    background: transparent;
+    border: 1px solid #c53030;
+    color: #c53030;
+    border-radius: 8px;
+    padding: 8px 14px;
+    cursor: pointer;
+}
+.danger-outline:hover {
+    background: #c53030;
+    color: white;
+}
