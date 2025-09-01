@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin: Manage All CPR Cases</title>
+  <link rel="stylesheet" href="cpr.css" />
+</head>
+<body>
+  <div class="header-nav">
+    <h1>Admin CPR Cases Dashboard</h1>
+    <a href="index.html" class="nav-link">&larr; Back to Recorder</a>
+  </div>
+
+  <div id="mainContent">
+    <div class="actions">
+      <input type="text" id="filterUser" placeholder="Filter by username">
+      <button id="filterBtn" class="primary">Filter</button>
+      <button id="exportBtn" class="primary">Export Filtered Cases (Excel)</button>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Date Created</th>
+            <th>Patient Name</th>
+            <th>HN</th>
+            <th>Age</th>
+            <th>Event Details</th>
+            <th>ROSC Time</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="caseTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
