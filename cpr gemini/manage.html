@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage CPR Cases</title>
+    <link rel="stylesheet" href="cpr.css">
+</head>
+<body>
+    <div class="header-nav">
+        <h1>Manage CPR Cases</h1>
+        <a href="index.html" class="nav-link">&larr; Back to Recorder</a>
+    </div>
+
+    <div class="actions">
+        <button id="exportBtn" class="primary">Export All Cases (Excel)</button>
+        <button id="clearAllBtn" class="danger">Clear All</button>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>HN</th>
+                    <th>Patient Name</th>
+                    <th>Age</th>
+                    <th>Event Details</th>
+                    <th>ROSC Time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="caseTableBody">
+                </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="manage.js"></script>
+</body>
+</html>
