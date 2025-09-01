@@ -1,17 +1,19 @@
 // manage.js - Handles the data inspection and management page
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-   // --- Passcode Protection ---
-const CORRECT_PASSCODE = ['MNRHCPR', 'pimpon', 'plan']; // Correct way to define an array
-const enteredPasscode = prompt('Please enter the passcode to access this page:');
 
-// Check if the entered passcode is one of the valid passcodes
-if (!CORRECT_PASSCODE.includes(enteredPasscode)) {
-    alert('Incorrect passcode. You will be redirected.');
-    window.location.href = 'index.html'; // Redirect to the main page
-    return; // Stop the script from running further
-}
+    // --- Passcode Protection ---
+    // The list of correct passcodes, stored in an array.
+    const CORRECT_PASSCODES = ['MNRHCPR', 'pimpon', 'plan'];
+    const enteredPasscode = prompt('Please enter the passcode to access this page:');
+
+    // Check if the entered passcode is one of the valid passcodes.
+    // If not, redirect the user.
+    if (!CORRECT_PASSCODES.includes(enteredPasscode)) {
+        alert('Incorrect passcode. You will be redirected.');
+        window.location.href = 'index.html'; // Redirect to the main page
+        return; // Stop the rest of the script from running
+    }
     
     // --- If passcode is correct, show the content and run the app ---
     document.getElementById('mainContent').style.display = 'block';
