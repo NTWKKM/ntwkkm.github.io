@@ -1,0 +1,24 @@
+name: Sync index.html to Toxico
+
+on:
+  push:
+    paths:
+      - "index.html"   # trigger เมื่อแก้ไขไฟล์นี้
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo A
+        uses: actions/checkout@v3
+
+      - name: Clone Repo B (Toxico)
+        run: |
+          git clone https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/ntwkkm/Toxico.git
+          cp index.html Toxico/
+          cd Toxico
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Sync index.html from ntwkkm.github.io" || echo "No changes to commit"
+          git push
