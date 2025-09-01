@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CPR Case Recorder</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="cpr.css">
+</head>
+<body>
+  <div class="container">
+    <h1>CPR Case Recorder</h1>
+    <form id="cprForm">
+      <label>Date <input name="date" required type="date"></label>
+      <label>Patient Name <input name="patientName" required></label>
+      <label>Age <input name="age" required type="number"></label>
+      <label>Event Details <textarea name="eventDetails" required></textarea></label>
+      <label>Interventions <textarea name="interventions" required></textarea></label>
+      <label>Outcome <textarea name="outcome" required></textarea></label>
+      <button type="submit">Add Case</button>
+    </form>
+    <h2>Recorded Cases</h2>
+    <button id="exportBtn">Export to Excel</button>
+    <ul id="caseList"></ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="cpr.js"></script>
+</body>
+</html>
