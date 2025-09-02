@@ -2,17 +2,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- Passcode Protection ---
-    const CORRECT_PASSCODE = 'MNRHCPR';
-    const enteredPasscode = prompt('Please enter the passcode to access this page:');
 
-    if (enteredPasscode !== CORRECT_PASSCODE) {
-        alert('Incorrect passcode. You will be redirected.');
-        window.location.href = 'index.html'; // Redirect to the main page
-        return; // Stop the script from running further
-    }
-    
-    // --- If passcode is correct, show the content and run the app ---
     document.getElementById('mainContent').style.display = 'block';
 
     const caseTableBody = document.getElementById('caseTableBody');
