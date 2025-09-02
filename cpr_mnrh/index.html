@@ -469,6 +469,25 @@
                 width: 100%;
             }
         }
+        
+        /* --- Footer Styles --- */
+        footer {
+            margin-top: 40px;
+            padding: 20px 25px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #718096; /* A slightly darker gray for legibility */
+            border-top: 1px solid var(--medium-gray-border);
+        }
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        footer a:hover {
+            color: var(--secondary-color);
+        }
     </style>
 </head>
 <body>
@@ -1045,5 +1064,11 @@
         function updateCycleHeaders() { document.querySelectorAll(".cycle-block").forEach((div, i) => { div.querySelector("h3").innerHTML = `CPR Cycle ${i+1} <button type="button" class="remove-btn">ลบ</button>`; div.querySelector(".remove-btn").onclick = function() { div.remove(); updateCycleHeaders(); }; }); }
         function collectCycles() { const cycles = []; document.querySelectorAll(".cycle-block").forEach(div => { const cycleData = { startTime: div.querySelector(".cycleStartTime").value, cprDuration: div.querySelector(".cycleDuration").value, ekg: div.querySelector(".cycleEKG").value, pulseCheck: div.querySelector(".cyclePulse").value, airway: div.querySelector(".cycleAirway").value, shockDelivered: div.querySelector(".cycleShockYN").value === "Yes", shockEnergy: div.querySelector(".cycleShockEnergy").value, shockTime: div.querySelector(".cycleShockTime").value, dtx: Array.from(div.querySelectorAll(".dtxList li")).map(li => li.dataset.value), medicines: Array.from(div.querySelectorAll(".medList li")).map(li => ({ name: li.dataset.name, dose: li.dataset.dose, route: li.dataset.route, time: li.dataset.time })), investigations: Array.from(div.querySelectorAll(".investigation-list li")).map(li => ({ type: li.dataset.type, result: li.dataset.result })) }; cycles.push(cycleData); }); return cycles; }
     </script>
+    
+    <footer>
+        <p>จัดทำโดย Nattawit Kaewkomoot EP MNRH, ปี 2025</p>
+        <p>Powered by: <a href="https://github.com" target="_blank">GitHub</a>, <a href="https://vercel.com" target="_blank">Vercel</a>, <a href="https://firebase.google.com" target="_blank">Firebase</a>, <a href="https://gemini.google.com" target="_blank">Gemini</a></p>
+    </footer>
+
 </body>
 </html>
