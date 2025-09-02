@@ -170,9 +170,10 @@
 
         // Initialize Firebase and Authentication
         function initFirebase() {
+            // Check if firebaseConfig is provided.
             if (!firebaseConfig) {
                 console.error("Firebase config is missing.");
-                showModal("พบข้อผิดพลาด: ไม่สามารถเชื่อมต่อฐานข้อมูลได้");
+                showModal("พบข้อผิดพลาด: ไม่สามารถเชื่อมต่อฐานข้อมูลได้ กรุณาตรวจสอบการตั้งค่า Firebase ใน Vercel Environment Variables");
                 loadingScreen.classList.add('hidden');
                 loginScreen.classList.remove('hidden');
                 return;
