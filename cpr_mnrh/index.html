@@ -45,13 +45,21 @@
             border-radius: 12px;
             background-color: #fff;
         }
-        .login-box input {
-            width: calc(100% - 20px);
-            padding: 12px 10px;
-            margin-bottom: 15px;
+        .login-box button {
+            width: 100%;
+            padding: 12px;
             border-radius: 8px;
             border: 1px solid var(--medium-gray);
+            background: #fff;
             font-size: 1em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .login-box button img {
+            height: 20px;
         }
         /* --- Header & Navigation --- */
         .header-nav {
@@ -162,10 +170,11 @@
         <div class="login-box">
             <img src="https://placehold.co/100x100/38b2ac/white?text=CPR" alt="CPR Logo" style="border-radius: 50%; margin-bottom: 20px;">
             <h2>CPR Case Recorder</h2>
-            <p>กรุณากรอกอีเมลและชื่อผู้ใช้งานเพื่อรับลิงก์สำหรับเข้าสู่ระบบ</p>
-            <input type="email" id="emailInput" placeholder="อีเมล" required>
-            <input type="text" id="nameInput" placeholder="ชื่อผู้ใช้งาน" required>
-            <button id="loginBtn" class="primary" style="width: 100%;">ส่งลิงก์เข้าสู่ระบบ</button>
+            <p>กรุณาลงชื่อเข้าใช้เพื่อบันทึกและจัดการเคส</p>
+            <button id="googleSignInBtn">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo">
+                Sign in with Google
+            </button>
             <p id="loginError" class="hidden" style="color: var(--danger-color); margin-top: 10px;"></p>
         </div>
     </div>
@@ -252,9 +261,8 @@
             getAuth, 
             onAuthStateChanged, 
             signOut,
-            sendSignInLinkToEmail,
-            isSignInWithEmailLink,
-            signInWithEmailLink
+            GoogleAuthProvider,
+            signInWithPopup
         } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
         import { 
             getFirestore, 
@@ -275,18 +283,12 @@
         const db = getFirestore(app);
 
         const ADMIN_EMAIL = "admin@mnrh.com"; // เปลี่ยนเป็นอีเมลของ Admin ที่คุณต้องการตั้งค่า
-        const ACTION_CODE_SETTINGS = {
-            url: window.location.href,
-            handleCodeInApp: true
-        };
 
         // DOM Elements
         const loginView = document.getElementById('loginView');
         const recorderView = document.getElementById('recorderView');
         const manageView = document.getElementById('manageView');
-        const loginBtn = document.getElementById('loginBtn');
-        const emailInput = document.getElementById('emailInput');
-        const nameInput = document.getElementById('nameInput');
+        const googleSignInBtn = document.getElementById('googleSignInBtn');
         const loginError = document.getElementById('loginError');
 
         let currentUser = null;
@@ -294,53 +296,30 @@
         let unsubscribe = null;
 
         // --- AUTHENTICATION ---
-        // Handle the sign-in link
-        window.addEventListener('load', async () => {
-            if (isSignInWithEmailLink(auth, window.location.href)) {
-                let email = window.localStorage.getItem('emailForSignIn');
-                if (!email) {
-                    email = prompt('Please provide your email for confirmation:');
-                }
-                if (!email) {
-                    // User canceled, do nothing
-                    return;
-                }
-                
-                try {
-                    const result = await signInWithEmailLink(auth, email, window.location.href);
-                    window.localStorage.removeItem('emailForSignIn');
-                    // Check if this is a new user
-                    const userDoc = await getDocs(query(collection(db, "users"), where("uid", "==", result.user.uid)));
-                    if (userDoc.empty) {
-                        const storedName = window.localStorage.getItem('nameForSignIn');
-                        await setDoc(doc(db, "users", result.user.uid), {
-                            uid: result.user.uid,
-                            name: storedName || 'Unknown User',
-                            isAdmin: (email === ADMIN_EMAIL),
-                            createdAt: new Date()
-                        });
-                        window.localStorage.removeItem('nameForSignIn');
-                    }
-                } catch (error) {
-                    console.error("Error signing in with email link:", error);
-                    loginError.textContent = "เกิดข้อผิดพลาดในการเข้าสู่ระบบด้วยลิงก์";
-                    loginError.classList.remove('hidden');
-                }
-            }
-        });
-
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 currentUser = user;
-                const userDoc = await getDocs(query(collection(db, "users"), where("uid", "==", user.uid)));
-                if (!userDoc.empty) {
-                    const userData = userDoc.docs[0].data();
+                // ตรวจสอบว่ามีข้อมูลผู้ใช้ใน Firestore หรือไม่
+                const userDocRef = doc(db, "users", user.uid);
+                const userSnap = await getDocs(query(collection(db, "users"), where("uid", "==", user.uid)));
+                
+                if (userSnap.empty) {
+                    // หากเป็นผู้ใช้ใหม่ ให้บันทึกข้อมูล
+                    await setDoc(userDocRef, {
+                        uid: user.uid,
+                        name: user.displayName || user.email.split('@')[0],
+                        isAdmin: (user.email === ADMIN_EMAIL),
+                        createdAt: new Date()
+                    });
+                    isAdmin = (user.email === ADMIN_EMAIL);
+                    updateUI(user.displayName || user.email.split('@')[0], isAdmin);
+                } else {
+                    // หากเป็นผู้ใช้เดิม ให้ดึงข้อมูลมาใช้งาน
+                    const userData = userSnap.docs[0].data();
                     isAdmin = userData.isAdmin || false;
                     updateUI(userData.name, isAdmin);
-                    showView('recorder');
-                } else {
-                    signOut(auth);
                 }
+                showView('recorder');
             } else {
                 currentUser = null;
                 isAdmin = false;
@@ -348,37 +327,16 @@
             }
         });
 
-        loginBtn.addEventListener('click', async () => {
-            const email = emailInput.value.trim();
-            const name = nameInput.value.trim();
-            
-            if (!email || !name) {
-                loginError.textContent = 'กรุณากรอกอีเมลและชื่อผู้ใช้งาน';
-                loginError.classList.remove('hidden');
-                return;
-            }
-
+        googleSignInBtn.addEventListener('click', async () => {
+            const provider = new GoogleAuthProvider();
             try {
-                loginBtn.disabled = true;
-                loginBtn.textContent = "กำลังส่งลิงก์...";
                 loginError.classList.add('hidden');
-
-                window.localStorage.setItem('emailForSignIn', email);
-                window.localStorage.setItem('nameForSignIn', name);
-                
-                await sendSignInLinkToEmail(auth, email, ACTION_CODE_SETTINGS);
-
-                alert(`ลิงก์สำหรับเข้าสู่ระบบถูกส่งไปที่ ${email} แล้ว กรุณาตรวจสอบอีเมล`);
-                emailInput.value = '';
-                nameInput.value = '';
-                
+                await signInWithPopup(auth, provider);
+                // onAuthStateChanged จะจัดการการเปลี่ยน UI
             } catch (error) {
-                console.error("Login Error:", error);
-                loginError.textContent = "เกิดข้อผิดพลาดในการส่งลิงก์เข้าสู่ระบบ";
+                console.error("Google Sign-in Error:", error);
+                loginError.textContent = "เกิดข้อผิดพลาดในการลงชื่อเข้าใช้ด้วย Google";
                 loginError.classList.remove('hidden');
-            } finally {
-                loginBtn.disabled = false;
-                loginBtn.textContent = "ส่งลิงก์เข้าสู่ระบบ";
             }
         });
 
@@ -394,8 +352,6 @@
 
             if (viewName === 'login') {
                 loginView.classList.remove('hidden');
-                emailInput.value = '';
-                nameInput.value = '';
             } else if (viewName === 'recorder') {
                 recorderView.classList.remove('hidden');
             } else if (viewName === 'manage') {
