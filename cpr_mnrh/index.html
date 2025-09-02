@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CPR Case Recorder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujm9Xz2L6gXpQv1V3L9j9H7A5tA9oH/G0+E+D5hO5uE9zG2K3uKzK+Q8sV8T4W0N3G4R2e9G2g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* --- Root Variables for Colors --- */
         :root {
@@ -267,7 +268,7 @@
         }
         .cycle-grid, .quick-entry-grid, .meds-grid, .blood-gas-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjusted for tablet */
             gap: 15px 20px; 
             align-items: end; 
         }
@@ -335,7 +336,7 @@
             transform: scale(1.2); /* Slightly larger checkboxes */
         }
 
-        /* --- Collapsible Investigation Section --- */
+        /* --- Collapsible Investigation Section (Improved) --- */
         details {
             margin-bottom: 20px;
             border: 1px solid var(--fieldset-border);
@@ -343,6 +344,10 @@
             background: var(--form-bg);
             padding: 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease;
+        }
+        details:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         summary {
             font-weight: 700;
@@ -352,34 +357,36 @@
             padding: 0;
             outline: none;
             user-select: none;
-            list-style: none; /* Hide default triangle */
+            list-style: none;
             position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         summary::-webkit-details-marker {
             display: none;
         }
         summary::before {
-            content: '+';
-            font-size: 1.5em;
-            font-weight: normal;
-            position: absolute;
-            left: -25px;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: transform 0.2s ease;
+            font-family: "Font Awesome 6 Free";
+            content: '\f054'; /* Right Arrow */
+            font-weight: 900;
+            font-size: 1em;
             color: var(--secondary-color);
+            transition: transform 0.2s ease;
         }
         details[open] summary::before {
-            content: '-';
+            content: '\f078'; /* Down Arrow */
         }
-        details > summary {
-            margin-bottom: 20px;
-        }
-        details[open] > summary {
-            margin-bottom: 20px;
+        .investigation-content {
+            padding-top: 10px;
         }
         .investigation-block {
             padding-top: 10px;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid var(--fieldset-border);
+            margin: 15px 0;
         }
 
         /* --- Manage View --- */
@@ -978,20 +985,22 @@
                 </fieldset>
                 <details open>
                     <summary>Investigations</summary>
-                    <div class="investigation-block"><strong>Blood Gas Analysis</strong>
-                        <div class="blood-gas-grid">
-                            <label>pH <input type="number" step="0.01" class="invBgPh"></label>
-                            <label>PCO₂ <input type="number" step="0.1" class="invBgPco2"></label>
-                            <label>HCO₃⁻ <input type="number" step="0.1" class="invBgHco3"></label>
-                            <label>K⁺ <input type="number" step="0.1" class="invBgK"></label>
-                        </div><button type="button" class="add-btn addBloodGasBtn">Add Blood Gas</button><ul class="investigation-list bg-list"></ul>
-                    </div><hr>
-                    <div class="investigation-block"><strong>Ultrasound</strong>
-                        <div class="meds-grid"><label>Result: <input type="text" class="invUsResult" placeholder="e.g., Cardiac standstill"></label><button type="button" class="add-btn addUltrasoundBtn">Add Ultrasound</button></div><ul class="investigation-list us-list"></ul>
-                    </div>
-                    <hr>
-                    <div class="investigation-block"><strong>Hct</strong>
-                        <div class="meds-grid"><label>Hct (%): <input type="number" class="invHct" placeholder="e.g., 45"></label><button type="button" class="add-btn addHctBtn">Add Hct</button></div><ul class="investigation-list hct-list"></ul>
+                    <div class="investigation-content">
+                        <div class="investigation-block"><strong>Blood Gas Analysis</strong>
+                            <div class="blood-gas-grid">
+                                <label>pH <input type="number" step="0.01" class="invBgPh"></label>
+                                <label>PCO₂ <input type="number" step="0.1" class="invBgPco2"></label>
+                                <label>HCO₃⁻ <input type="number" step="0.1" class="invBgHco3"></label>
+                                <label>K⁺ <input type="number" step="0.1" class="invBgK"></label>
+                            </div><button type="button" class="add-btn addBloodGasBtn">Add Blood Gas</button><ul class="investigation-list bg-list"></ul>
+                        </div><hr>
+                        <div class="investigation-block"><strong>Ultrasound</strong>
+                            <div class="meds-grid"><label>Result: <input type="text" class="invUsResult" placeholder="e.g., Cardiac standstill"></label><button type="button" class="add-btn addUltrasoundBtn">Add Ultrasound</button></div><ul class="investigation-list us-list"></ul>
+                        </div>
+                        <hr>
+                        <div class="investigation-block"><strong>Hct</strong>
+                            <div class="meds-grid"><label>Hct (%): <input type="number" class="invHct" placeholder="e.g., 45"></label><button type="button" class="add-btn addHctBtn">Add Hct</button></div><ul class="investigation-list hct-list"></ul>
+                        </div>
                     </div>
                 </details>
             `;
