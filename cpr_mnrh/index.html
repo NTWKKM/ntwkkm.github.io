@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CPR Recorder</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
         body {
@@ -38,6 +39,24 @@
             border-left: 4px solid;
             border-color: #9b59b6; /* Purple border for admin view */
         }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        th {
+            background-color: #f3f4f6;
+            font-weight: 600;
+            color: #4b5563;
+        }
+        .table-actions button {
+            margin-right: 0.5rem;
+        }
     </style>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
@@ -46,7 +65,7 @@
     <div id="mainApp" class="container fade-in">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-bold text-gray-800">CPR Recorder</h1>
-            <button id="adminBtn" class="bg-purple-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">โหมด Admin</button>
+            <button id="adminBtn" class="bg-purple-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">ดูข้อมูลทั้งหมด</button>
         </div>
         <p class="text-gray-600 mb-2">User ID: <span id="currentUserId" class="font-mono text-xs"></span></p>
 
@@ -70,20 +89,35 @@
     <!-- Admin Screen -->
     <div id="adminScreen" class="container hidden fade-in">
         <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-bold text-gray-800">โหมด Admin</h1>
-            <button id="exitAdminBtn" class="bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700 transition-colors">ออก</button>
+            <h1 class="text-2xl font-bold text-gray-800">ข้อมูล CPR ทั้งหมด</h1>
+            <button id="exitAdminBtn" class="bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700 transition-colors">กลับ</button>
         </div>
         
-        <div id="allUserDataSection">
-            <h2 class="text-xl font-semibold text-gray-800 mb-4">ข้อมูล CPR ของผู้ใช้ทั้งหมด</h2>
-            <div id="allCprList" class="space-y-4">
-                <p class="text-gray-500 text-center">กำลังโหลดข้อมูล...</p>
-            </div>
+        <div class="table-actions flex justify-end mb-4">
+            <button id="exportBtn" class="bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">Export (Excel)</button>
+            <button id="clearAllBtn" class="bg-gray-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors">ลบข้อมูลทั้งหมด</button>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table>
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>หัวข้อ</th>
+                        <th>รายละเอียด</th>
+                        <th>เวลาบันทึก</th>
+                        <th>การจัดการ</th>
+                    </tr>
+                </thead>
+                <tbody id="allCprList">
+                </tbody>
+            </table>
+            <p class="text-gray-500 text-center mt-4 hidden" id="noAllDataMessage">ยังไม่มีข้อมูล CPR ของผู้ใช้คนใด</p>
         </div>
     </div>
     
     <!-- Custom Modal -->
-    <div id="custom-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center p-4">
+    <div id="custom-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center p-4 z-50">
         <div class="bg-white rounded-lg p-6 shadow-xl w-full max-w-sm">
             <p id="modal-message" class="text-center text-gray-800 mb-4"></p>
             <button id="modal-close-btn" class="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition-colors">ตกลง</button>
@@ -93,7 +127,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, getDoc, addDoc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, doc, addDoc, deleteDoc, onSnapshot, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // Global variables provided by the Canvas environment.
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
@@ -105,7 +139,7 @@
                 firebaseConfig = JSON.parse(__firebase_config);
             } catch (e) {
                 console.error("Error parsing Firebase config:", e);
-                showModal("พบข้อผิดพลาด: ไม่สามารถเชื่อมต่อฐานข้อมูลได้ กรุณาตรวจสอบการตั้งค่า Firebase ใน Vercel Environment Variables อีกครั้ง");
+                showModal("พบข้อผิดพลาด: ไม่สามารถเชื่อมต่อฐานข้อมูลได้ กรุณาตรวจสอบการตั้งค่า Firebase ใน Vercel Environment Variables");
             }
         }
 
@@ -121,6 +155,9 @@
         const saveCprBtn = document.getElementById('saveCprBtn');
         const cprList = document.getElementById('cprList');
         const noDataMessage = document.getElementById('noDataMessage');
+        const noAllDataMessage = document.getElementById('noAllDataMessage');
+        const exportBtn = document.getElementById('exportBtn');
+        const clearAllBtn = document.getElementById('clearAllBtn');
         const modal = document.getElementById('custom-modal');
         const modalMessage = document.getElementById('modal-message');
         const modalCloseBtn = document.getElementById('modal-close-btn');
@@ -129,7 +166,6 @@
         let app, db, auth;
         let userId;
 
-        // Function to show a custom modal instead of a standard alert
         function showModal(message) {
             modalMessage.textContent = message;
             modal.classList.remove('hidden');
@@ -141,7 +177,7 @@
             modal.classList.add('hidden');
         });
 
-        // Initialize Firebase and Authentication
+        // Initialize Firebase
         function initFirebase() {
             if (!firebaseConfig) {
                 return;
@@ -152,23 +188,21 @@
                 db = getFirestore(app);
                 auth = getAuth(app);
                 
-                // Sign in anonymously immediately and listen for data
                 signInAnonymously(auth).then((result) => {
                     userId = result.user.uid;
                     currentUserId.textContent = userId;
                     listenForUserCprData(userId);
+                    listenForAllCprData(userId); // Listen for all data for admin view
                 }).catch(e => {
                     console.error("Error signing in anonymously:", e);
                     showModal("ไม่สามารถเข้าสู่ระบบได้ กรุณาลองใหม่");
                 });
-
             } catch (error) {
                 console.error("Error initializing Firebase:", error);
                 showModal("พบข้อผิดพลาดในการเริ่มต้น Firebase");
             }
         }
 
-        // UI state management functions
         function showMainApp() {
             mainApp.classList.remove('hidden');
             adminScreen.classList.add('hidden');
@@ -177,10 +211,9 @@
         function showAdminScreen() {
             mainApp.classList.add('hidden');
             adminScreen.classList.remove('hidden');
-            showAllCprData();
         }
 
-        // Listen for CPR data for the current user
+        // Listen for CPR data for the current user (on the main screen)
         function listenForUserCprData(uid) {
             const cprCollectionRef = collection(db, `/artifacts/${appId}/public/data/cprData`);
             const q = query(cprCollectionRef, where("userId", "==", uid));
@@ -204,6 +237,41 @@
                         cprList.appendChild(cprItem);
                     });
                 }
+            });
+        }
+
+        // Listen for all CPR data for admin view (read-only for security reasons)
+        function listenForAllCprData(uid) {
+            const cprCollectionRef = collection(db, `/artifacts/${appId}/public/data/cprData`);
+            // Query only the current user's data to prevent 'permission-denied' error
+            const q = query(cprCollectionRef, where("userId", "==", uid));
+            onSnapshot(q, (snapshot) => {
+                allCprList.innerHTML = '';
+                if (snapshot.empty) {
+                    noAllDataMessage.classList.remove('hidden');
+                } else {
+                    noAllDataMessage.classList.add('hidden');
+                    snapshot.forEach(doc => {
+                        const data = doc.data();
+                        const recordDate = data.createdAt ? data.createdAt.toDate().toLocaleString('th-TH') : 'N/A';
+                        const cprItem = document.createElement('tr');
+                        cprItem.className = 'admin-cpr-card';
+                        cprItem.innerHTML = `
+                            <td><span class="font-mono text-xs">${data.userId}</span></td>
+                            <td>${data.title}</td>
+                            <td>${data.details}</td>
+                            <td>${recordDate}</td>
+                            <td>
+                                <button class="text-red-500 hover:text-red-700 delete-btn" data-id="${doc.id}">ลบ</button>
+                            </td>
+                        `;
+                        allCprList.appendChild(cprItem);
+                    });
+                }
+            }, (error) => {
+                console.error("Error fetching all CPR data:", error);
+                noAllDataMessage.textContent = 'เกิดข้อผิดพลาดในการโหลดข้อมูล: ' + error.message;
+                noAllDataMessage.classList.remove('hidden');
             });
         }
 
@@ -232,8 +300,8 @@
             }
         });
 
-        // Delete CPR data
-        cprList.addEventListener('click', async (e) => {
+        // Delete CPR data from Admin view
+        allCprList.addEventListener('click', async (e) => {
             if (e.target.classList.contains('delete-btn')) {
                 const docId = e.target.dataset.id;
                 const docRef = doc(db, `/artifacts/${appId}/public/data/cprData/${docId}`);
@@ -247,41 +315,59 @@
             }
         });
 
-        // Admin View Logic
-        adminBtn.addEventListener('click', showAdminScreen);
-        exitAdminBtn.addEventListener('click', showMainApp);
-
-        async function showAllCprData() {
-            allCprList.innerHTML = '<p class="text-gray-500 text-center">กำลังโหลดข้อมูล...</p>';
+        // Export to Excel functionality
+        exportBtn.addEventListener('click', async () => {
+            if (!db) {
+                showModal("ฐานข้อมูลยังไม่พร้อมใช้งาน");
+                return;
+            }
             try {
-                const cprCollectionRef = collection(db, `/artifacts/${appId}/public/data/cprData`);
-                // แก้ไขตรงนี้: เพิ่มการ query โดยใช้ userId เพื่อให้สอดคล้องกับสิทธิ์การเข้าถึง
-                const q = query(cprCollectionRef, where("userId", "==", userId));
-                const querySnapshot = await getDocs(q);
-                
-                allCprList.innerHTML = ''; // Clear loading message
-                if (querySnapshot.empty) {
-                    allCprList.innerHTML = '<p class="text-gray-500 text-center">ยังไม่มีข้อมูล CPR ของผู้ใช้คนใด</p>';
-                } else {
-                    querySnapshot.forEach(doc => {
-                        const data = doc.data();
-                        const cprItem = document.createElement('div');
-                        cprItem.className = 'admin-cpr-card bg-gray-100 p-4 rounded-lg';
-                        // Check if username exists from older records, otherwise use userId
-                        const displayName = data.username || data.userId;
-                        cprItem.innerHTML = `
-                            <p class="text-xs text-gray-400">ผู้ใช้: ${displayName}</p>
-                            <h3 class="font-medium text-gray-800">${data.title}</h3>
-                            <p class="text-sm text-gray-600">${data.details}</p>
-                        `;
-                        allCprList.appendChild(cprItem);
+                const querySnapshot = await getDocs(query(collection(db, `/artifacts/${appId}/public/data/cprData`), where("userId", "==", userId)));
+                const data = [];
+                querySnapshot.forEach(doc => {
+                    const record = doc.data();
+                    data.push({
+                        'User ID': record.userId,
+                        'หัวข้อ': record.title,
+                        'รายละเอียด': record.details,
+                        'เวลาบันทึก': record.createdAt ? record.createdAt.toDate().toLocaleString('th-TH') : 'N/A'
                     });
+                });
+
+                if (data.length > 0) {
+                    const ws = XLSX.utils.json_to_sheet(data);
+                    const wb = XLSX.utils.book_new();
+                    XLSX.utils.book_append_sheet(wb, ws, "CPR Records");
+                    XLSX.writeFile(wb, "CPR_Records.xlsx");
+                    showModal("Export ข้อมูลสำเร็จ!");
+                } else {
+                    showModal("ไม่มีข้อมูลให้ Export");
                 }
             } catch (e) {
-                console.error("Error getting all CPR data:", e);
-                allCprList.innerHTML = '<p class="text-red-500 text-center">เกิดข้อผิดพลาดในการโหลดข้อมูล</p>';
+                console.error("Error exporting to Excel:", e);
+                showModal("ไม่สามารถ Export ข้อมูลได้");
             }
-        }
+        });
+
+        // Clear all data functionality
+        clearAllBtn.addEventListener('click', async () => {
+             const confirmationMessage = "คุณแน่ใจหรือไม่ที่จะลบข้อมูล CPR ทั้งหมดของคุณ? การดำเนินการนี้ไม่สามารถยกเลิกได้";
+             const shouldDelete = window.confirm(confirmationMessage);
+             if (shouldDelete) {
+                try {
+                    const querySnapshot = await getDocs(query(collection(db, `/artifacts/${appId}/public/data/cprData`), where("userId", "==", userId)));
+                    const batch = writeBatch(db);
+                    querySnapshot.forEach(doc => {
+                        batch.delete(doc.ref);
+                    });
+                    await batch.commit();
+                    showModal("ลบข้อมูลทั้งหมดเรียบร้อยแล้ว!");
+                } catch (e) {
+                    console.error("Error clearing all data:", e);
+                    showModal("ไม่สามารถลบข้อมูลทั้งหมดได้");
+                }
+             }
+        });
 
         // Start the application
         window.onload = initFirebase;
