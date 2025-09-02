@@ -297,35 +297,45 @@
 
         // --- AUTHENTICATION ---
         onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                currentUser = user;
-                // ตรวจสอบว่ามีข้อมูลผู้ใช้ใน Firestore หรือไม่
-                const userDocRef = doc(db, "users", user.uid);
-                const userSnap = await getDocs(query(collection(db, "users"), where("uid", "==", user.uid)));
-                
-                if (userSnap.empty) {
-                    // หากเป็นผู้ใช้ใหม่ ให้บันทึกข้อมูล
-                    await setDoc(userDocRef, {
-                        uid: user.uid,
-                        name: user.displayName || user.email.split('@')[0],
-                        isAdmin: (user.email === ADMIN_EMAIL),
-                        createdAt: new Date()
-                    });
-                    isAdmin = (user.email === ADMIN_EMAIL);
-                    updateUI(user.displayName || user.email.split('@')[0], isAdmin);
-                } else {
-                    // หากเป็นผู้ใช้เดิม ให้ดึงข้อมูลมาใช้งาน
-                    const userData = userSnap.docs[0].data();
-                    isAdmin = userData.isAdmin || false;
-                    updateUI(userData.name, isAdmin);
-                }
-                showView('recorder');
+    if (user) {
+        currentUser = user;
+        const userDocRef = doc(db, "users", user.uid);
+        
+        try {
+            // ดึงข้อมูลผู้ใช้จาก Firestore
+            const userSnap = await getDoc(userDocRef); // เปลี่ยนจาก getDocs เป็น getDoc เพื่อดึงเอกสารเดียว
+            
+            if (!userSnap.exists()) {
+                // ถ้าเป็นผู้ใช้ใหม่ ให้บันทึกข้อมูล
+                await setDoc(userDocRef, {
+                    uid: user.uid,
+                    name: user.displayName || user.email.split('@')[0],
+                    isAdmin: (user.email === ADMIN_EMAIL),
+                    createdAt: new Date()
+                });
+                // ดึงข้อมูลที่เพิ่งบันทึกมาใช้
+                const newUserSnap = await getDoc(userDocRef);
+                const userData = newUserSnap.data();
+                isAdmin = userData.isAdmin || false;
+                updateUI(userData.name, isAdmin);
             } else {
-                currentUser = null;
-                isAdmin = false;
-                showView('login');
+                // ถ้าเป็นผู้ใช้เดิม ให้ดึงข้อมูลมาใช้
+                const userData = userSnap.data();
+                isAdmin = userData.isAdmin || false;
+                updateUI(userData.name, isAdmin);
             }
-        });
+            showView('recorder');
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+            // ถ้ามีข้อผิดพลาด ให้บังคับออกจากระบบเพื่อเริ่มใหม่
+            signOut(auth);
+        }
+    } else {
+        currentUser = null;
+        isAdmin = false;
+        showView('login');
+    }
+});
 
         googleSignInBtn.addEventListener('click', async () => {
             const provider = new GoogleAuthProvider();
