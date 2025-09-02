@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/cpr-app/index.html"
+      "destination": "/cpr_mnrh/index.html"
     }
   ]
 }
