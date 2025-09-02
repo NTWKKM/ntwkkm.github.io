@@ -2,12 +2,31 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPR Recorder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CPR Recorder ED MNRH</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CPR Recorder">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <link rel="manifest" href="data:application/json;base64,eyJpY29ucyI6W3sic2l6ZXMiOiIxOTJ4MTkyIiwidHlwZSI6ImltYWdlL3BuZyIsInNyYyI6Ii9pY29uLTE5Mi5wbmciLCJwdXJwb3NlcyI6ImFueSBtYXNrYWJsZSJ9XSwibmFtZSI6IkNQUiBSZWNvcmRlciIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwic2hvcnRfbmFtZSI6IkNQUiBSZWNvcmRlciIsInN0YXJ0X3VybCI6Ii8ifQ==">
+    
+    <script>
+        // Inline Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                    console.log('Service Worker registered with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('Service Worker registration failed: ', err);
+                });
+            });
+        }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6;
@@ -15,10 +34,11 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            touch-action: pan-y;
         }
         .container {
             width: 100%;
-            max-width: 600px;
+            max-width: 800px;
             padding: 1.5rem;
             background-color: #ffffff;
             border-radius: 1.5rem;
@@ -32,12 +52,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
         .cpr-card {
-            border-left: 4px solid;
-            border-color: #4a90e2; /* Blue border for user's own data */
+            border-left: 4px solid #4a90e2;
         }
         .admin-cpr-card {
-            border-left: 4px solid;
-            border-color: #9b59b6; /* Purple border for admin view */
+            border-left: 4px solid #9b59b6;
         }
         table {
             width: 100%;
@@ -48,6 +66,7 @@
             padding: 0.75rem;
             text-align: left;
             border-bottom: 1px solid #e5e7eb;
+            font-size: 0.9em;
         }
         th {
             background-color: #f3f4f6;
@@ -61,62 +80,84 @@
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
 
-    <!-- Main App Screen -->
-    <div id="mainApp" class="container fade-in">
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-bold text-gray-800">CPR Recorder</h1>
-            <button id="adminBtn" class="bg-purple-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">ดูข้อมูลทั้งหมด</button>
-        </div>
-        <p class="text-gray-600 mb-2">User ID: <span id="currentUserId" class="font-mono text-xs"></span></p>
-
-        <!-- CPR Record Form -->
-        <div class="mb-8 p-4 bg-gray-50 rounded-lg">
-            <h2 class="text-xl font-semibold text-gray-800 mb-4">บันทึก CPR ใหม่</h2>
-            <input type="text" id="cprTitleInput" class="w-full p-3 mb-3 border border-gray-300 rounded-lg" placeholder="หัวข้อการบันทึก (เช่น ผู้ป่วย A)">
-            <textarea id="cprDetailsInput" class="w-full p-3 h-24 mb-3 border border-gray-300 rounded-lg" placeholder="รายละเอียดการ CPR"></textarea>
-            <button id="saveCprBtn" class="w-full bg-green-600 text-white font-semibold py-3 rounded-lg hover:bg-green-700 transition-colors">บันทึกข้อมูล</button>
-        </div>
-
-        <!-- User's Data Section -->
-        <div id="userDataSection">
-            <h2 class="text-xl font-semibold text-gray-800 mb-4">ข้อมูล CPR ของฉัน</h2>
-            <div id="cprList" class="space-y-4">
-                <p class="text-gray-500 text-center" id="noDataMessage">ยังไม่มีข้อมูล CPR ที่บันทึกไว้</p>
+    <!-- Screen Container -->
+    <div id="screenContainer" class="w-full h-full max-w-full">
+        <!-- Login/Signup Screen -->
+        <div id="loginScreen" class="container fade-in">
+            <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">เข้าสู่ระบบ / สมัครสมาชิก</h1>
+            <div class="p-4 bg-gray-50 rounded-lg">
+                <input type="text" id="usernameInput" class="w-full p-3 mb-3 border border-gray-300 rounded-lg" placeholder="กรอกชื่อผู้ใช้">
+                <button id="loginBtn" class="w-full bg-green-600 text-white font-semibold py-3 rounded-lg hover:bg-green-700 transition-colors">เข้าสู่ระบบ</button>
             </div>
         </div>
-    </div>
 
-    <!-- Admin Screen -->
-    <div id="adminScreen" class="container hidden fade-in">
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-bold text-gray-800">ข้อมูล CPR ทั้งหมด</h1>
-            <button id="exitAdminBtn" class="bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700 transition-colors">กลับ</button>
+        <!-- Main App Screen (initially hidden) -->
+        <div id="mainApp" class="container hidden fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-bold text-gray-800">CPR Recorder</h1>
+                <button id="goToAdminBtn" class="bg-purple-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">ดูข้อมูลทั้งหมด</button>
+            </div>
+            <p class="text-gray-600 mb-2">User: <span id="currentUsername" class="font-mono text-sm"></span></p>
+
+            <!-- CPR Record Form -->
+            <div class="mb-8 p-4 bg-gray-50 rounded-lg">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">บันทึก CPR ใหม่</h2>
+                <input type="text" id="cprTitleInput" class="w-full p-3 mb-3 border border-gray-300 rounded-lg" placeholder="หัวข้อการบันทึก (เช่น ผู้ป่วย A)">
+                <textarea id="cprDetailsInput" class="w-full p-3 h-24 mb-3 border border-gray-300 rounded-lg" placeholder="รายละเอียดการ CPR"></textarea>
+                <button id="saveCprBtn" class="w-full bg-green-600 text-white font-semibold py-3 rounded-lg hover:bg-green-700 transition-colors">บันทึกข้อมูล</button>
+            </div>
+
+            <!-- User's Data Section -->
+            <div id="userDataSection">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">ข้อมูล CPR ของฉัน</h2>
+                <div id="cprList" class="space-y-4">
+                    <p class="text-gray-500 text-center" id="noDataMessage">ยังไม่มีข้อมูล CPR ที่บันทึกไว้</p>
+                </div>
+            </div>
         </div>
         
-        <div class="table-actions flex justify-end mb-4">
-            <button id="exportBtn" class="bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">Export (Excel)</button>
-            <button id="clearAllBtn" class="bg-gray-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors">ลบข้อมูลทั้งหมด</button>
+        <!-- Admin Login Screen (initially hidden) -->
+        <div id="adminLoginScreen" class="container hidden fade-in">
+            <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Admin Login</h1>
+            <div class="p-4 bg-gray-50 rounded-lg">
+                <input type="password" id="adminCodeInput" class="w-full p-3 mb-3 border border-gray-300 rounded-lg" placeholder="รหัส Admin">
+                <button id="adminLoginBtn" class="w-full bg-purple-600 text-white font-semibold py-3 rounded-lg hover:bg-purple-700 transition-colors">เข้าสู่ระบบ</button>
+            </div>
         </div>
 
-        <div class="overflow-x-auto">
-            <table>
-                <thead>
-                    <tr>
-                        <th>User ID</th>
-                        <th>หัวข้อ</th>
-                        <th>รายละเอียด</th>
-                        <th>เวลาบันทึก</th>
-                        <th>การจัดการ</th>
-                    </tr>
-                </thead>
-                <tbody id="allCprList">
-                </tbody>
-            </table>
-            <p class="text-gray-500 text-center mt-4 hidden" id="noAllDataMessage">ยังไม่มีข้อมูล CPR ของผู้ใช้คนใด</p>
+        <!-- Admin Data Screen (initially hidden) -->
+        <div id="adminDataScreen" class="container hidden fade-in">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-bold text-gray-800">ข้อมูล CPR ทั้งหมด</h1>
+                <button id="backToMainBtn" class="bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700 transition-colors">กลับ</button>
+            </div>
+            
+            <div class="table-actions flex justify-end mb-4">
+                <button id="exportBtn" class="bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">Export (Excel)</button>
+                <button id="clearAllBtn" class="bg-gray-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors">ลบข้อมูลทั้งหมด</button>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>หัวข้อ</th>
+                            <th>รายละเอียด</th>
+                            <th>เวลาบันทึก</th>
+                            <th>การจัดการ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="allCprList">
+                    </tbody>
+                </table>
+                <p class="text-gray-500 text-center mt-4" id="noAllDataMessage">ยังไม่มีข้อมูล CPR ที่บันทึกไว้</p>
+            </div>
         </div>
+
     </div>
     
-    <!-- Custom Modal -->
+    <!-- Custom Modals -->
     <div id="custom-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center p-4 z-50">
         <div class="bg-white rounded-lg p-6 shadow-xl w-full max-w-sm">
             <p id="modal-message" class="text-center text-gray-800 mb-4"></p>
@@ -124,253 +165,313 @@
         </div>
     </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, addDoc, deleteDoc, onSnapshot, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+    <div id="confirm-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg p-6 shadow-xl w-full max-w-sm">
+            <p id="confirm-message" class="text-center text-gray-800 mb-4"></p>
+            <div class="flex justify-end space-x-2">
+                <button id="confirm-cancel-btn" class="bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-400 transition-colors">ยกเลิก</button>
+                <button id="confirm-ok-btn" class="bg-red-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-red-700 transition-colors">ยืนยัน</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Inline Service Worker Registration
+        const CACHE_NAME = 'cpr-recorder-cache-v1';
+        const urlsToCache = [
+            '/',
+            'index.html',
+            'https://cdn.tailwindcss.com',
+            'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js',
+            '/icon-192.png',
+        ];
 
-        // Global variables provided by the Canvas environment.
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-        
-        let firebaseConfig = null;
-        if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+                    console.log('Service Worker registered with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('Service Worker registration failed: ', err);
+                });
+            });
+        }
+
+        self.addEventListener('install', event => {
+            event.waitUntil(
+                caches.open(CACHE_NAME).then(cache => {
+                    return cache.addAll(urlsToCache);
+                })
+            );
+        });
+
+        self.addEventListener('fetch', event => {
+            event.respondWith(
+                caches.match(event.request).then(response => {
+                    if (response) {
+                        return response;
+                    }
+                    return fetch(event.request);
+                })
+            );
+        });
+    </script>
+    
+    <script type="module">
+        // Hardcoded Admin Code
+        const ADMIN_CODE = "admin123";
+        let currentUsername = '';
+
+        function getCprData() {
             try {
-                firebaseConfig = JSON.parse(__firebase_config);
+                const data = localStorage.getItem('cprData');
+                return data ? JSON.parse(data) : [];
             } catch (e) {
-                console.error("Error parsing Firebase config:", e);
-                showModal("พบข้อผิดพลาด: ไม่สามารถเชื่อมต่อฐานข้อมูลได้ กรุณาตรวจสอบการตั้งค่า Firebase ใน Vercel Environment Variables");
+                console.error("Error reading from localStorage", e);
+                return [];
             }
         }
 
-        // UI elements
-        const mainApp = document.getElementById('mainApp');
-        const adminScreen = document.getElementById('adminScreen');
-        const currentUserId = document.getElementById('currentUserId');
-        const adminBtn = document.getElementById('adminBtn');
-        const exitAdminBtn = document.getElementById('exitAdminBtn');
-        const allCprList = document.getElementById('allCprList');
-        const cprTitleInput = document.getElementById('cprTitleInput');
-        const cprDetailsInput = document.getElementById('cprDetailsInput');
-        const saveCprBtn = document.getElementById('saveCprBtn');
-        const cprList = document.getElementById('cprList');
-        const noDataMessage = document.getElementById('noDataMessage');
-        const noAllDataMessage = document.getElementById('noAllDataMessage');
-        const exportBtn = document.getElementById('exportBtn');
-        const clearAllBtn = document.getElementById('clearAllBtn');
-        const modal = document.getElementById('custom-modal');
-        const modalMessage = document.getElementById('modal-message');
-        const modalCloseBtn = document.getElementById('modal-close-btn');
-
-        // Firestore and Auth instances
-        let app, db, auth;
-        let userId;
+        function setCprData(data) {
+            try {
+                localStorage.setItem('cprData', JSON.stringify(data));
+            } catch (e) {
+                console.error("Error writing to localStorage", e);
+            }
+        }
 
         function showModal(message) {
+            const modal = document.getElementById('custom-modal');
+            const modalMessage = document.getElementById('modal-message');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            if (!modal) return;
             modalMessage.textContent = message;
             modal.classList.remove('hidden');
             modal.classList.add('flex');
+            modalCloseBtn.addEventListener('click', () => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+            }, { once: true });
         }
 
-        modalCloseBtn.addEventListener('click', () => {
-            modal.classList.remove('flex');
-            modal.classList.add('hidden');
-        });
+        function showConfirmModal(message, onConfirm) {
+            const modal = document.getElementById('confirm-modal');
+            const modalMessage = document.getElementById('confirm-message');
+            const confirmBtn = document.getElementById('confirm-ok-btn');
+            const cancelBtn = document.getElementById('confirm-cancel-btn');
 
-        // Initialize Firebase
-        function initFirebase() {
-            if (!firebaseConfig) {
-                return;
-            }
+            modalMessage.textContent = message;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
 
-            try {
-                app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
-                auth = getAuth(app);
-                
-                signInAnonymously(auth).then((result) => {
-                    userId = result.user.uid;
-                    currentUserId.textContent = userId;
-                    listenForUserCprData(userId);
-                    listenForAllCprData(userId); // Listen for all data for admin view
-                }).catch(e => {
-                    console.error("Error signing in anonymously:", e);
-                    showModal("ไม่สามารถเข้าสู่ระบบได้ กรุณาลองใหม่");
+            const handleConfirm = () => {
+                onConfirm();
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+                confirmBtn.removeEventListener('click', handleConfirm);
+                cancelBtn.removeEventListener('click', handleCancel);
+            };
+            const handleCancel = () => {
+                modal.classList.remove('flex');
+                modal.classList.add('hidden');
+                confirmBtn.removeEventListener('click', handleConfirm);
+                cancelBtn.removeEventListener('click', handleCancel);
+            };
+
+            confirmBtn.addEventListener('click', handleConfirm);
+            cancelBtn.addEventListener('click', handleCancel);
+        }
+
+        function showScreen(screenId) {
+            document.querySelectorAll('#screenContainer > div').forEach(div => {
+                div.classList.add('hidden');
+            });
+            document.getElementById(screenId).classList.remove('hidden');
+        }
+
+        function renderUserCprData() {
+            const cprList = document.getElementById('cprList');
+            const noDataMessage = document.getElementById('noDataMessage');
+            const allCprData = getCprData();
+            const userCprData = allCprData.filter(item => item.username === currentUsername);
+            
+            cprList.innerHTML = '';
+            if (userCprData.length === 0) {
+                noDataMessage.textContent = 'ยังไม่มีข้อมูล CPR ที่บันทึกไว้';
+                noDataMessage.classList.remove('hidden');
+            } else {
+                noDataMessage.classList.add('hidden');
+                userCprData.forEach((data, index) => {
+                    const cprItem = document.createElement('div');
+                    cprItem.className = 'cpr-card bg-gray-100 p-4 rounded-lg flex justify-between items-center';
+                    cprItem.innerHTML = `
+                        <div>
+                            <h3 class="font-medium text-gray-800">${data.title}</h3>
+                            <p class="text-sm text-gray-600">${data.details}</p>
+                        </div>
+                        <button class="text-red-500 hover:text-red-700 ml-4 delete-btn" data-index="${index}">ลบ</button>
+                    `;
+                    cprItem.querySelector('.delete-btn').addEventListener('click', () => {
+                        showConfirmModal("คุณแน่ใจหรือไม่ที่จะลบข้อมูลนี้?", () => {
+                            const currentData = getCprData();
+                            const itemIndex = currentData.findIndex(item => item.username === currentUsername && item.title === data.title && item.details === data.details);
+                            if (itemIndex > -1) {
+                                currentData.splice(itemIndex, 1);
+                                setCprData(currentData);
+                                showModal("ลบข้อมูลสำเร็จ!");
+                                renderUserCprData();
+                            }
+                        });
+                    });
+                    cprList.appendChild(cprItem);
                 });
-            } catch (error) {
-                console.error("Error initializing Firebase:", error);
-                showModal("พบข้อผิดพลาดในการเริ่มต้น Firebase");
             }
         }
 
-        function showMainApp() {
-            mainApp.classList.remove('hidden');
-            adminScreen.classList.add('hidden');
-        }
+        function initializeMainAppFunctions() {
+            const saveCprBtn = document.getElementById('saveCprBtn');
+            const cprTitleInput = document.getElementById('cprTitleInput');
+            const cprDetailsInput = document.getElementById('cprDetailsInput');
+            const goToAdminBtn = document.getElementById('goToAdminBtn');
 
-        function showAdminScreen() {
-            mainApp.classList.add('hidden');
-            adminScreen.classList.remove('hidden');
-        }
-
-        // Listen for CPR data for the current user (on the main screen)
-        function listenForUserCprData(uid) {
-            const cprCollectionRef = collection(db, `/artifacts/${appId}/public/data/cprData`);
-            const q = query(cprCollectionRef, where("userId", "==", uid));
-            onSnapshot(q, (snapshot) => {
-                cprList.innerHTML = '';
-                if (snapshot.empty) {
-                    noDataMessage.classList.remove('hidden');
-                } else {
-                    noDataMessage.classList.add('hidden');
-                    snapshot.forEach(doc => {
-                        const data = doc.data();
-                        const cprItem = document.createElement('div');
-                        cprItem.className = 'cpr-card bg-gray-100 p-4 rounded-lg flex justify-between items-center';
-                        cprItem.innerHTML = `
-                            <div>
-                                <h3 class="font-medium text-gray-800">${data.title}</h3>
-                                <p class="text-sm text-gray-600">${data.details}</p>
-                            </div>
-                            <button class="text-red-500 hover:text-red-700 ml-4 delete-btn" data-id="${doc.id}">ลบ</button>
-                        `;
-                        cprList.appendChild(cprItem);
-                    });
-                }
-            });
-        }
-
-        // Listen for all CPR data for admin view (read-only for security reasons)
-        function listenForAllCprData(uid) {
-            const cprCollectionRef = collection(db, `/artifacts/${appId}/public/data/cprData`);
-            // Query only the current user's data to prevent 'permission-denied' error
-            const q = query(cprCollectionRef, where("userId", "==", uid));
-            onSnapshot(q, (snapshot) => {
-                allCprList.innerHTML = '';
-                if (snapshot.empty) {
-                    noAllDataMessage.classList.remove('hidden');
-                } else {
-                    noAllDataMessage.classList.add('hidden');
-                    snapshot.forEach(doc => {
-                        const data = doc.data();
-                        const recordDate = data.createdAt ? data.createdAt.toDate().toLocaleString('th-TH') : 'N/A';
-                        const cprItem = document.createElement('tr');
-                        cprItem.className = 'admin-cpr-card';
-                        cprItem.innerHTML = `
-                            <td><span class="font-mono text-xs">${data.userId}</span></td>
-                            <td>${data.title}</td>
-                            <td>${data.details}</td>
-                            <td>${recordDate}</td>
-                            <td>
-                                <button class="text-red-500 hover:text-red-700 delete-btn" data-id="${doc.id}">ลบ</button>
-                            </td>
-                        `;
-                        allCprList.appendChild(cprItem);
-                    });
-                }
-            }, (error) => {
-                console.error("Error fetching all CPR data:", error);
-                noAllDataMessage.textContent = 'เกิดข้อผิดพลาดในการโหลดข้อมูล: ' + error.message;
-                noAllDataMessage.classList.remove('hidden');
-            });
-        }
-
-        // Save new CPR data
-        saveCprBtn.addEventListener('click', async () => {
-            const title = cprTitleInput.value.trim();
-            const details = cprDetailsInput.value.trim();
-            if (title && details) {
-                const cprCollectionRef = collection(db, `/artifacts/${appId}/public/data/cprData`);
-                try {
-                    await addDoc(cprCollectionRef, {
-                        userId: userId,
+            saveCprBtn.addEventListener('click', () => {
+                const title = cprTitleInput.value.trim();
+                const details = cprDetailsInput.value.trim();
+                if (title && details) {
+                    const allCprData = getCprData();
+                    const newRecord = {
+                        username: currentUsername,
                         title: title,
                         details: details,
-                        createdAt: new Date()
-                    });
+                        createdAt: new Date().toISOString()
+                    };
+                    allCprData.push(newRecord);
+                    setCprData(allCprData);
                     cprTitleInput.value = '';
                     cprDetailsInput.value = '';
                     showModal("บันทึกข้อมูล CPR สำเร็จ!");
-                } catch (e) {
-                    console.error("Error adding document: ", e);
-                    showModal("ไม่สามารถบันทึกข้อมูลได้ กรุณาลองอีกครั้ง");
+                    renderUserCprData();
+                } else {
+                    showModal("กรุณาใส่หัวข้อและรายละเอียดให้ครบถ้วน");
                 }
+            });
+
+            goToAdminBtn.addEventListener('click', () => {
+                showScreen('adminLoginScreen');
+            });
+            renderUserCprData();
+        }
+
+        // --- Admin Page Logic ---
+        function renderAllCprData() {
+            const allCprList = document.getElementById('allCprList');
+            const noAllDataMessage = document.getElementById('noAllDataMessage');
+            const allCprData = getCprData();
+            
+            allCprList.innerHTML = '';
+            if (allCprData.length === 0) {
+                noAllDataMessage.textContent = 'ยังไม่มีข้อมูล CPR ที่บันทึกไว้';
+                noAllDataMessage.classList.remove('hidden');
             } else {
-                showModal("กรุณาใส่หัวข้อและรายละเอียดให้ครบถ้วน");
-            }
-        });
-
-        // Delete CPR data from Admin view
-        allCprList.addEventListener('click', async (e) => {
-            if (e.target.classList.contains('delete-btn')) {
-                const docId = e.target.dataset.id;
-                const docRef = doc(db, `/artifacts/${appId}/public/data/cprData/${docId}`);
-                try {
-                    await deleteDoc(docRef);
-                    showModal("ลบข้อมูลสำเร็จ!");
-                } catch (e) {
-                    console.error("Error deleting document: ", e);
-                    showModal("ไม่สามารถลบข้อมูลได้ กรุณาลองอีกครั้ง");
-                }
-            }
-        });
-
-        // Export to Excel functionality
-        exportBtn.addEventListener('click', async () => {
-            if (!db) {
-                showModal("ฐานข้อมูลยังไม่พร้อมใช้งาน");
-                return;
-            }
-            try {
-                const querySnapshot = await getDocs(query(collection(db, `/artifacts/${appId}/public/data/cprData`), where("userId", "==", userId)));
-                const data = [];
-                querySnapshot.forEach(doc => {
-                    const record = doc.data();
-                    data.push({
-                        'User ID': record.userId,
-                        'หัวข้อ': record.title,
-                        'รายละเอียด': record.details,
-                        'เวลาบันทึก': record.createdAt ? record.createdAt.toDate().toLocaleString('th-TH') : 'N/A'
+                noAllDataMessage.classList.add('hidden');
+                allCprData.forEach((data, index) => {
+                    const recordDate = new Date(data.createdAt).toLocaleString('th-TH');
+                    const cprItem = document.createElement('tr');
+                    cprItem.className = 'admin-cpr-card';
+                    cprItem.innerHTML = `
+                        <td><span class="font-mono text-xs">${data.username}</span></td>
+                        <td>${data.title}</td>
+                        <td>${data.details}</td>
+                        <td>${recordDate}</td>
+                        <td>
+                            <button class="text-red-500 hover:text-red-700 delete-btn" data-index="${index}">ลบ</button>
+                        </td>
+                    `;
+                    allCprList.appendChild(cprItem);
+                });
+                allCprList.querySelectorAll('.delete-btn').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        const index = parseInt(e.target.dataset.index);
+                        showConfirmModal("คุณแน่ใจหรือไม่ที่จะลบข้อมูลนี้?", () => {
+                            const currentData = getCprData();
+                            currentData.splice(index, 1);
+                            setCprData(currentData);
+                            showModal("ลบข้อมูลสำเร็จ!");
+                            renderAllCprData();
+                        });
                     });
                 });
-
-                if (data.length > 0) {
-                    const ws = XLSX.utils.json_to_sheet(data);
-                    const wb = XLSX.utils.book_new();
-                    XLSX.utils.book_append_sheet(wb, ws, "CPR Records");
-                    XLSX.writeFile(wb, "CPR_Records.xlsx");
-                    showModal("Export ข้อมูลสำเร็จ!");
-                } else {
-                    showModal("ไม่มีข้อมูลให้ Export");
-                }
-            } catch (e) {
-                console.error("Error exporting to Excel:", e);
-                showModal("ไม่สามารถ Export ข้อมูลได้");
             }
-        });
+        }
+        
+        function initializeAdminFunctions() {
+            const exportBtn = document.getElementById('exportBtn');
+            const clearAllBtn = document.getElementById('clearAllBtn');
+            const backToMainBtn = document.getElementById('backToMainBtn');
 
-        // Clear all data functionality
-        clearAllBtn.addEventListener('click', async () => {
-             const confirmationMessage = "คุณแน่ใจหรือไม่ที่จะลบข้อมูล CPR ทั้งหมดของคุณ? การดำเนินการนี้ไม่สามารถยกเลิกได้";
-             const shouldDelete = window.confirm(confirmationMessage);
-             if (shouldDelete) {
-                try {
-                    const querySnapshot = await getDocs(query(collection(db, `/artifacts/${appId}/public/data/cprData`), where("userId", "==", userId)));
-                    const batch = writeBatch(db);
-                    querySnapshot.forEach(doc => {
-                        batch.delete(doc.ref);
-                    });
-                    await batch.commit();
-                    showModal("ลบข้อมูลทั้งหมดเรียบร้อยแล้ว!");
-                } catch (e) {
-                    console.error("Error clearing all data:", e);
-                    showModal("ไม่สามารถลบข้อมูลทั้งหมดได้");
+            exportBtn.addEventListener('click', () => {
+                const dataToExport = getCprData().map(item => ({
+                    'User': item.username,
+                    'หัวข้อ': item.title,
+                    'รายละเอียด': item.details,
+                    'เวลาบันทึก': new Date(item.createdAt).toLocaleString('th-TH')
+                }));
+                const ws = XLSX.utils.json_to_sheet(dataToExport);
+                const wb = XLSX.utils.book_new();
+                XLSX.utils.book_append_sheet(wb, ws, "CPR Data");
+                XLSX.writeFile(wb, "CPR_Data.xlsx");
+            });
+
+            clearAllBtn.addEventListener('click', () => {
+                showConfirmModal("คุณแน่ใจหรือไม่ที่จะลบข้อมูลทั้งหมดในเครื่องนี้?", () => {
+                    setCprData([]);
+                    showModal("ลบข้อมูลทั้งหมดสำเร็จ!");
+                    renderAllCprData();
+                });
+            });
+
+            backToMainBtn.addEventListener('click', () => {
+                showScreen('mainApp');
+            });
+            renderAllCprData();
+        }
+
+        // --- Initial App Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedUsername = localStorage.getItem('currentUser');
+            if (savedUsername) {
+                currentUsername = savedUsername;
+                document.getElementById('currentUsername').textContent = currentUsername;
+                showScreen('mainApp');
+                initializeMainAppFunctions();
+            } else {
+                showScreen('loginScreen');
+                const loginBtn = document.getElementById('loginBtn');
+                const usernameInput = document.getElementById('usernameInput');
+                loginBtn.addEventListener('click', () => {
+                    const username = usernameInput.value.trim();
+                    if (username) {
+                        localStorage.setItem('currentUser', username);
+                        currentUsername = username;
+                        document.getElementById('currentUsername').textContent = currentUsername;
+                        showScreen('mainApp');
+                        initializeMainAppFunctions();
+                    } else {
+                        showModal("กรุณาใส่ชื่อผู้ใช้");
+                    }
+                });
+            }
+
+            const adminLoginBtn = document.getElementById('adminLoginBtn');
+            const adminCodeInput = document.getElementById('adminCodeInput');
+            adminLoginBtn.addEventListener('click', () => {
+                if (adminCodeInput.value === ADMIN_CODE) {
+                    showScreen('adminDataScreen');
+                    initializeAdminFunctions();
+                } else {
+                    showModal("รหัส Admin ไม่ถูกต้อง");
                 }
-             }
+            });
         });
-
-        // Start the application
-        window.onload = initFirebase;
     </script>
 </body>
 </html>
