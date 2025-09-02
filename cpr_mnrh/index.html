@@ -252,6 +252,10 @@
         loginBtn.addEventListener('click', async () => {
             const username = usernameInput.value.trim();
             if (username) {
+                // Show loading state
+                loginBtn.disabled = true;
+                loginBtn.textContent = 'กำลังบันทึก...';
+                
                 const uid = auth.currentUser.uid;
                 const userDocRef = doc(db, `/artifacts/${appId}/users/${uid}/userData/profile`);
                 try {
@@ -263,6 +267,10 @@
                 } catch (error) {
                     console.error("Error setting user data:", error);
                     showModal("บันทึกชื่อผู้ใช้ไม่ได้ กรุณาลองอีกครั้ง");
+                } finally {
+                    // Reset button state regardless of success or failure
+                    loginBtn.disabled = false;
+                    loginBtn.textContent = 'เข้าสู่ระบบ / สมัครสมาชิก';
                 }
             } else {
                 showModal("กรุณาใส่ชื่อผู้ใช้");
