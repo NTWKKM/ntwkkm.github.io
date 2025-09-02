@@ -54,16 +54,16 @@
 
         /* --- Login View --- */
         #loginView {
-            max-width: 450px;
+            max-width: 400px;
             margin: 60px auto;
             text-align: center;
-            padding: 40px;
+            padding: 30px;
         }
         .login-box {
             background-color: var(--light-text);
             border: 1px solid var(--medium-gray-border);
             border-radius: 15px;
-            padding: 35px;
+            padding: 25px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
         .login-box img {
@@ -73,17 +73,20 @@
             margin-bottom: 25px;
             border: 3px solid var(--secondary-color);
         }
+        .login-box h2 {
+            font-size: 1.6em;
+        }
         .login-box p {
             color: var(--dark-text);
             margin-bottom: 25px;
-            font-size: 1.1em;
+            font-size: 1em;
         }
         .login-box button {
             width: 100%;
-            padding: 13px;
+            padding: 10px;
             border-radius: 8px;
             border: none;
-            font-size: 1.05em;
+            font-size: 1em;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -126,8 +129,8 @@
         .login-box .divider::after { right: 0; }
         #emailPasswordForm input {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 12px;
+            padding: 10px;
+            margin-bottom: 10px;
             border: 1px solid var(--medium-gray-border);
             border-radius: 8px;
             box-sizing: border-box;
@@ -983,7 +986,7 @@
                     <button type="button" class="add-btn addMedBtn">Add Medicine</button>
                     <ul class="medList"></ul>
                 </fieldset>
-                <details open>
+                <details>
                     <summary>Investigations</summary>
                     <div class="investigation-content">
                         <div class="investigation-block"><strong>Blood Gas Analysis</strong>
