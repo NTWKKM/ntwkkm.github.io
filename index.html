@@ -1,137 +1,407 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome to NTWKKM GitHub Pages</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
-      min-height: 100vh;
-      color: #232e38;
-    }
-    header {
-      background: linear-gradient(90deg, #38b2ac 0%, #4299e1 100%);
-      color: white;
-      text-align: center;
-      padding: 38px 12px 16px 12px;
-      box-shadow: 0 4px 12px rgba(66,153,225,0.11);
-    }
-    h1 {
-      font-size: 2.4em;
-      margin: 0 0 8px 0;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-shadow: 0 2px 10px #4299e1a0;
-    }
-    .subtitle {
-      font-size: 1.18em;
-      font-weight: 400;
-      margin-bottom: 0;
-      opacity: 0.95;
-    }
-    .card {
-      max-width: 580px;
-      margin: 38px auto;
-      background: rgba(255,255,255,0.97);
-      border-radius: 18px;
-      box-shadow: 0 2px 14px rgba(66,153,225,0.07);
-      padding: 34px 24px 20px 24px;
-      text-align: center;
-    }
-    h2 {
-      color: #4299e1;
-      font-size: 1.25em;
-      margin-bottom: 1.2em;
-      font-weight: 500;
-      letter-spacing: 1px;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 18px 0;
-    }
-    li {
-      margin-bottom: 1.05em;
-      font-size: 1.07em;
-    }
-    a {
-      color: #2563eb;
-      background: #e0eafc;
-      text-decoration: none;
-      padding: 5px 14px;
-      border-radius: 6px;
-      transition: background 0.18s, color 0.18s;
-      font-weight: 500;
-      border: 1.5px solid #4299e1a1;
-    }
-    a:hover {
-      color: #fff;
-      background: #4299e1;
-      border-color: #2563eb;
-    }
-    .footer {
-      text-align: center;
-      margin-top: 75px;
-      font-size: 0.98em;
-      color: #4299e1;
-      opacity: 0.76;
-    }
-    @media (max-width: 600px) {
-      header { padding: 18px 5px 12px 5px; }
-      h1 { font-size: 1.3em; }
-      .card { padding: 10px 6px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPR Recorder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 1.5rem;
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .cpr-card {
+            border-left: 4px solid;
+            border-color: #4a90e2; /* Blue border for user's own data */
+        }
+        .admin-cpr-card {
+            border-left: 4px solid;
+            border-color: #9b59b6; /* Purple border for admin view */
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <h1>Welcome to NTWKKM GitHub Pages</h1>
-    <div class="subtitle">Your hub for bookmarks, study resources, and projects</div>
-  </header>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
 
-  <div class="card">
-    <h2>Featured Links & Projects</h2>
-    <ul>
-      <li>
-        <a href="https://ntwkkm.github.io/bookmarks/toxico_bookmarks_c.html" target="_blank">
-          Toxico Course Bookmarks
-        </a>
-      </li>
-   <!--   <li>
-        <a href="https://ntwkkm.github.io/cpr/cpr.html" target="_blank">
-          CPR Recorder
-        </a>
-      </li>  -->
-      <li>
-        <a href="https://ntwkkm.github.io/cpr gemini/index.html" target="_blank">
-          CPR Recorder
-        </a>
-      </li>
-       <li>
-        <a href="https://ntwkkm.github.io/cpr gemini/manage.html" target="_blank">
-          Manage CPR Recorder
-        </a>
-      </li>
-        <li>
-        <a href="https://ntwkkm.github.io/cpr_mnrh/index.html" target="_blank">
-          MNRH CPR Recorder
-        </a>
-      </li>
-       
-      <!-- Add more links below! -->
-      <!-- <li><a href="https://ntwkkm.github.io/another-project/">Another Project</a></li> -->
-    </ul>
-    <div>
-      This is your personal GitHub Pages profile site.<br>
-      Add more links, resources, or information here to share with others!
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="flex flex-col items-center justify-center h-full w-full">
+        <div class="animate-spin rounded-full h-12 w-12 border-4 border-t-4 border-gray-900"></div>
+        <p class="mt-4 text-gray-700">กำลังโหลด...</p>
     </div>
-  </div>
 
-  <div class="footer">
-    &copy; 2025 NTWKKM &nbsp;|&nbsp; Powered by GitHub Pages
-  </div>
+    <!-- Login/Signup Screen -->
+    <div id="loginScreen" class="container text-center fade-in hidden">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">ยินดีต้อนรับสู่ CPR Recorder</h1>
+        <p class="text-gray-600 mb-6">กรุณาใส่ชื่อผู้ใช้เพื่อเข้าสู่ระบบหรือสมัครสมาชิก</p>
+        <input type="text" id="usernameInput" class="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="ชื่อผู้ใช้">
+        <button id="loginBtn" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-colors">เข้าสู่ระบบ / สมัครสมาชิก</button>
+        <p class="text-xs text-gray-500 mt-4">ไม่มีรหัสผ่าน เพียงแค่ชื่อผู้ใช้</p>
+    </div>
+
+    <!-- Main App Screen -->
+    <div id="mainApp" class="container hidden fade-in">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold text-gray-800">CPR Recorder</h1>
+            <button id="adminBtn" class="bg-purple-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">โหมด Admin</button>
+        </div>
+        <p class="text-gray-600 mb-2">เข้าสู่ระบบในฐานะ: <span id="currentUsername" class="font-medium"></span></p>
+        <p class="text-sm text-gray-500 mb-6">User ID: <span id="currentUserId" class="font-mono text-xs"></span></p>
+
+        <!-- CPR Record Form -->
+        <div class="mb-8 p-4 bg-gray-50 rounded-lg">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">บันทึก CPR ใหม่</h2>
+            <input type="text" id="cprTitleInput" class="w-full p-3 mb-3 border border-gray-300 rounded-lg" placeholder="หัวข้อการบันทึก (เช่น ผู้ป่วย A)">
+            <textarea id="cprDetailsInput" class="w-full p-3 h-24 mb-3 border border-gray-300 rounded-lg" placeholder="รายละเอียดการ CPR"></textarea>
+            <button id="saveCprBtn" class="w-full bg-green-600 text-white font-semibold py-3 rounded-lg hover:bg-green-700 transition-colors">บันทึกข้อมูล</button>
+        </div>
+
+        <!-- User's Data Section -->
+        <div id="userDataSection">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">ข้อมูล CPR ของฉัน</h2>
+            <div id="cprList" class="space-y-4">
+                <p class="text-gray-500 text-center" id="noDataMessage">ยังไม่มีข้อมูล CPR ที่บันทึกไว้</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Screen -->
+    <div id="adminScreen" class="container hidden fade-in">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-2xl font-bold text-gray-800">โหมด Admin</h1>
+            <button id="exitAdminBtn" class="bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700 transition-colors">ออก</button>
+        </div>
+        
+        <div id="adminAuth" class="mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">ใส่รหัส Admin</h2>
+            <div class="flex">
+                <input type="password" id="adminCodeInput" class="flex-grow p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="รหัส Admin">
+                <button id="checkAdminCodeBtn" class="bg-blue-600 text-white font-medium py-3 px-6 rounded-r-lg hover:bg-blue-700 transition-colors">ยืนยัน</button>
+            </div>
+            <p id="adminError" class="text-red-500 text-sm mt-2 hidden">รหัส Admin ไม่ถูกต้อง</p>
+        </div>
+
+        <div id="allUserDataSection" class="hidden">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">ข้อมูล CPR ของผู้ใช้ทั้งหมด</h2>
+            <div id="allCprList" class="space-y-4">
+                <p class="text-gray-500 text-center">กำลังโหลดข้อมูล...</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom Modal -->
+    <div id="custom-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-6 shadow-xl w-full max-w-sm">
+            <p id="modal-message" class="text-center text-gray-800 mb-4"></p>
+            <button id="modal-close-btn" class="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition-colors">ตกลง</button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, addDoc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Global variables provided by the Canvas environment.
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+        
+        let firebaseConfig = null;
+        if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+            try {
+                firebaseConfig = JSON.parse(__firebase_config);
+            } catch (e) {
+                console.error("Error parsing Firebase config:", e);
+                // The error will be handled below, no need to show a modal here.
+            }
+        }
+
+        // UI elements
+        const loadingScreen = document.getElementById('loadingScreen');
+        const loginScreen = document.getElementById('loginScreen');
+        const mainApp = document.getElementById('mainApp');
+        const adminScreen = document.getElementById('adminScreen');
+        const usernameInput = document.getElementById('usernameInput');
+        const loginBtn = document.getElementById('loginBtn');
+        const currentUsername = document.getElementById('currentUsername');
+        const currentUserId = document.getElementById('currentUserId');
+        const adminBtn = document.getElementById('adminBtn');
+        const exitAdminBtn = document.getElementById('exitAdminBtn');
+        const adminCodeInput = document.getElementById('adminCodeInput');
+        const checkAdminCodeBtn = document.getElementById('checkAdminCodeBtn');
+        const adminAuthSection = document.getElementById('adminAuth');
+        const adminError = document.getElementById('adminError');
+        const allUserDataSection = document.getElementById('allUserDataSection');
+        const allCprList = document.getElementById('allCprList');
+        const cprTitleInput = document.getElementById('cprTitleInput');
+        const cprDetailsInput = document.getElementById('cprDetailsInput');
+        const saveCprBtn = document.getElementById('saveCprBtn');
+        const cprList = document.getElementById('cprList');
+        const noDataMessage = document.getElementById('noDataMessage');
+        const modal = document.getElementById('custom-modal');
+        const modalMessage = document.getElementById('modal-message');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+
+        // Firestore and Auth instances
+        let app, db, auth;
+        let userId;
+        const ADMIN_CODE = "admin123"; // รหัสแอดมินแบบง่ายๆ สามารถเปลี่ยนได้
+
+        // Function to show a custom modal instead of a standard alert
+        function showModal(message) {
+            modalMessage.textContent = message;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        modalCloseBtn.addEventListener('click', () => {
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        });
+
+        // Initialize Firebase and Authentication
+        function initFirebase() {
+            // Check if firebaseConfig is provided.
+            if (!firebaseConfig) {
+                console.error("Firebase config is missing or invalid.");
+                showModal("พบข้อผิดพลาด: ไม่สามารถเชื่อมต่อฐานข้อมูลได้ กรุณาตรวจสอบการตั้งค่า Firebase ใน Vercel Environment Variables อีกครั้ง");
+                loadingScreen.classList.add('hidden');
+                loginScreen.classList.remove('hidden');
+                return;
+            }
+
+            try {
+                app = initializeApp(firebaseConfig);
+                db = getFirestore(app);
+                auth = getAuth(app);
+                
+                onAuthStateChanged(auth, async (user) => {
+                    if (user) {
+                        userId = user.uid;
+                        await handleUserLogin(userId);
+                    } else {
+                        // User is signed out or not yet authenticated, show login screen
+                        loadingScreen.classList.add('hidden');
+                        loginScreen.classList.remove('hidden');
+                    }
+                });
+
+                // Authenticate with custom token if available, otherwise sign in anonymously
+                if (initialAuthToken) {
+                    signInWithCustomToken(auth, initialAuthToken)
+                        .then(() => console.log("Signed in with custom token."))
+                        .catch(error => {
+                            console.error("Error signing in with custom token:", error);
+                            signInAnonymously(auth).then(() => console.log("Signed in anonymously.")).catch(e => console.error("Error signing in anonymously:", e));
+                        });
+                } else {
+                    signInAnonymously(auth).then(() => console.log("Signed in anonymously.")).catch(e => console.error("Error signing in anonymously:", e));
+                }
+
+            } catch (error) {
+                console.error("Error initializing Firebase:", error);
+                showModal("พบข้อผิดพลาดในการเริ่มต้น Firebase");
+                loadingScreen.classList.add('hidden');
+                loginScreen.classList.remove('hidden');
+            }
+        }
+
+        // Handles user login/signup and UI state
+        async function handleUserLogin(uid) {
+            const userDocRef = doc(db, `/artifacts/${appId}/users/${uid}/userData/profile`);
+            try {
+                const docSnap = await getDoc(userDocRef);
+                if (docSnap.exists()) {
+                    // User exists, get their username
+                    const userData = docSnap.data();
+                    currentUsername.textContent = userData.username;
+                    currentUserId.textContent = uid;
+                    showMainApp();
+                    listenForUserCprData(uid);
+                } else {
+                    // New user, show login screen to get username
+                    loadingScreen.classList.add('hidden');
+                    loginScreen.classList.remove('hidden');
+                }
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+                showModal("พบข้อผิดพลาดในการดึงข้อมูลผู้ใช้");
+                loadingScreen.classList.add('hidden');
+                loginScreen.classList.remove('hidden');
+            }
+        }
+
+        loginBtn.addEventListener('click', async () => {
+            const username = usernameInput.value.trim();
+            if (username) {
+                const uid = auth.currentUser.uid;
+                const userDocRef = doc(db, `/artifacts/${appId}/users/${uid}/userData/profile`);
+                try {
+                    await setDoc(userDocRef, { username: username, createdAt: new Date() });
+                    currentUsername.textContent = username;
+                    currentUserId.textContent = uid;
+                    showMainApp();
+                    listenForUserCprData(uid);
+                } catch (error) {
+                    console.error("Error setting user data:", error);
+                    showModal("บันทึกชื่อผู้ใช้ไม่ได้ กรุณาลองอีกครั้ง");
+                }
+            } else {
+                showModal("กรุณาใส่ชื่อผู้ใช้");
+            }
+        });
+
+        // UI state management functions
+        function showMainApp() {
+            loadingScreen.classList.add('hidden');
+            loginScreen.classList.add('hidden');
+            mainApp.classList.remove('hidden');
+            adminScreen.classList.add('hidden');
+        }
+
+        function showAdminScreen() {
+            mainApp.classList.add('hidden');
+            adminScreen.classList.remove('hidden');
+        }
+
+        function showLoginScreen() {
+            mainApp.classList.add('hidden');
+            adminScreen.classList.add('hidden');
+            loginScreen.classList.remove('hidden');
+        }
+
+        // Listen for CPR data for the current user
+        function listenForUserCprData(uid) {
+            const cprCollectionRef = collection(db, `/artifacts/${appId}/public/data/cprData`);
+            const q = query(cprCollectionRef, where("userId", "==", uid));
+            onSnapshot(q, (snapshot) => {
+                cprList.innerHTML = '';
+                if (snapshot.empty) {
+                    noDataMessage.classList.remove('hidden');
+                } else {
+                    noDataMessage.classList.add('hidden');
+                    snapshot.forEach(doc => {
+                        const data = doc.data();
+                        const cprItem = document.createElement('div');
+                        cprItem.className = 'cpr-card bg-gray-100 p-4 rounded-lg flex justify-between items-center';
+                        cprItem.innerHTML = `
+                            <div>
+                                <h3 class="font-medium text-gray-800">${data.title}</h3>
+                                <p class="text-sm text-gray-600">${data.details}</p>
+                            </div>
+                            <button class="text-red-500 hover:text-red-700 ml-4 delete-btn" data-id="${doc.id}">ลบ</button>
+                        `;
+                        cprList.appendChild(cprItem);
+                    });
+                }
+            });
+        }
+
+        // Save new CPR data
+        saveCprBtn.addEventListener('click', async () => {
+            const title = cprTitleInput.value.trim();
+            const details = cprDetailsInput.value.trim();
+            if (title && details) {
+                const cprCollectionRef = collection(db, `/artifacts/${appId}/public/data/cprData`);
+                try {
+                    await addDoc(cprCollectionRef, {
+                        userId: userId,
+                        username: currentUsername.textContent,
+                        title: title,
+                        details: details,
+                        createdAt: new Date()
+                    });
+                    cprTitleInput.value = '';
+                    cprDetailsInput.value = '';
+                    showModal("บันทึกข้อมูล CPR สำเร็จ!");
+                } catch (e) {
+                    console.error("Error adding document: ", e);
+                    showModal("ไม่สามารถบันทึกข้อมูลได้ กรุณาลองอีกครั้ง");
+                }
+            } else {
+                showModal("กรุณาใส่หัวข้อและรายละเอียดให้ครบถ้วน");
+            }
+        });
+
+        // Delete CPR data
+        cprList.addEventListener('click', async (e) => {
+            if (e.target.classList.contains('delete-btn')) {
+                const docId = e.target.dataset.id;
+                const docRef = doc(db, `/artifacts/${appId}/public/data/cprData/${docId}`);
+                try {
+                    await deleteDoc(docRef);
+                    showModal("ลบข้อมูลสำเร็จ!");
+                } catch (e) {
+                    console.error("Error deleting document: ", e);
+                    showModal("ไม่สามารถลบข้อมูลได้ กรุณาลองอีกครั้ง");
+                }
+            }
+        });
+
+        // Admin View Logic
+        adminBtn.addEventListener('click', showAdminScreen);
+        exitAdminBtn.addEventListener('click', showMainApp);
+
+        checkAdminCodeBtn.addEventListener('click', async () => {
+            if (adminCodeInput.value === ADMIN_CODE) {
+                adminError.classList.add('hidden');
+                adminAuthSection.classList.add('hidden');
+                allUserDataSection.classList.remove('hidden');
+                showAllCprData();
+            } else {
+                adminError.classList.remove('hidden');
+                showModal("รหัส Admin ไม่ถูกต้อง");
+            }
+        });
+
+        async function showAllCprData() {
+            allCprList.innerHTML = '<p class="text-gray-500 text-center">กำลังโหลดข้อมูล...</p>';
+            try {
+                const cprCollectionRef = collection(db, `/artifacts/${appId}/public/data/cprData`);
+                const querySnapshot = await getDocs(cprCollectionRef);
+                
+                allCprList.innerHTML = ''; // Clear loading message
+                if (querySnapshot.empty) {
+                    allCprList.innerHTML = '<p class="text-gray-500 text-center">ยังไม่มีข้อมูล CPR ของผู้ใช้คนใด</p>';
+                } else {
+                    querySnapshot.forEach(doc => {
+                        const data = doc.data();
+                        const cprItem = document.createElement('div');
+                        cprItem.className = 'admin-cpr-card bg-gray-100 p-4 rounded-lg';
+                        cprItem.innerHTML = `
+                            <p class="text-xs text-gray-400">ผู้ใช้: ${data.username} (${data.userId})</p>
+                            <h3 class="font-medium text-gray-800">${data.title}</h3>
+                            <p class="text-sm text-gray-600">${data.details}</p>
+                        `;
+                        allCprList.appendChild(cprItem);
+                    });
+                }
+            } catch (e) {
+                console.error("Error getting all CPR data:", e);
+                allCprList.innerHTML = '<p class="text-red-500 text-center">เกิดข้อผิดพลาดในการโหลดข้อมูล</p>';
+            }
+        }
+
+        // Start the application
+        window.onload = initFirebase;
+    </script>
 </body>
 </html>
