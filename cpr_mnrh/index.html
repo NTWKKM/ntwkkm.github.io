@@ -258,421 +258,426 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
-    <script type="module">
-        // NOTE: Replace this with your own Firebase project configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyBrqEMecdYstxF0rMAz_Lm93F4Oqj5j864",
-            authDomain: "cpr-record-2eadf.firebaseapp.com",
-            projectId: "cpr-record-2eadf",
-            storageBucket: "cpr-record-2eadf.appspot.com",
-            messagingSenderId: "742246720333",
-            appId: "1:742246720333:web:f6df16f6df6c8680d84d04",
-            measurementId: "G-0P7R8M84F8"
-        };
+   <script type="module">
+    // NOTE: Replace this with your own Firebase project configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBrqEMecdYstxF0rMAz_Lm93F4Oqj5j864",
+        authDomain: "cpr-record-2eadf.firebaseapp.com",
+        projectId: "cpr-record-2eadf",
+        storageBucket: "cpr-record-2eadf.appspot.com",
+        messagingSenderId: "742246720333",
+        appId: "1:742246720333:web:f6df16f6df6c8680d84d04",
+        measurementId: "G-0P7R8M84F8"
+    };
 
-        // Import functions from the SDKs
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-        import { 
-            getAuth, 
-            onAuthStateChanged, 
-            signOut,
-            GoogleAuthProvider,
-            signInWithPopup,
-            createUserWithEmailAndPassword,
-            signInWithEmailAndPassword
-        } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-        import { 
-            getFirestore, 
-            collection, 
-            addDoc, 
-            query, 
-            where, 
-            onSnapshot, 
-            doc, 
-            deleteDoc, 
-            getDocs, 
-            setDoc,
-            getDoc
-        } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-        
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
+    // Import functions from the SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { 
+        getAuth, 
+        onAuthStateChanged, 
+        signOut,
+        GoogleAuthProvider,
+        signInWithPopup,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { 
+        getFirestore, 
+        collection, 
+        addDoc, 
+        query, 
+        where, 
+        onSnapshot, 
+        doc, 
+        deleteDoc, 
+        getDocs, 
+        setDoc,
+        getDoc
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-        const ADMIN_EMAIL = "k.nattawit@gmail.com";
+    const ADMIN_EMAIL = "k.nattawit@gmail.com";
 
-        // DOM Elements
-        const loginView = document.getElementById('loginView');
-        const recorderView = document.getElementById('recorderView');
-        const manageView = document.getElementById('manageView');
-        const googleSignInBtn = document.getElementById('googleSignInBtn');
-        const emailInput = document.getElementById('emailInput');
-        const passwordInput = document.getElementById('passwordInput');
-        const emailSignInBtn = document.getElementById('emailSignInBtn');
-        const emailSignUpBtn = document.getElementById('emailSignUpBtn');
-        const loginError = document.getElementById('loginError');
+    // DOM Elements
+    const loginView = document.getElementById('loginView');
+    const recorderView = document.getElementById('recorderView');
+    const manageView = document.getElementById('manageView');
+    const googleSignInBtn = document.getElementById('googleSignInBtn');
+    const emailInput = document.getElementById('emailInput');
+    const passwordInput = document.getElementById('passwordInput');
+    const emailSignInBtn = document.getElementById('emailSignInBtn');
+    const emailSignUpBtn = document.getElementById('emailSignUpBtn');
+    const loginError = document.getElementById('loginError');
 
-        let currentUser = null;
-        let isAdmin = false;
-        let unsubscribe = null;
+    let currentUser = null;
+    let isAdmin = false;
+    let unsubscribe = null;
 
-        // --- AUTHENTICATION ---
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                currentUser = user;
-                const userDocRef = doc(db, "users", user.uid);
+    // --- AUTHENTICATION ---
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            currentUser = user;
+            const userDocRef = doc(db, "users", user.uid);
+            
+            try {
+                const userSnap = await getDoc(userDocRef);
                 
-                try {
-                    const userSnap = await getDoc(userDocRef);
-                    
-                    if (!userSnap.exists()) {
-                        await setDoc(userDocRef, {
-                            uid: user.uid,
-                            name: user.displayName || user.email.split('@')[0],
-                            isAdmin: (user.email === ADMIN_EMAIL),
-                            createdAt: new Date()
-                        });
-                        const newUserSnap = await getDoc(userDocRef);
-                        const userData = newUserSnap.data();
-                        isAdmin = userData.isAdmin || false;
-                        updateUI(userData.name, isAdmin);
-                    } else {
-                        const userData = userSnap.data();
-                        isAdmin = userData.isAdmin || false;
-                        updateUI(userData.name, isAdmin);
-                    }
-                    showView('recorder');
-                } catch (error) {
-                    console.error("Error fetching user data:", error);
-                    signOut(auth);
-                }
-            } else {
-                currentUser = null;
-                isAdmin = false;
-                showView('login');
-            }
-        });
-
-        googleSignInBtn.addEventListener('click', async () => {
-            const provider = new GoogleAuthProvider();
-            try {
-                loginError.classList.add('hidden');
-                await signInWithPopup(auth, provider);
-            } catch (error) {
-                console.error("Google Sign-in Error:", error);
-                loginError.textContent = "เกิดข้อผิดพลาดในการลงชื่อเข้าใช้ด้วย Google";
-                loginError.classList.remove('hidden');
-            }
-        });
-
-        emailSignUpBtn.addEventListener('click', async () => {
-            const email = emailInput.value;
-            const password = passwordInput.value;
-            if (!email || !password) {
-                loginError.textContent = "กรุณากรอกอีเมลและรหัสผ่าน";
-                loginError.classList.remove('hidden');
-                return;
-            }
-            try {
-                loginError.classList.add('hidden');
-                await createUserWithEmailAndPassword(auth, email, password);
-                alert("สร้างบัญชีสำเร็จ! กรุณาเข้าสู่ระบบ");
-            } catch (error) {
-                console.error("Email Sign-up Error:", error.code, error.message);
-                loginError.textContent = "เกิดข้อผิดพลาดในการสร้างบัญชี: " + error.message;
-                loginError.classList.remove('hidden');
-            }
-        });
-
-        emailSignInBtn.addEventListener('click', async () => {
-            const email = emailInput.value;
-            const password = passwordInput.value;
-            if (!email || !password) {
-                loginError.textContent = "กรุณากรอกอีเมลและรหัสผ่าน";
-                loginError.classList.remove('hidden');
-                return;
-            }
-            try {
-                loginError.classList.add('hidden');
-                await signInWithEmailAndPassword(auth, email, password);
-            } catch (error) {
-                console.error("Email Sign-in Error:", error.code, error.message);
-                loginError.textContent = "เกิดข้อผิดพลาดในการลงชื่อเข้าใช้: " + error.message;
-                loginError.classList.remove('hidden');
-            }
-        });
-
-        function handleLogout() {
-            signOut(auth).catch(error => console.error("Logout Error:", error));
-        }
-
-        // --- UI and VIEW MANAGEMENT ---
-        function showView(viewName) {
-            loginView.classList.add('hidden');
-            recorderView.classList.add('hidden');
-            manageView.classList.add('hidden');
-
-            if (viewName === 'login') {
-                loginView.classList.remove('hidden');
-            } else if (viewName === 'recorder') {
-                recorderView.classList.remove('hidden');
-            } else if (viewName === 'manage') {
-                manageView.classList.remove('hidden');
-                loadCases();
-            }
-        }
-
-        function updateUI(name, isAdmin) {
-            document.getElementById('userNameRecorder').textContent = `สวัสดี, ${name}`;
-            document.getElementById('userNameManage').textContent = `สวัสดี, ${name} ${isAdmin ? '(Admin)' : ''}`;
-        }
-
-        // Event listeners for navigation
-        document.getElementById('logoutBtnRecorder').addEventListener('click', handleLogout);
-        document.getElementById('logoutBtnManage').addEventListener('click', handleLogout);
-        document.getElementById('manageCasesBtn').addEventListener('click', () => showView('manage'));
-        document.getElementById('backToRecorderBtn').addEventListener('click', () => showView('recorder'));
-
-        // --- CPR FORM LOGIC (Recorder View) ---
-        const cprForm = document.getElementById('cprForm');
-        cprForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            if (!currentUser) {
-                alert("กรุณาเข้าสู่ระบบก่อนบันทึก");
-                return;
-            }
-            const data = {};
-            Array.from(this.elements).forEach((el) => {
-                if (el.name && !el.classList.contains("cycleInput")) data[el.name] = el.value;
-            });
-            data.cycles = collectCycles();
-            
-            try {
-                const userDoc = await getDocs(query(collection(db, "users"), where("uid", "==", currentUser.uid)));
-                const userName = userDoc.docs[0].data().name;
-
-                await addDoc(collection(db, "cpr_cases"), {
-                    ...data,
-                    userId: currentUser.uid,
-                    userName: userName,
-                    createdAt: new Date()
-                });
-                alert('บันทึกเคสสำเร็จ!');
-                this.reset();
-                document.getElementById("cyclesContainer").innerHTML = "";
-            } catch (error) {
-                console.error("Error saving case: ", error);
-                alert("เกิดข้อผิดพลาดในการบันทึกเคส");
-            }
-        });
-
-        // --- CASE MANAGEMENT LOGIC (Manage View) ---
-        const caseTableBody = document.getElementById('caseTableBody');
-        const exportBtn = document.getElementById('exportBtn');
-        
-        async function loadCases() {
-            if (!currentUser) return;
-
-            if (unsubscribe) {
-                unsubscribe();
-            }
-
-            caseTableBody.innerHTML = '<tr><td colspan="6" class="loading">กำลังโหลดข้อมูล...</td></tr>';
-            
-            let q;
-            if (isAdmin) {
-                q = query(collection(db, "cpr_cases"));
-                document.getElementById('recorderColumnHeader').classList.remove('hidden');
-            } else {
-                q = query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
-                document.getElementById('recorderColumnHeader').classList.add('hidden');
-            }
-
-            unsubscribe = onSnapshot(q, (querySnapshot) => {
-                const cases = [];
-                querySnapshot.forEach((doc) => {
-                    cases.push({ id: doc.id, ...doc.data() });
-                });
-                renderTable(cases);
-            }, (error) => {
-                console.error("Error loading cases: ", error);
-                caseTableBody.innerHTML = '<tr><td colspan="6" class="no-cases">เกิดข้อผิดพลาดในการโหลดข้อมูล</td></tr>';
-            });
-        }
-
-        function renderTable(cases) {
-            caseTableBody.innerHTML = "";
-            if (cases.length === 0) {
-                caseTableBody.innerHTML = `<tr><td colspan="${isAdmin ? '6' : '5'}" class="no-cases">ไม่พบข้อมูลเคสที่บันทึกไว้</td></tr>`;
-                return;
-            }
-
-            cases.sort((a, b) => b.createdAt.toDate() - a.createdAt.toDate());
-
-            cases.forEach(c => {
-                const tr = document.createElement('tr');
-                let recorderCell = '';
-                if (isAdmin) {
-                    recorderCell = `<td>${c.userName || 'N/A'}</td>`;
-                }
-                tr.innerHTML = `
-                    <td>${c.date || '-'}</td>
-                    <td>${c.time || '-'}</td>
-                    <td>${c.hn || '-'}</td>
-                    <td>${c.patientName || '-'}</td>
-                    ${recorderCell}
-                    <td>
-                        <button class="danger delete-btn" data-id="${c.id}" data-hn="${c.hn}">ลบ</button>
-                    </td>
-                `;
-                caseTableBody.appendChild(tr);
-            });
-        }
-
-        caseTableBody.addEventListener('click', async (e) => {
-            if (e.target.classList.contains('delete-btn')) {
-                const caseId = e.target.getAttribute('data-id');
-                const caseHn = e.target.getAttribute('data-hn');
-                if (confirm(`คุณแน่ใจหรือไม่ว่าต้องการลบเคส HN: ${caseHn}?`)) {
-                    try {
-                        await deleteDoc(doc(db, "cpr_cases", caseId));
-                    } catch (error) {
-                        console.error("Error deleting document: ", error);
-                        alert("เกิดข้อผิดพลาดในการลบข้อมูล");
-                    }
-                }
-            }
-        });
-
-        exportBtn.addEventListener('click', async () => {
-            let q;
-            if (isAdmin) {
-                q = query(collection(db, "cpr_cases"));
-            } else {
-                q = query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
-            }
-            
-            const querySnapshot = await getDocs(q);
-            const cases = [];
-            querySnapshot.forEach(doc => cases.push(doc.data()));
-
-            if (cases.length === 0) {
-                alert("ไม่มีข้อมูลสำหรับ Export");
-                return;
-            }
-
-            const exportData = [];
-            cases.forEach(c => {
-                const baseData = { 
-                    date: c.date, time: c.time, hn: c.hn, patientName: c.patientName, age: c.age, 
-                    eventDetails: c.eventDetails, roscTime: c.roscTime, recordedBy: c.userName 
-                };
-                if (!c.cycles || c.cycles.length === 0) {
-                    exportData.push({ ...baseData, cycle: "", startTime: "", cprDuration: "", ekg: "", pulseCheck: "", shockDelivered: "", shockEnergy: "", shockTime: "", airway: "", Hct: "", Dtx: "", medicine: "", investigation: "" });
-                } else {
-                    c.cycles.forEach((cy, i) => {
-                        const invs = (cy.investigations || []).map(inv => `${inv.type}: ${inv.result}`).join("; ");
-                        exportData.push({
-                            ...baseData,
-                            cycle: i + 1, startTime: cy.startTime || "", cprDuration: cy.cprDuration || "", ekg: cy.ekg || "", pulseCheck: cy.pulseCheck || "",
-                            shockDelivered: cy.shockDelivered ? "Yes" : "No", shockEnergy: cy.shockDelivered ? (cy.shockEnergy || "") : "", shockTime: cy.shockDelivered ? (cy.shockTime || "") : "",
-                            airway: cy.airway || "", Hct: cy.hct || "", Dtx: (cy.dtx || []).join('; ') || "",
-                            medicine: (cy.medicines || []).map(m => `${m.name}${m.dose ? " " + m.dose : ""} ${m.route ? " (" + m.route + ")" : ""} @ ${m.time || "n/a"}`).join(", "),
-                            investigation: invs || ""
-                        });
+                if (!userSnap.exists()) {
+                    await setDoc(userDocRef, {
+                        uid: user.uid,
+                        name: user.displayName || user.email.split('@')[0],
+                        isAdmin: (user.email === ADMIN_EMAIL),
+                        createdAt: new Date()
                     });
+                    const newUserSnap = await getDoc(userDocRef);
+                    const userData = newUserSnap.data();
+                    isAdmin = userData.isAdmin || false;
+                    updateUI(userData.name, isAdmin);
+                } else {
+                    const userData = userSnap.data();
+                    isAdmin = userData.isAdmin || false;
+                    updateUI(userData.name, isAdmin);
                 }
-            });
-            const ws = XLSX.utils.json_to_sheet(exportData);
-            const wb = XLSX.utils.book_new();
-            XLSX.utils.book_append_sheet(wb, ws, "CPR Cases");
-            XLSX.writeFile(wb, "cpr_cases_export.xlsx");
-        });
-        
-        // --- DYNAMIC CYCLE FORM LOGIC (Unchanged from original) ---
-        document.getElementById("addCycleBtn").addEventListener("click", function() {
-            addCycleBlock();
-        });
-
-        function addCycleBlock() {
-            const idx = document.querySelectorAll(".cycle-block").length + 1;
-            const div = document.createElement("div");
-            div.className = "cycle-block";
-            div.innerHTML = `
-                <h3>CPR Cycle ${idx} <button type="button" class="remove-btn">ลบ</button></h3>
-                <div class="cycle-grid">
-                    <label>Start Time <input type="time" class="cycleInput cycleStartTime"></label>
-                    <label>CPR Duration (min) <input type="number" min="0" step="0.5" class="cycleInput cycleDuration" placeholder="e.g., 2"></label>
-                    <label>EKG Rhythm
-                        <select class="cycleInput cycleEKG"><option value="PEA">PEA</option><option value="VF">VF</option><option value="Pulseless VT">Pulseless VT</option><option value="Pulse VT">Pulse VT</option><option value="ROSC">ROSC</option><option value="NR">NR</option></select>
-                    </label>
-                    <label>Pulse Check
-                        <select class="cycleInput cyclePulse"><option value="">-</option><option value="No pulse">No pulse</option><option value="Pulse">Pulse</option></select>
-                    </label>
-                    <label>Airway
-                        <select class="cycleInput cycleAirway"><option value="">-</option><option value="BVM">BVM</option><option value="ETT">ETT</option><option value="SGA">SGA</option><option value="Tracheostomy">Tracheostomy</option></select>
-                    </label>
-                    <label>Shock Delivered?
-                        <select class="cycleInput cycleShockYN"><option value="No">No</option><option value="Yes">Yes</option></select>
-                    </label>
-                    <label>Shock Energy (J) <input type="number" min="0" step="1" class="cycleInput cycleShockEnergy" placeholder="e.g., 200"></label>
-                    <label>Shock Time <input type="time" class="cycleInput cycleShockTime"></label>
-                </div>
-                <fieldset><legend>Quick Entry</legend>
-                    <div class="quick-entry-grid">
-                        <label>Hct (%) <input type="number" class="quickHct" placeholder="e.g., 45"></label>
-                        <div><label>Dtx (mg/dL) <input type="number" class="quickDtxValue" placeholder="e.g., 80"></label><button type="button" class="add-btn addDtxBtn">Add Dtx</button></div>
-                    </div><ul class="dtxList"></ul>
-                </fieldset>
-                <fieldset class="meds-list"><legend>Medicines</legend>
-                    <div class="meds-form-container">
-                        <div class="meds-selection-group">
-                            <label><input type="checkbox" class="medAdrenaline"> Adrenaline</label>
-                            <label><input type="checkbox" class="medCalcium"> 10% Calcium Gluconate</label>
-                            <label><input type="checkbox" class="medGlucose"> 50% Glucose</label>
-                            <label><input type="checkbox" class="medNaHCO3"> 7.5% NaHCO₃</label>
-                            <label><input type="checkbox" class="medPRC"> Gr.O low titer PRC</label>
-                            <label>Other: <input type="text" class="medOther" placeholder="Medicine Name"></label>
-                        </div>
-                        <div class="meds-details-group">
-                            <label>Dose <input type="text" class="medDose" placeholder="e.g., 1 mg"></label>
-                            <label>Route <input type="text" class="medRoute" placeholder="e.g., IV"></label>
-                            <label>Time Given <input type="time" class="medTime"></label>
-                        </div>
-                    </div>
-                    <button type="button" class="add-btn addMedBtn">Add Medicine</button>
-                    <ul class="medList"></ul>
-                </fieldset>
-                <fieldset><legend>Investigations</legend>
-                    <div class="investigation-block"><strong>Blood Gas Analysis</strong>
-                        <div class="blood-gas-grid">
-                            <label>pH <input type="number" step="0.01" class="invBgPh"></label>
-                            <label>PCO₂ <input type="number" step="0.1" class="invBgPco2"></label>
-                            <label>HCO₃⁻ <input type="number" step="0.1" class="invBgHco3"></label>
-                            <label>K⁺ <input type="number" step="0.1" class="invBgK"></label>
-                            <label>Hct <input type="number" step="0.1" class="invBgHct"></label>
-                        </div><button type="button" class="add-btn addBloodGasBtn">Add Blood Gas</button><ul class="investigation-list bg-list"></ul>
-                    </div><hr>
-                    <div class="investigation-block"><strong>Ultrasound</strong>
-                        <div class="meds-grid"><label>Result: <input type="text" class="invUsResult" placeholder="e.g., Cardiac standstill"></label><button type="button" class="add-btn addUltrasoundBtn">Add Ultrasound</button></div><ul class="investigation-list us-list"></ul>
-                    </div>
-                </fieldset>
-            `;
-            const ekgSelect = div.querySelector(".cycleEKG");
-            ekgSelect.addEventListener("change", () => { const shockYN = div.querySelector(".cycleShockYN"); if (["VF", "Pulseless VT"].includes(ekgSelect.value)) shockYN.value = "Yes"; else shockYN.value = "No"; });
-            div.querySelector(".remove-btn").onclick = function() { div.remove(); updateCycleHeaders(); };
-            div.querySelector(".addDtxBtn").onclick = function() { const dtxInput = div.querySelector(".quickDtxValue"); const dtxValue = dtxInput.value.trim(); if (!dtxValue) return; const li = document.createElement("li"); li.textContent = `Dtx: ${dtxValue} mg/dL`; li.dataset.value = dtxValue; const removeBtn = document.createElement("button"); removeBtn.textContent = "ลบ"; removeBtn.className = "remove-btn"; removeBtn.onclick = () => li.remove(); li.appendChild(removeBtn); div.querySelector(".dtxList").appendChild(li); dtxInput.value = ""; }
-            setupMedicineAdder(div);
-            setupInvestigationAdders(div);
-            document.getElementById("cyclesContainer").appendChild(div);
+                showView('recorder');
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+                signOut(auth);
+            }
+        } else {
+            currentUser = null;
+            isAdmin = false;
+            showView('login');
         }
-        function setupMedicineAdder(div) { const medsUL = div.querySelector(".medList"); div.querySelector(".addMedBtn").onclick = function() { let meds = []; if (div.querySelector(".medAdrenaline").checked) meds.push("Adrenaline"); if (div.querySelector(".medCalcium").checked) meds.push("10% Calcium Gluconate"); if (div.querySelector(".medNaHCO3").checked) meds.push("7.5% NaHCO₃"); if (div.querySelector(".medPRC").checked) meds.push("Gr.O low titer PRC"); if (div.querySelector(".medGlucose").checked) meds.push("50% Glucose"); const otherVal = (div.querySelector(".medOther").value || "").trim(); if (otherVal) meds.push(otherVal); const doseVal = (div.querySelector(".medDose").value || "").trim(); const routeVal = (div.querySelector(".medRoute").value || "").trim(); const timeVal = div.querySelector(".medTime").value || "n/a"; meds.forEach(med => { const li = document.createElement("li"); li.textContent = `${med}${doseVal ? " " + doseVal : ""}${routeVal ? " (" + routeVal + ")" : ""} @ ${timeVal}`; li.dataset.name = med; li.dataset.dose = doseVal; li.dataset.route = routeVal; li.dataset.time = timeVal; const remove = document.createElement("button"); remove.textContent = "ลบ"; remove.className = "remove-btn"; remove.onclick = () => li.remove(); li.appendChild(remove); medsUL.appendChild(li); }); div.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = false); div.querySelector(".medOther").value = ""; div.querySelector(".medDose").value = ""; div.querySelector(".medRoute").value = ""; div.querySelector(".medTime").value = ""; }; }
-        function setupInvestigationAdders(div) { div.querySelector(".addBloodGasBtn").onclick = function() { const ph = div.querySelector('.invBgPh').value; const pco2 = div.querySelector('.invBgPco2').value; const hco3 = div.querySelector('.invBgHco3').value; const k = div.querySelector('.invBgK').value; const hct = div.querySelector('.invBgHct').value; if (!ph && !pco2 && !hco3 && !k && !hct) return; const resultString = `pH:${ph || '-'} PCO₂:${pco2 || '-'} HCO₃⁻:${hco3 || '-'} K⁺:${k || '-'} Hct:${hct || '-'}`; addInvestigationToList(div.querySelector(".bg-list"), "Blood Gas", resultString, { ph, pco2, hco3, k, hct }); div.querySelectorAll('.invBgPh, .invBgPco2, .invBgHco3, .invBgK, .invBgHct').forEach(i => i.value = ''); }; div.querySelector(".addUltrasoundBtn").onclick = function() { const resultInput = div.querySelector('.invUsResult'); if (!resultInput.value.trim()) return; addInvestigationToList(div.querySelector(".us-list"), "Ultrasound", resultInput.value.trim()); resultInput.value = ''; }; }
-        function addInvestigationToList(ulElement, type, result, data = {}) { const li = document.createElement("li"); li.textContent = `${type}: ${result}`; li.dataset.type = type; li.dataset.result = result; Object.keys(data).forEach(key => { li.dataset[key] = data[key]; }); const removeBtn = document.createElement("button"); removeBtn.textContent = "ลบ"; removeBtn.className = "remove-btn"; removeBtn.onclick = function() { li.remove(); }; li.appendChild(removeBtn); ulElement.appendChild(li); }
-        function updateCycleHeaders() { document.querySelectorAll(".cycle-block").forEach((div, i) => { div.querySelector("h3").innerHTML = `CPR Cycle ${i+1} <button type="button" class="remove-btn">ลบ</button>`; div.querySelector(".remove-btn").onclick = function() { div.remove(); updateCycleHeaders(); }; }); }
-        function collectCycles() { const cycles = []; document.querySelectorAll(".cycle-block").forEach(div => { const cycleData = { startTime: div.querySelector(".cycleStartTime").value, cprDuration: div.querySelector(".cycleDuration").value, ekg: div.querySelector(".cycleEKG").value, pulseCheck: div.querySelector(".cyclePulse").value, airway: div.querySelector(".cycleAirway").value, shockDelivered: div.querySelector(".cycleShockYN").value === "Yes", shockEnergy: div.querySelector(".cycleShockEnergy").value, shockTime: div.querySelector(".cycleShockTime").value, hct: div.querySelector(".quickHct").value, dtx: Array.from(div.querySelectorAll(".dtxList li")).map(li => li.dataset.value), medicines: Array.from(div.querySelectorAll(".medList li")).map(li => ({ name: li.dataset.name, dose: li.dataset.dose, route: li.dataset.route, time: li.dataset.time })), investigations: Array.from(div.querySelectorAll(".investigation-list li")).map(li => ({ type: li.dataset.type, result: li.dataset.result })) }; cycles.push(cycleData); }); return cycles; }
+    });
 
-    </script>
+    googleSignInBtn.addEventListener('click', async () => {
+        const provider = new GoogleAuthProvider();
+        try {
+            loginError.classList.add('hidden');
+            await signInWithPopup(auth, provider);
+        } catch (error) {
+            console.error("Google Sign-in Error:", error);
+            loginError.textContent = "เกิดข้อผิดพลาดในการลงชื่อเข้าใช้ด้วย Google";
+            loginError.classList.remove('hidden');
+        }
+    });
+
+    emailSignUpBtn.addEventListener('click', async () => {
+        const email = emailInput.value;
+        const password = passwordInput.value;
+        if (!email || !password) {
+            loginError.textContent = "กรุณากรอกอีเมลและรหัสผ่าน";
+            loginError.classList.remove('hidden');
+            return;
+        }
+        try {
+            loginError.classList.add('hidden');
+            await createUserWithEmailAndPassword(auth, email, password);
+            alert("สร้างบัญชีสำเร็จ! กรุณาเข้าสู่ระบบ");
+        } catch (error) {
+            console.error("Email Sign-up Error:", error.code, error.message);
+            loginError.textContent = "เกิดข้อผิดพลาดในการสร้างบัญชี: " + error.message;
+            loginError.classList.remove('hidden');
+        }
+    });
+
+    emailSignInBtn.addEventListener('click', async () => {
+        const email = emailInput.value;
+        const password = passwordInput.value;
+        if (!email || !password) {
+            loginError.textContent = "กรุณากรอกอีเมลและรหัสผ่าน";
+            loginError.classList.remove('hidden');
+            return;
+        }
+        try {
+            loginError.classList.add('hidden');
+            await signInWithEmailAndPassword(auth, email, password);
+        } catch (error) {
+            console.error("Email Sign-in Error:", error.code, error.message);
+            loginError.textContent = "เกิดข้อผิดพลาดในการลงชื่อเข้าใช้: " + error.message;
+            loginError.classList.remove('hidden');
+        }
+    });
+
+    function handleLogout() {
+        signOut(auth).catch(error => console.error("Logout Error:", error));
+    }
+
+    // --- UI and VIEW MANAGEMENT ---
+    function showView(viewName) {
+        loginView.classList.add('hidden');
+        recorderView.classList.add('hidden');
+        manageView.classList.add('hidden');
+
+        if (viewName === 'login') {
+            loginView.classList.remove('hidden');
+        } else if (viewName === 'recorder') {
+            recorderView.classList.remove('hidden');
+        } else if (viewName === 'manage') {
+            manageView.classList.remove('hidden');
+            loadCases();
+        }
+    }
+
+    function updateUI(name, isAdmin) {
+        document.getElementById('userNameRecorder').textContent = `สวัสดี, ${name}`;
+        document.getElementById('userNameManage').textContent = `สวัสดี, ${name} ${isAdmin ? '(Admin)' : ''}`;
+    }
+
+    // Event listeners for navigation
+    document.getElementById('logoutBtnRecorder').addEventListener('click', handleLogout);
+    document.getElementById('logoutBtnManage').addEventListener('click', handleLogout);
+    document.getElementById('manageCasesBtn').addEventListener('click', () => showView('manage'));
+    document.getElementById('backToRecorderBtn').addEventListener('click', () => showView('recorder'));
+
+    // --- CPR FORM LOGIC (Recorder View) ---
+    const cprForm = document.getElementById('cprForm');
+    cprForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        if (!currentUser) {
+            alert("กรุณาเข้าสู่ระบบก่อนบันทึก");
+            return;
+        }
+        
+        const data = {};
+        Array.from(this.elements).forEach((el) => {
+            if (el.name && !el.classList.contains("cycleInput")) data[el.name] = el.value;
+        });
+        data.cycles = collectCycles();
+        
+        try {
+            const userDocRef = doc(db, "users", currentUser.uid);
+            const userDocSnap = await getDoc(userDocRef);
+            
+            let userName = 'Anonymous';
+            if (userDocSnap.exists()) {
+                userName = userDocSnap.data().name || 'Anonymous';
+            }
+
+            await addDoc(collection(db, "cpr_cases"), {
+                ...data,
+                userId: currentUser.uid,
+                userName: userName,
+                createdAt: new Date()
+            });
+            alert('บันทึกเคสสำเร็จ!');
+            this.reset();
+            document.getElementById("cyclesContainer").innerHTML = "";
+        } catch (error) {
+            console.error("Error saving case: ", error);
+            alert("เกิดข้อผิดพลาดในการบันทึกเคส");
+        }
+    });
+
+    // --- CASE MANAGEMENT LOGIC (Manage View) ---
+    const caseTableBody = document.getElementById('caseTableBody');
+    const exportBtn = document.getElementById('exportBtn');
+    
+    async function loadCases() {
+        if (!currentUser) return;
+
+        if (unsubscribe) {
+            unsubscribe();
+        }
+
+        caseTableBody.innerHTML = '<tr><td colspan="6" class="loading">กำลังโหลดข้อมูล...</td></tr>';
+        
+        let q;
+        if (isAdmin) {
+            q = query(collection(db, "cpr_cases"));
+            document.getElementById('recorderColumnHeader').classList.remove('hidden');
+        } else {
+            q = query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
+            document.getElementById('recorderColumnHeader').classList.add('hidden');
+        }
+
+        unsubscribe = onSnapshot(q, (querySnapshot) => {
+            const cases = [];
+            querySnapshot.forEach((doc) => {
+                cases.push({ id: doc.id, ...doc.data() });
+            });
+            renderTable(cases);
+        }, (error) => {
+            console.error("Error loading cases: ", error);
+            caseTableBody.innerHTML = '<tr><td colspan="6" class="no-cases">เกิดข้อผิดพลาดในการโหลดข้อมูล</td></tr>';
+        });
+    }
+
+    function renderTable(cases) {
+        caseTableBody.innerHTML = "";
+        if (cases.length === 0) {
+            caseTableBody.innerHTML = `<tr><td colspan="${isAdmin ? '6' : '5'}" class="no-cases">ไม่พบข้อมูลเคสที่บันทึกไว้</td></tr>`;
+            return;
+        }
+
+        cases.sort((a, b) => b.createdAt.toDate() - a.createdAt.toDate());
+
+        cases.forEach(c => {
+            const tr = document.createElement('tr');
+            let recorderCell = '';
+            if (isAdmin) {
+                recorderCell = `<td>${c.userName || 'N/A'}</td>`;
+            }
+            tr.innerHTML = `
+                <td>${c.date || '-'}</td>
+                <td>${c.time || '-'}</td>
+                <td>${c.hn || '-'}</td>
+                <td>${c.patientName || '-'}</td>
+                ${recorderCell}
+                <td>
+                    <button class="danger delete-btn" data-id="${c.id}" data-hn="${c.hn}">ลบ</button>
+                </td>
+            `;
+            caseTableBody.appendChild(tr);
+        });
+    }
+
+    caseTableBody.addEventListener('click', async (e) => {
+        if (e.target.classList.contains('delete-btn')) {
+            const caseId = e.target.getAttribute('data-id');
+            const caseHn = e.target.getAttribute('data-hn');
+            if (confirm(`คุณแน่ใจหรือไม่ว่าต้องการลบเคส HN: ${caseHn}?`)) {
+                try {
+                    await deleteDoc(doc(db, "cpr_cases", caseId));
+                } catch (error) {
+                    console.error("Error deleting document: ", error);
+                    alert("เกิดข้อผิดพลาดในการลบข้อมูล");
+                }
+            }
+        }
+    });
+
+    exportBtn.addEventListener('click', async () => {
+        let q;
+        if (isAdmin) {
+            q = query(collection(db, "cpr_cases"));
+        } else {
+            q = query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
+        }
+        
+        const querySnapshot = await getDocs(q);
+        const cases = [];
+        querySnapshot.forEach(doc => cases.push(doc.data()));
+
+        if (cases.length === 0) {
+            alert("ไม่มีข้อมูลสำหรับ Export");
+            return;
+        }
+
+        const exportData = [];
+        cases.forEach(c => {
+            const baseData = { 
+                date: c.date, time: c.time, hn: c.hn, patientName: c.patientName, age: c.age, 
+                eventDetails: c.eventDetails, roscTime: c.roscTime, recordedBy: c.userName 
+            };
+            if (!c.cycles || c.cycles.length === 0) {
+                exportData.push({ ...baseData, cycle: "", startTime: "", cprDuration: "", ekg: "", pulseCheck: "", shockDelivered: "", shockEnergy: "", shockTime: "", airway: "", Hct: "", Dtx: "", medicine: "", investigation: "" });
+            } else {
+                c.cycles.forEach((cy, i) => {
+                    const invs = (cy.investigations || []).map(inv => `${inv.type}: ${inv.result}`).join("; ");
+                    exportData.push({
+                        ...baseData,
+                        cycle: i + 1, startTime: cy.startTime || "", cprDuration: cy.cprDuration || "", ekg: cy.ekg || "", pulseCheck: cy.pulseCheck || "",
+                        shockDelivered: cy.shockDelivered ? "Yes" : "No", shockEnergy: cy.shockDelivered ? (cy.shockEnergy || "") : "", shockTime: cy.shockDelivered ? (cy.shockTime || "") : "",
+                        airway: cy.airway || "", Hct: cy.hct || "", Dtx: (cy.dtx || []).join('; ') || "",
+                        medicine: (cy.medicines || []).map(m => `${m.name}${m.dose ? " " + m.dose : ""} ${m.route ? " (" + m.route + ")" : ""} @ ${m.time || "n/a"}`).join(", "),
+                        investigation: invs || ""
+                    });
+                });
+            }
+        });
+        const ws = XLSX.utils.json_to_sheet(exportData);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "CPR Cases");
+        XLSX.writeFile(wb, "cpr_cases_export.xlsx");
+    });
+    
+    // --- DYNAMIC CYCLE FORM LOGIC (Unchanged from original) ---
+    document.getElementById("addCycleBtn").addEventListener("click", function() {
+        addCycleBlock();
+    });
+
+    function addCycleBlock() {
+        const idx = document.querySelectorAll(".cycle-block").length + 1;
+        const div = document.createElement("div");
+        div.className = "cycle-block";
+        div.innerHTML = `
+            <h3>CPR Cycle ${idx} <button type="button" class="remove-btn">ลบ</button></h3>
+            <div class="cycle-grid">
+                <label>Start Time <input type="time" class="cycleInput cycleStartTime"></label>
+                <label>CPR Duration (min) <input type="number" min="0" step="0.5" class="cycleInput cycleDuration" placeholder="e.g., 2"></label>
+                <label>EKG Rhythm
+                    <select class="cycleInput cycleEKG"><option value="PEA">PEA</option><option value="VF">VF</option><option value="Pulseless VT">Pulseless VT</option><option value="Pulse VT">Pulse VT</option><option value="ROSC">ROSC</option><option value="NR">NR</option></select>
+                </label>
+                <label>Pulse Check
+                    <select class="cycleInput cyclePulse"><option value="">-</option><option value="No pulse">No pulse</option><option value="Pulse">Pulse</option></select>
+                </label>
+                <label>Airway
+                    <select class="cycleInput cycleAirway"><option value="">-</option><option value="BVM">BVM</option><option value="ETT">ETT</option><option value="SGA">SGA</option><option value="Tracheostomy">Tracheostomy</option></select>
+                </label>
+                <label>Shock Delivered?
+                    <select class="cycleInput cycleShockYN"><option value="No">No</option><option value="Yes">Yes</option></select>
+                </label>
+                <label>Shock Energy (J) <input type="number" min="0" step="1" class="cycleInput cycleShockEnergy" placeholder="e.g., 200"></label>
+                <label>Shock Time <input type="time" class="cycleInput cycleShockTime"></label>
+            </div>
+            <fieldset><legend>Quick Entry</legend>
+                <div class="quick-entry-grid">
+                    <label>Hct (%) <input type="number" class="quickHct" placeholder="e.g., 45"></label>
+                    <div><label>Dtx (mg/dL) <input type="number" class="quickDtxValue" placeholder="e.g., 80"></label><button type="button" class="add-btn addDtxBtn">Add Dtx</button></div>
+                </div><ul class="dtxList"></ul>
+            </fieldset>
+            <fieldset class="meds-list"><legend>Medicines</legend>
+                <div class="meds-form-container">
+                    <div class="meds-selection-group">
+                        <label><input type="checkbox" class="medAdrenaline"> Adrenaline</label>
+                        <label><input type="checkbox" class="medCalcium"> 10% Calcium Gluconate</label>
+                        <label><input type="checkbox" class="medGlucose"> 50% Glucose</label>
+                        <label><input type="checkbox" class="medNaHCO3"> 7.5% NaHCO₃</label>
+                        <label><input type="checkbox" class="medPRC"> Gr.O low titer PRC</label>
+                        <label>Other: <input type="text" class="medOther" placeholder="Medicine Name"></label>
+                    </div>
+                    <div class="meds-details-group">
+                        <label>Dose <input type="text" class="medDose" placeholder="e.g., 1 mg"></label>
+                        <label>Route <input type="text" class="medRoute" placeholder="e.g., IV"></label>
+                        <label>Time Given <input type="time" class="medTime"></label>
+                    </div>
+                </div>
+                <button type="button" class="add-btn addMedBtn">Add Medicine</button>
+                <ul class="medList"></ul>
+            </fieldset>
+            <fieldset><legend>Investigations</legend>
+                <div class="investigation-block"><strong>Blood Gas Analysis</strong>
+                    <div class="blood-gas-grid">
+                        <label>pH <input type="number" step="0.01" class="invBgPh"></label>
+                        <label>PCO₂ <input type="number" step="0.1" class="invBgPco2"></label>
+                        <label>HCO₃⁻ <input type="number" step="0.1" class="invBgHco3"></label>
+                        <label>K⁺ <input type="number" step="0.1" class="invBgK"></label>
+                        <label>Hct <input type="number" step="0.1" class="invBgHct"></label>
+                    </div><button type="button" class="add-btn addBloodGasBtn">Add Blood Gas</button><ul class="investigation-list bg-list"></ul>
+                </div><hr>
+                <div class="investigation-block"><strong>Ultrasound</strong>
+                    <div class="meds-grid"><label>Result: <input type="text" class="invUsResult" placeholder="e.g., Cardiac standstill"></label><button type="button" class="add-btn addUltrasoundBtn">Add Ultrasound</button></div><ul class="investigation-list us-list"></ul>
+                </div>
+            </fieldset>
+        `;
+        const ekgSelect = div.querySelector(".cycleEKG");
+        ekgSelect.addEventListener("change", () => { const shockYN = div.querySelector(".cycleShockYN"); if (["VF", "Pulseless VT"].includes(ekgSelect.value)) shockYN.value = "Yes"; else shockYN.value = "No"; });
+        div.querySelector(".remove-btn").onclick = function() { div.remove(); updateCycleHeaders(); };
+        div.querySelector(".addDtxBtn").onclick = function() { const dtxInput = div.querySelector(".quickDtxValue"); const dtxValue = dtxInput.value.trim(); if (!dtxValue) return; const li = document.createElement("li"); li.textContent = `Dtx: ${dtxValue} mg/dL`; li.dataset.value = dtxValue; const removeBtn = document.createElement("button"); removeBtn.textContent = "ลบ"; removeBtn.className = "remove-btn"; removeBtn.onclick = () => li.remove(); li.appendChild(removeBtn); div.querySelector(".dtxList").appendChild(li); dtxInput.value = ""; }
+        setupMedicineAdder(div);
+        setupInvestigationAdders(div);
+        document.getElementById("cyclesContainer").appendChild(div);
+    }
+    function setupMedicineAdder(div) { const medsUL = div.querySelector(".medList"); div.querySelector(".addMedBtn").onclick = function() { let meds = []; if (div.querySelector(".medAdrenaline").checked) meds.push("Adrenaline"); if (div.querySelector(".medCalcium").checked) meds.push("10% Calcium Gluconate"); if (div.querySelector(".medNaHCO3").checked) meds.push("7.5% NaHCO₃"); if (div.querySelector(".medPRC").checked) meds.push("Gr.O low titer PRC"); if (div.querySelector(".medGlucose").checked) meds.push("50% Glucose"); const otherVal = (div.querySelector(".medOther").value || "").trim(); if (otherVal) meds.push(otherVal); const doseVal = (div.querySelector(".medDose").value || "").trim(); const routeVal = (div.querySelector(".medRoute").value || "").trim(); const timeVal = div.querySelector(".medTime").value || "n/a"; meds.forEach(med => { const li = document.createElement("li"); li.textContent = `${med}${doseVal ? " " + doseVal : ""}${routeVal ? " (" + routeVal + ")" : ""} @ ${timeVal}`; li.dataset.name = med; li.dataset.dose = doseVal; li.dataset.route = routeVal; li.dataset.time = timeVal; const remove = document.createElement("button"); remove.textContent = "ลบ"; remove.className = "remove-btn"; remove.onclick = () => li.remove(); li.appendChild(remove); medsUL.appendChild(li); }); div.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = false); div.querySelector(".medOther").value = ""; div.querySelector(".medDose").value = ""; div.querySelector(".medRoute").value = ""; div.querySelector(".medTime").value = ""; }; }
+    function setupInvestigationAdders(div) { div.querySelector(".addBloodGasBtn").onclick = function() { const ph = div.querySelector('.invBgPh').value; const pco2 = div.querySelector('.invBgPco2').value; const hco3 = div.querySelector('.invBgHco3').value; const k = div.querySelector('.invBgK').value; const hct = div.querySelector('.invBgHct').value; if (!ph && !pco2 && !hco3 && !k && !hct) return; const resultString = `pH:${ph || '-'} PCO₂:${pco2 || '-'} HCO₃⁻:${hco3 || '-'} K⁺:${k || '-'} Hct:${hct || '-'}`; addInvestigationToList(div.querySelector(".bg-list"), "Blood Gas", resultString, { ph, pco2, hco3, k, hct }); div.querySelectorAll('.invBgPh, .invBgPco2, .invBgHco3, .invBgK, .invBgHct').forEach(i => i.value = ''); }; div.querySelector(".addUltrasoundBtn").onclick = function() { const resultInput = div.querySelector('.invUsResult'); if (!resultInput.value.trim()) return; addInvestigationToList(div.querySelector(".us-list"), "Ultrasound", resultInput.value.trim()); resultInput.value = ''; }; }
+    function addInvestigationToList(ulElement, type, result, data = {}) { const li = document.createElement("li"); li.textContent = `${type}: ${result}`; li.dataset.type = type; li.dataset.result = result; Object.keys(data).forEach(key => { li.dataset[key] = data[key]; }); const removeBtn = document.createElement("button"); removeBtn.textContent = "ลบ"; removeBtn.className = "remove-btn"; removeBtn.onclick = function() { li.remove(); }; li.appendChild(removeBtn); ulElement.appendChild(li); }
+    function updateCycleHeaders() { document.querySelectorAll(".cycle-block").forEach((div, i) => { div.querySelector("h3").innerHTML = `CPR Cycle ${i+1} <button type="button" class="remove-btn">ลบ</button>`; div.querySelector(".remove-btn").onclick = function() { div.remove(); updateCycleHeaders(); }; }); }
+    function collectCycles() { const cycles = []; document.querySelectorAll(".cycle-block").forEach(div => { const cycleData = { startTime: div.querySelector(".cycleStartTime").value, cprDuration: div.querySelector(".cycleDuration").value, ekg: div.querySelector(".cycleEKG").value, pulseCheck: div.querySelector(".cyclePulse").value, airway: div.querySelector(".cycleAirway").value, shockDelivered: div.querySelector(".cycleShockYN").value === "Yes", shockEnergy: div.querySelector(".cycleShockEnergy").value, shockTime: div.querySelector(".cycleShockTime").value, hct: div.querySelector(".quickHct").value, dtx: Array.from(div.querySelectorAll(".dtxList li")).map(li => li.dataset.value), medicines: Array.from(div.querySelectorAll(".medList li")).map(li => ({ name: li.dataset.name, dose: li.dataset.dose, route: li.dataset.route, time: li.dataset.time })), investigations: Array.from(div.querySelectorAll(".investigation-list li")).map(li => ({ type: li.dataset.type, result: li.dataset.result })) }; cycles.push(cycleData); }); return cycles; }
+</script>
 </body>
 </html>
