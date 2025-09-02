@@ -42,29 +42,13 @@
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
 
-    <!-- Loading Screen -->
-    <div id="loadingScreen" class="flex flex-col items-center justify-center h-full w-full">
-        <div class="animate-spin rounded-full h-12 w-12 border-4 border-t-4 border-gray-900"></div>
-        <p class="mt-4 text-gray-700">กำลังโหลด...</p>
-    </div>
-
-    <!-- Login/Signup Screen -->
-    <div id="loginScreen" class="container text-center fade-in hidden">
-        <h1 class="text-3xl font-bold text-gray-800 mb-6">ยินดีต้อนรับสู่ CPR Recorder</h1>
-        <p class="text-gray-600 mb-6">กรุณาใส่ชื่อผู้ใช้เพื่อเข้าสู่ระบบหรือสมัครสมาชิก</p>
-        <input type="text" id="usernameInput" class="w-full p-3 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="ชื่อผู้ใช้">
-        <button id="loginBtn" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-colors">เข้าสู่ระบบ / สมัครสมาชิก</button>
-        <p class="text-xs text-gray-500 mt-4">ไม่มีรหัสผ่าน เพียงแค่ชื่อผู้ใช้</p>
-    </div>
-
     <!-- Main App Screen -->
-    <div id="mainApp" class="container hidden fade-in">
+    <div id="mainApp" class="container fade-in">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-2xl font-bold text-gray-800">CPR Recorder</h1>
             <button id="adminBtn" class="bg-purple-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">โหมด Admin</button>
         </div>
-        <p class="text-gray-600 mb-2">เข้าสู่ระบบในฐานะ: <span id="currentUsername" class="font-medium"></span></p>
-        <p class="text-sm text-gray-500 mb-6">User ID: <span id="currentUserId" class="font-mono text-xs"></span></p>
+        <p class="text-gray-600 mb-2">User ID: <span id="currentUserId" class="font-mono text-xs"></span></p>
 
         <!-- CPR Record Form -->
         <div class="mb-8 p-4 bg-gray-50 rounded-lg">
@@ -90,16 +74,7 @@
             <button id="exitAdminBtn" class="bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700 transition-colors">ออก</button>
         </div>
         
-        <div id="adminAuth" class="mb-6">
-            <h2 class="text-xl font-semibold text-gray-800 mb-4">ใส่รหัส Admin</h2>
-            <div class="flex">
-                <input type="password" id="adminCodeInput" class="flex-grow p-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="รหัส Admin">
-                <button id="checkAdminCodeBtn" class="bg-blue-600 text-white font-medium py-3 px-6 rounded-r-lg hover:bg-blue-700 transition-colors">ยืนยัน</button>
-            </div>
-            <p id="adminError" class="text-red-500 text-sm mt-2 hidden">รหัส Admin ไม่ถูกต้อง</p>
-        </div>
-
-        <div id="allUserDataSection" class="hidden">
+        <div id="allUserDataSection">
             <h2 class="text-xl font-semibold text-gray-800 mb-4">ข้อมูล CPR ของผู้ใช้ทั้งหมด</h2>
             <div id="allCprList" class="space-y-4">
                 <p class="text-gray-500 text-center">กำลังโหลดข้อมูล...</p>
@@ -117,7 +92,7 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, getDoc, addDoc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // Global variables provided by the Canvas environment.
@@ -130,26 +105,16 @@
                 firebaseConfig = JSON.parse(__firebase_config);
             } catch (e) {
                 console.error("Error parsing Firebase config:", e);
-                // The error will be handled below, no need to show a modal here.
+                showModal("พบข้อผิดพลาด: ไม่สามารถเชื่อมต่อฐานข้อมูลได้ กรุณาตรวจสอบการตั้งค่า Firebase ใน Vercel Environment Variables อีกครั้ง");
             }
         }
 
         // UI elements
-        const loadingScreen = document.getElementById('loadingScreen');
-        const loginScreen = document.getElementById('loginScreen');
         const mainApp = document.getElementById('mainApp');
         const adminScreen = document.getElementById('adminScreen');
-        const usernameInput = document.getElementById('usernameInput');
-        const loginBtn = document.getElementById('loginBtn');
-        const currentUsername = document.getElementById('currentUsername');
         const currentUserId = document.getElementById('currentUserId');
         const adminBtn = document.getElementById('adminBtn');
         const exitAdminBtn = document.getElementById('exitAdminBtn');
-        const adminCodeInput = document.getElementById('adminCodeInput');
-        const checkAdminCodeBtn = document.getElementById('checkAdminCodeBtn');
-        const adminAuthSection = document.getElementById('adminAuth');
-        const adminError = document.getElementById('adminError');
-        const allUserDataSection = document.getElementById('allUserDataSection');
         const allCprList = document.getElementById('allCprList');
         const cprTitleInput = document.getElementById('cprTitleInput');
         const cprDetailsInput = document.getElementById('cprDetailsInput');
@@ -163,7 +128,6 @@
         // Firestore and Auth instances
         let app, db, auth;
         let userId;
-        const ADMIN_CODE = "admin123"; // รหัสแอดมินแบบง่ายๆ สามารถเปลี่ยนได้
 
         // Function to show a custom modal instead of a standard alert
         function showModal(message) {
@@ -179,12 +143,7 @@
 
         // Initialize Firebase and Authentication
         function initFirebase() {
-            // Check if firebaseConfig is provided.
             if (!firebaseConfig) {
-                console.error("Firebase config is missing or invalid.");
-                showModal("พบข้อผิดพลาด: ไม่สามารถเชื่อมต่อฐานข้อมูลได้ กรุณาตรวจสอบการตั้งค่า Firebase ใน Vercel Environment Variables อีกครั้ง");
-                loadingScreen.classList.add('hidden');
-                loginScreen.classList.remove('hidden');
                 return;
             }
 
@@ -193,94 +152,24 @@
                 db = getFirestore(app);
                 auth = getAuth(app);
                 
-                onAuthStateChanged(auth, async (user) => {
-                    if (user) {
-                        userId = user.uid;
-                        await handleUserLogin(userId);
-                    } else {
-                        // User is signed out or not yet authenticated, show login screen
-                        loadingScreen.classList.add('hidden');
-                        loginScreen.classList.remove('hidden');
-                    }
+                // Sign in anonymously immediately and listen for data
+                signInAnonymously(auth).then((result) => {
+                    userId = result.user.uid;
+                    currentUserId.textContent = userId;
+                    listenForUserCprData(userId);
+                }).catch(e => {
+                    console.error("Error signing in anonymously:", e);
+                    showModal("ไม่สามารถเข้าสู่ระบบได้ กรุณาลองใหม่");
                 });
-
-                // Authenticate with custom token if available, otherwise sign in anonymously
-                if (initialAuthToken) {
-                    signInWithCustomToken(auth, initialAuthToken)
-                        .then(() => console.log("Signed in with custom token."))
-                        .catch(error => {
-                            console.error("Error signing in with custom token:", error);
-                            signInAnonymously(auth).then(() => console.log("Signed in anonymously.")).catch(e => console.error("Error signing in anonymously:", e));
-                        });
-                } else {
-                    signInAnonymously(auth).then(() => console.log("Signed in anonymously.")).catch(e => console.error("Error signing in anonymously:", e));
-                }
 
             } catch (error) {
                 console.error("Error initializing Firebase:", error);
                 showModal("พบข้อผิดพลาดในการเริ่มต้น Firebase");
-                loadingScreen.classList.add('hidden');
-                loginScreen.classList.remove('hidden');
             }
         }
-
-        // Handles user login/signup and UI state
-        async function handleUserLogin(uid) {
-            const userDocRef = doc(db, `/artifacts/${appId}/users/${uid}/userData/profile`);
-            try {
-                const docSnap = await getDoc(userDocRef);
-                if (docSnap.exists()) {
-                    // User exists, get their username
-                    const userData = docSnap.data();
-                    currentUsername.textContent = userData.username;
-                    currentUserId.textContent = uid;
-                    showMainApp();
-                    listenForUserCprData(uid);
-                } else {
-                    // New user, show login screen to get username
-                    loadingScreen.classList.add('hidden');
-                    loginScreen.classList.remove('hidden');
-                }
-            } catch (error) {
-                console.error("Error fetching user data:", error);
-                showModal("พบข้อผิดพลาดในการดึงข้อมูลผู้ใช้");
-                loadingScreen.classList.add('hidden');
-                loginScreen.classList.remove('hidden');
-            }
-        }
-
-        loginBtn.addEventListener('click', async () => {
-            const username = usernameInput.value.trim();
-            if (username) {
-                // Show loading state
-                loginBtn.disabled = true;
-                loginBtn.textContent = 'กำลังบันทึก...';
-                
-                const uid = auth.currentUser.uid;
-                const userDocRef = doc(db, `/artifacts/${appId}/users/${uid}/userData/profile`);
-                try {
-                    await setDoc(userDocRef, { username: username, createdAt: new Date() });
-                    currentUsername.textContent = username;
-                    currentUserId.textContent = uid;
-                    showMainApp();
-                    listenForUserCprData(uid);
-                } catch (error) {
-                    console.error("Error setting user data:", error);
-                    showModal("บันทึกชื่อผู้ใช้ไม่ได้ กรุณาลองอีกครั้ง");
-                } finally {
-                    // Reset button state regardless of success or failure
-                    loginBtn.disabled = false;
-                    loginBtn.textContent = 'เข้าสู่ระบบ / สมัครสมาชิก';
-                }
-            } else {
-                showModal("กรุณาใส่ชื่อผู้ใช้");
-            }
-        });
 
         // UI state management functions
         function showMainApp() {
-            loadingScreen.classList.add('hidden');
-            loginScreen.classList.add('hidden');
             mainApp.classList.remove('hidden');
             adminScreen.classList.add('hidden');
         }
@@ -288,12 +177,7 @@
         function showAdminScreen() {
             mainApp.classList.add('hidden');
             adminScreen.classList.remove('hidden');
-        }
-
-        function showLoginScreen() {
-            mainApp.classList.add('hidden');
-            adminScreen.classList.add('hidden');
-            loginScreen.classList.remove('hidden');
+            showAllCprData();
         }
 
         // Listen for CPR data for the current user
@@ -332,7 +216,6 @@
                 try {
                     await addDoc(cprCollectionRef, {
                         userId: userId,
-                        username: currentUsername.textContent,
                         title: title,
                         details: details,
                         createdAt: new Date()
@@ -368,23 +251,13 @@
         adminBtn.addEventListener('click', showAdminScreen);
         exitAdminBtn.addEventListener('click', showMainApp);
 
-        checkAdminCodeBtn.addEventListener('click', async () => {
-            if (adminCodeInput.value === ADMIN_CODE) {
-                adminError.classList.add('hidden');
-                adminAuthSection.classList.add('hidden');
-                allUserDataSection.classList.remove('hidden');
-                showAllCprData();
-            } else {
-                adminError.classList.remove('hidden');
-                showModal("รหัส Admin ไม่ถูกต้อง");
-            }
-        });
-
         async function showAllCprData() {
             allCprList.innerHTML = '<p class="text-gray-500 text-center">กำลังโหลดข้อมูล...</p>';
             try {
                 const cprCollectionRef = collection(db, `/artifacts/${appId}/public/data/cprData`);
-                const querySnapshot = await getDocs(cprCollectionRef);
+                // แก้ไขตรงนี้: เพิ่มการ query โดยใช้ userId เพื่อให้สอดคล้องกับสิทธิ์การเข้าถึง
+                const q = query(cprCollectionRef, where("userId", "==", userId));
+                const querySnapshot = await getDocs(q);
                 
                 allCprList.innerHTML = ''; // Clear loading message
                 if (querySnapshot.empty) {
@@ -394,8 +267,10 @@
                         const data = doc.data();
                         const cprItem = document.createElement('div');
                         cprItem.className = 'admin-cpr-card bg-gray-100 p-4 rounded-lg';
+                        // Check if username exists from older records, otherwise use userId
+                        const displayName = data.username || data.userId;
                         cprItem.innerHTML = `
-                            <p class="text-xs text-gray-400">ผู้ใช้: ${data.username} (${data.userId})</p>
+                            <p class="text-xs text-gray-400">ผู้ใช้: ${displayName}</p>
                             <h3 class="font-medium text-gray-800">${data.title}</h3>
                             <p class="text-sm text-gray-600">${data.details}</p>
                         `;
