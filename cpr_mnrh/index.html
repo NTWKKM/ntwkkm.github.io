@@ -5,192 +5,435 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CPR Case Recorder</title>
     <style>
+        /* --- Root Variables for Colors --- */
         :root {
-            --primary-color: #2b6cb0;
-            --secondary-color: #38b2ac;
-            --danger-color: #c53030;
-            --light-gray: #f9fafb;
-            --medium-gray: #e5e7eb;
-            --dark-gray: #4a5568;
+            --primary-color: #2b6cb0; /* Deep Blue */
+            --secondary-color: #38b2ac; /* Teal */
+            --danger-color: #c53030; /* Red */
+            --light-bg: #f9fafb; /* Light Gray Background */
+            --medium-gray-border: #e5e7eb; /* Medium Gray for Borders */
+            --dark-text: #2d3748; /* Dark Text */
+            --light-text: #ffffff; /* Light Text for dark backgrounds */
+            --form-bg: #edf2f7; /* Light Blue for form sections */
+            --fieldset-border: #a0aec0; /* Gray for fieldset borders */
         }
+
+        /* --- Base Styles --- */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             margin: 0;
-            background: var(--light-gray);
-            color: #333;
+            background: var(--light-bg);
+            color: var(--dark-text);
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            line-height: 1.6;
         }
+
         .container {
             width: 95%;
             max-width: 1200px;
             margin: 20px auto;
-            padding: 20px;
-            background: white;
+            padding: 25px;
+            background: var(--light-text);
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
             flex-grow: 1;
         }
-        h1, h2, h3 { color: var(--primary-color); }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        h1 { font-size: 2.2em; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.4em; }
+
         /* --- Login View --- */
         #loginView {
-            max-width: 400px;
-            margin: 80px auto;
+            max-width: 450px;
+            margin: 60px auto;
             text-align: center;
+            padding: 40px;
         }
         .login-box {
-            padding: 30px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 12px;
-            background-color: #fff;
+            background-color: var(--light-text);
+            border: 1px solid var(--medium-gray-border);
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+        .login-box img {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 25px;
+            border: 3px solid var(--secondary-color);
+        }
+        .login-box p {
+            color: var(--dark-text);
+            margin-bottom: 25px;
+            font-size: 1.1em;
         }
         .login-box button {
             width: 100%;
-            padding: 12px;
+            padding: 13px;
             border-radius: 8px;
-            border: 1px solid var(--medium-gray);
-            background: #fff;
-            font-size: 1em;
+            border: none;
+            font-size: 1.05em;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 12px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 12px;
+        }
+        #googleSignInBtn {
+            background-color: var(--light-text);
+            color: var(--dark-text);
+            border: 1px solid var(--medium-gray-border);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        #googleSignInBtn:hover {
+            background-color: #f0f4f8;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         .login-box button img {
-            height: 20px;
+            height: 22px;
+            width: 22px;
+            border: none; /* Override image border for logo */
         }
+        .login-box .divider {
+            color: #b0b0b0;
+            margin: 25px 0;
+            position: relative;
+        }
+        .login-box .divider::before,
+        .login-box .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background-color: var(--medium-gray-border);
+        }
+        .login-box .divider::before { left: 0; }
+        .login-box .divider::after { right: 0; }
         #emailPasswordForm input {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid var(--medium-gray-border);
+            border-radius: 8px;
             box-sizing: border-box;
+            font-size: 1em;
+        }
+        #emailPasswordForm input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(43, 108, 176, 0.2);
         }
         /* --- Header & Navigation --- */
         .header-nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--medium-gray);
-            padding-bottom: 15px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--medium-gray-border);
+            padding-bottom: 18px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 15px;
         }
         .header-nav h1 {
             margin: 0;
-            font-size: 1.5em;
+            font-size: 1.8em;
+            color: var(--primary-color);
         }
         .nav-link, .user-info button {
             font-size: 1em;
             color: var(--primary-color);
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
             background: none;
             border: none;
-            padding: 8px 12px;
+            padding: 10px 15px;
             border-radius: 8px;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
         .nav-link:hover, .user-info button:hover {
-            background-color: #eef2ff;
+            background-color: #e6f0fa; /* Lighter primary hover */
+            color: var(--primary-color);
         }
         .user-info {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         .user-info span {
-            font-weight: bold;
-            color: var(--dark-gray);
+            font-weight: 600;
+            color: var(--dark-text);
+            font-size: 1.05em;
         }
         /* --- General Form & Button Styles --- */
-        form label { display: block; margin: 10px 0 5px; font-weight: 600; }
+        form label { 
+            display: block; 
+            margin: 12px 0 6px; 
+            font-weight: 600; 
+            color: var(--dark-text);
+        }
         input[type="text"], input[type="number"], input[type="date"], input[type="time"], select {
             width: 100%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
+            padding: 10px;
+            border: 1px solid var(--medium-gray-border);
+            border-radius: 8px;
             box-sizing: border-box;
+            font-size: 1em;
+            background-color: var(--light-text);
+        }
+        input[type="text"]:focus, input[type="number"]:focus, input[type="date"]:focus, input[type="time"]:focus, select:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(56, 178, 172, 0.2);
         }
         fieldset { 
-            margin-bottom: 20px; 
-            border-radius: 10px; 
-            border: 1px solid var(--secondary-color); 
-            background: #f4f9fe; 
-            padding: 14px; 
+            margin-bottom: 30px; 
+            border-radius: 12px; 
+            border: 1px solid var(--fieldset-border); 
+            background: var(--form-bg); 
+            padding: 20px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        legend { padding: 0 10px; font-weight: 700; color: var(--primary-color); }
-        button { cursor: pointer; font-size: 1em; border-radius: 8px; padding: 10px 16px; border: none; font-weight: bold; transition: opacity 0.2s; }
-        button:hover { opacity: 0.85; }
-        .primary { background-color: var(--primary-color); color: white; }
-        .secondary { background-color: var(--secondary-color); color: black; }
-        .secondary:hover { background-color: var(--secondary-color); color: white; }
+        legend { 
+            padding: 0 12px; 
+            font-weight: 700; 
+            color: var(--primary-color); 
+            font-size: 1.2em;
+            background-color: var(--form-bg); /* Match fieldset background */
+            border-radius: 5px;
+            border: 1px solid var(--fieldset-border);
+            margin-left: 10px;
+        }
+        button { 
+            cursor: pointer; 
+            font-size: 1em; 
+            border-radius: 8px; 
+            padding: 10px 18px; 
+            border: none; 
+            font-weight: bold; 
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        button:hover { 
+            opacity: 0.9;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .primary { background-color: var(--primary-color); color: var(--light-text); }
+        .primary:hover { background-color: #245a96; } /* Darker primary on hover */
+        .secondary { background-color: var(--secondary-color); color: var(--light-text); }
+        .secondary:hover { background-color: #319e99; } /* Darker secondary on hover */
+        .danger { background-color: var(--danger-color); color: var(--light-text); }
+        .danger:hover { background-color: #a02424; } /* Darker danger on hover */
         
         /* --- Recorder View --- */
-        #cyclesContainer { margin: 15px 0; padding: 10px; border: 1px dashed #aaa; background: #fff; border-radius: 8px; }
-        .cycle-block { border: 1px solid #cbd5e0; margin: 10px 0; padding: 15px; background: #edf2f7; border-radius: 10px; position: relative; }
-        .cycle-block h3 { margin: 0 0 15px; display: flex; align-items: center; justify-content: space-between; }
-        .cycle-grid, .quick-entry-grid, .meds-grid, .blood-gas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 16px; align-items: end; }
-        .remove-btn { color: var(--danger-color); background: #fff; border: 1px solid var(--danger-color); font-size: 0.9em; border-radius: 6px; padding: 2px 10px; }
-        .meds-list, .investigation-list, .medList, .dtxList { margin: 10px 0; padding-left: 20px; list-style-type: disc; }
-        .add-btn { margin-top: 6px; margin-bottom: 10px; background: var(--secondary-color); color: white; padding: 6px 12px; }
+        #cyclesContainer { 
+            margin: 20px 0; 
+            padding: 15px; 
+            border: 2px dashed var(--medium-gray-border); 
+            background: var(--light-text); 
+            border-radius: 10px; 
+        }
+        .cycle-block { 
+            border: 1px solid #d4dae0; 
+            margin-bottom: 20px; 
+            padding: 20px; 
+            background: #fdfefe; /* Slightly whiter than form-bg */
+            border-radius: 10px; 
+            position: relative; 
+            box-shadow: 0 1px 5px rgba(0,0,0,0.03);
+        }
+        .cycle-block h3 { 
+            margin: 0 0 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            font-size: 1.3em;
+            color: var(--primary-color);
+        }
+        .cycle-grid, .quick-entry-grid, .meds-grid, .blood-gas-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 15px 20px; 
+            align-items: end; 
+        }
+        .remove-btn { 
+            color: var(--danger-color); 
+            background: var(--light-text); 
+            border: 1px solid var(--danger-color); 
+            font-size: 0.85em; 
+            border-radius: 6px; 
+            padding: 4px 10px; 
+            box-shadow: none; /* No shadow for small buttons */
+        }
+        .remove-btn:hover {
+            background-color: #ffebeb;
+            box-shadow: none;
+        }
+        .meds-list, .investigation-list, .medList, .dtxList { 
+            margin: 15px 0; 
+            padding-left: 25px; 
+            list-style-type: disc; 
+            color: var(--dark-text);
+        }
+        .meds-list li, .investigation-list li, .medList li, .dtxList li {
+            margin-bottom: 8px;
+        }
+        .add-btn { 
+            margin-top: 10px; 
+            margin-bottom: 15px; 
+            background: var(--secondary-color); 
+            color: var(--light-text); 
+            padding: 8px 15px; 
+            font-size: 0.9em;
+        }
 
         /* --- Custom CSS for Medicine Section --- */
         .meds-form-container {
             display: flex;
             justify-content: space-between;
-            gap: 20px;
+            gap: 25px;
             flex-wrap: wrap;
+            margin-bottom: 15px;
         }
         .meds-selection-group,
         .meds-details-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
             flex: 1;
+            min-width: 280px; /* Ensure groups don't get too narrow */
         }
         .meds-details-group input {
             width: 100%;
             box-sizing: border-box;
         }
+        .meds-selection-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            margin: 0;
+            cursor: pointer;
+        }
+        .meds-selection-group input[type="checkbox"] {
+            width: auto; /* Override 100% width */
+            margin-right: 8px;
+            transform: scale(1.2); /* Slightly larger checkboxes */
+        }
+
 
         /* --- Manage View --- */
-        .actions { display: flex; gap: 10px; margin-bottom: 20px; }
-        .table-container { overflow-x: auto; background: white; border-radius: 8px; border: 1px solid var(--medium-gray); }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--medium-gray); }
-        thead th { background-color: #f3f4f6; font-weight: bold; color: #374151; }
-        tbody tr:hover { background-color: var(--light-gray); }
-        .loading, .no-cases { text-align: center; padding: 40px; font-size: 1.2em; color: var(--dark-gray); }
+        .actions { 
+            display: flex; 
+            gap: 15px; 
+            margin-bottom: 25px; 
+            flex-wrap: wrap;
+        }
+        .table-container { 
+            overflow-x: auto; 
+            background: var(--light-text); 
+            border-radius: 10px; 
+            border: 1px solid var(--medium-gray-border); 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            min-width: 800px; /* Ensure table is readable on smaller screens */
+        }
+        th, td { 
+            padding: 15px 18px; 
+            text-align: left; 
+            border-bottom: 1px solid var(--medium-gray-border); 
+        }
+        thead th { 
+            background-color: #eef2f7; /* Lighter background for table header */
+            font-weight: 700; 
+            color: var(--dark-text); 
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+        tbody tr:hover { 
+            background-color: #f6faff; /* Very light blue on row hover */
+        }
+        .loading, .no-cases { 
+            text-align: center; 
+            padding: 50px; 
+            font-size: 1.3em; 
+            color: var(--dark-text); 
+            font-weight: 500;
+        }
 
         /* --- Utility --- */
         .hidden { display: none !important; }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .header-nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .user-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                width: 100%;
+            }
+            .user-info span {
+                width: 100%;
+                text-align: left;
+            }
+            .nav-link, .user-info button {
+                width: auto;
+                margin-bottom: 5px;
+            }
+            .cycle-grid, .quick-entry-grid, .meds-grid, .blood-gas-grid {
+                grid-template-columns: 1fr;
+            }
+            .meds-form-container {
+                flex-direction: column;
+            }
+            .meds-selection-group, .meds-details-group {
+                min-width: unset;
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div id="loginView" class="container">
         <div class="login-box">
-            <img src="https://placehold.co/100x100/38b2ac/white?text=CPR" alt="CPR Logo" style="border-radius: 50%; margin-bottom: 20px;">
+            <img src="https://placehold.co/100x100/38b2ac/white?text=CPR" alt="CPR Logo">
             <h2>CPR Case Recorder</h2>
             <p>กรุณาลงชื่อเข้าใช้เพื่อบันทึกและจัดการเคส</p>
-            <button id="googleSignInBtn" style="margin-bottom: 10px;">
+            <button id="googleSignInBtn">
                 <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo">
                 Sign in with Google
             </button>
-            <p style="text-align: center; color: #aaa; margin: 20px 0;">หรือ</p>
+            <p class="divider">หรือ</p>
             <div id="emailPasswordForm">
                 <input type="email" id="emailInput" placeholder="อีเมล">
                 <input type="password" id="passwordInput" placeholder="รหัสผ่าน">
-                <button id="emailSignInBtn" class="primary" style="width: 100%; margin-bottom: 10px;">เข้าสู่ระบบด้วยอีเมล</button>
-                <button id="emailSignUpBtn" class="secondary" style="width: 100%;">สร้างบัญชีใหม่ด้วยอีเมล</button>
+                <button id="emailSignInBtn" class="primary">เข้าสู่ระบบด้วยอีเมล</button>
+                <button id="emailSignUpBtn" class="secondary">สร้างบัญชีใหม่ด้วยอีเมล</button>
             </div>
-            <p id="loginError" class="hidden" style="color: var(--danger-color); margin-top: 10px;"></p>
+            <p id="loginError" class="hidden" style="color: var(--danger-color); margin-top: 15px; font-weight: 600;"></p>
         </div>
     </div>
 
@@ -595,22 +838,27 @@
                         // สร้างคอลัมน์สำหรับยาหลักและยาอื่นๆ
                         const medMap = {};
                         (cy.medicines || []).forEach(m => {
+                            const medDisplay = `${m.dose ? m.dose + " " : ""}${m.route ? " (" + m.route + ")" : ""} @ ${m.time || "n/a"}`;
                             if (!medMap[m.name]) {
                                 medMap[m.name] = [];
                             }
-                            medMap[m.name].push(`${m.name}${m.dose ? " " + m.dose : ""}${m.route ? " (" + m.route + ")" : ""} @ ${m.time || "n/a"}`);
+                            medMap[m.name].push(medDisplay);
                         });
 
                         commonMeds.forEach(medName => {
                             if (medMap[medName]) {
-                                cycleData[medName.replace(/[\s%]/g, '_').replace(/[\u2080-\u209f]/g, '').replace(/[\u00B2]/g, '')] = medMap[medName].join('; ');
+                                // Clean up medName for column header (e.g., "10% Calcium Gluconate" -> "10_Calcium_Gluconate")
+                                const cleanMedName = medName.replace(/[^a-zA-Z0-9_]/g, '_').replace(/_{2,}/g, '_').replace(/^_|_$/g, '');
+                                cycleData[cleanMedName] = medMap[medName].join('; ');
                                 delete medMap[medName];
                             }
                         });
 
-                        const otherMeds = Object.values(medMap).flat();
+                        const otherMeds = Object.keys(medMap).map(name => {
+                            return `${name}: ${medMap[name].join('; ')}`;
+                        });
                         if (otherMeds.length > 0) {
-                           cycleData['Other_Medicines'] = otherMeds.join('; ');
+                           cycleData['Other_Medicines'] = otherMeds.join(' | '); // Use a different separator for other meds
                         }
 
                         // รวมผลการตรวจ
