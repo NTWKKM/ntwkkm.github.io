@@ -122,9 +122,18 @@
 
         // Global variables provided by the Canvas environment.
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
         const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
         
+        let firebaseConfig = null;
+        if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+            try {
+                firebaseConfig = JSON.parse(__firebase_config);
+            } catch (e) {
+                console.error("Error parsing Firebase config:", e);
+                // The error will be handled below, no need to show a modal here.
+            }
+        }
+
         // UI elements
         const loadingScreen = document.getElementById('loadingScreen');
         const loginScreen = document.getElementById('loginScreen');
@@ -172,8 +181,8 @@
         function initFirebase() {
             // Check if firebaseConfig is provided.
             if (!firebaseConfig) {
-                console.error("Firebase config is missing.");
-                showModal("พบข้อผิดพลาด: ไม่สามารถเชื่อมต่อฐานข้อมูลได้ กรุณาตรวจสอบการตั้งค่า Firebase ใน Vercel Environment Variables");
+                console.error("Firebase config is missing or invalid.");
+                showModal("พบข้อผิดพลาด: ไม่สามารถเชื่อมต่อฐานข้อมูลได้ กรุณาตรวจสอบการตั้งค่า Firebase ใน Vercel Environment Variables อีกครั้ง");
                 loadingScreen.classList.add('hidden');
                 loginScreen.classList.remove('hidden');
                 return;
