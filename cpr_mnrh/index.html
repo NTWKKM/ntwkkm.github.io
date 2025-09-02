@@ -269,12 +269,24 @@
             font-size: 1.3em;
             color: var(--primary-color);
         }
-        .cycle-grid, .quick-entry-grid, .meds-grid, .blood-gas-grid { 
+        .cycle-grid, .meds-grid, .blood-gas-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjusted for tablet */
             gap: 15px 20px; 
             align-items: end; 
         }
+
+        /* --- New style for horizontal Dtx input and button --- */
+        .dtx-input-wrapper {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+        }
+        .dtx-input-wrapper label {
+            flex-grow: 1;
+            margin-bottom: 0;
+        }
+
         .remove-btn { 
             color: var(--danger-color); 
             background: var(--light-text); 
@@ -980,7 +992,7 @@
                     </label>
                     <label>Shock Energy (J) <input type="number" min="0" step="1" class="cycleInput cycleShockEnergy" placeholder="e.g., 200"></label>
                     <label>Shock Time <input type="time" class="cycleInput cycleShockTime"></label>
-                    <div><label>Dtx (mg/dL) <input type="number" class="quickDtxValue" placeholder="e.g., 80"></label><button type="button" class="add-btn addDtxBtn">Add Dtx</button></div>
+                    <div class="dtx-input-wrapper"><label>Dtx (mg/dL) <input type="number" class="quickDtxValue" placeholder="e.g., 80"></label><button type="button" class="add-btn addDtxBtn">Add Dtx</button></div>
                 </div>
                 <ul class="dtxList"></ul>
                 <fieldset class="meds-list"><legend>Medicines</legend>
