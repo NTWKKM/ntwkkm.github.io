@@ -1,477 +1,601 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>CPR Recorder ED MNRH</title>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="CPR Recorder">
-    <link rel="apple-touch-icon" href="/icon-192.png">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-
-    <link rel="manifest" href="data:application/json;base64,eyJpY29ucyI6W3sic2l6ZXMiOiIxOTJ4MTkyIiwidHlwZSI6ImltYWdlL3BuZyIsInNyYyI6Ii9pY29uLTE5Mi5wbmciLCJwdXJwb3NlcyI6ImFueSBtYXNrYWJsZSJ9XSwibmFtZSI6IkNQUiBSZWNvcmRlciIsImRpc3BsYXkiOiJzdGFuZGFsb25lIiwic2hvcnRfbmFtZSI6IkNQUiBSZWNvcmRlciIsInN0YXJ0X3VybCI6Ii8ifQ==">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CPR Case Recorder</title>
+  <style>
+    :root {
+      --primary-color: #2b6cb0;
+      --secondary-color: #38b2ac;
+      --danger-color: #c53030;
+      --light-gray: #f9fafb;
+      --medium-gray: #e5e7eb;
+      --dark-gray: #4a5568;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      background: var(--light-gray);
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .container {
+      width: 95%;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      flex-grow: 1;
+    }
+    h1, h2, h3 { color: var(--primary-color); }
+    /* --- Login View --- */
+    #loginView {
+      max-width: 400px;
+      margin: 80px auto;
+      text-align: center;
+    }
+    .login-box {
+        padding: 30px;
+        border: 1px solid var(--medium-gray);
+        border-radius: 12px;
+        background-color: #fff;
+    }
+    .login-box input {
+        width: calc(100% - 20px);
+        padding: 12px 10px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        border: 1px solid var(--medium-gray);
+        font-size: 1em;
+    }
+    /* --- Header & Navigation --- */
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--medium-gray);
+      padding-bottom: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .header-nav h1 {
+        margin: 0;
+        font-size: 1.5em;
+    }
+    .nav-link, .user-info button {
+      font-size: 1em;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background-color 0.2s;
+    }
+    .nav-link:hover, .user-info button:hover {
+        background-color: #eef2ff;
+    }
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    .user-info span {
+        font-weight: bold;
+        color: var(--dark-gray);
+    }
+    /* --- General Form & Button Styles --- */
+    form label { display: block; margin: 10px 0 5px; font-weight: 600; }
+    input[type="text"], input[type="number"], input[type="date"], input[type="time"], select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+    }
+    fieldset { 
+      margin-bottom: 20px; 
+      border-radius: 10px; 
+      border: 1px solid var(--secondary-color); 
+      background: #f4f9fe; 
+      padding: 14px; 
+    }
+    legend { padding: 0 10px; font-weight: 700; color: var(--primary-color); }
+    button { cursor: pointer; font-size: 1em; border-radius: 8px; padding: 10px 16px; border: none; font-weight: bold; transition: opacity 0.2s; }
+    button:hover { opacity: 0.85; }
+    .primary { background-color: var(--primary-color); color: white; }
+    .secondary { background-color: var(--secondary-color); color: white; }
+    .danger { background-color: var(--danger-color); color: white; }
     
-    <script>
-        // Inline Service Worker Registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-                    console.log('Service Worker registered with scope: ', registration.scope);
-                }, function(err) {
-                    console.log('Service Worker registration failed: ', err);
-                });
-            });
-        }
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            touch-action: pan-y;
-        }
-        .container {
-            width: 100%;
-            max-width: 800px;
-            padding: 1.5rem;
-            background-color: #ffffff;
-            border-radius: 1.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-        .fade-in {
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .cpr-card {
-            border-left: 4px solid #4a90e2;
-        }
-        .admin-cpr-card {
-            border-left: 4px solid #9b59b6;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-        th, td {
-            padding: 0.75rem;
-            text-align: left;
-            border-bottom: 1px solid #e5e7eb;
-            font-size: 0.9em;
-        }
-        th {
-            background-color: #f3f4f6;
-            font-weight: 600;
-            color: #4b5563;
-        }
-        .table-actions button {
-            margin-right: 0.5rem;
-        }
-    </style>
+    /* --- Recorder View --- */
+    #cyclesContainer { margin: 15px 0; padding: 10px; border: 1px dashed #aaa; background: #fff; border-radius: 8px; }
+    .cycle-block { border: 1px solid #cbd5e0; margin: 10px 0; padding: 15px; background: #edf2f7; border-radius: 10px; position: relative; }
+    .cycle-block h3 { margin: 0 0 15px; display: flex; align-items: center; justify-content: space-between; }
+    .cycle-grid, .quick-entry-grid, .meds-grid, .blood-gas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 16px; align-items: end; }
+    .remove-btn { color: var(--danger-color); background: #fff; border: 1px solid var(--danger-color); font-size: 0.9em; border-radius: 6px; padding: 2px 10px; }
+    .meds-list, .investigation-list, .medList, .dtxList { margin: 10px 0; padding-left: 20px; list-style-type: disc; }
+    .add-btn { margin-top: 6px; margin-bottom: 10px; background: var(--secondary-color); color: white; padding: 6px 12px; }
+
+    /* --- Manage View --- */
+    .actions { display: flex; gap: 10px; margin-bottom: 20px; }
+    .table-container { overflow-x: auto; background: white; border-radius: 8px; border: 1px solid var(--medium-gray); }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--medium-gray); }
+    thead th { background-color: #f3f4f6; font-weight: bold; color: #374151; }
+    tbody tr:hover { background-color: var(--light-gray); }
+    .loading, .no-cases { text-align: center; padding: 40px; font-size: 1.2em; color: var(--dark-gray); }
+
+    /* --- Utility --- */
+    .hidden { display: none !important; }
+  </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+<body>
 
-    <!-- Screen Container -->
-    <div id="screenContainer" class="w-full h-full max-w-full">
-        <!-- Login/Signup Screen -->
-        <div id="loginScreen" class="container fade-in">
-            <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">เข้าสู่ระบบ / สมัครสมาชิก</h1>
-            <div class="p-4 bg-gray-50 rounded-lg">
-                <input type="text" id="usernameInput" class="w-full p-3 mb-3 border border-gray-300 rounded-lg" placeholder="กรอกชื่อผู้ใช้">
-                <button id="loginBtn" class="w-full bg-green-600 text-white font-semibold py-3 rounded-lg hover:bg-green-700 transition-colors">เข้าสู่ระบบ</button>
-            </div>
-        </div>
-
-        <!-- Main App Screen (initially hidden) -->
-        <div id="mainApp" class="container hidden fade-in">
-            <div class="flex justify-between items-center mb-6">
-                <h1 class="text-2xl font-bold text-gray-800">CPR Recorder</h1>
-                <button id="goToAdminBtn" class="bg-purple-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">ดูข้อมูลทั้งหมด</button>
-            </div>
-            <p class="text-gray-600 mb-2">User: <span id="currentUsername" class="font-mono text-sm"></span></p>
-
-            <!-- CPR Record Form -->
-            <div class="mb-8 p-4 bg-gray-50 rounded-lg">
-                <h2 class="text-xl font-semibold text-gray-800 mb-4">บันทึก CPR ใหม่</h2>
-                <input type="text" id="cprTitleInput" class="w-full p-3 mb-3 border border-gray-300 rounded-lg" placeholder="หัวข้อการบันทึก (เช่น ผู้ป่วย A)">
-                <textarea id="cprDetailsInput" class="w-full p-3 h-24 mb-3 border border-gray-300 rounded-lg" placeholder="รายละเอียดการ CPR"></textarea>
-                <button id="saveCprBtn" class="w-full bg-green-600 text-white font-semibold py-3 rounded-lg hover:bg-green-700 transition-colors">บันทึกข้อมูล</button>
-            </div>
-
-            <!-- User's Data Section -->
-            <div id="userDataSection">
-                <h2 class="text-xl font-semibold text-gray-800 mb-4">ข้อมูล CPR ของฉัน</h2>
-                <div id="cprList" class="space-y-4">
-                    <p class="text-gray-500 text-center" id="noDataMessage">ยังไม่มีข้อมูล CPR ที่บันทึกไว้</p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Admin Login Screen (initially hidden) -->
-        <div id="adminLoginScreen" class="container hidden fade-in">
-            <h1 class="text-2xl font-bold text-center text-gray-800 mb-6">Admin Login</h1>
-            <div class="p-4 bg-gray-50 rounded-lg">
-                <input type="password" id="adminCodeInput" class="w-full p-3 mb-3 border border-gray-300 rounded-lg" placeholder="รหัส Admin">
-                <button id="adminLoginBtn" class="w-full bg-purple-600 text-white font-semibold py-3 rounded-lg hover:bg-purple-700 transition-colors">เข้าสู่ระบบ</button>
-            </div>
-        </div>
-
-        <!-- Admin Data Screen (initially hidden) -->
-        <div id="adminDataScreen" class="container hidden fade-in">
-            <div class="flex justify-between items-center mb-6">
-                <h1 class="text-2xl font-bold text-gray-800">ข้อมูล CPR ทั้งหมด</h1>
-                <button id="backToMainBtn" class="bg-red-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-red-700 transition-colors">กลับ</button>
-            </div>
-            
-            <div class="table-actions flex justify-end mb-4">
-                <button id="exportBtn" class="bg-blue-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">Export (Excel)</button>
-                <button id="clearAllBtn" class="bg-gray-600 text-white font-medium py-2 px-4 rounded-lg hover:bg-gray-700 transition-colors">ลบข้อมูลทั้งหมด</button>
-            </div>
-
-            <div class="overflow-x-auto">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>User</th>
-                            <th>หัวข้อ</th>
-                            <th>รายละเอียด</th>
-                            <th>เวลาบันทึก</th>
-                            <th>การจัดการ</th>
-                        </tr>
-                    </thead>
-                    <tbody id="allCprList">
-                    </tbody>
-                </table>
-                <p class="text-gray-500 text-center mt-4" id="noAllDataMessage">ยังไม่มีข้อมูล CPR ที่บันทึกไว้</p>
-            </div>
-        </div>
-
+  <!-- Login View -->
+  <div id="loginView" class="container">
+    <div class="login-box">
+        <img src="https://placehold.co/100x100/38b2ac/white?text=CPR" alt="CPR Logo" style="border-radius: 50%; margin-bottom: 20px;">
+        <h2>CPR Case Recorder</h2>
+        <p>กรุณาระบุชื่อเพื่อเข้าสู่ระบบ หรือใช้รหัสผ่านสำหรับ Admin</p>
+        <input type="text" id="nameInput" placeholder="ชื่อผู้ใช้งาน" required>
+        <input type="password" id="adminPasswordInput" placeholder="รหัสผ่าน Admin (ถ้ามี)">
+        <button id="loginBtn" class="primary" style="width: 100%;">เข้าสู่ระบบ</button>
+        <p id="loginError" class="hidden" style="color: var(--danger-color); margin-top: 10px;"></p>
     </div>
-    
-    <!-- Custom Modals -->
-    <div id="custom-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-lg p-6 shadow-xl w-full max-w-sm">
-            <p id="modal-message" class="text-center text-gray-800 mb-4"></p>
-            <button id="modal-close-btn" class="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition-colors">ตกลง</button>
-        </div>
+  </div>
+
+  <!-- Recorder View -->
+  <div id="recorderView" class="container hidden">
+    <div class="header-nav">
+      <h1>บันทึกเคส CPR</h1>
+      <div class="user-info">
+        <span id="userNameRecorder"></span>
+        <button id="manageCasesBtn" class="nav-link">จัดการเคส</button>
+        <button id="logoutBtnRecorder" class="danger">ออกจากระบบ</button>
+      </div>
     </div>
-
-    <div id="confirm-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-lg p-6 shadow-xl w-full max-w-sm">
-            <p id="confirm-message" class="text-center text-gray-800 mb-4"></p>
-            <div class="flex justify-end space-x-2">
-                <button id="confirm-cancel-btn" class="bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg hover:bg-gray-400 transition-colors">ยกเลิก</button>
-                <button id="confirm-ok-btn" class="bg-red-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-red-700 transition-colors">ยืนยัน</button>
-            </div>
+    <form id="cprForm">
+      <fieldset>
+        <legend>ข้อมูลผู้ป่วย</legend>
+        <div class="cycle-grid">
+            <label>Date: <input type="date" name="date" required></label>
+            <label>Time: <input type="time" name="time" required></label>
+            <label>HN: <input type="text" name="hn" required></label>
+            <label>Patient Name: <input type="text" name="patientName" required></label>
+            <label>Age: <input type="number" name="age" min="0" required></label>
+            <label>Event Details: <input type="text" name="eventDetails" placeholder="e.g., witnessed collapse"></label>
+            <label>ROSC Time: <input type="time" name="roscTime"></label>
+            <label>NR Time: <input type="time" name="NRTime"></label>
         </div>
+      </fieldset>
+      <fieldset>
+        <legend>CPR Cycles</legend>
+        <div id="cyclesContainer"></div>
+        <button type="button" id="addCycleBtn" class="secondary">+ เพิ่ม CPR Cycle</button>
+      </fieldset>
+      <button type="submit" class="primary">บันทึกเคส</button>
+    </form>
+  </div>
+
+  <!-- Manage View -->
+  <div id="manageView" class="container hidden">
+    <div class="header-nav">
+      <h1>จัดการข้อมูลเคส CPR</h1>
+      <div class="user-info">
+        <span id="userNameManage"></span>
+        <button id="backToRecorderBtn" class="nav-link">&larr; กลับไปหน้าบันทึก</button>
+        <button id="logoutBtnManage" class="danger">ออกจากระบบ</button>
+      </div>
     </div>
+    <div class="actions">
+      <button id="exportBtn" class="primary">Export All (Excel)</button>
+    </div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>HN</th>
+            <th>Patient Name</th>
+            <th id="recorderColumnHeader" class="hidden">Recorded By</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="caseTableBody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    // NOTE: Replace this with your own Firebase project configuration
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    // Import functions from the SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, signInAnonymously, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getFirestore, collection, addDoc, query, where, onSnapshot, doc, deleteDoc, getDocs, setDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
     
-    <script>
-        // Inline Service Worker Registration
-        const CACHE_NAME = 'cpr-recorder-cache-v1';
-        const urlsToCache = [
-            '/',
-            'index.html',
-            'https://cdn.tailwindcss.com',
-            'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js',
-            '/icon-192.png',
-        ];
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-                    console.log('Service Worker registered with scope: ', registration.scope);
-                }, function(err) {
-                    console.log('Service Worker registration failed: ', err);
-                });
-            });
-        }
+    const ADMIN_PASSCODE = "MNRH-ADMIN-2025"; // Change this to your desired admin passcode
 
-        self.addEventListener('install', event => {
-            event.waitUntil(
-                caches.open(CACHE_NAME).then(cache => {
-                    return cache.addAll(urlsToCache);
-                })
-            );
-        });
+    // DOM Elements
+    const loginView = document.getElementById('loginView');
+    const recorderView = document.getElementById('recorderView');
+    const manageView = document.getElementById('manageView');
+    const loginBtn = document.getElementById('loginBtn');
+    const nameInput = document.getElementById('nameInput');
+    const adminPasswordInput = document.getElementById('adminPasswordInput');
+    const loginError = document.getElementById('loginError');
 
-        self.addEventListener('fetch', event => {
-            event.respondWith(
-                caches.match(event.request).then(response => {
-                    if (response) {
-                        return response;
-                    }
-                    return fetch(event.request);
-                })
-            );
-        });
-    </script>
-    
-    <script type="module">
-        // Hardcoded Admin Code
-        const ADMIN_CODE = "admin123";
-        let currentUsername = '';
+    let currentUser = null;
+    let isAdmin = false;
+    let unsubscribe = null; // To hold the listener function
 
-        function getCprData() {
-            try {
-                const data = localStorage.getItem('cprData');
-                return data ? JSON.parse(data) : [];
-            } catch (e) {
-                console.error("Error reading from localStorage", e);
-                return [];
-            }
-        }
+    // --- AUTHENTICATION ---
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            currentUser = user;
+            // Check if user profile exists
+            const userRef = doc(db, "users", user.uid);
+            const userSnap = await getDocs(query(collection(db, "users"), where("uid", "==", user.uid)));
 
-        function setCprData(data) {
-            try {
-                localStorage.setItem('cprData', JSON.stringify(data));
-            } catch (e) {
-                console.error("Error writing to localStorage", e);
-            }
-        }
-
-        function showModal(message) {
-            const modal = document.getElementById('custom-modal');
-            const modalMessage = document.getElementById('modal-message');
-            const modalCloseBtn = document.getElementById('modal-close-btn');
-            if (!modal) return;
-            modalMessage.textContent = message;
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            modalCloseBtn.addEventListener('click', () => {
-                modal.classList.remove('flex');
-                modal.classList.add('hidden');
-            }, { once: true });
-        }
-
-        function showConfirmModal(message, onConfirm) {
-            const modal = document.getElementById('confirm-modal');
-            const modalMessage = document.getElementById('confirm-message');
-            const confirmBtn = document.getElementById('confirm-ok-btn');
-            const cancelBtn = document.getElementById('confirm-cancel-btn');
-
-            modalMessage.textContent = message;
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-
-            const handleConfirm = () => {
-                onConfirm();
-                modal.classList.remove('flex');
-                modal.classList.add('hidden');
-                confirmBtn.removeEventListener('click', handleConfirm);
-                cancelBtn.removeEventListener('click', handleCancel);
-            };
-            const handleCancel = () => {
-                modal.classList.remove('flex');
-                modal.classList.add('hidden');
-                confirmBtn.removeEventListener('click', handleConfirm);
-                cancelBtn.removeEventListener('click', handleCancel);
-            };
-
-            confirmBtn.addEventListener('click', handleConfirm);
-            cancelBtn.addEventListener('click', handleCancel);
-        }
-
-        function showScreen(screenId) {
-            document.querySelectorAll('#screenContainer > div').forEach(div => {
-                div.classList.add('hidden');
-            });
-            document.getElementById(screenId).classList.remove('hidden');
-        }
-
-        function renderUserCprData() {
-            const cprList = document.getElementById('cprList');
-            const noDataMessage = document.getElementById('noDataMessage');
-            const allCprData = getCprData();
-            const userCprData = allCprData.filter(item => item.username === currentUsername);
-            
-            cprList.innerHTML = '';
-            if (userCprData.length === 0) {
-                noDataMessage.textContent = 'ยังไม่มีข้อมูล CPR ที่บันทึกไว้';
-                noDataMessage.classList.remove('hidden');
+            let userData;
+            if (userSnap.empty) {
+                // This is a new user, wait for login logic to create profile
+                return;
             } else {
-                noDataMessage.classList.add('hidden');
-                userCprData.forEach((data, index) => {
-                    const cprItem = document.createElement('div');
-                    cprItem.className = 'cpr-card bg-gray-100 p-4 rounded-lg flex justify-between items-center';
-                    cprItem.innerHTML = `
-                        <div>
-                            <h3 class="font-medium text-gray-800">${data.title}</h3>
-                            <p class="text-sm text-gray-600">${data.details}</p>
-                        </div>
-                        <button class="text-red-500 hover:text-red-700 ml-4 delete-btn" data-index="${index}">ลบ</button>
-                    `;
-                    cprItem.querySelector('.delete-btn').addEventListener('click', () => {
-                        showConfirmModal("คุณแน่ใจหรือไม่ที่จะลบข้อมูลนี้?", () => {
-                            const currentData = getCprData();
-                            const itemIndex = currentData.findIndex(item => item.username === currentUsername && item.title === data.title && item.details === data.details);
-                            if (itemIndex > -1) {
-                                currentData.splice(itemIndex, 1);
-                                setCprData(currentData);
-                                showModal("ลบข้อมูลสำเร็จ!");
-                                renderUserCprData();
-                            }
-                        });
-                    });
-                    cprList.appendChild(cprItem);
-                });
+                userData = userSnap.docs[0].data();
             }
-        }
-
-        function initializeMainAppFunctions() {
-            const saveCprBtn = document.getElementById('saveCprBtn');
-            const cprTitleInput = document.getElementById('cprTitleInput');
-            const cprDetailsInput = document.getElementById('cprDetailsInput');
-            const goToAdminBtn = document.getElementById('goToAdminBtn');
-
-            saveCprBtn.addEventListener('click', () => {
-                const title = cprTitleInput.value.trim();
-                const details = cprDetailsInput.value.trim();
-                if (title && details) {
-                    const allCprData = getCprData();
-                    const newRecord = {
-                        username: currentUsername,
-                        title: title,
-                        details: details,
-                        createdAt: new Date().toISOString()
-                    };
-                    allCprData.push(newRecord);
-                    setCprData(allCprData);
-                    cprTitleInput.value = '';
-                    cprDetailsInput.value = '';
-                    showModal("บันทึกข้อมูล CPR สำเร็จ!");
-                    renderUserCprData();
-                } else {
-                    showModal("กรุณาใส่หัวข้อและรายละเอียดให้ครบถ้วน");
-                }
-            });
-
-            goToAdminBtn.addEventListener('click', () => {
-                showScreen('adminLoginScreen');
-            });
-            renderUserCprData();
-        }
-
-        // --- Admin Page Logic ---
-        function renderAllCprData() {
-            const allCprList = document.getElementById('allCprList');
-            const noAllDataMessage = document.getElementById('noAllDataMessage');
-            const allCprData = getCprData();
             
-            allCprList.innerHTML = '';
-            if (allCprData.length === 0) {
-                noAllDataMessage.textContent = 'ยังไม่มีข้อมูล CPR ที่บันทึกไว้';
-                noAllDataMessage.classList.remove('hidden');
+            isAdmin = userData.isAdmin || false;
+            updateUI(userData.name);
+            showView('recorder');
+        } else {
+            currentUser = null;
+            isAdmin = false;
+            showView('login');
+        }
+    });
+
+    loginBtn.addEventListener('click', async () => {
+        const name = nameInput.value.trim();
+        const pass = adminPasswordInput.value;
+        loginError.classList.add('hidden');
+
+        if (!name) {
+            loginError.textContent = 'กรุณาระบุชื่อ';
+            loginError.classList.remove('hidden');
+            return;
+        }
+
+        let tempIsAdmin = false;
+        if (pass) {
+            if (pass === ADMIN_PASSCODE) {
+                tempIsAdmin = true;
             } else {
-                noAllDataMessage.classList.add('hidden');
-                allCprData.forEach((data, index) => {
-                    const recordDate = new Date(data.createdAt).toLocaleString('th-TH');
-                    const cprItem = document.createElement('tr');
-                    cprItem.className = 'admin-cpr-card';
-                    cprItem.innerHTML = `
-                        <td><span class="font-mono text-xs">${data.username}</span></td>
-                        <td>${data.title}</td>
-                        <td>${data.details}</td>
-                        <td>${recordDate}</td>
-                        <td>
-                            <button class="text-red-500 hover:text-red-700 delete-btn" data-index="${index}">ลบ</button>
-                        </td>
-                    `;
-                    allCprList.appendChild(cprItem);
-                });
-                allCprList.querySelectorAll('.delete-btn').forEach(button => {
-                    button.addEventListener('click', (e) => {
-                        const index = parseInt(e.target.dataset.index);
-                        showConfirmModal("คุณแน่ใจหรือไม่ที่จะลบข้อมูลนี้?", () => {
-                            const currentData = getCprData();
-                            currentData.splice(index, 1);
-                            setCprData(currentData);
-                            showModal("ลบข้อมูลสำเร็จ!");
-                            renderAllCprData();
-                        });
-                    });
-                });
+                loginError.textContent = 'รหัสผ่าน Admin ไม่ถูกต้อง';
+                loginError.classList.remove('hidden');
+                return;
             }
         }
         
-        function initializeAdminFunctions() {
-            const exportBtn = document.getElementById('exportBtn');
-            const clearAllBtn = document.getElementById('clearAllBtn');
-            const backToMainBtn = document.getElementById('backToMainBtn');
-
-            exportBtn.addEventListener('click', () => {
-                const dataToExport = getCprData().map(item => ({
-                    'User': item.username,
-                    'หัวข้อ': item.title,
-                    'รายละเอียด': item.details,
-                    'เวลาบันทึก': new Date(item.createdAt).toLocaleString('th-TH')
-                }));
-                const ws = XLSX.utils.json_to_sheet(dataToExport);
-                const wb = XLSX.utils.book_new();
-                XLSX.utils.book_append_sheet(wb, ws, "CPR Data");
-                XLSX.writeFile(wb, "CPR_Data.xlsx");
+        try {
+            loginBtn.disabled = true;
+            loginBtn.textContent = "กำลังเข้าสู่ระบบ...";
+            const userCredential = await signInAnonymously(auth);
+            const user = userCredential.user;
+            
+            // Create user profile in Firestore
+            await setDoc(doc(db, "users", user.uid), {
+                uid: user.uid,
+                name: name,
+                isAdmin: tempIsAdmin,
+                createdAt: new Date()
             });
 
-            clearAllBtn.addEventListener('click', () => {
-                showConfirmModal("คุณแน่ใจหรือไม่ที่จะลบข้อมูลทั้งหมดในเครื่องนี้?", () => {
-                    setCprData([]);
-                    showModal("ลบข้อมูลทั้งหมดสำเร็จ!");
-                    renderAllCprData();
-                });
-            });
+            isAdmin = tempIsAdmin;
+            updateUI(name);
+            showView('recorder');
 
-            backToMainBtn.addEventListener('click', () => {
-                showScreen('mainApp');
+        } catch (error) {
+            console.error("Login Error:", error);
+            loginError.textContent = "เกิดข้อผิดพลาดในการเข้าสู่ระบบ";
+            loginError.classList.remove('hidden');
+        } finally {
+            loginBtn.disabled = false;
+            loginBtn.textContent = "เข้าสู่ระบบ";
+        }
+    });
+
+    function handleLogout() {
+        signOut(auth).catch(error => console.error("Logout Error:", error));
+    }
+
+    // --- UI and VIEW MANAGEMENT ---
+    function showView(viewName) {
+        loginView.classList.add('hidden');
+        recorderView.classList.add('hidden');
+        manageView.classList.add('hidden');
+
+        if (viewName === 'login') {
+            loginView.classList.remove('hidden');
+            nameInput.value = '';
+            adminPasswordInput.value = '';
+        } else if (viewName === 'recorder') {
+            recorderView.classList.remove('hidden');
+        } else if (viewName === 'manage') {
+            manageView.classList.remove('hidden');
+            loadCases();
+        }
+    }
+
+    function updateUI(name) {
+        document.getElementById('userNameRecorder').textContent = `สวัสดี, ${name}`;
+        document.getElementById('userNameManage').textContent = `สวัสดี, ${name} ${isAdmin ? '(Admin)' : ''}`;
+    }
+
+    // Event listeners for navigation
+    document.getElementById('logoutBtnRecorder').addEventListener('click', handleLogout);
+    document.getElementById('logoutBtnManage').addEventListener('click', handleLogout);
+    document.getElementById('manageCasesBtn').addEventListener('click', () => showView('manage'));
+    document.getElementById('backToRecorderBtn').addEventListener('click', () => showView('recorder'));
+
+    // --- CPR FORM LOGIC (Recorder View) ---
+    const cprForm = document.getElementById('cprForm');
+    cprForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        if (!currentUser) {
+            alert("กรุณาเข้าสู่ระบบก่อนบันทึก");
+            return;
+        }
+        const data = {};
+        Array.from(this.elements).forEach((el) => {
+            if (el.name && !el.classList.contains("cycleInput")) data[el.name] = el.value;
+        });
+        data.cycles = collectCycles();
+        
+        try {
+            await addDoc(collection(db, "cpr_cases"), {
+                ...data,
+                userId: currentUser.uid,
+                userName: nameInput.value.trim() || 'N/A',
+                createdAt: new Date()
             });
-            renderAllCprData();
+            alert('บันทึกเคสสำเร็จ!');
+            this.reset();
+            document.getElementById("cyclesContainer").innerHTML = "";
+        } catch (error) {
+            console.error("Error saving case: ", error);
+            alert("เกิดข้อผิดพลาดในการบันทึกเคส");
+        }
+    });
+
+    // --- CASE MANAGEMENT LOGIC (Manage View) ---
+    const caseTableBody = document.getElementById('caseTableBody');
+    const exportBtn = document.getElementById('exportBtn');
+    
+    async function loadCases() {
+        if (!currentUser) return;
+
+        // Unsubscribe from previous listener
+        if (unsubscribe) {
+            unsubscribe();
         }
 
-        // --- Initial App Load ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedUsername = localStorage.getItem('currentUser');
-            if (savedUsername) {
-                currentUsername = savedUsername;
-                document.getElementById('currentUsername').textContent = currentUsername;
-                showScreen('mainApp');
-                initializeMainAppFunctions();
+        caseTableBody.innerHTML = '<tr><td colspan="6" class="loading">กำลังโหลดข้อมูล...</td></tr>';
+        
+        let q;
+        if (isAdmin) {
+            q = query(collection(db, "cpr_cases"));
+            document.getElementById('recorderColumnHeader').classList.remove('hidden');
+        } else {
+            q = query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
+            document.getElementById('recorderColumnHeader').classList.add('hidden');
+        }
+
+        unsubscribe = onSnapshot(q, (querySnapshot) => {
+            const cases = [];
+            querySnapshot.forEach((doc) => {
+                cases.push({ id: doc.id, ...doc.data() });
+            });
+            renderTable(cases);
+        }, (error) => {
+            console.error("Error loading cases: ", error);
+            caseTableBody.innerHTML = '<tr><td colspan="6" class="no-cases">เกิดข้อผิดพลาดในการโหลดข้อมูล</td></tr>';
+        });
+    }
+
+    function renderTable(cases) {
+        caseTableBody.innerHTML = "";
+        if (cases.length === 0) {
+            caseTableBody.innerHTML = `<tr><td colspan="${isAdmin ? '6' : '5'}" class="no-cases">ไม่พบข้อมูลเคสที่บันทึกไว้</td></tr>`;
+            return;
+        }
+
+        cases.sort((a, b) => b.createdAt.toDate() - a.createdAt.toDate());
+
+        cases.forEach(c => {
+            const tr = document.createElement('tr');
+            let recorderCell = '';
+            if (isAdmin) {
+                recorderCell = `<td>${c.userName || 'N/A'}</td>`;
+            }
+            tr.innerHTML = `
+                <td>${c.date || '-'}</td>
+                <td>${c.time || '-'}</td>
+                <td>${c.hn || '-'}</td>
+                <td>${c.patientName || '-'}</td>
+                ${recorderCell}
+                <td>
+                    <button class="danger delete-btn" data-id="${c.id}" data-hn="${c.hn}">ลบ</button>
+                </td>
+            `;
+            caseTableBody.appendChild(tr);
+        });
+    }
+
+    caseTableBody.addEventListener('click', async (e) => {
+        if (e.target.classList.contains('delete-btn')) {
+            const caseId = e.target.getAttribute('data-id');
+            const caseHn = e.target.getAttribute('data-hn');
+            if (confirm(`คุณแน่ใจหรือไม่ว่าต้องการลบเคส HN: ${caseHn}?`)) {
+                try {
+                    await deleteDoc(doc(db, "cpr_cases", caseId));
+                    // The onSnapshot will automatically re-render the table
+                } catch (error) {
+                    console.error("Error deleting document: ", error);
+                    alert("เกิดข้อผิดพลาดในการลบข้อมูล");
+                }
+            }
+        }
+    });
+
+    exportBtn.addEventListener('click', async () => {
+        let q;
+        if (isAdmin) {
+            q = query(collection(db, "cpr_cases"));
+        } else {
+            q = query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
+        }
+        
+        const querySnapshot = await getDocs(q);
+        const cases = [];
+        querySnapshot.forEach(doc => cases.push(doc.data()));
+
+        if (cases.length === 0) {
+            alert("ไม่มีข้อมูลสำหรับ Export");
+            return;
+        }
+
+        const exportData = [];
+        cases.forEach(c => {
+            const baseData = { 
+                date: c.date, time: c.time, hn: c.hn, patientName: c.patientName, age: c.age, 
+                eventDetails: c.eventDetails, roscTime: c.roscTime, recordedBy: c.userName 
+            };
+            if (!c.cycles || c.cycles.length === 0) {
+                exportData.push({ ...baseData, cycle: "", startTime: "", cprDuration: "", ekg: "", pulseCheck: "", shockDelivered: "", shockEnergy: "", shockTime: "", airway: "", Hct: "", Dtx: "", medicine: "", investigation: "" });
             } else {
-                showScreen('loginScreen');
-                const loginBtn = document.getElementById('loginBtn');
-                const usernameInput = document.getElementById('usernameInput');
-                loginBtn.addEventListener('click', () => {
-                    const username = usernameInput.value.trim();
-                    if (username) {
-                        localStorage.setItem('currentUser', username);
-                        currentUsername = username;
-                        document.getElementById('currentUsername').textContent = currentUsername;
-                        showScreen('mainApp');
-                        initializeMainAppFunctions();
-                    } else {
-                        showModal("กรุณาใส่ชื่อผู้ใช้");
-                    }
+                c.cycles.forEach((cy, i) => {
+                    const invs = (cy.investigations || []).map(inv => `${inv.type}: ${inv.result}`).join("; ");
+                    exportData.push({
+                        ...baseData,
+                        cycle: i + 1, startTime: cy.startTime || "", cprDuration: cy.cprDuration || "", ekg: cy.ekg || "", pulseCheck: cy.pulseCheck || "",
+                        shockDelivered: cy.shockDelivered ? "Yes" : "No", shockEnergy: cy.shockDelivered ? (cy.shockEnergy || "") : "", shockTime: cy.shockDelivered ? (cy.shockTime || "") : "",
+                        airway: cy.airway || "", Hct: cy.hct || "", Dtx: (cy.dtx || []).join('; ') || "",
+                        medicine: (cy.medicines || []).map(m => `${m.name}${m.dose ? " " + m.dose : ""} ${m.route ? " (" + m.route + ")" : ""} @ ${m.time || "n/a"}`).join(", "),
+                        investigation: invs || ""
+                    });
                 });
             }
-
-            const adminLoginBtn = document.getElementById('adminLoginBtn');
-            const adminCodeInput = document.getElementById('adminCodeInput');
-            adminLoginBtn.addEventListener('click', () => {
-                if (adminCodeInput.value === ADMIN_CODE) {
-                    showScreen('adminDataScreen');
-                    initializeAdminFunctions();
-                } else {
-                    showModal("รหัส Admin ไม่ถูกต้อง");
-                }
-            });
         });
-    </script>
+        const ws = XLSX.utils.json_to_sheet(exportData);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "CPR Cases");
+        XLSX.writeFile(wb, "cpr_cases_export.xlsx");
+    });
+    
+    // --- DYNAMIC CYCLE FORM LOGIC (Unchanged from original) ---
+    document.getElementById("addCycleBtn").addEventListener("click", function() {
+      addCycleBlock();
+    });
+
+    function addCycleBlock() {
+      const idx = document.querySelectorAll(".cycle-block").length + 1;
+      const div = document.createElement("div");
+      div.className = "cycle-block";
+      div.innerHTML = `
+        <h3>CPR Cycle ${idx} <button type="button" class="remove-btn">ลบ</button></h3>
+        <div class="cycle-grid">
+          <label>Start Time <input type="time" class="cycleInput cycleStartTime"></label>
+          <label>CPR Duration (min) <input type="number" min="0" step="0.5" class="cycleInput cycleDuration" placeholder="e.g., 2"></label>
+          <label>EKG Rhythm
+            <select class="cycleInput cycleEKG"><option value="PEA">PEA</option><option value="VF">VF</option><option value="Pulseless VT">Pulseless VT</option><option value="Pulse VT">Pulse VT</option><option value="ROSC">ROSC</option><option value="NR">NR</option></select>
+          </label>
+          <label>Pulse Check
+            <select class="cycleInput cyclePulse"><option value="">-</option><option value="No pulse">No pulse</option><option value="Pulse">Pulse</option></select>
+          </label>
+          <label>Airway
+            <select class="cycleInput cycleAirway"><option value="">-</option><option value="BVM">BVM</option><option value="ETT">ETT</option><option value="SGA">SGA</option><option value="Tracheostomy">Tracheostomy</option></select>
+          </label>
+          <label>Shock Delivered?
+            <select class="cycleInput cycleShockYN"><option value="No">No</option><option value="Yes">Yes</option></select>
+          </label>
+          <label>Shock Energy (J) <input type="number" min="0" step="1" class="cycleInput cycleShockEnergy" placeholder="e.g., 200"></label>
+          <label>Shock Time <input type="time" class="cycleInput cycleShockTime"></label>
+        </div>
+        <fieldset><legend>Quick Entry</legend>
+          <div class="quick-entry-grid">
+            <label>Hct (%) <input type="number" class="quickHct" placeholder="e.g., 45"></label>
+            <div><label>Dtx (mg/dL) <input type="number" class="quickDtxValue" placeholder="e.g., 80"></label><button type="button" class="add-btn addDtxBtn">Add Dtx</button></div>
+          </div><ul class="dtxList"></ul>
+        </fieldset>
+        <fieldset class="meds-list"><legend>Medicines</legend>
+          <div class="meds-grid">
+            <label><input type="checkbox" class="medAdrenaline"> Adrenaline</label>
+            <label><input type="checkbox" class="medCalcium"> 10% Calcium Gluconate</label>
+            <label><input type="checkbox" class="medNaHCO3"> 7.5% NaHCO₃</label>
+            <label><input type="checkbox" class="medPRC"> Gr.O low titer PRC</label>
+            <label>Other: <input type="text" class="medOther" placeholder="Medicine Name"></label>
+            <label>Dose <input type="text" class="medDose" placeholder="e.g., 1 mg"></label>
+            <label>Route <input type="text" class="medRoute" placeholder="e.g., IV"></label>
+            <label>Time Given <input type="time" class="medTime"></label>
+            <button type="button" class="add-btn addMedBtn">Add Medicine</button>
+          </div><ul class="medList"></ul>
+        </fieldset>
+        <fieldset><legend>Investigations</legend>
+          <div class="investigation-block"><strong>Blood Gas Analysis</strong>
+            <div class="blood-gas-grid">
+              <label>pH <input type="number" step="0.01" class="invBgPh"></label>
+              <label>PCO₂ <input type="number" step="0.1" class="invBgPco2"></label>
+              <label>HCO₃⁻ <input type="number" step="0.1" class="invBgHco3"></label>
+              <label>K⁺ <input type="number" step="0.1" class="invBgK"></label>
+              <label>Hct <input type="number" step="0.1" class="invBgHct"></label>
+            </div><button type="button" class="add-btn addBloodGasBtn">Add Blood Gas</button><ul class="investigation-list bg-list"></ul>
+          </div><hr>
+          <div class="investigation-block"><strong>Ultrasound</strong>
+            <div class="meds-grid"><label>Result: <input type="text" class="invUsResult" placeholder="e.g., Cardiac standstill"></label><button type="button" class="add-btn addUltrasoundBtn">Add Ultrasound</button></div><ul class="investigation-list us-list"></ul>
+          </div>
+        </fieldset>
+      `;
+      const ekgSelect = div.querySelector(".cycleEKG");
+      ekgSelect.addEventListener("change", () => { const shockYN = div.querySelector(".cycleShockYN"); if (["VF", "Pulseless VT"].includes(ekgSelect.value)) shockYN.value = "Yes"; else shockYN.value = "No"; });
+      div.querySelector(".remove-btn").onclick = function() { div.remove(); updateCycleHeaders(); };
+      div.querySelector(".addDtxBtn").onclick = function() { const dtxInput = div.querySelector(".quickDtxValue"); const dtxValue = dtxInput.value.trim(); if (!dtxValue) return; const li = document.createElement("li"); li.textContent = `Dtx: ${dtxValue} mg/dL`; li.dataset.value = dtxValue; const removeBtn = document.createElement("button"); removeBtn.textContent = "ลบ"; removeBtn.className = "remove-btn"; removeBtn.onclick = () => li.remove(); li.appendChild(removeBtn); div.querySelector(".dtxList").appendChild(li); dtxInput.value = ""; }
+      setupMedicineAdder(div);
+      setupInvestigationAdders(div);
+      document.getElementById("cyclesContainer").appendChild(div);
+    }
+    function setupMedicineAdder(div) { const medsUL = div.querySelector(".medList"); div.querySelector(".addMedBtn").onclick = function() { let meds = []; if (div.querySelector(".medAdrenaline").checked) meds.push("Adrenaline"); if (div.querySelector(".medCalcium").checked) meds.push("10% Calcium Gluconate"); if (div.querySelector(".medNaHCO3").checked) meds.push("7.5% NaHCO₃"); if (div.querySelector(".medPRC").checked) meds.push("Gr.O low titer PRC"); const otherVal = (div.querySelector(".medOther").value || "").trim(); if (otherVal) meds.push(otherVal); const doseVal = (div.querySelector(".medDose").value || "").trim(); const routeVal = (div.querySelector(".medRoute").value || "").trim(); const timeVal = div.querySelector(".medTime").value || "n/a"; meds.forEach(med => { const li = document.createElement("li"); li.textContent = `${med}${doseVal ? " " + doseVal : ""}${routeVal ? " (" + routeVal + ")" : ""} @ ${timeVal}`; li.dataset.name = med; li.dataset.dose = doseVal; li.dataset.route = routeVal; li.dataset.time = timeVal; const remove = document.createElement("button"); remove.textContent = "ลบ"; remove.className = "remove-btn"; remove.onclick = () => li.remove(); li.appendChild(remove); medsUL.appendChild(li); }); div.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = false); div.querySelector(".medOther").value = ""; div.querySelector(".medDose").value = ""; div.querySelector(".medRoute").value = ""; div.querySelector(".medTime").value = ""; }; }
+    function setupInvestigationAdders(div) { div.querySelector(".addBloodGasBtn").onclick = function() { const ph = div.querySelector('.invBgPh').value; const pco2 = div.querySelector('.invBgPco2').value; const hco3 = div.querySelector('.invBgHco3').value; const k = div.querySelector('.invBgK').value; const hct = div.querySelector('.invBgHct').value; if (!ph && !pco2 && !hco3 && !k && !hct) return; const resultString = `pH:${ph || '-'} PCO₂:${pco2 || '-'} HCO₃⁻:${hco3 || '-'} K⁺:${k || '-'} Hct:${hct || '-'}`; addInvestigationToList(div.querySelector(".bg-list"), "Blood Gas", resultString, { ph, pco2, hco3, k, hct }); div.querySelectorAll('.invBgPh, .invBgPco2, .invBgHco3, .invBgK, .invBgHct').forEach(i => i.value = ''); }; div.querySelector(".addUltrasoundBtn").onclick = function() { const resultInput = div.querySelector('.invUsResult'); if (!resultInput.value.trim()) return; addInvestigationToList(div.querySelector(".us-list"), "Ultrasound", resultInput.value.trim()); resultInput.value = ''; }; }
+    function addInvestigationToList(ulElement, type, result, data = {}) { const li = document.createElement("li"); li.textContent = `${type}: ${result}`; li.dataset.type = type; li.dataset.result = result; Object.keys(data).forEach(key => { li.dataset[key] = data[key]; }); const removeBtn = document.createElement("button"); removeBtn.textContent = "ลบ"; removeBtn.className = "remove-btn"; removeBtn.onclick = function() { li.remove(); }; li.appendChild(removeBtn); ulElement.appendChild(li); }
+    function updateCycleHeaders() { document.querySelectorAll(".cycle-block").forEach((div, i) => { div.querySelector("h3").innerHTML = `CPR Cycle ${i+1} <button type="button" class="remove-btn">ลบ</button>`; div.querySelector(".remove-btn").onclick = function() { div.remove(); updateCycleHeaders(); }; }); }
+    function collectCycles() { const cycles = []; document.querySelectorAll(".cycle-block").forEach(div => { const cycleData = { startTime: div.querySelector(".cycleStartTime").value, cprDuration: div.querySelector(".cycleDuration").value, ekg: div.querySelector(".cycleEKG").value, pulseCheck: div.querySelector(".cyclePulse").value, airway: div.querySelector(".cycleAirway").value, shockDelivered: div.querySelector(".cycleShockYN").value === "Yes", shockEnergy: div.querySelector(".cycleShockEnergy").value, shockTime: div.querySelector(".cycleShockTime").value, hct: div.querySelector(".quickHct").value, dtx: Array.from(div.querySelectorAll(".dtxList li")).map(li => li.dataset.value), medicines: Array.from(div.querySelectorAll(".medList li")).map(li => ({ name: li.dataset.name, dose: li.dataset.dose, route: li.dataset.route, time: li.dataset.time })), investigations: Array.from(div.querySelectorAll(".investigation-list li")).map(li => ({ type: li.dataset.type, result: li.dataset.result })) }; cycles.push(cycleData); }); return cycles; }
+
+  </script>
 </body>
 </html>
