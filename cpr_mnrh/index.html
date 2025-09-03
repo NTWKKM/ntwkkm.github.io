@@ -525,6 +525,8 @@
                 <input type="password" id="passwordInput" placeholder="รหัสผ่าน">
                 <button id="emailSignInBtn" class="primary">เข้าสู่ระบบด้วยอีเมล</button>
                 <button id="emailSignUpBtn" class="secondary">สร้างบัญชีใหม่ด้วยอีเมล</button>
+
+                <button type="button" id="forgotPasswordBtn" style="background: none; color: var(--primary-color); border: none; font-size: 0.9em; margin-top: 10px; padding: 5px 0;">ลืมรหัสผ่าน?</button>
             </div>
             <p id="loginError" class="hidden" style="color: var(--danger-color); margin-top: 15px; font-weight: 600;"></p>
         </div>
@@ -746,7 +748,22 @@
                 loginError.classList.remove('hidden');
             }
         });
-
+             const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
+// เพิ่ม Event Listener นี้เข้าไป
+        forgotPasswordBtn.addEventListener('click', async () => {
+            const email = document.getElementById('emailInput').value;
+            if (email) {
+            try {
+            await sendPasswordResetEmail(auth, email);
+            alert("เราได้ส่งลิงก์รีเซ็ตรหัสผ่านไปที่อีเมลของคุณแล้ว");
+            } catch (error) {
+            console.error("Password Reset Error:", error.code, error.message);
+            alert("ไม่สามารถส่งอีเมลรีเซ็ตรหัสผ่านได้ กรุณาตรวจสอบอีเมลอีกครั้ง");
+            }
+            } else {
+            alert("กรุณาป้อนอีเมลที่ต้องการรีเซ็ตรหัสผ่าน");
+            }
+        });
         function handleLogout() {
             signOut(auth).catch(error => console.error("Logout Error:", error));
         }
