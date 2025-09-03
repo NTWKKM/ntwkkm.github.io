@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-2">QR Code Generator</h1>
+        <p class="text-center text-gray-500 mb-6">สร้าง QR Code สำหรับเว็บไซต์ของคุณ</p>
+
+        <!-- Input Section -->
+        <div class="mb-6">
+            <label for="urlInput" class="block text-gray-700 font-medium mb-2">ใส่ URL ของคุณ:</label>
+            <input type="url" id="urlInput" placeholder="https://www.example.com" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200">
+        </div>
+
+        <!-- Button Section -->
+        <button id="generateBtn" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">
+            สร้าง QR Code
+        </button>
+
+        <!-- QR Code Display Section -->
+        <div id="qrCodeContainer" class="mt-8 flex flex-col items-center justify-center min-h-[250px] bg-gray-50 p-4 rounded-lg border border-dashed border-gray-300">
+            <p id="placeholderText" class="text-gray-400 text-center">QR Code จะปรากฏที่นี่</p>
+            <div id="qrcode" class="transition-opacity duration-300 opacity-0"></div>
+        </div>
+
+        <!-- Download Button Section -->
+        <button id="downloadBtn" class="w-full bg-green-500 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-200 mt-4 hidden">
+            ดาวน์โหลด QR Code
+        </button>
+    </div>
+
+    <!-- qrcode.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script>
+        const urlInput = document.getElementById('urlInput');
+        const generateBtn = document.getElementById('generateBtn');
+        const qrCodeContainer = document.getElementById('qrCodeContainer');
+        const qrcodeDiv = document.getElementById('qrcode');
+        const placeholderText = document.getElementById('placeholderText');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        let qrcodeInstance = null;
+
+        generateBtn.addEventListener('click', () => {
+            const url = urlInput.value.trim();
+            if (url) {
+                // Clear any existing QR code
+                if (qrcodeInstance) {
+                    qrcodeDiv.innerHTML = '';
+                    qrcodeInstance = null;
+                }
+                
+                placeholderText.classList.add('hidden');
+                qrcodeDiv.classList.add('opacity-0');
+                
+                // Create a new QR code
+                try {
+                    qrcodeInstance = new QRCode(qrcodeDiv, {
+                        text: url,
+                        width: 200,
+                        height: 200,
+                        colorDark: "#000000",
+                        colorLight: "#ffffff",
+                        correctLevel: QRCode.CorrectLevel.H
+                    });
+                    
+                    // Show QR code with fade-in effect
+                    setTimeout(() => {
+                        qrcodeDiv.classList.remove('opacity-0');
+                        downloadBtn.classList.remove('hidden');
+                    }, 100);
+
+                } catch (error) {
+                    console.error("Error creating QR code:", error);
+                    placeholderText.textContent = "เกิดข้อผิดพลาดในการสร้าง QR Code";
+                    placeholderText.classList.remove('hidden');
+                    downloadBtn.classList.add('hidden');
+                }
+            }
+        });
+
+        downloadBtn.addEventListener('click', () => {
+            // Find the canvas element created by qrcode.js
+            const canvas = qrcodeDiv.querySelector('canvas');
+            if (canvas) {
+                // Create a temporary link element
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'qrcode.png';
+                link.click();
+            } else {
+                alert("ไม่พบ QR Code ที่จะดาวน์โหลด");
+            }
+        });
+
+    </script>
+</body>
+</html>
