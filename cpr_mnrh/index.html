@@ -117,7 +117,20 @@
             vertical-align: middle; /* Align vertically with text */
         }
         /* END New CSS for Google logo */
-
+       #appleSignInBtn {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 8px 18px; /* ปรับขนาดให้พอดีกับปุ่ม Google */
+        }
+       #appleSignInBtn:hover {
+            background-color: #333333;
+        }
+       #appleSignInBtn img {
+            height: 28px;
+            width: 28px;
+            border: none;
+            filter: invert(100%); /* ทำให้โลโก้เป็นสีขาวสำหรับพื้นหลังสีดำ */
+        }
         .login-box .divider {
             color: #b0b0b0;
             margin: 25px 0;
@@ -520,6 +533,10 @@
                 <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo">
                 Sign in with Google
             </button>
+            <button type="button" id="appleSignInBtn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple logo">
+                <span>Sign in with Apple</span>
+            </button>
             <p class="divider">หรือ</p>
             <div id="emailPasswordForm">
                 <input type="email" id="emailInput" placeholder="อีเมล">
@@ -614,6 +631,7 @@
             onAuthStateChanged, 
             signOut,
             GoogleAuthProvider,
+            AppleAuthProvider, 
             signInWithPopup,
             createUserWithEmailAndPassword,
             signInWithEmailAndPassword
@@ -705,7 +723,19 @@
                 loginError.classList.remove('hidden');
             }
         });
-
+        
+           const appleSignInBtn = document.getElementById('appleSignInBtn');
+      appleSignInBtn.addEventListener('click', async () => {
+           try {
+               loginError.classList.add('hidden');
+               const provider = new AppleAuthProvider();
+               await signInWithPopup(auth, provider);
+           } catch (error) {
+               console.error("Apple Sign-in Error:", error.code, error.message);
+               loginError.textContent = "เกิดข้อผิดพลาดในการลงชื่อเข้าใช้ด้วย Apple: " + error.message;
+               loginError.classList.remove('hidden');
+           }
+       });
         emailSignUpBtn.addEventListener('click', async () => {
             const email = emailInput.value;
             const password = passwordInput.value;
