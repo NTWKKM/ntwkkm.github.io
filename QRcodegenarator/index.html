@@ -36,10 +36,15 @@
             <div id="qrcode" class="transition-opacity duration-300 opacity-0"></div>
         </div>
 
-        <!-- Download Button Section -->
-        <button id="downloadBtn" class="w-full bg-green-500 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-200 mt-4 hidden">
-            ดาวน์โหลด QR Code
-        </button>
+        <!-- Action Buttons Section -->
+        <div id="actionBtns" class="mt-4 flex flex-col space-y-2 hidden">
+            <button id="downloadBtn" class="w-full bg-green-500 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-200">
+                ดาวน์โหลด QR Code
+            </button>
+            <button id="copyBtn" class="w-full bg-yellow-500 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition duration-200">
+                คัดลอก URL ของรูปภาพ
+            </button>
+        </div>
     </div>
 
     <!-- qrcode.js library -->
@@ -50,44 +55,61 @@
         const qrCodeContainer = document.getElementById('qrCodeContainer');
         const qrcodeDiv = document.getElementById('qrcode');
         const placeholderText = document.getElementById('placeholderText');
+        const actionBtns = document.getElementById('actionBtns');
         const downloadBtn = document.getElementById('downloadBtn');
+        const copyBtn = document.getElementById('copyBtn');
 
         let qrcodeInstance = null;
+
+        // Function to create QR Code
+        function createQRCode(url) {
+            // Clear any existing QR code
+            if (qrcodeInstance) {
+                qrcodeDiv.innerHTML = '';
+                qrcodeInstance = null;
+            }
+            
+            placeholderText.classList.add('hidden');
+            qrcodeDiv.classList.add('opacity-0');
+            
+            // Create a new QR code
+            try {
+                qrcodeInstance = new QRCode(qrcodeDiv, {
+                    text: url,
+                    width: 200,
+                    height: 200,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                
+                // Show QR code with fade-in effect and action buttons
+                setTimeout(() => {
+                    qrcodeDiv.classList.remove('opacity-0');
+                    actionBtns.classList.remove('hidden');
+                }, 100);
+
+            } catch (error) {
+                console.error("Error creating QR code:", error);
+                placeholderText.textContent = "เกิดข้อผิดพลาดในการสร้าง QR Code";
+                placeholderText.classList.remove('hidden');
+                actionBtns.classList.add('hidden');
+            }
+        }
 
         generateBtn.addEventListener('click', () => {
             const url = urlInput.value.trim();
             if (url) {
-                // Clear any existing QR code
-                if (qrcodeInstance) {
-                    qrcodeDiv.innerHTML = '';
-                    qrcodeInstance = null;
-                }
-                
-                placeholderText.classList.add('hidden');
-                qrcodeDiv.classList.add('opacity-0');
-                
-                // Create a new QR code
-                try {
-                    qrcodeInstance = new QRCode(qrcodeDiv, {
-                        text: url,
-                        width: 200,
-                        height: 200,
-                        colorDark: "#000000",
-                        colorLight: "#ffffff",
-                        correctLevel: QRCode.CorrectLevel.H
-                    });
-                    
-                    // Show QR code with fade-in effect
-                    setTimeout(() => {
-                        qrcodeDiv.classList.remove('opacity-0');
-                        downloadBtn.classList.remove('hidden');
-                    }, 100);
+                createQRCode(url);
+            }
+        });
 
-                } catch (error) {
-                    console.error("Error creating QR code:", error);
-                    placeholderText.textContent = "เกิดข้อผิดพลาดในการสร้าง QR Code";
-                    placeholderText.classList.remove('hidden');
-                    downloadBtn.classList.add('hidden');
+        // Add Enter key listener for convenience
+        urlInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                const url = urlInput.value.trim();
+                if (url) {
+                    createQRCode(url);
                 }
             }
         });
@@ -102,7 +124,22 @@
                 link.download = 'qrcode.png';
                 link.click();
             } else {
-                alert("ไม่พบ QR Code ที่จะดาวน์โหลด");
+                console.log("No QR Code found to download.");
+            }
+        });
+
+        copyBtn.addEventListener('click', () => {
+            const canvas = qrcodeDiv.querySelector('canvas');
+            if (canvas) {
+                const imageDataUrl = canvas.toDataURL('image/png');
+                navigator.clipboard.writeText(imageDataUrl).then(() => {
+                    alert("คัดลอก URL ของรูปภาพเรียบร้อยแล้ว!");
+                }).catch(err => {
+                    console.error('Failed to copy: ', err);
+                    alert("ไม่สามารถคัดลอก URL ของรูปภาพได้ โปรดลองใหม่อีกครั้ง");
+                });
+            } else {
+                console.log("No QR Code found to copy URL from.");
             }
         });
 
