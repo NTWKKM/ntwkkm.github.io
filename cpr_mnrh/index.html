@@ -106,17 +106,16 @@
             background-color: #f0f4f8;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        .google-btn-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* เพิ่มระยะห่างระหว่างโลโก้กับข้อความ */
+        /* New CSS for Google logo */
+        #googleSignInBtn img {
+            height: 22px; /* Adjust size to fit text height */
+            width: 22px; /* Keep aspect ratio */
+            border: none; /* Remove any border that might be inherited */
+            margin-right: 8px; /* Space between logo and text */
+            vertical-align: middle; /* Align vertically with text */
         }
-        .google-sign-in-btn img {
-    height: 20px;
-    margin-right: 10px; /* เพิ่มระยะห่างระหว่างโลโก้กับข้อความ */
-    vertical-align: middle; /* จัดให้โลโก้และข้อความอยู่ตรงกลางในแนวตั้ง */
-}
+        /* END New CSS for Google logo */
+
         .login-box .divider {
             color: #b0b0b0;
             margin: 25px 0;
@@ -519,7 +518,6 @@
                 <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo">
                 Sign in with Google
             </button>
-            </button>
             <p class="divider">หรือ</p>
             <div id="emailPasswordForm">
                 <input type="email" id="emailInput" placeholder="อีเมล">
@@ -597,15 +595,15 @@
 
     <script type="module">
         // NOTE: This API Key is a placeholder and will be replaced by Vercel's environment variable during deployment.
-const firebaseConfig = {
-    apiKey: "FIREBASE_API_KEY_PLACEHOLDER", // Replace with a clear placeholder string
-    authDomain: "cpr-record-2eadf.firebaseapp.com",
-    projectId: "cpr-record-2eadf",
-    storageBucket: "cpr-record-2eadf.appspot.com",
-    messagingSenderId: "742246720333",
-    appId: "1:742246720333:web:f6df16f6df6c8680d84d04",
-    measurementId: "G-0P7R8M84F8"
-};
+        const firebaseConfig = {
+            apiKey: "FIREBASE_API_KEY_PLACEHOLDER", 
+            authDomain: "cpr-record-2eadf.firebaseapp.com",
+            projectId: "cpr-record-2eadf",
+            storageBucket: "cpr-record-2eadf.appspot.com",
+            messagingSenderId: "742246720333",
+            appId: "1:742246720333:web:f6df16f6df6c8680d84d04",
+            measurementId: "G-0P7R8M84F8"
+        };
         
         // Import functions from the SDKs
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
@@ -718,9 +716,11 @@ const firebaseConfig = {
                 loginError.classList.add('hidden');
                 await createUserWithEmailAndPassword(auth, email, password);
                 alert("สร้างบัญชีสำเร็จ! กรุณาเข้าสู่ระบบ");
+
                 // เพิ่ม 2 บรรทัดนี้เพื่อล้างช่องกรอกข้อมูล
-        emailInput.value = '';
-        passwordInput.value = '';
+                emailInput.value = '';
+                passwordInput.value = '';
+
             } catch (error) {
                 console.error("Email Sign-up Error:", error.code, error.message);
                 loginError.textContent = "เกิดข้อผิดพลาดในการสร้างบัญชี: " + error.message;
@@ -1002,9 +1002,7 @@ const firebaseConfig = {
                     </label>
                     <label>Shock Energy (J) <input type="number" min="0" step="1" class="cycleInput cycleShockEnergy" placeholder="e.g., 200"></label>
                     <label>Shock Time <input type="time" class="cycleInput cycleShockTime"></label>
-                    <label>Dtx (mg/dL)<input type="number" class="quickDtxValue" placeholder="e.g., 80"></label>
-                    <button type="button" class="add-btn addDtxBtn">Add Dtx</button>
-                    </div> 
+                    <div class="dtx-input-wrapper"><label>Dtx (mg/dL) <input type="number" class="quickDtxValue" placeholder="e.g., 80"></label><button type="button" class="add-btn addDtxBtn">Add Dtx</button></div>
                 </div>
                 <ul class="dtxList"></ul>
                 <fieldset class="meds-list"><legend>Medicines</legend>
@@ -1087,7 +1085,7 @@ const firebaseConfig = {
     </script>
     
     <footer>
-        <p>&copy; 2025 Nattawit kaewkomoot EP MNRH &nbsp;</p>
+        <p>Created by Nattawit Kaewkomoot EP MNRH, 2025</p>
         <p>Powered by: <a href="https://github.com" target="_blank">GitHub</a>, <a href="https://vercel.com" target="_blank">Vercel</a>, <a href="https://firebase.google.com" target="_blank">Firebase</a>, <a href="https://gemini.google.com" target="_blank">Gemini</a></p>
     </footer>
 
