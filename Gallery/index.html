@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เว็บอัปโหลดรูปภาพและแกลเลอรี่</title>
+    <title>เว็บอัปโหลดรูปภาพและแกลเลอรี่ (Supabase)</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -92,86 +92,89 @@
         <div id="gallery" class="gallery-grid"></div>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyCm0RuMYQgGpZrDKsN-NTfMz1xl3GreygM",
-            authDomain: "ntwcoffee-roaster-online.firebaseapp.com",
-            projectId: "ntwcoffee-roaster-online",
-            storageBucket: "ntwcoffee-roaster-online.firebasestorage.app",
-            messagingSenderId: "740660598199",
-            appId: "1:740660598199:web:e98f3b788c4e61913d4432",
-            measurementId: "G-CM1EM5D6HG"
-        };
+        // ข้อมูลการเชื่อมต่อ Supabase ของคุณ
+        const SUPABASE_URL = 'https://elzfuojueoxxrzxevrss.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVsemZ1b2p1ZW94eHJ6eGV2cnNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY3NDQ0MzgsImV4cCI6MjA3MjMyMDQzOH0.rNZDYWyInotfXpTgXWEO_rFqbgvJr5xI7f_N_vfKIP4';
 
-        firebase.initializeApp(firebaseConfig);
-        const storage = firebase.storage();
-        const storageRef = storage.ref();
-        const db = firebase.firestore();
+        const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         const fileInput = document.getElementById('fileInput');
         const uploadButton = document.getElementById('uploadButton');
         const statusText = document.getElementById('status');
         const gallery = document.getElementById('gallery');
 
-        uploadButton.addEventListener('click', () => {
+        // ฟังก์ชันอัปโหลดรูปภาพ
+        uploadButton.addEventListener('click', async () => {
             const file = fileInput.files[0];
             if (!file) {
                 statusText.textContent = 'กรุณาเลือกไฟล์รูปภาพก่อน';
                 return;
             }
 
-            const fileName = `${new Date().getTime()}-${file.name}`;
-            const fileRef = storageRef.child(`images/${fileName}`);
-            const uploadTask = fileRef.put(file);
+            statusText.textContent = 'กำลังอัปโหลด...';
+            const fileName = `images/${new Date().getTime()}-${file.name}`;
 
-            uploadTask.on('state_changed',
-                (snapshot) => {
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    statusText.textContent = `อัปโหลด ${progress.toFixed(2)}%`;
-                },
-                (error) => {
-                    statusText.textContent = `เกิดข้อผิดพลาดในการอัปโหลด: ${error.message}`;
-                },
-                () => {
-                    statusText.textContent = 'อัปโหลดสำเร็จ!';
-                    fileInput.value = '';
-
-                    uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-                        db.collection("photos").add({
-                            name: file.name,
-                            url: downloadURL,
-                            uploaded_at: firebase.firestore.FieldValue.serverTimestamp()
-                        })
-                        .then(() => {
-                            console.log("Document successfully written!");
-                            displayImages();
-                        })
-                        .catch((error) => {
-                            console.error("Error writing document: ", error);
-                        });
+            try {
+                const { data, error } = await supabase
+                    .storage
+                    .from('photos')
+                    .upload(fileName, file, {
+                        cacheControl: '3600',
+                        upsert: false
                     });
+
+                if (error) {
+                    statusText.textContent = `อัปโหลดไม่สำเร็จ: ${error.message}`;
+                    console.error('Upload failed:', error);
+                    return;
                 }
-            );
+
+                statusText.textContent = 'อัปโหลดสำเร็จ!';
+                fileInput.value = '';
+                displayImages();
+
+            } catch (error) {
+                statusText.textContent = `เกิดข้อผิดพลาดในการอัปโหลด: ${error.message}`;
+                console.error('Upload error:', error);
+            }
         });
 
-        function displayImages() {
+        // ฟังก์ชันแสดงรูปภาพทั้งหมดใน Gallery
+        async function displayImages() {
             gallery.innerHTML = '';
-            db.collection("photos").orderBy("uploaded_at", "desc").get().then((querySnapshot) => {
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    const img = document.createElement('img');
-                    img.src = data.url;
-                    img.alt = data.name;
-                    img.className = 'gallery-item';
-                    gallery.appendChild(img);
-                });
-            }).catch((error) => {
-                console.error("Error getting documents: ", error);
-            });
+            try {
+                const { data: list, error } = await supabase
+                    .storage
+                    .from('photos')
+                    .list('images');
+
+                if (error) {
+                    console.error('Error listing images:', error);
+                    return;
+                }
+                
+                if (list && list.length > 0) {
+                    list.forEach(file => {
+                        const { data: publicUrlData } = supabase
+                            .storage
+                            .from('photos')
+                            .getPublicUrl(file.name);
+
+                        const img = document.createElement('img');
+                        img.src = publicUrlData.publicUrl;
+                        img.alt = file.name;
+                        img.className = 'gallery-item';
+                        gallery.appendChild(img);
+                    });
+                } else {
+                    gallery.innerHTML = '<p>ไม่พบรูปภาพในแกลเลอรี่</p>';
+                }
+            } catch (error) {
+                console.error('Error in displayImages:', error);
+                gallery.innerHTML = '<p>เกิดข้อผิดพลาดในการโหลดรูปภาพ</p>';
+            }
         }
 
         window.addEventListener('load', displayImages);
