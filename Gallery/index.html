@@ -39,7 +39,7 @@
             border-radius: 5px;
             border: 1px solid #ccc;
         }
-        
+
         button {
             background-color: #007BFF;
             color: white;
@@ -51,7 +51,7 @@
             background-color: #0056b3;
         }
 
-        #status {
+        #status, #authStatus {
             text-align: center;
             color: green;
         }
@@ -103,23 +103,24 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
     <script>
         // ใส่ Firebase SDK snippet ที่คัดลอกมาที่นี่
         const firebaseConfig = {
-            apiKey: "AIzaSyCm0RuMYQgGpZrDKsN-NTfMz1xl3GreygM",
-            authDomain: "ntwcoffee-roaster-online.firebaseapp.com",
-            projectId: "ntwcoffee-roaster-online",
-            storageBucket: "ntwcoffee-roaster-online.firebasestorage.app",
-            messagingSenderId: "740660598199",
-            appId: "1:740660598199:web:e98f3b788c4e61913d4432",
-            measurementId: "G-CM1EM5D6HG"
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
         };
 
         firebase.initializeApp(firebaseConfig);
         const auth = firebase.auth();
         const storage = firebase.storage();
         const storageRef = storage.ref();
+        const db = firebase.firestore();
 
         const loginButton = document.getElementById('loginButton');
         const emailInput = document.getElementById('email');
@@ -182,9 +183,27 @@
                     statusText.textContent = `เกิดข้อผิดพลาดในการอัปโหลด: ${error.message}`;
                 },
                 () => {
+                    // เมื่ออัปโหลดสำเร็จ
                     statusText.textContent = 'อัปโหลดสำเร็จ!';
-                    fileInput.value = ''; // ล้างไฟล์ที่เลือก
-                    displayImages(); // โหลดรูปภาพใหม่
+                    fileInput.value = '';
+
+                    // ดึง URL ของรูปภาพที่อัปโหลดมา
+                    uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                        // บันทึกข้อมูลลงใน Firestore
+                        db.collection("photos").add({
+                            name: file.name,
+                            url: downloadURL,
+                            uploaded_at: firebase.firestore.FieldValue.serverTimestamp(),
+                            uploader_id: auth.currentUser.uid // บันทึก UID ของผู้ใช้ที่ล็อกอินอยู่
+                        })
+                        .then(() => {
+                            console.log("Document successfully written!");
+                            displayImages(); // โหลดรูปภาพใหม่
+                        })
+                        .catch((error) => {
+                            console.error("Error writing document: ", error);
+                        });
+                    });
                 }
             );
         });
@@ -192,23 +211,18 @@
         // ฟังก์ชันแสดงรูปภาพทั้งหมดใน Gallery
         function displayImages() {
             gallery.innerHTML = ''; // ล้างแกลเลอรี่เดิม
-            const imagesRef = storageRef.child('images');
-            imagesRef.listAll()
-                .then(res => {
-                    res.items.forEach(itemRef => {
-                        itemRef.getDownloadURL().then(url => {
-                            const img = document.createElement('img');
-                            img.src = url;
-                            img.alt = itemRef.name;
-                            img.className = 'gallery-item';
-                            gallery.appendChild(img);
-                        }).catch(error => {
-                            console.error("Error getting download URL: ", error);
-                        });
-                    });
-                }).catch(error => {
-                    console.error("Error listing images: ", error);
+            db.collection("photos").orderBy("uploaded_at", "desc").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const img = document.createElement('img');
+                    img.src = data.url;
+                    img.alt = data.name;
+                    img.className = 'gallery-item';
+                    gallery.appendChild(img);
                 });
+            }).catch((error) => {
+                console.error("Error getting documents: ", error);
+            });
         }
 
         // โหลดรูปภาพเมื่อหน้าเว็บโหลดเสร็จ
