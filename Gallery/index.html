@@ -94,7 +94,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        // ข้อมูลการเชื่อมต่อ Supabase ของคุณ
         const SUPABASE_URL = 'https://elzfuojueoxxrzxevrss.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVsemZ1b2p1ZW94eHJ6eGV2cnNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTY3NDQ0MzgsImV4cCI6MjA3MjMyMDQzOH0.rNZDYWyInotfXpTgXWEO_rFqbgvJr5xI7f_N_vfKIP4';
 
@@ -105,7 +104,6 @@
         const statusText = document.getElementById('status');
         const gallery = document.getElementById('gallery');
 
-        // ฟังก์ชันอัปโหลดรูปภาพ
         uploadButton.addEventListener('click', async () => {
             const file = fileInput.files[0];
             if (!file) {
@@ -114,7 +112,8 @@
             }
 
             statusText.textContent = 'กำลังอัปโหลด...';
-            const fileName = `images/${new Date().getTime()}-${file.name}`;
+            // อัปโหลดไฟล์ไปที่ Root ของ Bucket โดยตรง ไม่ต้องมี folder
+            const fileName = `${new Date().getTime()}-${file.name}`;
 
             try {
                 const { data, error } = await supabase
@@ -141,14 +140,14 @@
             }
         });
 
-        // ฟังก์ชันแสดงรูปภาพทั้งหมดใน Gallery
         async function displayImages() {
             gallery.innerHTML = '';
             try {
+                // ดึงรายการไฟล์ทั้งหมดจาก root ของ Bucket
                 const { data: list, error } = await supabase
                     .storage
                     .from('photos')
-                    .list('images');
+                    .list(''); // ดึงจาก root
 
                 if (error) {
                     console.error('Error listing images:', error);
@@ -156,7 +155,10 @@
                 }
                 
                 if (list && list.length > 0) {
-                    list.forEach(file => {
+                    // กรองเฉพาะไฟล์ที่เป็นรูปภาพ
+                    const imageFiles = list.filter(file => file.name.match(/\.(jpeg|jpg|png|gif)$/i));
+
+                    imageFiles.forEach(file => {
                         const { data: publicUrlData } = supabase
                             .storage
                             .from('photos')
