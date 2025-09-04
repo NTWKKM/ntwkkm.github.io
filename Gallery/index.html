@@ -97,15 +97,14 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
 
     <script>
-        // ใส่ Firebase SDK snippet ที่คัดลอกมาที่นี่
         const firebaseConfig = {
             apiKey: "AIzaSyCm0RuMYQgGpZrDKsN-NTfMz1xl3GreygM",
-      authDomain: "ntwcoffee-roaster-online.firebaseapp.com",
-    projectId: "ntwcoffee-roaster-online",
-  storageBucket: "ntwcoffee-roaster-online.firebasestorage.app",
-  messagingSenderId: "740660598199",
-  appId: "1:740660598199:web:e98f3b788c4e61913d4432",
-  measurementId: "G-CM1EM5D6HG"
+            authDomain: "ntwcoffee-roaster-online.firebaseapp.com",
+            projectId: "ntwcoffee-roaster-online",
+            storageBucket: "ntwcoffee-roaster-online.firebasestorage.app",
+            messagingSenderId: "740660598199",
+            appId: "1:740660598199:web:e98f3b788c4e61913d4432",
+            measurementId: "G-CM1EM5D6HG"
         };
 
         firebase.initializeApp(firebaseConfig);
@@ -118,7 +117,6 @@
         const statusText = document.getElementById('status');
         const gallery = document.getElementById('gallery');
 
-        // ฟังก์ชันอัปโหลดรูปภาพ
         uploadButton.addEventListener('click', () => {
             const file = fileInput.files[0];
             if (!file) {
@@ -126,7 +124,6 @@
                 return;
             }
 
-            // ชื่อไฟล์จะเป็นวันที่และเวลา เพื่อไม่ให้ซ้ำกัน
             const fileName = `${new Date().getTime()}-${file.name}`;
             const fileRef = storageRef.child(`images/${fileName}`);
             const uploadTask = fileRef.put(file);
@@ -140,13 +137,10 @@
                     statusText.textContent = `เกิดข้อผิดพลาดในการอัปโหลด: ${error.message}`;
                 },
                 () => {
-                    // เมื่ออัปโหลดสำเร็จ
                     statusText.textContent = 'อัปโหลดสำเร็จ!';
                     fileInput.value = '';
 
-                    // ดึง URL ของรูปภาพที่อัปโหลดมา
                     uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-                        // บันทึกข้อมูลลงใน Firestore
                         db.collection("photos").add({
                             name: file.name,
                             url: downloadURL,
@@ -154,7 +148,7 @@
                         })
                         .then(() => {
                             console.log("Document successfully written!");
-                            displayImages(); // โหลดรูปภาพใหม่
+                            displayImages();
                         })
                         .catch((error) => {
                             console.error("Error writing document: ", error);
@@ -164,9 +158,8 @@
             );
         });
 
-        // ฟังก์ชันแสดงรูปภาพทั้งหมดใน Gallery
         function displayImages() {
-            gallery.innerHTML = ''; // ล้างแกลเลอรี่เดิม
+            gallery.innerHTML = '';
             db.collection("photos").orderBy("uploaded_at", "desc").get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                     const data = doc.data();
@@ -181,7 +174,6 @@
             });
         }
 
-        // โหลดรูปภาพเมื่อหน้าเว็บโหลดเสร็จ
         window.addEventListener('load', displayImages);
     </script>
 </body>
