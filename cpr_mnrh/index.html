@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MNRH CPR Recorder</title>
+    <title>CPR Case Recorder</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujm9Xz2L6gXpQv1V3L9j9H7A5tA9oH/G0+E+D5hO5uE9zG2K3uKzK+Q8sV8T4W0N3G4R2e9G2g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* --- Root Variables for Colors --- */
@@ -73,7 +73,9 @@
             margin-bottom: 25px;
             border: 3px solid var(--secondary-color);
         }
-        .login-box h2 { font-size: 1.6em; }
+        .login-box h2 {
+            font-size: 1.6em;
+        }
         .login-box p {
             color: var(--dark-text);
             margin-bottom: 25px;
@@ -104,14 +106,17 @@
             background-color: #f0f4f8;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
+        /* New CSS for Google logo */
         #googleSignInBtn img {
-            height: 28px;
-            width: 28px;
-            border: none;
-            margin-top: 0; /* Adjusted from original */
-            margin-right: 4px;
-            vertical-align: middle;
+            height: 28px; /* Adjust size to fit text height 22 */
+            width: 28px; /* Keep aspect ratio 22 */
+            border: none; /* Remove any border that might be inherited */
+            margin-top: 20px;
+            margin-right: 4px; /* Space between logo and text */
+            vertical-align: middle; /* Align vertically with text */
         }
+        /* END New CSS for Google logo */
+
         .login-box .divider {
             color: #b0b0b0;
             margin: 25px 0;
@@ -142,7 +147,6 @@
             outline: none;
             box-shadow: 0 0 0 2px rgba(43, 108, 176, 0.2);
         }
-
         /* --- Header & Navigation --- */
         .header-nav {
             display: flex;
@@ -172,7 +176,7 @@
             transition: background-color 0.2s ease, color 0.2s ease;
         }
         .nav-link:hover, .user-info button:hover {
-            background-color: #e6f0fa;
+            background-color: #e6f0fa; /* Lighter primary hover */
             color: var(--primary-color);
         }
         .user-info {
@@ -186,12 +190,11 @@
             color: var(--dark-text);
             font-size: 1.05em;
         }
-
         /* --- General Form & Button Styles --- */
-        form label {
-            display: block;
-            margin: 12px 0 6px;
-            font-weight: 600;
+        form label { 
+            display: block; 
+            margin: 12px 0 6px; 
+            font-weight: 600; 
             color: var(--dark-text);
         }
         input[type="text"], input[type="number"], input[type="date"], input[type="time"], select {
@@ -208,92 +211,78 @@
             outline: none;
             box-shadow: 0 0 0 2px rgba(56, 178, 172, 0.2);
         }
-        fieldset {
-            margin-bottom: 30px;
-            border-radius: 12px;
-            border: 1px solid var(--fieldset-border);
-            background: var(--form-bg);
-            padding: 20px;
+        fieldset { 
+            margin-bottom: 30px; 
+            border-radius: 12px; 
+            border: 1px solid var(--fieldset-border); 
+            background: var(--form-bg); 
+            padding: 20px; 
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        legend {
-            padding: 0 12px;
-            font-weight: 700;
-            color: var(--primary-color);
+        legend { 
+            padding: 0 12px; 
+            font-weight: 700; 
+            color: var(--primary-color); 
             font-size: 1.2em;
-            background-color: var(--form-bg);
+            background-color: var(--form-bg); /* Match fieldset background */
             border-radius: 5px;
             border: 1px solid var(--fieldset-border);
             margin-left: 10px;
         }
-        button {
-            cursor: pointer;
-            font-size: 1em;
-            border-radius: 8px;
-            padding: 10px 18px;
-            border: none;
-            font-weight: bold;
+        button { 
+            cursor: pointer; 
+            font-size: 1em; 
+            border-radius: 8px; 
+            padding: 10px 18px; 
+            border: none; 
+            font-weight: bold; 
             transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        button:hover {
+        button:hover { 
             opacity: 0.9;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
         .primary { background-color: var(--primary-color); color: var(--light-text); }
-        .primary:hover { background-color: #245a96; }
+        .primary:hover { background-color: #245a96; } /* Darker primary on hover */
         .secondary { background-color: var(--secondary-color); color: var(--light-text); }
-        .secondary:hover { background-color: #319e99; }
+        .secondary:hover { background-color: #319e99; } /* Darker secondary on hover */
         .danger { background-color: var(--danger-color); color: var(--light-text); }
-        .danger:hover { background-color: #a02424; }
-
-        /* --- Time Input with 'Now' Button --- */
-        .time-input-group {
-            display: flex;
-            align-items: flex-end;
-            gap: 10px;
-        }
-        .time-input-group label {
-            flex-grow: 1;
-            margin-bottom: 0;
-        }
-        .time-input-group .use-now-btn {
-             padding: 8px 15px;
-             font-size: 0.9em;
-             flex-shrink: 0;
-        }
-
+        .danger:hover { background-color: #a02424; } /* Darker danger on hover */
+        
         /* --- Recorder View --- */
-        #cyclesContainer {
-            margin: 20px 0;
-            padding: 15px;
-            border: 2px dashed var(--medium-gray-border);
-            background: var(--light-text);
-            border-radius: 10px;
+        #cyclesContainer { 
+            margin: 20px 0; 
+            padding: 15px; 
+            border: 2px dashed var(--medium-gray-border); 
+            background: var(--light-text); 
+            border-radius: 10px; 
         }
-        .cycle-block {
-            border: 1px solid #d4dae0;
-            margin-bottom: 20px;
-            padding: 20px;
-            background: #fdfefe;
-            border-radius: 10px;
-            position: relative;
+        .cycle-block { 
+            border: 1px solid #d4dae0; 
+            margin-bottom: 20px; 
+            padding: 20px; 
+            background: #fdfefe; /* Slightly whiter than form-bg */
+            border-radius: 10px; 
+            position: relative; 
             box-shadow: 0 1px 5px rgba(0,0,0,0.03);
         }
-        .cycle-block h3 {
-            margin: 0 0 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .cycle-block h3 { 
+            margin: 0 0 20px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
             font-size: 1.3em;
             color: var(--primary-color);
         }
-        .cycle-grid, .meds-grid, .blood-gas-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px 20px;
-            align-items: end;
+        .cycle-grid, .meds-grid, .blood-gas-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Adjusted for tablet */
+            gap: 15px 20px; 
+            align-items: end; 
         }
+
+        /* --- New style for horizontal Dtx input and button --- */
         .dtx-input-wrapper {
             display: flex;
             align-items: flex-end;
@@ -303,34 +292,39 @@
             flex-grow: 1;
             margin-bottom: 0;
         }
-        .remove-btn {
-            color: var(--danger-color);
-            background: var(--light-text);
-            border: 1px solid var(--danger-color);
-            font-size: 0.85em;
-            border-radius: 6px;
-            padding: 4px 10px;
-            box-shadow: none;
+
+        .remove-btn { 
+            color: var(--danger-color); 
+            background: var(--light-text); 
+            border: 1px solid var(--danger-color); 
+            font-size: 0.85em; 
+            border-radius: 6px; 
+            padding: 4px 10px; 
+            box-shadow: none; /* No shadow for small buttons */
         }
         .remove-btn:hover {
             background-color: #ffebeb;
             box-shadow: none;
         }
-        .meds-list, .investigation-list, .medList, .dtxList {
-            margin: 15px 0;
-            padding-left: 25px;
-            list-style-type: disc;
+        .meds-list, .investigation-list, .medList, .dtxList { 
+            margin: 15px 0; 
+            padding-left: 25px; 
+            list-style-type: disc; 
             color: var(--dark-text);
         }
-        .meds-list li, .investigation-list li, .medList li, .dtxList li { margin-bottom: 8px; }
-        .add-btn {
-            margin-top: 10px;
-            margin-bottom: 15px;
-            background: var(--secondary-color);
-            color: var(--light-text);
-            padding: 8px 15px;
+        .meds-list li, .investigation-list li, .medList li, .dtxList li {
+            margin-bottom: 8px;
+        }
+        .add-btn { 
+            margin-top: 10px; 
+            margin-bottom: 15px; 
+            background: var(--secondary-color); 
+            color: var(--light-text); 
+            padding: 8px 15px; 
             font-size: 0.9em;
         }
+
+        /* --- Custom CSS for Medicine Section --- */
         .meds-form-container {
             display: flex;
             justify-content: space-between;
@@ -344,7 +338,7 @@
             flex-direction: column;
             gap: 12px;
             flex: 1;
-            min-width: 280px;
+            min-width: 280px; /* Ensure groups don't get too narrow */
         }
         .meds-details-group input {
             width: 100%;
@@ -358,10 +352,12 @@
             cursor: pointer;
         }
         .meds-selection-group input[type="checkbox"] {
-            width: auto;
+            width: auto; /* Override 100% width */
             margin-right: 8px;
-            transform: scale(1.2);
+            transform: scale(1.2); /* Slightly larger checkboxes */
         }
+
+        /* --- Collapsible Investigation Section (Improved) --- */
         details {
             margin-bottom: 20px;
             border: 1px solid var(--fieldset-border);
@@ -371,7 +367,9 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             transition: box-shadow 0.3s ease;
         }
-        details:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        details:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
         summary {
             font-weight: 700;
             color: var(--primary-color);
@@ -386,7 +384,9 @@
             align-items: center;
             gap: 10px;
         }
-        summary::-webkit-details-marker { display: none; }
+        summary::-webkit-details-marker {
+            display: none;
+        }
         summary::before {
             font-family: "Font Awesome 6 Free";
             content: '\f054'; /* Right Arrow */
@@ -395,146 +395,68 @@
             color: var(--secondary-color);
             transition: transform 0.2s ease;
         }
-        details[open] summary::before { content: '\f078'; /* Down Arrow */ }
-        .investigation-content, .investigation-block { padding-top: 10px; }
+        details[open] summary::before {
+            content: '\f078'; /* Down Arrow */
+        }
+        .investigation-content {
+            padding-top: 10px;
+        }
+        .investigation-block {
+            padding-top: 10px;
+        }
         hr {
             border: 0;
             border-top: 1px solid var(--fieldset-border);
             margin: 15px 0;
         }
 
-        /* --- NEW: Layout for Recorder View --- */
-        .recorder-layout {
-            display: flex;
-            gap: 25px;
-            align-items: flex-start;
-        }
-        #cprForm {
-            flex: 1;
-            min-width: 0; /* Prevents form from overflowing */
-        }
-
-        /* --- UPDATED: Sticky Summary Panel --- */
-        #summaryPanel {
-            position: sticky;
-            top: 20px;
-            flex: 0 0 320px;
-            background-color: #ffffff;
-            border: 1px solid var(--medium-gray-border);
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            padding: 20px;
-            max-height: calc(100vh - 40px);
-            overflow-y: auto;
-        }
-        #summaryPanel h3 {
-            margin-top: 0;
-            font-size: 1.2em;
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        #summaryPanel p {
-            margin: 0 0 12px;
-            font-size: 0.95em;
-            line-height: 1.4;
-        }
-        #summaryPanel strong {
-            color: var(--dark-text);
-            display: inline-block;
-            width: 90px;
-        }
-        #summaryPanel .summary-section {
-            margin-bottom: 15px;
-            border-bottom: 1px solid var(--medium-gray-border);
-            padding-bottom: 10px;
-        }
-        #summaryPanel .summary-section:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        #summaryPanel ul {
-            padding-left: 15px;
-            margin: 8px 0 0 0;
-            font-size: 0.9em;
-            list-style: none;
-        }
-        #summaryPanel ul li {
-            margin-bottom: 5px;
-            color: #4A5568;
-            position: relative;
-            padding-left: 15px;
-        }
-        #summaryPanel ul li::before {
-            content: '\f0da';
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 1px;
-            color: var(--secondary-color);
-        }
-
         /* --- Manage View --- */
-        .actions {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
+        .actions { 
+            display: flex; 
+            gap: 15px; 
+            margin-bottom: 25px; 
             flex-wrap: wrap;
         }
-        .table-container {
-            overflow-x: auto;
-            background: var(--light-text);
-            border-radius: 10px;
-            border: 1px solid var(--medium-gray-border);
+        .table-container { 
+            overflow-x: auto; 
+            background: var(--light-text); 
+            border-radius: 10px; 
+            border: 1px solid var(--medium-gray-border); 
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 800px;
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            min-width: 800px; /* Ensure table is readable on smaller screens */
         }
-        th, td {
-            padding: 15px 18px;
-            text-align: left;
-            border-bottom: 1px solid var(--medium-gray-border);
+        th, td { 
+            padding: 15px 18px; 
+            text-align: left; 
+            border-bottom: 1px solid var(--medium-gray-border); 
         }
-        thead th {
-            background-color: #eef2f7;
-            font-weight: 700;
-            color: var(--dark-text);
+        thead th { 
+            background-color: #eef2f7; /* Lighter background for table header */
+            font-weight: 700; 
+            color: var(--dark-text); 
             text-transform: uppercase;
             font-size: 0.9em;
             letter-spacing: 0.5px;
         }
-        tbody tr:hover { background-color: #f6faff; }
-        .loading, .no-cases {
-            text-align: center;
-            padding: 50px;
-            font-size: 1.3em;
-            color: var(--dark-text);
+        tbody tr:hover { 
+            background-color: #f6faff; /* Very light blue on row hover */
+        }
+        .loading, .no-cases { 
+            text-align: center; 
+            padding: 50px; 
+            font-size: 1.3em; 
+            color: var(--dark-text); 
             font-weight: 500;
         }
+
+        /* --- Utility --- */
         .hidden { display: none !important; }
 
         /* --- Responsive Adjustments --- */
-        @media (max-width: 1200px) {
-            .recorder-layout {
-                flex-direction: column;
-            }
-            #summaryPanel {
-                position: static;
-                width: 100%;
-                box-sizing: border-box;
-                max-height: none;
-                margin-bottom: 25px;
-                order: -1;
-            }
-        }
         @media (max-width: 768px) {
             .header-nav {
                 flex-direction: column;
@@ -554,21 +476,25 @@
                 width: auto;
                 margin-bottom: 5px;
             }
-            .cycle-grid, .meds-grid, .blood-gas-grid { grid-template-columns: 1fr; }
-            .meds-form-container { flex-direction: column; }
+            .cycle-grid, .meds-grid, .blood-gas-grid {
+                grid-template-columns: 1fr;
+            }
+            .meds-form-container {
+                flex-direction: column;
+            }
             .meds-selection-group, .meds-details-group {
                 min-width: unset;
                 width: 100%;
             }
         }
-
+        
         /* --- Footer Styles --- */
         footer {
             margin-top: 40px;
             padding: 20px 25px;
             text-align: center;
             font-size: 0.9em;
-            color: #718096;
+            color: #718096; /* A slightly darker gray for legibility */
             border-top: 1px solid var(--medium-gray-border);
         }
         footer a {
@@ -577,13 +503,16 @@
             font-weight: 600;
             transition: color 0.2s ease;
         }
-        footer a:hover { color: var(--secondary-color); }
+        footer a:hover {
+            color: var(--secondary-color);
+        }
     </style>
 </head>
 <body>
 
     <div id="loginView" class="container">
         <div class="login-box">
+            <img src="https://placehold.co/100x100/38b2ac/white?text=CPR" alt="CPR Logo">
             <h2>CPR Case Recorder</h2>
             <p>กรุณาลงชื่อเข้าใช้เพื่อบันทึกและจัดการเคส</p>
             <button id="googleSignInBtn">
@@ -596,7 +525,6 @@
                 <input type="password" id="passwordInput" placeholder="รหัสผ่าน">
                 <button id="emailSignInBtn" class="primary">เข้าสู่ระบบด้วยอีเมล</button>
                 <button id="emailSignUpBtn" class="secondary">สร้างบัญชีใหม่ด้วยอีเมล</button>
-                <button type="button" id="forgotPasswordBtn" style="background: none; color: var(--primary-color); border: none; font-size: 0.9em; margin-top: 10px; padding: 5px 0;">ลืมรหัสผ่าน?</button>
             </div>
             <p id="loginError" class="hidden" style="color: var(--danger-color); margin-top: 15px; font-weight: 600;"></p>
         </div>
@@ -611,72 +539,27 @@
                 <button id="logoutBtnRecorder" class="danger">ออกจากระบบ</button>
             </div>
         </div>
-
-        <div class="recorder-layout">
-            <div id="summaryPanel">
-                <h3><i class="fas fa-clipboard-list"></i> Case Summary</h3>
-                <div class="summary-section">
-                    <p><strong>Patient:</strong> <span id="summaryPatientName">N/A</span></p>
-                    <p><strong>Age:</strong> <span id="summaryAge">N/A</span></p>
-                    <p><strong>Start Time:</strong> <span id="summaryStartTime">N/A</span></p>
-                    <p><strong>Duration:</strong> <span id="summaryDuration">0 mins</span></p>
+        <form id="cprForm">
+            <fieldset>
+                <legend>ข้อมูลผู้ป่วย</legend>
+                <div class="cycle-grid">
+                    <label>Date: <input type="date" name="date" required></label>
+                    <label>Time: <input type="time" name="time" required></label>
+                    <label>HN: <input type="text" name="hn" required></label>
+                    <label>Patient Name: <input type="text" name="patientName" required></label>
+                    <label>Age: <input type="number" name="age" min="0" required></label>
+                    <label>Event Details: <input type="text" name="eventDetails" placeholder="e.g., witnessed collapse"></label>
+                    <label>ROSC Time: <input type="time" name="roscTime"></label>
+                    <label>NR Time: <input type="time" name="NRTime"></label>
                 </div>
-                <div class="summary-section">
-                    <p><strong>Medications:</strong> <span id="summaryMedCount">0</span></p>
-                    <ul id="summaryMedList"></ul>
-                </div>
-                 <div class="summary-section">
-                    <p><strong>Defibrillations:</strong> <span id="summaryDefibCount">0</span></p>
-                    <ul id="summaryDefibList"></ul>
-                </div>
-            </div>
-
-            <form id="cprForm">
-                <fieldset>
-                    <legend>ข้อมูลผู้ป่วย</legend>
-                    <div class="cycle-grid">
-                        <div>
-                            <label>Date:</label>
-                            <input type="date" name="date" required>
-                        </div>
-                        <div class="time-input-group">
-                            <label>Time: <input type="time" name="time" required></label>
-                            <button type="button" class="secondary use-now-btn">Now</button>
-                        </div>
-                        <div>
-                            <label>HN:</label>
-                            <input type="text" name="hn" required>
-                        </div>
-                        <div>
-                            <label>Patient Name:</label>
-                            <input type="text" name="patientName" required>
-                        </div>
-                        <div>
-                            <label>Age:</label>
-                            <input type="number" name="age" min="0" required>
-                        </div>
-                        <div>
-                            <label>Event Details:</label>
-                            <input type="text" name="eventDetails" placeholder="e.g., witnessed collapse">
-                        </div>
-                        <div class="time-input-group">
-                            <label>ROSC Time: <input type="time" name="roscTime"></label>
-                            <button type="button" class="secondary use-now-btn">Now</button>
-                        </div>
-                        <div class="time-input-group">
-                            <label>NR Time: <input type="time" name="NRTime"></label>
-                            <button type="button" class="secondary use-now-btn">Now</button>
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <legend>CPR Cycles</legend>
-                    <div id="cyclesContainer"></div>
-                    <button type="button" id="addCycleBtn" class="secondary">+ เพิ่ม CPR Cycle</button>
-                </fieldset>
-                <button type="submit" class="primary">บันทึกเคส</button>
-            </form>
-        </div>
+            </fieldset>
+            <fieldset>
+                <legend>CPR Cycles</legend>
+                <div id="cyclesContainer"></div>
+                <button type="button" id="addCycleBtn" class="secondary">+ เพิ่ม CPR Cycle</button>
+            </fieldset>
+            <button type="submit" class="primary">บันทึกเคส</button>
+        </form>
     </div>
 
     <div id="manageView" class="container hidden">
@@ -703,16 +586,18 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody id="caseTableBody"></tbody>
+                <tbody id="caseTableBody">
+                </tbody>
             </table>
         </div>
     </div>
-
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
     <script type="module">
+        // NOTE: This API Key is a placeholder and will be replaced by Vercel's environment variable during deployment.
         const firebaseConfig = {
-            apiKey: "FIREBASE_API_KEY_PLACEHOLDER",
+            apiKey: "FIREBASE_API_KEY_PLACEHOLDER", 
             authDomain: "cpr-record-2eadf.firebaseapp.com",
             projectId: "cpr-record-2eadf",
             storageBucket: "cpr-record-2eadf.appspot.com",
@@ -720,23 +605,41 @@
             appId: "1:742246720333:web:f6df16f6df6c8680d84d04",
             measurementId: "G-0P7R8M84F8"
         };
-
+        
+        // Import functions from the SDKs
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-        import {
-            getAuth, onAuthStateChanged, signOut, GoogleAuthProvider,
-            signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword,
-            sendPasswordResetEmail
+        import { 
+            getAuth, 
+            onAuthStateChanged, 
+            signOut,
+            GoogleAuthProvider,
+            signInWithPopup,
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword
         } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-        import {
-            getFirestore, collection, addDoc, query, where,
-            onSnapshot, doc, deleteDoc, getDocs, setDoc, getDoc
+        import { 
+            getFirestore, 
+            collection, 
+            addDoc, 
+            query, 
+            where, 
+            onSnapshot, 
+            doc, 
+            deleteDoc, 
+            getDocs, 
+            setDoc,
+            getDoc
         } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
+        
+        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        const ADMIN_EMAILS = ["k.nattawit@gmail.com", "your.second.admin@example.com"];
+        // แก้ไข: เปลี่ยนเป็น array เพื่อรองรับหลาย admin
+        const ADMIN_EMAILS = ["k.nattawit@gmail.com", "your.second.admin@example.com"]; 
+
+        // DOM Elements
         const loginView = document.getElementById('loginView');
         const recorderView = document.getElementById('recorderView');
         const manageView = document.getElementById('manageView');
@@ -745,33 +648,36 @@
         const passwordInput = document.getElementById('passwordInput');
         const emailSignInBtn = document.getElementById('emailSignInBtn');
         const emailSignUpBtn = document.getElementById('emailSignUpBtn');
-        const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
         const loginError = document.getElementById('loginError');
-        const cprForm = document.getElementById('cprForm');
 
         let currentUser = null;
         let isAdmin = false;
         let unsubscribe = null;
-        let durationInterval = null;
 
+        // --- AUTHENTICATION ---
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 currentUser = user;
                 const userDocRef = doc(db, "users", user.uid);
+                
                 try {
                     const userSnap = await getDoc(userDocRef);
+                    
                     if (!userSnap.exists()) {
                         await setDoc(userDocRef, {
                             uid: user.uid,
                             name: user.displayName || user.email.split('@')[0],
+                            // แก้ไข: ตรวจสอบอีเมลใน array
                             isAdmin: ADMIN_EMAILS.includes(user.email),
                             createdAt: new Date()
                         });
                         const newUserSnap = await getDoc(userDocRef);
-                        isAdmin = newUserSnap.data().isAdmin || false;
-                        updateUI(newUserSnap.data().name, isAdmin);
+                        const userData = newUserSnap.data();
+                        isAdmin = userData.isAdmin || false;
+                        updateUI(userData.name, isAdmin);
                     } else {
                         const userData = userSnap.data();
+                        // แก้ไข: ใช้ isAdmin จากข้อมูลที่ดึงมา
                         isAdmin = userData.isAdmin || false;
                         updateUI(userData.name, isAdmin);
                     }
@@ -811,8 +717,11 @@
                 loginError.classList.add('hidden');
                 await createUserWithEmailAndPassword(auth, email, password);
                 alert("สร้างบัญชีสำเร็จ! กรุณาเข้าสู่ระบบ");
+
+                // เพิ่ม 2 บรรทัดนี้เพื่อล้างช่องกรอกข้อมูล
                 emailInput.value = '';
                 passwordInput.value = '';
+
             } catch (error) {
                 console.error("Email Sign-up Error:", error.code, error.message);
                 loginError.textContent = "เกิดข้อผิดพลาดในการสร้างบัญชี: " + error.message;
@@ -837,34 +746,21 @@
                 loginError.classList.remove('hidden');
             }
         });
-        
-        forgotPasswordBtn.addEventListener('click', async () => {
-            if (emailInput.value) {
-                try {
-                    await sendPasswordResetEmail(auth, emailInput.value);
-                    alert("เราได้ส่งลิงก์รีเซ็ตรหัสผ่านไปที่อีเมลของคุณแล้ว");
-                } catch (error) {
-                    console.error("Password Reset Error:", error);
-                    alert("เกิดข้อผิดพลาด: " + error.message);
-                }
-            } else {
-                alert("กรุณาป้อนอีเมลของคุณ");
-            }
-        });
 
         function handleLogout() {
             signOut(auth).catch(error => console.error("Logout Error:", error));
         }
 
+        // --- UI and VIEW MANAGEMENT ---
         function showView(viewName) {
             loginView.classList.add('hidden');
             recorderView.classList.add('hidden');
             manageView.classList.add('hidden');
-            if (viewName === 'login') loginView.classList.remove('hidden');
-            else if (viewName === 'recorder') {
+
+            if (viewName === 'login') {
+                loginView.classList.remove('hidden');
+            } else if (viewName === 'recorder') {
                 recorderView.classList.remove('hidden');
-                setDefaultDateTime();
-                updateSummaryPanel();
             } else if (viewName === 'manage') {
                 manageView.classList.remove('hidden');
                 loadCases();
@@ -876,230 +772,323 @@
             document.getElementById('userNameManage').textContent = `สวัสดี, ${name} ${isAdmin ? '(Admin)' : ''}`;
         }
 
+        // Event listeners for navigation
         document.getElementById('logoutBtnRecorder').addEventListener('click', handleLogout);
         document.getElementById('logoutBtnManage').addEventListener('click', handleLogout);
         document.getElementById('manageCasesBtn').addEventListener('click', () => showView('manage'));
         document.getElementById('backToRecorderBtn').addEventListener('click', () => showView('recorder'));
-        
+
+        // --- CPR FORM LOGIC (Recorder View) ---
+        const cprForm = document.getElementById('cprForm');
         cprForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             if (!currentUser) {
                 alert("กรุณาเข้าสู่ระบบก่อนบันทึก");
                 return;
             }
+            
             const data = {};
-            const formData = new FormData(cprForm);
-            for (const [key, value] of formData.entries()) {
-                 if (!key.startsWith('cycle-')) {
-                    data[key] = value;
-                 }
-            }
-            data.cycles = collectCyclesData();
+            Array.from(this.elements).forEach((el) => {
+                if (el.name && !el.classList.contains("cycleInput")) data[el.name] = el.value;
+            });
+            data.cycles = collectCycles();
+            
             try {
-                const userSnap = await getDoc(doc(db, "users", currentUser.uid));
-                const userName = userSnap.exists() ? userSnap.data().name : 'Anonymous';
-                await addDoc(collection(db, "cpr_cases"), { ...data, userId: currentUser.uid, userName, createdAt: new Date() });
+                const userDocRef = doc(db, "users", currentUser.uid);
+                const userDocSnap = await getDoc(userDocRef);
+                
+                let userName = 'Anonymous';
+                if (userDocSnap.exists()) {
+                    userName = userDocSnap.data().name || 'Anonymous';
+                }
+
+                await addDoc(collection(db, "cpr_cases"), {
+                    ...data,
+                    userId: currentUser.uid,
+                    userName: userName,
+                    createdAt: new Date()
+                });
                 alert('บันทึกเคสสำเร็จ!');
                 this.reset();
+                document.getElementById("cyclesContainer").innerHTML = "";
             } catch (error) {
                 console.error("Error saving case: ", error);
                 alert("เกิดข้อผิดพลาดในการบันทึกเคส");
             }
         });
 
-        cprForm.addEventListener('reset', () => {
-            document.getElementById("cyclesContainer").innerHTML = "";
-            cycleCounter = 0;
-            if (durationInterval) clearInterval(durationInterval);
-            setTimeout(() => {
-                setDefaultDateTime();
-                updateSummaryPanel();
-            }, 50);
+        // --- CASE MANAGEMENT LOGIC (Manage View) ---
+        const caseTableBody = document.getElementById('caseTableBody');
+        const exportBtn = document.getElementById('exportBtn');
+        
+        async function loadCases() {
+            if (!currentUser) return;
+
+            if (unsubscribe) {
+                unsubscribe();
+            }
+
+            caseTableBody.innerHTML = '<tr><td colspan="6" class="loading">กำลังโหลดข้อมูล...</td></tr>';
+            
+            let q;
+            if (isAdmin) {
+                q = query(collection(db, "cpr_cases"));
+                document.getElementById('recorderColumnHeader').classList.remove('hidden');
+            } else {
+                q = query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
+                document.getElementById('recorderColumnHeader').classList.add('hidden');
+            }
+
+            unsubscribe = onSnapshot(q, (querySnapshot) => {
+                const cases = [];
+                querySnapshot.forEach((doc) => {
+                    cases.push({ id: doc.id, ...doc.data() });
+                });
+                renderTable(cases);
+            }, (error) => {
+                console.error("Error loading cases: ", error);
+                caseTableBody.innerHTML = '<tr><td colspan="6" class="no-cases">เกิดข้อผิดพลาดในการโหลดข้อมูล</td></tr>';
+            });
+        }
+
+        function renderTable(cases) {
+            caseTableBody.innerHTML = "";
+            if (cases.length === 0) {
+                caseTableBody.innerHTML = `<tr><td colspan="${isAdmin ? '6' : '5'}" class="no-cases">ไม่พบข้อมูลเคสที่บันทึกไว้</td></tr>`;
+                return;
+            }
+
+            cases.sort((a, b) => b.createdAt.toDate() - a.createdAt.toDate());
+
+            cases.forEach(c => {
+                const tr = document.createElement('tr');
+                let recorderCell = '';
+                if (isAdmin) {
+                    recorderCell = `<td>${c.userName || 'N/A'}</td>`;
+                }
+                tr.innerHTML = `
+                    <td>${c.date || '-'}</td>
+                    <td>${c.time || '-'}</td>
+                    <td>${c.hn || '-'}</td>
+                    <td>${c.patientName || '-'}</td>
+                    ${recorderCell}
+                    <td>
+                        <button class="danger delete-btn" data-id="${c.id}" data-hn="${c.hn}">ลบ</button>
+                    </td>
+                `;
+                caseTableBody.appendChild(tr);
+            });
+        }
+
+        caseTableBody.addEventListener('click', async (e) => {
+            if (e.target.classList.contains('delete-btn')) {
+                const caseId = e.target.getAttribute('data-id');
+                const caseHn = e.target.getAttribute('data-hn');
+                if (confirm(`คุณแน่ใจหรือไม่ว่าต้องการลบเคส HN: ${caseHn}?`)) {
+                    try {
+                        await deleteDoc(doc(db, "cpr_cases", caseId));
+                    } catch (error) {
+                        console.error("Error deleting document: ", error);
+                        alert("เกิดข้อผิดพลาดในการลบข้อมูล");
+                    }
+                }
+            }
         });
 
-        const cyclesContainer = document.getElementById("cyclesContainer");
-        let cycleCounter = 0;
-        document.getElementById("addCycleBtn").addEventListener("click", () => {
-            cycleCounter++;
-            const cycleId = `cycle-${cycleCounter}`;
-            const newCycle = document.createElement("div");
-            newCycle.className = "cycle-block";
-            newCycle.dataset.id = cycleId;
-            newCycle.innerHTML = `
-                <h3>Cycle ${cycleCounter}<button type="button" class="remove-btn" onclick="this.closest('.cycle-block').remove()">ลบ</button></h3>
+        exportBtn.addEventListener('click', async () => {
+            let q;
+            if (isAdmin) {
+                q = query(collection(db, "cpr_cases"));
+            } else {
+                q = query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
+            }
+            
+            const querySnapshot = await getDocs(q);
+            const cases = [];
+            querySnapshot.forEach(doc => cases.push(doc.data()));
+
+            if (cases.length === 0) {
+                alert("ไม่มีข้อมูลสำหรับ Export");
+                return;
+            }
+
+            const exportData = [];
+            const commonMeds = ["Adrenaline", "10% Calcium Gluconate", "50% Glucose", "7.5% NaHCO₃", "Gr.O low titer PRC"];
+
+            cases.forEach(c => {
+                if (!c.cycles || c.cycles.length === 0) {
+                    const baseData = { 
+                        date: c.date, time: c.time, hn: c.hn, patientName: c.patientName, age: c.age, 
+                        eventDetails: c.eventDetails, roscTime: c.roscTime, recordedBy: c.userName 
+                    };
+                    exportData.push(baseData);
+                } else {
+                    c.cycles.forEach((cy, i) => {
+                        const cycleData = {
+                            date: c.date, time: c.time, hn: c.hn, patientName: c.patientName, age: c.age, 
+                            eventDetails: c.eventDetails, roscTime: c.roscTime, recordedBy: c.userName,
+                            cycle: i + 1, startTime: cy.startTime || "", cprDuration: cy.cprDuration || "", ekg: cy.ekg || "", 
+                            pulseCheck: cy.pulseCheck || "", shockDelivered: cy.shockDelivered ? "Yes" : "No", 
+                            shockEnergy: cy.shockDelivered ? (cy.shockEnergy || "") : "", shockTime: cy.shockDelivered ? (cy.shockTime || "") : "",
+                            airway: cy.airway || "", Dtx: (cy.dtx || []).join('; ') || ""
+                        };
+                        
+                        // สร้างคอลัมน์สำหรับยาหลักและยาอื่นๆ
+                        const medMap = {};
+                        (cy.medicines || []).forEach(m => {
+                            const medDisplay = `${m.dose ? m.dose + " " : ""}${m.route ? " (" + m.route + ")" : ""} @ ${m.time || "n/a"}`;
+                            if (!medMap[m.name]) {
+                                medMap[m.name] = [];
+                            }
+                            medMap[m.name].push(medDisplay);
+                        });
+
+                        commonMeds.forEach(medName => {
+                            if (medMap[medName]) {
+                                // Clean up medName for column header (e.g., "10% Calcium Gluconate" -> "10_Calcium_Gluconate")
+                                const cleanMedName = medName.replace(/[^a-zA-Z0-9_]/g, '_').replace(/_{2,}/g, '_').replace(/^_|_$/g, '');
+                                cycleData[cleanMedName] = medMap[medName].join('; ');
+                                delete medMap[medName];
+                            }
+                        });
+
+                        const otherMeds = Object.keys(medMap).map(name => {
+                            return `${name}: ${medMap[name].join('; ')}`;
+                        });
+                        if (otherMeds.length > 0) {
+                           cycleData['Other_Medicines'] = otherMeds.join(' | '); // Use a different separator for other meds
+                        }
+
+                        // รวมผลการตรวจ
+                        const investigations = (cy.investigations || []).map(inv => `${inv.type}: ${inv.result}`).join("; ");
+                        if (investigations) {
+                           cycleData['investigation'] = investigations;
+                        }
+                        
+                        exportData.push(cycleData);
+                    });
+                }
+            });
+            const ws = XLSX.utils.json_to_sheet(exportData);
+            const wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "CPR Cases");
+            XLSX.writeFile(wb, "cpr_cases_export.xlsx");
+        });
+        
+        // --- DYNAMIC CYCLE FORM LOGIC ---
+        document.getElementById("addCycleBtn").addEventListener("click", function() {
+            addCycleBlock();
+        });
+
+        function addCycleBlock() {
+            const idx = document.querySelectorAll(".cycle-block").length + 1;
+            const div = document.createElement("div");
+            div.className = "cycle-block";
+            div.innerHTML = `
+                <h3>CPR Cycle ${idx} <button type="button" class="remove-btn">ลบ</button></h3>
                 <div class="cycle-grid">
-                    <div class="time-input-group">
-                        <label>Time: <input type="time" name="${cycleId}-time"></label>
-                        <button type="button" class="secondary use-now-btn">Now</button>
-                    </div>
-                    <label>Rhythm: 
-                        <select name="${cycleId}-rhythm">
-                            <option value="">Select...</option>
-                            <option value="VF">VF</option><option value="VT">VT</option>
-                            <option value="PEA">PEA</option><option value="Asystole">Asystole</option>
-                        </select>
+                    <label>Start Time <input type="time" class="cycleInput cycleStartTime"></label>
+                    <label>CPR Duration (min) <input type="number" min="0" step="0.5" class="cycleInput cycleDuration" placeholder="e.g., 2"></label>
+                    <label>EKG Rhythm
+                        <select class="cycleInput cycleEKG"><option value="PEA">PEA</option><option value="VF">VF</option><option value="Pulseless VT">Pulseless VT</option><option value="Pulse VT">Pulse VT</option><option value="ROSC">ROSC</option><option value="NR">NR</option></select>
                     </label>
-                    <label>Defib Energy (J): <input type="number" name="${cycleId}-defibEnergy" min="0"></label>
+                    <label>Pulse Check
+                        <select class="cycleInput cyclePulse"><option value="">-</option><option value="No pulse">No pulse</option><option value="Pulse">Pulse</option></select>
+                    </label>
+                    <label>Airway
+                        <select class="cycleInput cycleAirway"><option value="">-</option><option value="BVM">BVM</option><option value="ETT">ETT</option><option value="SGA">SGA</option><option value="Tracheostomy">Tracheostomy</option></select>
+                    </label>
+                    <label>Shock Delivered?
+                        <select class="cycleInput cycleShockYN"><option value="No">No</option><option value="Yes">Yes</option></select>
+                    </label>
+                    <label>Shock Energy (J) <input type="number" min="0" step="1" class="cycleInput cycleShockEnergy" placeholder="e.g., 200"></label>
+                    <label>Shock Time <input type="time" class="cycleInput cycleShockTime"></label>
+                    <label>Dtx (mg/dL) <input type="number" class="quickDtxValue" placeholder="e.g., 80"></label><button type="button" class="add-btn addDtxBtn">Add Dtx</button>
                 </div>
-                <hr>
-                <details>
-                    <summary>Medications & Interventions</summary>
+                <ul class="dtxList"></ul>
+                <fieldset class="meds-list"><legend>Medicines</legend>
                     <div class="meds-form-container">
                         <div class="meds-selection-group">
-                            <label><input type="checkbox" name="${cycleId}-meds" value="Adrenaline"> Adrenaline</label>
-                            <label><input type="checkbox" name="${cycleId}-meds" value="Amiodarone"> Amiodarone</label>
-                            <label><input type="checkbox" name="${cycleId}-meds" value="Bicarbonate"> Bicarbonate</label>
-                            <label><input type="checkbox" name="${cycleId}-meds" value="Calcium"> Calcium Gluconate</label>
-                             <label><input type="checkbox" name="${cycleId}-meds" value="Lidocaine"> Lidocaine</label>
+                            <label><input type="checkbox" class="medAdrenaline"> Adrenaline</label>
+                            <label><input type="checkbox" class="medCalcium"> 10% Calcium Gluconate</label>
+                            <label><input type="checkbox" class="medGlucose"> 50% Glucose</label>
+                            <label><input type="checkbox" class="medNaHCO3"> 7.5% NaHCO₃</label>
+                            <label><input type="checkbox" class="medPRC"> Gr.O low titer PRC</label>
+                            <label>Other: <input type="text" class="medOther" placeholder="Medicine Name"></label>
                         </div>
                         <div class="meds-details-group">
-                             <label>Other Meds: <input type="text" name="${cycleId}-otherMeds" placeholder="e.g., Atropine 1mg"></label>
-                             <div class="dtx-input-wrapper">
-                                 <label>DTX (mg/dL): <input type="number" name="${cycleId}-dtx" min="0"></label>
-                             </div>
+                            <label>Dose <input type="text" class="medDose" placeholder="e.g., 1 mg"></label>
+                            <label>Route <input type="text" class="medRoute" placeholder="e.g., IV"></label>
+                            <label>Time Given <input type="time" class="medTime"></label>
                         </div>
                     </div>
-                </details>`;
-            cyclesContainer.appendChild(newCycle);
-            const timeInput = newCycle.querySelector('input[type="time"]');
-            setInputTimeToNow(timeInput);
-        });
-        
-        function collectCyclesData() {
-            const cyclesData = [];
-            document.querySelectorAll('.cycle-block').forEach(cycleEl => {
-                const cycleId = cycleEl.dataset.id;
-                const meds = Array.from(cycleEl.querySelectorAll(`input[name="${cycleId}-meds"]:checked`)).map(cb => cb.value);
-                cyclesData.push({
-                    time: cycleEl.querySelector(`[name="${cycleId}-time"]`).value,
-                    rhythm: cycleEl.querySelector(`[name="${cycleId}-rhythm"]`).value,
-                    defibEnergy: cycleEl.querySelector(`[name="${cycleId}-defibEnergy"]`).value,
-                    meds,
-                    otherMeds: cycleEl.querySelector(`[name="${cycleId}-otherMeds"]`).value,
-                    dtx: cycleEl.querySelector(`[name="${cycleId}-dtx"]`).value,
-                });
-            });
-            return cyclesData;
+                    <button type="button" class="add-btn addMedBtn">Add Medicine</button>
+                    <ul class="medList"></ul>
+                </fieldset>
+                <details>
+                    <summary>Investigations</summary>
+                    <div class="investigation-content">
+                        <div class="investigation-block"><strong>Blood Gas Analysis</strong>
+                            <div class="blood-gas-grid">
+                                <label>pH <input type="number" step="0.01" class="invBgPh"></label>
+                                <label>PCO₂ <input type="number" step="0.1" class="invBgPco2"></label>
+                                <label>HCO₃⁻ <input type="number" step="0.1" class="invBgHco3"></label>
+                                <label>K⁺ <input type="number" step="0.1" class="invBgK"></label>
+                            </div><button type="button" class="add-btn addBloodGasBtn">Add Blood Gas</button><ul class="investigation-list bg-list"></ul>
+                        </div><hr>
+                        <div class="investigation-block"><strong>Ultrasound</strong>
+                            <div class="meds-grid"><label>Result: <input type="text" class="invUsResult" placeholder="e.g., Cardiac standstill"></label><button type="button" class="add-btn addUltrasoundBtn">Add Ultrasound</button></div><ul class="investigation-list us-list"></ul>
+                        </div>
+                        <hr>
+                        <div class="investigation-block"><strong>Hct</strong>
+                            <div class="meds-grid"><label>Hct (%): <input type="number" class="invHct" placeholder="e.g., 45"></label><button type="button" class="add-btn addHctBtn">Add Hct</button></div><ul class="investigation-list hct-list"></ul>
+                        </div>
+                    </div>
+                </details>
+            `;
+            const ekgSelect = div.querySelector(".cycleEKG");
+            ekgSelect.addEventListener("change", () => { const shockYN = div.querySelector(".cycleShockYN"); if (["VF", "Pulseless VT"].includes(ekgSelect.value)) shockYN.value = "Yes"; else shockYN.value = "No"; });
+            div.querySelector(".remove-btn").onclick = function() { div.remove(); updateCycleHeaders(); };
+            div.querySelector(".addDtxBtn").onclick = function() { const dtxInput = div.querySelector(".quickDtxValue"); const dtxValue = dtxInput.value.trim(); if (!dtxValue) return; const li = document.createElement("li"); li.textContent = `Dtx: ${dtxValue} mg/dL`; li.dataset.value = dtxValue; const removeBtn = document.createElement("button"); removeBtn.textContent = "ลบ"; removeBtn.className = "remove-btn"; removeBtn.onclick = () => li.remove(); li.appendChild(removeBtn); div.querySelector(".dtxList").appendChild(li); dtxInput.value = ""; }
+            setupMedicineAdder(div);
+            setupInvestigationAdders(div);
+            document.getElementById("cyclesContainer").appendChild(div);
         }
-
-        function setInputTimeToNow(timeInput) {
-            if (!timeInput) return;
-            const now = new Date();
-            timeInput.value = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-            timeInput.dispatchEvent(new Event('input', { bubbles: true }));
+        function setupMedicineAdder(div) { const medsUL = div.querySelector(".medList"); div.querySelector(".addMedBtn").onclick = function() { let meds = []; if (div.querySelector(".medAdrenaline").checked) meds.push("Adrenaline"); if (div.querySelector(".medCalcium").checked) meds.push("10% Calcium Gluconate"); if (div.querySelector(".medNaHCO3").checked) meds.push("7.5% NaHCO₃"); if (div.querySelector(".medPRC").checked) meds.push("Gr.O low titer PRC"); if (div.querySelector(".medGlucose").checked) meds.push("50% Glucose"); const otherVal = (div.querySelector(".medOther").value || "").trim(); if (otherVal) meds.push(otherVal); const doseVal = (div.querySelector(".medDose").value || "").trim(); const routeVal = (div.querySelector(".medRoute").value || "").trim(); const timeVal = div.querySelector(".medTime").value || "n/a"; meds.forEach(med => { const li = document.createElement("li"); li.textContent = `${med}${doseVal ? " " + doseVal : ""}${routeVal ? " (" + routeVal + ")" : ""} @ ${timeVal}`; li.dataset.name = med; li.dataset.dose = doseVal; li.dataset.route = routeVal; li.dataset.time = timeVal; const remove = document.createElement("button"); remove.textContent = "ลบ"; remove.className = "remove-btn"; remove.onclick = () => li.remove(); li.appendChild(remove); medsUL.appendChild(li); }); div.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = false); div.querySelector(".medOther").value = ""; div.querySelector(".medDose").value = ""; div.querySelector(".medRoute").value = ""; div.querySelector(".medTime").value = ""; }; }
+        function setupInvestigationAdders(div) { 
+            div.querySelector(".addBloodGasBtn").onclick = function() { 
+                const ph = div.querySelector('.invBgPh').value; 
+                const pco2 = div.querySelector('.invBgPco2').value; 
+                const hco3 = div.querySelector('.invBgHco3').value; 
+                const k = div.querySelector('.invBgK').value; 
+                if (!ph && !pco2 && !hco3 && !k) return; 
+                const resultString = `pH:${ph || '-'} PCO₂:${pco2 || '-'} HCO₃⁻:${hco3 || '-'} K⁺:${k || '-'}`; 
+                addInvestigationToList(div.querySelector(".bg-list"), "Blood Gas", resultString, { ph, pco2, hco3, k }); 
+                div.querySelectorAll('.invBgPh, .invBgPco2, .invBgHco3, .invBgK').forEach(i => i.value = ''); 
+            }; 
+            div.querySelector(".addUltrasoundBtn").onclick = function() { 
+                const resultInput = div.querySelector('.invUsResult'); 
+                if (!resultInput.value.trim()) return; 
+                addInvestigationToList(div.querySelector(".us-list"), "Ultrasound", resultInput.value.trim()); 
+                resultInput.value = ''; 
+            };
+            div.querySelector(".addHctBtn").onclick = function() {
+                const hctInput = div.querySelector(".invHct");
+                const hctValue = hctInput.value.trim();
+                if (!hctValue) return;
+                addInvestigationToList(div.querySelector(".hct-list"), "Hct", `${hctValue}%`, { hct: hctValue });
+                hctInput.value = "";
+            };
         }
-
-        function setDefaultDateTime() {
-            const dateInput = document.querySelector('input[name="date"]');
-            const timeInput = document.querySelector('input[name="time"]');
-            const now = new Date();
-            dateInput.value = now.toISOString().split('T')[0];
-            setInputTimeToNow(timeInput);
-        }
-
-        recorderView.addEventListener('click', e => {
-            if (e.target.classList.contains('use-now-btn')) {
-                setInputTimeToNow(e.target.parentElement.querySelector('input[type="time"]'));
-            } else if (e.target.type === 'checkbox' || e.target.classList.contains('remove-btn')) {
-                setTimeout(updateSummaryPanel, 50);
-            }
-        });
-        
-        function startDurationTimer() {
-            if (durationInterval) clearInterval(durationInterval);
-            durationInterval = setInterval(() => {
-                const startTimeInput = document.querySelector('input[name="time"]').value;
-                const startDateInput = document.querySelector('input[name="date"]').value;
-                const durationEl = document.getElementById('summaryDuration');
-                if (startTimeInput && startDateInput) {
-                    const [hours, minutes] = startTimeInput.split(':');
-                    const startDateTime = new Date(startDateInput);
-                    startDateTime.setHours(hours, minutes, 0, 0);
-                    const diffMins = Math.floor((new Date() - startDateTime) / 60000);
-                    durationEl.textContent = `${diffMins >= 0 ? diffMins : 0} mins`;
-                }
-            }, 5000);
-        }
-
-        function updateSummaryPanel() {
-            document.getElementById('summaryPatientName').textContent = document.querySelector('input[name="patientName"]').value || 'N/A';
-            document.getElementById('summaryAge').textContent = document.querySelector('input[name="age"]').value || 'N/A';
-            const startTime = document.querySelector('input[name="time"]').value;
-            document.getElementById('summaryStartTime').textContent = startTime || 'N/A';
-            if (startTime) startDurationTimer();
-
-            let medCount = 0;
-            let defibCount = 0;
-            const medList = [];
-            const defibList = [];
-            
-            collectCyclesData().forEach((cycle, index) => {
-                const timeLabel = cycle.time ? `@ ${cycle.time}` : `(Cycle ${index + 1})`;
-                medCount += cycle.meds.length;
-                cycle.meds.forEach(med => medList.push(`<li>${med} ${timeLabel}</li>`));
-                if (cycle.otherMeds) {
-                    medCount++;
-                    medList.push(`<li>${cycle.otherMeds} ${timeLabel}</li>`);
-                }
-                if (cycle.defibEnergy && parseInt(cycle.defibEnergy, 10) > 0) {
-                    defibCount++;
-                    defibList.push(`<li>${cycle.defibEnergy}J ${timeLabel}</li>`);
-                }
-            });
-
-            document.getElementById('summaryMedCount').textContent = medCount;
-            document.getElementById('summaryMedList').innerHTML = medList.join('');
-            document.getElementById('summaryDefibCount').textContent = defibCount;
-            document.getElementById('summaryDefibList').innerHTML = defibList.join('');
-        }
-
-        cprForm.addEventListener('input', updateSummaryPanel);
-        
-        // --- Manage View Logic ---
-        const caseTableBody = document.getElementById('caseTableBody');
-        async function loadCases() {
-            caseTableBody.innerHTML = '<tr><td colspan="6" class="loading">Loading...</td></tr>';
-            const q = isAdmin ? query(collection(db, "cpr_cases")) : query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
-            if (unsubscribe) unsubscribe();
-            unsubscribe = onSnapshot(q, (snapshot) => {
-                caseTableBody.innerHTML = '';
-                if (snapshot.empty) {
-                    caseTableBody.innerHTML = `<tr><td colspan="${isAdmin ? 6 : 5}" class="no-cases">No cases found.</td></tr>`;
-                    return;
-                }
-                snapshot.forEach(doc => {
-                    const data = doc.data();
-                    const row = caseTableBody.insertRow();
-                    row.innerHTML = `<td>${data.date}</td><td>${data.time}</td><td>${data.hn}</td><td>${data.patientName}</td>${isAdmin ? `<td>${data.userName}</td>` : ''}<td><button class="danger remove-btn" data-id="${doc.id}">Delete</button></td>`;
-                });
-            });
-        }
-        caseTableBody.addEventListener('click', async (e) => {
-            if (e.target.classList.contains('remove-btn') && confirm('Are you sure?')) {
-                await deleteDoc(doc(db, "cpr_cases", e.target.dataset.id));
-            }
-        });
-
-        document.getElementById('exportBtn').addEventListener('click', async () => {
-             const q = isAdmin ? query(collection(db, "cpr_cases")) : query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
-             const snapshot = await getDocs(q);
-             if (snapshot.empty) return alert("No data to export.");
-             
-             const dataToExport = [];
-             snapshot.forEach(doc => {
-                const data = doc.data();
-                const base = { Date: data.date, Time: data.time, HN: data.hn, PatientName: data.patientName, Age: data.age, EventDetails: data.eventDetails, ROSCTime: data.roscTime, NRTime: data.NRTime, RecordedBy: data.userName };
-                if (data.cycles?.length) {
-                    data.cycles.forEach((c, i) => dataToExport.push({ ...base, Cycle: i + 1, CycleTime: c.time, Rhythm: c.rhythm, DefibEnergy: c.defibEnergy, Meds: [...c.meds, c.otherMeds].filter(Boolean).join(', '), DTX: c.dtx }));
-                } else dataToExport.push(base);
-             });
-             
-             const ws = XLSX.utils.json_to_sheet(dataToExport);
-             const wb = XLSX.utils.book_new();
-             XLSX.utils.book_append_sheet(wb, ws, "CPR Cases");
-             XLSX.writeFile(wb, "CPR_Cases_Export.xlsx");
-        });
-
+        function addInvestigationToList(ulElement, type, result, data = {}) { const li = document.createElement("li"); li.textContent = `${type}: ${result}`; li.dataset.type = type; li.dataset.result = result; Object.keys(data).forEach(key => { li.dataset[key] = data[key]; }); const removeBtn = document.createElement("button"); removeBtn.textContent = "ลบ"; removeBtn.className = "remove-btn"; removeBtn.onclick = function() { li.remove(); }; li.appendChild(removeBtn); ulElement.appendChild(li); }
+        function updateCycleHeaders() { document.querySelectorAll(".cycle-block").forEach((div, i) => { div.querySelector("h3").innerHTML = `CPR Cycle ${i+1} <button type="button" class="remove-btn">ลบ</button>`; div.querySelector(".remove-btn").onclick = function() { div.remove(); updateCycleHeaders(); }; }); }
+        function collectCycles() { const cycles = []; document.querySelectorAll(".cycle-block").forEach(div => { const cycleData = { startTime: div.querySelector(".cycleStartTime").value, cprDuration: div.querySelector(".cycleDuration").value, ekg: div.querySelector(".cycleEKG").value, pulseCheck: div.querySelector(".cyclePulse").value, airway: div.querySelector(".cycleAirway").value, shockDelivered: div.querySelector(".cycleShockYN").value === "Yes", shockEnergy: div.querySelector(".cycleShockEnergy").value, shockTime: div.querySelector(".cycleShockTime").value, dtx: Array.from(div.querySelectorAll(".dtxList li")).map(li => li.dataset.value), medicines: Array.from(div.querySelectorAll(".medList li")).map(li => ({ name: li.dataset.name, dose: li.dataset.dose, route: li.dataset.route, time: li.dataset.time })), investigations: Array.from(div.querySelectorAll(".investigation-list li")).map(li => ({ type: li.dataset.type, result: li.dataset.result })) }; cycles.push(cycleData); }); return cycles; }
     </script>
+    
+    <footer>
+        <p>&copy; 2025 Nattawit Kaewkomoot EP MNRH</p>
+        <p>Powered by: <a href="https://github.com" target="_blank">GitHub</a>, <a href="https://vercel.com" target="_blank">Vercel</a>, <a href="https://firebase.google.com" target="_blank">Firebase</a>, <a href="https://gemini.google.com" target="_blank">Gemini</a></p>
+    </footer>
+
 </body>
 </html>
