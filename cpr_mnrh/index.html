@@ -426,29 +426,29 @@
             margin: 15px 0;
         }
         
-        /* --- NEW: Floating Summary Panel --- */
+        /* --- NEW: Layout for Recorder View --- */
+        .recorder-layout {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+        #cprForm {
+            flex: 1;
+            min-width: 0; /* Prevents form from overflowing its container */
+        }
+        
+        /* --- UPDATED: Sticky Summary Panel --- */
         #summaryPanel {
-            position: fixed;
-            top: 100px;
-            right: 25px;
-            width: 300px;
+            position: sticky;
+            top: 20px;
+            flex: 0 0 320px;
             background-color: #ffffff;
             border: 1px solid var(--medium-gray-border);
             border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             padding: 20px;
-            z-index: 1000;
-            max-height: 85vh;
+            max-height: calc(100vh - 40px); /* Set max height relative to viewport */
             overflow-y: auto;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            transform: translateX(10px);
-            opacity: 0;
-            pointer-events: none;
-        }
-        #summaryPanel.visible {
-             transform: translateX(0);
-             opacity: 1;
-             pointer-events: auto;
         }
         #summaryPanel h3 {
             margin-top: 0;
@@ -550,9 +550,17 @@
 
         /* --- Responsive Adjustments --- */
         @media (max-width: 1200px) {
-             #summaryPanel {
-                 display: none; /* Hide summary panel on smaller screens to avoid clutter */
-             }
+            .recorder-layout {
+                flex-direction: column; /* Stack panel and form */
+            }
+            #summaryPanel {
+                position: static; /* Reset sticky positioning */
+                width: 100%;
+                box-sizing: border-box;
+                max-height: none;
+                margin-bottom: 25px;
+                order: -1; /* Display summary panel on top on mobile */
+            }
         }
         @media (max-width: 768px) {
             .header-nav {
@@ -638,76 +646,78 @@
             </div>
         </div>
 
-        <div id="summaryPanel">
-            <h3><i class="fas fa-clipboard-list"></i> Case Summary</h3>
-            <div class="summary-section">
-                <p><strong>Patient:</strong> <span id="summaryPatientName">N/A</span></p>
-                <p><strong>Age:</strong> <span id="summaryAge">N/A</span></p>
-                <p><strong>Start Time:</strong> <span id="summaryStartTime">N/A</span></p>
-                <p><strong>Duration:</strong> <span id="summaryDuration">0 mins</span></p>
-            </div>
-            <div class="summary-section">
-                <p><strong>Medications:</strong> <span id="summaryMedCount">0</span></p>
-                <ul id="summaryMedList"></ul>
-            </div>
-             <div class="summary-section">
-                <p><strong>Defibrillations:</strong> <span id="summaryDefibCount">0</span></p>
-                <ul id="summaryDefibList"></ul>
-            </div>
-        </div>
+        <div class="recorder-layout">
 
-        <form id="cprForm">
-            <fieldset>
-                <legend>ข้อมูลผู้ป่วย</legend>
-                <div class="cycle-grid">
-                    <div>
-                        <label>Date:</label>
-                        <input type="date" name="date" required>
-                    </div>
-                    <div class="time-input-group">
-                        <label>Time:
-                           <input type="time" name="time" required>
-                        </label>
-                         <button type="button" class="secondary use-now-btn">Now</button>
-                    </div>
-                    <div>
-                        <label>HN:</label>
-                        <input type="text" name="hn" required>
-                    </div>
-                    <div>
-                        <label>Patient Name:</label>
-                        <input type="text" name="patientName" required>
-                    </div>
-                    <div>
-                        <label>Age:</label>
-                        <input type="number" name="age" min="0" required>
-                    </div>
-                    <div>
-                        <label>Event Details:</label>
-                        <input type="text" name="eventDetails" placeholder="e.g., witnessed collapse">
-                    </div>
-                    <div class="time-input-group">
-                        <label>ROSC Time:
-                           <input type="time" name="roscTime">
-                        </label>
-                         <button type="button" class="secondary use-now-btn">Now</button>
-                    </div>
-                    <div class="time-input-group">
-                        <label>NR Time:
-                            <input type="time" name="NRTime">
-                        </label>
-                         <button type="button" class="secondary use-now-btn">Now</button>
-                    </div>
+            <div id="summaryPanel">
+                <h3><i class="fas fa-clipboard-list"></i> Case Summary</h3>
+                <div class="summary-section">
+                    <p><strong>Patient:</strong> <span id="summaryPatientName">N/A</span></p>
+                    <p><strong>Age:</strong> <span id="summaryAge">N/A</span></p>
+                    <p><strong>Start Time:</strong> <span id="summaryStartTime">N/A</span></p>
+                    <p><strong>Duration:</strong> <span id="summaryDuration">0 mins</span></p>
                 </div>
-            </fieldset>
-            <fieldset>
-                <legend>CPR Cycles</legend>
-                <div id="cyclesContainer"></div>
-                <button type="button" id="addCycleBtn" class="secondary">+ เพิ่ม CPR Cycle</button>
-            </fieldset>
-            <button type="submit" class="primary">บันทึกเคส</button>
-        </form>
-    </div>
+                <div class="summary-section">
+                    <p><strong>Medications:</strong> <span id="summaryMedCount">0</span></p>
+                    <ul id="summaryMedList"></ul>
+                </div>
+                 <div class="summary-section">
+                    <p><strong>Defibrillations:</strong> <span id="summaryDefibCount">0</span></p>
+                    <ul id="summaryDefibList"></ul>
+                </div>
+            </div>
+
+            <form id="cprForm">
+                <fieldset>
+                    <legend>ข้อมูลผู้ป่วย</legend>
+                    <div class="cycle-grid">
+                        <div>
+                            <label>Date:</label>
+                            <input type="date" name="date" required>
+                        </div>
+                        <div class="time-input-group">
+                            <label>Time:
+                               <input type="time" name="time" required>
+                            </label>
+                             <button type="button" class="secondary use-now-btn">Now</button>
+                        </div>
+                        <div>
+                            <label>HN:</label>
+                            <input type="text" name="hn" required>
+                        </div>
+                        <div>
+                            <label>Patient Name:</label>
+                            <input type="text" name="patientName" required>
+                        </div>
+                        <div>
+                            <label>Age:</label>
+                            <input type="number" name="age" min="0" required>
+                        </div>
+                        <div>
+                            <label>Event Details:</label>
+                            <input type="text" name="eventDetails" placeholder="e.g., witnessed collapse">
+                        </div>
+                        <div class="time-input-group">
+                            <label>ROSC Time:
+                               <input type="time" name="roscTime">
+                            </label>
+                             <button type="button" class="secondary use-now-btn">Now</button>
+                        </div>
+                        <div class="time-input-group">
+                            <label>NR Time:
+                                <input type="time" name="NRTime">
+                            </label>
+                             <button type="button" class="secondary use-now-btn">Now</button>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>CPR Cycles</legend>
+                    <div id="cyclesContainer"></div>
+                    <button type="button" id="addCycleBtn" class="secondary">+ เพิ่ม CPR Cycle</button>
+                </fieldset>
+                <button type="submit" class="primary">บันทึกเคส</button>
+            </form>
+        </div> </div>
 
     <div id="manageView" class="container hidden">
         <div class="header-nav">
@@ -797,13 +807,11 @@
         const emailSignUpBtn = document.getElementById('emailSignUpBtn');
         const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
         const loginError = document.getElementById('loginError');
-        const summaryPanel = document.getElementById('summaryPanel');
-
 
         let currentUser = null;
         let isAdmin = false;
         let unsubscribe = null;
-        let durationInterval = null; // NEW: Timer for summary panel
+        let durationInterval = null; 
 
         // --- AUTHENTICATION ---
         onAuthStateChanged(auth, async (user) => {
@@ -921,13 +929,11 @@
             loginView.classList.add('hidden');
             recorderView.classList.add('hidden');
             manageView.classList.add('hidden');
-            summaryPanel.classList.remove('visible'); // Hide summary panel by default
 
             if (viewName === 'login') {
                 loginView.classList.remove('hidden');
             } else if (viewName === 'recorder') {
                 recorderView.classList.remove('hidden');
-                summaryPanel.classList.add('visible'); // Show summary panel for recorder
                 setDefaultDateTime();
                 updateSummaryPanel();
             } else if (viewName === 'manage') {
@@ -986,7 +992,6 @@
             }
         });
 
-        // NEW: Event listener for form reset
         cprForm.addEventListener('reset', () => {
             document.getElementById("cyclesContainer").innerHTML = "";
             if (durationInterval) clearInterval(durationInterval);
@@ -1061,7 +1066,7 @@
             return cyclesData;
         }
 
-        // --- NEW: Time & Summary Panel Logic ---
+        // --- Time & Summary Panel Logic ---
         function setInputTimeToNow(timeInput) {
             if (!timeInput) return;
             const now = new Date();
