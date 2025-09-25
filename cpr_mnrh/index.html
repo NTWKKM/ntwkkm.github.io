@@ -35,7 +35,7 @@
             width: 95%;
             max-width: 1200px;
             margin: 20px auto;
-            padding: 25px; /*25*/
+            padding: 25px;
             background: var(--light-text);
             border-radius: 12px;
             box-shadow: 0 6px 16px rgba(0,0,0,0.1);
@@ -73,9 +73,7 @@
             margin-bottom: 25px;
             border: 3px solid var(--secondary-color);
         }
-        .login-box h2 {
-            font-size: 1.6em;
-        }
+        .login-box h2 { font-size: 1.6em; }
         .login-box p {
             color: var(--dark-text);
             margin-bottom: 25px;
@@ -106,17 +104,14 @@
             background-color: #f0f4f8;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        /* New CSS for Google logo */
         #googleSignInBtn img {
-            height: 28px; /* Adjust size to fit text height 22 */
-            width: 28px; /* Keep aspect ratio 22 */
-            border: none; /* Remove any border that might be inherited */
-            margin-top: 20px;
-            margin-right: 4px; /* Space between logo and text */
-            vertical-align: middle; /* Align vertically with text */
+            height: 28px;
+            width: 28px;
+            border: none;
+            margin-top: 0; /* Adjusted from original */
+            margin-right: 4px;
+            vertical-align: middle;
         }
-        /* END New CSS for Google logo */
-
         .login-box .divider {
             color: #b0b0b0;
             margin: 25px 0;
@@ -147,6 +142,7 @@
             outline: none;
             box-shadow: 0 0 0 2px rgba(43, 108, 176, 0.2);
         }
+
         /* --- Header & Navigation --- */
         .header-nav {
             display: flex;
@@ -176,7 +172,7 @@
             transition: background-color 0.2s ease, color 0.2s ease;
         }
         .nav-link:hover, .user-info button:hover {
-            background-color: #e6f0fa; /* Lighter primary hover */
+            background-color: #e6f0fa;
             color: var(--primary-color);
         }
         .user-info {
@@ -190,11 +186,12 @@
             color: var(--dark-text);
             font-size: 1.05em;
         }
+
         /* --- General Form & Button Styles --- */
-        form label { 
-            display: block; 
-            margin: 12px 0 6px; 
-            font-weight: 600; 
+        form label {
+            display: block;
+            margin: 12px 0 6px;
+            font-weight: 600;
             color: var(--dark-text);
         }
         input[type="text"], input[type="number"], input[type="date"], input[type="time"], select {
@@ -211,45 +208,45 @@
             outline: none;
             box-shadow: 0 0 0 2px rgba(56, 178, 172, 0.2);
         }
-        fieldset { 
-            margin-bottom: 30px; 
-            border-radius: 12px; 
-            border: 1px solid var(--fieldset-border); 
-            background: var(--form-bg); 
-            padding: 20px; 
+        fieldset {
+            margin-bottom: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--fieldset-border);
+            background: var(--form-bg);
+            padding: 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        legend { 
-            padding: 0 12px; 
-            font-weight: 700; 
-            color: var(--primary-color); 
+        legend {
+            padding: 0 12px;
+            font-weight: 700;
+            color: var(--primary-color);
             font-size: 1.2em;
-            background-color: var(--form-bg); /* Match fieldset background */
+            background-color: var(--form-bg);
             border-radius: 5px;
             border: 1px solid var(--fieldset-border);
             margin-left: 10px;
         }
-        button { 
-            cursor: pointer; 
-            font-size: 1em; 
-            border-radius: 8px; 
-            padding: 10px 18px; 
-            border: none; 
-            font-weight: bold; 
+        button {
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 8px;
+            padding: 10px 18px;
+            border: none;
+            font-weight: bold;
             transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        button:hover { 
+        button:hover {
             opacity: 0.9;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
         .primary { background-color: var(--primary-color); color: var(--light-text); }
-        .primary:hover { background-color: #245a96; } /* Darker primary on hover */
+        .primary:hover { background-color: #245a96; }
         .secondary { background-color: var(--secondary-color); color: var(--light-text); }
-        .secondary:hover { background-color: #319e99; } /* Darker secondary on hover */
+        .secondary:hover { background-color: #319e99; }
         .danger { background-color: var(--danger-color); color: var(--light-text); }
-        .danger:hover { background-color: #a02424; } /* Darker danger on hover */
-        
+        .danger:hover { background-color: #a02424; }
+
         /* --- Time Input with 'Now' Button --- */
         .time-input-group {
             display: flex;
@@ -258,47 +255,45 @@
         }
         .time-input-group label {
             flex-grow: 1;
-            margin-bottom: 0; /* Reset default margin */
+            margin-bottom: 0;
         }
         .time-input-group .use-now-btn {
              padding: 8px 15px;
              font-size: 0.9em;
-             flex-shrink: 0; /* Prevent button from shrinking */
+             flex-shrink: 0;
         }
-        
+
         /* --- Recorder View --- */
-        #cyclesContainer { 
-            margin: 20px 0; 
-            padding: 15px; 
-            border: 2px dashed var(--medium-gray-border); 
-            background: var(--light-text); 
-            border-radius: 10px; 
+        #cyclesContainer {
+            margin: 20px 0;
+            padding: 15px;
+            border: 2px dashed var(--medium-gray-border);
+            background: var(--light-text);
+            border-radius: 10px;
         }
-        .cycle-block { 
-            border: 1px solid #d4dae0; 
-            margin-bottom: 20px; 
-            padding: 20px; 
-            background: #fdfefe; /* Slightly whiter than form-bg */
-            border-radius: 10px; 
-            position: relative; 
+        .cycle-block {
+            border: 1px solid #d4dae0;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #fdfefe;
+            border-radius: 10px;
+            position: relative;
             box-shadow: 0 1px 5px rgba(0,0,0,0.03);
         }
-        .cycle-block h3 { 
-            margin: 0 0 20px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
+        .cycle-block h3 {
+            margin: 0 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             font-size: 1.3em;
             color: var(--primary-color);
         }
-        .cycle-grid, .meds-grid, .blood-gas-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Adjusted for better spacing */
-            gap: 15px 20px; 
-            align-items: end; 
+        .cycle-grid, .meds-grid, .blood-gas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px 20px;
+            align-items: end;
         }
-
-        /* --- New style for horizontal Dtx input and button --- */
         .dtx-input-wrapper {
             display: flex;
             align-items: flex-end;
@@ -308,39 +303,34 @@
             flex-grow: 1;
             margin-bottom: 0;
         }
-
-        .remove-btn { 
-            color: var(--danger-color); 
-            background: var(--light-text); 
-            border: 1px solid var(--danger-color); 
-            font-size: 0.85em; 
-            border-radius: 6px; 
-            padding: 4px 10px; 
-            box-shadow: none; /* No shadow for small buttons */
+        .remove-btn {
+            color: var(--danger-color);
+            background: var(--light-text);
+            border: 1px solid var(--danger-color);
+            font-size: 0.85em;
+            border-radius: 6px;
+            padding: 4px 10px;
+            box-shadow: none;
         }
         .remove-btn:hover {
             background-color: #ffebeb;
             box-shadow: none;
         }
-        .meds-list, .investigation-list, .medList, .dtxList { 
-            margin: 15px 0; 
-            padding-left: 25px; 
-            list-style-type: disc; 
+        .meds-list, .investigation-list, .medList, .dtxList {
+            margin: 15px 0;
+            padding-left: 25px;
+            list-style-type: disc;
             color: var(--dark-text);
         }
-        .meds-list li, .investigation-list li, .medList li, .dtxList li {
-            margin-bottom: 8px;
-        }
-        .add-btn { 
-            margin-top: 10px; 
-            margin-bottom: 15px; 
-            background: var(--secondary-color); 
-            color: var(--light-text); 
-            padding: 8px 15px; 
+        .meds-list li, .investigation-list li, .medList li, .dtxList li { margin-bottom: 8px; }
+        .add-btn {
+            margin-top: 10px;
+            margin-bottom: 15px;
+            background: var(--secondary-color);
+            color: var(--light-text);
+            padding: 8px 15px;
             font-size: 0.9em;
         }
-
-        /* --- Custom CSS for Medicine Section --- */
         .meds-form-container {
             display: flex;
             justify-content: space-between;
@@ -354,7 +344,7 @@
             flex-direction: column;
             gap: 12px;
             flex: 1;
-            min-width: 280px; /* Ensure groups don't get too narrow */
+            min-width: 280px;
         }
         .meds-details-group input {
             width: 100%;
@@ -368,12 +358,10 @@
             cursor: pointer;
         }
         .meds-selection-group input[type="checkbox"] {
-            width: auto; /* Override 100% width */
+            width: auto;
             margin-right: 8px;
-            transform: scale(1.2); /* Slightly larger checkboxes */
+            transform: scale(1.2);
         }
-
-        /* --- Collapsible Investigation Section (Improved) --- */
         details {
             margin-bottom: 20px;
             border: 1px solid var(--fieldset-border);
@@ -383,9 +371,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             transition: box-shadow 0.3s ease;
         }
-        details:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
+        details:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         summary {
             font-weight: 700;
             color: var(--primary-color);
@@ -400,9 +386,7 @@
             align-items: center;
             gap: 10px;
         }
-        summary::-webkit-details-marker {
-            display: none;
-        }
+        summary::-webkit-details-marker { display: none; }
         summary::before {
             font-family: "Font Awesome 6 Free";
             content: '\f054'; /* Right Arrow */
@@ -411,21 +395,14 @@
             color: var(--secondary-color);
             transition: transform 0.2s ease;
         }
-        details[open] summary::before {
-            content: '\f078'; /* Down Arrow */
-        }
-        .investigation-content {
-            padding-top: 10px;
-        }
-        .investigation-block {
-            padding-top: 10px;
-        }
+        details[open] summary::before { content: '\f078'; /* Down Arrow */ }
+        .investigation-content, .investigation-block { padding-top: 10px; }
         hr {
             border: 0;
             border-top: 1px solid var(--fieldset-border);
             margin: 15px 0;
         }
-        
+
         /* --- NEW: Layout for Recorder View --- */
         .recorder-layout {
             display: flex;
@@ -434,9 +411,9 @@
         }
         #cprForm {
             flex: 1;
-            min-width: 0; /* Prevents form from overflowing its container */
+            min-width: 0; /* Prevents form from overflowing */
         }
-        
+
         /* --- UPDATED: Sticky Summary Panel --- */
         #summaryPanel {
             position: sticky;
@@ -447,7 +424,7 @@
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             padding: 20px;
-            max-height: calc(100vh - 40px); /* Set max height relative to viewport */
+            max-height: calc(100vh - 40px);
             overflow-y: auto;
         }
         #summaryPanel h3 {
@@ -476,7 +453,7 @@
             border-bottom: 1px solid var(--medium-gray-border);
             padding-bottom: 10px;
         }
-         #summaryPanel .summary-section:last-child {
+        #summaryPanel .summary-section:last-child {
             border-bottom: none;
             padding-bottom: 0;
         }
@@ -488,12 +465,12 @@
         }
         #summaryPanel ul li {
             margin-bottom: 5px;
-            color: #4A5568; /* Gray-700 */
+            color: #4A5568;
             position: relative;
             padding-left: 15px;
         }
         #summaryPanel ul li::before {
-            content: '\f0da'; /* fa-chevron-right */
+            content: '\f0da';
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
             position: absolute;
@@ -503,63 +480,59 @@
         }
 
         /* --- Manage View --- */
-        .actions { 
-            display: flex; 
-            gap: 15px; 
-            margin-bottom: 25px; 
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
             flex-wrap: wrap;
         }
-        .table-container { 
-            overflow-x: auto; 
-            background: var(--light-text); 
-            border-radius: 10px; 
-            border: 1px solid var(--medium-gray-border); 
+        .table-container {
+            overflow-x: auto;
+            background: var(--light-text);
+            border-radius: 10px;
+            border: 1px solid var(--medium-gray-border);
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
-        table { 
-            width: 100%; 
-            border-collapse: collapse; 
-            min-width: 800px; /* Ensure table is readable on smaller screens */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px;
         }
-        th, td { 
-            padding: 15px 18px; 
-            text-align: left; 
-            border-bottom: 1px solid var(--medium-gray-border); 
+        th, td {
+            padding: 15px 18px;
+            text-align: left;
+            border-bottom: 1px solid var(--medium-gray-border);
         }
-        thead th { 
-            background-color: #eef2f7; /* Lighter background for table header */
-            font-weight: 700; 
-            color: var(--dark-text); 
+        thead th {
+            background-color: #eef2f7;
+            font-weight: 700;
+            color: var(--dark-text);
             text-transform: uppercase;
             font-size: 0.9em;
             letter-spacing: 0.5px;
         }
-        tbody tr:hover { 
-            background-color: #f6faff; /* Very light blue on row hover */
-        }
-        .loading, .no-cases { 
-            text-align: center; 
-            padding: 50px; 
-            font-size: 1.3em; 
-            color: var(--dark-text); 
+        tbody tr:hover { background-color: #f6faff; }
+        .loading, .no-cases {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.3em;
+            color: var(--dark-text);
             font-weight: 500;
         }
-
-        /* --- Utility --- */
         .hidden { display: none !important; }
 
         /* --- Responsive Adjustments --- */
         @media (max-width: 1200px) {
             .recorder-layout {
-                flex-direction: column; /* Stack panel and form */
+                flex-direction: column;
             }
             #summaryPanel {
-                position: static; /* Reset sticky positioning */
+                position: static;
                 width: 100%;
                 box-sizing: border-box;
                 max-height: none;
                 margin-bottom: 25px;
-                order: -1; /* Display summary panel on top on mobile */
+                order: -1;
             }
         }
         @media (max-width: 768px) {
@@ -581,25 +554,21 @@
                 width: auto;
                 margin-bottom: 5px;
             }
-            .cycle-grid, .meds-grid, .blood-gas-grid {
-                grid-template-columns: 1fr;
-            }
-            .meds-form-container {
-                flex-direction: column;
-            }
+            .cycle-grid, .meds-grid, .blood-gas-grid { grid-template-columns: 1fr; }
+            .meds-form-container { flex-direction: column; }
             .meds-selection-group, .meds-details-group {
                 min-width: unset;
                 width: 100%;
             }
         }
-        
+
         /* --- Footer Styles --- */
         footer {
-            margin-top: 40px; 
-            padding: 20px 25px; /*20 25*/
+            margin-top: 40px;
+            padding: 20px 25px;
             text-align: center;
             font-size: 0.9em;
-            color: #718096; /* A slightly darker gray for legibility */
+            color: #718096;
             border-top: 1px solid var(--medium-gray-border);
         }
         footer a {
@@ -608,9 +577,7 @@
             font-weight: 600;
             transition: color 0.2s ease;
         }
-        footer a:hover {
-            color: var(--secondary-color);
-        }
+        footer a:hover { color: var(--secondary-color); }
     </style>
 </head>
 <body>
@@ -629,7 +596,6 @@
                 <input type="password" id="passwordInput" placeholder="รหัสผ่าน">
                 <button id="emailSignInBtn" class="primary">เข้าสู่ระบบด้วยอีเมล</button>
                 <button id="emailSignUpBtn" class="secondary">สร้างบัญชีใหม่ด้วยอีเมล</button>
-
                 <button type="button" id="forgotPasswordBtn" style="background: none; color: var(--primary-color); border: none; font-size: 0.9em; margin-top: 10px; padding: 5px 0;">ลืมรหัสผ่าน?</button>
             </div>
             <p id="loginError" class="hidden" style="color: var(--danger-color); margin-top: 15px; font-weight: 600;"></p>
@@ -647,7 +613,6 @@
         </div>
 
         <div class="recorder-layout">
-
             <div id="summaryPanel">
                 <h3><i class="fas fa-clipboard-list"></i> Case Summary</h3>
                 <div class="summary-section">
@@ -675,10 +640,8 @@
                             <input type="date" name="date" required>
                         </div>
                         <div class="time-input-group">
-                            <label>Time:
-                               <input type="time" name="time" required>
-                            </label>
-                             <button type="button" class="secondary use-now-btn">Now</button>
+                            <label>Time: <input type="time" name="time" required></label>
+                            <button type="button" class="secondary use-now-btn">Now</button>
                         </div>
                         <div>
                             <label>HN:</label>
@@ -697,16 +660,12 @@
                             <input type="text" name="eventDetails" placeholder="e.g., witnessed collapse">
                         </div>
                         <div class="time-input-group">
-                            <label>ROSC Time:
-                               <input type="time" name="roscTime">
-                            </label>
-                             <button type="button" class="secondary use-now-btn">Now</button>
+                            <label>ROSC Time: <input type="time" name="roscTime"></label>
+                            <button type="button" class="secondary use-now-btn">Now</button>
                         </div>
                         <div class="time-input-group">
-                            <label>NR Time:
-                                <input type="time" name="NRTime">
-                            </label>
-                             <button type="button" class="secondary use-now-btn">Now</button>
+                            <label>NR Time: <input type="time" name="NRTime"></label>
+                            <button type="button" class="secondary use-now-btn">Now</button>
                         </div>
                     </div>
                 </fieldset>
@@ -717,7 +676,8 @@
                 </fieldset>
                 <button type="submit" class="primary">บันทึกเคส</button>
             </form>
-        </div> </div>
+        </div>
+    </div>
 
     <div id="manageView" class="container hidden">
         <div class="header-nav">
@@ -743,18 +703,16 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody id="caseTableBody">
-                </tbody>
+                <tbody id="caseTableBody"></tbody>
             </table>
         </div>
     </div>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
     <script type="module">
-        // NOTE: This API Key is a placeholder and will be replaced by Vercel's environment variable during deployment.
         const firebaseConfig = {
-            apiKey: "FIREBASE_API_KEY_PLACEHOLDER", 
+            apiKey: "FIREBASE_API_KEY_PLACEHOLDER",
             authDomain: "cpr-record-2eadf.firebaseapp.com",
             projectId: "cpr-record-2eadf",
             storageBucket: "cpr-record-2eadf.appspot.com",
@@ -762,41 +720,23 @@
             appId: "1:742246720333:web:f6df16f6df6c8680d84d04",
             measurementId: "G-0P7R8M84F8"
         };
-        
-        // Import functions from the SDKs
+
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-        import { 
-            getAuth, 
-            onAuthStateChanged, 
-            signOut,
-            GoogleAuthProvider,
-            signInWithPopup,
-            createUserWithEmailAndPassword,
-            signInWithEmailAndPassword,
-            sendPasswordResetEmail // เพิ่มการ import
+        import {
+            getAuth, onAuthStateChanged, signOut, GoogleAuthProvider,
+            signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword,
+            sendPasswordResetEmail
         } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-        import { 
-            getFirestore, 
-            collection, 
-            addDoc, 
-            query, 
-            where, 
-            onSnapshot, 
-            doc, 
-            deleteDoc, 
-            getDocs, 
-            setDoc,
-            getDoc
+        import {
+            getFirestore, collection, addDoc, query, where,
+            onSnapshot, doc, deleteDoc, getDocs, setDoc, getDoc
         } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-        
-        // Initialize Firebase
+
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        const ADMIN_EMAILS = ["k.nattawit@gmail.com", "your.second.admin@example.com"]; 
-
-        // DOM Elements
+        const ADMIN_EMAILS = ["k.nattawit@gmail.com", "your.second.admin@example.com"];
         const loginView = document.getElementById('loginView');
         const recorderView = document.getElementById('recorderView');
         const manageView = document.getElementById('manageView');
@@ -807,21 +747,19 @@
         const emailSignUpBtn = document.getElementById('emailSignUpBtn');
         const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
         const loginError = document.getElementById('loginError');
+        const cprForm = document.getElementById('cprForm');
 
         let currentUser = null;
         let isAdmin = false;
         let unsubscribe = null;
-        let durationInterval = null; 
+        let durationInterval = null;
 
-        // --- AUTHENTICATION ---
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 currentUser = user;
                 const userDocRef = doc(db, "users", user.uid);
-                
                 try {
                     const userSnap = await getDoc(userDocRef);
-                    
                     if (!userSnap.exists()) {
                         await setDoc(userDocRef, {
                             uid: user.uid,
@@ -830,9 +768,8 @@
                             createdAt: new Date()
                         });
                         const newUserSnap = await getDoc(userDocRef);
-                        const userData = newUserSnap.data();
-                        isAdmin = userData.isAdmin || false;
-                        updateUI(userData.name, isAdmin);
+                        isAdmin = newUserSnap.data().isAdmin || false;
+                        updateUI(newUserSnap.data().name, isAdmin);
                     } else {
                         const userData = userSnap.data();
                         isAdmin = userData.isAdmin || false;
@@ -900,39 +837,31 @@
                 loginError.classList.remove('hidden');
             }
         });
-
+        
         forgotPasswordBtn.addEventListener('click', async () => {
-            const email = document.getElementById('emailInput').value;
-            if (email) {
-            try {
-            await sendPasswordResetEmail(auth, email);
-                alert("เราได้ส่งลิงก์รีเซ็ตรหัสผ่านไปที่อีเมลของคุณแล้ว กรุณาตรวจสอบในกล่องขาเข้าและโฟลเดอร์สแปม");
-            } catch (error) {
-                console.error("Password Reset Error:", error.code, error.message);
-            if (error.code === 'auth/user-not-found') {
-                alert("ไม่พบบัญชีผู้ใช้ที่ตรงกับอีเมลนี้ กรุณาตรวจสอบอีเมลอีกครั้งหรือลงทะเบียนใหม่");
-            } else {
-                alert("เกิดข้อผิดพลาดในการส่งอีเมล กรุณาลองใหม่อีกครั้งในภายหลัง");
+            if (emailInput.value) {
+                try {
+                    await sendPasswordResetEmail(auth, emailInput.value);
+                    alert("เราได้ส่งลิงก์รีเซ็ตรหัสผ่านไปที่อีเมลของคุณแล้ว");
+                } catch (error) {
+                    console.error("Password Reset Error:", error);
+                    alert("เกิดข้อผิดพลาด: " + error.message);
                 }
+            } else {
+                alert("กรุณาป้อนอีเมลของคุณ");
             }
-            } else {
-                alert("กรุณาป้อนอีเมลที่ต้องการรีเซ็ตรหัสผ่าน");
-                }
         });
 
         function handleLogout() {
             signOut(auth).catch(error => console.error("Logout Error:", error));
         }
 
-        // --- UI and VIEW MANAGEMENT ---
         function showView(viewName) {
             loginView.classList.add('hidden');
             recorderView.classList.add('hidden');
             manageView.classList.add('hidden');
-
-            if (viewName === 'login') {
-                loginView.classList.remove('hidden');
-            } else if (viewName === 'recorder') {
+            if (viewName === 'login') loginView.classList.remove('hidden');
+            else if (viewName === 'recorder') {
                 recorderView.classList.remove('hidden');
                 setDefaultDateTime();
                 updateSummaryPanel();
@@ -946,46 +875,32 @@
             document.getElementById('userNameRecorder').textContent = `สวัสดี, ${name}`;
             document.getElementById('userNameManage').textContent = `สวัสดี, ${name} ${isAdmin ? '(Admin)' : ''}`;
         }
-        
+
         document.getElementById('logoutBtnRecorder').addEventListener('click', handleLogout);
         document.getElementById('logoutBtnManage').addEventListener('click', handleLogout);
         document.getElementById('manageCasesBtn').addEventListener('click', () => showView('manage'));
         document.getElementById('backToRecorderBtn').addEventListener('click', () => showView('recorder'));
-
-        // --- CPR FORM LOGIC (Recorder View) ---
-        const cprForm = document.getElementById('cprForm');
+        
         cprForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             if (!currentUser) {
                 alert("กรุณาเข้าสู่ระบบก่อนบันทึก");
                 return;
             }
-            
             const data = {};
-            new FormData(cprForm).forEach((value, key) => {
-                 if (!key.startsWith('cycle-')) { // Exclude cycle-specific inputs from root data
+            const formData = new FormData(cprForm);
+            for (const [key, value] of formData.entries()) {
+                 if (!key.startsWith('cycle-')) {
                     data[key] = value;
                  }
-            });
-            data.cycles = collectCycles();
-            
+            }
+            data.cycles = collectCyclesData();
             try {
-                const userDocRef = doc(db, "users", currentUser.uid);
-                const userDocSnap = await getDoc(userDocRef);
-                
-                let userName = 'Anonymous';
-                if (userDocSnap.exists()) {
-                    userName = userDocSnap.data().name || 'Anonymous';
-                }
-
-                await addDoc(collection(db, "cpr_cases"), {
-                    ...data,
-                    userId: currentUser.uid,
-                    userName: userName,
-                    createdAt: new Date()
-                });
+                const userSnap = await getDoc(doc(db, "users", currentUser.uid));
+                const userName = userSnap.exists() ? userSnap.data().name : 'Anonymous';
+                await addDoc(collection(db, "cpr_cases"), { ...data, userId: currentUser.uid, userName, createdAt: new Date() });
                 alert('บันทึกเคสสำเร็จ!');
-                this.reset(); // This will trigger the 'reset' event listener
+                this.reset();
             } catch (error) {
                 console.error("Error saving case: ", error);
                 alert("เกิดข้อผิดพลาดในการบันทึกเคส");
@@ -994,15 +909,14 @@
 
         cprForm.addEventListener('reset', () => {
             document.getElementById("cyclesContainer").innerHTML = "";
+            cycleCounter = 0;
             if (durationInterval) clearInterval(durationInterval);
-            // Use setTimeout to update the panel AFTER the form has cleared
             setTimeout(() => {
                 setDefaultDateTime();
                 updateSummaryPanel();
             }, 50);
         });
 
-        // --- CYCLE MANAGEMENT ---
         const cyclesContainer = document.getElementById("cyclesContainer");
         let cycleCounter = 0;
         document.getElementById("addCycleBtn").addEventListener("click", () => {
@@ -1010,145 +924,126 @@
             const cycleId = `cycle-${cycleCounter}`;
             const newCycle = document.createElement("div");
             newCycle.className = "cycle-block";
-            newCycle.id = cycleId;
+            newCycle.dataset.id = cycleId;
             newCycle.innerHTML = `
-                <h3>
-                    Cycle ${cycleCounter}
-                    <button type="button" class="remove-btn" onclick="this.closest('.cycle-block').remove()">ลบ</button>
-                </h3>
+                <h3>Cycle ${cycleCounter}<button type="button" class="remove-btn" onclick="this.closest('.cycle-block').remove()">ลบ</button></h3>
                 <div class="cycle-grid">
                     <div class="time-input-group">
-                        <label>Time: <input type="time" name="${cycleId}-time" class="cycle-input"></label>
+                        <label>Time: <input type="time" name="${cycleId}-time"></label>
                         <button type="button" class="secondary use-now-btn">Now</button>
                     </div>
-                    <div>
-                        <label>Rhythm: 
-                            <select name="${cycleId}-rhythm" class="cycle-input">
-                                <option value="">Select...</option>
-                                <option value="VF">VF</option>
-                                <option value="VT">VT</option>
-                                <option value="PEA">PEA</option>
-                                <option value="Asystole">Asystole</option>
-                            </select>
-                        </label>
-                    </div>
-                     <div>
-                        <label>Defib Energy (J): <input type="number" name="${cycleId}-defibEnergy" class="cycle-input" min="0"></label>
-                    </div>
+                    <label>Rhythm: 
+                        <select name="${cycleId}-rhythm">
+                            <option value="">Select...</option>
+                            <option value="VF">VF</option><option value="VT">VT</option>
+                            <option value="PEA">PEA</option><option value="Asystole">Asystole</option>
+                        </select>
+                    </label>
+                    <label>Defib Energy (J): <input type="number" name="${cycleId}-defibEnergy" min="0"></label>
                 </div>
                 <hr>
-                <h4>Medications</h4>
-                <div class="meds-grid">
-                     <label><input type="checkbox" name="${cycleId}-meds" value="Adrenaline" class="cycle-input"> Adrenaline</label>
-                     <label><input type="checkbox" name="${cycleId}-meds" value="Amiodarone" class="cycle-input"> Amiodarone</label>
-                     <label><input type="checkbox" name="${cycleId}-meds" value="Bicarbonate" class="cycle-input"> Bicarbonate</label>
-                </div>
-            `;
+                <details>
+                    <summary>Medications & Interventions</summary>
+                    <div class="meds-form-container">
+                        <div class="meds-selection-group">
+                            <label><input type="checkbox" name="${cycleId}-meds" value="Adrenaline"> Adrenaline</label>
+                            <label><input type="checkbox" name="${cycleId}-meds" value="Amiodarone"> Amiodarone</label>
+                            <label><input type="checkbox" name="${cycleId}-meds" value="Bicarbonate"> Bicarbonate</label>
+                            <label><input type="checkbox" name="${cycleId}-meds" value="Calcium"> Calcium Gluconate</label>
+                             <label><input type="checkbox" name="${cycleId}-meds" value="Lidocaine"> Lidocaine</label>
+                        </div>
+                        <div class="meds-details-group">
+                             <label>Other Meds: <input type="text" name="${cycleId}-otherMeds" placeholder="e.g., Atropine 1mg"></label>
+                             <div class="dtx-input-wrapper">
+                                 <label>DTX (mg/dL): <input type="number" name="${cycleId}-dtx" min="0"></label>
+                             </div>
+                        </div>
+                    </div>
+                </details>`;
             cyclesContainer.appendChild(newCycle);
-            // Auto-fill time for the new cycle
             const timeInput = newCycle.querySelector('input[type="time"]');
             setInputTimeToNow(timeInput);
         });
-
-        function collectCycles() {
+        
+        function collectCyclesData() {
             const cyclesData = [];
-            const cycleElements = cyclesContainer.querySelectorAll('.cycle-block');
-            cycleElements.forEach(cycleEl => {
-                const cycleId = cycleEl.id;
-                const cycle = {
+            document.querySelectorAll('.cycle-block').forEach(cycleEl => {
+                const cycleId = cycleEl.dataset.id;
+                const meds = Array.from(cycleEl.querySelectorAll(`input[name="${cycleId}-meds"]:checked`)).map(cb => cb.value);
+                cyclesData.push({
                     time: cycleEl.querySelector(`[name="${cycleId}-time"]`).value,
                     rhythm: cycleEl.querySelector(`[name="${cycleId}-rhythm"]`).value,
                     defibEnergy: cycleEl.querySelector(`[name="${cycleId}-defibEnergy"]`).value,
-                    meds: Array.from(cycleEl.querySelectorAll(`[name="${cycleId}-meds"]:checked`)).map(cb => cb.value)
-                };
-                cyclesData.push(cycle);
+                    meds,
+                    otherMeds: cycleEl.querySelector(`[name="${cycleId}-otherMeds"]`).value,
+                    dtx: cycleEl.querySelector(`[name="${cycleId}-dtx"]`).value,
+                });
             });
             return cyclesData;
         }
 
-        // --- Time & Summary Panel Logic ---
         function setInputTimeToNow(timeInput) {
             if (!timeInput) return;
             const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            timeInput.value = `${hours}:${minutes}`;
-            // Manually trigger an input event to ensure summary panel updates
+            timeInput.value = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
             timeInput.dispatchEvent(new Event('input', { bubbles: true }));
         }
-        
+
         function setDefaultDateTime() {
             const dateInput = document.querySelector('input[name="date"]');
             const timeInput = document.querySelector('input[name="time"]');
             const now = new Date();
-            // Set date to YYYY-MM-DD format
             dateInput.value = now.toISOString().split('T')[0];
             setInputTimeToNow(timeInput);
         }
 
-        recorderView.addEventListener('click', function(e) {
-            if (e.target && e.target.classList.contains('use-now-btn')) {
-                // Find the time input within the same group
-                const timeInput = e.target.parentElement.querySelector('input[type="time"]');
-                setInputTimeToNow(timeInput);
+        recorderView.addEventListener('click', e => {
+            if (e.target.classList.contains('use-now-btn')) {
+                setInputTimeToNow(e.target.parentElement.querySelector('input[type="time"]'));
+            } else if (e.target.type === 'checkbox' || e.target.classList.contains('remove-btn')) {
+                setTimeout(updateSummaryPanel, 50);
             }
         });
         
         function startDurationTimer() {
-            if (durationInterval) clearInterval(durationInterval); 
-
-            const startTimeInput = document.querySelector('input[name="time"]');
-            const startDateInput = document.querySelector('input[name="date"]');
-            const durationEl = document.getElementById('summaryDuration');
-
+            if (durationInterval) clearInterval(durationInterval);
             durationInterval = setInterval(() => {
-                if (startTimeInput.value && startDateInput.value) {
-                    const [hours, minutes] = startTimeInput.value.split(':');
-                    const startDateTime = new Date(startDateInput.value);
+                const startTimeInput = document.querySelector('input[name="time"]').value;
+                const startDateInput = document.querySelector('input[name="date"]').value;
+                const durationEl = document.getElementById('summaryDuration');
+                if (startTimeInput && startDateInput) {
+                    const [hours, minutes] = startTimeInput.split(':');
+                    const startDateTime = new Date(startDateInput);
                     startDateTime.setHours(hours, minutes, 0, 0);
-
-                    const now = new Date();
-                    const diffMs = now - startDateTime;
-                    
-                    if (diffMs >= 0) {
-                        const diffMins = Math.floor(diffMs / 60000);
-                        durationEl.textContent = `${diffMins} mins`;
-                    } else {
-                        durationEl.textContent = '0 mins';
-                    }
+                    const diffMins = Math.floor((new Date() - startDateTime) / 60000);
+                    durationEl.textContent = `${diffMins >= 0 ? diffMins : 0} mins`;
                 }
-            }, 5000); // Update every 5 seconds
+            }, 5000);
         }
 
         function updateSummaryPanel() {
-            // Update patient info
             document.getElementById('summaryPatientName').textContent = document.querySelector('input[name="patientName"]').value || 'N/A';
             document.getElementById('summaryAge').textContent = document.querySelector('input[name="age"]').value || 'N/A';
             const startTime = document.querySelector('input[name="time"]').value;
             document.getElementById('summaryStartTime').textContent = startTime || 'N/A';
-            
-            if(startTime) startDurationTimer();
+            if (startTime) startDurationTimer();
 
-            // Update interventions
             let medCount = 0;
             let defibCount = 0;
             const medList = [];
             const defibList = [];
             
-            const cycles = document.querySelectorAll('.cycle-block');
-            cycles.forEach((cycle, index) => {
-                const cycleTime = cycle.querySelector('input[type="time"]').value;
-                const timeLabel = cycleTime ? `@ ${cycleTime}` : `(Cycle ${index + 1})`;
-                
-                cycle.querySelectorAll('input[type="checkbox"]:checked').forEach(med => {
+            collectCyclesData().forEach((cycle, index) => {
+                const timeLabel = cycle.time ? `@ ${cycle.time}` : `(Cycle ${index + 1})`;
+                medCount += cycle.meds.length;
+                cycle.meds.forEach(med => medList.push(`<li>${med} ${timeLabel}</li>`));
+                if (cycle.otherMeds) {
                     medCount++;
-                    medList.push(`<li>${med.value} ${timeLabel}</li>`);
-                });
-
-                const defibEnergy = cycle.querySelector('input[type="number"]').value;
-                if (defibEnergy && parseInt(defibEnergy, 10) > 0) {
+                    medList.push(`<li>${cycle.otherMeds} ${timeLabel}</li>`);
+                }
+                if (cycle.defibEnergy && parseInt(cycle.defibEnergy, 10) > 0) {
                     defibCount++;
-                    defibList.push(`<li>${defibEnergy}J ${timeLabel}</li>`);
+                    defibList.push(`<li>${cycle.defibEnergy}J ${timeLabel}</li>`);
                 }
             });
 
@@ -1157,142 +1052,52 @@
             document.getElementById('summaryDefibCount').textContent = defibCount;
             document.getElementById('summaryDefibList').innerHTML = defibList.join('');
         }
-        
-        // Listen for ANY input change on the form to update summary
+
         cprForm.addEventListener('input', updateSummaryPanel);
-        // Also listen for clicks on checkboxes/buttons that might not trigger 'input'
-        cprForm.addEventListener('click', (e) => {
-            if (e.target.type === 'checkbox' || e.target.classList.contains('remove-btn')) {
-                 // Use a small delay to allow the DOM to update before reading it
-                setTimeout(updateSummaryPanel, 50);
-            }
-        });
-
-
-        // --- CASE MANAGEMENT LOGIC (Manage View) ---
+        
+        // --- Manage View Logic ---
         const caseTableBody = document.getElementById('caseTableBody');
-        const recorderColumnHeader = document.getElementById('recorderColumnHeader');
-
         async function loadCases() {
-            caseTableBody.innerHTML = '<tr><td colspan="6" class="loading">Loading cases...</td></tr>';
-            
-            recorderColumnHeader.classList.toggle('hidden', !isAdmin);
-            
-            let q;
-            if (isAdmin) {
-                // Admin sees all cases
-                q = query(collection(db, "cpr_cases"));
-            } else {
-                // Regular user sees only their own cases
-                if (!currentUser) return;
-                q = query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
-            }
-
-            if (unsubscribe) unsubscribe(); // Stop previous listener
-
-            unsubscribe = onSnapshot(q, (querySnapshot) => {
-                if (querySnapshot.empty) {
-                    caseTableBody.innerHTML = '<tr><td colspan="6" class="no-cases">No cases found.</td></tr>';
+            caseTableBody.innerHTML = '<tr><td colspan="6" class="loading">Loading...</td></tr>';
+            const q = isAdmin ? query(collection(db, "cpr_cases")) : query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
+            if (unsubscribe) unsubscribe();
+            unsubscribe = onSnapshot(q, (snapshot) => {
+                caseTableBody.innerHTML = '';
+                if (snapshot.empty) {
+                    caseTableBody.innerHTML = `<tr><td colspan="${isAdmin ? 6 : 5}" class="no-cases">No cases found.</td></tr>`;
                     return;
                 }
-                caseTableBody.innerHTML = '';
-                querySnapshot.forEach((doc) => {
-                    const caseData = doc.data();
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${caseData.date}</td>
-                        <td>${caseData.time}</td>
-                        <td>${caseData.hn}</td>
-                        <td>${caseData.patientName}</td>
-                        ${isAdmin ? `<td>${caseData.userName || 'N/A'}</td>` : ''}
-                        <td>
-                            <button class="danger remove-btn" data-id="${doc.id}">Delete</button>
-                        </td>
-                    `;
-                    caseTableBody.appendChild(row);
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    const row = caseTableBody.insertRow();
+                    row.innerHTML = `<td>${data.date}</td><td>${data.time}</td><td>${data.hn}</td><td>${data.patientName}</td>${isAdmin ? `<td>${data.userName}</td>` : ''}<td><button class="danger remove-btn" data-id="${doc.id}">Delete</button></td>`;
                 });
-            }, (error) => {
-                console.error("Error loading cases:", error);
-                caseTableBody.innerHTML = '<tr><td colspan="6" class="no-cases" style="color: var(--danger-color);">Error loading data.</td></tr>';
             });
         }
-
         caseTableBody.addEventListener('click', async (e) => {
-            if (e.target.classList.contains('remove-btn')) {
-                const docId = e.target.dataset.id;
-                if (confirm('Are you sure you want to delete this case?')) {
-                    try {
-                        await deleteDoc(doc(db, "cpr_cases", docId));
-                        // The onSnapshot listener will automatically update the table
-                    } catch (error) {
-                        console.error("Error deleting document: ", error);
-                        alert("Failed to delete case.");
-                    }
-                }
+            if (e.target.classList.contains('remove-btn') && confirm('Are you sure?')) {
+                await deleteDoc(doc(db, "cpr_cases", e.target.dataset.id));
             }
         });
-        
-        // --- EXPORT LOGIC ---
+
         document.getElementById('exportBtn').addEventListener('click', async () => {
-             if (!currentUser) {
-                alert("Please log in to export data.");
-                return;
-            }
-
-            try {
-                let q;
-                 if (isAdmin) {
-                     q = query(collection(db, "cpr_cases"));
-                 } else {
-                     q = query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
-                 }
-
-                const querySnapshot = await getDocs(q);
-                if (querySnapshot.empty) {
-                    alert("No data to export.");
-                    return;
-                }
-
-                const dataToExport = [];
-                querySnapshot.forEach(doc => {
-                    const data = doc.data();
-                    const baseData = {
-                        Date: data.date,
-                        Time: data.time,
-                        HN: data.hn,
-                        PatientName: data.patientName,
-                        Age: data.age,
-                        EventDetails: data.eventDetails,
-                        ROSCTime: data.roscTime,
-                        NRTime: data.NRTime,
-                        RecordedBy: data.userName,
-                    };
-
-                    if (data.cycles && data.cycles.length > 0) {
-                        data.cycles.forEach((cycle, index) => {
-                            dataToExport.push({
-                                ...baseData,
-                                Cycle: index + 1,
-                                CycleTime: cycle.time,
-                                Rhythm: cycle.rhythm,
-                                DefibEnergy: cycle.defibEnergy,
-                                Meds: (cycle.meds || []).join(', '),
-                            });
-                        });
-                    } else {
-                        dataToExport.push(baseData); // Add case even if no cycles
-                    }
-                });
-                
-                const worksheet = XLSX.utils.json_to_sheet(dataToExport);
-                const workbook = XLSX.utils.book_new();
-                XLSX.utils.book_append_sheet(workbook, worksheet, "CPR Cases");
-                XLSX.writeFile(workbook, "CPR_Cases_Export.xlsx");
-
-            } catch (error) {
-                console.error("Error exporting data: ", error);
-                alert("An error occurred while exporting data.");
-            }
+             const q = isAdmin ? query(collection(db, "cpr_cases")) : query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
+             const snapshot = await getDocs(q);
+             if (snapshot.empty) return alert("No data to export.");
+             
+             const dataToExport = [];
+             snapshot.forEach(doc => {
+                const data = doc.data();
+                const base = { Date: data.date, Time: data.time, HN: data.hn, PatientName: data.patientName, Age: data.age, EventDetails: data.eventDetails, ROSCTime: data.roscTime, NRTime: data.NRTime, RecordedBy: data.userName };
+                if (data.cycles?.length) {
+                    data.cycles.forEach((c, i) => dataToExport.push({ ...base, Cycle: i + 1, CycleTime: c.time, Rhythm: c.rhythm, DefibEnergy: c.defibEnergy, Meds: [...c.meds, c.otherMeds].filter(Boolean).join(', '), DTX: c.dtx }));
+                } else dataToExport.push(base);
+             });
+             
+             const ws = XLSX.utils.json_to_sheet(dataToExport);
+             const wb = XLSX.utils.book_new();
+             XLSX.utils.book_append_sheet(wb, ws, "CPR Cases");
+             XLSX.writeFile(wb, "CPR_Cases_Export.xlsx");
         });
 
     </script>
