@@ -676,8 +676,6 @@
                             <label>Patient Name: <input type="text" name="patientName" required></label>
                             <label>Age: <input type="number" name="age" min="0" required></label>
                             <label>Event Details: <input type="text" name="eventDetails" placeholder="e.g., witnessed collapse"></label>
-                            <label>ROSC Time: <input type="time" name="roscTime"></label>
-                            <label>NR Time: <input type="time" name="NRTime"></label>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -685,6 +683,15 @@
                         <div id="cyclesContainer"></div>
                         <button type="button" id="addCycleBtn" class="secondary">+ เพิ่ม CPR Cycle</button>
                     </fieldset>
+                    
+                    <fieldset>
+                        <legend>Outcome</legend>
+                        <div class="cycle-grid">
+                            <label>ROSC Time: <input type="time" name="roscTime"></label>
+                            <label>NR Time: <input type="time" name="NRTime"></label>
+                        </div>
+                    </fieldset>
+                    
                     <button type="submit" class="primary">บันทึกเคส</button>
                 </form>
             </div>
@@ -1245,7 +1252,16 @@
                         </div>
                         <div class="meds-details-group">
                             <label>Dose <input type="text" class="medDose" placeholder="e.g., 1 mg"></label>
-                            <label>Route <input type="text" class="medRoute" placeholder="e.g., IV"></label>
+                            
+                            <label>Route
+                                <input type="text" class="medRoute" list="route-options" placeholder="e.g., IV">
+                                <datalist id="route-options">
+                                    <option value="IV"></option>
+                                    <option value="IO"></option>
+                                    <option value="ETT"></option>
+                                </datalist>
+                            </label>
+                            
                             <label>Time Given <input type="time" class="medTime"></label>
                         </div>
                     </div>
