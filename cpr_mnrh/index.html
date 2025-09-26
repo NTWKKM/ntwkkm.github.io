@@ -409,6 +409,80 @@
             border-top: 1px solid var(--fieldset-border);
             margin: 15px 0;
         }
+        
+        /* --- NEW: Recorder View Layout & Summary Panel --- */
+        .recorder-layout {
+            display: flex;
+            gap: 25px;
+            align-items: flex-start;
+        }
+        .summary-panel {
+            flex: 0 0 320px; /* Do not grow, do not shrink, base width 320px */
+            position: sticky;
+            top: 20px;
+            background: #fdfefe;
+            border: 1px solid var(--medium-gray-border);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            max-height: calc(100vh - 40px); /* Adjust height to be viewport height minus top/bottom margin */
+            overflow-y: auto; /* Allow scrolling within the panel if content is too long */
+        }
+        .summary-panel h2 {
+            font-size: 1.5em;
+            margin-top: 0;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .summary-panel h4 {
+            font-size: 1.1em;
+            color: var(--dark-text);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            flex-wrap: wrap;
+        }
+        .summary-item label {
+            font-weight: 600;
+            color: var(--dark-text);
+            margin: 0;
+        }
+        .summary-item span {
+            font-weight: normal;
+            color: #333;
+            text-align: right;
+        }
+        .summary-log {
+            list-style: none;
+            padding-left: 10px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        .summary-log li {
+            margin-bottom: 6px;
+            color: #4a5568;
+            line-height: 1.4;
+        }
+        .summary-log li.is-empty {
+            color: #a0aec0; /* Lighter color for placeholder text */
+            font-style: italic;
+        }
+        .form-container {
+            flex: 1; /* Take up the remaining space */
+            min-width: 0; /* Prevents flexbox overflow issues */
+        }
 
         /* --- Manage View --- */
         .actions { 
@@ -457,6 +531,23 @@
         .hidden { display: none !important; }
 
         /* --- Responsive Adjustments --- */
+        @media (max-width: 1024px) {
+            .recorder-layout {
+                flex-direction: column;
+            }
+            .summary-panel {
+                position: static; /* Un-stick the panel */
+                width: 100%;
+                margin-bottom: 25px;
+                box-sizing: border-box; /* Include padding in width */
+                max-height: none; /* Reset height */
+            }
+            .summary-panel, .form-container {
+                flex: 1 1 100%; /* Take full width */
+                min-width: 0;
+            }
+        }
+        
         @media (max-width: 768px) {
             .header-nav {
                 flex-direction: column;
@@ -539,27 +630,65 @@
                 <button id="logoutBtnRecorder" class="danger">ออกจากระบบ</button>
             </div>
         </div>
-        <form id="cprForm">
-            <fieldset>
-                <legend>ข้อมูลผู้ป่วย</legend>
-                <div class="cycle-grid">
-                    <label>Date: <input type="date" name="date" required></label>
-                    <label>Time: <input type="time" name="time" required></label>
-                    <label>HN: <input type="text" name="hn" required></label>
-                    <label>Patient Name: <input type="text" name="patientName" required></label>
-                    <label>Age: <input type="number" name="age" min="0" required></label>
-                    <label>Event Details: <input type="text" name="eventDetails" placeholder="e.g., witnessed collapse"></label>
-                    <label>ROSC Time: <input type="time" name="roscTime"></label>
-                    <label>NR Time: <input type="time" name="NRTime"></label>
+        
+        <div class="recorder-layout">
+            <aside id="summaryPanel" class="summary-panel">
+                <h2><i class="fas fa-clipboard-list"></i> สรุปข้อมูล</h2>
+                <div class="summary-item">
+                    <label>ผู้ป่วย:</label>
+                    <span id="summaryPatientName">-</span>
                 </div>
-            </fieldset>
-            <fieldset>
-                <legend>CPR Cycles</legend>
-                <div id="cyclesContainer"></div>
-                <button type="button" id="addCycleBtn" class="secondary">+ เพิ่ม CPR Cycle</button>
-            </fieldset>
-            <button type="submit" class="primary">บันทึกเคส</button>
-        </form>
+                <div class="summary-item">
+                    <label>อายุ:</label>
+                    <span id="summaryAge">-</span>
+                </div>
+                <div class="summary-item">
+                    <label>เริ่ม CPR:</label>
+                    <span id="summaryStartTime">-</span>
+                </div>
+                <div class="summary-item">
+                    <label>CPR นาน:</label>
+                    <span><span id="summaryTotalDuration">0</span> นาที</span>
+                </div>
+                <div class="summary-item">
+                    <label>Shock:</label>
+                    <span><span id="summaryShockCount">0</span> ครั้ง</span>
+                </div>
+                <hr>
+                <h4><i class="fas fa-heart-pulse"></i> EKG Log</h4>
+                <ul id="summaryEkgLog" class="summary-log">
+                    <li class="is-empty">ยังไม่มีข้อมูล</li>
+                </ul>
+                <h4><i class="fas fa-pills"></i> Medication Log</h4>
+                <ul id="summaryMedLog" class="summary-log">
+                    <li class="is-empty">ยังไม่มีข้อมูล</li>
+                </ul>
+            </aside>
+
+            <div class="form-container">
+                <form id="cprForm">
+                    <fieldset>
+                        <legend>ข้อมูลผู้ป่วย</legend>
+                        <div class="cycle-grid">
+                            <label>Date: <input type="date" name="date" required></label>
+                            <label>Time: <input type="time" name="time" required></label>
+                            <label>HN: <input type="text" name="hn" required></label>
+                            <label>Patient Name: <input type="text" name="patientName" required></label>
+                            <label>Age: <input type="number" name="age" min="0" required></label>
+                            <label>Event Details: <input type="text" name="eventDetails" placeholder="e.g., witnessed collapse"></label>
+                            <label>ROSC Time: <input type="time" name="roscTime"></label>
+                            <label>NR Time: <input type="time" name="NRTime"></label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>CPR Cycles</legend>
+                        <div id="cyclesContainer"></div>
+                        <button type="button" id="addCycleBtn" class="secondary">+ เพิ่ม CPR Cycle</button>
+                    </fieldset>
+                    <button type="submit" class="primary">บันทึกเคส</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <div id="manageView" class="container hidden">
@@ -649,6 +778,7 @@
         const emailSignInBtn = document.getElementById('emailSignInBtn');
         const emailSignUpBtn = document.getElementById('emailSignUpBtn');
         const loginError = document.getElementById('loginError');
+        const cprForm = document.getElementById('cprForm');
 
         let currentUser = null;
         let isAdmin = false;
@@ -761,6 +891,7 @@
                 loginView.classList.remove('hidden');
             } else if (viewName === 'recorder') {
                 recorderView.classList.remove('hidden');
+                updateSummaryPanel(); // NEW: Initial call to update summary
             } else if (viewName === 'manage') {
                 manageView.classList.remove('hidden');
                 loadCases();
@@ -779,7 +910,6 @@
         document.getElementById('backToRecorderBtn').addEventListener('click', () => showView('recorder'));
 
         // --- CPR FORM LOGIC (Recorder View) ---
-        const cprForm = document.getElementById('cprForm');
         cprForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             if (!currentUser) {
@@ -811,10 +941,107 @@
                 alert('บันทึกเคสสำเร็จ!');
                 this.reset();
                 document.getElementById("cyclesContainer").innerHTML = "";
+                updateSummaryPanel(); // NEW: Reset summary after submit
             } catch (error) {
                 console.error("Error saving case: ", error);
                 alert("เกิดข้อผิดพลาดในการบันทึกเคส");
             }
+        });
+        
+        // --- NEW: SUMMARY PANEL LOGIC ---
+        const summaryPanelIds = {
+            patientName: document.getElementById('summaryPatientName'),
+            age: document.getElementById('summaryAge'),
+            startTime: document.getElementById('summaryStartTime'),
+            totalDuration: document.getElementById('summaryTotalDuration'),
+            shockCount: document.getElementById('summaryShockCount'),
+            ekgLog: document.getElementById('summaryEkgLog'),
+            medLog: document.getElementById('summaryMedLog')
+        };
+
+        function updateSummaryPanel() {
+            if (!summaryPanelIds.patientName) return; // Don't run if the panel isn't visible
+
+            // 1. Patient Info
+            const patientName = document.querySelector('input[name="patientName"]').value;
+            const age = document.querySelector('input[name="age"]').value;
+            const startTime = document.querySelector('input[name="time"]').value;
+
+            summaryPanelIds.patientName.textContent = patientName || '-';
+            summaryPanelIds.age.textContent = age || '-';
+            summaryPanelIds.startTime.textContent = startTime || '-';
+
+            // 2. Iterate through cycles for calculations
+            let totalDuration = 0;
+            let shockCount = 0;
+            const ekgLogEntries = [];
+            const medLogEntries = [];
+
+            const cycleBlocks = document.querySelectorAll('#cyclesContainer .cycle-block');
+            
+            cycleBlocks.forEach((cycle, index) => {
+                // Duration
+                const durationInput = cycle.querySelector('.cycleDuration');
+                const duration = parseFloat(durationInput.value) || 0;
+                totalDuration += duration;
+
+                // Shocks
+                const shockSelect = cycle.querySelector('.cycleShockYN');
+                if (shockSelect && shockSelect.value === 'Yes') {
+                    shockCount++;
+                }
+
+                // EKG Log
+                const ekgTimeInput = cycle.querySelector('.cycleStartTime');
+                const ekgRhythmSelect = cycle.querySelector('.cycleEKG');
+                const ekgTime = ekgTimeInput.value || `Cycle ${index + 1}`;
+                const ekgRhythm = ekgRhythmSelect.value;
+                if (ekgRhythm) {
+                    ekgLogEntries.push(`<li><strong>${ekgTime}:</strong> ${ekgRhythm}</li>`);
+                }
+                
+                // Medication Log
+                const medListItems = cycle.querySelectorAll('.medList li');
+                medListItems.forEach(li => {
+                    const name = li.dataset.name;
+                    const dose = li.dataset.dose;
+                    const time = li.dataset.time || 'N/A';
+                    medLogEntries.push(`<li><strong>${time}:</strong> ${name} ${dose || ''}</li>`);
+                });
+            });
+
+            // 3. Update summary panel DOM
+            summaryPanelIds.totalDuration.textContent = totalDuration;
+            summaryPanelIds.shockCount.textContent = shockCount;
+
+            // Update EKG Log
+            if (ekgLogEntries.length > 0) {
+                summaryPanelIds.ekgLog.innerHTML = ekgLogEntries.join('');
+            } else {
+                summaryPanelIds.ekgLog.innerHTML = '<li class="is-empty">ยังไม่มีข้อมูล</li>';
+            }
+
+            // Update Med Log
+            if (medLogEntries.length > 0) {
+                summaryPanelIds.medLog.innerHTML = medLogEntries.join('');
+            } else {
+                summaryPanelIds.medLog.innerHTML = '<li class="is-empty">ยังไม่มีข้อมูล</li>';
+            }
+        }
+
+        // Listen for any input changes on the form to update the summary
+        cprForm.addEventListener('input', updateSummaryPanel);
+        cprForm.addEventListener('change', updateSummaryPanel); // Catches select changes
+
+        // Use a MutationObserver to detect when cycles or medicines are added/removed dynamically
+        const cyclesContainerObserver = new MutationObserver(() => {
+            updateSummaryPanel();
+        });
+
+        // Start observing the cycles container for changes to its children or their children
+        cyclesContainerObserver.observe(document.getElementById('cyclesContainer'), { 
+            childList: true, 
+            subtree: true 
         });
 
         // --- CASE MANAGEMENT LOGIC (Manage View) ---
