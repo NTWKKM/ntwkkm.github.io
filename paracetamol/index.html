@@ -202,7 +202,6 @@
                     <h3 class="font-bold text-lg text-red-600 mb-2">การพิจารณาปลูกถ่ายตับ (King's College)</h3>
                     <p class="text-sm mb-2">ปรึกษาทีมปลูกถ่ายตับหากเข้าได้กับเกณฑ์ข้อใดข้อหนึ่ง</p>
                     <ul class="list-disc list-inside space-y-1 label-text">
-                        <li><strong>Lactate > 3.0 mmol/L</strong> (หลังให้สารน้ำเต็มที่)</li>
                         <li>Arterial pH < 7.30 (หลังให้สารน้ำเต็มที่)</li>
                         <li class="font-semibold">หรือมี 3 ข้อต่อไปนี้ร่วมกัน:</li>
                         <ul class="list-['-_'] ml-6">
@@ -210,6 +209,9 @@
                             <li>Serum creatinine > 3.4 mg/dL</li>
                             <li>Grade III-IV hepatic encephalopathy</li>
                         </ul>
+                        <li><strong>Lactate > 3.5 mmol/L</strong> หลังให้สารระยะแรก (< 4 ชั่วโมงหลังเข้ารับการรักษา) </li>
+                        <li><strong>Lactate > 3.0 mmol/L</strong> หลังให้สารน้ำเต็มที่ (12 ชั่วโมงหลังเข้ารับการรักษา)</li>
+                        <li><strong>Lactate</strong> as predictors of poor prognosis without transplant</li>
                     </ul>
                 </div>
             </div>
@@ -384,9 +386,6 @@
         patientAge.addEventListener('input', calculateToxicDose);
         dosePerPill.addEventListener('input', calculateToxicDose);
         numberOfPills.addEventListener('input', calculateToxicDose);
-        initialTime.addEventListener('input', () => {
-           timeInputNomogram.value = initialTime.value;
-            calculateToxicDose();
         });
         
         // Initial setup
