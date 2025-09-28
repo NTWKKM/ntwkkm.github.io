@@ -65,7 +65,7 @@
                 <div>
                     <label for="scenario" class="block text-sm font-medium label-text mb-2">สถานการณ์ผู้ป่วย:</label>
                     <select id="scenario" class="w-full rounded-md p-2">
-                        <option value="acute">Acute Ingestion (ทราบเวลาชัดเจน, ≤ 24 ชม.)</option>
+                        <option value="acute">Acute Ingestion (ทราบเวลาชัดเจน, < 24 ชม.)</option>
                         <option value="unknown">Unknown Time / Unreliable History</option>
                         <option value="repeated">Repeated Supratherapeutic Ingestion (RSI)</option>
                         <option value="extended">Extended-Release / Co-ingestion</option>
@@ -79,7 +79,7 @@
                     <label for="patient-weight" class="block text-sm font-medium label-text mb-2">น้ำหนัก (kg):</label>
                     <input type="number" id="patient-weight-section1" placeholder="เช่น 60" class="w-full rounded-md p-2">
                 </div>
-                <div id="initial-time-div">
+                <div>
                     <label for="initial-time" class="block text-sm font-medium label-text mb-2">เวลาหลังได้รับยา (ชม.):</label>
                     <input type="number" id="initial-time" placeholder="เช่น 2" class="w-full rounded-md p-2">
                 </div>
@@ -110,15 +110,14 @@
                         <div>
                             <p class="font-semibold">Acute Ingestion (ได้รับยาครั้งเดียว)</p>
                             <ul class="list-disc list-inside text-sm label-text">
-                                <li><strong>ผู้ใหญ่ หรือเด็ก ≥ 6 ปี:</strong> > 10 กรัม หรือ > 200 mg/kg [cite: 279]</li>
-                                <li><strong>เด็ก < 6 ปี:</strong> > 200 mg/kg [cite: 279]</li>
+                                <li><strong>ผู้ใหญ่ หรือเด็ก ≥ 6 ปี:</strong> > 10 กรัม หรือ > 200 mg/kg</li>
+                                <li><strong>เด็ก < 6 ปี:</strong> > 200 mg/kg</li>
                             </ul>
                         </div>
                         <div>
                             <p class="font-semibold">Repeated Supratherapeutic Ingestion (RSI)</p>
                              <ul class="list-disc list-inside text-sm label-text">
-                                <li><strong>24-48 ชม. ก่อนมา รพ.:</strong> > 6 กรัม/วัน หรือ > 150 mg/kg/วัน (เลือกค่าที่น้อยกว่า) </li>
-                                <li><strong>> 48 ชม. ก่อนมา รพ.:</strong> > 4 กรัม/วัน หรือ > 100 mg/kg/วัน (เลือกค่าที่น้อยกว่า) </li>
+                                <li>> 6 กรัม/24ชม. หรือ > 150 mg/kg/24ชม. (ติดต่อกันอย่างน้อย 2 วัน)</li>
                             </ul>
                         </div>
                     </div>
@@ -128,8 +127,8 @@
                     <div class="space-y-2">
                         <p class="font-semibold">ขนาด: 1 g/kg (สูงสุด 50 g)</p>
                         <ul class="list-disc list-inside text-sm label-text">
-                            <li>พิจารณาให้หากผู้ป่วยมาถึง รพ. <strong>ภายใน 4 ชั่วโมง</strong> หลังได้รับยา (Immediate-Release) </li>
-                             <li>อาจพิจารณาให้ <strong>หลัง 4 ชั่วโมง</strong> ได้ในกรณียา Extended-Release หรือกินร่วมกับยาอื่นที่ชะลอการดูดซึม (เช่น Opioids, Anticholinergics) หากมีหลักฐานว่ายังมีการดูดซึมยาอยู่ </li>
+                            <li>พิจารณาให้หากผู้ป่วยมาถึง รพ. <strong>ภายใน 4 ชั่วโมง</strong> หลังได้รับยา (Immediate-Release)</li>
+                             <li>อาจพิจารณาให้ <strong>หลัง 4 ชั่วโมง</strong> ได้ในกรณียา Extended-Release หรือกินร่วมกับยาอื่นที่ชะลอการดูดซึม (เช่น Opioids, Anticholinergics)</li>
                         </ul>
                     </div>
                 </div>
@@ -141,7 +140,7 @@
                 <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">3. Modified Rumack-Matthew Nomogram</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                     <div>
-                        <label for="time-since-ingestion" class="block text-sm font-medium label-text">เวลาที่เจาะ acetaminophen level (ชม.)</label>
+                        <label for="time-since-ingestion" class="block text-sm font-medium label-text">เวลาหลังได้รับยา (ชม.)</label>
                         <input type="number" id="time-since-ingestion" placeholder="4-24" class="w-full mt-1 rounded-md p-2">
                     </div>
                     <div>
@@ -168,7 +167,7 @@
                 <div id="nac-result" class="space-y-3">
                 </div>
                 <div>
-                    <h3 class="font-bold text-lg text-emerald-600 mb-2">เกณฑ์การหยุดยา NAC </h3>
+                    <h3 class="font-bold text-lg text-emerald-600 mb-2">เกณฑ์การหยุดยา NAC</h3>
                     <p class="text-sm mb-2">(ต้องเข้าได้ทุกข้อ)</p>
                     <ul class="list-disc list-inside space-y-1 label-text">
                         <li>ระดับยา Acetaminophen < 10 µg/mL</li>
@@ -186,17 +185,17 @@
                 <div>
                     <h3 class="font-bold text-lg text-sky-600 mb-2">การพิจารณาฟอกไต (Hemodialysis)</h3>
                      <ul class="list-disc list-inside space-y-1 label-text">
-                        <li>ระดับยา Acetaminophen สูงมาก (≥ 900 µg/mL) [cite: 304]</li>
-                        <li>มีภาวะเลือดเป็นกรด (Acidosis) รุนแรง [cite: 304]</li>
-                        <li>มีการเปลี่ยนแปลงของระดับความรู้สึกตัวจาก toxic paracetamol (Altered consciousness) [cite: 304]</li>
-                        <li class="mt-2 pt-2 border-t border-gray-200"><strong>การให้ NAC ระหว่างฟอกไต:</strong> เพิ่มอัตราเร็วเป็นอย่างน้อย 12.5 mg/kg/hr [cite: 304]</li>
+                        <li>ระดับยา Acetaminophen สูงมาก (≥ 900 µg/mL)</li>
+                        <li>มีภาวะเลือดเป็นกรด (Acidosis) รุนแรง</li>
+                        <li>มีการเปลี่ยนแปลงของระดับความรู้สึกตัวจาก toxic paracetamol (Altered consciousness)</li>
+                        <li class="mt-2 pt-2 border-t border-gray-200"><strong>การให้ NAC ระหว่างฟอกไต:</strong> เพิ่มอัตราเร็วเป็นอย่างน้อย 12.5 mg/kg/hr</li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="font-bold text-lg text-red-600 mb-2">การพิจารณาปลูกถ่ายตับ (King's College)</h3>
                     <p class="text-sm mb-2">ปรึกษาทีมปลูกถ่ายตับหากเข้าได้กับเกณฑ์ข้อใดข้อหนึ่ง</p>
                     <ul class="list-disc list-inside space-y-1 label-text">
-                         <li><strong>Lactate > 3.0 mmol/L</strong> (หลังให้สารน้ำเต็มที่) [cite: 307]</li>
+                         <li><strong>Lactate > 3.0 mmol/L</strong> (หลังให้สารน้ำเต็มที่)</li>
                         <li>Arterial pH < 7.30 (หลังให้สารน้ำเต็มที่)</li>
                         <li class="font-semibold">หรือมี 3 ข้อต่อไปนี้ร่วมกัน:</li>
                          <ul class="list-['-_'] ml-6">
@@ -262,12 +261,6 @@
 
             function updateScenarioAdvice() {
                 scenarioAdvice.textContent = scenarios[scenarioSelect.value];
-                const timeDiv = document.getElementById('initial-time-div');
-                if (scenarioSelect.value === 'repeated' || scenarioSelect.value === 'unknown') {
-                    timeDiv.style.display = 'none';
-                } else {
-                    timeDiv.style.display = 'block';
-                }
             }
             scenarioSelect.addEventListener('change', updateScenarioAdvice);
             updateScenarioAdvice();
@@ -277,9 +270,7 @@
                 const age = parseFloat(patientAge.value);
                 const dose = parseFloat(dosePerPill.value);
                 const pills = parseFloat(numberOfPills.value);
-                const timeInHours = parseFloat(initialTime.value);
-                const scenario = scenarioSelect.value;
-                
+
                 if (isNaN(weight) || isNaN(dose) || isNaN(pills) || isNaN(age) || weight <= 0) {
                     toxicDoseResult.innerHTML = '';
                     return;
@@ -289,45 +280,20 @@
                 const totalDoseG = totalDoseMg / 1000;
                 const dosePerKg = totalDoseMg / weight;
 
-                let isToxic = false;
-                let toxicThresholdMgKg = 0;
-                let toxicThresholdG = 0;
-
-                if (scenario === 'acute') {
-                    if (age >= 6) {
-                        isToxic = totalDoseG > 10 || dosePerKg > 200;
-                        toxicThresholdG = 10;
-                        toxicThresholdMgKg = 200;
-                    } else {
-                        isToxic = dosePerKg > 200;
-                        toxicThresholdMgKg = 200;
-                    }
-                } else if (scenario === 'repeated' && !isNaN(timeInHours)) {
-                    const timeInDays = timeInHours / 24;
-                    if (timeInDays >= 2 && timeInDays <= 4) { // Assuming 24-48 hours means 2-4 days in this context, or 24-48 hours is what the user meant
-                        const dailyDoseG = totalDoseG / timeInDays;
-                        const dailyDoseMgKg = totalDoseMg / timeInDays / weight;
-                        isToxic = dailyDoseG > 6 || dailyDoseMgKg > 150;
-                        toxicThresholdG = 6;
-                        toxicThresholdMgKg = 150;
-                    } else if (timeInDays > 4) {
-                        const dailyDoseG = totalDoseG / timeInDays;
-                        const dailyDoseMgKg = totalDoseMg / timeInDays / weight;
-                        isToxic = dailyDoseG > 4 || dailyDoseMgKg > 100;
-                        toxicThresholdG = 4;
-                        toxicThresholdMgKg = 100;
-                    }
+                let toxicThreshold;
+                if (age >= 6) {
+                    toxicThreshold = 200; // mg/kg for adults and children >= 6 years
+                } else {
+                    toxicThreshold = 200; // mg/kg for children < 6 years
                 }
 
                 let resultHtml = `<div class="result-box p-4 rounded-md mt-4">`;
                 resultHtml += `<h3 class="font-bold text-lg mb-2">ผลการประเมิน Toxic Dose:</h3>`;
                 resultHtml += `<p>ปริมาณยาที่ได้รับทั้งหมด: **${totalDoseMg.toLocaleString()} mg** (${totalDoseG.toFixed(1)} กรัม)</p>`;
-                if (scenario === 'acute') {
-                    resultHtml += `<p>ปริมาณยาต่อกิโลกรัม: **${dosePerKg.toFixed(1)} mg/kg**</p>`;
-                }
-                
-                if (isToxic) {
-                    resultHtml += `<p class="mt-2 text-red-600 font-semibold">🚨 เกินเกณฑ์ Toxic Dose (${toxicThresholdMgKg} mg/kg หรือ > ${toxicThresholdG} กรัม)</p>`;
+                resultHtml += `<p>ปริมาณยาต่อกิโลกรัม: **${dosePerKg.toFixed(1)} mg/kg**</p>`;
+
+                if (dosePerKg >= toxicThreshold || totalDoseG >= 10) {
+                    resultHtml += `<p class="mt-2 text-red-600 font-semibold">🚨 เกินเกณฑ์ Toxic Dose (${toxicThreshold} mg/kg หรือ > 10 กรัม)</p>`;
                 } else {
                     resultHtml += `<p class="mt-2 text-green-600 font-semibold">✅ ไม่เกินเกณฑ์ Toxic Dose</p>`;
                 }
@@ -342,7 +308,10 @@
             patientAge.addEventListener('input', calculateToxicDose);
             dosePerPill.addEventListener('input', calculateToxicDose);
             numberOfPills.addEventListener('input', calculateToxicDose);
-            initialTime.addEventListener('input', calculateToxicDose);
+
+            initialTime.addEventListener('input', () => {
+                timeInputNomogram.value = initialTime.value;
+            });
 
             const ctx = document.getElementById('nomogramChart').getContext('2d');
             
