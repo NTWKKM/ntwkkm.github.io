@@ -180,7 +180,7 @@
                         <li>INR < 2.0</li>
                         <li>AST/ALT ปกติ หรือลดลง >25-50% จากค่าสูงสุด</li>
                         <li>ผู้ป่วยอาการทางคลินิกดีขึ้น</li>
-                        <p class="mt-2 text-sm label-text">หากเกณฑ์ยังไม่ครบ ให้ให้ยา NAC ต่อเนื่องในอัตราอย่างน้อย 6.25 mg/kg/h และเจาะเลือดเพื่อตรวจระดับยา acetaminophen, AST/ALT, และ PT/INR ทุก 12-24 ชั่วโมง</p>
+                        <p class="mt-2 text-sm label-text border-t border-gray-200">หากเกณฑ์ยังไม่ครบ ให้ให้ยา NAC ต่อเนื่องในอัตราอย่างน้อย 6.25 mg/kg/h และเจาะเลือดเพื่อตรวจระดับยา acetaminophen, AST/ALT, และ PT/INR ทุก 12-24 ชั่วโมง</p>
                     </ul>
                 </div>
             </div>
@@ -209,10 +209,12 @@
                             <li>Serum creatinine > 3.4 mg/dL</li>
                             <li>Grade III-IV hepatic encephalopathy</li>
                         </ul>
-                        <semibold>หรือ</semibold><br>
-                        <li><strong>Lactate > 3.5 mmol/L</strong> หลังให้สารระยะแรก (< 4 ชั่วโมงหลังเข้ารับการรักษา)<br> 
-                        <strong>Lactate > 3.0 mmol/L</strong> หลังให้สารน้ำเต็มที่ (12 ชั่วโมงหลังเข้ารับการรักษา)<br>
-                        <strong>Lactate</strong> as predictors of poor prognosis without transplant</li>
+                        <li><strong>หรือ</strong></li><br>
+                        <ul class="list-['-_'] ml-6">
+                        <li><strong>Lactate > 3.5 mmol/L</strong> หลังให้สารระยะแรก (< 4 ชั่วโมงหลังเข้ารับการรักษา)<br></li>
+                        <li><strong>Lactate > 3.0 mmol/L</strong> หลังให้สารน้ำเต็มที่ (12 ชั่วโมงหลังเข้ารับการรักษา)<br></li>
+                        <strong>Lactate</strong> as predictors of poor prognosis without transplant
+                        </ul>    
                     </ul>
                 </div>
             </div>
@@ -461,7 +463,7 @@ function initChart() {
                     max: 1000,
                     ticks: {
                         callback: function(value) {
-                            const tickValues = [3, 5, 10, 20, 40, 70, 100, 150, 200, 300, 500];
+                            const tickValues = [5, 10, 20, 40, 70, 100, 150, 200, 300, 500];
                             if (tickValues.includes(value)) {
                                 return value;
                             }
