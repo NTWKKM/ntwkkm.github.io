@@ -352,11 +352,29 @@
                     maintainAspectRatio: false,
                     scales: {
                         x: {
-                            type: 'linear', position: 'bottom',
+                            type: 'linear',
+                            position: 'bottom',
                             title: { display: true, text: 'Time Since Ingestion (hours)', color: '#4b5563' },
-                            min: 0, max: 28, ticks: { color: '#6b7280' },
+                            min: 0,
+                            max: 28,
+                            ticks: {
+                                color: '#6b7280',
+                                stepSize: 4,
+                                callback: function(value) {
+                                    if ([4, 8, 12, 16, 20, 24].includes(value)) {
+                                        return `${value}ชม.`;
+                                    }
+                                    return '';
+                                }
+                            },
                             grid: {
-                                color: '#e2e8f0',
+                                color: (context) => {
+                                    const value = context.tick.value;
+                                    if ([4, 8, 12, 16, 20, 24].includes(value)) {
+                                        return 'rgba(100, 116, 139, 0.5)';
+                                    }
+                                    return 'transparent';
+                                }
                             }
                         },
                         y: {
