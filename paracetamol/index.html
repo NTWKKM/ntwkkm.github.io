@@ -503,7 +503,7 @@ plotButton.addEventListener('click', () => {
     nomogramChart.data.datasets[2].data = [{x: time, y: level}];
     nomogramChart.update();
 });
-
+        
         document.getElementById('calculate-nac').addEventListener('click', () => {
                 const weight = parseFloat(document.getElementById('patient-weight-section4').value);
                 const nacResultDiv = document.getElementById('nac-result');
