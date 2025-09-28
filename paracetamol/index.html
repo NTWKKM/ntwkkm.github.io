@@ -146,7 +146,7 @@
                 <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">3. Modified Rumack-Matthew Nomogram</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                     <div>
-                        <label for="time-since-ingestion" class="block text-sm font-medium label-text">เวลาหลังได้รับยา (ชม.)</label>
+                        <label for="time-since-ingestion" class="block text-sm font-medium label-text">เวลาเจาะระดับยาในเลือด (ชม.)</label>
                         <input type="number" id="time-since-ingestion" placeholder="4-24" class="w-full mt-1 rounded-md p-2">
                     </div>
                     <div>
@@ -194,8 +194,8 @@
                     <ul class="list-disc list-inside space-y-1 label-text">
                         <li>ระดับยา Acetaminophen สูงมาก (≥ 900 µg/mL)</li>
                         <li>มีภาวะเลือดเป็นกรด (Acidosis) รุนแรง</li>
-                        <li>มีการเปลี่ยนแปลงของระดับความรู้สึกตัวจาก toxic paracetamol (Altered consciousness)</li>
-                        <li class="mt-2 pt-2 border-t border-gray-200"><strong>การให้ NAC ระหว่างฟอกไต:</strong> เพิ่มอัตราเร็วเป็นอย่างน้อย 12.5 mg/kg/hr</li>
+                        <li>มีการเปลี่ยนแปลงของระดับความรู้สึกตัว (Altered consciousness)</li>
+                        <li><strong>การให้ NAC ระหว่างฟอกไต:</strong> เพิ่มอัตราเร็วเป็นอย่างน้อย 12.5 mg/kg/hr</li>
                     </ul>
                 </div>
                 <div>
@@ -404,7 +404,7 @@ function initChart() {
         data: {
             datasets: [{
                 label: 'High-Risk Line',
-                data: [{x: 4, y: 300}, {x: 8, y: 100}, {x: 12, y: 50}, {x: 16, y: 25}, {x: 20, y: 12.5}, {x: 24, y: 6.25}],
+                data: [{x: 4, y: 300}, {x: 8, y: 150}, {x: 12, y: 75}, {x: 16, y: 37.5}, {x: 20, y: 18.75}, {x: 24, y: 9.375}],
                 borderColor: 'rgb(255, 99, 132)', // สีแดง
                 borderWidth: 2,
                 borderDash: [5, 5],
