@@ -252,46 +252,48 @@
             const calculateNacButton = document.getElementById('calculate-nac');
             const nacResultDiv = document.getElementById('nac-result');
 
-            const scenario = 
-                 'acute':
-                        return `
-                            <p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
-                            <ul class="list-disc list-inside mt-2 text-sm label-text">
-                                <li>พิจารณาให้ Activated charcoal (SDAC) หากได้รับยามาไม่เกิน 4 ชั่วโมงหลังกินยา</li>
-                                <li>ควรเริ่มให้ยา acetylcysteine (NAC) ในขณะรอผลหากกินยา ≥30 กรัม หรือหากจะทราบระดับยาหลัง 8 ชั่วโมงไปแล้ว</li>
-                                <li>เจาะเลือดตรวจระดับยา acetaminophen ในช่วง 4-24 ชั่วโมงหลังกินยา แล้วนำมา Plot บน Nomogram เพื่อประเมิน</li>
-                            </ul>
-                        `;
-                'unknown':
-                        return `
-                            <p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
-                            <ul class="list-disc list-inside mt-2 text-sm label-text">
-                                <li>เจาะเลือดตรวจระดับยา Acetaminophen และค่า AST/ALT ทันที</li>
-                                <li><strong>หากระดับยา > 10 μg/mL หรือ AST/ALT ผิดปกติ:</strong> ให้รักษาด้วย NAC</li>
-                                <li><strong>หากระดับยา ≤ 10 μg/mL และ AST/ALT ปกติ:</strong> ไม่ต้องให้ NAC</li>
-                            </ul>
-                        `;
-                'repeated':
-                        return `
-                            <p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
-                            <ul class="list-disc list-inside mt-2 text-sm label-text">
-                                <li>ไม่แนะนำการล้างท้องด้วย SDAC</li>
-                                <li>เจาะเลือดตรวจระดับยา Acetaminophen, AST/ALT, และ Creatinine</li>
-                                <li><strong>หากระดับยา ≥ 20 μg/mL หรือ AST/ALT ผิดปกติ:</strong> ให้รักษาด้วย NAC</li>
-                                <li><strong>หากระดับยา < 20 μg/mL และ AST/ALT ปกติ:</strong> ไม่ต้องให้ NAC</li>
-                            </ul>
-                        `;
-                'extended':
-                        return `
-                            <p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
-                            <ul class="list-disc list-inside mt-2 text-sm label-text">
-                                <li>การจัดการเบื้องต้นเหมือนกับยาออกฤทธิ์ทันที</li>
-                                <li>อาจพิจารณาให้ Activated charcoal (SDAC) หากได้รับยามานานกว่า 4 ชั่วโมง หากมีหลักฐานบ่งชี้ว่ายังมีการดูดซึมยาอยู่ (เช่น ระดับยาที่เพิ่มขึ้น)</li>
-                                <li>หากระดับยาที่เจาะช่วง 4-12 ชั่วโมงหลังกินยา มีค่าต่ำกว่าเส้นรักษาแต่ > 10 μg/mL ให้เจาะซ้ำใน 4-6 ชั่วโมงถัดไป</li>
-                            </ul>
-                        `;
-                    default:
-                        return 'เลือกสถานการณ์เพื่อดูคำแนะนำ';
+            // แก้ไขส่วนนี้ให้ถูกต้องตามหลักการของ JavaScript Objects
+        const scenarioAdviceData = {
+            'acute': `
+                <p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
+                <ul class="list-disc list-inside mt-2 text-sm label-text">
+                    <li>พิจารณาให้ Activated charcoal (SDAC) หากได้รับยามาไม่เกิน 4 ชั่วโมงหลังกินยา</li>
+                    <li>ควรเริ่มให้ยา acetylcysteine (NAC) ในขณะรอผลหากกินยา ≥30 กรัม หรือหากจะทราบระดับยาหลัง 8 ชั่วโมงไปแล้ว</li>
+                    <li>เจาะเลือดตรวจระดับยา acetaminophen ในช่วง 4-24 ชั่วโมงหลังกินยา แล้วนำมา Plot บน Nomogram เพื่อประเมิน</li>
+                </ul>
+            `,
+            'unknown': `
+                <p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
+                <ul class="list-disc list-inside mt-2 text-sm label-text">
+                    <li>เจาะเลือดตรวจระดับยา Acetaminophen และค่า AST/ALT ทันที</li>
+                    <li><strong>หากระดับยา > 10 μg/mL หรือ AST/ALT ผิดปกติ:</strong> ให้รักษาด้วย NAC</li>
+                    <li><strong>หากระดับยา ≤ 10 μg/mL และ AST/ALT ปกติ:</strong> ไม่ต้องให้ NAC</li>
+                </ul>
+            `,
+            'repeated': `
+                <p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
+                <ul class="list-disc list-inside mt-2 text-sm label-text">
+                    <li>ไม่แนะนำการล้างท้องด้วย SDAC</li>
+                    <li>เจาะเลือดตรวจระดับยา Acetaminophen, AST/ALT, และ Creatinine</li>
+                    <li><strong>หากระดับยา ≥ 20 μg/mL หรือ AST/ALT ผิดปกติ:</strong> ให้รักษาด้วย NAC</li>
+                    <li><strong>หากระดับยา < 20 μg/mL และ AST/ALT ปกติ:</strong> ไม่ต้องให้ NAC</li>
+                </ul>
+            `,
+            'extended': `
+                <p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
+                <ul class="list-disc list-inside mt-2 text-sm label-text">
+                    <li>การจัดการเบื้องต้นเหมือนกับยาออกฤทธิ์ทันที</li>
+                    <li>อาจพิจารณาให้ Activated charcoal (SDAC) หากได้รับยามานานกว่า 4 ชั่วโมง หากมีหลักฐานบ่งชี้ว่ายังมีการดูดซึมยาอยู่ (เช่น ระดับยาที่เพิ่มขึ้น)</li>
+                    <li>หากระดับยาที่เจาะช่วง 4-12 ชั่วโมงหลังกินยา มีค่าต่ำกว่าเส้นรักษาแต่ > 10 μg/mL ให้เจาะซ้ำใน 4-6 ชั่วโมงถัดไป</li>
+                </ul>
+            `
+        };
+
+        // เพิ่ม Event Listener เพื่อจัดการการเปลี่ยนแปลงของ Dropdown
+        scenarioSelect.addEventListener('change', (event) => {
+            const selectedScenario = event.target.value;
+            scenarioAdvice.innerHTML = scenarioAdviceData[selectedScenario] || 'เลือกสถานการณ์เพื่อดูคำแนะนำ';
+        });
             
             const calculateToxicDose = () => {
                 const weight = parseFloat(patientWeight1.value);
