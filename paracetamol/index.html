@@ -140,7 +140,7 @@
                 <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">3. Modified Rumack-Matthew Nomogram</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
                     <div>
-                        <label for="time-since-ingestion" class="block text-sm font-medium label-text">เวลาหลังได้รับยา (ชม.)</label>
+                        <label for="time-since-ingestion" class="block text-sm font-medium label-text">เวลาที่เจาะ Acetaminophen Level (ชม.)</label>
                         <input type="number" id="time-since-ingestion" placeholder="4-24" class="w-full mt-1 rounded-md p-2">
                     </div>
                     <div>
@@ -172,186 +172,54 @@
                     <ul class="list-disc list-inside space-y-1 label-text">
                         <li>ระดับยา Acetaminophen < 10 µg/mL</li>
                         <li>INR < 2.0</li>
-                        <li>AST/ALT ปกติ หรือลดลง >25-50% จากค่าสูงสุด</li>
-                        <li>ผู้ป่วยอาการทางคลินิกดีขึ้น</li>
+                        <li>ALT/AST ปกติ หรือถ้าสูงต้องลดลงจากจุดสูงสุด (25%-50%)</li>
+                        <li>ผู้ป่วยมีอาการปกติและไม่มีอาการของตับอักเสบ</li>
                     </ul>
                 </div>
             </div>
         </div>
-        
-        <div class="card rounded-lg p-6">
-            <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">5. เกณฑ์การพิจารณาพิเศษ</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="font-bold text-lg text-sky-600 mb-2">การพิจารณาฟอกไต (Hemodialysis)</h3>
-                     <ul class="list-disc list-inside space-y-1 label-text">
-                        <li>ระดับยา Acetaminophen สูงมาก (≥ 900 µg/mL)</li>
-                        <li>มีภาวะเลือดเป็นกรด (Acidosis) รุนแรง</li>
-                        <li>มีการเปลี่ยนแปลงของระดับความรู้สึกตัวจาก toxic paracetamol (Altered consciousness)</li>
-                        <li class="mt-2 pt-2 border-t border-gray-200"><strong>การให้ NAC ระหว่างฟอกไต:</strong> เพิ่มอัตราเร็วเป็นอย่างน้อย 12.5 mg/kg/hr</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg text-red-600 mb-2">การพิจารณาปลูกถ่ายตับ (King's College)</h3>
-                    <p class="text-sm mb-2">ปรึกษาทีมปลูกถ่ายตับหากเข้าได้กับเกณฑ์ข้อใดข้อหนึ่ง</p>
-                    <ul class="list-disc list-inside space-y-1 label-text">
-                         <li><strong>Lactate > 3.0 mmol/L</strong> (หลังให้สารน้ำเต็มที่)</li>
-                        <li>Arterial pH < 7.30 (หลังให้สารน้ำเต็มที่)</li>
-                        <li class="font-semibold">หรือมี 3 ข้อต่อไปนี้ร่วมกัน:</li>
-                         <ul class="list-['-_'] ml-6">
-                            <li>Prothrombin time > 100s (INR > 6.5)</li>
-                            <li>Serum creatinine > 3.4 mg/dL</li>
-                            <li>Grade III-IV hepatic encephalopathy</li>
-                         </ul>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="card rounded-lg p-6">
-            <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">6. การจัดการผลข้างเคียงจากยา NAC</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="result-box p-4 rounded-md border-yellow-500">
-                    <h4 class="font-bold text-lg">Flushing (หน้าแดง)</h4>
-                    <p class="text-sm">ประเมินความจำเป็นในการให้ยาต่อ หากจำเป็นให้ต่อได้โดยไม่ต้องหยุดยา</p>
-                </div>
-                 <div class="result-box p-4 rounded-md border-orange-500">
-                    <h4 class="font-bold text-lg">Urticaria (ผื่นลมพิษ)</h4>
-                    <p class="text-sm">ให้ยา Diphenhydramine 1 mg/kg IV (max 50 mg) และให้ NAC ต่อได้</p>
-                </div>
-                 <div class="result-box p-4 rounded-md border-red-500">
-                    <h4 class="font-bold text-lg">Angioedema (อาการบวม)</h4>
-                    <p class="text-sm">หยุดยา NAC ทันที, ให้ Diphenhydramine. หากอาการดีขึ้นใน 1 ชม. สามารถเริ่มยาใหม่ได้</p>
-                </div>
-                 <div class="result-box p-4 rounded-md border-red-700">
-                    <h4 class="font-bold text-lg">Anaphylaxis / Hypotension</h4>
-                    <p class="text-sm">หยุดยา NAC ทันที, รักษาตามแนวทาง Anaphylaxis. หากจำเป็นต้องให้ยาต่อ ให้เริ่มใหม่ในอัตราที่ช้าลงและปรึกษาผู้เชี่ยวชาญ</p>
-                </div>
-            </div>
-        </div>
-
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const scenarioSelect = document.getElementById('scenario');
-            const patientAge = document.getElementById('patient-age');
-            const patientWeight1 = document.getElementById('patient-weight-section1');
-            const initialTime = document.getElementById('initial-time');
-            const dosePerPill = document.getElementById('dose-per-pill');
-            const numberOfPills = document.getElementById('number-of-pills');
-            const toxicDoseResult = document.getElementById('toxic-dose-result');
-            const scenarioAdvice = document.getElementById('scenario-advice');
-            
-            const timeInputNomogram = document.getElementById('time-since-ingestion');
-            const levelInputNomogram = document.getElementById('apap-level');
-            const plotButton = document.getElementById('plot-button');
-            const plotResult = document.getElementById('plot-result');
-
-            const patientWeight4 = document.getElementById('patient-weight-section4');
-            const calculateNacButton = document.getElementById('calculate-nac');
-            const nacResultDiv = document.getElementById('nac-result');
-
-            const scenarios = {
-                acute: 'เจาะเลือดวัดระดับ Acetaminophen ที่เวลา 4-24 ชั่วโมงหลังได้รับยา แล้วนำค่าไป plot บน Nomogram เพื่อประเมินความเสี่ยง หากผลเลือดจะออกช้า (> 8 ชม. หลังกินยา) หรือกินยาในขนาดสูงมาก (ดูเกณฑ์ Toxic Dose) ให้เริ่มให้ NAC ไปก่อน',
-                unknown: 'เจาะเลือดวัดระดับ Acetaminophen, AST, ALT ทันที / ให้ NAC หากระดับยา > 10 µg/mL หรือค่า AST/ALT ผิดปกติ',
-                repeated: 'เจาะเลือดวัดระดับ Acetaminophen, AST, ALT, Creatinine / ให้ NAC หากระดับยา ≥ 20 µg/mL หรือค่า AST/ALT ผิดปกติ (ดูเกณฑ์ Toxic Dose)',
-                extended: 'เจาะเลือดที่ 4-12 ชั่วโมงหลังได้รับยา หากระดับยาอยู่ใต้เส้น Treatment Line แต่ > 10 µg/mL ให้เจาะเลือดซ้ำในอีก 4-6 ชั่วโมง'
-            };
-
-            function updateScenarioAdvice() {
-                scenarioAdvice.textContent = scenarios[scenarioSelect.value];
-            }
-            scenarioSelect.addEventListener('change', updateScenarioAdvice);
-            updateScenarioAdvice();
-
-            const calculateToxicDose = () => {
-                const weight = parseFloat(patientWeight1.value);
-                const age = parseFloat(patientAge.value);
-                const dose = parseFloat(dosePerPill.value);
-                const pills = parseFloat(numberOfPills.value);
-
-                if (isNaN(weight) || isNaN(dose) || isNaN(pills) || isNaN(age) || weight <= 0) {
-                    toxicDoseResult.innerHTML = '';
-                    return;
-                }
-
-                const totalDoseMg = dose * pills;
-                const totalDoseG = totalDoseMg / 1000;
-                const dosePerKg = totalDoseMg / weight;
-
-                let toxicThreshold;
-                if (age >= 6) {
-                    toxicThreshold = 200; // mg/kg for adults and children >= 6 years
-                } else {
-                    toxicThreshold = 200; // mg/kg for children < 6 years
-                }
-
-                let resultHtml = `<div class="result-box p-4 rounded-md mt-4">`;
-                resultHtml += `<h3 class="font-bold text-lg mb-2">ผลการประเมิน Toxic Dose:</h3>`;
-                resultHtml += `<p>ปริมาณยาที่ได้รับทั้งหมด: **${totalDoseMg.toLocaleString()} mg** (${totalDoseG.toFixed(1)} กรัม)</p>`;
-                resultHtml += `<p>ปริมาณยาต่อกิโลกรัม: **${dosePerKg.toFixed(1)} mg/kg**</p>`;
-
-                if (dosePerKg >= toxicThreshold || totalDoseG >= 10) {
-                    resultHtml += `<p class="mt-2 text-red-600 font-semibold">🚨 เกินเกณฑ์ Toxic Dose (${toxicThreshold} mg/kg หรือ > 10 กรัม)</p>`;
-                } else {
-                    resultHtml += `<p class="mt-2 text-green-600 font-semibold">✅ ไม่เกินเกณฑ์ Toxic Dose</p>`;
-                }
-                resultHtml += `</div>`;
-                toxicDoseResult.innerHTML = resultHtml;
-            };
-
-            patientWeight1.addEventListener('input', () => {
-                patientWeight4.value = patientWeight1.value;
-                calculateToxicDose();
-            });
-            patientAge.addEventListener('input', calculateToxicDose);
-            dosePerPill.addEventListener('input', calculateToxicDose);
-            numberOfPills.addEventListener('input', calculateToxicDose);
-
-            initialTime.addEventListener('input', () => {
-                timeInputNomogram.value = initialTime.value;
-            });
-
-            const ctx = document.getElementById('nomogramChart').getContext('2d');
-            
-            const k_treat = Math.log(150/5) / 20;
-            const A_treat = 150 / Math.exp(-k_treat * 4);
-            const treatmentLineData = Array.from({length: 21}, (_, i) => ({x: i + 4, y: A_treat * Math.exp(-k_treat * (i+4))}));
-
-            const k_risk = Math.log(300/10) / 20;
-            const A_risk = 300 / Math.exp(-k_risk * 4);
-            const highRiskLineData = Array.from({length: 21}, (_, i) => ({x: i + 4, y: A_risk * Math.exp(-k_risk * (i+4))}));
-            
-            const nomogramChart = new Chart(ctx, {
-                type: 'scatter',
+            // Chart.js setup for the nomogram
+            const nomogramCtx = document.getElementById('nomogramChart').getContext('2d');
+            const nomogramChart = new Chart(nomogramCtx, {
+                type: 'line',
                 data: {
-                    datasets: [{
-                        label: 'Treatment Line',
-                        data: treatmentLineData,
-                        borderColor: '#10b981',
-                        backgroundColor: 'transparent',
-                        borderWidth: 2,
-                        pointRadius: 0,
-                        showLine: true,
-                        fill: false,
-                    }, {
-                        label: 'High-Risk Line',
-                        data: highRiskLineData,
-                        borderColor: '#ef4444',
-                        backgroundColor: 'transparent',
-                        borderWidth: 2,
-                        borderDash: [5, 5],
-                        pointRadius: 0,
-                        showLine: true,
-                        fill: false,
-                    }, {
-                        label: 'Patient Level',
-                        data: [],
-                        backgroundColor: '#3b82f6',
-                        pointRadius: 8,
-                        pointHoverRadius: 10
-                    }]
+                    datasets: [
+                        {
+                            label: 'High-risk Line',
+                            data: [{x: 4, y: 300}, {x: 24, y: 50}],
+                            borderColor: '#fbbf24',
+                            backgroundColor: 'rgba(251, 191, 36, 0.1)',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            fill: false,
+                            tension: 0.4,
+                        },
+                        {
+                            label: 'Treatment Line',
+                            data: [{x: 4, y: 150}, {x: 24, y: 10}],
+                            borderColor: '#10b981',
+                            backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            fill: false,
+                            tension: 0.4,
+                        },
+                        {
+                            label: 'Patient Level',
+                            data: [],
+                            borderColor: '#ef4444',
+                            backgroundColor: '#ef4444',
+                            borderWidth: 5,
+                            pointRadius: 8,
+                            pointBackgroundColor: '#ef4444',
+                            pointHoverRadius: 10,
+                            fill: false,
+                        }
+                    ]
                 },
                 options: {
                     responsive: true,
@@ -360,91 +228,196 @@
                         x: {
                             type: 'linear',
                             position: 'bottom',
-                            title: { display: true, text: 'Time Since Ingestion (hours)', color: '#4b5563' },
                             min: 0,
                             max: 28,
-                            ticks: {
-                                color: '#6b7280',
-                                stepSize: 4,
-                                callback: function(value) {
-                                    if ([4, 8, 12, 16, 20, 24].includes(value)) {
-                                        return `${value}ชม.`;
-                                    }
-                                    return '';
-                                }
+                            title: {
+                                display: true,
+                                text: 'เวลาหลังได้รับยา (ชม.)',
+                                font: { size: 16 }
                             },
-                            grid: {
-                                color: (context) => {
-                                    const value = context.tick.value;
-                                    if ([4, 8, 12, 16, 20, 24].includes(value)) {
-                                        return 'rgba(100, 116, 139, 0.5)';
-                                    }
-                                    return 'transparent';
-                                }
+                            ticks: {
+                                stepSize: 4
                             }
                         },
                         y: {
                             type: 'logarithmic',
-                            title: { display: true, text: 'Acetaminophen Concentration (µg/mL)', color: '#4b5563' },
-                            min: 1, max: 500,
-                            ticks: { color: '#6b7280', callback: (value) => Number(value.toString()) },
-                            grid: {
-                                color: '#e2e8f0',
+                            min: 1,
+                            max: 500,
+                            title: {
+                                display: true,
+                                text: 'ระดับยา Acetaminophen (µg/mL)',
+                                font: { size: 16 }
+                            },
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    return Number(value.toString());
+                                }
                             }
                         }
                     },
                     plugins: {
-                        legend: { labels: { color: '#374151' } },
-                        tooltip: { callbacks: { label: (c) => `${c.dataset.label}: (${c.parsed.x}h, ${c.parsed.y.toFixed(1)} µg/mL)` } }
-                    },
-                    animation: {
-                        duration: 0
-                    },
-                    layout: {
-                        padding: {
-                            left: 0, right: 0, top: 0, bottom: 0
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const label = context.dataset.label || '';
+                                    if (label) {
+                                        return `${label}: (${context.parsed.x} ชม., ${context.parsed.y} µg/mL)`;
+                                    }
+                                    return null;
+                                }
+                            }
                         }
                     }
                 }
             });
-            
-            plotButton.addEventListener('click', () => {
-                const time = parseFloat(timeInputNomogram.value);
-                const level = parseFloat(levelInputNomogram.value);
 
-                if (isNaN(time) || isNaN(level) || time < 4 || time > 24) {
-                    plotResult.textContent = 'กรุณาใส่ข้อมูลเวลา (4-24 ชม.) และระดับยาให้ถูกต้อง';
-                    plotResult.className = 'text-center font-semibold text-lg p-2 text-orange-600';
+            // Input fields and elements
+            const scenarioSelect = document.getElementById('scenario');
+            const patientWeightInput1 = document.getElementById('patient-weight-section1');
+            const dosePerPillInput = document.getElementById('dose-per-pill');
+            const numberOfPillsInput = document.getElementById('number-of-pills');
+            const initialTimeInput = document.getElementById('initial-time');
+            const toxicDoseResultDiv = document.getElementById('toxic-dose-result');
+            const scenarioAdviceDiv = document.getElementById('scenario-advice');
+            const timeSinceIngestionInput = document.getElementById('time-since-ingestion');
+            const apapLevelInput = document.getElementById('apap-level');
+            const plotButton = document.getElementById('plot-button');
+            const plotResultDiv = document.getElementById('plot-result');
+            const patientWeightInput4 = document.getElementById('patient-weight-section4');
+            const calculateNacButton = document.getElementById('calculate-nac');
+            const nacResultDiv = document.getElementById('nac-result');
+
+            // Event Listeners
+            scenarioSelect.addEventListener('change', updateAdvice);
+            patientWeightInput1.addEventListener('input', updateToxicDose);
+            dosePerPillInput.addEventListener('input', updateToxicDose);
+            numberOfPillsInput.addEventListener('input', updateToxicDose);
+            initialTimeInput.addEventListener('input', updateToxicDose);
+            plotButton.addEventListener('click', plotPoint);
+            calculateNacButton.addEventListener('click', calculateNacDose);
+            
+            function updateAdvice() {
+                const scenario = scenarioSelect.value;
+                let adviceText = '';
+                switch (scenario) {
+                    case 'acute':
+                        adviceText = '<strong>1. Acute Ingestion of Immediate-Release Acetaminophen Products</strong><ul><li>การให้ Activated Charcoal: พิจารณาให้ถ้าผู้ป่วยได้รับยามาแล้วไม่เกิน 4 ชั่วโมง</li><li>การให้ NAC: เริ่มให้ NAC ขณะรอผลตรวจถ้าผู้ป่วยได้รับยาไปแล้ว ≥30 กรัม หรือถ้าผลระดับยา Acetaminophen จะออกหลังจาก 8 ชั่วโมงหลังได้รับยา</li><li>การประเมิน: ตรวจวัดระดับยา Acetaminophen ที่เวลา 4-24 ชั่วโมงหลังได้รับยา และนำไปพล็อตบน Nomogram ที่ปรับปรุงใหม่</li></ul>';
+                        break;
+                    case 'unknown':
+                        adviceText = '<strong>2. History Unreliable or Unknown</strong><ul><li>การตรวจ: ตรวจระดับยา Acetaminophen และ Complete Metabolic Panel (CMP)</li><li>การให้ NAC: ให้ NAC ถ้าผลระดับยา Acetaminophen > 10 µg/mL หรือมีค่า AST/ALT ผิดปกติ (ยกเว้นถ้าเป็นค่า baseline)</li><li>ไม่ต้องให้ NAC: ไม่ต้องให้ NAC ถ้าระดับยา Acetaminophen ≤ 10 µg/mL และมีค่า AST/ALT ปกติ (ยกเว้นถ้าเป็นค่า baseline)</li></ul>';
+                        break;
+                    case 'repeated':
+                        adviceText = '<strong>3. Repeated Supratherapeutic Ingestion (RSI) of Acetaminophen</strong><ul><li>การประเมิน: ตรวจวัดระดับยา Acetaminophen, AST/ALT, และ Creatinine</li><li>การให้ NAC: ให้ NAC ถ้าระดับยา Acetaminophen ≥ 20 µg/mL หรือมีค่า AST/ALT ผิดปกติ (ยกเว้นถ้าเป็นค่า baseline)</li><li>ไม่ต้องให้ NAC: ไม่ต้องให้ NAC ถ้าระดับยา Acetaminophen < 20 µg/mL และมีค่า AST/ALT ปกติ (ยกเว้นถ้าเป็นค่า baseline)</li></ul>';
+                        break;
+                    case 'extended':
+                        adviceText = '<strong>4. Ingestion of Extended-Release Products or Co-ingestion with Anticholinergic/Opioid Agonists</strong><ul><li>การให้ Activated Charcoal: อาจพิจารณาให้หลัง 4 ชั่วโมง ถ้ามีหลักฐานว่ายังมีการดูดซึมยาอยู่ (เช่น ระดับยาที่เพิ่มขึ้น)</li><li>การประเมิน: ถ้าผลระดับยา Acetaminophen ที่เวลา 4-24 ชั่วโมงหลังได้รับยาอยู่เหนือ Treatment Line ให้ NAC</li><li>การประเมินซ้ำ: ถ้าผลระดับยา Acetaminophen ที่เวลา 4-12 ชั่วโมงหลังได้รับยาอยู่ต่ำกว่า Treatment Line แต่สูงกว่า 10 µg/mL ให้ตรวจซ้ำอีกครั้งใน 4-6 ชั่วโมงถัดไป</li><li>สำหรับ Co-ingestion: ถ้าผลตรวจครั้งแรกที่ 4-24 ชั่วโมงหลังได้รับยา ≤ 10 µg/mL ไม่จำเป็นต้องตรวจซ้ำและไม่ต้องให้ NAC</li></ul>';
+                        break;
+                    default:
+                        adviceText = 'เลือกสถานการณ์เพื่อดูคำแนะนำ';
+                }
+                scenarioAdviceDiv.innerHTML = adviceText;
+            }
+
+            function updateToxicDose() {
+                const weight = parseFloat(patientWeightInput1.value);
+                const dosePerPill = parseFloat(dosePerPillInput.value);
+                const numberOfPills = parseFloat(numberOfPillsInput.value);
+                const initialTime = parseFloat(initialTimeInput.value);
+                const scenario = scenarioSelect.value;
+                
+                const totalDoseMg = (dosePerPill || 0) * (numberOfPills || 0);
+                const totalDoseG = totalDoseMg / 1000;
+                const dosePerKg = (totalDoseMg / (weight || 1)).toFixed(2);
+                
+                let resultText = '';
+                
+                if (scenario === 'acute' && !isNaN(totalDoseG) && !isNaN(weight)) {
+                    let isToxicAdult = totalDoseG > 10 || (weight >= 30 && (totalDoseMg / weight) > 200);
+                    let isToxicChild = weight < 30 && (totalDoseMg / weight) > 200;
+                    
+                    if (isToxicAdult || isToxicChild) {
+                        resultText = `<div class="result-box p-3 rounded-md border-red-500"><p class="text-red-600 font-semibold">ขนาดยาที่ได้รับเป็นพิษ! (${totalDoseG.toFixed(1)} กรัม หรือ ${dosePerKg} mg/kg)</p></div>`;
+                    } else {
+                        resultText = `<div class="result-box p-3 rounded-md border-green-500"><p class="text-green-600 font-semibold">ขนาดยาที่ได้รับไม่เป็นพิษ (${totalDoseG.toFixed(1)} กรัม หรือ ${dosePerKg} mg/kg)</p></div>`;
+                    }
+                } else if (scenario === 'repeated' && !isNaN(totalDoseG) && !isNaN(initialTime) && !isNaN(weight)) {
+                    let isToxic = false;
+                    if (initialTime >= 24 && initialTime <= 48) {
+                        isToxic = (totalDoseG / (initialTime / 24)) > 6 || (totalDoseMg / (initialTime / 24)) / weight > 150;
+                    } else if (initialTime > 48) {
+                        isToxic = (totalDoseG / (initialTime / 24)) > 4 || (totalDoseMg / (initialTime / 24)) / weight > 100;
+                    }
+                    
+                    if (isToxic) {
+                        resultText = `<div class="result-box p-3 rounded-md border-red-500"><p class="text-red-600 font-semibold">ขนาดยาที่ได้รับเป็นพิษสำหรับ RSI! (${(totalDoseG / (initialTime / 24)).toFixed(1)} กรัม/วัน หรือ ${((totalDoseMg / (initialTime / 24)) / weight).toFixed(2)} mg/kg/วัน)</p></div>`;
+                    } else {
+                        resultText = `<div class="result-box p-3 rounded-md border-green-500"><p class="text-green-600 font-semibold">ขนาดยาที่ได้รับไม่เป็นพิษสำหรับ RSI (${(totalDoseG / (initialTime / 24)).toFixed(1)} กรัม/วัน หรือ ${((totalDoseMg / (initialTime / 24)) / weight).toFixed(2)} mg/kg/วัน)</p></div>`;
+                    }
+                } else {
+                    resultText = '';
+                }
+                toxicDoseResultDiv.innerHTML = resultText;
+            }
+
+            function plotPoint() {
+                const time = parseFloat(timeSinceIngestionInput.value);
+                const level = parseFloat(apapLevelInput.value);
+                const plotResultDiv = document.getElementById('plot-result');
+
+                if (isNaN(time) || isNaN(level)) {
+                    plotResultDiv.textContent = 'กรุณากรอกข้อมูลให้ครบถ้วน';
+                    plotResultDiv.className = 'text-center font-semibold text-lg p-2 min-h-[40px] text-red-600';
                     return;
                 }
-                
+
+                // Nomogram treatment line: y = -50x + 350
+                // For log scale: log(y) = (-log(150)+log(10))/20 * (x-4) + log(150)
+                const logTreatmentLineY = (Math.log10(10) - Math.log10(150)) / (24 - 4) * (time - 4) + Math.log10(150);
+                const treatmentLineY = Math.pow(10, logTreatmentLineY);
+
+                // Nomogram high-risk line: y = -125x + 800
+                // For log scale: log(y) = (log(50)-log(300))/20 * (x-4) + log(300)
+                const logHighRiskLineY = (Math.log10(50) - Math.log10(300)) / (24 - 4) * (time - 4) + Math.log10(300);
+                const highRiskLineY = Math.pow(10, logHighRiskLineY);
+
+                let resultText = '';
+                let resultClass = '';
+
+                if (time < 4 || time > 24) {
+                    resultText = 'ไม่สามารถใช้ Nomogram ได้ ควรปรึกษาผู้เชี่ยวชาญ (Nomogram ใช้สำหรับเวลา 4-24 ชั่วโมงหลังได้รับยา)';
+                    resultClass = 'text-red-600';
+                } else if (level >= highRiskLineY) {
+                    resultText = 'ระดับยาอยู่ "บน" High-risk line → พิจารณาให้ NAC และอาจเพิ่มขนาดยา';
+                    resultClass = 'text-red-600';
+                } else if (level >= treatmentLineY) {
+                    resultText = 'ระดับยาอยู่ "บน" Treatment line → ต้องให้ NAC';
+                    resultClass = 'text-red-600';
+                } else {
+                    resultText = 'ระดับยาอยู่ "ใต้" Treatment line → ไม่ต้องให้ NAC';
+                    resultClass = 'text-green-600';
+                }
+
+                plotResultDiv.textContent = resultText;
+                plotResultDiv.className = `text-center font-semibold text-lg p-2 min-h-[40px] ${resultClass}`;
+
                 nomogramChart.data.datasets[2].data = [{ x: time, y: level }];
                 nomogramChart.update();
+            }
 
-                const treatmentLevel = A_treat * Math.exp(-k_treat * time);
-                const highRiskLevel = A_risk * Math.exp(-k_risk * time);
+            function calculateNacDose() {
+                const weight = parseFloat(patientWeightInput4.value);
+                const nacResultDiv = document.getElementById('nac-result');
 
-                if (level >= highRiskLevel) {
-                    plotResult.textContent = 'อยู่เหนือเส้น High-Risk Line - พิจารณาให้ NAC ขนาดสูง';
-                    plotResult.className = 'text-center font-semibold text-lg p-2 text-red-600';
-                } else if (level >= treatmentLevel) {
-                    plotResult.textContent = 'อยู่เหนือเส้น Treatment Line - แนะนำให้เริ่ม NAC';
-                    plotResult.className = 'text-center font-semibold text-lg p-2 text-amber-600';
-                } else {
-                    plotResult.textContent = 'อยู่ใต้เส้น Treatment Line - ยังไม่จำเป็นต้องให้ NAC';
-                    plotResult.className = 'text-center font-semibold text-lg p-2 text-green-600';
-                }
-            });
-
-            calculateNacButton.addEventListener('click', () => {
-                const weight = parseFloat(patientWeight4.value);
                 if (isNaN(weight) || weight <= 0) {
-                    nacResultDiv.innerHTML = `<p class="text-amber-600">กรุณาใส่น้ำหนักให้ถูกต้อง</p>`;
+                    nacResultDiv.innerHTML = `<div class="result-box p-3 rounded-md border-red-500"><p class="text-red-600 font-semibold">กรุณากรอกน้ำหนักผู้ป่วยที่ถูกต้อง</p></div>`;
                     return;
                 }
 
-                const calculationWeight = Math.min(weight, 100);
                 const weightCapped = weight > 100;
+                const calculationWeight = Math.min(weight, 100);
 
                 const loadingDoseMg = 150 * calculationWeight;
                 const secondDoseMg = 50 * calculationWeight;
@@ -469,11 +442,11 @@
                         <p>${thirdDoseMg.toFixed(0)} mg NAC in D5W ${thirdFluid} mL, IV drip over 16 hours</p>
                     </div>
                 `;
-            });
+            }
+
+            // Initial call to set advice text
+            updateAdvice();
         });
     </script>
- <div class="footer text-center text-sm text-gray-500 mt-8">
-    &copy; 2025 NTWKKM &nbsp;|&nbsp; Powered by GitHub Pages
-  </div>
 </body>
 </html>
