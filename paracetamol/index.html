@@ -159,7 +159,7 @@
                 <div class="relative h-96 w-full">
                     <canvas id="nomogramChart"></canvas>
                 </div>
-            </div>>
+            </div>
 
             <div class="card rounded-lg p-6">
                 <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">4. คำนวณขนาดยา Acetylcysteine (IV NAC)</h2>
@@ -393,78 +393,88 @@
         calculateToxicDose();
 
 let nomogramChart;
-        const chartCtx = document.getElementById('nomogramChart').getContext('2d');
-        
-        function initChart() {
-            if (nomogramChart) {
-                nomogramChart.destroy();
-            }
-            
-            nomogramChart = new Chart(chartCtx, {
-                type: 'line',
-                data: {
-                    labels: [0, 4, 8, 12, 16, 20, 24],
-                    datasets: [{
-                        label: 'NAC Treatment Line',
-                        data: [{x: 4, y: 150}, {x: 8, y: 75}, {x: 12, y: 37.5}, {x: 16, y: 18.75}, {x: 20, y: 9.375}, {x: 24, y: 4.6875}],
-                        borderColor: 'rgb(255, 99, 132)',
-                        borderWidth: 2,
-                        fill: false,
-                        tension: 0.1,
-                        pointRadius: 0
-                    }, {
-                        label: 'High-Risk Line',
-                        data: [{x: 4, y: 200}, {x: 8, y: 100}, {x: 12, y: 50}, {x: 16, y: 25}, {x: 20, y: 12.5}, {x: 24, y: 6.25}],
-                        borderColor: 'rgb(255, 159, 64)',
-                        borderWidth: 2,
-                        borderDash: [5, 5],
-                        fill: false,
-                        tension: 0.1,
-                        pointRadius: 0
-                    }, {
-                        label: 'Patient Point',
-                        data: [],
-                        backgroundColor: 'rgb(54, 162, 235)',
-                        borderColor: 'rgb(54, 162, 235)',
-                        type: 'scatter',
-                        pointRadius: 8,
-                        pointHoverRadius: 10
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: {
-                            type: 'linear',
-                            title: {
-                                display: true,
-                                text: 'เวลาหลังได้รับยา (ชม.)',
-                            },
-                            min: 0,
-                            max: 25
-                        },
-                        y: {
-                            type: 'logarithmic',
-                            title: {
-                                display: true,
-                                text: 'ระดับยา Acetaminophen (µg/mL)',
-                            },
-                            min: 1,
-                            max: 1000,
-                            ticks: {
-                                callback: function(value, index, values) {
-                                    if (value === 1 || value === 10 || value === 100 || value === 1000) {
-                                        return value;
-                                    }
-                                    return null;
-                                }
+const chartCtx = document.getElementById('nomogramChart').getContext('2d');
+        
+function initChart() {
+    if (nomogramChart) {
+        nomogramChart.destroy();
+    }
+            
+    nomogramChart = new Chart(chartCtx, {
+        type: 'line',
+        data: {
+            // ลบ labels: [0, 4, 8, 12, 16, 20, 24], ออก
+            datasets: [{
+                label: 'NAC Treatment Line',
+                data: [{x: 4, y: 150}, {x: 8, y: 75}, {x: 12, y: 37.5}, {x: 16, y: 18.75}, {x: 20, y: 9.375}, {x: 24, y: 4.6875}],
+                borderColor: 'rgb(255, 99, 132)',
+                borderWidth: 2,
+                fill: false,
+                tension: 0.1,
+                pointRadius: 0
+            }, {
+                label: 'High-Risk Line',
+                data: [{x: 4, y: 200}, {x: 8, y: 100}, {x: 12, y: 50}, {x: 16, y: 25}, {x: 20, y: 12.5}, {x: 24, y: 6.25}],
+                borderColor: 'rgb(255, 159, 64)',
+                borderWidth: 2,
+                borderDash: [5, 5],
+                fill: false,
+                tension: 0.1,
+                pointRadius: 0
+            }, {
+                label: 'Patient Point',
+                data: [],
+                backgroundColor: 'rgb(54, 162, 235)',
+                borderColor: 'rgb(54, 162, 235)',
+                type: 'scatter',
+                pointRadius: 8,
+                pointHoverRadius: 10
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    type: 'linear',
+                    title: {
+                        display: true,
+                        text: 'เวลาหลังได้รับยา (ชม.)',
+                    },
+                    min: 0,
+                    max: 25,
+                    // เพิ่ม ticks เพื่อกำหนดค่าที่ต้องการแสดง
+                    ticks: {
+                        stepSize: 4,
+                        callback: function(value, index, values) {
+                            if (value >= 4 && value <= 24) {
+                                return value;
                             }
+                            return null;
+                        }
+                    }
+                },
+                y: {
+                    type: 'logarithmic',
+                    title: {
+                        display: true,
+                        text: 'ระดับยา Acetaminophen (µg/mL)',
+                    },
+                    min: 1,
+                    max: 1000,
+                    ticks: {
+                        callback: function(value, index, values) {
+                            if (value === 1 || value === 10 || value === 100 || value === 1000) {
+                                return value;
+                            }
+                            return null;
                         }
                     }
                 }
-            });
+            }
         }
+    });
+}
         
         initChart();
 
