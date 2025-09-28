@@ -117,14 +117,7 @@
                         <div>
                             <p class="font-semibold">Repeated Supratherapeutic Ingestion (RSI)</p>
                              <ul class="list-disc list-inside text-sm label-text">
-                                 <li><strong>ได้รับยาใน 24-48 ชั่วโมง:</strong> > 6 กรัม/วัน หรือ > 150 mg/kg/วัน</li>
-                                <li><strong>ได้รับยา > 48 ชั่วโมง:</strong> > 4 กรัม/วัน หรือ > 100 mg/kg/วัน</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <p class="font-semibold">Toxic Dose สำหรับผู้ป่วยทุกราย</p>
-                             <ul class="list-disc list-inside text-sm label-text">
-                                 <li><strong>Massive Overdose:</strong> > > 40 กรัม หรือ > 500 mg/kg</li>                       
+                                <li>> 6 กรัม/24ชม. หรือ > 150 mg/kg/24ชม. (ติดต่อกันอย่างน้อย 2 วัน)</li>
                             </ul>
                         </div>
                     </div>
@@ -181,9 +174,6 @@
                         <li>INR < 2.0</li>
                         <li>AST/ALT ปกติ หรือลดลง >25-50% จากค่าสูงสุด</li>
                         <li>ผู้ป่วยอาการทางคลินิกดีขึ้น</li>
-                    <p class="mt-2 text-sm label-text">หากเกณฑ์ยังไม่ครบ ให้ให้ยา NAC ต่อเนื่องในอัตราอย่างน้อย 6.25 mg/kg/h 
-                        และเจาะเลือดเพื่อตรวจระดับยา acetaminophen, AST/ALT, และ PT/INR ทุก 12-24 ชั่วโมง
-                    </p>
                     </ul>
                 </div>
             </div>
@@ -263,31 +253,10 @@
             const nacResultDiv = document.getElementById('nac-result');
 
             const scenarios = {
-                acute: '<p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
-                            <ul class="list-disc list-inside mt-2 text-sm label-text">
-                                <li>พิจารณาให้ Activated charcoal (SDAC) หากได้รับยามาไม่เกิน 4 ชั่วโมงหลังกินยา</li>
-                                <li>ควรเริ่มให้ยา acetylcysteine (NAC) ในขณะรอผลหากกินยา ≥30 กรัม หรือหากจะทราบระดับยาหลัง 8 ชั่วโมงไปแล้ว</li>
-                                <li>เจาะเลือดตรวจระดับยา acetaminophen ในช่วง 4-24 ชั่วโมงหลังกินยา แล้วนำมา Plot บน Nomogram เพื่อประเมิน</li>
-                            </ul>',
-                unknown: '<p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
-                            <ul class="list-disc list-inside mt-2 text-sm label-text">
-                                <li>เจาะเลือดตรวจระดับยา Acetaminophen และค่า AST/ALT ทันที</li>
-                                <li><strong>หากระดับยา > 10 μg/mL หรือ AST/ALT ผิดปกติ:</strong> ให้รักษาด้วย NAC</li>
-                                <li><strong>หากระดับยา ≤ 10 μg/mL และ AST/ALT ปกติ:</strong> ไม่ต้องให้ NAC</li>
-                            </ul>',
-                repeated: '<p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
-                            <ul class="list-disc list-inside mt-2 text-sm label-text">
-                                <li>ไม่แนะนำการล้างท้องด้วย SDAC</li>
-                                <li>เจาะเลือดตรวจระดับยา Acetaminophen, AST/ALT, และ Creatinine</li>
-                                <li><strong>หากระดับยา ≥ 20 μg/mL หรือ AST/ALT ผิดปกติ:</strong> ให้รักษาด้วย NAC</li>
-                                <li><strong>หากระดับยา < 20 μg/mL และ AST/ALT ปกติ:</strong> ไม่ต้องให้ NAC</li>
-                            </ul>',
-                extended: ' <p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
-                            <ul class="list-disc list-inside mt-2 text-sm label-text">
-                                <li>การจัดการเบื้องต้นเหมือนกับยาออกฤทธิ์ทันที</li>
-                                <li>อาจพิจารณาให้ Activated charcoal (SDAC) หากได้รับยามานานกว่า 4 ชั่วโมง หากมีหลักฐานบ่งชี้ว่ายังมีการดูดซึมยาอยู่ (เช่น ระดับยาที่เพิ่มขึ้น)</li>
-                                <li>หากระดับยาที่เจาะช่วง 4-12 ชั่วโมงหลังกินยา มีค่าต่ำกว่าเส้นรักษาแต่ > 10 μg/mL ให้เจาะซ้ำใน 4-6 ชั่วโมงถัดไป</li>
-                            </ul>'
+                acute: 'เจาะเลือดวัดระดับ Acetaminophen ที่เวลา 4-24 ชั่วโมงหลังได้รับยา แล้วนำค่าไป plot บน Nomogram เพื่อประเมินความเสี่ยง หากผลเลือดจะออกช้า (> 8 ชม. หลังกินยา) หรือกินยาในขนาดสูงมาก (ดูเกณฑ์ Toxic Dose) ให้เริ่มให้ NAC ไปก่อน',
+                unknown: 'เจาะเลือดวัดระดับ Acetaminophen, AST, ALT ทันที / ให้ NAC หากระดับยา > 10 µg/mL หรือค่า AST/ALT ผิดปกติ',
+                repeated: 'เจาะเลือดวัดระดับ Acetaminophen, AST, ALT, Creatinine / ให้ NAC หากระดับยา ≥ 20 µg/mL หรือค่า AST/ALT ผิดปกติ (ดูเกณฑ์ Toxic Dose)',
+                extended: 'เจาะเลือดที่ 4-12 ชั่วโมงหลังได้รับยา หากระดับยาอยู่ใต้เส้น Treatment Line แต่ > 10 µg/mL ให้เจาะเลือดซ้ำในอีก 4-6 ชั่วโมง'
             };
 
             function updateScenarioAdvice() {
