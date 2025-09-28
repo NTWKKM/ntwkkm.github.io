@@ -461,7 +461,7 @@ function initChart() {
                     max: 1000,
                     ticks: {
                         callback: function(value) {
-                            const tickValues = [3, 5, 7, 10, 20, 40, 70, 100, 150, 200, 300, 500];
+                            const tickValues = [3, 5, 10, 20, 40, 70, 100, 150, 200, 300, 500];
                             if (tickValues.includes(value)) {
                                 return value;
                             }
