@@ -384,8 +384,8 @@
         patientAge.addEventListener('input', calculateToxicDose);
         dosePerPill.addEventListener('input', calculateToxicDose);
         numberOfPills.addEventListener('input', calculateToxicDose);
-        //initialTime.addEventListener('input', () => {
-        //   timeInputNomogram.value = initialTime.value;
+        initialTime.addEventListener('input', () => {
+           timeInputNomogram.value = initialTime.value;
             calculateToxicDose();
         });
         
