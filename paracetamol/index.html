@@ -1,239 +1,270 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acetaminophen Poisoning Management Tool</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Sarabun', sans-serif;
-            background-color: #e2e8f0; /* Softer gray-blue background */
-            color: #1a202c; /* Dark text */
-        }
-        .card {
-            background-color: #f8fafc; /* Very light card */
-            border: 1px solid #cbd5e1; /* Soft border */
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-        }
-        .btn {
-            background-color: #3b82f6; /* Blue button */
-            transition: background-color 0.3s;
-            color: white;
-        }
-        .btn:hover {
-            background-color: #2563eb;
-        }
-        input, select {
-            background-color: #f0f4f8;
-            border-color: #cbd5e1;
-            color: #1a202c;
-        }
-        .result-box {
-            background-color: #e0f2fe; /* Light blue background */
-            border-left: 4px solid #38bdf8; /* Soft blue border */
-        }
-        .header-text {
-            color: #111827;
-        }
-        .label-text {
-            color: #4a5568;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acetaminophen Poisoning Management Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #e2e8f0;
+            color: #1a202c;
+        }
+        .card {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .btn {
+            background-color: #3b82f6;
+            transition: background-color 0.3s;
+            color: white;
+        }
+        .btn:hover {
+            background-color: #2563eb;
+        }
+        input, select {
+            background-color: #f0f4f8;
+            border-color: #cbd5e1;
+            color: #1a202c;
+        }
+        .result-box {
+            background-color: #e0f2fe;
+            border-left: 4px solid #38bdf8;
+        }
+        .header-text {
+            color: #111827;
+        }
+        .label-text {
+            color: #4a5568;
+        }
+    </style>
 </head>
 <body class="p-4 md:p-8">
 
-    <div class="max-w-7xl mx-auto space-y-8">
-        <header class="text-center">
-            <h1 class="text-3xl md:text-4xl font-bold header-text">Acetaminophen Poisoning Management Tool</h1>
-            <p class="text-lg text-gray-600 mt-2">กลุ่มงานเวชศาสตร์ฉุกเฉิน รพ.มหาราชนครราชสีมา</p>
-            <p style="font-size:1em; color:#555;">
-    Guidance from US & Canada Poison Centers 
-    (<a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2808062" target="_blank" style="color:#007acc; text-decoration:none;">
-      JAMA Network Open, 2023
-    </a>)
-  </p>
-        </header>
+    <div class="max-w-7xl mx-auto space-y-8">
+        <header class="text-center">
+            <h1 class="text-3xl md:text-4xl font-bold header-text">Acetaminophen Poisoning Management Tool</h1>
+            <p class="text-lg text-gray-600 mt-2">กลุ่มงานเวชศาสตร์ฉุกเฉิน รพ.มหาราชนครราชสีมา</p>
+            <p style="font-size:1em; color:#555;">
+    Guidance from US & Canada Poison Centers
+    (<a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2808062" target="_blank" style="color:#007acc; text-decoration:none;">
+      JAMA Network Open, 2023
+    </a>)
+        </p>
+        </header>
 
-        <div class="card rounded-lg p-6">
-    <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">1. ข้อมูลและการประเมินผู้ป่วย</h2>
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <div class="md:col-span-2"> <label for="scenario" class="block text-sm font-medium label-text mb-2">สถานการณ์ผู้ป่วย:</label>
-            <select id="scenario" class="w-full rounded-md p-2">
-                <option value="acute" selected>Acute Ingestion (ทราบเวลาชัดเจน, &lt; 24 ชม.)</option>
-                <option value="unknown">Unknown Time / Unreliable History</option>
-                <option value="repeated">Repeated Supratherapeutic Ingestion (RSI)</option>
-                <option value="extended">Extended-Release / Co-ingestion</option>
-            </select>
-        </div>
-        
-        <div>
-            <label for="patient-age" class="block text-sm font-medium label-text mb-2">อายุ (ปี):</label>
-            <input type="number" id="patient-age" placeholder="เช่น 25" class="w-full rounded-md p-2">
-        </div>
-        
-        <div>
-            <label for="patient-weight" class="block text-sm font-medium label-text mb-2">น้ำหนัก (kg):</label>
-            <input type="number" id="patient-weight-section1" placeholder="เช่น 60" class="w-full rounded-md p-2">
-        </div>
-        
-        <div class="md:col-span-2"> <label for="initial-time" class="block text-sm font-medium label-text mb-2">เวลาหลังได้รับยา (ชม.):</label>
-            <input type="number" id="initial-time" placeholder="เช่น 2" class="w-full rounded-md p-2">
-        </div>
+        <div class="card rounded-lg p-6">
+            <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">1. ข้อมูลและการประเมินผู้ป่วย</h2>
+            <div class="space-y-4">
+                <div>
+                    <label for="scenario" class="block text-sm font-medium label-text mb-2">สถานการณ์ผู้ป่วย:</label>
+                    <select id="scenario" class="w-full rounded-md p-2">
+                        <option value="acute" selected>Acute Ingestion (ทราบเวลาชัดเจน, &lt; 24 ชม.)</option>
+                        <option value="unknown">Unknown Time / Unreliable History</option>
+                        <option value="repeated">Repeated Supratherapeutic Ingestion (RSI)</option>
+                        <option value="extended">Extended-Release / Co-ingestion</option>
+                    </select>
+                </div>
 
-        <div>
-            <label for="dose-per-pill" class="block text-sm font-medium label-text mb-2">ขนาดยาต่อเม็ด (mg):</label>
-            <input type="number" id="dose-per-pill" placeholder="เช่น 500" class="w-full rounded-md p-2">
-        </div>
-        
-        <div>
-            <label for="number-of-pills" class="block text-sm font-medium label-text mb-2">จำนวนเม็ด:</label>
-            <input type="number" id="number-of-pills" placeholder="เช่น 20" class="w-full rounded-md p-2">
-        </div>
-    </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="patient-age" class="block text-sm font-medium label-text mb-2">อายุ (ปี):</label>
+                        <input type="number" id="patient-age" placeholder="เช่น 25" class="w-full rounded-md p-2">
+                    </div>
+                    <div>
+                        <label for="patient-weight" class="block text-sm font-medium label-text mb-2">น้ำหนัก (kg):</label>
+                        <input type="number" id="patient-weight-section1" placeholder="เช่น 60" class="w-full rounded-md p-2">
+                    </div>
+                </div>
 
-    </div>
-             <div id="assessment-result" class="result-box p-4 rounded-md mt-4">
-                <h3 class="font-bold text-lg mb-2">คำแนะนำเบื้องต้น:</h3>
-                <p id="scenario-advice">เลือกสถานการณ์เพื่อดูคำแนะนำ</p>
-            </div>
-        </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="initial-time" class="block text-sm font-medium label-text mb-2">เวลาหลังได้รับยา (ชม.):</label>
+                        <input type="number" id="initial-time" placeholder="เช่น 2" class="w-full rounded-md p-2">
+                    </div>
+                    <div>
+                        <label for="dose-per-pill" class="block text-sm font-medium label-text mb-2">ขนาดยาต่อเม็ด (mg):</label>
+                        <input type="number" id="dose-per-pill" placeholder="เช่น 500" class="w-full rounded-md p-2">
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="number-of-pills" class="block text-sm font-medium label-text mb-2">จำนวนเม็ด:</label>
+                    <input type="number" id="number-of-pills" placeholder="เช่น 20" class="w-full rounded-md p-2">
+                </div>
+            </div>
 
-        <div class="card rounded-lg p-6">
-            <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">2. การจัดการเบื้องต้น</h2>
-            <div id="toxic-dose-result" class="mb-4"></div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="font-bold text-lg text-blue-600 mb-2">เกณฑ์ประเมินขนาดยาที่เป็นพิษ (Toxic Dose)</h3>
-                    <div class="space-y-3">
-                        <div>
-                            <p class="font-semibold">Acute Ingestion (ได้รับยาครั้งเดียว)</p>
-                            <ul class="list-disc list-inside text-sm label-text">
-                                <li><strong>ผู้ใหญ่ หรือเด็ก ≥ 6 ปี:</strong> > 10 กรัม หรือ > 200 mg/kg</li>
-                                <li><strong>เด็ก < 6 ปี:</strong> > 200 mg/kg</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <p class="font-semibold">Repeated Supratherapeutic Ingestion (RSI)</p>
-                             <ul class="list-disc list-inside text-sm label-text">
-                                <li>> 6 กรัม/24ชม. หรือ > 150 mg/kg/24ชม. (ติดต่อกันอย่างน้อย 2 วัน)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                 <div>
-                    <h3 class="font-bold text-lg text-blue-600 mb-2">แนวทางการให้ Activated Charcoal</h3>
-                    <div class="space-y-2">
-                        <p class="font-semibold">ขนาด: 1 g/kg (สูงสุด 50 g)</p>
-                        <ul class="list-disc list-inside text-sm label-text">
-                            <li>พิจารณาให้หากผู้ป่วยมาถึง รพ. <strong>ภายใน 4 ชั่วโมง</strong> หลังได้รับยา (Immediate-Release)</li>
-                             <li>อาจพิจารณาให้ <strong>หลัง 4 ชั่วโมง</strong> ได้ในกรณียา Extended-Release หรือกินร่วมกับยาอื่นที่ชะลอการดูดซึม (เช่น Opioids, Anticholinergics)</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="card rounded-lg p-6">
-                <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">3. Modified Rumack-Matthew Nomogram</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-                    <div>
-                        <label for="time-since-ingestion" class="block text-sm font-medium label-text">เวลาหลังได้รับยา (ชม.)</label>
-                        <input type="number" id="time-since-ingestion" placeholder="4-24" class="w-full mt-1 rounded-md p-2">
-                    </div>
-                    <div>
-                        <label for="apap-level" class="block text-sm font-medium label-text">ระดับยา APAP (µg/mL)</label>
-                        <input type="number" id="apap-level" placeholder="เช่น 150" class="w-full mt-1 rounded-md p-2">
-                    </div>
-                    <button id="plot-button" class="btn font-bold rounded-md sm:self-end h-10">Plot Point</button>
-                </div>
-                <div id="plot-result" class="text-center font-semibold text-lg p-2 min-h-[40px]"></div>
-                <div class="relative h-96 w-full">
-                    <canvas id="nomogramChart"></canvas>
-                </div>
-            </div>
+            <div id="assessment-result" class="result-box p-4 rounded-md mt-6">
+                <h3 class="font-bold text-lg mb-2">คำแนะนำเบื้องต้น:</h3>
+                <p id="scenario-advice">เลือกสถานการณ์เพื่อดูคำแนะนำ</p>
+            </div>
+        </div>
 
-            <div class="card rounded-lg p-6">
-                <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">4. คำนวณขนาดยา Acetylcysteine (IV NAC)</h2>
-                <div class="flex items-end gap-4 mb-4">
-                    <div class="flex-grow">
-                        <label for="patient-weight-section4" class="block text-sm font-medium label-text">น้ำหนักผู้ป่วย (kg)</label>
-                        <input type="number" id="patient-weight-section4" placeholder="เช่น 60" class="w-full mt-1 rounded-md p-2">
-                    </div>
-                    <button id="calculate-nac" class="btn font-bold rounded-md h-10 px-6">คำนวณ</button>
-                </div>
-                <div id="nac-result" class="space-y-3">
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg text-emerald-600 mb-2">เกณฑ์การหยุดยา NAC</h3>
-                    <p class="text-sm mb-2">(ต้องเข้าได้ทุกข้อ)</p>
-                    <ul class="list-disc list-inside space-y-1 label-text">
-                        <li>ระดับยา Acetaminophen < 10 µg/mL</li>
-                        <li>INR < 2.0</li>
-                        <li>AST/ALT ปกติ หรือลดลง >25-50% จากค่าสูงสุด</li>
-                        <li>ผู้ป่วยอาการทางคลินิกดีขึ้น</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <div class="card rounded-lg p-6">
-            <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">5. เกณฑ์การพิจารณาพิเศษ</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <h3 class="font-bold text-lg text-sky-600 mb-2">การพิจารณาฟอกไต (Hemodialysis)</h3>
-                     <ul class="list-disc list-inside space-y-1 label-text">
-                        <li>ระดับยา Acetaminophen สูงมาก (≥ 900 µg/mL)</li>
-                        <li>มีภาวะเลือดเป็นกรด (Acidosis) รุนแรง</li>
-                        <li>มีการเปลี่ยนแปลงของระดับความรู้สึกตัวจาก toxic paracetamol (Altered consciousness)</li>
-                        <li class="mt-2 pt-2 border-t border-gray-200"><strong>การให้ NAC ระหว่างฟอกไต:</strong> เพิ่มอัตราเร็วเป็นอย่างน้อย 12.5 mg/kg/hr</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-bold text-lg text-red-600 mb-2">การพิจารณาปลูกถ่ายตับ (King's College)</h3>
-                    <p class="text-sm mb-2">ปรึกษาทีมปลูกถ่ายตับหากเข้าได้กับเกณฑ์ข้อใดข้อหนึ่ง</p>
-                    <ul class="list-disc list-inside space-y-1 label-text">
-                         <li><strong>Lactate > 3.0 mmol/L</strong> (หลังให้สารน้ำเต็มที่)</li>
-                        <li>Arterial pH < 7.30 (หลังให้สารน้ำเต็มที่)</li>
-                        <li class="font-semibold">หรือมี 3 ข้อต่อไปนี้ร่วมกัน:</li>
-                         <ul class="list-['-_'] ml-6">
-                            <li>Prothrombin time > 100s (INR > 6.5)</li>
-                            <li>Serum creatinine > 3.4 mg/dL</li>
-                            <li>Grade III-IV hepatic encephalopathy</li>
-                         </ul>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <div class="card rounded-lg p-6">
+            <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">2. การจัดการเบื้องต้น</h2>
+            <div id="toxic-dose-result" class="mb-4"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg text-blue-600 mb-2">เกณฑ์ประเมินขนาดยาที่เป็นพิษ (Toxic Dose)</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <p class="font-semibold">Acute Ingestion (ได้รับยาครั้งเดียว)</p>
+                            <ul class="list-disc list-inside text-sm label-text">
+                                <li><strong>ผู้ใหญ่ หรือเด็ก ≥ 6 ปี:</strong> > 10 กรัม หรือ > 200 mg/kg</li>
+                                <li><strong>เด็ก &lt; 6 ปี:</strong> > 200 mg/kg</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-semibold">Repeated Supratherapeutic Ingestion (RSI)</p>
+                             <ul class="list-disc list-inside text-sm label-text">
+                                <li>> 6 กรัม/24ชม. หรือ > 150 mg/kg/24ชม. (ติดต่อกันอย่างน้อย 2 วัน)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="font-bold text-lg text-blue-600 mb-2">แนวทางการให้ Activated Charcoal</h3>
+                    <div class="space-y-2">
+                        <p class="font-semibold">ขนาด: 1 g/kg (สูงสุด 50 g)</p>
+                        <ul class="list-disc list-inside text-sm label-text">
+                            <li>พิจารณาให้หากผู้ป่วยมาถึง รพ. <strong>ภายใน 4 ชั่วโมง</strong> หลังได้รับยา (Immediate-Release)</li>
+                             <li>อาจพิจารณาให้ <strong>หลัง 4 ชั่วโมง</strong> ได้ในกรณียา Extended-Release หรือกินร่วมกับยาอื่นที่ชะลอการดูดซึม (เช่น Opioids, Anticholinergics)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="card rounded-lg p-6">
+                <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">3. Modified Rumack-Matthew Nomogram</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
+                    <div>
+                        <label for="time-since-ingestion" class="block text-sm font-medium label-text">เวลาหลังได้รับยา (ชม.)</label>
+                        <input type="number" id="time-since-ingestion" placeholder="4-24" class="w-full mt-1 rounded-md p-2">
+                    </div>
+                    <div>
+                        <label for="apap-level" class="block text-sm font-medium label-text">ระดับยา APAP (µg/mL)</label>
+                        <input type="number" id="apap-level" placeholder="เช่น 150" class="w-full mt-1 rounded-md p-2">
+                    </div>
+                    <button id="plot-button" class="btn font-bold rounded-md sm:self-end h-10">Plot Point</button>
+                </div>
+                <div id="plot-result" class="text-center font-semibold text-lg p-2 min-h-[40px]"></div>
+                <div class="relative h-96 w-full">
+                    <canvas id="nomogramChart"></canvas>
+                </div>
+            </div>
 
-        <div class="card rounded-lg p-6">
-            <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">6. การจัดการผลข้างเคียงจากยา NAC</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="result-box p-4 rounded-md border-yellow-500">
-                    <h4 class="font-bold text-lg">Flushing (หน้าแดง)</h4>
-                    <p class="text-sm">ประเมินความจำเป็นในการให้ยาต่อ หากจำเป็นให้ต่อได้โดยไม่ต้องหยุดยา</p>
-                </div>
-                 <div class="result-box p-4 rounded-md border-orange-500">
-                    <h4 class="font-bold text-lg">Urticaria (ผื่นลมพิษ)</h4>
-                    <p class="text-sm">ให้ยา Diphenhydramine 1 mg/kg IV (max 50 mg) และให้ NAC ต่อได้</p>
-                </div>
-                 <div class="result-box p-4 rounded-md border-red-500">
-                    <h4 class="font-bold text-lg">Angioedema (อาการบวม)</h4>
-                    <p class="text-sm">หยุดยา NAC ทันที, ให้ Diphenhydramine. หากอาการดีขึ้นใน 1 ชม. สามารถเริ่มยาใหม่ได้</p>
-                </div>
-                 <div class="result-box p-4 rounded-md border-red-700">
-                    <h4 class="font-bold text-lg">Anaphylaxis / Hypotension</h4>
-                    <p class="text-sm">หยุดยา NAC ทันที, รักษาตามแนวทาง Anaphylaxis. หากจำเป็นต้องให้ยาต่อ ให้เริ่มใหม่ในอัตราที่ช้าลงและปรึกษาผู้เชี่ยวชาญ</p>
-                </div>
-            </div>
-        </div>
+            <div class="card rounded-lg p-6">
+                <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">4. คำนวณขนาดยา Acetylcysteine (IV NAC)</h2>
+                <div class="flex items-end gap-4 mb-4">
+                    <div class="flex-grow">
+                        <label for="patient-weight-section4" class="block text-sm font-medium label-text">น้ำหนักผู้ป่วย (kg)</label>
+                        <input type="number" id="patient-weight-section4" placeholder="เช่น 60" class="w-full mt-1 rounded-md p-2">
+                    </div>
+                    <button id="calculate-nac" class="btn font-bold rounded-md h-10 px-6">คำนวณ</button>
+                </div>
+                <div id="nac-result" class="space-y-3">
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-emerald-600 mb-2">เกณฑ์การหยุดยา NAC</h3>
+                    <p class="text-sm mb-2">(ต้องเข้าได้ทุกข้อ)</p>
+                    <ul class="list-disc list-inside space-y-1 label-text">
+                        <li>ระดับยา Acetaminophen &lt; 10 µg/mL</li>
+                        <li>INR &lt; 2.0</li>
+                        <li>AST/ALT ปกติ หรือลดลง &gt;25-50% จากค่าสูงสุด</li>
+                        <li>ผู้ป่วยอาการทางคลินิกดีขึ้น</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card rounded-lg p-6">
+            <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">5. เกณฑ์การพิจารณาพิเศษ</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-bold text-lg text-sky-600 mb-2">การพิจารณาฟอกไต (Hemodialysis)</h3>
+                     <ul class="list-disc list-inside space-y-1 label-text">
+                        <li>ระดับยา Acetaminophen สูงมาก (≥ 900 µg/mL)</li>
+                        <li>มีภาวะเลือดเป็นกรด (Acidosis) รุนแรง</li>
+                        <li>มีการเปลี่ยนแปลงของระดับความรู้สึกตัวจาก toxic paracetamol (Altered consciousness)</li>
+                        <li class="mt-2 pt-2 border-t border-gray-200"><strong>การให้ NAC ระหว่างฟอกไต:</strong> เพิ่มอัตราเร็วเป็นอย่างน้อย 12.5 mg/kg/hr</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg text-red-600 mb-2">การพิจารณาปลูกถ่ายตับ (King's College)</h3>
+                    <p class="text-sm mb-2">ปรึกษาทีมปลูกถ่ายตับหากเข้าได้กับเกณฑ์ข้อใดข้อหนึ่ง</p>
+                    <ul class="list-disc list-inside space-y-1 label-text">
+                         <li><strong>Lactate &gt; 3.0 mmol/L</strong> (หลังให้สารน้ำเต็มที่)</li>
+                        <li>Arterial pH &lt; 7.30 (หลังให้สารน้ำเต็มที่)</li>
+                        <li class="font-semibold">หรือมี 3 ข้อต่อไปนี้ร่วมกัน:</li>
+                         <ul class="list-['-_'] ml-6">
+                            <li>Prothrombin time &gt; 100s (INR &gt; 6.5)</li>
+                            <li>Serum creatinine &gt; 3.4 mg/dL</li>
+                            <li>Grade III-IV hepatic encephalopathy</li>
+                         </ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-    </div>
+        <div class="card rounded-lg p-6">
+            <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">6. การจัดการผลข้างเคียงจากยา NAC</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="result-box p-4 rounded-md border-yellow-500">
+                    <h4 class="font-bold text-lg">Flushing (หน้าแดง)</h4>
+                    <p class="text-sm">ประเมินความจำเป็นในการให้ยาต่อ หากจำเป็นให้ต่อได้โดยไม่ต้องหยุดยา</p>
+                </div>
+                 <div class="result-box p-4 rounded-md border-orange-500">
+                    <h4 class="font-bold text-lg">Urticaria (ผื่นลมพิษ)</h4>
+                    <p class="text-sm">ให้ยา Diphenhydramine 1 mg/kg IV (max 50 mg) และให้ NAC ต่อได้</p>
+                </div>
+                 <div class="result-box p-4 rounded-md border-red-500">
+                    <h4 class="font-bold text-lg">Angioedema (อาการบวม)</h4>
+                    <p class="text-sm">หยุดยา NAC ทันที, ให้ Diphenhydramine. หากอาการดีขึ้นใน 1 ชม. สามารถเริ่มยาใหม่ได้</p>
+                </div>
+                 <div class="result-box p-4 rounded-md border-red-700">
+                    <h4 class="font-bold text-lg">Anaphylaxis / Hypotension</h4>
+                    <p class="text-sm">หยุดยา NAC ทันที, รักษาตามแนวทาง Anaphylaxis. หากจำเป็นต้องให้ยาต่อ ให้เริ่มใหม่ในอัตราที่ช้าลงและปรึกษาผู้เชี่ยวชาญ</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scenarioSelect = document.getElementById('scenario');
+            const patientAge = document.getElementById('patient-age');
+            const patientWeight1 = document.getElementById('patient-weight-section1');
+            const initialTime = document.getElementById('initial-time');
+            const dosePerPill = document.getElementById('dose-per-pill');
+            const numberOfPills = document.getElementById('number-of-pills');
+            const toxicDoseResult = document.getElementById('toxic-dose-result');
+            const scenarioAdvice = document.getElementById('scenario-advice');
+            
+            const timeInputNomogram = document.getElementById('time-since-ingestion');
+            const levelInputNomogram = document.getElementById('apap-level');
+            const plotButton = document.getElementById('plot-button');
+            const plotResult = document.getElementById('plot-result');
+
+            const patientWeight4 = document.getElementById('patient-weight-section4');
+            const calculateNacButton = document.getElementById('calculate-nac');
+            const nacResultDiv = document.getElementById('nac-result');
+
+            const scenarioAdviceData = {
+                'acute': `
+                    <p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
+                    <ul class="list-disc list-inside mt-2 text-sm label-text">
+                        <li>พิจารณาให้ Activated charcoal (SDAC) หากได้รับยามาไม่เกิน 4 ชั่วโมงหลังกินยา</li>
+                        <li>ควรเริ่มให้ยา acetylcysteine (NAC) ในขณะรอผลหากกินยา ≥30 กรัม หรือหากจะทราบระดับยาหลัง 8 ชั่วโมงไปแล้ว</li>
+                        <li>เจาะเลือดตรวจระดับยา acetaminophen ในช่วง 4-24 ชั่วโมงหลังกินยา แล้วนำมา Plot บน Nomogram เพื่อประเมิน</li>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
