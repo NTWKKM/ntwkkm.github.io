@@ -496,52 +496,48 @@
             nomogramChart.update();
         });
 
-        calculateNacButton.addEventListener('click', () => {
-            const weight = parseFloat(patientWeight4.value);
-            const nacResultDiv = document.getElementById('nac-result');
-            nacResultDiv.innerHTML = '';
-            
-            if (isNaN(weight) || weight <= 0) {
-                nacResultDiv.innerHTML = `<p class="text-red-500 font-semibold">กรุณากรอกน้ำหนักผู้ป่วยให้ถูกต้อง</p>`;
-                return;
-            }
+        document.getElementById('calculate-nac-btn').addEventListener('click', () => {
+                const weight = parseFloat(document.getElementById('patient-weight-section4').value);
+                const nacResultDiv = document.getElementById('nac-result');
 
-            const totalDose1 = 150 * weight;
-            const totalDose2 = 50 * weight;
-            const totalDose3 = 100 * weight;
-            const totalVolume1 = totalDose1 / 200 * 100;
-            const totalVolume2 = totalDose2 / 200 * 100;
-            const totalVolume3 = totalDose3 / 200 * 100;
+                if (isNaN(weight) || weight <= 0) {
+                    nacResultDiv.innerHTML = '<div class="result-box p-4 rounded-md"><p class="text-red-600 font-semibold">กรุณาใส่น้ำหนักผู้ป่วยที่ถูกต้อง</p></div>';
+                    return;
+                }
+                
+                let calculationWeight = weight;
+                let weightCapped = false;
+                if (weight > 100) {
+                    calculationWeight = 100;
+                    weightCapped = true;
+                }
 
-            const resultHTML = `
-                <div class="bg-gray-100 p-4 rounded-md">
-                    <h4 class="font-bold text-lg mb-2 text-blue-800">สูตรการให้ยา Acetylcysteine (IV) - 21 ชั่วโมง</h4>
-                    <ul class="list-disc list-inside space-y-2 text-sm label-text">
-                        <li><strong>Phase 1:</strong> 150 mg/kg ใน 1 ชั่วโมง
-                            <ul>
-                                <li>ยาที่ต้องใช้: ${totalDose1.toFixed(2)} mg</li>
-                                <li>ปริมาตรยา: ${totalVolume1.toFixed(2)} ml ใน D5W 250 ml</li>
-                                <li>อัตราเร็ว: ${(totalVolume1 + 250).toFixed(2)} ml/hr</li>
-                            </ul>
-                        </li>
-                        <li><strong>Phase 2:</strong> 50 mg/kg ใน 4 ชั่วโมง
-                            <ul>
-                                <li>ยาที่ต้องใช้: ${totalDose2.toFixed(2)} mg</li>
-                                <li>ปริมาตรยา: ${totalVolume2.toFixed(2)} ml ใน D5W 500 ml</li>
-                                <li>อัตราเร็ว: ${((totalVolume2 + 500) / 4).toFixed(2)} ml/hr</li>
-                            </ul>
-                        </li>
-                        <li><strong>Phase 3:</strong> 100 mg/kg ใน 16 ชั่วโมง
-                            <ul>
-                                <li>ยาที่ต้องใช้: ${totalDose3.toFixed(2)} mg</li>
-                                <li>ปริมาตรยา: ${totalVolume3.toFixed(2)} ml ใน D5W 1000 ml</li>
-                                <li>อัตราเร็ว: ${((totalVolume3 + 1000) / 16).toFixed(2)} ml/hr</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            `;
-            nacResultDiv.innerHTML = resultHTML;
+                // New NAC regimen (based on user's request)
+                // Assuming standard 21-hour IV regimen
+                const loadingDoseMg = 150 * calculationWeight;
+                const secondDoseMg = 50 * calculationWeight;
+                const thirdDoseMg = 100 * calculationWeight;
+
+                // Fluid volumes for different weight categories
+                const loadingFluid = weight < 21 ? 3 * calculationWeight : (weight < 41 ? 100 : 200);
+                const secondFluid = weight < 21 ? 7 * calculationWeight : (weight < 41 ? 250 : 500);
+                const thirdFluid = weight < 21 ? 14 * calculationWeight : (weight < 41 ? 500 : 1000);
+
+                nacResultDiv.innerHTML = `
+                    ${weightCapped ? `<div class="result-box p-3 rounded-md border-amber-500"><p class="text-amber-600 font-semibold">หมายเหตุ: น้ำหนักที่ใช้คำนวณถูกจำกัดไว้ที่ 100 kg ตามหลักเกณฑ์</p></div>` : ''}
+                    <div class="result-box p-4 rounded-md">
+                        <h4 class="font-bold text-lg">Loading Dose (1 ชั่วโมง)</h4>
+                        <p>${loadingDoseMg.toFixed(0)} mg NAC in D5W ${loadingFluid} mL, IV drip over 60 minutes</p>
+                    </div>
+                    <div class="result-box p-4 rounded-md">
+                        <h4 class="font-bold text-lg">Second Dose (4 ชั่วโมง)</h4>
+                        <p>${secondDoseMg.toFixed(0)} mg NAC in D5W ${secondFluid} mL, IV drip over 4 hours</p>
+                    </div>
+                    <div class="result-box p-4 rounded-md">
+                        <h4 class="font-bold text-lg">Third Dose (16 ชั่วโมง)</h4>
+                        <p>${thirdDoseMg.toFixed(0)} mg NAC in D5W ${thirdFluid} mL, IV drip over 16 hours</p>
+                    </div>
+                `;
         });
     });
 </script>
