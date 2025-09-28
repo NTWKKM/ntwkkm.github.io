@@ -209,9 +209,10 @@
                             <li>Serum creatinine > 3.4 mg/dL</li>
                             <li>Grade III-IV hepatic encephalopathy</li>
                         </ul>
-                        <li><strong>Lactate > 3.5 mmol/L</strong> หลังให้สารระยะแรก (< 4 ชั่วโมงหลังเข้ารับการรักษา) </li>
-                        <li><strong>Lactate > 3.0 mmol/L</strong> หลังให้สารน้ำเต็มที่ (12 ชั่วโมงหลังเข้ารับการรักษา)</li>
-                        <li><strong>Lactate</strong> as predictors of poor prognosis without transplant</li>
+                        <li>หรือ
+                        <strong>Lactate > 3.5 mmol/L</strong> หลังให้สารระยะแรก (< 4 ชั่วโมงหลังเข้ารับการรักษา) 
+                        <strong>Lactate > 3.0 mmol/L</strong> หลังให้สารน้ำเต็มที่ (12 ชั่วโมงหลังเข้ารับการรักษา)
+                        <strong>Lactate</strong> as predictors of poor prognosis without transplant</li>
                     </ul>
                 </div>
             </div>
@@ -386,6 +387,9 @@
         patientAge.addEventListener('input', calculateToxicDose);
         dosePerPill.addEventListener('input', calculateToxicDose);
         numberOfPills.addEventListener('input', calculateToxicDose);
+        initialTime.addEventListener('input', () => {
+           timeInputNomogram.value = initialTime.value;
+           calculateToxicDose();
         });
         
         // Initial setup
