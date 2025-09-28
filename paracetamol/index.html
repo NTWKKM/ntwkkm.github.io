@@ -252,9 +252,8 @@
             const calculateNacButton = document.getElementById('calculate-nac');
             const nacResultDiv = document.getElementById('nac-result');
 
-            const getScenarioAdvice = (scenario) => {
-                switch (scenario) {
-                    case 'acute':
+            const scenario = 
+                 'acute':
                         return `
                             <p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
                             <ul class="list-disc list-inside mt-2 text-sm label-text">
@@ -263,7 +262,7 @@
                                 <li>เจาะเลือดตรวจระดับยา acetaminophen ในช่วง 4-24 ชั่วโมงหลังกินยา แล้วนำมา Plot บน Nomogram เพื่อประเมิน</li>
                             </ul>
                         `;
-                    case 'unknown':
+                'unknown':
                         return `
                             <p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
                             <ul class="list-disc list-inside mt-2 text-sm label-text">
@@ -272,7 +271,7 @@
                                 <li><strong>หากระดับยา ≤ 10 μg/mL และ AST/ALT ปกติ:</strong> ไม่ต้องให้ NAC</li>
                             </ul>
                         `;
-                    case 'repeated':
+                'repeated':
                         return `
                             <p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
                             <ul class="list-disc list-inside mt-2 text-sm label-text">
@@ -282,7 +281,7 @@
                                 <li><strong>หากระดับยา < 20 μg/mL และ AST/ALT ปกติ:</strong> ไม่ต้องให้ NAC</li>
                             </ul>
                         `;
-                    case 'extended':
+                'extended':
                         return `
                             <p class="text-sm label-text"><strong>คำแนะนำ:</strong></p>
                             <ul class="list-disc list-inside mt-2 text-sm label-text">
@@ -293,17 +292,7 @@
                         `;
                     default:
                         return 'เลือกสถานการณ์เพื่อดูคำแนะนำ';
-                }
-            };
-
-            const scenarioSelect = document.getElementById('scenario');
-            const scenarioAdviceDiv = document.getElementById('scenario-advice');
-            scenarioSelect.addEventListener('change', () => {
-                scenarioAdviceDiv.innerHTML = getScenarioAdvice(scenarioSelect.value);
-            });
-            scenarioAdviceDiv.innerHTML = getScenarioAdvice(scenarioSelect.value);
-
-
+            
             const calculateToxicDose = () => {
                 const weight = parseFloat(patientWeight1.value);
                 const age = parseFloat(patientAge.value);
