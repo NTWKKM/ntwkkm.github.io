@@ -404,7 +404,7 @@ function initChart() {
         data: {
             datasets: [{
                 label: 'High-Risk Line',
-                data: [{x: 4, y: 200}, {x: 8, y: 100}, {x: 12, y: 50}, {x: 16, y: 25}, {x: 20, y: 12.5}, {x: 24, y: 6.25}],
+                data: [{x: 4, y: 300}, {x: 8, y: 100}, {x: 12, y: 50}, {x: 16, y: 25}, {x: 20, y: 12.5}, {x: 24, y: 6.25}],
                 borderColor: 'rgb(255, 99, 132)', // สีแดง
                 borderWidth: 2,
                 borderDash: [5, 5],
@@ -458,7 +458,7 @@ function initChart() {
                     max: 1000,
                     ticks: {
                         callback: function(value) {
-                            const tickValues = [3, 5, 6, 8, 10, 15, 20, 30, 40, 60, 80, 100, 150, 200, 300, 400, 500];
+                            const tickValues = [3, 5, 8, 10, 15, 20, 40, 60, 100, 150, 200, 300, 500];
                             if (tickValues.includes(value)) {
                                 return value;
                             }
