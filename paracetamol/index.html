@@ -476,32 +476,49 @@ function initChart() {
 initChart();
 
 plotButton.addEventListener('click', () => {
-            const time = parseFloat(timeInputNomogram.value);
-            const level = parseFloat(levelInputNomogram.value);
+    const time = parseFloat(timeInputNomogram.value);
+    const level = parseFloat(levelInputNomogram.value);
 
-            if (isNaN(time) || isNaN(level) || time < 4) {
-                plotResult.textContent = 'กรุณากรอกข้อมูลเวลาและระดับยาที่ถูกต้อง (เวลา ≥ 4 ชม.)';
-                return;
-            }
+    if (isNaN(time) || isNaN(level) || time < 4) {
+        plotResult.textContent = 'กรุณากรอกข้อมูลเวลาและระดับยาที่ถูกต้อง (เวลา ≥ 4 ชม.)';
+        return;
+    }
 
-            const treatmentThreshold = 150 * Math.pow(Math.E, -0.222 * (time - 4));
-            const highRiskThreshold = 200 * Math.pow(Math.E, -0.222 * (time - 4));
+    const treatmentThreshold = 150 * Math.pow(Math.E, -0.222 * (time - 4));
+    const highRiskThreshold = 300 * Math.pow(Math.E, -0.222 * (time - 4));
 
-            let resultText = '';
-            if (level > treatmentThreshold) {
-                resultText = 'ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้นรักษา (ให้ยา NAC)';
-                if (level > highRiskThreshold) {
-                    resultText += ' และอยู่เหนือเส้น High-Risk';
-                }
-            } else {
-                resultText = 'ผลการประเมิน: ระดับยาอยู่ "ใต้" เส้นรักษา (ไม่ต้องให้ยา NAC)';
-            }
+let resultText = '';
 
-            plotResult.textContent = resultText;
-            
-            nomogramChart.data.datasets[2].data = [{x: time, y: level}];
-            nomogramChart.update();
-        })
+// ตรวจสอบว่าต้องให้ยา NAC หรือไม่
+if (level > treatmentThreshold) {
+    // กรณีที่ต้องให้ยา: เพิ่มสัญลักษณ์และสีแดง
+    let alertSymbol = '🚨';
+    let alertColor = 'text-red-600';
+    let highRiskMessage = '';
+
+    if (level > highRiskThreshold) {
+        // หากระดับยาเกิน High-Risk Line
+        resultText = `<p class="${alertColor} font-semibold">${alertSymbol} ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้น High-Risk</p>
+                      <p class="${alertColor} font-semibold">ควรพิจารณาให้ยา NAC ขนาดสูง</p>`;
+    } else {
+        // หากระดับยาเกิน Treatment Line แต่ไม่เกิน High-Risk Line
+        resultText = `<p class="${alertColor} font-semibold">${alertSymbol} ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้นรักษา (ให้ยา NAC)</p>`;
+    }
+
+} else {
+    // กรณีที่ไม่ต้องให้ยา: เพิ่มสัญลักษณ์และสีเขียว
+    let safeSymbol = '✅';
+    let safeColor = 'text-green-600';
+
+    resultText = `<p class="${safeColor} font-semibold">${safeSymbol} ผลการประเมิน: ระดับยาอยู่ "ใต้" เส้นรักษา (ไม่ต้องให้ยา NAC)</p>`;
+}
+
+// นำผลลัพธ์ที่ได้ไปแสดงผลใน element ที่มี id เป็น 'plot-result'
+plotResult.innerHTML = resultText;
+            
+    nomogramChart.data.datasets[2].data = [{x: time, y: level}];
+    nomogramChart.update();
+});
         
         document.getElementById('calculate-nac').addEventListener('click', () => {
                 const weight = parseFloat(document.getElementById('patient-weight-section4').value);
