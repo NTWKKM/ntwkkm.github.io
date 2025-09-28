@@ -12,12 +12,12 @@
     <style>
         body {
             font-family: 'Sarabun', sans-serif;
-            background-color: #f3f4f6; /* Light gray background */
-            color: #1f2937; /* Dark text */
+            background-color: #e2e8f0; /* Softer gray-blue background */
+            color: #1a202c; /* Dark text */
         }
         .card {
-            background-color: #ffffff; /* White card */
-            border: 1px solid #e5e7eb; /* Light border */
+            background-color: #f8fafc; /* Very light card */
+            border: 1px solid #cbd5e1; /* Soft border */
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
         .btn {
@@ -29,19 +29,19 @@
             background-color: #2563eb;
         }
         input, select {
-            background-color: #f3f4f6;
-            border-color: #d1d5db;
-            color: #1f2937;
+            background-color: #f0f4f8;
+            border-color: #cbd5e1;
+            color: #1a202c;
         }
         .result-box {
-            background-color: #eff6ff; /* Light blue background */
-            border-left: 4px solid #3b82f6;
+            background-color: #e0f2fe; /* Light blue background */
+            border-left: 4px solid #38bdf8; /* Soft blue border */
         }
         .header-text {
             color: #111827;
         }
         .label-text {
-            color: #374151;
+            color: #4a5568;
         }
     </style>
 </head>
@@ -53,10 +53,9 @@
             <p class="text-lg text-gray-600 mt-2">กลุ่มงานเวชศาสตร์ฉุกเฉิน รพ.มหาราชนครราชสีมา</p>
         </header>
 
-        <!-- Patient Data Section -->
         <div class="card rounded-lg p-6">
             <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">1. ข้อมูลและการประเมินผู้ป่วย</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div>
                     <label for="scenario" class="block text-sm font-medium label-text mb-2">สถานการณ์ผู้ป่วย:</label>
                     <select id="scenario" class="w-full rounded-md p-2">
@@ -67,23 +66,37 @@
                     </select>
                 </div>
                 <div>
-                    <label for="patient-age" class="block text-sm font-medium label-text mb-2">อายุ (ปี):</label>
-                    <input type="number" id="patient-age" placeholder="เช่น 25" class="w-full rounded-md p-2">
+                    <label for="patient-weight" class="block text-sm font-medium label-text mb-2">น้ำหนัก (kg):</label>
+                    <input type="number" id="patient-weight-section1" placeholder="เช่น 60" class="w-full rounded-md p-2">
                 </div>
-                 <div>
+                <div>
                     <label for="initial-time" class="block text-sm font-medium label-text mb-2">เวลาหลังได้รับยา (ชม.):</label>
                     <input type="number" id="initial-time" placeholder="เช่น 2" class="w-full rounded-md p-2">
                 </div>
+                 <div>
+                    <label for="patient-age" class="block text-sm font-medium label-text mb-2">อายุ (ปี):</label>
+                    <input type="number" id="patient-age" placeholder="เช่น 25" class="w-full rounded-md p-2">
+                </div>
             </div>
-             <div id="assessment-result" class="result-box p-4 rounded-md mt-4 h-full">
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div>
+                    <label for="dose-per-pill" class="block text-sm font-medium label-text mb-2">ขนาดยาต่อเม็ด (mg):</label>
+                    <input type="number" id="dose-per-pill" placeholder="เช่น 500" class="w-full rounded-md p-2">
+                </div>
+                <div>
+                    <label for="number-of-pills" class="block text-sm font-medium label-text mb-2">จำนวนเม็ด:</label>
+                    <input type="number" id="number-of-pills" placeholder="เช่น 20" class="w-full rounded-md p-2">
+                </div>
+            </div>
+             <div id="assessment-result" class="result-box p-4 rounded-md mt-4">
                 <h3 class="font-bold text-lg mb-2">คำแนะนำเบื้องต้น:</h3>
                 <p id="scenario-advice">เลือกสถานการณ์เพื่อดูคำแนะนำ</p>
             </div>
         </div>
 
-        <!-- Initial Management Section -->
         <div class="card rounded-lg p-6">
             <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">2. การจัดการเบื้องต้น</h2>
+            <div id="toxic-dose-result" class="mb-4"></div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                     <h3 class="font-bold text-lg text-blue-600 mb-2">เกณฑ์ประเมินขนาดยาที่เป็นพิษ (Toxic Dose)</h3>
@@ -117,7 +130,6 @@
         </div>
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <!-- Nomogram Section -->
             <div class="card rounded-lg p-6">
                 <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">3. Modified Rumack-Matthew Nomogram</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
@@ -137,13 +149,12 @@
                 </div>
             </div>
 
-            <!-- NAC Dose Calculator -->
             <div class="card rounded-lg p-6">
                 <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">4. คำนวณขนาดยา Acetylcysteine (IV NAC)</h2>
                 <div class="flex items-end gap-4 mb-4">
                     <div class="flex-grow">
                         <label for="patient-weight" class="block text-sm font-medium label-text">น้ำหนักผู้ป่วย (kg)</label>
-                        <input type="number" id="patient-weight" placeholder="เช่น 60" class="w-full mt-1 rounded-md p-2">
+                        <input type="number" id="patient-weight-section4" placeholder="เช่น 60" class="w-full mt-1 rounded-md p-2">
                     </div>
                     <button id="calculate-nac" class="btn font-bold rounded-md h-10 px-6">คำนวณ</button>
                 </div>
@@ -162,7 +173,6 @@
             </div>
         </div>
         
-        <!-- Special Cases Section -->
         <div class="card rounded-lg p-6">
             <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">5. เกณฑ์การพิจารณาพิเศษ</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -192,7 +202,6 @@
             </div>
         </div>
 
-        <!-- NAC Adverse Reaction Management -->
         <div class="card rounded-lg p-6">
             <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">6. การจัดการผลข้างเคียงจากยา NAC</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -220,14 +229,19 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const scenarioSelect = document.getElementById('scenario');
+            const patientWeight1 = document.getElementById('patient-weight-section1');
+            const initialTime = document.getElementById('initial-time');
+            const dosePerPill = document.getElementById('dose-per-pill');
+            const numberOfPills = document.getElementById('number-of-pills');
+            const toxicDoseResult = document.getElementById('toxic-dose-result');
             const scenarioAdvice = document.getElementById('scenario-advice');
             
-            const timeInput = document.getElementById('time-since-ingestion');
-            const levelInput = document.getElementById('apap-level');
+            const timeInputNomogram = document.getElementById('time-since-ingestion');
+            const levelInputNomogram = document.getElementById('apap-level');
             const plotButton = document.getElementById('plot-button');
             const plotResult = document.getElementById('plot-result');
 
-            const weightInput = document.getElementById('patient-weight');
+            const patientWeight4 = document.getElementById('patient-weight-section4');
             const calculateNacButton = document.getElementById('calculate-nac');
             const nacResultDiv = document.getElementById('nac-result');
 
@@ -243,6 +257,45 @@
             }
             scenarioSelect.addEventListener('change', updateScenarioAdvice);
             updateScenarioAdvice();
+
+            const calculateToxicDose = () => {
+                const weight = parseFloat(patientWeight1.value);
+                const dose = parseFloat(dosePerPill.value);
+                const pills = parseFloat(numberOfPills.value);
+
+                if (isNaN(weight) || isNaN(dose) || isNaN(pills) || weight <= 0) {
+                    toxicDoseResult.innerHTML = '';
+                    return;
+                }
+
+                const totalDoseMg = dose * pills;
+                const dosePerKg = totalDoseMg / weight;
+                const toxicThreshold = 200; // mg/kg
+
+                let resultHtml = `<div class="result-box p-4 rounded-md mt-4">`;
+                resultHtml += `<h3 class="font-bold text-lg mb-2">ผลการประเมิน Toxic Dose:</h3>`;
+                resultHtml += `<p>ปริมาณยาที่ได้รับทั้งหมด: **${totalDoseMg.toLocaleString()} mg** (${(totalDoseMg / 1000).toFixed(1)} กรัม)</p>`;
+                resultHtml += `<p>ปริมาณยาต่อกิโลกรัม: **${dosePerKg.toFixed(1)} mg/kg**</p>`;
+
+                if (dosePerKg >= toxicThreshold) {
+                    resultHtml += `<p class="mt-2 text-red-600 font-semibold">🚨 เกินเกณฑ์ Toxic Dose (> ${toxicThreshold} mg/kg)</p>`;
+                } else {
+                    resultHtml += `<p class="mt-2 text-green-600 font-semibold">✅ ไม่เกินเกณฑ์ Toxic Dose</p>`;
+                }
+                resultHtml += `</div>`;
+                toxicDoseResult.innerHTML = resultHtml;
+            };
+
+            patientWeight1.addEventListener('input', () => {
+                patientWeight4.value = patientWeight1.value;
+                calculateToxicDose();
+            });
+            dosePerPill.addEventListener('input', calculateToxicDose);
+            numberOfPills.addEventListener('input', calculateToxicDose);
+
+            initialTime.addEventListener('input', () => {
+                timeInputNomogram.value = initialTime.value;
+            });
 
             const ctx = document.getElementById('nomogramChart').getContext('2d');
             
@@ -306,8 +359,8 @@
             });
             
             plotButton.addEventListener('click', () => {
-                const time = parseFloat(timeInput.value);
-                const level = parseFloat(levelInput.value);
+                const time = parseFloat(timeInputNomogram.value);
+                const level = parseFloat(levelInputNomogram.value);
 
                 if (isNaN(time) || isNaN(level) || time < 4 || time > 24) {
                     plotResult.textContent = 'กรุณาใส่ข้อมูลเวลา (4-24 ชม.) และระดับยาให้ถูกต้อง';
@@ -334,7 +387,7 @@
             });
 
             calculateNacButton.addEventListener('click', () => {
-                const weight = parseFloat(weightInput.value);
+                const weight = parseFloat(patientWeight4.value);
                 if (isNaN(weight) || weight <= 0) {
                     nacResultDiv.innerHTML = `<p class="text-amber-600">กรุณาใส่น้ำหนักให้ถูกต้อง</p>`;
                     return;
@@ -369,7 +422,7 @@
             });
         });
     </script>
- <div class="footer">
+ <div class="footer text-center text-sm text-gray-500 mt-8">
     &copy; 2025 NTWKKM &nbsp;|&nbsp; Powered by GitHub Pages
   </div>
 </body>
