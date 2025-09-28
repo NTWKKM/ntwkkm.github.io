@@ -66,16 +66,16 @@
                     </select>
                 </div>
                 <div>
+                    <label for="patient-age" class="block text-sm font-medium label-text mb-2">อายุ (ปี):</label>
+                    <input type="number" id="patient-age" placeholder="เช่น 25" class="w-full rounded-md p-2">
+                </div>
+                 <div>
                     <label for="patient-weight" class="block text-sm font-medium label-text mb-2">น้ำหนัก (kg):</label>
                     <input type="number" id="patient-weight-section1" placeholder="เช่น 60" class="w-full rounded-md p-2">
                 </div>
                 <div>
                     <label for="initial-time" class="block text-sm font-medium label-text mb-2">เวลาหลังได้รับยา (ชม.):</label>
                     <input type="number" id="initial-time" placeholder="เช่น 2" class="w-full rounded-md p-2">
-                </div>
-                 <div>
-                    <label for="patient-age" class="block text-sm font-medium label-text mb-2">อายุ (ปี):</label>
-                    <input type="number" id="patient-age" placeholder="เช่น 25" class="w-full rounded-md p-2">
                 </div>
             </div>
              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
@@ -153,7 +153,7 @@
                 <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">4. คำนวณขนาดยา Acetylcysteine (IV NAC)</h2>
                 <div class="flex items-end gap-4 mb-4">
                     <div class="flex-grow">
-                        <label for="patient-weight" class="block text-sm font-medium label-text">น้ำหนักผู้ป่วย (kg)</label>
+                        <label for="patient-weight-section4" class="block text-sm font-medium label-text">น้ำหนักผู้ป่วย (kg)</label>
                         <input type="number" id="patient-weight-section4" placeholder="เช่น 60" class="w-full mt-1 rounded-md p-2">
                     </div>
                     <button id="calculate-nac" class="btn font-bold rounded-md h-10 px-6">คำนวณ</button>
@@ -229,6 +229,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const scenarioSelect = document.getElementById('scenario');
+            const patientAge = document.getElementById('patient-age');
             const patientWeight1 = document.getElementById('patient-weight-section1');
             const initialTime = document.getElementById('initial-time');
             const dosePerPill = document.getElementById('dose-per-pill');
@@ -260,25 +261,33 @@
 
             const calculateToxicDose = () => {
                 const weight = parseFloat(patientWeight1.value);
+                const age = parseFloat(patientAge.value);
                 const dose = parseFloat(dosePerPill.value);
                 const pills = parseFloat(numberOfPills.value);
 
-                if (isNaN(weight) || isNaN(dose) || isNaN(pills) || weight <= 0) {
+                if (isNaN(weight) || isNaN(dose) || isNaN(pills) || isNaN(age) || weight <= 0) {
                     toxicDoseResult.innerHTML = '';
                     return;
                 }
 
                 const totalDoseMg = dose * pills;
+                const totalDoseG = totalDoseMg / 1000;
                 const dosePerKg = totalDoseMg / weight;
-                const toxicThreshold = 200; // mg/kg
+
+                let toxicThreshold;
+                if (age >= 6) {
+                    toxicThreshold = 200; // mg/kg for adults and children >= 6 years
+                } else {
+                    toxicThreshold = 200; // mg/kg for children < 6 years
+                }
 
                 let resultHtml = `<div class="result-box p-4 rounded-md mt-4">`;
                 resultHtml += `<h3 class="font-bold text-lg mb-2">ผลการประเมิน Toxic Dose:</h3>`;
-                resultHtml += `<p>ปริมาณยาที่ได้รับทั้งหมด: **${totalDoseMg.toLocaleString()} mg** (${(totalDoseMg / 1000).toFixed(1)} กรัม)</p>`;
+                resultHtml += `<p>ปริมาณยาที่ได้รับทั้งหมด: **${totalDoseMg.toLocaleString()} mg** (${totalDoseG.toFixed(1)} กรัม)</p>`;
                 resultHtml += `<p>ปริมาณยาต่อกิโลกรัม: **${dosePerKg.toFixed(1)} mg/kg**</p>`;
 
-                if (dosePerKg >= toxicThreshold) {
-                    resultHtml += `<p class="mt-2 text-red-600 font-semibold">🚨 เกินเกณฑ์ Toxic Dose (> ${toxicThreshold} mg/kg)</p>`;
+                if (dosePerKg >= toxicThreshold || totalDoseG >= 10) {
+                    resultHtml += `<p class="mt-2 text-red-600 font-semibold">🚨 เกินเกณฑ์ Toxic Dose (${toxicThreshold} mg/kg หรือ > 10 กรัม)</p>`;
                 } else {
                     resultHtml += `<p class="mt-2 text-green-600 font-semibold">✅ ไม่เกินเกณฑ์ Toxic Dose</p>`;
                 }
@@ -290,6 +299,7 @@
                 patientWeight4.value = patientWeight1.value;
                 calculateToxicDose();
             });
+            patientAge.addEventListener('input', calculateToxicDose);
             dosePerPill.addEventListener('input', calculateToxicDose);
             numberOfPills.addEventListener('input', calculateToxicDose);
 
@@ -306,6 +316,8 @@
             const k_risk = Math.log(300/10) / 20;
             const A_risk = 300 / Math.exp(-k_risk * 4);
             const highRiskLineData = Array.from({length: 21}, (_, i) => ({x: i + 4, y: A_risk * Math.exp(-k_risk * (i+4))}));
+            
+            const verticalLines = [{ x: 4, label: '4ชม.' }, { x: 8, label: '8ชม.' }, { x: 12, label: '12ชม.' }, { x: 16, label: '16ชม.' }, { x: 24, label: '24ชม.' }];
 
             const nomogramChart = new Chart(ctx, {
                 type: 'scatter',
@@ -318,6 +330,7 @@
                         borderWidth: 2,
                         pointRadius: 0,
                         showLine: true,
+                        fill: false,
                     }, {
                         label: 'High-Risk Line',
                         data: highRiskLineData,
@@ -326,7 +339,8 @@
                         borderWidth: 2,
                         borderDash: [5, 5],
                         pointRadius: 0,
-                        showLine: true
+                        showLine: true,
+                        fill: false,
                     }, {
                         label: 'Patient Level',
                         data: [],
@@ -342,20 +356,60 @@
                         x: {
                             type: 'linear', position: 'bottom',
                             title: { display: true, text: 'Time Since Ingestion (hours)', color: '#4b5563' },
-                            min: 0, max: 28, ticks: { color: '#6b7280' }
+                            min: 0, max: 28, ticks: { color: '#6b7280' },
+                            grid: {
+                                display: false
+                            },
                         },
                         y: {
                             type: 'logarithmic',
                             title: { display: true, text: 'Acetaminophen Concentration (µg/mL)', color: '#4b5563' },
                             min: 1, max: 500,
-                            ticks: { color: '#6b7280', callback: (value) => Number(value.toString()) }
+                            ticks: { color: '#6b7280', callback: (value) => Number(value.toString()) },
+                            grid: {
+                                color: '#e2e8f0',
+                            }
                         }
                     },
                     plugins: {
                         legend: { labels: { color: '#374151' } },
                         tooltip: { callbacks: { label: (c) => `${c.dataset.label}: (${c.parsed.x}h, ${c.parsed.y.toFixed(1)} µg/mL)` } }
+                    },
+                    animation: {
+                        duration: 0
+                    },
+                    layout: {
+                        padding: {
+                            left: 0, right: 0, top: 0, bottom: 0
+                        }
                     }
-                }
+                },
+                plugins: [{
+                    id: 'verticalLinePlugin',
+                    afterDraw: chart => {
+                        const { ctx, chartArea: { left, right, top, bottom }, scales: { x, y } } = chart;
+                        ctx.save();
+                        verticalLines.forEach(line => {
+                            const xPos = x.getPixelForValue(line.x);
+                            if (xPos >= left && xPos <= right) {
+                                // Draw the line
+                                ctx.beginPath();
+                                ctx.strokeStyle = '#64748b';
+                                ctx.lineWidth = 1;
+                                ctx.moveTo(xPos, top);
+                                ctx.lineTo(xPos, bottom);
+                                ctx.stroke();
+
+                                // Draw the label
+                                ctx.font = '12px Sarabun';
+                                ctx.fillStyle = '#64748b';
+                                ctx.textAlign = 'center';
+                                ctx.fillText(line.label, xPos, bottom + 15);
+                            }
+                        });
+                        ctx.restore();
+                    }
+                }]
             });
             
             plotButton.addEventListener('click', () => {
