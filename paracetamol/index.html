@@ -60,42 +60,43 @@
         </header>
 
         <div class="card rounded-lg p-6">
-            <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">1. ข้อมูลและการประเมินผู้ป่วย</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div>
-                    <label for="scenario" class="block text-sm font-medium label-text mb-2">สถานการณ์ผู้ป่วย:</label>
-                    <select id="scenario" class="rounded-md p-2">
-                        <option value="acute">Acute Ingestion (ทราบเวลาชัดเจน, < 24 ชม.)</option>
-                        <option value="unknown">Unknown Time / Unreliable History</option>
-                        <option value="repeated">Repeated Supratherapeutic Ingestion (RSI)</option>
-                        <option value="extended">Extended-Release / Co-ingestion</option>
-                    </select>
-                </div>
-             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
-                <div>
-                    <label for="patient-age" class="block text-sm font-medium label-text mb-2">อายุ (ปี):</label>
-                    <input type="number" id="patient-age" placeholder="เช่น 25" class="w-full rounded-md p-2">
-                </div>
-                 <div>
-                    <label for="patient-weight" class="block text-sm font-medium label-text mb-2">น้ำหนัก (kg):</label>
-                    <input type="number" id="patient-weight-section1" placeholder="เช่น 60" class="w-full rounded-md p-2">
-                </div>
-             </div>
-                <div>
-                    <label for="initial-time" class="block text-sm font-medium label-text mb-2">เวลาหลังได้รับยา (ชม.):</label>
-                    <input type="number" id="initial-time" placeholder="เช่น 2" class="w-full rounded-md p-2">
-                </div>
-            </div>
-             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                <div>
-                    <label for="dose-per-pill" class="block text-sm font-medium label-text mb-2">ขนาดยาต่อเม็ด (mg):</label>
-                    <input type="number" id="dose-per-pill" placeholder="เช่น 500" class="w-full rounded-md p-2">
-                </div>
-                <div>
-                    <label for="number-of-pills" class="block text-sm font-medium label-text mb-2">จำนวนเม็ด:</label>
-                    <input type="number" id="number-of-pills" placeholder="เช่น 20" class="w-full rounded-md p-2">
-                </div>
-            </div>
+    <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">1. ข้อมูลและการประเมินผู้ป่วย</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="md:col-span-2"> <label for="scenario" class="block text-sm font-medium label-text mb-2">สถานการณ์ผู้ป่วย:</label>
+            <select id="scenario" class="w-full rounded-md p-2">
+                <option value="acute" selected>Acute Ingestion (ทราบเวลาชัดเจน, &lt; 24 ชม.)</option>
+                <option value="unknown">Unknown Time / Unreliable History</option>
+                <option value="repeated">Repeated Supratherapeutic Ingestion (RSI)</option>
+                <option value="extended">Extended-Release / Co-ingestion</option>
+            </select>
+        </div>
+        
+        <div>
+            <label for="patient-age" class="block text-sm font-medium label-text mb-2">อายุ (ปี):</label>
+            <input type="number" id="patient-age" placeholder="เช่น 25" class="w-full rounded-md p-2">
+        </div>
+        
+        <div>
+            <label for="patient-weight" class="block text-sm font-medium label-text mb-2">น้ำหนัก (kg):</label>
+            <input type="number" id="patient-weight-section1" placeholder="เช่น 60" class="w-full rounded-md p-2">
+        </div>
+        
+        <div class="md:col-span-2"> <label for="initial-time" class="block text-sm font-medium label-text mb-2">เวลาหลังได้รับยา (ชม.):</label>
+            <input type="number" id="initial-time" placeholder="เช่น 2" class="w-full rounded-md p-2">
+        </div>
+
+        <div>
+            <label for="dose-per-pill" class="block text-sm font-medium label-text mb-2">ขนาดยาต่อเม็ด (mg):</label>
+            <input type="number" id="dose-per-pill" placeholder="เช่น 500" class="w-full rounded-md p-2">
+        </div>
+        
+        <div>
+            <label for="number-of-pills" class="block text-sm font-medium label-text mb-2">จำนวนเม็ด:</label>
+            <input type="number" id="number-of-pills" placeholder="เช่น 20" class="w-full rounded-md p-2">
+        </div>
+    </div>
+
+    </div>
              <div id="assessment-result" class="result-box p-4 rounded-md mt-4">
                 <h3 class="font-bold text-lg mb-2">คำแนะนำเบื้องต้น:</h3>
                 <p id="scenario-advice">เลือกสถานการณ์เพื่อดูคำแนะนำ</p>
