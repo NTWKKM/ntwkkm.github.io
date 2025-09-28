@@ -59,10 +59,11 @@
                 <div>
                     <label for="scenario" class="block text-sm font-medium label-text mb-2">สถานการณ์ผู้ป่วย:</label>
                     <select id="scenario" class="w-full rounded-md p-2">
-                        <option value="acute">Acute Ingestion (ทราบเวลาชัดเจน, < 24 ชม.)</option>
-                        <option value="unknown">Unknown Time / Unreliable History</option>
-                        <option value="repeated">Repeated Supratherapeutic Ingestion (RSI)</option>
-                        <option value="extended">Extended-Release / Co-ingestion</option>
+                        <option value="acute">การได้รับยาชนิดออกฤทธิ์ทันทีแบบเฉียบพลัน</option>
+                        <option value="unknown">ประวัติผู้ป่วยไม่น่าเชื่อถือ/ไม่ทราบเวลา</option>
+                        <option value="repeated">การได้รับยาเกินขนาดซ้ำๆ</option>
+                        <option value="extended">ยาชนิดออกฤทธิ์นาน</option>
+                        <option value="coingestion">ได้รับยาร่วมกับ Anticholinergic / Opioid</option>
                     </select>
                 </div>
                 <div>
@@ -82,8 +83,26 @@
 
         <div class="card rounded-lg p-6">
             <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">2. การจัดการเบื้องต้น</h2>
-             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
+                    <h3 class="font-bold text-lg text-blue-600 mb-2">เกณฑ์ประเมินขนาดยาที่เป็นพิษ (Toxic Dose)</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <p class="font-semibold">Acute Ingestion (ได้รับยาครั้งเดียว)</p>
+                            <ul class="list-disc list-inside text-sm label-text">
+                                <li><strong>ผู้ใหญ่ หรือเด็ก ≥ 6 ปี:</strong> > 10 กรัม หรือ > 200 mg/kg</li>
+                                <li><strong>เด็ก < 6 ปี:</strong> > 200 mg/kg</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="font-semibold">Repeated Supratherapeutic Ingestion (RSI)</p>
+                             <ul class="list-disc list-inside text-sm label-text">
+                                <li>> 6 กรัม/24ชม. หรือ > 150 mg/kg/24ชม. (ติดต่อกันอย่างน้อย 2 วัน)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                 <div>
                     <h3 class="font-bold text-lg text-blue-600 mb-2">แนวทางการให้ Activated Charcoal</h3>
                     <div class="space-y-2">
                         <p class="font-semibold">ขนาด: 1 g/kg (สูงสุด 50 g)</p>
@@ -92,13 +111,6 @@
                              <li>อาจพิจารณาให้ <strong>หลัง 4 ชั่วโมง</strong> ได้ในกรณียา Extended-Release หรือกินร่วมกับยาอื่นที่ชะลอการดูดซึม (เช่น Opioids, Anticholinergics)</li>
                         </ul>
                     </div>
-                </div>
-                <div class="space-y-3">
-                    <p class="font-semibold">เกณฑ์ประเมินขนาดยาที่เป็นพิษ (Toxic Dose)</p>
-                     <ul class="list-disc list-inside text-sm label-text">
-                        <li><strong>Acute Ingestion:</strong> > 10 g หรือ > 200 mg/kg</li>
-                        <li><strong>RSI:</strong> > 6 g/24h or > 150 mg/kg/24h (ติดต่อกันอย่างน้อย 2 วัน)</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -136,12 +148,12 @@
                 </div>
                 <div>
                     <h3 class="font-bold text-lg text-emerald-600 mb-2">เกณฑ์การหยุดยา NAC</h3>
-                    <p class="text-sm mb-2">Measure acetaminophen concentration, AST/ALT, PT/INR and assess NAC stopping criteria before end of infusion:</p>
+                    <p class="text-sm mb-2">เจาะเลือดตรวจระดับยาพาราเซตามอล, AST/ALT, PT/INR และประเมินเกณฑ์การหยุดยา NAC ก่อนสิ้นสุดการให้ยา:</p>
                     <ul class="list-disc list-inside space-y-1 label-text">
-                        <li>Acetaminophen concentration <10 μg/mL</li>
+                        <li>ระดับยาพาราเซตามอล <10 μg/mL</li>
                         <li>INR <2.0</li>
-                        <li>ALT/AST normal for patient or if elevated have decreased from peak (25%-50%)</li>
-                        <li>Patient is clinically well</li>
+                        <li>ค่า ALT/AST กลับสู่ค่าปกติของผู้ป่วย หรือหากค่าสูงขึ้นให้ลดลงจากค่าสูงสุด (25%-50%)</li>
+                        <li>อาการทางคลินิกของผู้ป่วยดีขึ้น</li>
                     </ul>
                 </div>
             </div>
@@ -215,10 +227,11 @@
             const nacResultDiv = document.getElementById('nac-result');
 
             const scenarios = {
-                acute: `History reliable and accurate. Acute defined as any period of ingestion from 0-24 h. Gastrointestinal decontamination: Consider SDAC if within 4 h PI (Start acetylcysteine while waiting if ingestion is ≥30 g or if acetaminophen concentration will return after 8 h PI). Plot acetaminophen concentration drawn 4-24 h PI on nomogram.`,
-                unknown: `History unreliable or unknown. Draw tests: Acetaminophen concentration, CMP. Acetaminophen concentration >10 μg/mL or AST/ALT abnormal (unless baseline for patient) > tx with NAC. Acetaminophen concentration ≤10 μg/mL and AST/ALT normal (unless abnormal AST/ALT is baseline for patient) > Do not administer acetylcysteine.`,
-                repeated: `Reliable and accurate history. Adult or pediatric patient with history of repeated ingestion and findings consistent with acetaminophen toxicity (repeated vomiting, right upper quadrant abdominal tenderness, or mental health status change). Ingestion period 24-48 h: 6 g/d or 150 mg/kg/d (whichever is less). Ingestion period greater than 48 h: 4 g/d or 100 mg/kg/d (whichever is less). Gastrointestinal decontamination not recommended. Diagnosis and assessment: Acetaminophen concentration, AST/ALT, and creatinine. Acetaminophen concentration ≥20 μg/mL or AST/ALT abnormal (unless abnormal AST/ALT is baseline for patient) > Administer acetylcysteine. Acetaminophen concentration <20 μg/mL and AST/ALT normal (unless baseline for patient) > Do not administer acetylcysteine.`,
-                extended: `Extended release is defined as acetaminophen products available in the US or Canada and labeled for use on an 8-hour basis. Management is the same as for ingestion of other acetaminophen products except that activated charcoal may be useful longer than 4 hours after ingestion if evidence of ongoing absorption is present (eg, an increasing acetaminophen concentration). If the acetaminophen concentration from samples drawn 4 to 24 hours after ingestion is above the nomogram treatment line, acetylcysteine is needed. If the concentration from samples drawn 4 to 12 hours after ingestion is below the treatment line but above 10 μg/mL, it should be measured again 4 to 6 hours after the first measurement.`,
+                acute: 'ประวัติผู้ป่วยน่าเชื่อถือและถูกต้อง โดยภาวะเฉียบพลันคือการได้รับยาในช่วง 0-24 ชั่วโมง. การกำจัดสารพิษจากทางเดินอาหาร: พิจารณาให้ SDAC ถ้าภายใน 4 ชั่วโมงหลังได้รับยา (PI) และเริ่มให้ Acetylcysteine ไปก่อนขณะรอผล หากได้รับยา ≥ 30 กรัม หรือหากผลระดับยาพาราเซตามอลจะออกหลัง 8 ชั่วโมง PI. พล็อตระดับยาพาราเซตามอลที่เจาะเลือด ณ เวลา 4-24 ชั่วโมง PI บน Nomogram.',
+                unknown: 'ประวัติผู้ป่วยไม่น่าเชื่อถือหรือไม่ทราบเวลา. เจาะเลือดตรวจระดับยาพาราเซตามอลและ CMP. หากระดับยาพาราเซตามอล >10 μg/mL หรือค่า AST/ALT ผิดปกติ (เว้นแต่เป็นค่าพื้นฐานของผู้ป่วย) ให้รักษาด้วย NAC. หากระดับยาพาราเซตามอล ≤10 μg/mL และค่า AST/ALT ปกติ (เว้นแต่ค่าผิดปกติเป็นค่าพื้นฐานของผู้ป่วย) ไม่ต้องให้ยา Acetylcysteine.',
+                repeated: 'ประวัติที่เชื่อถือได้และถูกต้อง. ผู้ป่วยผู้ใหญ่หรือเด็กที่มีประวัติได้รับยาซ้ำๆ และมีอาการที่เข้าได้กับภาวะพิษจากพาราเซตามอล (อาเจียนซ้ำๆ, กดเจ็บที่ช่องท้องส่วนบนขวา, หรือการเปลี่ยนแปลงของสภาพจิตใจ). ระยะเวลาที่ได้รับยา 24-48 ชั่วโมง: 6 กรัม/วัน หรือ 150 มก./กก./วัน (แล้วแต่ค่าไหนน้อยกว่า). ระยะเวลาที่ได้รับยามากกว่า 48 ชั่วโมง: 4 กรัม/วัน หรือ 100 มก./กก./วัน (แล้วแต่ค่าไหนน้อยกว่า). ไม่แนะนำให้กำจัดสารพิษจากทางเดินอาหาร. การวินิจฉัยและการประเมิน: เจาะเลือดตรวจระดับยาพาราเซตามอล, AST/ALT, และ Creatinine. หากระดับยาพาราเซตามอล ≥20 μg/mL หรือค่า AST/ALT ผิดปกติ (เว้นแต่เป็นค่าพื้นฐานของผู้ป่วย) ให้ยา Acetylcysteine. หากระดับยาพาราเซตามอล <20 μg/mL และค่า AST/ALT ปกติ (เว้นแต่เป็นค่าพื้นฐานของผู้ป่วย) ไม่ต้องให้ยา Acetylcysteine.',
+                extended: 'ยาชนิดออกฤทธิ์นานคือยาพาราเซตามอลในสหรัฐฯ หรือแคนาดาที่ระบุให้ใช้ทุก 8 ชั่วโมง. การจัดการจะเหมือนกับการได้รับยาพาราเซตามอลชนิดอื่นๆ ยกเว้นว่า Activated Charcoal อาจมีประโยชน์นานกว่า 4 ชั่วโมงหลังได้รับยา หากมีหลักฐานการดูดซึมอย่างต่อเนื่อง (เช่น ระดับยาพาราเซตามอลที่เพิ่มสูงขึ้น). หากระดับยาพาราเซตามอลที่เจาะ ณ เวลา 4-24 ชั่วโมงหลังได้รับยาอยู่เหนือ Nomogram Treatment Line ต้องให้ยา Acetylcysteine. หากระดับยาที่เจาะ ณ เวลา 4-12 ชั่วโมงหลังได้รับยาอยู่ใต้เส้น Treatment Line แต่สูงกว่า 10 μg/mL ควรเจาะเลือดซ้ำอีกครั้งใน 4-6 ชั่วโมงหลังจากที่เจาะครั้งแรก.',
+                coingestion: 'เมื่อได้รับยาพาราเซตามอลร่วมกับยา anticholinergic หรือ opioid agonist, ข้อกังวลทางคลินิกคือการดูดซึมยาพาราเซตามอลอาจล่าช้าหรือยืดเยื้อ. การจัดการจะเหมือนกับผลิตภัณฑ์พาราเซตามอลอื่นๆ ยกเว้นว่าหากระดับยาพาราเซตามอลครั้งแรกที่เจาะ ณ เวลา 4-24 ชั่วโมงหลังได้รับยาสูงกว่า 10 μg/mL และผู้ป่วยมีอาการทางคลินิกจากยา anticholinergic หรือ opioid ควรเจาะเลือดซ้ำอีกครั้งใน 4-6 ชั่วโมงหลังจากที่เจาะครั้งแรก. ขนาดยาและระยะเวลาการให้ยา Acetylcysteine จะเหมือนกับการได้รับยาพาราเซตามอลแบบอื่นๆ.'
             };
 
             function updateScenarioAdvice() {
