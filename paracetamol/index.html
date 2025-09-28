@@ -317,8 +317,6 @@
             const A_risk = 300 / Math.exp(-k_risk * 4);
             const highRiskLineData = Array.from({length: 21}, (_, i) => ({x: i + 4, y: A_risk * Math.exp(-k_risk * (i+4))}));
             
-            const verticalLines = [{ x: 4, label: '4ชม.' }, { x: 8, label: '8ชม.' }, { x: 12, label: '12ชม.' }, { x: 16, label: '16ชม.' }, { x: 20, label: '20ชม.' }, { x: 24, label: '24ชม.' }];
-
             const nomogramChart = new Chart(ctx, {
                 type: 'scatter',
                 data: {
@@ -358,8 +356,8 @@
                             title: { display: true, text: 'Time Since Ingestion (hours)', color: '#4b5563' },
                             min: 0, max: 28, ticks: { color: '#6b7280' },
                             grid: {
-                                display: false
-                            },
+                                color: '#e2e8f0',
+                            }
                         },
                         y: {
                             type: 'logarithmic',
@@ -383,33 +381,7 @@
                             left: 0, right: 0, top: 0, bottom: 0
                         }
                     }
-                },
-                plugins: [{
-                    id: 'verticalLinePlugin',
-                    afterDraw: chart => {
-                        const { ctx, chartArea: { left, right, top, bottom }, scales: { x, y } } = chart;
-                        ctx.save();
-                        verticalLines.forEach(line => {
-                            const xPos = x.getPixelForValue(line.x);
-                            if (xPos >= left && xPos <= right) {
-                                // Draw the line
-                                ctx.beginPath();
-                                ctx.strokeStyle = '#64748b';
-                                ctx.lineWidth = 2; // Made lines thicker
-                                ctx.moveTo(xPos, top);
-                                ctx.lineTo(xPos, bottom);
-                                ctx.stroke();
-
-                                // Draw the label
-                                ctx.font = '12px Sarabun';
-                                ctx.fillStyle = '#64748b';
-                                ctx.textAlign = 'center';
-                                ctx.fillText(line.label, xPos, bottom + 15);
-                            }
-                        });
-                        ctx.restore();
-                    }
-                }]
+                }
             });
             
             plotButton.addEventListener('click', () => {
