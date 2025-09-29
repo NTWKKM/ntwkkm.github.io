@@ -502,7 +502,7 @@ plotButton.addEventListener('click', () => {
 
         let resultText = '';
         if (level > 10) {
-            resultText = `<div class="result-box p-4 rounded-md border-red-500 text-red-600 font-semibold">🚨 เนื่องจากระดับยา > 10 µg/mL ควรพิจารณาให้ NAC (ควรพิจารณาค่า AST/ALT ร่วมด้วย)</div>`;
+            resultText = `<div class="result-box p-4 rounded-md border-red-500 text-red-600 font-semibold">🚨 เนื่องจากระดับยา > 10 µg/mL ควรพิจารณาให้ NAC ทันที โดยไม่ต้องรอผล AST/ALT</div>`;
         } else {
             resultText = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ การประเมินต้องใช้ค่า AST/ALT ร่วมด้วย. กรุณาดูเกณฑ์ที่ละเอียดกว่าในส่วนที่ 1.</div>`;
         }
@@ -547,7 +547,7 @@ plotButton.addEventListener('click', () => {
 
         if (level > highRiskThreshold) {
             resultText = `<p class="${alertColor} font-semibold">${alertSymbol} ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้น High-Risk</p>
-                          <p class="${alertColor} font-semibold">ควรพิจารณาให้ยา NAC ขนาดสูง</p>`;
+                          <p class="${alertColor} font-semibold">ควรปรึกษาผู้เชี่ยวชาญ ก่อนพิจารณาให้ยา NAC ขนาดสูง</p>`;
         } else {
             resultText = `<p class="${alertColor} font-semibold">${alertSymbol} ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้นรักษา (ให้ยา NAC)</p>`;
         }
