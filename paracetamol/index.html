@@ -300,7 +300,7 @@
                 </ul>
             `
         };
-        
+
         const updateUIBasedOnScenario = () => {
             const selectedScenario = scenarioSelect.value;
             scenarioAdvice.innerHTML = scenarioAdviceData[selectedScenario] || 'เลือกสถานการณ์เพื่อดูคำแนะนำ';
@@ -493,14 +493,15 @@ function initChart() {
 initChart();
 
 plotButton.addEventListener('click', () => {
+    const scenario = scenarioSelect.value;
     const time = parseFloat(timeInputNomogram.value);
     const level = parseFloat(levelInputNomogram.value);
-    const scenario = scenarioSelect.value;
-    
+
     // Clear previous patient points from the chart
     nomogramChart.data.datasets[2].data = [];
+    plotResult.innerHTML = '';
 
-    // กรณี Unknown Time
+    // Handle non-Nomogram scenarios first
     if (scenario === 'unknown') {
         if (isNaN(level)) {
             plotResult.textContent = 'กรุณากรอกระดับยาที่ถูกต้อง';
@@ -514,12 +515,9 @@ plotButton.addEventListener('click', () => {
             resultText = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ การประเมินต้องใช้ค่า AST/ALT ร่วมด้วย. กรุณาดูเกณฑ์ที่ละเอียดกว่าในส่วนที่ 1.<br> (ไม่ทราบเวลา onset ที่แน่นอน)</div>`;
         }
         plotResult.innerHTML = resultText;
-        nomogramChart.data.datasets[2].data = [{x: 2, y: level, label: 'ไม่ทราบเวลา onset ที่แน่นอน'}];
-        nomogramChart.update();
         return;
     }
-
-    // กรณี Repeated Supratherapeutic Ingestion
+    
     if (scenario === 'repeated') {
         if (isNaN(level)) {
             plotResult.textContent = 'กรุณากรอกระดับยาที่ถูกต้อง';
@@ -531,19 +529,16 @@ plotButton.addEventListener('click', () => {
         } else {
             plotResult.innerHTML = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ การประเมินต้องใช้ค่า AST/ALT ร่วมด้วย. กรุณาดูเกณฑ์ที่ละเอียดกว่าในส่วนที่ 1.</div>`;
         }
-        // No plot point for repeated ingestion on the nomogram
-        nomogramChart.update();
         return;
     }
     
-    // สำหรับกรณี Nomogram (Acute และ Extended)
+    // For Nomogram scenarios (acute and extended)
     if (isNaN(time) || isNaN(level)) {
         plotResult.textContent = 'กรุณากรอกข้อมูลเวลาและระดับยาที่ถูกต้อง';
         return;
     }
     if (time < 4) {
         plotResult.textContent = 'การประเมินด้วย Nomogram ต้องเจาะเลือดหลังได้รับยาอย่างน้อย 4 ชั่วโมง';
-        nomogramChart.update();
         return;
     }
 
@@ -552,20 +547,13 @@ plotButton.addEventListener('click', () => {
 
     let resultText = '';
     
-    if (level > treatmentThreshold) {
-        let alertSymbol = '🚨';
-        let alertColor = 'text-red-600';
-
-        if (level > highRiskThreshold) {
-            resultText = `<p class="${alertColor} font-semibold">${alertSymbol} ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้น High-Risk</p>
-                          <p class="${alertColor} font-semibold">ควรพิจารณาให้ยา NAC ขนาดสูง</p>`;
-        } else {
-            resultText = `<p class="${alertColor} font-semibold">${alertSymbol} ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้นรักษา (ให้ยา NAC)</p>`;
-        }
+    if (level > highRiskThreshold) {
+        resultText = `<p class="text-red-600 font-semibold">🚨 ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้น High-Risk</p>
+                      <p class="text-red-600 font-semibold">ควรพิจารณาให้ยา NAC ขนาดสูง</p>`;
+    } else if (level > treatmentThreshold) {
+        resultText = `<p class="text-red-600 font-semibold">🚨 ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้นรักษา (ให้ยา NAC)</p>`;
     } else {
-        let safeSymbol = '✅';
-        let safeColor = 'text-green-600';
-        resultText = `<p class="${safeColor} font-semibold">${safeSymbol} ผลการประเมิน: ระดับยาอยู่ "ใต้" เส้นรักษา (ไม่ต้องให้ยา NAC)</p>`;
+        resultText = `<p class="text-green-600 font-semibold">✅ ผลการประเมิน: ระดับยาอยู่ "ใต้" เส้นรักษา (ไม่ต้องให้ยา NAC)</p>`;
         
         if (scenario === 'extended' && level > 10) {
             resultText += `<p class="text-amber-600 font-semibold mt-2">เนื่องจากเป็นยาออกฤทธิ์นาน และระดับยา > 10 µg/mL แนะนำให้เจาะเลือดซ้ำใน 4-6 ชั่วโมงเพื่อดูว่าระดับยาเพิ่มขึ้นหรือไม่</p>`;
