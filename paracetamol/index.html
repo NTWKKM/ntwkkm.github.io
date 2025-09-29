@@ -148,7 +148,7 @@
                         <div>
                             <p class="font-semibold text-sm">Acute Ingestion (ครั้งเดียว)</p>
                             <ul class="list-disc list-inside text-sm text-slate-600 mt-1">
-                                <li><strong>ผู้ใหญ่:</strong> > 10 g หรือ > 200 mg/kg</li>
+                                <li><strong>ผู้ใหญ่:</strong> > 10 g หรือ >150-200 mg/kg</li>
                                 <li><strong>เด็ก (&lt; 6 ปี):</strong> > 150 mg/kg</li>
                             </ul>
                         </div>
@@ -414,7 +414,7 @@
                 }
                 statusText = isToxic ? '🚨 เกินเกณฑ์ Toxic Dose ควรพิจารณาให้ยา NAC' : '✅ ไม่เกินเกณฑ์ Toxic Dose';
             } else { // Acute, Unknown, Extended
-                const toxicThresholdKg = (age >= 6) ? 200 : 150; // Adjusted logic for child
+                const toxicThresholdKg = (age >= 6) ? 150 : 150; // Adjusted logic for child
                 if (dosePerKg >= toxicThresholdKg || totalDoseG >= 10) {
                     isToxic = true;
                 }
