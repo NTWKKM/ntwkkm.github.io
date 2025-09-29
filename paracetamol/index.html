@@ -244,7 +244,7 @@
 
     </div>
     
-    <script>
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
         const scenarioSelect = document.getElementById('scenario');
         const scenarioAdvice = document.getElementById('scenario-advice');
@@ -482,14 +482,28 @@
                 plotResult.textContent = 'กรุณากรอกข้อมูลเวลาและระดับยาที่ถูกต้อง';
                 return;
             }
-
-            if (scenario === 'unknown' || scenario === 'repeated') {
+            
+            // กรณี Unknown Time
+            if (scenario === 'unknown') {
                  plotResult.innerHTML = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ คำแนะนำสำหรับสถานการณ์นี้ไม่ได้ขึ้นอยู่กับ Nomogram. กรุณาดูเกณฑ์จากระดับยาและค่า AST/ALT ในส่วนที่ 1.</div>`;
                  nomogramChart.data.datasets[2].data = [];
                  nomogramChart.update();
                  return;
             }
+
+            // กรณี Repeated Supratherapeutic Ingestion
+            if (scenario === 'repeated') {
+                if (level >= 20) {
+                    plotResult.innerHTML = `<div class="result-box p-4 rounded-md border-red-500 text-red-600 font-semibold">🚨 เนื่องจากระดับยา ≥ 20 µg/mL ควรพิจารณาให้ NAC ทันที โดยไม่ต้องรอผล AST/ALT</div>`;
+                } else {
+                    plotResult.innerHTML = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ การประเมินต้องใช้ค่า AST/ALT ร่วมด้วย. กรุณาดูเกณฑ์ที่ละเอียดกว่าในส่วนที่ 1.</div>`;
+                }
+                 nomogramChart.data.datasets[2].data = [{x: time, y: level}]; // ยังคง plot จุดบนกราฟได้
+                 nomogramChart.update();
+                 return;
+            }
             
+            // กรณี Nomogram (Acute และ Extended)
             if (time < 4) {
                  plotResult.textContent = 'การประเมินด้วย Nomogram ต้องเจาะเลือดหลังได้รับยาอย่างน้อย 4 ชั่วโมง';
                  return;
