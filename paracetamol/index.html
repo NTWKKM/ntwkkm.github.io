@@ -145,7 +145,7 @@
             <div class="card rounded-lg p-6">
                 <h2 class="text-2xl font-bold mb-4 border-b border-gray-200 pb-2">3. Modified Rumack-Matthew Nomogram</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4">
-                    <div>
+                    <div id="time-input-group">
                         <label for="time-since-ingestion" class="block text-sm font-medium label-text">เวลาเจาะระดับยาในเลือด (ชม.)</label>
                         <input type="number" id="time-since-ingestion" placeholder="4-24" class="w-full mt-1 rounded-md p-2">
                     </div>
@@ -203,7 +203,7 @@
                     <p class="text-sm mb-2">ปรึกษาทีมปลูกถ่ายตับหากเข้าได้กับเกณฑ์ข้อใดข้อหนึ่ง</p>
                     <ul class="list-disc list-inside space-y-1 label-text">
                         <li>Arterial pH < 7.30 (หลังให้สารน้ำเต็มที่)</li>
-                        <li class="font-semibold">หรือมี 3 ข้อต่อไปนี้ร่วมกัน:</li>
+                        <li class="font-semibold">หรือ มี 3 ข้อต่อไปนี้ร่วมกัน:</li>
                         <ul class="list-['-_'] ml-6">
                             <li>Prothrombin time > 100s (INR > 6.5)</li>
                             <li>Serum creatinine > 3.4 mg/dL</li>
@@ -211,8 +211,8 @@
                         </ul>
                         <li><strong>หรือ</strong></li>
                         <ul class="list-['-_'] ml-6">
-                        <li><strong>Lactate > 3.5 mmol/L</strong> หลังให้สารระยะแรก (< 4 ชั่วโมงหลังเข้ารับการรักษา)<br></li>
-                        <li><strong>Lactate > 3.0 mmol/L</strong> หลังให้สารน้ำเต็มที่ (12 ชั่วโมงหลังเข้ารับการรักษา)<br></li>
+                        <li>Lactate > 3.5 mmol/L หลังให้สารนํ้าระยะแรก (4 ชั่วโมงแรกหลังเข้ารับการรักษา)<br></li>
+                        <li>Lactate > 3.0 mmol/L หลังให้สารน้ำเต็มที่ (12 ชั่วโมงหลังเข้ารับการรักษา)<br></li>
                         <strong>Lactate</strong> as predictors of poor prognosis without transplant
                         </ul>    
                     </ul>
@@ -255,6 +255,7 @@
         const toxicDoseResult = document.getElementById('toxic-dose-result');
         const initialTime = document.getElementById('initial-time');
 
+        const timeInputGroup = document.getElementById('time-input-group');
         const timeInputNomogram = document.getElementById('time-since-ingestion');
         const levelInputNomogram = document.getElementById('apap-level');
         const plotButton = document.getElementById('plot-button');
@@ -299,14 +300,23 @@
                 </ul>
             `
         };
-
-        scenarioSelect.addEventListener('change', (event) => {
-            const selectedScenario = event.target.value;
+        
+        const updateUIBasedOnScenario = () => {
+            const selectedScenario = scenarioSelect.value;
             scenarioAdvice.innerHTML = scenarioAdviceData[selectedScenario] || 'เลือกสถานการณ์เพื่อดูคำแนะนำ';
             calculateToxicDose();
-        });
-        scenarioAdvice.innerHTML = scenarioAdviceData['acute'];
+            
+            // Toggle visibility of the time input group
+            if (selectedScenario === 'unknown' || selectedScenario === 'repeated') {
+                timeInputGroup.style.display = 'none';
+            } else {
+                timeInputGroup.style.display = 'block';
+            }
+        };
 
+        scenarioSelect.addEventListener('change', updateUIBasedOnScenario);
+        updateUIBasedOnScenario(); // Initial call to set up the UI correctly
+        
         const calculateToxicDose = () => {
             const weight = parseFloat(patientWeight1.value);
             const age = parseFloat(patientAge.value);
@@ -506,14 +516,13 @@ plotButton.addEventListener('click', () => {
         return;
     }
 
-    // สำหรับกรณีอื่นๆ (Acute, Repeated, Extended) - ตรวจสอบทั้งเวลาและระดับยา
-    if (isNaN(time) || isNaN(level)) {
-        plotResult.textContent = 'กรุณากรอกข้อมูลเวลาและระดับยาที่ถูกต้อง';
-        return;
-    }
-    
-    // กรณี Repeated Supratherapeutic Ingestion
+    // สำหรับกรณี Repeated Supratherapeutic Ingestion
     if (scenario === 'repeated') {
+        if (isNaN(level)) {
+            plotResult.textContent = 'กรุณากรอกระดับยาที่ถูกต้อง';
+            return;
+        }
+        
         if (level >= 20) {
             plotResult.innerHTML = `<div class="result-box p-4 rounded-md border-red-500 text-red-600 font-semibold">🚨 เนื่องจากระดับยา ≥ 20 µg/mL ควรพิจารณาให้ NAC ทันที โดยไม่ต้องรอผล AST/ALT</div>`;
         } else {
@@ -524,7 +533,11 @@ plotButton.addEventListener('click', () => {
         return;
     }
     
-    // กรณี Nomogram (Acute และ Extended)
+    // สำหรับกรณี Nomogram (Acute และ Extended)
+    if (isNaN(time) || isNaN(level)) {
+        plotResult.textContent = 'กรุณากรอกข้อมูลเวลาและระดับยาที่ถูกต้อง';
+        return;
+    }
     if (time < 4) {
         plotResult.textContent = 'การประเมินด้วย Nomogram ต้องเจาะเลือดหลังได้รับยาอย่างน้อย 4 ชั่วโมง';
         return;
@@ -576,10 +589,13 @@ document.getElementById('calculate-nac').addEventListener('click', () => {
             weightCapped = true;
         }
 
+        // New NAC regimen (based on user's request)
+        // Assuming standard 21-hour IV regimen
         const loadingDoseMg = 150 * calculationWeight;
         const secondDoseMg = 50 * calculationWeight;
         const thirdDoseMg = 100 * calculationWeight;
 
+        // Fluid volumes for different weight categories
         const loadingFluid = weight < 21 ? 3 * calculationWeight : (weight < 41 ? 100 : 200);
         const secondFluid = weight < 21 ? 7 * calculationWeight : (weight < 41 ? 250 : 500);
         const thirdFluid = weight < 21 ? 14 * calculationWeight : (weight < 41 ? 500 : 1000);
@@ -601,8 +617,6 @@ document.getElementById('calculate-nac').addEventListener('click', () => {
         `;
 });
 
-// Initial state for 'acute'
-document.getElementById('time-input-group').style.display = 'block';
 });
 </script>
  <div class="footer text-center text-sm text-gray-500 mt-8">
