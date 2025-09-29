@@ -496,25 +496,28 @@ plotButton.addEventListener('click', () => {
     const scenario = scenarioSelect.value;
 
     // กรณี Unknown Time - ตรวจสอบเฉพาะค่าระดับยา
-    if (scenario === 'unknown') {
-        if (isNaN(level)) {
-            plotResult.textContent = 'กรุณากรอกระดับยาที่ถูกต้อง';
-            return;
-        }
-
-        let resultText = '';
-        if (level > 10) {
-            resultText = `<div class="result-box p-4 rounded-md border-red-500 text-red-600 font-semibold">🚨 เนื่องจากระดับยา > 10 µg/mL ควรพิจารณาให้ NAC ทันที โดยไม่ต้องรอผล AST/ALT</div>`;
-        } else {
-            resultText = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ เนื่องจากระดับยา ≤ 10 µg/mL ต้องใช้ค่า AST/ALT ร่วมประเมินด้วย
-<li>หากค่า AST/ALT ปกติ: ไม่ต้องให้ NAC</li>
-<li>หากค่า AST/ALT ผิดปกติ: พิจารณาทบทวนประวัติอีกครั้งเพื่อหาสาเหตุอื่นที่ไม่เกี่ยวข้องกับยาAcetaminophen ก่อนปรึกษาผู้เชี่ยวชาญในการให้ NAC</li></div>`;
-        }
-        plotResult.innerHTML = resultText;
-        nomogramChart.data.datasets[2].data = [{x: 2, y: level}];
-        nomogramChart.update();
+if (scenario === 'unknown') {
+    if (isNaN(level)) {
+        plotResult.textContent = 'กรุณากรอกระดับยาที่ถูกต้อง';
         return;
     }
+
+    let resultText = '';
+    if (level > 10) {
+        resultText = `<div class="result-box p-4 rounded-md border-red-500 text-red-600 font-semibold">🚨 เนื่องจากระดับยา > 10 µg/mL ควรพิจารณาให้ NAC ทันที โดยไม่ต้องรอผล AST/ALT</div>`;
+    } else {
+        resultText = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ เนื่องจากระดับยา ≤ 10 µg/mL ต้องใช้ค่า AST/ALT ร่วมประเมินด้วย
+            <ul class="list-disc list-inside mt-2">
+                <li>หากค่า AST/ALT ปกติ: ไม่ต้องให้ NAC</li>
+                <li>หากค่า AST/ALT ผิดปกติ: พิจารณาทบทวนประวัติอีกครั้งเพื่อหาสาเหตุอื่นที่ไม่เกี่ยวข้องกับยา Acetaminophen ก่อนปรึกษาผู้เชี่ยวชาญในการให้ NAC</li>
+            </ul>
+        </div>`;
+    }
+    plotResult.innerHTML = resultText;
+    nomogramChart.data.datasets[2].data = [{x: 2, y: level}];
+    nomogramChart.update();
+    return;
+}
 
     // สำหรับกรณีอื่นๆ (Acute, Repeated, Extended) - ตรวจสอบทั้งเวลาและระดับยา
     if (isNaN(time) || isNaN(level)) {
@@ -523,24 +526,35 @@ plotButton.addEventListener('click', () => {
     }
     
     // กรณี Repeated Supratherapeutic Ingestion
-    if (scenario === 'repeated') {
-        if (level >= 20) {
-            plotResult.innerHTML = `<div class="result-box p-4 rounded-md border-red-500 text-red-600 font-semibold">🚨 เนื่องจากระดับยา ≥ 20 µg/mL ควรพิจารณาให้ NAC ทันที โดยไม่ต้องรอผล AST/ALT</div>`;
-        } else {
-            plotResult.innerHTML = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ เนื่องจากระดับยา < 20 µg/mL ต้องใช้ค่า AST/ALT ร่วมประเมินด้วย
-<li>หากค่า AST/ALT ปกติ: ไม่ต้องให้ NAC</li>
-<li>หากค่า AST/ALT ผิดปกติ: พิจารณาทบทวนประวัติอีกครั้งเพื่อหาสาเหตุอื่นที่ไม่เกี่ยวข้องกับยาAcetaminophen ก่อนปรึกษาผู้เชี่ยวชาญในการให้ NAC</li></div>`;
-        }
-        nomogramChart.data.datasets[2].data = [{x: time, y: level}];
-        nomogramChart.update();
+if (scenario === 'repeated') {
+    if (isNaN(level)) {
+        plotResult.textContent = 'กรุณากรอกระดับยาที่ถูกต้อง';
         return;
     }
     
-    // กรณี Nomogram (Acute และ Extended)
-    if (time < 4) {
-        plotResult.textContent = 'การประเมินด้วย Nomogram ต้องเจาะเลือดหลังได้รับยาอย่างน้อย 4 ชั่วโมง';
-        return;
+    let resultText = '';
+    if (level >= 20) {
+        resultText = `<div class="result-box p-4 rounded-md border-red-500 text-red-600 font-semibold">🚨 เนื่องจากระดับยา ≥ 20 µg/mL ควรพิจารณาให้ NAC ทันที โดยไม่ต้องรอผล AST/ALT</div>`;
+    } else {
+        resultText = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ เนื่องจากระดับยา < 20 µg/mL ต้องใช้ค่า AST/ALT ร่วมประเมินด้วย
+            <ul class="list-disc list-inside mt-2">
+                <li>หากค่า AST/ALT ปกติ: ไม่ต้องให้ NAC</li>
+                <li>หากค่า AST/ALT ผิดปกติ: พิจารณาทบทวนประวัติอีกครั้งเพื่อหาสาเหตุอื่นที่ไม่เกี่ยวข้องกับยา Acetaminophen ก่อนปรึกษาผู้เชี่ยวชาญในการให้ NAC</li>
+            </ul>
+        </div>`;
     }
+    plotResult.innerHTML = resultText;
+    // Nomogram plotting is not relevant for this scenario, so we don't plot
+    nomogramChart.data.datasets[2].data = [];
+    nomogramChart.update();
+    return;
+}
+
+// กรณี Nomogram (Acute และ Extended)
+if (time < 4) {
+    plotResult.textContent = 'การประเมินด้วย Nomogram ต้องเจาะเลือดหลังได้รับยาอย่างน้อย 4 ชั่วโมง';
+    return;
+}
 
     const treatmentThreshold = 150 * Math.pow(Math.E, -0.222 * (time - 4));
     const highRiskThreshold = 300 * Math.pow(Math.E, -0.222 * (time - 4));
