@@ -315,7 +315,7 @@
 
         const calculateToxicDose = () => {
             const weight = parseFloat(patientWeight1.value);
-            const age = parseFloat(patientAge.value);
+            const age = parseFloat(patient-age.value);
             const dose = parseFloat(dosePerPill.value);
             const pills = parseFloat(numberOfPills.value);
             const scenario = scenarioSelect.value;
@@ -334,7 +334,12 @@
             let resultHtml = `<div class="result-box p-4 rounded-md mt-4">`;
             resultHtml += `<h3 class="font-bold text-lg mb-2">ผลการประเมิน Toxic Dose:</h3>`;
             
-            if (scenario === 'repeated') {
+            // Check for Massive Overdose first, as it's a critical condition regardless of scenario
+            if (totalDoseG >= 40 || dosePerKg >= 500) {
+                 resultHtml += `<p>ปริมาณยาที่ได้รับทั้งหมด: **${totalDoseMg.toLocaleString()} mg** (${totalDoseG.toFixed(1)} กรัม)</p>`;
+                 resultHtml += `<p>ปริมาณยาต่อกิโลกรัม: **${dosePerKg.toFixed(1)} mg/kg**</p>`;
+                 resultHtml += `<p class="mt-2 text-red-600 font-semibold">🚨 Massive Overdose ควรปรึกษาผู้เชี่ยวชาญและให้ High Dose NAC</p>`;
+            } else if (scenario === 'repeated') {
                 if (isNaN(ingestionTimeHours) || ingestionTimeHours <= 0) {
                     toxicDoseResult.innerHTML = `<p class="mt-2 text-red-600 font-semibold">⚠️ กรุณากรอกเวลาที่ใช้ในการกินต่อเนื่อง (ชั่วโมง)</p>`;
                     return;
@@ -499,7 +504,7 @@ plotButton.addEventListener('click', () => {
         if (level > 10) {
             resultText = `<div class="result-box p-4 rounded-md border-red-500 text-red-600 font-semibold">🚨 เนื่องจากระดับยา > 10 µg/mL ควรพิจารณาให้ NAC (ควรพิจารณาค่า AST/ALT ร่วมด้วย)</div>`;
         } else {
-            resultText = `<div class="result-box p-4 rounded-md border-green-500 text-green-600 font-semibold">✅ การประเมินต้องใช้ค่า AST/ALT ร่วมด้วย. กรุณาดูเกณฑ์ที่ละเอียดกว่าในส่วนที่ 1.</div>`;
+            resultText = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ การประเมินต้องใช้ค่า AST/ALT ร่วมด้วย. กรุณาดูเกณฑ์ที่ละเอียดกว่าในส่วนที่ 1.</div>`;
         }
         plotResult.innerHTML = resultText;
         nomogramChart.data.datasets[2].data = [{x: 25, y: level}];
