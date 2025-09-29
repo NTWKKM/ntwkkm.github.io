@@ -338,7 +338,7 @@
             if (totalDoseG >= 40 || dosePerKg >= 500) {
                  resultHtml += `<p>ปริมาณยาที่ได้รับทั้งหมด: **${totalDoseMg.toLocaleString()} mg** (${totalDoseG.toFixed(1)} กรัม)</p>`;
                  resultHtml += `<p>ปริมาณยาต่อกิโลกรัม: **${dosePerKg.toFixed(1)} mg/kg**</p>`;
-                 resultHtml += `<p class="mt-2 text-red-600 font-semibold">🚨 Massive Overdose ควรปรึกษาผู้เชี่ยวชาญและให้ High Dose NAC</p>`;
+                 resultHtml += `<p class="mt-2 text-red-600 font-semibold">🚨 Massive Overdose ควรปรึกษาผู้เชี่ยวชาญ ก่อนพิจารณาให้ยา NAC ขนาดสูง</p>`;
             } else if (scenario === 'repeated') {
                 if (isNaN(ingestionTimeHours) || ingestionTimeHours <= 0) {
                     toxicDoseResult.innerHTML = `<p class="mt-2 text-red-600 font-semibold">⚠️ กรุณากรอกเวลาที่ใช้ในการกินต่อเนื่อง (ชั่วโมง)</p>`;
@@ -474,7 +474,7 @@ function initChart() {
                     max: 1000,
                     ticks: {
                         callback: function(value) {
-                            const tickValues = [5, 10, 20, 40, 100, 150, 200, 300, 500, 800];
+                            const tickValues = [5, 10, 20, 40, 70, 100, 150, 200, 300, 400, 500];
                             if (tickValues.includes(value)) {
                                 return value;
                             }
@@ -507,7 +507,7 @@ plotButton.addEventListener('click', () => {
             resultText = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ การประเมินต้องใช้ค่า AST/ALT ร่วมด้วย. กรุณาดูเกณฑ์ที่ละเอียดกว่าในส่วนที่ 1.</div>`;
         }
         plotResult.innerHTML = resultText;
-        nomogramChart.data.datasets[2].data = [{x: 25, y: level}];
+        nomogramChart.data.datasets[2].data = [{x: 2, y: level}];
         nomogramChart.update();
         return;
     }
