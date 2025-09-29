@@ -315,7 +315,6 @@
             const scenario = scenarioSelect.value;
             const ingestionTimeHours = parseFloat(initialTime.value);
 
-            // Hide the toxic dose section if any input is invalid
             if (isNaN(weight) || isNaN(dose) || isNaN(pills) || isNaN(age) || weight <= 0) {
                 toxicDoseResult.innerHTML = '';
                 return;
@@ -344,13 +343,12 @@
 
                 let isToxic = false;
                 let toxicThresholdText = '';
-                // The prompt specified "24-48 hours" and "> 48 hours". I've interpreted "24-48 hours" as anything up to and including 48 hours, and "> 48 hours" as over 48 hours.
                 if (ingestionTimeHours > 48) {
                     if (dosePerDayG >= 4 || dosePerDayKg >= 100) {
                         isToxic = true;
                         toxicThresholdText = 'เกินเกณฑ์ Toxic Dose (> 4 กรัม/วัน หรือ > 100 mg/kg/วัน)';
                     }
-                } else { // ingestionTimeHours <= 48
+                } else {
                     if (dosePerDayG >= 6 || dosePerDayKg >= 150) {
                         isToxic = true;
                         toxicThresholdText = 'เกินเกณฑ์ Toxic Dose (> 6 กรัม/วัน หรือ > 150 mg/kg/วัน)';
@@ -363,7 +361,7 @@
                     resultHtml += `<p class="mt-2 text-green-600 font-semibold">✅ ไม่เกินเกณฑ์ Toxic Dose</p>`;
                 }
 
-            } else { // Acute, Unknown, Extended
+            } else {
                 let toxicThresholdG = 10;
                 let toxicThresholdKg = (age >= 6) ? 200 : 200;
 
@@ -381,7 +379,6 @@
             toxicDoseResult.innerHTML = resultHtml;
         };
 
-        // Event listeners
         patientWeight1.addEventListener('input', () => {
             patientWeight4.value = patientWeight1.value;
             calculateToxicDose();
@@ -394,133 +391,139 @@
            calculateToxicDose();
         });
         
-        // Initial setup
         calculateToxicDose();
 
-let nomogramChart;
-const chartCtx = document.getElementById('nomogramChart').getContext('2d');
+        let nomogramChart;
+        const chartCtx = document.getElementById('nomogramChart').getContext('2d');
 
-function initChart() {
-    if (nomogramChart) {
-        nomogramChart.destroy();
-    }
-    nomogramChart = new Chart(chartCtx, {
-        type: 'line',
-        data: {
-            datasets: [{
-                label: 'High-Risk Line',
-                data: [{x: 4, y: 300}, {x: 8, y: 150}, {x: 12, y: 75}, {x: 16, y: 37.5}, {x: 20, y: 18.75}, {x: 24, y: 9.375}],
-                borderColor: 'rgb(255, 99, 132)', // สีแดง
-                borderWidth: 2,
-                borderDash: [5, 5],
-                fill: false,
-                tension: 0.1,
-                pointRadius: 0
-            }, {
-                label: 'NAC Treatment Line',
-                data: [{x: 4, y: 150}, {x: 8, y: 75}, {x: 12, y: 37.5}, {x: 16, y: 18.75}, {x: 20, y: 9.375}, {x: 24, y: 4.6875}],
-                borderColor: 'rgb(75, 192, 192)', // สีเขียว
-                borderWidth: 2,
-                fill: false,
-                tension: 0.1,
-                pointRadius: 0
-            }, {
-                label: 'Patient Point',
-                data: [],
-                backgroundColor: 'rgb(54, 162, 235)',
-                borderColor: 'rgb(54, 162, 235)',
-                type: 'scatter',
-                pointRadius: 8,
-                pointHoverRadius: 10
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                x: {
-                    type: 'linear',
-                    title: {
-                        display: true,
-                        text: 'Time Since Ingestion (hours)',
-                    },
-                    min: 0,
-                    max: 28,
-                    ticks: {
-                        stepSize: 4,
-                        callback: function(value) {
-                            return value;
-                        }
-                    }
+        function initChart() {
+            if (nomogramChart) {
+                nomogramChart.destroy();
+            }
+            nomogramChart = new Chart(chartCtx, {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'High-Risk Line',
+                        data: [{x: 4, y: 300}, {x: 8, y: 150}, {x: 12, y: 75}, {x: 16, y: 37.5}, {x: 20, y: 18.75}, {x: 24, y: 9.375}],
+                        borderColor: 'rgb(255, 99, 132)',
+                        borderWidth: 2,
+                        borderDash: [5, 5],
+                        fill: false,
+                        tension: 0.1,
+                        pointRadius: 0
+                    }, {
+                        label: 'NAC Treatment Line',
+                        data: [{x: 4, y: 150}, {x: 8, y: 75}, {x: 12, y: 37.5}, {x: 16, y: 18.75}, {x: 20, y: 9.375}, {x: 24, y: 4.6875}],
+                        borderColor: 'rgb(75, 192, 192)',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.1,
+                        pointRadius: 0
+                    }, {
+                        label: 'Patient Point',
+                        data: [],
+                        backgroundColor: 'rgb(54, 162, 235)',
+                        borderColor: 'rgb(54, 162, 235)',
+                        type: 'scatter',
+                        pointRadius: 8,
+                        pointHoverRadius: 10
+                    }]
                 },
-                y: {
-                    type: 'logarithmic',
-                    title: {
-                        display: true,
-                        text: 'Acetaminophen Concentration (µg/mL)',
-                    },
-                    min: 1,
-                    max: 1000,
-                    ticks: {
-                        callback: function(value) {
-                             const tickValues = [5, 10, 20, 40, 80, 100, 150, 200, 300, 500, 800]; // Corrected line
-                            if (tickValues.includes(value)) {
-                                return value;
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            title: {
+                                display: true,
+                                text: 'Time Since Ingestion (hours)',
+                            },
+                            min: 0,
+                            max: 28,
+                            ticks: {
+                                stepSize: 4,
+                                callback: function(value) {
+                                    return value;
+                                }
                             }
-                            return null;
+                        },
+                        y: {
+                            type: 'logarithmic',
+                            title: {
+                                display: true,
+                                text: 'Acetaminophen Concentration (µg/mL)',
+                            },
+                            min: 1,
+                            max: 1000,
+                            ticks: {
+                                callback: function(value) {
+                                    const tickValues = [5, 10, 20, 40, 100, 150, 200, 300, 500, 800];
+                                    if (tickValues.includes(value)) {
+                                        return value;
+                                    }
+                                    return null;
+                                }
+                            }
                         }
                     }
                 }
-            }
+            });
         }
-    });
-}
-initChart();
+        initChart();
 
-plotButton.addEventListener('click', () => {
-    const time = parseFloat(timeInputNomogram.value);
-    const level = parseFloat(levelInputNomogram.value);
+        plotButton.addEventListener('click', () => {
+            const time = parseFloat(timeInputNomogram.value);
+            const level = parseFloat(levelInputNomogram.value);
+            const scenario = scenarioSelect.value;
 
-    if (isNaN(time) || isNaN(level) || time < 4) {
-        plotResult.textContent = 'กรุณากรอกข้อมูลเวลาและระดับยาที่ถูกต้อง (เวลา ≥ 4 ชม.)';
-        return;
-    }
+            if (isNaN(time) || isNaN(level)) {
+                plotResult.textContent = 'กรุณากรอกข้อมูลเวลาและระดับยาที่ถูกต้อง';
+                return;
+            }
 
-    const treatmentThreshold = 150 * Math.pow(Math.E, -0.222 * (time - 4));
-    const highRiskThreshold = 300 * Math.pow(Math.E, -0.222 * (time - 4));
+            if (scenario === 'unknown' || scenario === 'repeated') {
+                 plotResult.innerHTML = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ คำแนะนำสำหรับสถานการณ์นี้ไม่ได้ขึ้นอยู่กับ Nomogram. กรุณาดูเกณฑ์จากระดับยาและค่า AST/ALT ในส่วนที่ 1.</div>`;
+                 nomogramChart.data.datasets[2].data = [];
+                 nomogramChart.update();
+                 return;
+            }
+            
+            if (time < 4) {
+                 plotResult.textContent = 'การประเมินด้วย Nomogram ต้องเจาะเลือดหลังได้รับยาอย่างน้อย 4 ชั่วโมง';
+                 return;
+            }
 
-let resultText = '';
+            const treatmentThreshold = 150 * Math.pow(Math.E, -0.222 * (time - 4));
+            const highRiskThreshold = 300 * Math.pow(Math.E, -0.222 * (time - 4));
 
-// ตรวจสอบว่าต้องให้ยา NAC หรือไม่
-if (level > treatmentThreshold) {
-    // กรณีที่ต้องให้ยา: เพิ่มสัญลักษณ์และสีแดง
-    let alertSymbol = '🚨';
-    let alertColor = 'text-red-600';
-    let highRiskMessage = '';
+            let resultText = '';
+            
+            if (level > treatmentThreshold) {
+                let alertSymbol = '🚨';
+                let alertColor = 'text-red-600';
 
-    if (level > highRiskThreshold) {
-        // หากระดับยาเกิน High-Risk Line
-        resultText = `<p class="${alertColor} font-semibold">${alertSymbol} ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้น High-Risk</p>
-                      <p class="${alertColor} font-semibold">ควรพิจารณาให้ยา NAC ขนาดสูง</p>`;
-    } else {
-        // หากระดับยาเกิน Treatment Line แต่ไม่เกิน High-Risk Line
-        resultText = `<p class="${alertColor} font-semibold">${alertSymbol} ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้นรักษา (ให้ยา NAC)</p>`;
-    }
+                if (level > highRiskThreshold) {
+                    resultText = `<p class="${alertColor} font-semibold">${alertSymbol} ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้น High-Risk</p>
+                                  <p class="${alertColor} font-semibold">ควรพิจารณาให้ยา NAC ขนาดสูง</p>`;
+                } else {
+                    resultText = `<p class="${alertColor} font-semibold">${alertSymbol} ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้นรักษา (ให้ยา NAC)</p>`;
+                }
+            } else {
+                let safeSymbol = '✅';
+                let safeColor = 'text-green-600';
+                resultText = `<p class="${safeColor} font-semibold">${safeSymbol} ผลการประเมิน: ระดับยาอยู่ "ใต้" เส้นรักษา (ไม่ต้องให้ยา NAC)</p>`;
+                
+                if (scenario === 'extended' && level > 10) {
+                    resultText += `<p class="text-amber-600 font-semibold mt-2">เนื่องจากเป็นยาออกฤทธิ์นาน และระดับยา > 10 µg/mL แนะนำให้เจาะเลือดซ้ำใน 4-6 ชั่วโมงเพื่อดูว่าระดับยาเพิ่มขึ้นหรือไม่</p>`;
+                }
+            }
 
-} else {
-    // กรณีที่ไม่ต้องให้ยา: เพิ่มสัญลักษณ์และสีเขียว
-    let safeSymbol = '✅';
-    let safeColor = 'text-green-600';
-
-    resultText = `<p class="${safeColor} font-semibold">${safeSymbol} ผลการประเมิน: ระดับยาอยู่ "ใต้" เส้นรักษา (ไม่ต้องให้ยา NAC)</p>`;
-}
-
-// นำผลลัพธ์ที่ได้ไปแสดงผลใน element ที่มี id เป็น 'plot-result'
-plotResult.innerHTML = resultText;
-            
-    nomogramChart.data.datasets[2].data = [{x: time, y: level}];
-    nomogramChart.update();
-});
+            plotResult.innerHTML = resultText;
+            nomogramChart.data.datasets[2].data = [{x: time, y: level}];
+            nomogramChart.update();
+        });
         
         document.getElementById('calculate-nac').addEventListener('click', () => {
                 const weight = parseFloat(document.getElementById('patient-weight-section4').value);
@@ -538,13 +541,10 @@ plotResult.innerHTML = resultText;
                     weightCapped = true;
                 }
 
-                // New NAC regimen (based on user's request)
-                // Assuming standard 21-hour IV regimen
                 const loadingDoseMg = 150 * calculationWeight;
                 const secondDoseMg = 50 * calculationWeight;
                 const thirdDoseMg = 100 * calculationWeight;
 
-                // Fluid volumes for different weight categories
                 const loadingFluid = weight < 21 ? 3 * calculationWeight : (weight < 41 ? 100 : 200);
                 const secondFluid = weight < 21 ? 7 * calculationWeight : (weight < 41 ? 250 : 500);
                 const thirdFluid = weight < 21 ? 14 * calculationWeight : (weight < 41 ? 500 : 1000);
