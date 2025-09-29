@@ -301,22 +301,18 @@
             `
         };
 
-        const updateUIBasedOnScenario = () => {
-            const selectedScenario = scenarioSelect.value;
+        scenarioSelect.addEventListener('change', (event) => {
+            const selectedScenario = event.target.value;
             scenarioAdvice.innerHTML = scenarioAdviceData[selectedScenario] || 'เลือกสถานการณ์เพื่อดูคำแนะนำ';
             calculateToxicDose();
-            
-            // Toggle visibility of the time input group
-            if (selectedScenario === 'unknown' || selectedScenario === 'repeated') {
+            if (selectedScenario === 'unknown') {
                 timeInputGroup.style.display = 'none';
             } else {
                 timeInputGroup.style.display = 'block';
             }
-        };
+        });
+        scenarioAdvice.innerHTML = scenarioAdviceData['acute'];
 
-        scenarioSelect.addEventListener('change', updateUIBasedOnScenario);
-        updateUIBasedOnScenario(); // Initial call to set up the UI correctly
-        
         const calculateToxicDose = () => {
             const weight = parseFloat(patientWeight1.value);
             const age = parseFloat(patientAge.value);
@@ -342,7 +338,7 @@
             if (totalDoseG >= 40 || dosePerKg >= 500) {
                  resultHtml += `<p>ปริมาณยาที่ได้รับทั้งหมด: **${totalDoseMg.toLocaleString()} mg** (${totalDoseG.toFixed(1)} กรัม)</p>`;
                  resultHtml += `<p>ปริมาณยาต่อกิโลกรัม: **${dosePerKg.toFixed(1)} mg/kg**</p>`;
-                 resultHtml += `<p class="mt-2 text-red-600 font-semibold">🚨 Massive Overdose ควรพิจารณาให้ยา NAC ขนาดสูง</p>`;
+                 resultHtml += `<p class="mt-2 text-red-600 font-semibold">🚨 Massive Overdose ควรปรึกษาผู้เชี่ยวชาญและให้ High Dose NAC</p>`;
             } else if (scenario === 'repeated') {
                 if (isNaN(ingestionTimeHours) || ingestionTimeHours <= 0) {
                     toxicDoseResult.innerHTML = `<p class="mt-2 text-red-600 font-semibold">⚠️ กรุณากรอกเวลาที่ใช้ในการกินต่อเนื่อง (ชั่วโมง)</p>`;
@@ -493,15 +489,11 @@ function initChart() {
 initChart();
 
 plotButton.addEventListener('click', () => {
-    const scenario = scenarioSelect.value;
     const time = parseFloat(timeInputNomogram.value);
     const level = parseFloat(levelInputNomogram.value);
+    const scenario = scenarioSelect.value;
 
-    // Clear previous patient points from the chart
-    nomogramChart.data.datasets[2].data = [];
-    plotResult.innerHTML = '';
-
-    // Handle non-Nomogram scenarios first
+    // กรณี Unknown Time - ตรวจสอบเฉพาะค่าระดับยา
     if (scenario === 'unknown') {
         if (isNaN(level)) {
             plotResult.textContent = 'กรุณากรอกระดับยาที่ถูกต้อง';
@@ -510,33 +502,35 @@ plotButton.addEventListener('click', () => {
 
         let resultText = '';
         if (level > 10) {
-            resultText = `<div class="result-box p-4 rounded-md border-red-500 text-red-600 font-semibold">🚨 เนื่องจากระดับยา > 10 µg/mL ควรพิจารณาให้ NAC (ควรพิจารณาค่า AST/ALT ร่วมด้วย)<br> (ไม่ทราบเวลา onset ที่แน่นอน)</div>`;
+            resultText = `<div class="result-box p-4 rounded-md border-red-500 text-red-600 font-semibold">🚨 เนื่องจากระดับยา > 10 µg/mL ควรพิจารณาให้ NAC (ควรพิจารณาค่า AST/ALT ร่วมด้วย)</div>`;
         } else {
-            resultText = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ การประเมินต้องใช้ค่า AST/ALT ร่วมด้วย. กรุณาดูเกณฑ์ที่ละเอียดกว่าในส่วนที่ 1.<br> (ไม่ทราบเวลา onset ที่แน่นอน)</div>`;
+            resultText = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ การประเมินต้องใช้ค่า AST/ALT ร่วมด้วย. กรุณาดูเกณฑ์ที่ละเอียดกว่าในส่วนที่ 1.</div>`;
         }
         plotResult.innerHTML = resultText;
+        nomogramChart.data.datasets[2].data = [{x: 25, y: level}];
+        nomogramChart.update();
+        return;
+    }
+
+    // สำหรับกรณีอื่นๆ (Acute, Repeated, Extended) - ตรวจสอบทั้งเวลาและระดับยา
+    if (isNaN(time) || isNaN(level)) {
+        plotResult.textContent = 'กรุณากรอกข้อมูลเวลาและระดับยาที่ถูกต้อง';
         return;
     }
     
+    // กรณี Repeated Supratherapeutic Ingestion
     if (scenario === 'repeated') {
-        if (isNaN(level)) {
-            plotResult.textContent = 'กรุณากรอกระดับยาที่ถูกต้อง';
-            return;
-        }
-        
         if (level >= 20) {
             plotResult.innerHTML = `<div class="result-box p-4 rounded-md border-red-500 text-red-600 font-semibold">🚨 เนื่องจากระดับยา ≥ 20 µg/mL ควรพิจารณาให้ NAC ทันที โดยไม่ต้องรอผล AST/ALT</div>`;
         } else {
             plotResult.innerHTML = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ การประเมินต้องใช้ค่า AST/ALT ร่วมด้วย. กรุณาดูเกณฑ์ที่ละเอียดกว่าในส่วนที่ 1.</div>`;
         }
+        nomogramChart.data.datasets[2].data = [{x: time, y: level}];
+        nomogramChart.update();
         return;
     }
     
-    // For Nomogram scenarios (acute and extended)
-    if (isNaN(time) || isNaN(level)) {
-        plotResult.textContent = 'กรุณากรอกข้อมูลเวลาและระดับยาที่ถูกต้อง';
-        return;
-    }
+    // กรณี Nomogram (Acute และ Extended)
     if (time < 4) {
         plotResult.textContent = 'การประเมินด้วย Nomogram ต้องเจาะเลือดหลังได้รับยาอย่างน้อย 4 ชั่วโมง';
         return;
@@ -547,13 +541,20 @@ plotButton.addEventListener('click', () => {
 
     let resultText = '';
     
-    if (level > highRiskThreshold) {
-        resultText = `<p class="text-red-600 font-semibold">🚨 ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้น High-Risk</p>
-                      <p class="text-red-600 font-semibold">ควรพิจารณาให้ยา NAC ขนาดสูง</p>`;
-    } else if (level > treatmentThreshold) {
-        resultText = `<p class="text-red-600 font-semibold">🚨 ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้นรักษา (ให้ยา NAC)</p>`;
+    if (level > treatmentThreshold) {
+        let alertSymbol = '🚨';
+        let alertColor = 'text-red-600';
+
+        if (level > highRiskThreshold) {
+            resultText = `<p class="${alertColor} font-semibold">${alertSymbol} ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้น High-Risk</p>
+                          <p class="${alertColor} font-semibold">ควรพิจารณาให้ยา NAC ขนาดสูง</p>`;
+        } else {
+            resultText = `<p class="${alertColor} font-semibold">${alertSymbol} ผลการประเมิน: ระดับยาอยู่ "เหนือ" เส้นรักษา (ให้ยา NAC)</p>`;
+        }
     } else {
-        resultText = `<p class="text-green-600 font-semibold">✅ ผลการประเมิน: ระดับยาอยู่ "ใต้" เส้นรักษา (ไม่ต้องให้ยา NAC)</p>`;
+        let safeSymbol = '✅';
+        let safeColor = 'text-green-600';
+        resultText = `<p class="${safeColor} font-semibold">${safeSymbol} ผลการประเมิน: ระดับยาอยู่ "ใต้" เส้นรักษา (ไม่ต้องให้ยา NAC)</p>`;
         
         if (scenario === 'extended' && level > 10) {
             resultText += `<p class="text-amber-600 font-semibold mt-2">เนื่องจากเป็นยาออกฤทธิ์นาน และระดับยา > 10 µg/mL แนะนำให้เจาะเลือดซ้ำใน 4-6 ชั่วโมงเพื่อดูว่าระดับยาเพิ่มขึ้นหรือไม่</p>`;
@@ -581,12 +582,10 @@ document.getElementById('calculate-nac').addEventListener('click', () => {
             weightCapped = true;
         }
 
-        // Standard 21-hour IV regimen
         const loadingDoseMg = 150 * calculationWeight;
         const secondDoseMg = 50 * calculationWeight;
         const thirdDoseMg = 100 * calculationWeight;
 
-        // Fluid volumes for different weight categories
         const loadingFluid = weight < 21 ? 3 * calculationWeight : (weight < 41 ? 100 : 200);
         const secondFluid = weight < 21 ? 7 * calculationWeight : (weight < 41 ? 250 : 500);
         const thirdFluid = weight < 21 ? 14 * calculationWeight : (weight < 41 ? 500 : 1000);
@@ -608,6 +607,8 @@ document.getElementById('calculate-nac').addEventListener('click', () => {
         `;
 });
 
+// Initial state for 'acute'
+document.getElementById('time-input-group').style.display = 'block';
 });
 </script>
  <div class="footer text-center text-sm text-gray-500 mt-8">
