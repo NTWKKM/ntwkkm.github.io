@@ -396,7 +396,7 @@
             let isToxic = false;
 
             if (totalDoseG >= 30 || dosePerKg >= 500) {
-                 statusText = '🚨 Massive Overdose';
+                 statusText = '🚨 Massive Overdose ควรปรึกษาผู้เชี่ยวชาญเพื่อพิจารณาให้ NAC ขนาดสูง';
                  isToxic = true;
             } else if (scenario === 'repeated') {
                 if (isNaN(ingestionTimeHours) || ingestionTimeHours <= 0) {
@@ -412,13 +412,13 @@
                 } else {
                     if (dosePerDayG >= 6 || dosePerDayKg >= 150) isToxic = true;
                 }
-                statusText = isToxic ? '🚨 เกินเกณฑ์ Toxic Dose' : '✅ ไม่เกินเกณฑ์ Toxic Dose';
+                statusText = isToxic ? '🚨 เกินเกณฑ์ Toxic Dose ควรพิจารณาให้ยา NAC' : '✅ ไม่เกินเกณฑ์ Toxic Dose';
             } else { // Acute, Unknown, Extended
                 const toxicThresholdKg = (age >= 6) ? 200 : 150; // Adjusted logic for child
                 if (dosePerKg >= toxicThresholdKg || totalDoseG >= 10) {
                     isToxic = true;
                 }
-                statusText = isToxic ? '🚨 เกินเกณฑ์ Toxic Dose' : '✅ ไม่เกินเกณฑ์ Toxic Dose';
+                statusText = isToxic ? '🚨 เกินเกณฑ์ Toxic Dose ควรพิจารณาให้ยา NAC' : '✅ ไม่เกินเกณฑ์ Toxic Dose';
             }
             
             resultHtml += `<div class="flex-shrink-0 text-center p-3 rounded-md font-semibold ${isToxic ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'}">${statusText}</div>`;
