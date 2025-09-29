@@ -203,7 +203,7 @@
                     <p class="text-sm mb-2">ปรึกษาทีมปลูกถ่ายตับหากเข้าได้กับเกณฑ์ข้อใดข้อหนึ่ง</p>
                     <ul class="list-disc list-inside space-y-1 label-text">
                         <li>Arterial pH < 7.30 (หลังให้สารน้ำเต็มที่)</li>
-                        <li class="font-semibold">หรือ มี 3 ข้อต่อไปนี้ร่วมกัน:</li>
+                        <li class="font-semibold">หรือมี 3 ข้อต่อไปนี้ร่วมกัน:</li>
                         <ul class="list-['-_'] ml-6">
                             <li>Prothrombin time > 100s (INR > 6.5)</li>
                             <li>Serum creatinine > 3.4 mg/dL</li>
@@ -211,8 +211,8 @@
                         </ul>
                         <li><strong>หรือ</strong></li>
                         <ul class="list-['-_'] ml-6">
-                        <li>Lactate > 3.5 mmol/L หลังให้สารนํ้าระยะแรก (4 ชั่วโมงแรกหลังเข้ารับการรักษา)<br></li>
-                        <li>Lactate > 3.0 mmol/L หลังให้สารน้ำเต็มที่ (12 ชั่วโมงหลังเข้ารับการรักษา)<br></li>
+                        <li><strong>Lactate > 3.5 mmol/L</strong> หลังให้สารระยะแรก (< 4 ชั่วโมงหลังเข้ารับการรักษา)<br></li>
+                        <li><strong>Lactate > 3.0 mmol/L</strong> หลังให้สารน้ำเต็มที่ (12 ชั่วโมงหลังเข้ารับการรักษา)<br></li>
                         <strong>Lactate</strong> as predictors of poor prognosis without transplant
                         </ul>    
                     </ul>
@@ -496,8 +496,11 @@ plotButton.addEventListener('click', () => {
     const time = parseFloat(timeInputNomogram.value);
     const level = parseFloat(levelInputNomogram.value);
     const scenario = scenarioSelect.value;
+    
+    // Clear previous patient points from the chart
+    nomogramChart.data.datasets[2].data = [];
 
-    // กรณี Unknown Time - ตรวจสอบเฉพาะค่าระดับยา
+    // กรณี Unknown Time
     if (scenario === 'unknown') {
         if (isNaN(level)) {
             plotResult.textContent = 'กรุณากรอกระดับยาที่ถูกต้อง';
@@ -511,12 +514,12 @@ plotButton.addEventListener('click', () => {
             resultText = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ การประเมินต้องใช้ค่า AST/ALT ร่วมด้วย. กรุณาดูเกณฑ์ที่ละเอียดกว่าในส่วนที่ 1.<br> (ไม่ทราบเวลา onset ที่แน่นอน)</div>`;
         }
         plotResult.innerHTML = resultText;
-        nomogramChart.data.datasets[2].data = [{x: 2, y: level}];
+        nomogramChart.data.datasets[2].data = [{x: 2, y: level, label: 'ไม่ทราบเวลา onset ที่แน่นอน'}];
         nomogramChart.update();
         return;
     }
 
-    // สำหรับกรณี Repeated Supratherapeutic Ingestion
+    // กรณี Repeated Supratherapeutic Ingestion
     if (scenario === 'repeated') {
         if (isNaN(level)) {
             plotResult.textContent = 'กรุณากรอกระดับยาที่ถูกต้อง';
@@ -528,7 +531,7 @@ plotButton.addEventListener('click', () => {
         } else {
             plotResult.innerHTML = `<div class="result-box p-4 rounded-md border-orange-500 text-orange-600 font-semibold">⚠️ การประเมินต้องใช้ค่า AST/ALT ร่วมด้วย. กรุณาดูเกณฑ์ที่ละเอียดกว่าในส่วนที่ 1.</div>`;
         }
-        nomogramChart.data.datasets[2].data = [{x: time, y: level}];
+        // No plot point for repeated ingestion on the nomogram
         nomogramChart.update();
         return;
     }
@@ -540,6 +543,7 @@ plotButton.addEventListener('click', () => {
     }
     if (time < 4) {
         plotResult.textContent = 'การประเมินด้วย Nomogram ต้องเจาะเลือดหลังได้รับยาอย่างน้อย 4 ชั่วโมง';
+        nomogramChart.update();
         return;
     }
 
@@ -589,8 +593,7 @@ document.getElementById('calculate-nac').addEventListener('click', () => {
             weightCapped = true;
         }
 
-        // New NAC regimen (based on user's request)
-        // Assuming standard 21-hour IV regimen
+        // Standard 21-hour IV regimen
         const loadingDoseMg = 150 * calculationWeight;
         const secondDoseMg = 50 * calculationWeight;
         const thirdDoseMg = 100 * calculationWeight;
