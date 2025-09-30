@@ -189,7 +189,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-4 items-end">
                     <div id="time-input-group">
                         <label for="time-since-ingestion" class="block text-sm font-medium text-slate-700">เวลาเจาะเลือด (ชม.)</label>
-                        <input type="number" id="time-since-ingestion" placeholder="4-24" class="w-full mt-1 rounded-md p-2 border text-sm">
+                        <input type="number" id="time-since-ingestion" placeholder="4-24 หรือ > 24" class="w-full mt-1 rounded-md p-2 border text-sm">
                     </div>
                     <div>
                         <label for="apap-level" class="block text-sm font-medium text-slate-700">ระดับยา APAP (µg/mL)</label>
@@ -299,7 +299,6 @@
     </footer>
     
     <script>
-    // Javascript ไม่มีการเปลี่ยนแปลง ตรรกะยังคงเดิมทั้งหมด
     document.addEventListener('DOMContentLoaded', () => {
         const scenarioSelect = document.getElementById('scenario');
         const scenarioAdvice = document.getElementById('scenario-advice');
@@ -327,6 +326,7 @@
                     <li>ควรเริ่มให้ยา acetylcysteine (NAC) ขณะรอผลเลือด หากกินยา >10 g หรือ >150-200 mg/kg หรือหากจะทราบผลเลือดหลัง 8 ชั่วโมงไปแล้ว</li>
                     <li>หากกินยา ≥30 g หรือ >500 mg/kg (Massive Overdose) ควรปรึกษาผู้เชี่ยวชาญเพื่อพิจารณาให้ NAC ขนาดสูง</li>
                     <li>เจาะเลือดตรวจระดับยา acetaminophen ในช่วง 4-24 ชั่วโมงหลังกินยา แล้วนำมา Plot บน Nomogram</li>
+                    <li>**Acute > 24 ชั่วโมง:** หากระดับยา APAP **≥ 10 µg/mL** หรือมี AST/ALT ผิดปกติ **ให้รักษาด้วย NAC**</li>
                 </ul>
             `,
             'unknown': `
@@ -443,6 +443,10 @@
             if (nomogramChart) {
                 nomogramChart.destroy();
             }
+            // Rumack-Matthew Nomogram Data (Semi-log scale requires custom ticks/data points)
+            // Note: Chart.js Logarithmic scale is approximated here for visualization
+            // Line points are calculated based on the half-life of 4 hours: C(t) = C(4h) * 2^((4-t)/4)
+            // High Risk: 300 @ 4h, Treat: 150 @ 4h (based on standard lines in µg/mL)
             nomogramChart = new Chart(chartCtx, {
                 type: 'line',
                 data: {
@@ -517,9 +521,9 @@
                 const threshold = (scenario === 'unknown') ? 10 : 20;
                 let resultText = '';
                 if (level > threshold) {
-                    resultText = `<div class="p-3 bg-red-100 text-red-800 rounded-md">🚨 ระดับยา > ${threshold} µg/mL ควรพิจารณาให้ NAC</div>`;
+                    resultText = `<div class="p-3 bg-red-100 text-red-800 rounded-md">🚨 ระดับยา **${level.toFixed(1)} µg/mL** (> ${threshold} µg/mL) ควรพิจารณาให้ NAC</div>`;
                 } else {
-                    resultText = `<div class="p-3 bg-blue-100 text-blue-800 rounded-md">⚠️ ระดับยา ≤ ${threshold} µg/mL ให้ใช้ค่า AST/ALT ร่วมประเมิน (หาก AST/ALT ผิดปกติ ควรให้ NAC)</div>`;
+                    resultText = `<div class="p-3 bg-blue-100 text-blue-800 rounded-md">⚠️ ระดับยา **${level.toFixed(1)} µg/mL** (≤ ${threshold} µg/mL) ให้ใช้ค่า AST/ALT ร่วมประเมิน (หาก AST/ALT ผิดปกติ ควรให้ NAC)</div>`;
                 }
                 plotResult.innerHTML = resultText;
                 nomogramChart.data.datasets[2].data = []; // Clear point
@@ -531,11 +535,30 @@
                 plotResult.innerHTML = `<div class="p-3 bg-yellow-100 text-yellow-800 rounded-md">กรุณากรอกเวลาที่เจาะเลือด</div>`;
                 return;
             }
+            
+            // **********************************************
+            // * NEW LOGIC FOR ACUTE INGESTION > 24 HOURS *
+            // **********************************************
+            if (scenario === 'acute' && time > 24) {
+                 let resultText = '';
+                 if (level >= 10) {
+                     resultText = `<div class="p-3 bg-red-100 text-red-800 rounded-md">🚨 **Late Presenter (> 24 ชม.):** ระดับยา **${level.toFixed(1)} µg/mL** ($\ge 10 \text{ µg/mL}$) -> **ต้องให้ NAC** ทันที</div>`;
+                 } else {
+                     resultText = `<div class="p-3 bg-blue-100 text-blue-800 rounded-md">⚠️ **Late Presenter (> 24 ชม.):** ระดับยา **${level.toFixed(1)} µg/mL** ($\lt 10 \text{ µg/mL}$) -> **พิจารณาเจาะ AST/ALT** หากปกติตัด NAC ได้ แต่ถ้า AST/ALT ผิดปกติให้ NAC</div>`;
+                 }
+                 plotResult.innerHTML = resultText;
+                 nomogramChart.data.datasets[2].data = [{x: time, y: level}];
+                 nomogramChart.update();
+                 return;
+            }
+            // **********************************************
+
             if (time < 4) {
                 plotResult.innerHTML = `<div class="p-3 bg-yellow-100 text-yellow-800 rounded-md">การประเมินด้วย Nomogram ต้องเจาะเลือดหลังได้รับยาอย่างน้อย 4 ชั่วโมง</div>`;
                 return;
             }
 
+            // Standard Nomogram Calculation (4-24 hours)
             const treatmentThreshold = 150 * Math.exp(-0.222 * (time - 4));
             const highRiskThreshold = 300 * Math.exp(-0.222 * (time - 4));
 
@@ -547,7 +570,7 @@
             } else {
                 resultText = `<div class="p-3 bg-green-100 text-green-800 rounded-md">✅ <strong>No Treatment:</strong> ระดับยาอยู่ "ใต้" เส้นรักษา ไม่ต้องให้ยา NAC</div>`;
                 if (scenario === 'extended' && level > 10) {
-                    resultText += `<p class="mt-2 text-sm text-blue-800">เนื่องจากเป็นยาออกฤทธิ์นานและระดับยา > 10 µg/mL แนะนำให้เจาะเลือดซ้ำใน 4-6 ชั่วโมง</p>`;
+                    resultText += `<p class="mt-2 text-sm text-blue-800">เนื่องจากเป็นยาออกฤทธิ์นานและระดับยา > 10 µg/mL แนะนำให้เจาะเลือดซ้ำใน 4-6 ชั่วโมง</p>สำหรับ Extended Release</p>`;
                 }
             }
             plotResult.innerHTML = resultText;
@@ -569,7 +592,7 @@
             const secondDoseMg = 50 * calculationWeight;
             const thirdDoseMg = 100 * calculationWeight;
 
-            // Simplified fluid logic based on original, can be adjusted
+            // Fluid logic (based on weight for children and capped for adults) - Standard 3-bag protocol
             const loadingFluid = weight < 21 ? 3 * calculationWeight : (weight < 41 ? 100 : 200);
             const secondFluid = weight < 21 ? 7 * calculationWeight : (weight < 41 ? 250 : 500);
             const thirdFluid = weight < 21 ? 14 * calculationWeight : (weight < 41 ? 500 : 1000);
