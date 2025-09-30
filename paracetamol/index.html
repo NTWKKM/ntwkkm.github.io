@@ -251,15 +251,15 @@
                         <li>Arterial pH &lt; 7.30 (หลังให้สารน้ำเต็มที่)</li>
                         <li class="font-semibold">หรือมี 3 ข้อต่อไปนี้ร่วมกัน:
                             <ul class="list-['-_'] ml-6 text-xs mt-1 space-y-1">
-                                <li>Prothrombin time &gt; 100s (INR &gt; 6.5)</li>
-                                <li>Serum creatinine &gt; 3.4 mg/dL</li>
+                                <li>Prothrombin time &gt; 100s (INR > 6.5)</li>
+                                <li>Serum creatinine > 3.4 mg/dL</li>
                                 <li>Grade III-IV hepatic encephalopathy</li>
                             </ul>
                         </li>
                         <li class="font-semibold">หรือ Lactate สูงต่อเนื่อง:
                              <ul class="list-['-_'] ml-6 text-xs mt-1 space-y-1">
-                                <li>Lactate &gt; 3.5 mmol/L (หลังให้สารนํ้าใน 4 ชม. แรก)</li>
-                                <li>Lactate &gt; 3.0 mmol/L (หลังให้สารน้ำมา 12 ชม.)</li>
+                                <li>Lactate > 3.5 mmol/L (หลังให้สารนํ้าใน 4 ชม. แรก)</li>
+                                <li>Lactate > 3.0 mmol/L (หลังให้สารน้ำมา 12 ชม.)</li>
                             </ul>
                         </li>
                     </ul>
@@ -444,7 +444,6 @@
                 nomogramChart.destroy();
             }
             // Rumack-Matthew Nomogram Data (Semi-log scale requires custom ticks/data points)
-            // Note: Chart.js Logarithmic scale is approximated here for visualization
             // Line points are calculated based on the half-life of 4 hours: C(t) = C(4h) * 2^((4-t)/4)
             // High Risk: 300 @ 4h, Treat: 150 @ 4h (based on standard lines in µg/mL)
             nomogramChart = new Chart(chartCtx, {
@@ -540,11 +539,14 @@
             // * NEW LOGIC FOR ACUTE INGESTION > 24 HOURS *
             // **********************************************
             if (scenario === 'acute' && time > 24) {
+                 const latePresenterThreshold = 10;
                  let resultText = '';
-                 if (level >= 10) {
-                     resultText = `<div class="p-3 bg-red-100 text-red-800 rounded-md">🚨 **Late Presenter (> 24 ชม.):** ระดับยา **${level.toFixed(1)} µg/mL** ($\ge 10 \text{ µg/mL}$) -> **ต้องให้ NAC** ทันที</div>`;
+                 if (level >= latePresenterThreshold) {
+                     // ใช้สัญลักษณ์ ≥ (Unicode) แทน LaTeX
+                     resultText = `<div class="p-3 bg-red-100 text-red-800 rounded-md">🚨 **Late Presenter (> 24 ชม.):** ระดับยา **${level.toFixed(1)} µg/mL** (≥ ${latePresenterThreshold} µg/mL) -> **ต้องให้ NAC** ทันที</div>`;
                  } else {
-                     resultText = `<div class="p-3 bg-blue-100 text-blue-800 rounded-md">⚠️ **Late Presenter (> 24 ชม.):** ระดับยา **${level.toFixed(1)} µg/mL** ($\lt 10 \text{ µg/mL}$) -> **พิจารณาเจาะ AST/ALT** หากปกติตัด NAC ได้ แต่ถ้า AST/ALT ผิดปกติให้ NAC</div>`;
+                     // ใช้สัญลักษณ์ < (Unicode) แทน LaTeX
+                     resultText = `<div class="p-3 bg-blue-100 text-blue-800 rounded-md">⚠️ **Late Presenter (> 24 ชม.):** ระดับยา **${level.toFixed(1)} µg/mL** (< ${latePresenterThreshold} µg/mL) -> **พิจารณาเจาะ AST/ALT** หากปกติตัด NAC ได้ แต่ถ้า AST/ALT ผิดปกติให้ NAC</div>`;
                  }
                  plotResult.innerHTML = resultText;
                  nomogramChart.data.datasets[2].data = [{x: time, y: level}];
