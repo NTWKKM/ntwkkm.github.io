@@ -522,7 +522,7 @@
                 if (level > threshold) {
                     resultText = `<div class="p-3 bg-red-100 text-red-800 rounded-md">🚨 ระดับยา **${level.toFixed(1)} µg/mL** (> ${threshold} µg/mL) ควรพิจารณาให้ NAC</div>`;
                 } else {
-                    resultText = `<div class="p-3 bg-blue-100 text-blue-800 rounded-md">⚠️ ระดับยา **${level.toFixed(1)} µg/mL** (≤ ${threshold} µg/mL) ให้ใช้ค่า AST/ALT ร่วมประเมิน (หาก AST/ALT ผิดปกติ ควรให้ NAC)</div>`;
+                    resultText = `<div class="p-3 bg-blue-100 text-blue-800 rounded-md">⚠️ ระดับยา **${level.toFixed(1)} µg/mL** (≤ ${threshold} µg/mL) ให้ใช้ค่า AST/ALT ร่วมประเมิน หาก AST/ALT ผิดปกติ ให้ทบทวนประวัติอีกครั้งเพื่อหาสาเหตุอื่นที่ไม่เกี่ยวข้องกับยา Acetaminophen และปรึกษาผู้เชี่ยวชาญก่อนให้ NAC</div>`;
                 }
                 plotResult.innerHTML = resultText;
                 nomogramChart.data.datasets[2].data = []; // Clear point
@@ -546,7 +546,7 @@
                      resultText = `<div class="p-3 bg-red-100 text-red-800 rounded-md">🚨 **Late Presenter (> 24 ชม.):** ระดับยา **${level.toFixed(1)} µg/mL** (≥ ${latePresenterThreshold} µg/mL) -> **ต้องให้ NAC** ทันที</div>`;
                  } else {
                      // ใช้สัญลักษณ์ < (Unicode) แทน LaTeX
-                     resultText = `<div class="p-3 bg-blue-100 text-blue-800 rounded-md">⚠️ **Late Presenter (> 24 ชม.):** ระดับยา **${level.toFixed(1)} µg/mL** (< ${latePresenterThreshold} µg/mL) -> **พิจารณาเจาะ AST/ALT** หากปกติตัด NAC ได้ แต่ถ้า AST/ALT ผิดปกติให้ NAC</div>`;
+                     resultText = `<div class="p-3 bg-blue-100 text-blue-800 rounded-md">⚠️ **Late Presenter (> 24 ชม.):** ระดับยา **${level.toFixed(1)} µg/mL** (< ${latePresenterThreshold} µg/mL) -> ให้ใช้ค่า AST/ALT ร่วมประเมิน หาก AST/ALT ผิดปกติ ให้ทบทวนประวัติอีกครั้งเพื่อหาสาเหตุอื่นที่ไม่เกี่ยวข้องกับยา Acetaminophen และปรึกษาผู้เชี่ยวชาญก่อนให้ NAC </div>`;
                  }
                  plotResult.innerHTML = resultText;
                  nomogramChart.data.datasets[2].data = [{x: time, y: level}];
