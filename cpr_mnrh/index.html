@@ -1008,7 +1008,7 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
         const exportBtn = document.getElementById('exportBtn');
         
         // --- COMPLETELY REWRITTEN loadCases FUNCTION ---
-                        // ฟังก์ชันช่วยในการแบ่ง Array ออกเป็นกลุ่ม (เนื่องจาก Firestore 'in' มีข้อจำกัด 10 ค่า)
+                                // ฟังก์ชันช่วยในการแบ่ง Array ออกเป็นกลุ่ม (เนื่องจาก Firestore 'in' มีข้อจำกัด 10 ค่า)
         function chunkArray(array, chunkSize) {
             const R = [];
             for (let i = 0; i < array.length; i += chunkSize) {
@@ -1021,10 +1021,11 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
             if (!currentUser) return;
 
             if (unsubscribe) {
+                // ล้าง Listener เดิมก่อนเสมอ
                 unsubscribe();
             }
 
-            // ใช้ caseTableBody (ตามโค้ดเดิมของคุณ)
+            // ใช้ caseTableBody
             caseTableBody.innerHTML = '<tr><td colspan="6" class="loading">กำลังโหลดข้อมูล...</td></tr>';
 
             const isSuperAdmin = currentUserData.isAdmin;
@@ -1032,7 +1033,7 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
             const userId = currentUser.uid;
 
             // ตรวจสอบว่ามีสิทธิ์ Manager หรือไม่
-            // ⭐ แก้ไข: ใช้ canManageSoloTags แทน canManageTags
+            // ⭐ ใช้ canManageSoloTags เพื่อให้ตรงกับโครงสร้าง
             const isManager = permissions.canManageInstitutions?.length > 0 || permissions.canManageSoloTags?.length > 0;
             const canSeeOthersData = isSuperAdmin || isManager;
 
@@ -1054,7 +1055,6 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
             // --- 2. Manager/Regular User: สร้าง Query แยกชุด ---
 
             // 2.1 Always get the user's own cases (ทุกคนเห็น)
-            // Note: ต้องใช้ getDocs() แทน onSnapshot() เพื่อรวมผลลัพธ์ทีหลัง
             queries.push(query(collection(db, "cpr_cases"), where("userId", "==", userId)));
 
             if (isManager) {
@@ -1073,12 +1073,10 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
                 }
 
                 // 2.3 Set แยก / Solo Tag: ดึงเคสที่ไม่มีสถาบัน และ Tag ตรงกับสิทธิ์
-                // ⭐ แก้ไข: ใช้ canManageSoloTags
                 if (permissions.canManageSoloTags && permissions.canManageSoloTags.length > 0) {
                     const soloTagChunks = chunkArray(permissions.canManageSoloTags, 10);
 
                     soloTagChunks.forEach(chunk => {
-                         // Query นี้ต้องสร้าง Index: institution, tag
                          queries.push(
                             query(
                                 collection(db, "cpr_cases"),
@@ -1091,19 +1089,17 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
             }
 
             if (queries.length === 0) {
-                 // ⭐ แก้ไข: ใช้ 6 หรือ 5 ตามจำนวนคอลัมน์
                  caseTableBody.innerHTML = `<tr><td colspan="${canSeeOthersData ? '6' : '5'}" class="no-cases">ไม่พบข้อมูลเคสที่บันทึกไว้</td></tr>`;
                  return;
             }
 
             // --- 3. รวมผลลัพธ์ (Union) ---
-            // ใช้ Promise.all เพื่อยิง Query ทั้งหมดพร้อมกัน
+            // ใช้ Promise.all เพื่อยิง Query ทั้งหมดพร้อมกัน (Load Once)
             const results = await Promise.all(queries.map(q => getDocs(q)));
 
             let allCases = new Map();
             results.forEach(snapshot => {
                 snapshot.docs.forEach(doc => {
-                    // ใช้ Map เพื่อป้องกันการซ้ำของเคส
                     allCases.set(doc.id, { id: doc.id, ...doc.data() });
                 });
             });
@@ -1114,22 +1110,22 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
                 return dateB - dateA; // ล่าสุดอยู่ด้านบน
             });
 
-            // --- 4. Realtime Listener (Listener หลัก) ---
-            // เราจะใช้ onSnapshot กับ Query ที่ง่ายที่สุด (เคสของตัวเอง) เพื่อให้ยังคงมี Realtime Update ขั้นต่ำ
-            const initialQuery = queries[0];
+            // --- 4. Realtime Listener (FIXED: ลบโค้ดที่เรียก loadCases() ซ้ำออก) ---
+            // *ตอนนี้ข้อมูล Manager จะเป็นแบบ Load Once*
+            
+            // หากยังต้องการ Realtime Update สำหรับเคสของตัวเอง
+            const ownCasesQuery = queries[0];
 
-            // Note: Listener นี้จะเรียก loadCases() ซ้ำ เมื่อเคสของตัวเองมีการเปลี่ยนแปลง
-            unsubscribe = onSnapshot(initialQuery, (snapshot) => {
-                loadCases(); // เรียกตัวเองซ้ำเพื่ออัปเดตข้อมูลทั้งหมด
-            }, console.error);
-
+            // ⭐ FIX: Listener นี้จะ trigger ให้มีการเรียก loadCases() ซ้ำได้ แต่จะทำให้หน้าจอกระพริบอีก
+            // เพื่อให้ UI นิ่ง เราจะลบการเรียก loadCases() ออกจากการเปลี่ยนแปลงของ Snapshot
+            
+            // เราจะทำการ renderTable ทันทีหลังโหลดเสร็จ โดยไม่ต้องรอ Listener
             renderTable(finalCases, canSeeOthersData); // แสดงผลลัพธ์ทั้งหมด
         }
 
         function renderTable(cases, showRecorder) {
             caseTableBody.innerHTML = "";
             if (cases.length === 0) {
-                // ⭐ แก้ไข: ใช้ 6 หรือ 5 ตามจำนวนคอลัมน์
                 caseTableBody.innerHTML = `<tr><td colspan="${showRecorder ? '6' : '5'}" class="no-cases">ไม่พบข้อมูลเคสที่บันทึกไว้</td></tr>`;
                 return;
             }
@@ -1171,6 +1167,7 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
                 }
             }
         });
+
 
         
         // --- MODIFIED EXPORT LOGIC ---
