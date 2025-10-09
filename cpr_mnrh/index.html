@@ -798,79 +798,67 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
         let unsubscribe = null;
 
         // --- AUTHENTICATION ---
-OnAuthStateChanged(auth, async (user) => {
-    if (user) {
-        currentUser = user;
-        const userDocRef = doc(db, "users", user.uid);
-
-        try {
-            const userSnap = await getDoc(userDocRef);
-
-            // 1. CAPTURE: ดึงค่าปัจจุบันจาก Form (จะเป็น "" ถ้าผู้ใช้ล้าง)
-            const currentInstitution = institutionInput.value.trim();
-            const currentTag = tagInput.value.trim();
-
-            if (!userSnap.exists()) {
-                // First time login
-                const newUserProfile = {
-                    uid: user.uid,
-                    name: user.displayName || user.email.split('@')[0],
-                    isAdmin: ADMIN_EMAILS.includes(user.email),
-                    createdAt: new Date(),
-                    lastInstitution: currentInstitution,
-                    lastTag: currentTag,
-                    permissions: {}
-                };
-                await setDoc(userDocRef, newUserProfile);
-                currentUserData = newUserProfile;
-            } else {
-                // Existing user
-                currentUserData = userSnap.data();
-
-                // 2. CHECK & UPDATE: ตรวจสอบว่าค่าใน Form แตกต่างจากค่าใน Firestore หรือไม่
-                //    ถ้า Form เป็น "" แต่ Firestore มีค่าเก่าอยู่ ("mnrh00") ถือว่าแตกต่างและต้องอัปเดต
-                const storedInstitution = currentUserData.lastInstitution || "";
-                const storedTag = currentUserData.lastTag || "";
-
-                const shouldUpdate = 
-                    currentInstitution !== storedInstitution || 
-                    currentTag !== storedTag;
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                currentUser = user;
+                const userDocRef = doc(db, "users", user.uid);
                 
-                // 3. EXECUTE: ถ้ามีความแตกต่าง ให้บันทึกค่าใหม่ (รวมถึงค่าว่าง "") ลงใน Firestore
-                if (shouldUpdate) {
-                    await setDoc(userDocRef, {
-                        lastInstitution: currentInstitution,
-                        lastTag: currentTag
-                    }, { merge: true });
+                try {
+                    const userSnap = await getDoc(userDocRef);
                     
-                    // อัปเดตข้อมูลในหน่วยความจำของโค้ดทันที
-                    currentUserData.lastInstitution = currentInstitution;
-                    currentUserData.lastTag = currentTag;
+                    // --- MODIFIED LOGIC ---
+                    const currentInstitution = institutionInput.value.trim();
+                    const currentTag = tagInput.value.trim();
+
+                    if (!userSnap.exists()) {
+                        // First time login
+                        const newUserProfile = {
+                            uid: user.uid,
+                            name: user.displayName || user.email.split('@')[0],
+                            isAdmin: ADMIN_EMAILS.includes(user.email),
+                            createdAt: new Date(),
+                            lastInstitution: currentInstitution,
+                            lastTag: currentTag,
+                            permissions: {} // Default empty permissions
+                        };
+                        await setDoc(userDocRef, newUserProfile);
+                        currentUserData = newUserProfile;
+                    } else {
+                        // Existing user
+                        currentUserData = userSnap.data();
+                        // Update last used institution and tag if they were provided on login
+                        if (currentInstitution || currentTag || currentUserData.lastInstitution === undefined) {
+                            await setDoc(userDocRef, {
+                                lastInstitution: currentInstitution,
+                                lastTag: currentTag
+                            }, { merge: true });
+                            currentUserData.lastInstitution = currentInstitution;
+                            currentUserData.lastTag = currentTag;
+                        }
+                    }
+
+                    // Set current state for this session
+                    currentUserInstitution = currentUserData.lastInstitution || "";
+                    currentUserTag = currentUserData.lastTag || "";
+                    
+                    // Pre-fill login inputs for next time
+                    institutionInput.value = currentUserInstitution;
+                    tagInput.value = currentUserTag;
+
+                    updateUI(currentUserData.name, currentUserData.isAdmin);
+                    showView('recorder');
+                    // --- END MODIFIED LOGIC ---
+
+                } catch (error) {
+                    console.error("Error fetching/setting user data:", error);
+                    signOut(auth);
                 }
+            } else {
+                currentUser = null;
+                currentUserData = {};
+                showView('login');
             }
-
-            // 4. SET STATE & PRE-FILL: ใช้ค่าที่ถูกอัปเดตใหม่แล้วในการตั้งค่า Form
-            //    ถ้าผู้ใช้ล้าง Form ค่าเหล่านี้จะเป็น "" แล้ว
-            currentUserInstitution = currentUserData.lastInstitution || "";
-            currentUserTag = currentUserData.lastTag || "";
-
-            // Pre-fill login inputs for the recording session
-            institutionInput.value = currentUserInstitution;
-            tagInput.value = currentUserTag;
-
-            updateUI(currentUserData.name, currentUserData.isAdmin);
-            showView('recorder');
-        } catch (error) {
-            console.error("Error during authentication state change:", error);
-            // ถ้ามีปัญหาในการดึงข้อมูล (เช่น Security Rules ไม่อนุญาต) จะแสดงหน้า Log in
-            showView('login');
-        }
-    } else {
-        // User is signed out logic
-        // ...
-    }
-});
-
+        });
 
         googleSignInBtn.addEventListener('click', async () => {
             const provider = new GoogleAuthProvider();
