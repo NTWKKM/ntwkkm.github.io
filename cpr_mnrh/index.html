@@ -796,9 +796,6 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
         let currentUserInstitution = ""; // NEW: To store current institution for recording
         let currentUserTag = ""; // NEW: To store current tag for recording
         let unsubscribe = null;
-        // ⭐ เพิ่มตัวแปรนี้สำหรับควบคุม Realtime Listener ของโปรไฟล์ผู้ใช้
-        let unsubscribeProfile = null; 
-
 
         // --- AUTHENTICATION ---
         onAuthStateChanged(auth, async (user) => {
@@ -1011,7 +1008,7 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
         const exportBtn = document.getElementById('exportBtn');
         
         // --- COMPLETELY REWRITTEN loadCases FUNCTION ---
-                                       // ฟังก์ชันช่วยในการแบ่ง Array ออกเป็นกลุ่ม (เนื่องจาก Firestore 'in' มีข้อจำกัด 10 ค่า)
+                                // ฟังก์ชันช่วยในการแบ่ง Array ออกเป็นกลุ่ม (เนื่องจาก Firestore 'in' มีข้อจำกัด 10 ค่า)
         function chunkArray(array, chunkSize) {
             const R = [];
             for (let i = 0; i < array.length; i += chunkSize) {
@@ -1031,24 +1028,12 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
             // ใช้ caseTableBody
             caseTableBody.innerHTML = '<tr><td colspan="6" class="loading">กำลังโหลดข้อมูล...</td></tr>';
 
-            // ⭐ [โค้ดใหม่] ดึงข้อมูลโปรไฟล์ผู้ใช้ล่าสุดทุกครั้งที่เข้า
-            const userDocRef = doc(db, "users", currentUser.uid);
-            const userDoc = await getDoc(userDocRef);
-
-            // ตรวจสอบว่าเอกสารผู้ใช้มีอยู่หรือไม่
-            if (!userDoc.exists()) {
-                console.error("User profile not found.");
-                currentUserData = {}; // กำหนดค่าว่างถ้าไม่พบ
-            } else {
-                currentUserData = userDoc.data(); // อัปเดตข้อมูลสิทธิ์ล่าสุด
-            }
-            // ⭐ [สิ้นสุดโค้ดใหม่]
-
             const isSuperAdmin = currentUserData.isAdmin;
             const permissions = currentUserData.permissions || {};
             const userId = currentUser.uid;
 
             // ตรวจสอบว่ามีสิทธิ์ Manager หรือไม่
+            // ⭐ ใช้ canManageSoloTags เพื่อให้ตรงกับโครงสร้าง
             const isManager = permissions.canManageInstitutions?.length > 0 || permissions.canManageSoloTags?.length > 0;
             const canSeeOthersData = isSuperAdmin || isManager;
 
@@ -1125,11 +1110,18 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
                 return dateB - dateA; // ล่าสุดอยู่ด้านบน
             });
 
-            // --- 4. Realtime Listener (FIXED) ---
+            // --- 4. Realtime Listener (FIXED: ลบโค้ดที่เรียก loadCases() ซ้ำออก) ---
+            // *ตอนนี้ข้อมูล Manager จะเป็นแบบ Load Once*
+            
+            // หากยังต้องการ Realtime Update สำหรับเคสของตัวเอง
+            const ownCasesQuery = queries[0];
+
+            // ⭐ FIX: Listener นี้จะ trigger ให้มีการเรียก loadCases() ซ้ำได้ แต่จะทำให้หน้าจอกระพริบอีก
+            // เพื่อให้ UI นิ่ง เราจะลบการเรียก loadCases() ออกจากการเปลี่ยนแปลงของ Snapshot
+            
             // เราจะทำการ renderTable ทันทีหลังโหลดเสร็จ โดยไม่ต้องรอ Listener
             renderTable(finalCases, canSeeOthersData); // แสดงผลลัพธ์ทั้งหมด
         }
-
 
         function renderTable(cases, showRecorder) {
             caseTableBody.innerHTML = "";
