@@ -612,6 +612,8 @@
             </button>
             <p class="divider">หรือ</p>
             <div id="emailPasswordForm">
+                <input type="text" id="institutionInput" placeholder="สถาบัน (ไม่บังคับ)" maxlength="16">
+                <input type="text" id="tagInput" placeholder="Tag (ไม่บังคับ)" maxlength="16">
                 <input type="email" id="emailInput" placeholder="อีเมล">
                 <input type="password" id="passwordInput" placeholder="รหัสผ่าน">
                 <button id="emailSignInBtn" class="primary">เข้าสู่ระบบด้วยอีเมล</button>
@@ -772,14 +774,15 @@
         const auth = getAuth(app);
         const db = getFirestore(app);
 
-        // แก้ไข: เปลี่ยนเป็น array เพื่อรองรับหลาย admin
-        const ADMIN_EMAILS = ["k.nattawit@gmail.com", "your.second.admin@example.com"]; 
+        const ADMIN_EMAILS = ["k.nattawit@gmail.com"]; 
 
         // DOM Elements
         const loginView = document.getElementById('loginView');
         const recorderView = document.getElementById('recorderView');
         const manageView = document.getElementById('manageView');
         const googleSignInBtn = document.getElementById('googleSignInBtn');
+        const institutionInput = document.getElementById('institutionInput');
+        const tagInput = document.getElementById('tagInput');
         const emailInput = document.getElementById('emailInput');
         const passwordInput = document.getElementById('passwordInput');
         const emailSignInBtn = document.getElementById('emailSignInBtn');
@@ -787,8 +790,11 @@
         const loginError = document.getElementById('loginError');
         const cprForm = document.getElementById('cprForm');
 
+        // Global state variables
         let currentUser = null;
-        let isAdmin = false;
+        let currentUserData = {}; // NEW: To store user data including permissions
+        let currentUserInstitution = ""; // NEW: To store current institution for recording
+        let currentUserTag = ""; // NEW: To store current tag for recording
         let unsubscribe = null;
 
         // --- AUTHENTICATION ---
@@ -800,32 +806,56 @@
                 try {
                     const userSnap = await getDoc(userDocRef);
                     
+                    // --- MODIFIED LOGIC ---
+                    const currentInstitution = institutionInput.value.trim();
+                    const currentTag = tagInput.value.trim();
+
                     if (!userSnap.exists()) {
-                        await setDoc(userDocRef, {
+                        // First time login
+                        const newUserProfile = {
                             uid: user.uid,
                             name: user.displayName || user.email.split('@')[0],
-                            // แก้ไข: ตรวจสอบอีเมลใน array
                             isAdmin: ADMIN_EMAILS.includes(user.email),
-                            createdAt: new Date()
-                        });
-                        const newUserSnap = await getDoc(userDocRef);
-                        const userData = newUserSnap.data();
-                        isAdmin = userData.isAdmin || false;
-                        updateUI(userData.name, isAdmin);
+                            createdAt: new Date(),
+                            lastInstitution: currentInstitution,
+                            lastTag: currentTag,
+                            permissions: {} // Default empty permissions
+                        };
+                        await setDoc(userDocRef, newUserProfile);
+                        currentUserData = newUserProfile;
                     } else {
-                        const userData = userSnap.data();
-                        // แก้ไข: ใช้ isAdmin จากข้อมูลที่ดึงมา
-                        isAdmin = userData.isAdmin || false;
-                        updateUI(userData.name, isAdmin);
+                        // Existing user
+                        currentUserData = userSnap.data();
+                        // Update last used institution and tag if they were provided on login
+                        if (currentInstitution || currentTag || currentUserData.lastInstitution === undefined) {
+                            await setDoc(userDocRef, {
+                                lastInstitution: currentInstitution,
+                                lastTag: currentTag
+                            }, { merge: true });
+                            currentUserData.lastInstitution = currentInstitution;
+                            currentUserData.lastTag = currentTag;
+                        }
                     }
+
+                    // Set current state for this session
+                    currentUserInstitution = currentUserData.lastInstitution || "";
+                    currentUserTag = currentUserData.lastTag || "";
+                    
+                    // Pre-fill login inputs for next time
+                    institutionInput.value = currentUserInstitution;
+                    tagInput.value = currentUserTag;
+
+                    updateUI(currentUserData.name, currentUserData.isAdmin);
                     showView('recorder');
+                    // --- END MODIFIED LOGIC ---
+
                 } catch (error) {
-                    console.error("Error fetching user data:", error);
+                    console.error("Error fetching/setting user data:", error);
                     signOut(auth);
                 }
             } else {
                 currentUser = null;
-                isAdmin = false;
+                currentUserData = {};
                 showView('login');
             }
         });
@@ -855,7 +885,6 @@
                 await createUserWithEmailAndPassword(auth, email, password);
                 alert("สร้างบัญชีสำเร็จ! กรุณาเข้าสู่ระบบ");
 
-                // เพิ่ม 2 บรรทัดนี้เพื่อล้างช่องกรอกข้อมูล
                 emailInput.value = '';
                 passwordInput.value = '';
 
@@ -877,7 +906,7 @@
             try {
                 loginError.classList.add('hidden');
                 await signInWithEmailAndPassword(auth, email, password);
-            } catch (error) {
+            } catch (error)
                 console.error("Email Sign-in Error:", error.code, error.message);
                 loginError.textContent = "เกิดข้อผิดพลาดในการลงชื่อเข้าใช้: " + error.message;
                 loginError.classList.remove('hidden');
@@ -898,7 +927,7 @@
                 loginView.classList.remove('hidden');
             } else if (viewName === 'recorder') {
                 recorderView.classList.remove('hidden');
-                updateSummaryPanel(); // NEW: Initial call to update summary
+                updateSummaryPanel();
             } else if (viewName === 'manage') {
                 manageView.classList.remove('hidden');
                 loadCases();
@@ -906,8 +935,16 @@
         }
 
         function updateUI(name, isAdmin) {
-            document.getElementById('userNameRecorder').textContent = `สวัสดี, ${name}`;
-            document.getElementById('userNameManage').textContent = `สวัสดี, ${name} ${isAdmin ? '(Admin)' : ''}`;
+            let userInfoText = `สวัสดี, ${name}`;
+            if (currentUserInstitution) {
+                userInfoText += ` [${currentUserInstitution}]`;
+            }
+            if (currentUserTag) {
+                userInfoText += ` (${currentUserTag})`;
+            }
+            
+            document.getElementById('userNameRecorder').textContent = userInfoText;
+            document.getElementById('userNameManage').textContent = `${userInfoText} ${isAdmin ? '(Admin)' : ''}`;
         }
 
         // Event listeners for navigation
@@ -931,31 +968,26 @@
             data.cycles = collectCycles();
             
             try {
-                const userDocRef = doc(db, "users", currentUser.uid);
-                const userDocSnap = await getDoc(userDocRef);
-                
-                let userName = 'Anonymous';
-                if (userDocSnap.exists()) {
-                    userName = userDocSnap.data().name || 'Anonymous';
-                }
-
                 await addDoc(collection(db, "cpr_cases"), {
                     ...data,
                     userId: currentUser.uid,
-                    userName: userName,
+                    userName: currentUserData.name || 'Anonymous',
+                    // --- NEW: Add institution and tag to the case ---
+                    institution: currentUserInstitution,
+                    tag: currentUserTag,
                     createdAt: new Date()
                 });
                 alert('บันทึกเคสสำเร็จ!');
                 this.reset();
                 document.getElementById("cyclesContainer").innerHTML = "";
-                updateSummaryPanel(); // NEW: Reset summary after submit
+                updateSummaryPanel();
             } catch (error) {
                 console.error("Error saving case: ", error);
                 alert("เกิดข้อผิดพลาดในการบันทึกเคส");
             }
         });
         
-        // --- NEW: SUMMARY PANEL LOGIC ---
+        // --- SUMMARY PANEL LOGIC (Unchanged) ---
         const summaryPanelIds = {
             patientName: document.getElementById('summaryPatientName'),
             age: document.getElementById('summaryAge'),
@@ -965,96 +997,17 @@
             ekgLog: document.getElementById('summaryEkgLog'),
             medLog: document.getElementById('summaryMedLog')
         };
-
-        function updateSummaryPanel() {
-            if (!summaryPanelIds.patientName) return; // Don't run if the panel isn't visible
-
-            // 1. Patient Info
-            const patientName = document.querySelector('input[name="patientName"]').value;
-            const age = document.querySelector('input[name="age"]').value;
-            const startTime = document.querySelector('input[name="time"]').value;
-
-            summaryPanelIds.patientName.textContent = patientName || '-';
-            summaryPanelIds.age.textContent = age || '-';
-            summaryPanelIds.startTime.textContent = startTime || '-';
-
-            // 2. Iterate through cycles for calculations
-            let totalDuration = 0;
-            let shockCount = 0;
-            const ekgLogEntries = [];
-            const medLogEntries = [];
-
-            const cycleBlocks = document.querySelectorAll('#cyclesContainer .cycle-block');
-            
-            cycleBlocks.forEach((cycle, index) => {
-                // Duration
-                const durationInput = cycle.querySelector('.cycleDuration');
-                const duration = parseFloat(durationInput.value) || 0;
-                totalDuration += duration;
-
-                // Shocks
-                const shockSelect = cycle.querySelector('.cycleShockYN');
-                if (shockSelect && shockSelect.value === 'Yes') {
-                    shockCount++;
-                }
-
-                // EKG Log
-                const ekgTimeInput = cycle.querySelector('.cycleStartTime');
-                const ekgRhythmSelect = cycle.querySelector('.cycleEKG');
-                const ekgTime = ekgTimeInput.value || `Cycle ${index + 1}`;
-                const ekgRhythm = ekgRhythmSelect.value;
-                if (ekgRhythm) {
-                    ekgLogEntries.push(`<li><strong>${ekgTime}:</strong> ${ekgRhythm}</li>`);
-                }
-                
-                // Medication Log
-                const medListItems = cycle.querySelectorAll('.medList li');
-                medListItems.forEach(li => {
-                    const name = li.dataset.name;
-                    const dose = li.dataset.dose;
-                    const time = li.dataset.time || 'N/A';
-                    medLogEntries.push(`<li><strong>${time}:</strong> ${name} ${dose || ''}</li>`);
-                });
-            });
-
-            // 3. Update summary panel DOM
-            summaryPanelIds.totalDuration.textContent = totalDuration;
-            summaryPanelIds.shockCount.textContent = shockCount;
-
-            // Update EKG Log
-            if (ekgLogEntries.length > 0) {
-                summaryPanelIds.ekgLog.innerHTML = ekgLogEntries.join('');
-            } else {
-                summaryPanelIds.ekgLog.innerHTML = '<li class="is-empty">ยังไม่มีข้อมูล</li>';
-            }
-
-            // Update Med Log
-            if (medLogEntries.length > 0) {
-                summaryPanelIds.medLog.innerHTML = medLogEntries.join('');
-            } else {
-                summaryPanelIds.medLog.innerHTML = '<li class="is-empty">ยังไม่มีข้อมูล</li>';
-            }
-        }
-
-        // Listen for any input changes on the form to update the summary
+        function updateSummaryPanel() { if (!summaryPanelIds.patientName) return; const patientName = document.querySelector('input[name="patientName"]').value; const age = document.querySelector('input[name="age"]').value; const startTime = document.querySelector('input[name="time"]').value; summaryPanelIds.patientName.textContent = patientName || '-'; summaryPanelIds.age.textContent = age || '-'; summaryPanelIds.startTime.textContent = startTime || '-'; let totalDuration = 0; let shockCount = 0; const ekgLogEntries = []; const medLogEntries = []; const cycleBlocks = document.querySelectorAll('#cyclesContainer .cycle-block'); cycleBlocks.forEach((cycle, index) => { const durationInput = cycle.querySelector('.cycleDuration'); const duration = parseFloat(durationInput.value) || 0; totalDuration += duration; const shockSelect = cycle.querySelector('.cycleShockYN'); if (shockSelect && shockSelect.value === 'Yes') { shockCount++; } const ekgTimeInput = cycle.querySelector('.cycleStartTime'); const ekgRhythmSelect = cycle.querySelector('.cycleEKG'); const ekgTime = ekgTimeInput.value || `Cycle ${index + 1}`; const ekgRhythm = ekgRhythmSelect.value; if (ekgRhythm) { ekgLogEntries.push(`<li><strong>${ekgTime}:</strong> ${ekgRhythm}</li>`); } const medListItems = cycle.querySelectorAll('.medList li'); medListItems.forEach(li => { const name = li.dataset.name; const dose = li.dataset.dose; const time = li.dataset.time || 'N/A'; medLogEntries.push(`<li><strong>${time}:</strong> ${name} ${dose || ''}</li>`); }); }); summaryPanelIds.totalDuration.textContent = totalDuration; summaryPanelIds.shockCount.textContent = shockCount; if (ekgLogEntries.length > 0) { summaryPanelIds.ekgLog.innerHTML = ekgLogEntries.join(''); } else { summaryPanelIds.ekgLog.innerHTML = '<li class="is-empty">ยังไม่มีข้อมูล</li>'; } if (medLogEntries.length > 0) { summaryPanelIds.medLog.innerHTML = medLogEntries.join(''); } else { summaryPanelIds.medLog.innerHTML = '<li class="is-empty">ยังไม่มีข้อมูล</li>'; } }
         cprForm.addEventListener('input', updateSummaryPanel);
-        cprForm.addEventListener('change', updateSummaryPanel); // Catches select changes
-
-        // Use a MutationObserver to detect when cycles or medicines are added/removed dynamically
-        const cyclesContainerObserver = new MutationObserver(() => {
-            updateSummaryPanel();
-        });
-
-        // Start observing the cycles container for changes to its children or their children
-        cyclesContainerObserver.observe(document.getElementById('cyclesContainer'), { 
-            childList: true, 
-            subtree: true 
-        });
+        cprForm.addEventListener('change', updateSummaryPanel);
+        const cyclesContainerObserver = new MutationObserver(() => { updateSummaryPanel(); });
+        cyclesContainerObserver.observe(document.getElementById('cyclesContainer'), { childList: true, subtree: true });
 
         // --- CASE MANAGEMENT LOGIC (Manage View) ---
         const caseTableBody = document.getElementById('caseTableBody');
         const exportBtn = document.getElementById('exportBtn');
         
+        // --- COMPLETELY REWRITTEN loadCases FUNCTION ---
         async function loadCases() {
             if (!currentUser) return;
 
@@ -1063,32 +1016,62 @@
             }
 
             caseTableBody.innerHTML = '<tr><td colspan="6" class="loading">กำลังโหลดข้อมูล...</td></tr>';
+
+            // Show 'Recorded By' column for admins and users with special permissions
+            const canSeeOthersData = currentUserData.isAdmin || (currentUserData.permissions && (currentUserData.permissions.canManageInstitutions?.length > 0 || currentUserData.permissions.canManageTags?.length > 0));
+            document.getElementById('recorderColumnHeader').classList.toggle('hidden', !canSeeOthersData);
             
-            let q;
-            if (isAdmin) {
-                q = query(collection(db, "cpr_cases"));
-                document.getElementById('recorderColumnHeader').classList.remove('hidden');
-            } else {
-                q = query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
-                document.getElementById('recorderColumnHeader').classList.add('hidden');
+            // Super Admin sees everything
+            if (currentUserData.isAdmin) {
+                const q = query(collection(db, "cpr_cases"));
+                unsubscribe = onSnapshot(q, (snapshot) => {
+                    const cases = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+                    renderTable(cases, canSeeOthersData);
+                }, console.error);
+                return;
             }
 
-            unsubscribe = onSnapshot(q, (querySnapshot) => {
-                const cases = [];
-                querySnapshot.forEach((doc) => {
-                    cases.push({ id: doc.id, ...doc.data() });
-                });
-                renderTable(cases);
-            }, (error) => {
-                console.error("Error loading cases: ", error);
-                caseTableBody.innerHTML = '<tr><td colspan="6" class="no-cases">เกิดข้อผิดพลาดในการโหลดข้อมูล</td></tr>';
+            // For regular users and managers, we need to build a combined list
+            const allVisibleCases = new Map();
+            const listeners = [];
+
+            // 1. Always get the user's own cases
+            const ownCasesQuery = query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
+            const ownCasesListener = onSnapshot(ownCasesQuery, snapshot => {
+                snapshot.docs.forEach(doc => allVisibleCases.set(doc.id, { id: doc.id, ...doc.data() }));
+                renderTable(Array.from(allVisibleCases.values()), canSeeOthersData);
             });
+            listeners.push(ownCasesListener);
+
+            const permissions = currentUserData.permissions || {};
+            
+            // 2. Get cases from managed institutions
+            if (permissions.canManageInstitutions && permissions.canManageInstitutions.length > 0) {
+                const institutionQuery = query(collection(db, "cpr_cases"), where("institution", "in", permissions.canManageInstitutions));
+                const institutionListener = onSnapshot(institutionQuery, snapshot => {
+                    snapshot.docs.forEach(doc => allVisibleCases.set(doc.id, { id: doc.id, ...doc.data() }));
+                    renderTable(Array.from(allVisibleCases.values()), canSeeOthersData);
+                });
+                listeners.push(institutionListener);
+            }
+
+            // 3. Get cases from managed standalone tags (where institution is null/empty)
+            if (permissions.canManageTags && permissions.canManageTags.length > 0) {
+                 const tagQuery = query(collection(db, "cpr_cases"), where("tag", "in", permissions.canManageTags), where("institution", "in", ["", null]));
+                 const tagListener = onSnapshot(tagQuery, snapshot => {
+                    snapshot.docs.forEach(doc => allVisibleCases.set(doc.id, { id: doc.id, ...doc.data() }));
+                    renderTable(Array.from(allVisibleCases.values()), canSeeOthersData);
+                });
+                listeners.push(tagListener);
+            }
+            
+            unsubscribe = () => listeners.forEach(listener => listener());
         }
 
-        function renderTable(cases) {
+        function renderTable(cases, showRecorder) {
             caseTableBody.innerHTML = "";
             if (cases.length === 0) {
-                caseTableBody.innerHTML = `<tr><td colspan="${isAdmin ? '6' : '5'}" class="no-cases">ไม่พบข้อมูลเคสที่บันทึกไว้</td></tr>`;
+                caseTableBody.innerHTML = `<tr><td colspan="${showRecorder ? '6' : '5'}" class="no-cases">ไม่พบข้อมูลเคสที่บันทึกไว้</td></tr>`;
                 return;
             }
 
@@ -1097,7 +1080,7 @@
             cases.forEach(c => {
                 const tr = document.createElement('tr');
                 let recorderCell = '';
-                if (isAdmin) {
+                if (showRecorder) {
                     recorderCell = `<td>${c.userName || 'N/A'}</td>`;
                 }
                 tr.innerHTML = `
@@ -1128,19 +1111,36 @@
                 }
             }
         });
-
+        
+        // --- MODIFIED EXPORT LOGIC ---
         exportBtn.addEventListener('click', async () => {
-            let q;
-            if (isAdmin) {
-                q = query(collection(db, "cpr_cases"));
-            } else {
-                q = query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
-            }
-            
-            const querySnapshot = await getDocs(q);
-            const cases = [];
-            querySnapshot.forEach(doc => cases.push(doc.data()));
+            // Re-use the case loading logic for consistency, but with getDocs for a one-time fetch
+            const allVisibleCases = new Map();
 
+            // 1. User's own cases
+            const ownCasesQuery = query(collection(db, "cpr_cases"), where("userId", "==", currentUser.uid));
+            const ownCasesSnap = await getDocs(ownCasesQuery);
+            ownCasesSnap.forEach(doc => allVisibleCases.set(doc.id, doc.data()));
+
+            // 2. Admin or permitted user cases
+            if (currentUserData.isAdmin) {
+                const allCasesSnap = await getDocs(collection(db, "cpr_cases"));
+                allCasesSnap.forEach(doc => allVisibleCases.set(doc.id, doc.data()));
+            } else {
+                const permissions = currentUserData.permissions || {};
+                if (permissions.canManageInstitutions && permissions.canManageInstitutions.length > 0) {
+                    const instQuery = query(collection(db, "cpr_cases"), where("institution", "in", permissions.canManageInstitutions));
+                    const instSnap = await getDocs(instQuery);
+                    instSnap.forEach(doc => allVisibleCases.set(doc.id, doc.data()));
+                }
+                if (permissions.canManageTags && permissions.canManageTags.length > 0) {
+                    const tagQuery = query(collection(db, "cpr_cases"), where("tag", "in", permissions.canManageTags), where("institution", "in", ["", null]));
+                    const tagSnap = await getDocs(tagQuery);
+                    tagSnap.forEach(doc => allVisibleCases.set(doc.id, doc.data()));
+                }
+            }
+
+            const cases = Array.from(allVisibleCases.values());
             if (cases.length === 0) {
                 alert("ไม่มีข้อมูลสำหรับ Export");
                 return;
@@ -1153,52 +1153,24 @@
                 if (!c.cycles || c.cycles.length === 0) {
                     const baseData = { 
                         date: c.date, time: c.time, hn: c.hn, patientName: c.patientName, age: c.age, 
-                        eventDetails: c.eventDetails, roscTime: c.roscTime, recordedBy: c.userName 
+                        eventDetails: c.eventDetails, roscTime: c.roscTime, 
+                        institution: c.institution, tag: c.tag, // Added fields
+                        recordedBy: c.userName 
                     };
                     exportData.push(baseData);
                 } else {
                     c.cycles.forEach((cy, i) => {
                         const cycleData = {
                             date: c.date, time: c.time, hn: c.hn, patientName: c.patientName, age: c.age, 
-                            eventDetails: c.eventDetails, roscTime: c.roscTime, recordedBy: c.userName,
+                            eventDetails: c.eventDetails, roscTime: c.roscTime, 
+                            institution: c.institution, tag: c.tag, // Added fields
+                            recordedBy: c.userName,
                             cycle: i + 1, startTime: cy.startTime || "", cprDuration: cy.cprDuration || "", ekg: cy.ekg || "", 
                             pulseCheck: cy.pulseCheck || "", shockDelivered: cy.shockDelivered ? "Yes" : "No", 
                             shockEnergy: cy.shockDelivered ? (cy.shockEnergy || "") : "", shockTime: cy.shockDelivered ? (cy.shockTime || "") : "",
                             airway: cy.airway || "", Dtx: (cy.dtx || []).join('; ') || ""
                         };
-                        
-                        // สร้างคอลัมน์สำหรับยาหลักและยาอื่นๆ
-                        const medMap = {};
-                        (cy.medicines || []).forEach(m => {
-                            const medDisplay = `${m.dose ? m.dose + " " : ""}${m.route ? " (" + m.route + ")" : ""} @ ${m.time || "n/a"}`;
-                            if (!medMap[m.name]) {
-                                medMap[m.name] = [];
-                            }
-                            medMap[m.name].push(medDisplay);
-                        });
-
-                        commonMeds.forEach(medName => {
-                            if (medMap[medName]) {
-                                // Clean up medName for column header (e.g., "10% Calcium Gluconate" -> "10_Calcium_Gluconate")
-                                const cleanMedName = medName.replace(/[^a-zA-Z0-9_]/g, '_').replace(/_{2,}/g, '_').replace(/^_|_$/g, '');
-                                cycleData[cleanMedName] = medMap[medName].join('; ');
-                                delete medMap[medName];
-                            }
-                        });
-
-                        const otherMeds = Object.keys(medMap).map(name => {
-                            return `${name}: ${medMap[name].join('; ')}`;
-                        });
-                        if (otherMeds.length > 0) {
-                           cycleData['Other_Medicines'] = otherMeds.join(' | '); // Use a different separator for other meds
-                        }
-
-                        // รวมผลการตรวจ
-                        const investigations = (cy.investigations || []).map(inv => `${inv.type}: ${inv.result}`).join("; ");
-                        if (investigations) {
-                           cycleData['investigation'] = investigations;
-                        }
-                        
+                        const medMap = {}; (cy.medicines || []).forEach(m => { const medDisplay = `${m.dose ? m.dose + " " : ""}${m.route ? " (" + m.route + ")" : ""} @ ${m.time || "n/a"}`; if (!medMap[m.name]) { medMap[m.name] = []; } medMap[m.name].push(medDisplay); }); commonMeds.forEach(medName => { if (medMap[medName]) { const cleanMedName = medName.replace(/[^a-zA-Z0-9_]/g, '_').replace(/_{2,}/g, '_').replace(/^_|_$/g, ''); cycleData[cleanMedName] = medMap[medName].join('; '); delete medMap[medName]; } }); const otherMeds = Object.keys(medMap).map(name => { return `${name}: ${medMap[name].join('; ')}`; }); if (otherMeds.length > 0) { cycleData['Other_Medicines'] = otherMeds.join(' | '); } const investigations = (cy.investigations || []).map(inv => `${inv.type}: ${inv.result}`).join("; "); if (investigations) { cycleData['investigation'] = investigations; }
                         exportData.push(cycleData);
                     });
                 }
@@ -1209,120 +1181,12 @@
             XLSX.writeFile(wb, "cpr_cases_export.xlsx");
         });
         
-        // --- DYNAMIC CYCLE FORM LOGIC ---
-        document.getElementById("addCycleBtn").addEventListener("click", function() {
-            addCycleBlock();
-        });
-
-        function addCycleBlock() {
-            const idx = document.querySelectorAll(".cycle-block").length + 1;
-            const div = document.createElement("div");
-            div.className = "cycle-block";
-            div.innerHTML = `
-                <h3>CPR Cycle ${idx} <button type="button" class="remove-btn">ลบ</button></h3>
-                <div class="cycle-grid">
-                    <label>Start Time <input type="time" class="cycleInput cycleStartTime"></label>
-                    <label>CPR Duration (min) <input type="number" min="0" step="0.5" class="cycleInput cycleDuration" placeholder="e.g., 2"></label>
-                    <label>EKG Rhythm
-                        <select class="cycleInput cycleEKG"><option value="PEA">PEA</option><option value="VF">VF</option><option value="Pulseless VT">Pulseless VT</option><option value="Pulse VT">Pulse VT</option><option value="ROSC">ROSC</option><option value="NR">NR</option></select>
-                    </label>
-                    <label>Pulse Check
-                        <select class="cycleInput cyclePulse"><option value="">-</option><option value="No pulse">No pulse</option><option value="Pulse">Pulse</option></select>
-                    </label>
-                    <label>Airway
-                        <select class="cycleInput cycleAirway"><option value="">-</option><option value="BVM">BVM</option><option value="ETT">ETT</option><option value="SGA">SGA</option><option value="Tracheostomy">Tracheostomy</option></select>
-                    </label>
-                    <label>Shock Delivered?
-                        <select class="cycleInput cycleShockYN"><option value="No">No</option><option value="Yes">Yes</option></select>
-                    </label>
-                    <label>Shock Energy (J) <input type="number" min="0" step="1" class="cycleInput cycleShockEnergy" placeholder="e.g., 200"></label>
-                    <label>Shock Time <input type="time" class="cycleInput cycleShockTime"></label>
-                    <label>Dtx (mg/dL) <input type="number" class="quickDtxValue" placeholder="e.g., 80"></label><button type="button" class="add-btn addDtxBtn">Add Dtx</button>
-                </div>
-                <ul class="dtxList"></ul>
-                <fieldset class="meds-list"><legend>Medicines</legend>
-                    <div class="meds-form-container">
-                        <div class="meds-selection-group">
-                            <label><input type="checkbox" class="medAdrenaline"> Adrenaline</label>
-                            <label><input type="checkbox" class="medCalcium"> 10% Calcium Gluconate</label>
-                            <label><input type="checkbox" class="medGlucose"> 50% Glucose</label>
-                            <label><input type="checkbox" class="medNaHCO3"> 7.5% NaHCO₃</label>
-                            <label><input type="checkbox" class="medPRC"> Gr.O low titer PRC</label>
-                            <label>Other: <input type="text" class="medOther" placeholder="Medicine Name"></label>
-                        </div>
-                        <div class="meds-details-group">
-                            <label>Dose <input type="text" class="medDose" placeholder="e.g., 1 mg"></label>
-                            
-                            <label>Route
-                                <input type="text" class="medRoute" list="route-options" placeholder="e.g., IV">
-                                <datalist id="route-options">
-                                    <option value="IV"></option>
-                                    <option value="IO"></option>
-                                    <option value="ETT"></option>
-                                </datalist>
-                            </label>
-                            
-                            <label>Time Given <input type="time" class="medTime"></label>
-                        </div>
-                    </div>
-                    <button type="button" class="add-btn addMedBtn">Add Medicine</button>
-                    <ul class="medList"></ul>
-                </fieldset>
-                <details>
-                    <summary>Investigations</summary>
-                    <div class="investigation-content">
-                        <div class="investigation-block"><strong>Blood Gas Analysis</strong>
-                            <div class="blood-gas-grid">
-                                <label>pH <input type="number" step="0.01" class="invBgPh"></label>
-                                <label>PCO₂ <input type="number" step="0.1" class="invBgPco2"></label>
-                                <label>HCO₃⁻ <input type="number" step="0.1" class="invBgHco3"></label>
-                                <label>K⁺ <input type="number" step="0.1" class="invBgK"></label>
-                            </div><button type="button" class="add-btn addBloodGasBtn">Add Blood Gas</button><ul class="investigation-list bg-list"></ul>
-                        </div><hr>
-                        <div class="investigation-block"><strong>Ultrasound</strong>
-                            <div class="meds-grid"><label>Result: <input type="text" class="invUsResult" placeholder="e.g., Cardiac standstill"></label><button type="button" class="add-btn addUltrasoundBtn">Add Ultrasound</button></div><ul class="investigation-list us-list"></ul>
-                        </div>
-                        <hr>
-                        <div class="investigation-block"><strong>Hct</strong>
-                            <div class="meds-grid"><label>Hct (%): <input type="number" class="invHct" placeholder="e.g., 45"></label><button type="button" class="add-btn addHctBtn">Add Hct</button></div><ul class="investigation-list hct-list"></ul>
-                        </div>
-                    </div>
-                </details>
-            `;
-            const ekgSelect = div.querySelector(".cycleEKG");
-            ekgSelect.addEventListener("change", () => { const shockYN = div.querySelector(".cycleShockYN"); if (["VF", "Pulseless VT"].includes(ekgSelect.value)) shockYN.value = "Yes"; else shockYN.value = "No"; });
-            div.querySelector(".remove-btn").onclick = function() { div.remove(); updateCycleHeaders(); };
-            div.querySelector(".addDtxBtn").onclick = function() { const dtxInput = div.querySelector(".quickDtxValue"); const dtxValue = dtxInput.value.trim(); if (!dtxValue) return; const li = document.createElement("li"); li.textContent = `Dtx: ${dtxValue} mg/dL`; li.dataset.value = dtxValue; const removeBtn = document.createElement("button"); removeBtn.textContent = "ลบ"; removeBtn.className = "remove-btn"; removeBtn.onclick = () => li.remove(); li.appendChild(removeBtn); div.querySelector(".dtxList").appendChild(li); dtxInput.value = ""; }
-            setupMedicineAdder(div);
-            setupInvestigationAdders(div);
-            document.getElementById("cyclesContainer").appendChild(div);
-        }
+        // --- DYNAMIC CYCLE FORM LOGIC (Unchanged) ---
+        document.getElementById("addCycleBtn").addEventListener("click", function() { addCycleBlock(); });
+        function addCycleBlock() { const idx = document.querySelectorAll(".cycle-block").length + 1; const div = document.createElement("div"); div.className = "cycle-block"; div.innerHTML = `<h3>CPR Cycle ${idx} <button type="button" class="remove-btn">ลบ</button></h3> <div class="cycle-grid"> <label>Start Time <input type="time" class="cycleInput cycleStartTime"></label> <label>CPR Duration (min) <input type="number" min="0" step="0.5" class="cycleInput cycleDuration" placeholder="e.g., 2"></label> <label>EKG Rhythm <select class="cycleInput cycleEKG"><option value="PEA">PEA</option><option value="VF">VF</option><option value="Pulseless VT">Pulseless VT</option><option value="Pulse VT">Pulse VT</option><option value="ROSC">ROSC</option><option value="NR">NR</option></select> </label> <label>Pulse Check <select class="cycleInput cyclePulse"><option value="">-</option><option value="No pulse">No pulse</option><option value="Pulse">Pulse</option></select> </label> <label>Airway <select class="cycleInput cycleAirway"><option value="">-</option><option value="BVM">BVM</option><option value="ETT">ETT</option><option value="SGA">SGA</option><option value="Tracheostomy">Tracheostomy</option></select> </label> <label>Shock Delivered? <select class="cycleInput cycleShockYN"><option value="No">No</option><option value="Yes">Yes</option></select> </label> <label>Shock Energy (J) <input type="number" min="0" step="1" class="cycleInput cycleShockEnergy" placeholder="e.g., 200"></label> <label>Shock Time <input type="time" class="cycleInput cycleShockTime"></label> <label>Dtx (mg/dL) <input type="number" class="quickDtxValue" placeholder="e.g., 80"></label><button type="button" class="add-btn addDtxBtn">Add Dtx</button> </div> <ul class="dtxList"></ul> <fieldset class="meds-list"><legend>Medicines</legend> <div class="meds-form-container"> <div class="meds-selection-group"> <label><input type="checkbox" class="medAdrenaline"> Adrenaline</label> <label><input type="checkbox" class="medCalcium"> 10% Calcium Gluconate</label> <label><input type="checkbox" class="medGlucose"> 50% Glucose</label> <label><input type="checkbox" class="medNaHCO3"> 7.5% NaHCO₃</label> <label><input type="checkbox" class="medPRC"> Gr.O low titer PRC</label> <label>Other: <input type="text" class="medOther" placeholder="Medicine Name"></label> </div> <div class="meds-details-group"> <label>Dose <input type="text" class="medDose" placeholder="e.g., 1 mg"></label> <label>Route <input type="text" class="medRoute" list="route-options" placeholder="e.g., IV"> <datalist id="route-options"> <option value="IV"></option> <option value="IO"></option> <option value="ETT"></option> </datalist> </label> <label>Time Given <input type="time" class="medTime"></label> </div> </div> <button type="button" class="add-btn addMedBtn">Add Medicine</button> <ul class="medList"></ul> </fieldset> <details> <summary>Investigations</summary> <div class="investigation-content"> <div class="investigation-block"><strong>Blood Gas Analysis</strong> <div class="blood-gas-grid"> <label>pH <input type="number" step="0.01" class="invBgPh"></label> <label>PCO₂ <input type="number" step="0.1" class="invBgPco2"></label> <label>HCO₃⁻ <input type="number" step="0.1" class="invBgHco3"></label> <label>K⁺ <input type="number" step="0.1" class="invBgK"></label> </div><button type="button" class="add-btn addBloodGasBtn">Add Blood Gas</button><ul class="investigation-list bg-list"></ul> </div><hr> <div class="investigation-block"><strong>Ultrasound</strong> <div class="meds-grid"><label>Result: <input type="text" class="invUsResult" placeholder="e.g., Cardiac standstill"></label><button type="button" class="add-btn addUltrasoundBtn">Add Ultrasound</button></div><ul class="investigation-list us-list"></ul> </div> <hr> <div class="investigation-block"><strong>Hct</strong> <div class="meds-grid"><label>Hct (%): <input type="number" class="invHct" placeholder="e.g., 45"></label><button type="button" class="add-btn addHctBtn">Add Hct</button></div><ul class="investigation-list hct-list"></ul> </div> </div> </details> `; const ekgSelect = div.querySelector(".cycleEKG"); ekgSelect.addEventListener("change", () => { const shockYN = div.querySelector(".cycleShockYN"); if (["VF", "Pulseless VT"].includes(ekgSelect.value)) shockYN.value = "Yes"; else shockYN.value = "No"; }); div.querySelector(".remove-btn").onclick = function() { div.remove(); updateCycleHeaders(); }; div.querySelector(".addDtxBtn").onclick = function() { const dtxInput = div.querySelector(".quickDtxValue"); const dtxValue = dtxInput.value.trim(); if (!dtxValue) return; const li = document.createElement("li"); li.textContent = `Dtx: ${dtxValue} mg/dL`; li.dataset.value = dtxValue; const removeBtn = document.createElement("button"); removeBtn.textContent = "ลบ"; removeBtn.className = "remove-btn"; removeBtn.onclick = () => li.remove(); li.appendChild(removeBtn); div.querySelector(".dtxList").appendChild(li); dtxInput.value = ""; }
+        setupMedicineAdder(div); setupInvestigationAdders(div); document.getElementById("cyclesContainer").appendChild(div); }
         function setupMedicineAdder(div) { const medsUL = div.querySelector(".medList"); div.querySelector(".addMedBtn").onclick = function() { let meds = []; if (div.querySelector(".medAdrenaline").checked) meds.push("Adrenaline"); if (div.querySelector(".medCalcium").checked) meds.push("10% Calcium Gluconate"); if (div.querySelector(".medNaHCO3").checked) meds.push("7.5% NaHCO₃"); if (div.querySelector(".medPRC").checked) meds.push("Gr.O low titer PRC"); if (div.querySelector(".medGlucose").checked) meds.push("50% Glucose"); const otherVal = (div.querySelector(".medOther").value || "").trim(); if (otherVal) meds.push(otherVal); const doseVal = (div.querySelector(".medDose").value || "").trim(); const routeVal = (div.querySelector(".medRoute").value || "").trim(); const timeVal = div.querySelector(".medTime").value || "n/a"; meds.forEach(med => { const li = document.createElement("li"); li.textContent = `${med}${doseVal ? " " + doseVal : ""}${routeVal ? " (" + routeVal + ")" : ""} @ ${timeVal}`; li.dataset.name = med; li.dataset.dose = doseVal; li.dataset.route = routeVal; li.dataset.time = timeVal; const remove = document.createElement("button"); remove.textContent = "ลบ"; remove.className = "remove-btn"; remove.onclick = () => li.remove(); li.appendChild(remove); medsUL.appendChild(li); }); div.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = false); div.querySelector(".medOther").value = ""; div.querySelector(".medDose").value = ""; div.querySelector(".medRoute").value = ""; div.querySelector(".medTime").value = ""; }; }
-        function setupInvestigationAdders(div) { 
-            div.querySelector(".addBloodGasBtn").onclick = function() { 
-                const ph = div.querySelector('.invBgPh').value; 
-                const pco2 = div.querySelector('.invBgPco2').value; 
-                const hco3 = div.querySelector('.invBgHco3').value; 
-                const k = div.querySelector('.invBgK').value; 
-                if (!ph && !pco2 && !hco3 && !k) return; 
-                const resultString = `pH:${ph || '-'} PCO₂:${pco2 || '-'} HCO₃⁻:${hco3 || '-'} K⁺:${k || '-'}`; 
-                addInvestigationToList(div.querySelector(".bg-list"), "Blood Gas", resultString, { ph, pco2, hco3, k }); 
-                div.querySelectorAll('.invBgPh, .invBgPco2, .invBgHco3, .invBgK').forEach(i => i.value = ''); 
-            }; 
-            div.querySelector(".addUltrasoundBtn").onclick = function() { 
-                const resultInput = div.querySelector('.invUsResult'); 
-                if (!resultInput.value.trim()) return; 
-                addInvestigationToList(div.querySelector(".us-list"), "Ultrasound", resultInput.value.trim()); 
-                resultInput.value = ''; 
-            };
-            div.querySelector(".addHctBtn").onclick = function() {
-                const hctInput = div.querySelector(".invHct");
-                const hctValue = hctInput.value.trim();
-                if (!hctValue) return;
-                addInvestigationToList(div.querySelector(".hct-list"), "Hct", `${hctValue}%`, { hct: hctValue });
-                hctInput.value = "";
-            };
-        }
+        function setupInvestigationAdders(div) {  div.querySelector(".addBloodGasBtn").onclick = function() { const ph = div.querySelector('.invBgPh').value; const pco2 = div.querySelector('.invBgPco2').value; const hco3 = div.querySelector('.invBgHco3').value; const k = div.querySelector('.invBgK').value; if (!ph && !pco2 && !hco3 && !k) return; const resultString = `pH:${ph || '-'} PCO₂:${pco2 || '-'} HCO₃⁻:${hco3 || '-'} K⁺:${k || '-'}`; addInvestigationToList(div.querySelector(".bg-list"), "Blood Gas", resultString, { ph, pco2, hco3, k }); div.querySelectorAll('.invBgPh, .invBgPco2, .invBgHco3, .invBgK').forEach(i => i.value = ''); }; div.querySelector(".addUltrasoundBtn").onclick = function() { const resultInput = div.querySelector('.invUsResult'); if (!resultInput.value.trim()) return; addInvestigationToList(div.querySelector(".us-list"), "Ultrasound", resultInput.value.trim()); resultInput.value = ''; }; div.querySelector(".addHctBtn").onclick = function() { const hctInput = div.querySelector(".invHct"); const hctValue = hctInput.value.trim(); if (!hctValue) return; addInvestigationToList(div.querySelector(".hct-list"), "Hct", `${hctValue}%`, { hct: hctValue }); hctInput.value = ""; }; }
         function addInvestigationToList(ulElement, type, result, data = {}) { const li = document.createElement("li"); li.textContent = `${type}: ${result}`; li.dataset.type = type; li.dataset.result = result; Object.keys(data).forEach(key => { li.dataset[key] = data[key]; }); const removeBtn = document.createElement("button"); removeBtn.textContent = "ลบ"; removeBtn.className = "remove-btn"; removeBtn.onclick = function() { li.remove(); }; li.appendChild(removeBtn); ulElement.appendChild(li); }
         function updateCycleHeaders() { document.querySelectorAll(".cycle-block").forEach((div, i) => { div.querySelector("h3").innerHTML = `CPR Cycle ${i+1} <button type="button" class="remove-btn">ลบ</button>`; div.querySelector(".remove-btn").onclick = function() { div.remove(); updateCycleHeaders(); }; }); }
         function collectCycles() { const cycles = []; document.querySelectorAll(".cycle-block").forEach(div => { const cycleData = { startTime: div.querySelector(".cycleStartTime").value, cprDuration: div.querySelector(".cycleDuration").value, ekg: div.querySelector(".cycleEKG").value, pulseCheck: div.querySelector(".cyclePulse").value, airway: div.querySelector(".cycleAirway").value, shockDelivered: div.querySelector(".cycleShockYN").value === "Yes", shockEnergy: div.querySelector(".cycleShockEnergy").value, shockTime: div.querySelector(".cycleShockTime").value, dtx: Array.from(div.querySelectorAll(".dtxList li")).map(li => li.dataset.value), medicines: Array.from(div.querySelectorAll(".medList li")).map(li => ({ name: li.dataset.name, dose: li.dataset.dose, route: li.dataset.route, time: li.dataset.time })), investigations: Array.from(div.querySelectorAll(".investigation-list li")).map(li => ({ type: li.dataset.type, result: li.dataset.result })) }; cycles.push(cycleData); }); return cycles; }
