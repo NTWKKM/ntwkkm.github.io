@@ -1067,86 +1067,47 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
                 return;
             }
 
- // ... (โค้ดส่วนบน: Super Admin และการตั้งค่าพื้นฐาน)
-    
-    const isManager = permissions.canManageInstitutions?.length > 0 || permissions.canManageSoloTags?.length > 0 || permissions.canManageInstitutionTags?.length > 0;
-    const canSeeOthersData = isSuperAdmin || isManager;
-    
-    // ... (โค้ดส่วนแสดง/ซ่อนคอลัมน์ Recorder)
+            // --- 2. Manager/Regular User: สร้าง Query แยกชุด ---
 
-    let queries = [];
+            // 2.1 Always get the user's own cases (ทุกคนเห็น)
+            queries.push(query(collection(db, "cpr_cases"), where("userId", "==", userId)));
 
-    // --- 1. Super Admin ---
-    if (isSuperAdmin) {
-        // ... (โค้ดเดิม) ...
-        return;
-    }
+            if (isManager) {
+                // 2.2 Set ใหญ่ / กุญแจสถาบัน: ดึงเคสที่มี institution ตรงกับสิทธิ์
+                if (permissions.canManageInstitutions && permissions.canManageInstitutions.length > 0) {
+                    const institutionChunks = chunkArray(permissions.canManageInstitutions, 10);
 
-    // --- 2. Manager/Regular User: สร้าง Query แยกชุด ตามนิยามใหม่ ---
-    // 2.1 Always get the user's own cases (ทุกคนเห็น)
-    queries.push(query(collection(db, "cpr_cases"), where("userId", "==", userId), orderBy("createdAt", "desc")));
-
-    if (isManager) {
-
-        // 2.2 ⭐ ADMIN สถาบัน (ข้อ 2): ดึงเคสทั้งหมดที่มีสถาบันตรงกับสิทธิ์
-        // Logic นี้ดึงเคสสถาบันทั้งหมดที่ Admin ประเภทนี้มีสิทธิ์ (รวม Tag ด้วย)
-        if (permissions.canManageInstitutions && permissions.canManageInstitutions.length > 0) {
-            const institutionChunks = chunkArray(permissions.canManageInstitutions, 10);
-            institutionChunks.forEach(chunk => {
-                queries.push(
-                    query(
-                        collection(db, "cpr_cases"), 
-                        where("institution", "in", chunk),
-                        orderBy("createdAt", "desc")
-                    )
-                );
-            });
-        }
-
-        // 2.3 ⭐ ADMIN สถาบัน TAG (ข้อ 3): ดูเคส 2 ช่องข้อมูล (Institution + Tag) ที่จำกัด
-        if (permissions.canManageInstitutionTags && permissions.canManageInstitutionTags.length > 0) {
-            
-            // ⭐ [โค้ดใหม่] วนลูปผ่าน Array of Objects และสร้าง Query สำหรับทุกคู่
-            permissions.canManageInstitutionTags.forEach(permissionPair => {
-                
-                // ตรวจสอบว่าคู่ค่ามีข้อมูลครบถ้วน
-                if (permissionPair.institution && permissionPair.tag) {
-                     queries.push(
-                        query(
-                            collection(db, "cpr_cases"),
-                            // เงื่อนไขบังคับให้เคสต้องมี 2 ช่องข้อมูลที่ตรงกันเป๊ะ
-                            where("institution", "==", permissionPair.institution), // บังคับให้ตรงกับสถาบัน
-                            where("tag", "==", permissionPair.tag),             // บังคับให้ตรงกับ Tag
-                            orderBy("createdAt", "desc")
-                        )
-                    );
+                    institutionChunks.forEach(chunk => {
+                        queries.push(
+                            query(
+                                collection(db, "cpr_cases"), 
+                                where("institution", "in", chunk)
+                            )
+                        );
+                    });
                 }
-            });
-            // ⭐ [สิ้นสุดโค้ดใหม่]
-        
-        // 2.4 ⭐ ADMIN TAG (ข้อ 4): ดูเฉพาะเคสที่มี Tag อย่างเดียว
-        // Logic นี้ดึงเฉพาะเคสที่ไม่มีค่าในฟิลด์ institution (Solo Tag)
-        if (permissions.canManageSoloTags && permissions.canManageSoloTags.length > 0) {
-            const soloTagChunks = chunkArray(permissions.canManageSoloTags, 10);
-            soloTagChunks.forEach(chunk => {
-                 queries.push(
-                    query(
-                        collection(db, "cpr_cases"),
-                        where("institution", "in", ["", null]), // เงื่อนไขสำคัญ: ไม่มีกุญแจสถาบัน
-                        where("tag", "in", chunk),
-                        orderBy("createdAt", "desc")
-                    )
-                );
-            });
-        }
-    }
 
-    if (queries.length === 0) {
-         caseTableBody.innerHTML = `<tr><td colspan="${canSeeOthersData ? '6' : '5'}" class="no-cases">ไม่พบข้อมูลเคสที่บันทึกไว้</td></tr>`;
-         return;
-    }
+                // 2.3 Set แยก / Solo Tag: ดึงเคสที่ไม่มีสถาบัน และ Tag ตรงกับสิทธิ์
+                if (permissions.canManageSoloTags && permissions.canManageSoloTags.length > 0) {
+                    const soloTagChunks = chunkArray(permissions.canManageSoloTags, 10);
 
-    // ... (โค้ดส่วน 3 และ 4: Union Listener ที่ใช้ร่วมกันทั้งหมด)
+                    soloTagChunks.forEach(chunk => {
+                         queries.push(
+                            query(
+                                collection(db, "cpr_cases"),
+                                where("institution", "in", ["", null]), // เงื่อนไขสำคัญ: ไม่มีกุญแจสถาบัน
+                                where("tag", "in", chunk)
+                            )
+                        );
+                    });
+                }
+            }
+
+            if (queries.length === 0) {
+                 caseTableBody.innerHTML = `<tr><td colspan="${canSeeOthersData ? '6' : '5'}" class="no-cases">ไม่พบข้อมูลเคสที่บันทึกไว้</td></tr>`;
+                 return;
+            }
+
             // --- 3. รวมผลลัพธ์ (Union) ---
             // ใช้ Promise.all เพื่อยิง Query ทั้งหมดพร้อมกัน (Load Once)
             const results = await Promise.all(queries.map(q => getDocs(q)));
