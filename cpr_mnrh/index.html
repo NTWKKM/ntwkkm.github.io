@@ -1011,173 +1011,237 @@ authDomain: "cpr-record-2eadf.firebaseapp.com",
         const exportBtn = document.getElementById('exportBtn');
         
         // --- COMPLETELY REWRITTEN loadCases FUNCTION ---
-                                       // ฟังก์ชันช่วยในการแบ่ง Array ออกเป็นกลุ่ม (เนื่องจาก Firestore 'in' มีข้อจำกัด 10 ค่า)
-        function chunkArray(array, chunkSize) {
-            const R = [];
-            for (let i = 0; i < array.length; i += chunkSize) {
-                R.push(array.slice(i, i + chunkSize));
-            }
-            return R;
-        }
+// ฟังก์ชันช่วยในการแบ่ง Array ออกเป็นกลุ่ม (เนื่องจาก Firestore 'in' มีข้อจำกัด 10 ค่า)
+function chunkArray(array, chunkSize) {
+    const R = [];
+    for (let i = 0; i < array.length; i += chunkSize) {
+        R.push(array.slice(i, i + chunkSize));
+    }
+    return R;
+}
 
-        async function loadCases() {
-            if (!currentUser) return;
+async function loadCases() {
+    if (!currentUser) return;
 
-            if (unsubscribe) {
-                // ล้าง Listener เดิมก่อนเสมอ
-                unsubscribe();
-            }
+    // 1. ล้าง Listener เคสเดิมก่อนเสมอ
+    if (unsubscribe) {
+        unsubscribe();
+    }
 
-            // ใช้ caseTableBody
-            caseTableBody.innerHTML = '<tr><td colspan="6" class="loading">กำลังโหลดข้อมูล...</td></tr>';
+    // ใช้ caseTableBody
+    caseTableBody.innerHTML = '<tr><td colspan="6" class="loading">กำลังโหลดข้อมูล...</td></tr>';
 
-            // ⭐ [โค้ดใหม่] ดึงข้อมูลโปรไฟล์ผู้ใช้ล่าสุดทุกครั้งที่เข้า
-            const userDocRef = doc(db, "users", currentUser.uid);
-            const userDoc = await getDoc(userDocRef);
+    // 2. ⭐ ดึงข้อมูลโปรไฟล์ผู้ใช้ล่าสุดทุกครั้งที่เข้า (แก้ปัญหา F5/เข้าหน้าใหม่)
+    const userDocRef = doc(db, "users", currentUser.uid);
+    // ใช้ getDoc เพื่อดึงข้อมูลสิทธิ์ล่าสุดแบบ Load Once
+    const userDoc = await getDoc(userDocRef); 
 
-            // ตรวจสอบว่าเอกสารผู้ใช้มีอยู่หรือไม่
-            if (!userDoc.exists()) {
-                console.error("User profile not found.");
-                currentUserData = {}; // กำหนดค่าว่างถ้าไม่พบ
-            } else {
-                currentUserData = userDoc.data(); // อัปเดตข้อมูลสิทธิ์ล่าสุด
-            }
-            // ⭐ [สิ้นสุดโค้ดใหม่]
+    if (!userDoc.exists()) {
+        console.error("User profile not found.");
+        // ไม่ต้องอัปเดต currentUserData ที่นี่ เพราะ Listener สิทธิ์จะทำ
+    } else {
+        // อัปเดต currentUserData ด้วยสิทธิ์ล่าสุดที่ดึงมา
+        currentUserData = userDoc.data(); 
+    }
+    
+    const isSuperAdmin = currentUserData.isAdmin;
+    const permissions = currentUserData.permissions || {};
+    const userId = currentUser.uid;
 
-            const isSuperAdmin = currentUserData.isAdmin;
-            const permissions = currentUserData.permissions || {};
-            const userId = currentUser.uid;
+    const isManager = permissions.canManageInstitutions?.length > 0 || permissions.canManageSoloTags?.length > 0;
+    const canSeeOthersData = isSuperAdmin || isManager;
 
-            // ตรวจสอบว่ามีสิทธิ์ Manager หรือไม่
-            const isManager = permissions.canManageInstitutions?.length > 0 || permissions.canManageSoloTags?.length > 0;
-            const canSeeOthersData = isSuperAdmin || isManager;
+    document.getElementById('recorderColumnHeader').classList.toggle('hidden', !canSeeOthersData);
 
-            document.getElementById('recorderColumnHeader').classList.toggle('hidden', !canSeeOthersData);
+    let queries = [];
 
-            let queries = [];
+    // --- 1. Super Admin ---
+    if (isSuperAdmin) {
+        // Super Admin ใช้ Realtime Query ง่ายๆ เห็นทั้งหมด
+        const q = query(collection(db, "cpr_cases"), orderBy("createdAt", "desc"));
+        unsubscribe = onSnapshot(q, (snapshot) => {
+            const cases = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+            renderTable(cases, canSeeOthersData);
+        }, console.error);
+        return;
+    }
 
-            // --- 1. Super Admin ---
-            if (isSuperAdmin) {
-                // Super Admin ใช้ Realtime Query ง่ายๆ เห็นทั้งหมด
-                const q = query(collection(db, "cpr_cases"), orderBy("createdAt", "desc"));
-                unsubscribe = onSnapshot(q, (snapshot) => {
-                    const cases = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                    renderTable(cases, canSeeOthersData);
-                }, console.error);
-                return;
-            }
+    // --- 2. Manager/Regular User: สร้าง Query แยกชุด ---
 
-            // --- 2. Manager/Regular User: สร้าง Query แยกชุด ---
+    // 2.1 Always get the user's own cases (ทุกคนเห็น)
+    queries.push(query(collection(db, "cpr_cases"), where("userId", "==", userId), orderBy("createdAt", "desc")));
 
-            // 2.1 Always get the user's own cases (ทุกคนเห็น)
-            queries.push(query(collection(db, "cpr_cases"), where("userId", "==", userId)));
-
-            if (isManager) {
-                // 2.2 Set ใหญ่ / กุญแจสถาบัน: ดึงเคสที่มี institution ตรงกับสิทธิ์
-                if (permissions.canManageInstitutions && permissions.canManageInstitutions.length > 0) {
-                    const institutionChunks = chunkArray(permissions.canManageInstitutions, 10);
-
-                    institutionChunks.forEach(chunk => {
-                        queries.push(
-                            query(
-                                collection(db, "cpr_cases"), 
-                                where("institution", "in", chunk)
-                            )
-                        );
-                    });
-                }
-
-                // 2.3 Set แยก / Solo Tag: ดึงเคสที่ไม่มีสถาบัน และ Tag ตรงกับสิทธิ์
-                if (permissions.canManageSoloTags && permissions.canManageSoloTags.length > 0) {
-                    const soloTagChunks = chunkArray(permissions.canManageSoloTags, 10);
-
-                    soloTagChunks.forEach(chunk => {
-                         queries.push(
-                            query(
-                                collection(db, "cpr_cases"),
-                                where("institution", "in", ["", null]), // เงื่อนไขสำคัญ: ไม่มีกุญแจสถาบัน
-                                where("tag", "in", chunk)
-                            )
-                        );
-                    });
-                }
-            }
-
-            if (queries.length === 0) {
-                 caseTableBody.innerHTML = `<tr><td colspan="${canSeeOthersData ? '6' : '5'}" class="no-cases">ไม่พบข้อมูลเคสที่บันทึกไว้</td></tr>`;
-                 return;
-            }
-
-            // --- 3. รวมผลลัพธ์ (Union) ---
-            // ใช้ Promise.all เพื่อยิง Query ทั้งหมดพร้อมกัน (Load Once)
-            const results = await Promise.all(queries.map(q => getDocs(q)));
-
-            let allCases = new Map();
-            results.forEach(snapshot => {
-                snapshot.docs.forEach(doc => {
-                    allCases.set(doc.id, { id: doc.id, ...doc.data() });
-                });
-            });
-
-            const finalCases = Array.from(allCases.values()).sort((a, b) => {
-                const dateA = a.createdAt?.toDate() || new Date(0);
-                const dateB = b.createdAt?.toDate() || new Date(0);
-                return dateB - dateA; // ล่าสุดอยู่ด้านบน
-            });
-
-            // --- 4. Realtime Listener (FIXED) ---
-            // เราจะทำการ renderTable ทันทีหลังโหลดเสร็จ โดยไม่ต้องรอ Listener
-            renderTable(finalCases, canSeeOthersData); // แสดงผลลัพธ์ทั้งหมด
-        }
-
-
-        function renderTable(cases, showRecorder) {
-            caseTableBody.innerHTML = "";
-            if (cases.length === 0) {
-                caseTableBody.innerHTML = `<tr><td colspan="${showRecorder ? '6' : '5'}" class="no-cases">ไม่พบข้อมูลเคสที่บันทึกไว้</td></tr>`;
-                return;
-            }
-
-            cases.sort((a, b) => b.createdAt.toDate() - a.createdAt.toDate());
-
-            cases.forEach(c => {
-                const tr = document.createElement('tr');
-                let recorderCell = '';
-                if (showRecorder) {
-                    recorderCell = `<td>${c.userName || 'N/A'}</td>`;
-                }
-                tr.innerHTML = `
-                    <td>${c.date || '-'}</td>
-                    <td>${c.time || '-'}</td>
-                    <td>${c.hn || '-'}</td>
-                    <td>${c.patientName || '-'}</td>
-                    ${recorderCell}
-                    <td>
-                        <button class="danger delete-btn" data-id="${c.id}" data-hn="${c.hn}">ลบ</button>
-                    </td>
-                `;
-                caseTableBody.appendChild(tr);
+    if (isManager) {
+        // 2.2 Set ใหญ่ / กุญแจสถาบัน
+        if (permissions.canManageInstitutions && permissions.canManageInstitutions.length > 0) {
+            const institutionChunks = chunkArray(permissions.canManageInstitutions, 10);
+            institutionChunks.forEach(chunk => {
+                queries.push(
+                    query(
+                        collection(db, "cpr_cases"), 
+                        where("institution", "in", chunk),
+                        orderBy("createdAt", "desc")
+                    )
+                );
             });
         }
 
-        caseTableBody.addEventListener('click', async (e) => {
-            if (e.target.classList.contains('delete-btn')) {
-                const caseId = e.target.getAttribute('data-id');
-                const caseHn = e.target.getAttribute('data-hn');
-                if (confirm(`คุณแน่ใจหรือไม่ว่าต้องการลบเคส HN: ${caseHn}?`)) {
-                    try {
-                        // ต้องมี deleteDoc และ doc ที่ประกาศไว้แล้ว
-                        await deleteDoc(doc(db, "cpr_cases", caseId));
-                    } catch (error) {
-                        console.error("Error deleting document: ", error);
-                        alert("เกิดข้อผิดพลาดในการลบข้อมูล");
-                    }
-                }
-            }
+        // 2.3 Set แยก / Solo Tag
+        if (permissions.canManageSoloTags && permissions.canManageSoloTags.length > 0) {
+            const soloTagChunks = chunkArray(permissions.canManageSoloTags, 10);
+            soloTagChunks.forEach(chunk => {
+                 queries.push(
+                    query(
+                        collection(db, "cpr_cases"),
+                        where("institution", "in", ["", null]), // เงื่อนไขสำคัญ
+                        where("tag", "in", chunk),
+                        orderBy("createdAt", "desc")
+                    )
+                );
+            });
+        }
+    }
+
+    if (queries.length === 0) {
+         caseTableBody.innerHTML = `<tr><td colspan="${canSeeOthersData ? '6' : '5'}" class="no-cases">ไม่พบข้อมูลเคสที่บันทึกไว้</td></tr>`;
+         return;
+    }
+
+    // --- 3. ⭐ รวมผลลัพธ์ (Union) ด้วย Realtime Listeners (แก้ปัญหาตารางไม่ Realtime) ---
+
+    let unsubscribeFunctions = [];
+    let allCasesMap = new Map();
+    let listenersInitializedCount = 0;
+    const totalQueries = queries.length;
+
+    const combineAndRender = () => {
+        const finalCases = Array.from(allCasesMap.values()).sort((a, b) => {
+            const dateA = a.createdAt?.toDate() || new Date(0);
+            const dateB = b.createdAt?.toDate() || new Date(0);
+            return dateB - dateA; // ล่าสุดอยู่ด้านบน
         });
+        renderTable(finalCases, canSeeOthersData);
+    };
 
+    // ตั้งค่า Listener ให้กับทุก Query
+    queries.forEach((q) => {
+        const queryUnsubscribe = onSnapshot(q, (snapshot) => {
+            
+            snapshot.docChanges().forEach(change => {
+                const caseData = { id: change.doc.id, ...change.doc.data() };
+                if (change.type === "added" || change.type === "modified") {
+                    allCasesMap.set(change.doc.id, caseData);
+                } else if (change.type === "removed") {
+                    allCasesMap.delete(change.doc.id);
+                }
+            });
 
+            // นับว่า Listener ทั้งหมดโหลดเสร็จแล้ว
+            if (listenersInitializedCount < totalQueries) {
+                listenersInitializedCount++;
+            }
+
+            // ค่อย Render เมื่อทุก Listener เริ่มทำงานแล้วอย่างน้อยหนึ่งครั้ง
+            if (listenersInitializedCount >= totalQueries) {
+                 combineAndRender();
+            }
+            
+        }, console.error);
+
+        unsubscribeFunctions.push(queryUnsubscribe);
+    });
+    
+    // รวมฟังก์ชันยกเลิกทั้งหมดเข้าไว้ในตัวแปร Global `unsubscribe`
+    unsubscribe = () => {
+        unsubscribeFunctions.forEach(unsub => unsub());
+    };
+    
+    // --- 4. ไม่มีการเรียก renderTable ที่นี่ เพราะจะถูกเรียกใน Listener ---
+}
+
+// --------------------------------------------------
+
+function renderTable(cases, showRecorder) {
+    caseTableBody.innerHTML = "";
+    if (cases.length === 0) {
+        caseTableBody.innerHTML = `<tr><td colspan="${showRecorder ? '6' : '5'}" class="no-cases">ไม่พบข้อมูลเคสที่บันทึกไว้</td></tr>`;
+        return;
+    }
+
+    // ไม่ต้อง sort ซ้ำตรงนี้ เพราะ combineAndRender ทำการ sort ให้แล้ว
+    
+    cases.forEach(c => {
+        const tr = document.createElement('tr');
+        let recorderCell = '';
+        if (showRecorder) {
+            recorderCell = `<td>${c.userName || 'N/A'}</td>`;
+        }
+        tr.innerHTML = `
+            <td>${c.date || '-'}</td>
+            <td>${c.time || '-'}</td>
+            <td>${c.hn || '-'}</td>
+            <td>${c.patientName || '-'}</td>
+            ${recorderCell}
+            <td>
+                <button class="danger delete-btn" data-id="${c.id}" data-hn="${c.hn}">ลบ</button>
+            </td>
+        `;
+        caseTableBody.appendChild(tr);
+    });
+}
+
+caseTableBody.addEventListener('click', async (e) => {
+    if (e.target.classList.contains('delete-btn')) {
+        const caseId = e.target.getAttribute('data-id');
+        const caseHn = e.target.getAttribute('data-hn');
+        if (confirm(`คุณแน่ใจหรือไม่ว่าต้องการลบเคส HN: ${caseHn}?`)) {
+            try {
+                await deleteDoc(doc(db, "cpr_cases", caseId));
+            } catch (error) {
+                console.error("Error deleting document: ", error);
+                alert("เกิดข้อผิดพลาดในการลบข้อมูล");
+            }
+        }
+    }
+});
+
+// ⭐ โค้ดที่ต้องเพิ่มในส่วน auth.onAuthStateChanged ของคุณ
+/*
+auth.onAuthStateChanged(user => {
+    if (user) {
+        // ... (โค้ดล็อกอินเดิม) ...
         
+        // 1. ดึงข้อมูลโปรไฟล์ครั้งแรก (ถ้ายังไม่ได้ทำ)
+        // 2. ⭐ ตั้งค่า Listener สิทธิ์ (Realtime)
+        const userDocRef = doc(db, "users", user.uid);
+        
+        if (unsubscribeProfile) {
+            unsubscribeProfile();
+        }
+
+        unsubscribeProfile = onSnapshot(userDocRef, (docSnapshot) => {
+            if (docSnapshot.exists()) {
+                currentUserData = docSnapshot.data(); // อัปเดตสิทธิ์ล่าสุด
+                loadCases(); // เรียกโหลดเคสใหม่ทั้งหมดทันที (แก้ปัญหาตารางไม่ Realtime)
+            }
+        }, console.error);
+
+        // 3. เรียกฟังก์ชันหลัก
+        loadCases(); // เรียกครั้งแรกเพื่อให้ข้อมูลแสดงผล
+        
+    } else {
+        // ... (โค้ด Log out: ยกเลิก Listener ทั้งหมด) ...
+        if (unsubscribeProfile) {
+            unsubscribeProfile();
+            unsubscribeProfile = null;
+        }
+        if (unsubscribe) { // ต้องยกเลิก Listener เคสด้วย
+            unsubscribe();
+            unsubscribe = null;
+        }
+    }
+});
+*/
         // --- MODIFIED EXPORT LOGIC ---
         exportBtn.addEventListener('click', async () => {
             // Re-use the case loading logic for consistency, but with getDocs for a one-time fetch
