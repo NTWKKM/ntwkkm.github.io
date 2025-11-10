@@ -8,19 +8,23 @@
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      /* --- (Theme) --- สีพื้นหลัง Cream --- */
-      background: #FBE9D0; 
+      /* --- (Request 1) --- พื้นหลัง Body สีน้ำเงินเข้ม --- */
+      background: #244885; 
       min-height: 100vh;
-      color: #333; 
+      /* (Fix) สีตัวอักษรหลักบนพื้นหลังเข้ม (เช่น Footer) เป็นสีอ่อน */
+      color: #FBE9D0; 
       line-height: 1.6;
     }
     header {
-      /* --- (Theme) --- สี Header น้ำเงินเข้ม --- */
+      /* --- (Request 1) --- พื้นหลัง Header สีน้ำเงินเข้ม --- */
       background: #244885; 
-      color: white;
+      color: white; /* สีตัวอักษร H1 */
       text-align: center;
       padding: 25px 20px 20px 20px; 
-      box-shadow: 0 4px 12px rgba(36, 72, 133, 0.2);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* เงาจางๆ */
+      
+      /* --- (Request 2) --- เส้นแบ่งสีครีม หนา --- */
+      border-bottom: 4px solid #FBE9D0;
     }
     h1 {
       font-size: 2.2em; 
@@ -31,28 +35,29 @@
     .subtitle {
       font-size: 1.1em; 
       font-weight: 300;
+      /* (Fix) สี Subtitle เป็นสีครีม */
       color: #FBE9D0; 
       opacity: 0.9;
     }
     .card {
       max-width: 1000px; 
       margin: 30px auto;
-      /* --- (Request 2) --- เปลี่ยนพื้นหลังการ์ดเป็น Whitesmoke --- */
-      background: #F5F5F5; 
+      /* --- (Request 3) --- พื้นหลังการ์ดเป็นสีครีม Vintage --- */
+      background: #FBE9D0; 
       border-radius: 12px;
       box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
       padding: 30px;
       text-align: left;
     }
     h2 {
-      /* --- (Theme) --- สีหัวข้อ Deep Maroon --- */
+      /* --- (Request 4) --- สีหัวข้อ Deep Maroon (คงเดิม) --- */
       color: #871F41; 
       font-size: 1.5em;
       margin-top: 0;
       margin-bottom: 20px;
       font-weight: 600;
-      /* --- (Adjust) --- ปรับสีเส้นขอบ h2 ให้อ่อนลง --- */
-      border-bottom: 2px solid #e0e0e0; 
+      /* (Adjust) ปรับสีเส้นขอบ h2 ให้เข้มขึ้นบนพื้นครีม */
+      border-bottom: 2px solid #e6dacb; 
       padding-bottom: 10px;
     }
 
@@ -72,22 +77,23 @@
     
     .card ul li a {
       display: block;
+      /* (Fix) สีตัวอักษรบนปุ่ม (พื้น F5F5F5) ต้องเป็นสีเข้ม */
       color: #333;
-      /* --- (Request 1) --- เปลี่ยนพื้นหลังลิงก์เป็น transparent --- */
-      background: transparent; 
+      /* --- (Request 5) --- พื้นหลังปุ่มลิงก์เป็น Whitesmoke --- */
+      background: #F5F5F5; 
       text-decoration: none;
       padding: 15px 20px;
       border-radius: 8px;
       transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
       font-weight: 500;
-      /* --- (Adjust) --- ปรับสีขอบให้เข้มขึ้นเล็กน้อย --- */
+      /* (Adjust) เส้นขอบสีเทาอ่อน เข้ากับ Whitesmoke */
       border: 1px solid #e0e0e0; 
       height: 100%; 
       box-sizing: border-box; 
     }
     
     .card ul li a:hover {
-      /* --- (Theme) --- สี Hover น้ำเงินเข้ม (ยังคงเดิม) --- */
+      /* --- (Request 6) --- สี Hover น้ำเงินเข้ม (คงเดิม) --- */
       color: #fff;
       background: #244885; 
       border-color: #244885;
@@ -97,18 +103,19 @@
 
     .description {
       font-size: 1.05em;
+      /* (Fix) สีตัวอักษรบนพื้นครีม ต้องเป็นสีเข้ม */
       color: #555;
       margin-top: 20px;
       padding-top: 20px;
-      /* --- (Adjust) --- ปรับสีเส้นขอบให้เข้ากับ #F5F5F5 --- */
-      border-top: 1px solid #e0e0e0;
+      /* (Adjust) เส้นคั่นบนพื้นครีม */
+      border-top: 1px solid #e6dacb;
     }
 
     .footer {
       text-align: center;
       margin: 50px auto 30px auto;
       font-size: 0.9em;
-      /* --- (Theme) --- สี Footer Muted Teal --- */
+      /* (Adjust) สี Footer (Muted Teal) อ่านง่ายบนพื้นน้ำเงิน */
       color: #90AEAD;
     }
     @media (max-width: 640px) { 
