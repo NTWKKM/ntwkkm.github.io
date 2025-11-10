@@ -8,98 +8,89 @@
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: #f4f7f6; /* พื้นหลังเทาอ่อน สบายตา */
+      /* --- (Theme) --- สีพื้นหลัง Cream --- */
+      background: #FBE9D0; 
       min-height: 100vh;
-      color: #333;
+      color: #333; /* สีตัวอักษรหลัก (ดำ/เทาเข้ม) เพื่อให้อ่านง่าย */
       line-height: 1.6;
     }
     header {
-      /* --- (Request 4) --- เปลี่ยนสีเป็นทางการ --- */
-      background: #2c3e50; /* สีน้ำเงิน-เทาเข้ม (Slate Blue) */
+      /* --- (Theme) --- สี Header น้ำเงินเข้ม --- */
+      background: #244885; 
       color: white;
       text-align: center;
-      /* --- (Request 2) --- ลดขนาด Header --- */
-      padding: 25px 20px 20px 20px; /* ลด Padding (เดิม 50 20 30) */
-      box-shadow: 0 4px 12px rgba(44, 62, 80, 0.15);
+      padding: 25px 20px 20px 20px; 
+      box-shadow: 0 4px 12px rgba(36, 72, 133, 0.2);
     }
     h1 {
-      /* --- (Request 2) --- ลดขนาด Header --- */
-      font-size: 2.2em; /* ลดขนาด (เดิม 2.5em) */
+      font-size: 2.2em; 
       margin: 0 0 10px 0;
       font-weight: 600;
       letter-spacing: 0.5px;
     }
     .subtitle {
-      /* --- (Request 2) --- ลดขนาด Header --- */
-      font-size: 1.1em; /* ลดขนาด (เดิม 1.2em) */
+      font-size: 1.1em; 
       font-weight: 300;
+      /* --- (Theme) --- ใช้สี Cream อ่อนๆ สำหรับ subtitle --- */
+      color: #FBE9D0; 
       opacity: 0.9;
     }
     .card {
-      /* ขยายการ์ดให้กว้างขึ้นเพื่อรองรับ 3 คอลัมน์ */
       max-width: 1000px; 
-      margin: 30px auto; /* ลดระยะห่างด้านบน */
-      background: #ffffff;
+      margin: 30px auto;
+      /* --- (Theme) --- การ์ดสีขาว สะอาด ตัดกับพื้นหลัง --- */
+      background: #ffffff; 
       border-radius: 12px;
       box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
       padding: 30px;
       text-align: left;
     }
     h2 {
-      /* --- (Request 4) --- เปลี่ยนสีเป็นทางการ --- */
-      color: #2c3e50; /* สีเดียวกับ Header */
+      /* --- (Theme) --- สีหัวข้อ Deep Maroon --- */
+      color: #871F41; 
       font-size: 1.5em;
       margin-top: 0;
       margin-bottom: 20px;
       font-weight: 600;
-      border-bottom: 2px solid #e9ecef; /* เส้นขีดคั่นสีอ่อน */
+      border-bottom: 2px solid #e9ecef; 
       padding-bottom: 10px;
     }
 
-    /* --- (Request 3) --- จัด Layout หลายคอลัมน์ --- */
     ul {
       list-style: none;
       padding: 0;
       margin: 0 0 30px 0;
-      
-      /* --- นี่คือส่วนสำคัญ --- */
       display: grid;
-      /*
-       * สร้างคอลัมน์อัตโนมัติ (auto-fit)
-       * แต่ละคอลัมน์กว้างอย่างน้อย 280px 
-       * และขยายเต็มพื้นที่ (1fr)
-       */
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 15px; /* ระยะห่างระหว่างช่อง */
+      gap: 15px; 
     }
     
-    /* ไม่ต้องเปลี่ยน li เพราะ Grid จัดการให้แล้ว */
     li {
-      margin-bottom: 0; /* grid "gap" จะจัดการระยะห่างแทน */
+      margin-bottom: 0; 
       font-size: 1.05em;
     }
     
     .card ul li a {
       display: block;
       color: #333;
-      background: #f8f9fa;
+      background: #f8f9fa; /* พื้นหลังลิงก์สีเทาอ่อนๆ */
       text-decoration: none;
       padding: 15px 20px;
       border-radius: 8px;
       transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
       font-weight: 500;
       border: 1px solid #e9ecef;
-      height: 100%; /* ทำให้กล่องสูงเท่ากันในแถว (ถ้าจำเป็น) */
-      box-sizing: border-box; /* ป้องกัน padding-box มีปัญหา */
+      height: 100%; 
+      box-sizing: border-box; 
     }
     
     .card ul li a:hover {
-      /* --- (Request 4) --- เปลี่ยนสีเป็นทางการ --- */
+      /* --- (Theme) --- สี Hover น้ำเงินเข้ม --- */
       color: #fff;
-      background: #2c3e50; /* สีเดียวกับ Header */
-      border-color: #2c3e50;
+      background: #244885; 
+      border-color: #244885;
       transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(44, 62, 80, 0.2);
+      box-shadow: 0 4px 10px rgba(36, 72, 133, 0.3);
     }
 
     .description {
@@ -114,16 +105,16 @@
       text-align: center;
       margin: 50px auto 30px auto;
       font-size: 0.9em;
-      color: #718096;
+      /* --- (Theme) --- สี Footer Muted Teal --- */
+      color: #90AEAD;
     }
-    @media (max-width: 640px) { /* ปรับ breakpoint สำหรับมือถือ */
+    @media (max-width: 640px) { 
       header { padding: 20px 15px 15px 15px; }
       h1 { font-size: 1.8em; }
       .card { 
         padding: 20px;
         margin: 20px;
       }
-      /* ในจอมือถือ ให้ grid กว้างเต็มจอ (minmax(100%, 1fr)) */
       ul {
         grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
       }
@@ -140,12 +131,12 @@
     <h2>Featured Links & Projects</h2>
     <ul>
       <li>
-        <a href="https://ntwkkm.github.io/Toxico/" target="_blank">
+        <a href="https://ntwkkm.github.io/bookmarks/toxico_bookmarks_c.html" target="_blank">
           Toxico Course Bookmarks
         </a>
       </li>
       <li>
-         <a href="https://acetatox.netlify.app/" target="_blank">
+         <a href="https://ntwkkm.github.io/paracetamol/index.html" target="_blank">
           Toxico_paracetamol (App)
         </a>
       </li>
@@ -205,11 +196,12 @@
         </a>
       </li>
       <li>
-        <a href="https://acetatox.netlify.app/" target="_blank">
+        <a href="httpshttps://acetatox.netlify.app/" target="_blank">
           Acetatox-netlify
         </a>
       </li>
     </ul>
+
     <div class="description">
       This GitHub Pages site is a repository of medical knowledge and learning resources, created to support anyone interested in healthcare education.
     </div>
