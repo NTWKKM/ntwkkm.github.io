@@ -5,26 +5,26 @@
   <title>Welcome to NTWKKM GitHub Pages</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    /* --- Day Theme (Default) --- */
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      /* --- (Request 1) --- พื้นหลัง Body สีน้ำเงินเข้ม --- */
       background: #244885; 
       min-height: 100vh;
-      /* (Fix) สีตัวอักษรหลักบนพื้นหลังเข้ม (เช่น Footer) เป็นสีอ่อน */
       color: #FBE9D0; 
       line-height: 1.6;
+      /* เพิ่ม transition ให้การเปลี่ยนสีนุ่มนวล */
+      transition: background-color 0.3s, color 0.3s;
     }
     header {
-      /* --- (Request 1) --- พื้นหลัง Header สีน้ำเงินเข้ม --- */
       background: #244885; 
-      color: white; /* สีตัวอักษร H1 */
+      color: white; 
       text-align: center;
       padding: 25px 20px 20px 20px; 
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* เงาจางๆ */
-      
-      /* --- (Request 2) --- เส้นแบ่งสีครีม หนา --- */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
       border-bottom: 4px solid #FBE9D0;
+      position: relative; /* เพื่อให้ปุ่ม Toggle อยู่ถูกที่ */
+      transition: background-color 0.3s, border-color 0.3s;
     }
     h1 {
       font-size: 2.2em; 
@@ -35,32 +35,30 @@
     .subtitle {
       font-size: 1.1em; 
       font-weight: 300;
-      /* (Fix) สี Subtitle เป็นสีครีม */
       color: #FBE9D0; 
       opacity: 0.9;
+      transition: color 0.3s;
     }
     .card {
       max-width: 1000px; 
       margin: 30px auto;
-      /* --- (Request 3) --- พื้นหลังการ์ดเป็นสีครีม Vintage --- */
       background: #FBE9D0; 
       border-radius: 12px;
       box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
       padding: 30px;
       text-align: left;
+      transition: background-color 0.3s;
     }
     h2 {
-      /* --- (Request 4) --- สีหัวข้อ Deep Maroon (คงเดิม) --- */
       color: #871F41; 
       font-size: 1.5em;
       margin-top: 0;
       margin-bottom: 20px;
       font-weight: 600;
-      /* (Adjust) ปรับสีเส้นขอบ h2 ให้เข้มขึ้นบนพื้นครีม */
       border-bottom: 2px solid #e6dacb; 
       padding-bottom: 10px;
+      transition: color 0.3s, border-color 0.3s;
     }
-
     ul {
       list-style: none;
       padding: 0;
@@ -69,55 +67,109 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 15px; 
     }
-    
     li {
       margin-bottom: 0; 
       font-size: 1.05em;
     }
-    
     .card ul li a {
       display: block;
-      /* (Fix) สีตัวอักษรบนปุ่ม (พื้น F5F5F5) ต้องเป็นสีเข้ม */
       color: #333;
-      /* --- (Request 5) --- พื้นหลังปุ่มลิงก์เป็น Whitesmoke --- */
       background: #F5F5F5; 
       text-decoration: none;
       padding: 15px 20px;
       border-radius: 8px;
       transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
       font-weight: 500;
-      /* (Adjust) เส้นขอบสีเทาอ่อน เข้ากับ Whitesmoke */
       border: 1px solid #e0e0e0; 
       height: 100%; 
       box-sizing: border-box; 
     }
-    
     .card ul li a:hover {
-      /* --- (Request 6) --- สี Hover น้ำเงินเข้ม (คงเดิม) --- */
       color: #fff;
       background: #244885; 
       border-color: #244885;
       transform: translateY(-2px);
       box-shadow: 0 4px 10px rgba(36, 72, 133, 0.3);
     }
-
     .description {
       font-size: 1.05em;
-      /* (Fix) สีตัวอักษรบนพื้นครีม ต้องเป็นสีเข้ม */
       color: #555;
       margin-top: 20px;
       padding-top: 20px;
-      /* (Adjust) เส้นคั่นบนพื้นครีม */
       border-top: 1px solid #e6dacb;
+      transition: color 0.3s, border-color 0.3s;
     }
-
     .footer {
       text-align: center;
       margin: 50px auto 30px auto;
       font-size: 0.9em;
-      /* (Adjust) สี Footer (Muted Teal) อ่านง่ายบนพื้นน้ำเงิน */
       color: #90AEAD;
+      transition: color 0.3s;
     }
+    
+    /* --- 1. สไตล์สำหรับปุ่มสลับธีม --- */
+    #theme-toggle {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      background: #FBE9D0; /* Day: พื้นครีม */
+      color: #244885; /* Day: ตัวอักษรน้ำเงิน */
+      border: 1px solid #244885;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9em;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
+    #theme-toggle:hover {
+      opacity: 0.8;
+    }
+
+    /* --- 2. CSS สำหรับ Night Mode --- */
+    body.night {
+      background: #1a2b48; /* Darker Blue */
+    }
+    body.night header {
+      background: #1a2b48;
+      border-bottom-color: #3a4b69; /* Muted Darker Border */
+    }
+    body.night .subtitle {
+      color: #90AEAD; /* Muted Teal */
+    }
+    body.night .card {
+      background: #244885; /* Card becomes Deep Blue */
+    }
+    body.night .card h2 {
+      color: #FBE9D0; /* Cream Text */
+      border-bottom-color: #3a4b69;
+    }
+    body.night .card ul li a {
+      background: #1a2b48; /* Button is Darkest Blue */
+      color: #FBE9D0; /* Cream Text */
+      border-color: #3a4b69; /* Muted Border */
+    }
+    body.night .card ul li a:hover {
+      background: #FBE9D0; /* Hover is Cream */
+      color: #1a2b48; /* Text is Darkest Blue */
+      border-color: #FBE9D0;
+      box-shadow: 0 4px 10px rgba(251, 233, 208, 0.2);
+    }
+    body.night .description {
+      color: #FBE9D0; /* Cream Text */
+      border-top-color: #3a4b69;
+    }
+    body.night .footer {
+      color: #90AEAD; /* Muted Teal */
+    }
+    /* ปุ่ม Toggle ใน Night Mode */
+    body.night #theme-toggle {
+      background: #3a4b69; /* Night: พื้นสีเทาเข้ม */
+      color: #FBE9D0; /* Night: ตัวอักษรครีม */
+      border-color: #FBE9D0;
+    }
+
+    /* Media Query (ปรับปุ่มบนจอมือถือ) */
     @media (max-width: 640px) { 
       header { padding: 20px 15px 15px 15px; }
       h1 { font-size: 1.8em; }
@@ -128,6 +180,11 @@
       ul {
         grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
       }
+      #theme-toggle {
+        /* ย้ายปุ่มไปไว้ตรงกลางใต้ Subtitle บนจอมือถือ */
+        position: static; 
+        margin-top: 15px;
+      }
     }
   </style>
 </head>
@@ -135,6 +192,7 @@
   <header>
     <h1>Welcome to NTWKKM GitHub Pages</h1>
     <div class="subtitle">Your hub for bookmarks, study resources, and projects</div>
+    <button id="theme-toggle">Night Mode</button>
   </header>
 
   <div class="card">
@@ -220,5 +278,40 @@
   <div class="footer">
     &copy; 2025 NTWKKM &nbsp;|&nbsp; Powered by GitHub Pages
   </div>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // ฟังก์ชันสำหรับตั้งค่าธีมและปุ่ม
+    function setTheme(theme) {
+      if (theme === 'night') {
+        body.classList.add('night');
+        localStorage.setItem('theme', 'night');
+        themeToggle.textContent = 'Day Mode'; // อัปเดตข้อความปุ่ม
+      } else {
+        body.classList.remove('night');
+        localStorage.setItem('theme', 'day');
+        themeToggle.textContent = 'Night Mode'; // อัปเดตข้อความปุ่ม
+      }
+    }
+
+    // เมื่อหน้าโหลด: ตรวจสอบธีมที่บันทึกไว้
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'night') {
+      setTheme('night');
+    } else {
+      setTheme('day'); // ค่าเริ่มต้นคือ Day
+    }
+
+    // เมื่อคลิกปุ่ม: สลับธีม
+    themeToggle.addEventListener('click', () => {
+      if (body.classList.contains('night')) {
+        setTheme('day');
+      } else {
+        setTheme('night');
+      }
+    });
+  </script>
 </body>
 </html>
