@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ทดสอบยิง AJAX (จริง)</title>
+    <title>ทดสอบยิง AJAX (จริง) - v2</title>
     <style>
         body { font-family: sans-serif; margin: 20px; background-color: #f4f4f4; }
         .container { max-width: 500px; margin: auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
@@ -18,7 +18,7 @@
 <body>
 
     <div class="container">
-        <h2>ทดสอบยิง AJAX ไปยัง Server จริง</h2>
+        <h2>ทดสอบยิง AJAX (v2 - Form Encoded)</h2>
         
         <label for="hnInput">กรอก HN:</label>
         <input type="text" id="hnInput" placeholder="HN คนไข้">
@@ -34,10 +34,8 @@
         const resultDiv = document.getElementById("result");
         const fullResponseDiv = document.getElementById("full-response");
 
-        // นี่คือ URL Endpoint จริงที่เราวิเคราะห์จาก Search.html
         const TARGET_URL = "http://49.231.247.56/iReportAG/Result/Mng_Action/Search";
 
-        // เมื่อปุ่มถูกคลิก
         searchButton.addEventListener("click", async () => {
             const hn = hnInput.value.trim();
             if (!hn) {
@@ -46,37 +44,38 @@
                 return;
             }
 
-            // 1. แสดงสถานะกำลังโหลด
             resultDiv.className = "loading";
-            resultDiv.textContent = "กำลังยิง AJAX ไปที่ " + TARGET_URL;
+            resultDiv.textContent = "กำลังยิง AJAX (Form Encoded) ไปที่ " + TARGET_URL;
             fullResponseDiv.textContent = "";
             searchButton.disabled = true;
 
             // 2. สร้าง Payload (ข้อมูลที่จะส่ง)
-            // เราจำลองโครงสร้างข้อมูลจากฟังก์ชัน Cond_Cmd และ Mng_Action ใน Search.html
-            const payload = {
-                cmd: "RequestSearch", // คำสั่งที่ Server ต้องการ
-                data: {
-                    SearchVal: hn,      // HN ที่รับมา
-                    SearchFld: "hn",  // ประเภทการค้นหา (ในเว็บจริงคือ Dropdown)
-                    DateOpt: "3",     // ค่าเริ่มต้น "3 วัน" จาก Search.html
-                    LabGrp: "0",      // ค่าเริ่มต้น "ทั้งหมด"
-                    Sts: "3",         // ค่าเริ่มต้น "มีผล"
-                    WardNo: ""        // ค่าเริ่มต้น "ว่าง"
-                    // Server อาจต้องการ field อื่นๆ อีก แต่เราส่งเท่าที่จำเป็น
-                }
+            const payloadData = {
+                SearchVal: hn,      // HN ที่รับมา
+                SearchFld: "hn",  // ประเภทการค้นหา
+                DateOpt: "3",     // ค่าเริ่มต้น "3 วัน"
+                LabGrp: "0",      // ค่าเริ่มต้น "ทั้งหมด"
+                Sts: "3",         // ค่าเริ่มต้น "มีผล"
+                WardNo: ""        // ค่าเริ่มต้น "ว่าง"
             };
+
+            // ---- [ส่วนที่แก้ไข] ----
+            // สร้างข้อมูลแบบ Form-encoded
+            const formData = new URLSearchParams();
+            formData.append("cmd", "RequestSearch");
+            formData.append("data", JSON.stringify(payloadData)); // ส่ง object data เป็น string
+            // ---- [จบส่วนที่แก้ไข] ----
 
             try {
                 // 3. ยิง AJAX Request ด้วย 'fetch'
                 const response = await fetch(TARGET_URL, {
                     method: 'POST',
+                    // ---- [ส่วนที่แก้ไข] ----
                     headers: {
-                        'Content-Type': 'application/json'
-                        // เว็บจริงอาจใช้ 'application/x-www-form-urlencoded'
-                        // แต่ JSON เป็นมาตรฐานกว่า
+                        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
                     },
-                    body: JSON.stringify(payload) // แปลง object เป็น JSON string
+                    body: formData.toString() // แปลง formData เป็น string
+                    // ---- [จบส่วนที่แก้ไข] ----
                 });
 
                 if (!response.ok) {
@@ -87,13 +86,11 @@
                 const data = await response.json();
 
                 // 5. แสดงผล (ถ้าสำเร็จ)
-                // เราเดาโครงสร้างจาก Mng_Respond ใน Search.html ว่าผลลัพธ์อยู่ใน data.RequestList
                 console.log("Full response:", data);
                 fullResponseDiv.textContent = JSON.stringify(data, null, 2);
 
                 if (data.RequestList && data.RequestList.length > 0) {
                     const patient = data.RequestList[0];
-                    // (เราต้องเดาชื่อ field เช่น PatName, HN)
                     const patientName = patient.PatName || "N/A"; 
                     const patientHN = patient.HN || hn;
 
@@ -101,7 +98,7 @@
                     resultDiv.textContent = `สำเร็จ (เชื่อมต่อได้!): ${patientName} (HN: ${patientHN})`;
                 } else {
                     resultDiv.className = "error";
-                    resultDiv.textContent = "สำเร็จ แต่ Server ไม่คืนข้อมูลคนไข้ (อาจต้องส่ง HN ให้ถูก)";
+                    resultDiv.textContent = "สำเร็จ แต่ Server ไม่คืนข้อมูลคนไข้";
                 }
 
             } catch (error) {
@@ -110,7 +107,6 @@
                 resultDiv.className = "error";
                 resultDiv.textContent = "ยิง AJAX ล้มเหลว (ตามคาด): " + error.message;
                 
-                // นี่คือข้อความ Error ที่คุณจะเห็นใน Console
                 fullResponseDiv.textContent = "ดูใน Console (F12) จะเห็น Error 'CORS policy' ครับ";
             } finally {
                 searchButton.disabled = false;
