@@ -3,106 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ทดสอบดึงชื่อจาก HN</title>
-    
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
+    <title>ทดสอบยิง AJAX (จริง)</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; }
-        input { font-size: 1.2em; padding: 5px; }
-        button { font-size: 1.2em; padding: 5px; }
-        #result { margin-top: 20px; }
-        #lblFullname { color: blue; font-weight: bold; font-size: 1.5em; }
-        .error { color: red; }
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .container { max-width: 500px; margin: auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        input[type="text"] { width: calc(100% - 90px); padding: 8px; font-size: 16px; margin-right: 10px; }
+        button { padding: 8px 12px; font-size: 16px; cursor: pointer; }
+        #result { margin-top: 20px; padding: 15px; border-radius: 5px; word-wrap: break-word; }
+        .loading { background-color: #eee; color: #555; }
+        .error { background-color: #ffeeee; color: #cc0000; }
+        .success { background-color: #e0ffe0; color: #006600; }
     </style>
 </head>
 <body>
 
-    <h2>ทดสอบดึงชื่อจาก HN (MNRH Lab)</h2>
-    
-    <div>
-        <label for="txtHN">ใส่ HN:</label>
-        <input type="text" id="txtHN" placeholder="พิมพ์ HN...">
-        <button id="btnSearch">ค้นหา</button>
-    </div>
+    <div class="container">
+        <h2>ทดสอบยิง AJAX ไปยัง Server จริง</h2>
+        
+        <label for="hnInput">กรอก HN:</label>
+        <input type="text" id="hnInput" placeholder="HN คนไข้">
+        <button id="searchButton">ยิง Request</button>
 
-    <div id="result">
-        <h3>ชื่อ-นามสกุล: 
-            <span id="lblFullname">...รอการค้นหา...</span>
-        </h3>
+        <div id="result">โปรดกรอก HN แล้วกดปุ่ม</div>
+        <div id="full-response" style="margin-top: 10px; font-size: 0.8em; color: #666;"></div>
     </div>
 
     <script>
-        // รอให้หน้าเว็บโหลดเสร็จก่อน
-        $(document).ready(function() {
+        const hnInput = document.getElementById("hnInput");
+        const searchButton = document.getElementById("searchButton");
+        const resultDiv = document.getElementById("result");
+        const fullResponseDiv = document.getElementById("full-response");
 
-            // --- นี่คือฟังก์ชัน getFullName ที่แกะมาจากไฟล์ของคุณ ---
-            function getFullName(ahn) {
-                
-                // *** นี่คือส่วนที่สำคัญที่สุด ***
-                // เราต้องระบุ URL เต็มไปยังไฟล์ PHP ที่อยู่บนเซิร์ฟเวอร์
-                var scriptUrl = "http://192.168.41.110/labmnrhs/sql/getFullname.php";
+        // นี่คือ URL Endpoint จริงที่เราวิเคราะห์จาก Search.html
+        const TARGET_URL = "http://49.231.247.56/iReportAG/Result/Mng_Action/Search";
 
-                // แจ้งผู้ใช้ว่ากำลังโหลด
-                $("#lblFullname").text("กำลังค้นหา...").removeClass("error");
+        // เมื่อปุ่มถูกคลิก
+        searchButton.addEventListener("click", async () => {
+            const hn = hnInput.value.trim();
+            if (!hn) {
+                resultDiv.className = "error";
+                resultDiv.textContent = "กรุณากรอก HN";
+                return;
+            }
 
-                // ใช้ $.post (AJAX) เพื่อส่งคำขอไปที่เซิร์ฟเวอร์
-                $.post(scriptUrl, {
-                    ahn: ahn // ส่งค่า 'ahn' ที่เราได้มา
-                }, function(result) {
-                    // --- เมื่อเซิร์ฟเวอร์ตอบกลับมา (success) ---
-                    try {
-                        // แปลงข้อความที่ได้กลับมา (JSON) ให้เป็น Object
-                        var obj = jQuery.parseJSON(result);
-                        var aFullname = [];
+            // 1. แสดงสถานะกำลังโหลด
+            resultDiv.className = "loading";
+            resultDiv.textContent = "กำลังยิง AJAX ไปที่ " + TARGET_URL;
+            fullResponseDiv.textContent = "";
+            searchButton.disabled = true;
 
-                        if (obj && obj.length > 0) {
-                            // ดึงชื่อจากข้อมูลที่ได้
-                            for (var i in obj) {
-                                aFullname.push(obj[i].ptName);
-                            }
-                            // แสดงชื่อในช่อง lblFullname
-                            $("#lblFullname").text(aFullname[0]);
-                        } else {
-                            // ถ้าค้นหาแต่ไม่เจอข้อมูล
-                            $("#lblFullname").text("--- ไม่พบข้อมูล HN นี้ ---").addClass("error");
-                        }
-                    } catch (e) {
-                        // ถ้าไฟล์ PHP ส่งค่ากลับมาผิดพลาด (ไม่ใช่ JSON)
-                        $("#lblFullname").text("เกิดข้อผิดพลาด: ไม่สามารถอ่านข้อมูลได้").addClass("error");
-                        console.error("Error parsing JSON:", result);
-                    }
-                })
-                .fail(function() {
-                    // --- หากการเชื่อมต่อล้มเหลว (fail) ---
-                    // เช่น พิมพ์ URL ผิด, เซิร์ฟเวอร์ปิด, หรือไม่ได้อยู่ในเครือข่าย
-                    $("#lblFullname").text("--- เชื่อมต่อเซิร์ฟเวอร์ไม่ได้ ---").addClass("error");
-                    alert("ไม่สามารถติดต่อเซิร์ฟเวอร์ที่: " + scriptUrl + "\nโปรดตรวจสอบว่าคุณเชื่อมต่อเครือข่าย 192.168.41.xx ถูกต้อง");
-                });
+            // 2. สร้าง Payload (ข้อมูลที่จะส่ง)
+            // เราจำลองโครงสร้างข้อมูลจากฟังก์ชัน Cond_Cmd และ Mng_Action ใน Search.html
+            const payload = {
+                cmd: "RequestSearch", // คำสั่งที่ Server ต้องการ
+                data: {
+                    SearchVal: hn,      // HN ที่รับมา
+                    SearchFld: "hn",  // ประเภทการค้นหา (ในเว็บจริงคือ Dropdown)
+                    DateOpt: "3",     // ค่าเริ่มต้น "3 วัน" จาก Search.html
+                    LabGrp: "0",      // ค่าเริ่มต้น "ทั้งหมด"
+                    Sts: "3",         // ค่าเริ่มต้น "มีผล"
+                    WardNo: ""        // ค่าเริ่มต้น "ว่าง"
+                    // Server อาจต้องการ field อื่นๆ อีก แต่เราส่งเท่าที่จำเป็น
+                }
             };
-            // --- จบฟังก์ชัน getFullName ---
 
+            try {
+                // 3. ยิง AJAX Request ด้วย 'fetch'
+                const response = await fetch(TARGET_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                        // เว็บจริงอาจใช้ 'application/x-www-form-urlencoded'
+                        // แต่ JSON เป็นมาตรฐานกว่า
+                    },
+                    body: JSON.stringify(payload) // แปลง object เป็น JSON string
+                });
 
-            // --- ตัวดักจับเหตุการณ์ (Triggers) ---
+                if (!response.ok) {
+                    throw new Error(`Server ตอบกลับมามีปัญหา: ${response.status}`);
+                }
 
-            // 1. เมื่อคลิกปุ่ม "ค้นหา"
-            $("#btnSearch").click(function() {
-                var ahn_input = $("#txtHN").val(); // ดึงค่า HN จากช่อง input
-                if (ahn_input) { // ตรวจสอบว่าไม่เป็นค่าว่าง
-                    getFullName(ahn_input); // เรียกฟังก์ชันเพื่อเริ่มค้นหา
+                // 4. แปลงคำตอบกลับเป็น JSON
+                const data = await response.json();
+
+                // 5. แสดงผล (ถ้าสำเร็จ)
+                // เราเดาโครงสร้างจาก Mng_Respond ใน Search.html ว่าผลลัพธ์อยู่ใน data.RequestList
+                console.log("Full response:", data);
+                fullResponseDiv.textContent = JSON.stringify(data, null, 2);
+
+                if (data.RequestList && data.RequestList.length > 0) {
+                    const patient = data.RequestList[0];
+                    // (เราต้องเดาชื่อ field เช่น PatName, HN)
+                    const patientName = patient.PatName || "N/A"; 
+                    const patientHN = patient.HN || hn;
+
+                    resultDiv.className = "success";
+                    resultDiv.textContent = `สำเร็จ (เชื่อมต่อได้!): ${patientName} (HN: ${patientHN})`;
                 } else {
-                    $("#lblFullname").text("...รอการค้นหา...").removeClass("error");
+                    resultDiv.className = "error";
+                    resultDiv.textContent = "สำเร็จ แต่ Server ไม่คืนข้อมูลคนไข้ (อาจต้องส่ง HN ให้ถูก)";
                 }
-            });
 
-            // 2. เมื่อกด "Enter" ในช่อง input
-            $('#txtHN').on("keypress", function(e) {
-                if (e.keyCode == 13) { // 13 คือรหัสปุ่ม Enter
-                    // สั่งให้ปุ่ม "ค้นหา" ถูกคลิก
-                    $("#btnSearch").click();
-                }
-            });
-
+            } catch (error) {
+                // 6. แสดงผล (ถ้าล้มเหลว - ซึ่งเป็นสิ่งที่เราคาดหวัง)
+                console.error("Fetch Error:", error);
+                resultDiv.className = "error";
+                resultDiv.textContent = "ยิง AJAX ล้มเหลว (ตามคาด): " + error.message;
+                
+                // นี่คือข้อความ Error ที่คุณจะเห็นใน Console
+                fullResponseDiv.textContent = "ดูใน Console (F12) จะเห็น Error 'CORS policy' ครับ";
+            } finally {
+                searchButton.disabled = false;
+            }
         });
     </script>
 
