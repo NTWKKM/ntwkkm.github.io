@@ -168,11 +168,18 @@
       color: #FBE9D0; /* Night: ตัวอักษรครีม */
       border-color: #FBE9D0;
     }
-
     /* Media Query (ปรับปุ่มบนจอมือถือ) */
-    @media (max-width: 640px) { 
+    /* 1. ขยายขอบเขตจาก 640px เป็น 768px ให้ครอบคลุมแท็บเล็ตแนวตั้ง */
+    @media (max-width: 768px) { 
       header { padding: 20px 15px 15px 15px; }
       h1 { font-size: 1.8em; }
+
+      /* 2. ลดขนาด .subtitle และปรับ line-height เล็กน้อยในจอมือถือ */
+      .subtitle {
+        font-size: 1.0em; /* ลดขนาดลงจาก 1.1em */
+        line-height: 1.4;
+      }
+      
       .card { 
         padding: 20px;
         margin: 20px;
@@ -181,6 +188,7 @@
         grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
       }
       #theme-toggle {
+        /* (โค้ดเดิมของคุณส่วนนี้ถูกต้องแล้วครับ) */
         /* ย้ายปุ่มไปไว้ตรงกลางใต้ Subtitle บนจอมือถือ */
         position: static; 
         margin-top: 15px;
