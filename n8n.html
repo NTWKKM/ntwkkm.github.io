@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>วิธีติดตั้ง n8n บน Fly.io แบบสมบูรณ์ (Stable Production Setup)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        h2 { color: #e67e22; margin-top: 30px; }
+        h3 { color: #34495e; }
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: "Consolas", "Monaco", monospace;
+            color: #e74c3c;
+        }
+        pre {
+            background-color: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: 0.9em;
+        }
+        .note {
+            background-color: #e8f6f3;
+            border-left: 5px solid #1abc9c;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .warning {
+            background-color: #fdebd0;
+            border-left: 5px solid #e67e22;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <article>
+        <h1>คู่มือติดตั้ง n8n บน Fly.io แบบ Stable (Database แยก)</h1>
+        <p>คู่มือนี้สรุปขั้นตอนการติดตั้ง n8n บน Fly.io โดยใช้วิธีการสร้าง Dockerfile เอง และเชื่อมต่อกับ Postgres Database แยก เพื่อความเสถียรสูงสุดและป้องกันปัญหาข้อมูลหาย (วิธีนี้แก้ปัญหา Connection Refused ที่พบบ่อยได้ 100%)</p>
+
+        <h2>1. เตรียมความพร้อม</h2>
+        <p>สร้างโฟลเดอร์สำหรับโปรเจกต์และล็อกอินเข้าสู่ Fly.io</p>
+        <pre>
+mkdir my-n8n-fly
+cd my-n8n-fly
+flyctl auth login</pre>
+
+        <h2>2. สร้างไฟล์ Config ที่จำเป็น</h2>
+        
+        <h3>2.1 สร้างไฟล์ <code>Dockerfile</code></h3>
+        <p>สร้างไฟล์ชื่อ <code>Dockerfile</code> (ไม่มีนามสกุล) เพื่อกำหนด Image ที่จะใช้</p>
+        <pre>
+FROM n8nio/n8n:latest
+USER root
+# ติดตั้ง Playwright หรือ Package เสริมที่ต้องการ (ถ้าไม่ใช้ลบได้)
+RUN npm install -g playwright
+USER node</pre>
+
+        <h3>2.2 สร้างไฟล์ <code>fly.toml</code></h3>
+        <p>สร้างไฟล์ <code>fly.toml</code> เพื่อกำหนดการตั้งค่า Server <strong>(อย่าลืมเปลี่ยนชื่อ app และ region)</strong></p>
+        <pre>
+# fly.toml
+app = 'ชื่อแอพของคุณ-n8n' 
+primary_region = 'hkg' # หรือ lax, sin (แนะนำ hkg/lax เพื่อความเสถียร)
+
+[build]
+  dockerfile = "Dockerfile"
+
+[[mounts]]
+  source = 'n8n_vol'
+  destination = '/home/node/.n8n'
+  auto_extend_size_threshold = 80
+  auto_extend_size_increment = "1GB"
+  auto_extend_size_limit = "5GB"
+
+[http_service]
+  internal_port = 5678
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ['app']
+
+  [http_service.concurrency]
+    type = 'connections'
+    hard_limit = 25
+    soft_limit = 20
+
+[[vm]]
+  memory = '1024mb' 
+  cpu_kind = 'shared'
+  cpus = 1</pre>
+
+        <h2>3. สร้าง Infrastructure บน Fly.io</h2>
+        <p>รันคำสั่งต่อไปนี้ทีละบรรทัดเพื่อสร้าง App, Volume และ Database</p>
+        
+        <pre>
+# 1. สร้าง App ในระบบ (ยังไม่ Deploy)
+flyctl apps create ชื่อแอพของคุณ-n8n --org personal
+
+# 2. สร้าง Volume สำหรับเก็บข้อมูลถาวร
+flyctl volumes create n8n_vol --region hkg --size 1 --app ชื่อแอพของคุณ-n8n
+
+# 3. สร้างฐานข้อมูล Postgres
+flyctl postgres create --name ชื่อแอพของคุณ-n8n-db --region hkg --vm-size shared-cpu-1x --volume-size 1
+
+# 4. เชื่อมต่อ Database เข้ากับ App
+flyctl postgres attach --app ชื่อแอพของคุณ-n8n ชื่อแอพของคุณ-n8n-db</pre>
+
+        <h2>4. การตั้งค่า Secrets (จุดสำคัญที่สุด!)</h2>
+        <p class="warning"><strong>เทคนิคสำคัญ:</strong> เราจะไม่ใช้ Connection String รวม แต่จะแยกตัวแปร Database ออกเป็นส่วนๆ เพื่อป้องกันปัญหา n8n เชื่อมต่อ Localhost ผิดพลาด</p>
+
+        <h3>4.1 ดึงข้อมูล User/Password ที่ Fly สร้างให้</h3>
+        <p>รันคำสั่งนี้เพื่อดูค่า Connection String ที่ซ่อนอยู่:</p>
+        <pre>flyctl ssh console --app ชื่อแอพของคุณ-n8n -C 'echo $DATABASE_URL'</pre>
+        <p><em>สิ่งที่คุณจะได้คือ: <code>postgres://User:Password@Hostname:Port/DBName...</code> ให้จดค่า User และ Password ไว้</em></p>
+
+        <h3>4.2 ตั้งค่า Secrets แบบแยกตัวแปร</h3>
+        <p>แทนที่ค่าใน <code>&lt;...&gt;</code> ด้วยข้อมูลจริงที่คุณได้มา แล้วรันคำสั่งนี้:</p>
+        <pre>
+flyctl secrets set \
+  N8N_HOST='ชื่อแอพของคุณ-n8n.fly.dev' \
+  N8N_PORT='5678' \
+  N8N_PROTOCOL='https' \
+  WEBHOOK_URL='https://ชื่อแอพของคุณ-n8n.fly.dev' \
+  GENERIC_TIMEZONE='Asia/Bangkok' \
+  N8N_ENCRYPTION_KEY='ตั้งรหัสผ่านสุ่มยาวๆตรงนี้' \
+  DB_TYPE=postgresdb \
+  DB_POSTGRESDB_HOST=ชื่อแอพของคุณ-n8n-db.internal \
+  DB_POSTGRESDB_PORT=5432 \
+  DB_POSTGRESDB_DATABASE=ชื่อแอพของคุณ-n8n \
+  DB_POSTGRESDB_USER=&lt;User_ที่ได้จากข้อ4.1&gt; \
+  DB_POSTGRESDB_PASSWORD=&lt;Password_ที่ได้จากข้อ4.1&gt; \
+  --app ชื่อแอพของคุณ-n8n</pre>
+
+        <p class="note"><strong>สังเกต:</strong> เราใช้ Host ลงท้ายด้วย <code>.internal</code> เสมอ เพื่อการเชื่อมต่อที่ถูกต้องภายใน Fly.io</p>
+
+        <h2>5. Deploy และเริ่มใช้งาน</h2>
+        <p>เมื่อตั้งค่าทุกอย่างเสร็จสิ้น สั่ง Deploy ได้เลย:</p>
+        <pre>flyctl deploy --app ชื่อแอพของคุณ-n8n</pre>
+
+        <p>เมื่อเสร็จสิ้น สามารถเปิดใช้งานได้ที่:</p>
+        <pre>flyctl open --app ชื่อแอพของคุณ-n8n</pre>
+
+    </article>
+
+</body>
+</html>
