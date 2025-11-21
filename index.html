@@ -1,176 +1,362 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>วิธีติดตั้ง n8n บน Fly.io แบบฟรีตลอดชีพ (Free Tier Optimized)</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fcfcfc;
-        }
-        h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        h2 { color: #e67e22; margin-top: 35px; border-left: 4px solid #e67e22; padding-left: 10px; }
-        h3 { color: #34495e; margin-top: 25px; }
-        code {
-            background-color: #f0f2f5;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: "Consolas", "Monaco", monospace;
-            color: #c0392b;
-            font-size: 0.95em;
-        }
-        pre {
-            background-color: #2d3436;
-            color: #dfe6e9;
-            padding: 15px;
-            border-radius: 8px;
-            overflow-x: auto;
-            font-family: "Consolas", "Monaco", monospace;
-            font-size: 0.9em;
-            margin: 10px 0;
-        }
-        .note {
-            background-color: #e8f6f3;
-            border-left: 5px solid #1abc9c;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .warning {
-            background-color: #fff3cd;
-            border-left: 5px solid #ffc107;
-            padding: 15px;
-            margin: 20px 0;
-        }
-        .highlight { color: #d35400; font-weight: bold; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Welcome to NTWKKM GitHub Pages</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* --- Day Theme (Default) --- */
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #244885; 
+      min-height: 100vh;
+      color: #FBE9D0; 
+      line-height: 1.6;
+      /* เพิ่ม transition ให้การเปลี่ยนสีนุ่มนวล */
+      transition: background-color 0.3s, color 0.3s;
+    }
+    header {
+      background: #244885; 
+      color: white; 
+      text-align: center;
+      padding: 25px 20px 20px 20px; 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+      border-bottom: 4px solid #FBE9D0;
+      position: relative; /* เพื่อให้ปุ่ม Toggle อยู่ถูกที่ */
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    h1 {
+      font-size: 2.2em; 
+      margin: 0 0 10px 0;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .subtitle {
+      font-size: 1.1em; 
+      font-weight: 300;
+      color: #FBE9D0; 
+      opacity: 0.9;
+      transition: color 0.3s;
+    }
+    .card {
+      max-width: 1000px; 
+      margin: 30px auto;
+      background: #FBE9D0; 
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+      padding: 30px;
+      text-align: left;
+      transition: background-color 0.3s;
+    }
+    h2 {
+      color: #871F41; 
+      font-size: 1.5em;
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-weight: 600;
+      border-bottom: 2px solid #e6dacb; 
+      padding-bottom: 10px;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 30px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px; 
+    }
+    li {
+      margin-bottom: 0; 
+      font-size: 1.05em;
+    }
+    .card ul li a {
+      display: block;
+      color: #333;
+      background: #F5F5F5; 
+      text-decoration: none;
+      padding: 15px 20px;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+      font-weight: 500;
+      border: 1px solid #e0e0e0; 
+      height: 100%; 
+      box-sizing: border-box; 
+    }
+    .card ul li a:hover {
+      color: #fff;
+      background: #244885; 
+      border-color: #244885;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(36, 72, 133, 0.3);
+    }
+    .description {
+      font-size: 1.05em;
+      color: #555;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #e6dacb;
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .footer {
+      text-align: center;
+      margin: 50px auto 30px auto;
+      font-size: 0.9em;
+      color: #90AEAD;
+      transition: color 0.3s;
+    }
+    
+    /* --- 1. สไตล์สำหรับปุ่มสลับธีม --- */
+    #theme-toggle {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      background: #FBE9D0; /* Day: พื้นครีม */
+      color: #244885; /* Day: ตัวอักษรน้ำเงิน */
+      border: 1px solid #244885;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9em;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
+    #theme-toggle:hover {
+      opacity: 0.8;
+    }
+
+    /* --- 2. CSS สำหรับ Night Mode --- */
+    body.night {
+      background: #1a2b48; /* Darker Blue */
+    }
+    body.night header {
+      background: #1a2b48;
+      border-bottom-color: #3a4b69; /* Muted Darker Border */
+    }
+    body.night .subtitle {
+      color: #90AEAD; /* Muted Teal */
+    }
+    body.night .card {
+      background: #244885; /* Card becomes Deep Blue */
+    }
+    body.night .card h2 {
+      color: #FBE9D0; /* Cream Text */
+      border-bottom-color: #3a4b69;
+    }
+    body.night .card ul li a {
+      background: #1a2b48; /* Button is Darkest Blue */
+      color: #FBE9D0; /* Cream Text */
+      border-color: #3a4b69; /* Muted Border */
+    }
+    body.night .card ul li a:hover {
+      background: #FBE9D0; /* Hover is Cream */
+      color: #1a2b48; /* Text is Darkest Blue */
+      border-color: #FBE9D0;
+      box-shadow: 0 4px 10px rgba(251, 233, 208, 0.2);
+    }
+    body.night .description {
+      color: #FBE9D0; /* Cream Text */
+      border-top-color: #3a4b69;
+    }
+    body.night .footer {
+      color: #90AEAD; /* Muted Teal */
+    }
+    /* ปุ่ม Toggle ใน Night Mode */
+    body.night #theme-toggle {
+      background: #3a4b69; /* Night: พื้นสีเทาเข้ม */
+      color: #FBE9D0; /* Night: ตัวอักษรครีม */
+      border-color: #FBE9D0;
+    }
+    /* Media Query (ปรับปุ่มบนจอมือถือ) */
+    /* 1. ขยายขอบเขตจาก 640px เป็น 768px ให้ครอบคลุมแท็บเล็ตแนวตั้ง */
+    @media (max-width: 768px) { 
+      header { padding: 20px 15px 15px 15px; }
+      h1 { font-size: 1.8em; }
+
+      /* 2. ลดขนาด .subtitle และปรับ line-height เล็กน้อยในจอมือถือ */
+      .subtitle {
+        font-size: 1.0em; /* ลดขนาดลงจาก 1.1em */
+        line-height: 1.4;
+      }
+      
+      .card { 
+        padding: 20px;
+        margin: 20px;
+      }
+      ul {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+      }
+      #theme-toggle {
+        /* (โค้ดเดิมของคุณส่วนนี้ถูกต้องแล้วครับ) */
+        /* ย้ายปุ่มไปไว้ตรงกลางใต้ Subtitle บนจอมือถือ */
+        position: static; 
+        margin-top: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <h1>Welcome to NTWKKM GitHub Pages</h1>
+    <div class="subtitle">Your hub for bookmarks, study resources, and projects</div>
+    <button id="theme-toggle">Night Mode</button>
+  </header>
 
-    <article>
-        <h1>คู่มือติดตั้ง n8n บน Fly.io แบบประหยัดงบ (ใช้ Cron-job.org กระตุ้น)</h1>
-        <p>คู่มือนี้จะสอนวิธีติดตั้ง n8n โดยใช้ Database แยกเพื่อความเสถียร และตั้งค่าให้ Server <strong>"หลับ"</strong> เมื่อไม่มีการใช้งาน เพื่อให้อยู่ในงบ Free Tier ($5/เดือน) โดยใช้ Cron-job.org เป็นตัวปลุกให้ทำงานตามเวลา</p>
+  <div class="card">
+    <h2>Featured Links & Projects</h2>
+    <ul>
+      <li>
+        <a href="https://ntwkkm.github.io/Toxico/" target="_blank">
+          Toxico Course Bookmarks
+        </a>
+      </li>
+      <li>
+         <a href="https://acetatox.netlify.app/" target="_blank">
+          Toxico_paracetamol (App)
+        </a>
+      </li>
+      <li>
+        <a href="https://ntwkkm.github.io/paracetamol/2023%20update%20acetaminophen%20poisoning%20management.pdf" target="_blank">
+          Toxico_paracetamol (PDF)
+        </a>
+      </li>
+      <li>
+         <a href="https://cpr-mnrh.vercel.app/" target="_blank">
+          MNRH CPR Recorder
+         </a>
+      </li>
+      <li>
+         <a href="https://cpr-mnrh.vercel.app/cpr_archrive" target="_blank">
+          CPR Archrive
+         </a>
+      </li>  
+      <li>
+        <a href="https://ntwkkm.github.io/QRcodegenarator/index.html" target="_blank">
+          QR code generator
+        </a>
+      </li>
+      <li><a href="https://tomato-worthy-basilisk-257.mypinata.cloud/ipfs/bafybeiaykg3ekbgfjt2qovenj6qffnh5g7ymhw5gquuz2hcrwycsq4ehe4/" target="_blank">
+        Ref - R3 icu nov ESICM</a></li>
+      <li>
+        <a href="https://ntwkkm.github.io/present/ESICM%20part%202%20%5BICU-%20Nov-Nattawit%202%5D.pdf " target="_blank">
+          ESICM II[ICU- Nov-Nattawit]
+        </a>
+      </li>
+      <li>
+        <a href="https://ntwkkm.github.io/present/ESICM%20part%202%20%5BAutosaved%5D.pptx" target="_blank">
+          PPT ESICM II[ICU- Nov-Nattawit]
+        </a>
+      </li> 
+      <li>
+        <a href="https://ntwkkm.github.io/present/Summary%20of%20Landmark%20Studies%20(Fluid).pdf" target="_blank">
+          LANDMARK STUDIES FLUID
+        </a>
+      </li> 
+      <li>
+        <a href="https://tomato-worthy-basilisk-257.mypinata.cloud/ipfs/bafybeidcslrmerg5bsanr3rfiq45bpjdsd5aejfoq3f5ncztzsoo4xruhe/ESICM%20guidelines%20on%20circulatory%20shock%20and%20hemodynamic%20monitoring%202025.pdf" target="_blank">
+          ESICM on circulatory shock 2025
+        </a>
+      </li>
+      <li>
+        <a href="https://tomato-worthy-basilisk-257.mypinata.cloud/ipfs/bafybeidcslrmerg5bsanr3rfiq45bpjdsd5aejfoq3f5ncztzsoo4xruhe/" target="_blank">
+          ESICM 2024-2025
+        </a>
+      </li>
+      <li>
+        <a href="https://ntwkkm.github.io/n8n.html" target="_blank">
+          n8n with fly.io
+        </a>
+      </li>
+    </ul>
 
-        <div class="note">
-            <strong>หลักการทำงาน:</strong> Server จะปิดตัวเองเมื่อไม่มีงาน และจะตื่นขึ้นมาเมื่อเราส่ง Webhook เข้าไปกระตุ้น ทำให้ไม่เปลืองชั่วโมงการทำงาน
-        </div>
+    <h2>Completed Projects</h2>
+    <ul>
+      <li>
+        <a href="https://rt-pa-mnrh-v4.vercel.app/" target="_blank">
+          rtPA-MNRH-V4-vercel
+        </a>
+      </li>
+      <li>
+        <a href="https://rtpa-mnrh.replit.app/" target="_blank">
+          rtPA-MNRH-V2-replit
+        </a>
+      </li>
+      <li>
+        <a href="https://rtpa-mnrh-v6-builder.netlify.app/" target="_blank">
+          rtPA-MNRH-V6-netilfy
+        </a>
+      </li>
+      <li>
+        <a href="https://rtpamnrh.vercel.app/" target="_blank">
+          rtPA-MNRH-V1-vercel
+        </a>
+      </li>
+      <li>
+        <a href="https://mnrhrefer.vercel.app/" target="_blank">
+          ED-MNRH-refer-vercel
+        </a>
+      </li>
+      <li>
+        <a href="https://er-mnrh-consult.replit.app/" target="_blank">
+          ED-MNRH-consult-replit
+        </a>
+      </li>
+      <li>
+        <a href="https://acetatox.netlify.app/" target="_blank">
+          Acetatox-netlify
+        </a>
+      </li>
+        <li>
+        <a href="https://shocksimulation.vercel.app/" target="_blank">
+          Shock simulation
+        </a>
+      </li>
+      
+    </ul>
 
-        <h2>1. เตรียมความพร้อม</h2>
-        <pre>
-mkdir my-n8n-fly
-cd my-n8n-fly
-flyctl auth login</pre>
+    <div class="description">
+      This GitHub Pages site is a repository of medical learning resources, created to support anyone interested in healthcare education.
+    </div>
+  </div>
+  
+  <div class="footer">
+    &copy; 2025 NTWKKM &nbsp;|&nbsp; Powered by GitHub Pages
+  </div>
 
-        <h2>2. สร้างไฟล์ Config</h2>
-        
-        <h3>2.1 สร้างไฟล์ <code>Dockerfile</code></h3>
-        <pre>
-FROM n8nio/n8n:latest
-USER root
-RUN npm install -g playwright
-USER node</pre>
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
 
-        <h3>2.2 สร้างไฟล์ <code>fly.toml</code> (ตั้งค่า Sleep Mode)</h3>
-        <p class="warning">จุดสำคัญคือการตั้งค่า <code>min_machines_running = 0</code> เพื่ออนุญาตให้เครื่องหยุดทำงานได้</p>
-        <pre>
-# fly.toml
-app = 'ชื่อแอพของคุณ-n8n' 
-primary_region = 'hkg' # แนะนำ hkg (ฮ่องกง) หรือ lax (LA)
+    // ฟังก์ชันสำหรับตั้งค่าธีมและปุ่ม
+    function setTheme(theme) {
+      if (theme === 'night') {
+        body.classList.add('night');
+        localStorage.setItem('theme', 'night');
+        themeToggle.textContent = 'Day Mode'; // อัปเดตข้อความปุ่ม
+      } else {
+        body.classList.remove('night');
+        localStorage.setItem('theme', 'day');
+        themeToggle.textContent = 'Night Mode'; // อัปเดตข้อความปุ่ม
+      }
+    }
 
-[build]
-  dockerfile = "Dockerfile"
+    // เมื่อหน้าโหลด: ตรวจสอบธีมที่บันทึกไว้
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'night') {
+      setTheme('night');
+    } else {
+      setTheme('day'); // ค่าเริ่มต้นคือ Day
+    }
 
-[[mounts]]
-  source = 'n8n_vol'
-  destination = '/home/node/.n8n'
-  auto_extend_size_threshold = 80
-  auto_extend_size_increment = "1GB"
-  auto_extend_size_limit = "5GB"
-
-[http_service]
-  internal_port = 5678
-  force_https = true
-  auto_stop_machines = 'stop'   # สั่งให้หยุดเมื่อไม่มีคนใช้
-  auto_start_machines = true    # สั่งให้ตื่นเมื่อมี Request เข้ามา
-  min_machines_running = 0      # อนุญาตให้ปิดเครื่องเหลือ 0 ได้
-  processes = ['app']
-
-  [http_service.concurrency]
-    type = 'connections'
-    hard_limit = 25
-    soft_limit = 20
-
-[[vm]]
-  memory = '1024mb' 
-  cpu_kind = 'shared'
-  cpus = 1</pre>
-
-        <h2>3. สร้าง Infrastructure</h2>
-        <pre>
-# 1. สร้าง App
-flyctl apps create ชื่อแอพของคุณ-n8n --org personal
-
-# 2. สร้าง Volume
-flyctl volumes create n8n_vol --region hkg --size 1 --app ชื่อแอพของคุณ-n8n
-
-# 3. สร้าง Database
-flyctl postgres create --name ชื่อแอพของคุณ-n8n-db --region hkg --vm-size shared-cpu-1x --volume-size 1
-
-# 4. เชื่อมต่อ Database (เพื่อเอา User/Pass)
-flyctl postgres attach --app ชื่อแอพของคุณ-n8n ชื่อแอพของคุณ-n8n-db</pre>
-
-        <h2>4. ตั้งค่า Secrets (แยกตัวแปร DB เพื่อความชัวร์)</h2>
-        <p>1. รันคำสั่งเพื่อดูรหัสผ่าน: <code>flyctl ssh console --app ชื่อแอพของคุณ-n8n -C 'echo $DATABASE_URL'</code></p>
-        <p>2. นำ User/Password ที่ได้ มาใส่ในคำสั่งด้านล่างนี้:</p>
-        <pre>
-flyctl secrets set \
-  N8N_HOST='ชื่อแอพของคุณ-n8n.fly.dev' \
-  N8N_PORT='5678' \
-  N8N_PROTOCOL='https' \
-  WEBHOOK_URL='https://ชื่อแอพของคุณ-n8n.fly.dev' \
-  GENERIC_TIMEZONE='Asia/Bangkok' \
-  N8N_ENCRYPTION_KEY='ใส่รหัสสุ่มยาวๆ' \
-  DB_TYPE=postgresdb \
-  DB_POSTGRESDB_HOST=ชื่อแอพของคุณ-n8n-db.internal \
-  DB_POSTGRESDB_PORT=5432 \
-  DB_POSTGRESDB_DATABASE=ชื่อแอพของคุณ-n8n \
-  DB_POSTGRESDB_USER=&lt;User_ที่ได้มา&gt; \
-  DB_POSTGRESDB_PASSWORD=&lt;Password_ที่ได้มา&gt; \
-  --app ชื่อแอพของคุณ-n8n</pre>
-
-        <h2>5. Deploy และเริ่มใช้งาน</h2>
-        <pre>flyctl deploy --app ชื่อแอพของคุณ-n8n</pre>
-
-        <h2>6. วิธีตั้งค่า Cron-job.org (สำคัญมาก!)</h2>
-        <p>เนื่องจากเครื่องจะ "หลับ" เราจึงใช้ Node <code>Schedule Trigger</code> ใน n8n ไม่ได้ (เพราะนาฬิกาจะหยุดเดิน) เราต้องใช้วิธีนี้แทน:</p>
-        
-        <h3>ใน n8n:</h3>
-        <ol>
-            <li>สร้าง Workflow ใหม่</li>
-            <li>ใช้ Node <strong>Webhook</strong> เป็นตัวเริ่ม (Start Node)</li>
-            <li>ตั้ง Method เป็น <code>GET</code></li>
-            <li>Copy <strong>Production URL</strong> (เช่น <code>https://.../webhook/...</code>)</li>
-            <li>กด <strong>Active</strong> Workflow ไว้</li>
-        </ol>
-
-        <h3>ใน Cron-job.org:</h3>
-        <ol>
-            <li>สมัครสมาชิกและสร้าง Cronjob ใหม่</li>
-            <li>ใส่ URL ที่ได้จาก n8n ลงไป</li>
-            <li>ตั้งเวลาที่ต้องการ (เช่น ทุก 15 นาที หรือ ทุกวันเวลา 08.00 น.)</li>
-            <li>บันทึก</li>
-        </ol>
-        
-        <div class="note">
-            เมื่อถึงเวลา Cron-job.org จะยิง Request มาที่ Fly.io > เครื่อง n8n จะตื่นขึ้น (ใช้เวลา 5-10 วิ) > รันงานจนเสร็จ > และกลับไปหลับเมื่อไม่มีงานต่อ ประหยัดงบได้ 100%
-        </div>
-
-    </article>
-
+    // เมื่อคลิกปุ่ม: สลับธีม
+    themeToggle.addEventListener('click', () => {
+      if (body.classList.contains('night')) {
+        setTheme('day');
+      } else {
+        setTheme('night');
+      }
+    });
+  </script>
 </body>
 </html>
