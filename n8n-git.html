@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สรุป: n8n Git Sync (Push & Pull) สำหรับ Self-Hosted</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 { color: #2c3e50; text-align: center; margin-bottom: 20px; }
+        .container {
+            display: flex;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 80vh; /* กำหนดความสูงของพื้นที่แสดงผล */
+        }
+        .column {
+            flex: 1;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow-y: auto; /* ทำให้คอลัมน์ Scroll ได้อิสระ */
+        }
+        h2 { color: #e67e22; border-bottom: 2px solid #eee; padding-bottom: 5px; }
+        h3 { color: #34495e; margin-top: 15px; }
+        code, pre {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 8px;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-size: 0.9em;
+            display: block;
+            white-space: pre-wrap;
+        }
+        .warning { color: #c0392b; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>สรุป: n8n DIY Git Sync (Push & Pull)</h1>
+    <p>ระบบนี้ใช้สำหรับการทำงานร่วมกันใน n8n Free Plan โดยใช้ GitHub เป็นศูนย์กลางในการเก็บ Workflow</p>
+
+    <div class="container">
+        <div class="column">
+            <h2>📤 คอลัมน์ที่ 1: PUSH (บันทึกขึ้น GitHub)</h2>
+            <p>นี่คือ Workflow สำหรับ User 1 เพื่อดึง Workflow ทั้งหมดในระบบและบันทึกเป็นไฟล์ JSON ขึ้น GitHub</p>
+
+            <h3>⚙️ 1. โครงสร้าง Node</h3>
+            <p><code>Manual Trigger (หรือ Schedule)</code> → <code>n8n Node (Get Many)</code> → <code>Code in JavaScript (Stringify)</code> → <code>GitHub (Create/Update File)</code></p>
+            
+            <h3>✍️ 2. Code ใน JavaScript (Node Stringify)</h3>
+            <p>แปลง Array ของ Workflows ให้เป็น String สำหรับบันทึกในไฟล์:</p>
+            <pre>
+// ดึง Workflow JSON ทั้งหมดจาก Node ก่อนหน้า
+const workflowArray = $input.item.json; 
+
+// แปลง Array เป็น String JSON พร้อมจัดรูปแบบสวยงาม
+const fileContent = JSON.stringify(workflowArray, null, 2);
+
+return {
+    json: {
+        fileContent: fileContent,
+        fileName: `workflows-backup.json`
+    }
+};</pre>
+            
+            <h3>🔗 3. การตั้งค่า GitHub Node</h3>
+            <ul>
+                <li><strong>Resource:</strong> <code>File</code></li>
+                <li><strong>Operation:</strong> <code>Create or Update</code></li>
+                <li><strong>File Path:</strong> <code>workflows.json</code></li>
+                <li><strong>File Content:</strong> <code>{{ $json.fileContent }}</code></li>
+                <li><span class="warning">***ต้องมั่นใจว่า Token มีสิทธิ์ "Contents: Read and write"***</span></li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h2>⬇️ คอลัมน์ที่ 2: PULL (ดึงมาอัปเดต)</h2>
+            <p>นี่คือ Workflow สำหรับ User 2 เพื่อดึงไฟล์ Backup จาก GitHub และอัปเดตงานทั้งหมดใน n8n ให้เป็นเวอร์ชันล่าสุด</p>
+
+            <h3>⚙️ 1. โครงสร้าง Node</h3>
+            <p><code>Manual Trigger</code> → <code>GitHub (Get File)</code> → <code>Code in JavaScript (Decode & Parse)</code> → <code>Split Out</code> → <code>n8n Node (Update Workflow)</code></p>
+            
+            <h3>✍️ 2. Code ใน JavaScript (Decode & Parse)</h3>
+            <p>แก้ไข Error Base64 ด้วยโค้ดนี้:</p>
+            <pre>
+// 1. ดึงเนื้อหาไฟล์ที่เข้ารหัส Base64
+const contentBase64 = $input.item.json.content; 
+
+// 2. แปลง Base64 กลับเป็น String JSON
+const jsonString = Buffer.from(contentBase64, 'base64').toString('utf8');
+
+// 3. Parse JSON String ให้เป็น Array (ต้องใส่ตัวแปรให้ Node Split Out)
+const workflowArray = JSON.parse(jsonString);
+
+return {
+    json: {
+        // ชื่อ Field ที่ Node Split Out จะเรียกใช้
+        workflowsArray: workflowArray 
+    }
+};</pre>
+
+            <h3>🔗 3. การตั้งค่า Node Split Out</h3>
+            <ul>
+                <li><strong>Node:</strong> <code>Split Out</code></li>
+                <li><strong>Fields To Split Out:</strong> <code>workflowsArray</code> (ใส่แค่ชื่อ Field ตรงๆ)</li>
+            </ul>
+
+            <h3>🔄 4. การตั้งค่า Node n8n (Update)</h3>
+            <p>Node นี้จะทำงานซ้ำตามจำนวน Workflow ที่ถูกแยกออกมา:</p>
+            <ul>
+                <li><strong>Resource:</strong> <code>Workflow</code></li>
+                <li><strong>Operation:</strong> <code>Update</code></li>
+                <li><strong>ID:</strong> <code>{{ $json.id }}</code></li>
+                <li><strong>Workflow Data:</strong> <code>{{ JSON.stringify($json) }}</code></li>
+                <li><strong>Activate Workflow:</strong> <code>{{ $json.active }}</code> (ดึงค่าเปิด/ปิดตามที่ User 1 ตั้งไว้)</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>
