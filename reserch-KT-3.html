@@ -7,19 +7,18 @@
     <style>
         /* --- GLOBAL STYLES --- */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 20px;
-            background-color: #f5f7fa;
+            background-color: #f5f5f5;
             color: #333;
-            line-height: 1.6;
         }
         .container {
             max-width: 1400px;
             margin: 0 auto;
             background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
             min-height: 80vh;
         }
 
@@ -27,50 +26,55 @@
         .nav-tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
-            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 0;
         }
         .nav-btn {
             padding: 15px 30px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: bold;
             cursor: pointer;
-            background-color: transparent;
-            border: none;
-            border-bottom: 4px solid transparent;
-            margin: 0 10px;
+            background-color: #ecf0f1;
+            border: 1px solid #bdc3c7;
+            border-bottom: none;
+            margin: 0 5px;
+            border-radius: 5px 5px 0 0;
             transition: all 0.3s ease;
             color: #7f8c8d;
         }
         .nav-btn:hover {
-            color: #34495e;
-            background-color: #f8f9fa;
+            background-color: #dfe6e9;
         }
         .nav-btn.active {
+            background-color: white;
             color: #2c3e50;
+            border-top: 4px solid;
+            margin-bottom: -2px; /* Covers the bottom border line */
+            padding-bottom: 17px;
         }
         /* Active color for Main Tab */
         .nav-btn.active[onclick*="main"] {
-            border-bottom-color: #3498db;
+            border-top-color: #3498db;
             color: #3498db;
         }
         /* Active color for Regression Tab */
         .nav-btn.active[onclick*="regression"] {
-            border-bottom-color: #e74c3c;
+            border-top-color: #e74c3c;
             color: #e74c3c;
         }
 
         /* --- VIEW CONTROLS --- */
         .view-section {
-            display: none;
-            animation: fadeIn 0.4s ease-in-out;
+            display: none; /* Hidden by default */
+            animation: fadeIn 0.5s;
         }
         .view-section.active {
-            display: block;
+            display: block; /* Show when active */
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* --- COMMON ELEMENTS --- */
@@ -79,267 +83,445 @@
             border-collapse: collapse;
             margin-top: 15px;
             margin-bottom: 30px;
-            font-size: 14px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            font-size: 13px;
         }
         td, th {
-            border: 1px solid #e0e0e0;
-            padding: 12px;
+            border: 1px solid #bdc3c7;
+            padding: 10px;
             text-align: left;
         }
         .notes {
-            background-color: #fff8e1;
-            border-left: 5px solid #ffc107;
-            padding: 20px;
-            margin-top: 25px;
-            border-radius: 0 4px 4px 0;
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 12px;
         }
         .summary {
-            background-color: #e8f5e9;
-            border-left: 5px solid #27ae60;
-            padding: 20px;
-            margin-top: 25px;
-            border-radius: 0 4px 4px 0;
+            background-color: #d5f4e6;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 12px;
         }
 
-        /* --- THEME: MAIN VIEW (Blue) --- */
-        #view-main h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 15px; text-align: center; }
-        #view-main h2 { color: #34495e; margin-top: 40px; border-left: 5px solid #3498db; padding-left: 15px; background-color: #f1f8ff; padding-top: 10px; padding-bottom: 10px; }
-        #view-main table tr:first-child { background-color: #3498db; color: white; font-weight: bold; }
-        #view-main table tr:nth-child(even) { background-color: #f8f9fa; }
+        /* --- STYLES SPECIFIC TO MAIN VIEW (Blue Theme) --- */
+        #view-main h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        #view-main h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+        }
+        #view-main table tr:first-child {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        #view-main table tr:nth-child(even) { background-color: #ecf0f1; }
+        #view-main table tr:hover { background-color: #d5e8f7; }
         #view-main .p-value-significant { color: #e74c3c; font-weight: bold; }
         #view-main .key-finding { color: #c0392b; font-weight: bold; }
 
-        /* --- THEME: REGRESSION VIEW (Red) --- */
-        #view-regression h1 { color: #2c3e50; border-bottom: 3px solid #e74c3c; padding-bottom: 15px; text-align: center; }
-        #view-regression h2 { color: #c0392b; margin-top: 40px; border-bottom: 2px solid #fadbd8; padding-bottom: 10px; }
-        #view-regression h3 { color: #7f8c8d; margin-top: 25px; font-size: 1.1em; text-transform: uppercase; letter-spacing: 1px; }
+        /* --- STYLES SPECIFIC TO REGRESSION VIEW (Red Theme) --- */
+        #view-regression h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        #view-regression h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 5px solid #e74c3c;
+            padding-left: 15px;
+        }
+        #view-regression table tr:first-child {
+            background-color: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+        #view-regression table tr:nth-child(even) { background-color: #ecf0f1; }
+        #view-regression table tr:hover { background-color: #fadbd8; }
+        #view-regression td, #view-regression th { text-align: right; }
+        #view-regression td:first-child, #view-regression th:first-child { text-align: left; }
         
-        #view-regression table tr:first-child { background-color: #e74c3c; color: white; font-weight: bold; }
-        #view-regression table tr:nth-child(even) { background-color: #fdf2f2; }
-        
-        /* Special Boxes */
-        .model-box { background-color: #fdedec; border-left: 5px solid #e74c3c; padding: 20px; margin: 20px 0; }
-        .metric-box { background-color: #e8f6f3; border-left: 5px solid #1abc9c; padding: 20px; margin: 20px 0; }
-        .discussion-box { background-color: #f4f6f7; border-left: 5px solid #34495e; padding: 20px; margin: 20px 0; }
-        .p-value-sig { color: #c0392b; font-weight: bold; }
+        /* Special Boxes for Regression View */
+        .model-box {
+            background-color: #fdeef4;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .metric-box {
+            background-color: #e8f8f5;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .p-value-sig {
+            color: #c0392b;
+            font-weight: bold;
+        }
 
-        /* Risk Cards */
-        .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-        .risk-card { padding: 20px; border-radius: 5px; border: 1px solid; }
-        .risk-high { background-color: #ffebee; border-color: #ef9a9a; }
+        /* --- NEW STYLES FOR DISCUSSION SECTION --- */
+        .discussion-box {
+            background-color: #f4f6f7;
+            border-left: 5px solid #34495e;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .discussion-box h3 { margin-top: 0; color: #2c3e50; }
+        
+        .risk-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .risk-card {
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid;
+        }
+        .risk-high {
+            background-color: #ffebee;
+            border-color: #ef9a9a;
+        }
         .risk-high h3 { color: #c62828; margin-top: 0; }
         .risk-high ul { color: #b71c1c; }
-
-        .risk-low { background-color: #e8f5e9; border-color: #a5d6a7; }
+        
+        .risk-low {
+            background-color: #e8f5e9;
+            border-color: #a5d6a7;
+        }
         .risk-low h3 { color: #2e7d32; margin-top: 0; }
         .risk-low ul { color: #1b5e20; }
 
-        /* Rank Boxes for Report */
-        .rank-box { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
-        .rank-1 { background-color: #fdedec; border-left: 5px solid #c0392b; }
-        .rank-2 { background-color: #fef5e7; border-left: 5px solid #e67e22; }
-        .rank-3 { background-color: #fffaf0; border-left: 5px solid #f1c40f; }
+        @media (max-width: 768px) {
+            .risk-grid { grid-template-columns: 1fr; }
+        }
 
-        footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center; color: #95a5a6; font-size: 12px; }
+        footer {
+            margin-top: 40px; 
+            padding-top: 20px; 
+            border-top: 1px solid #bdc3c7; 
+            text-align: center; 
+            color: #7f8c8d; 
+            font-size: 11px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         
         <div class="nav-tabs">
-            <button class="nav-btn active" onclick="switchTab('main')">1. Clinical Analysis Report (Main)</button>
+            <button class="nav-btn active" onclick="switchTab('main')">1. Clinical Analysis (Main)</button>
             <button class="nav-btn" onclick="switchTab('regression')">2. Logistic Regression Models</button>
         </div>
 
         <div id="view-main" class="view-section active">
-            <h1>SUBMASSIVE PULMONARY EMBOLISM (PE) - CLINICAL ANALYSIS REPORT</h1>
-            <p style="text-align: center; color: #7f8c8d;">Generated: 2025-11-23</p>
+            <h1>Submassive Pulmonary Embolism (PE) - Clinical Analysis Report</h1>
 
-            <div class="summary" style="background-color: #f4f6f7; border-left-color: #2c3e50;">
-                <h3>EXECUTIVE SUMMARY</h3>
-                <strong>Study Population:</strong>
+            <div class="summary">
+                <strong>Study Overview:</strong>
                 <ul>
-                    <li>Total Patients: 116 with Submassive PE</li>
-                    <li>Survived (Lived): 97 patients (83.6%)</li>
-                    <li>Died (30-day mortality): 19 patients (16.4%)</li>
+                    <li><strong>Total Patients:</strong> 116</li>
+                    <li><strong>Survived (Lived):</strong> 97 patients (83.6%)</li>
+                    <li><strong>Died:</strong> 19 patients (16.4%)</li>
+                    <li><strong>30-day Mortality:</strong> 16.4%</li>
                 </ul>
-                <p>This analysis compares clinical, laboratory, and radiological characteristics between submassive PE patients who survived versus those who died at 30 days.</p>
             </div>
-            
-            <p><em>(Data tables 1-5 below display descriptive statistics. Detailed interpretive analysis follows in section 6.)</em></p>
-
+    
             <h2>1. DEMOGRAPHIC DATA ANALYSIS</h2>
-            <table>
-            <tr><th>Variable</th><th>Lived (n=97)</th><th>Died (n=19)</th><th>Test</th><th>p-value</th><th>OR (95% CI)</th><th>Missing</th></tr>
-            <tr><td>Age (years)</td><td>57.4±19.7</td><td>58.6±16.5</td><td>t-test</td><td>0.8063</td><td>—</td><td>0/0</td></tr>
-            <tr><td>sex: Female</td><td>69 (71.1%)</td><td>10 (52.6%)</td><td>χ²</td><td>0.1891</td><td>2.22</td><td>0/0</td></tr>
-            <tr><td>sex: Male</td><td>28 (28.9%)</td><td>9 (47.4%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>race: Asian</td><td>94 (96.9%)</td><td>18 (94.7%)</td><td>χ²</td><td>1.0000</td><td>1.74</td><td>0/0</td></tr>
-            <tr><td>race: Caucasian</td><td>1 (1.0%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>race: African</td><td>2 (2.1%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>ht: No</td><td>53 (54.6%)</td><td>13 (68.4%)</td><td>χ²</td><td>0.3920</td><td>0.56</td><td>0/0</td></tr>
-            <tr><td>ht: Yes</td><td>44 (45.4%)</td><td>6 (31.6%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>dlp: No</td><td>71 (73.2%)</td><td>14 (73.7%)</td><td>χ²</td><td>1.0000</td><td>0.98</td><td>0/0</td></tr>
-            <tr><td>dlp: Yes</td><td>26 (26.8%)</td><td>5 (26.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>dm: No</td><td>77 (79.4%)</td><td>17 (89.5%)</td><td>χ²</td><td>0.4801</td><td>0.45</td><td>0/0</td></tr>
-            <tr><td>dm: Yes</td><td>20 (20.6%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>stroke: No</td><td>87 (89.7%)</td><td>19 (100.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
-            <tr><td>stroke: Yes</td><td>10 (10.3%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>ckd: No</td><td>91 (93.8%)</td><td>17 (89.5%)</td><td>χ²</td><td>0.8511</td><td>1.78</td><td>0/0</td></tr>
-            <tr><td>ckd: Yes</td><td>6 (6.2%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>cad: No</td><td>94 (96.9%)</td><td>18 (94.7%)</td><td>χ²</td><td>1.0000</td><td>1.74</td><td>0/0</td></tr>
-            <tr><td>cad: Yes</td><td>3 (3.1%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>cirrhosis: No</td><td>91 (93.8%)</td><td>18 (94.7%)</td><td>χ²</td><td>1.0000</td><td>0.84</td><td>0/0</td></tr>
-            <tr><td>cirrhosis: Yes</td><td>6 (6.2%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>cnt: No</td><td>96 (99.0%)</td><td>17 (89.5%)</td><td>χ²</td><td>0.1109</td><td>11.29</td><td>0/0</td></tr>
-            <tr><td>cnt: Yes</td><td>1 (1.0%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>lung: No</td><td>96 (99.0%)</td><td>19 (100.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
-            <tr><td>lung: Yes</td><td>1 (1.0%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>af: No</td><td>95 (97.9%)</td><td>19 (100.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
-            <tr><td>af: Yes</td><td>2 (2.1%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>malignancy: No</td><td>74 (76.3%)</td><td>3 (15.8%)</td><td>χ²</td><td class='p-value-significant'>0.0000</td><td>17.16</td><td>0/0</td></tr>
-            <tr><td>malignancy: Yes</td><td>23 (23.7%)</td><td>16 (84.2%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>comorbid: None</td><td>23 (23.7%)</td><td>0 (0.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
-            <tr><td>comorbid: ≥1 medical disease</td><td>74 (76.3%)</td><td>19 (100.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>immobilize: No</td><td>85 (87.6%)</td><td>15 (78.9%)</td><td>χ²</td><td>0.5223</td><td>1.89</td><td>0/0</td></tr>
-            <tr><td>immobilize: Yes</td><td>12 (12.4%)</td><td>4 (21.1%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>dvt: No</td><td>87 (89.7%)</td><td>17 (89.5%)</td><td>χ²</td><td>1.0000</td><td>1.02</td><td>0/0</td></tr>
-            <tr><td>dvt: Yes</td><td>9 (9.3%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>dvt: N</td><td>1 (1.0%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>ocp: No</td><td>79 (81.4%)</td><td>19 (100.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
-            <tr><td>ocp: Yes</td><td>18 (18.6%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>smoking: No</td><td>93 (95.9%)</td><td>18 (94.7%)</td><td>χ²</td><td>1.0000</td><td>1.29</td><td>0/0</td></tr>
-            <tr><td>smoking: Yes</td><td>4 (4.1%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>sx: No</td><td>91 (93.8%)</td><td>17 (89.5%)</td><td>χ²</td><td>0.8511</td><td>1.78</td><td>0/0</td></tr>
-            <tr><td>sx: Yes</td><td>6 (6.2%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>trauma: No</td><td>94 (96.9%)</td><td>18 (94.7%)</td><td>χ²</td><td>1.0000</td><td>1.74</td><td>0/0</td></tr>
-            <tr><td>trauma: Yes</td><td>3 (3.1%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            </table>
-            
+    <table>
+    <tr><th>Variable</th><th>Lived (n=97)</th><th>Died (n=19)</th><th>Test</th><th>p-value</th><th>OR (95% CI)</th><th>Missing</th></tr>
+    <tr><td>Age (years)</td><td>57.4±19.7</td><td>58.6±16.5</td><td>t-test</td><td>0.8063</td><td>—</td><td>0/0</td></tr>
+    <tr><td>sex: Female</td><td>69 (71.1%)</td><td>10 (52.6%)</td><td>χ²</td><td>0.1891</td><td>2.22</td><td>0/0</td></tr>
+    <tr><td>sex: Male</td><td>28 (28.9%)</td><td>9 (47.4%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>race: Asian</td><td>94 (96.9%)</td><td>18 (94.7%)</td><td>χ²</td><td>1.0000</td><td>1.74</td><td>0/0</td></tr>
+    <tr><td>race: Caucasian</td><td>1 (1.0%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>race: African</td><td>2 (2.1%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>ht: No</td><td>53 (54.6%)</td><td>13 (68.4%)</td><td>χ²</td><td>0.3920</td><td>0.56</td><td>0/0</td></tr>
+    <tr><td>ht: Yes</td><td>44 (45.4%)</td><td>6 (31.6%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>dlp: No</td><td>71 (73.2%)</td><td>14 (73.7%)</td><td>χ²</td><td>1.0000</td><td>0.98</td><td>0/0</td></tr>
+    <tr><td>dlp: Yes</td><td>26 (26.8%)</td><td>5 (26.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>dm: No</td><td>77 (79.4%)</td><td>17 (89.5%)</td><td>χ²</td><td>0.4801</td><td>0.45</td><td>0/0</td></tr>
+    <tr><td>dm: Yes</td><td>20 (20.6%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>stroke: No</td><td>87 (89.7%)</td><td>19 (100.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
+    <tr><td>stroke: Yes</td><td>10 (10.3%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>ckd: No</td><td>91 (93.8%)</td><td>17 (89.5%)</td><td>χ²</td><td>0.8511</td><td>1.78</td><td>0/0</td></tr>
+    <tr><td>ckd: Yes</td><td>6 (6.2%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>cad: No</td><td>94 (96.9%)</td><td>18 (94.7%)</td><td>χ²</td><td>1.0000</td><td>1.74</td><td>0/0</td></tr>
+    <tr><td>cad: Yes</td><td>3 (3.1%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>cirrhosis: No</td><td>91 (93.8%)</td><td>18 (94.7%)</td><td>χ²</td><td>1.0000</td><td>0.84</td><td>0/0</td></tr>
+    <tr><td>cirrhosis: Yes</td><td>6 (6.2%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>cnt: No</td><td>96 (99.0%)</td><td>17 (89.5%)</td><td>χ²</td><td>0.1109</td><td>11.29</td><td>0/0</td></tr>
+    <tr><td>cnt: Yes</td><td>1 (1.0%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>lung: No</td><td>96 (99.0%)</td><td>19 (100.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
+    <tr><td>lung: Yes</td><td>1 (1.0%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>af: No</td><td>95 (97.9%)</td><td>19 (100.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
+    <tr><td>af: Yes</td><td>2 (2.1%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>malignancy: No</td><td>74 (76.3%)</td><td>3 (15.8%)</td><td>χ²</td><td class='p-value-significant'>0.0000</td><td>17.16</td><td>0/0</td></tr>
+    <tr><td>malignancy: Yes</td><td>23 (23.7%)</td><td>16 (84.2%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>comorbid: None</td><td>23 (23.7%)</td><td>0 (0.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
+    <tr><td>comorbid: ≥1 medical disease</td><td>74 (76.3%)</td><td>19 (100.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>immobilize: No</td><td>85 (87.6%)</td><td>15 (78.9%)</td><td>χ²</td><td>0.5223</td><td>1.89</td><td>0/0</td></tr>
+    <tr><td>immobilize: Yes</td><td>12 (12.4%)</td><td>4 (21.1%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>dvt: No</td><td>87 (89.7%)</td><td>17 (89.5%)</td><td>χ²</td><td>1.0000</td><td>1.02</td><td>0/0</td></tr>
+    <tr><td>dvt: Yes</td><td>9 (9.3%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>dvt: N</td><td>1 (1.0%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>ocp: No</td><td>79 (81.4%)</td><td>19 (100.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
+    <tr><td>ocp: Yes</td><td>18 (18.6%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>smoking: No</td><td>93 (95.9%)</td><td>18 (94.7%)</td><td>χ²</td><td>1.0000</td><td>1.29</td><td>0/0</td></tr>
+    <tr><td>smoking: Yes</td><td>4 (4.1%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>sx: No</td><td>91 (93.8%)</td><td>17 (89.5%)</td><td>χ²</td><td>0.8511</td><td>1.78</td><td>0/0</td></tr>
+    <tr><td>sx: Yes</td><td>6 (6.2%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>trauma: No</td><td>94 (96.9%)</td><td>18 (94.7%)</td><td>χ²</td><td>1.0000</td><td>1.74</td><td>0/0</td></tr>
+    <tr><td>trauma: Yes</td><td>3 (3.1%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    </table>
+    
+    <div class="notes">
+        <strong>Key Findings (Demographics):</strong>
+        <ul>
+            <li><span class="key-finding">Active malignancy</span> was significantly associated with mortality (χ² p=0.0000, OR=17.16), with 84.2% of deceased patients having active malignancy vs 23.7% of survivors.</li>
+            <li>No significant difference in age between groups (mean age: 57.4±19.7 years for survivors vs 58.6±16.5 years for deceased, p=0.8063)</li>
+            <li>Respiratory failure was significant risk factor (p=0.0073)</li>
+            <li>Gender distribution showed trend toward male predominance in deceased patients (47.4% male died vs 28.9% survived)</li>
+        </ul>
+    </div>
+    
             <h2>2. CLINICAL PRESENTATION ANALYSIS</h2>
-            <table>
-            <tr><th>Variable</th><th>Lived (n=97)</th><th>Died (n=19)</th><th>Test</th><th>p-value</th><th>OR (95% CI)</th><th>Missing</th></tr>
-            <tr><td>desat: No</td><td>43 (44.3%)</td><td>6 (31.6%)</td><td>χ²</td><td>0.4383</td><td>1.73</td><td>0/0</td></tr>
-            <tr><td>desat: Yes</td><td>54 (55.7%)</td><td>13 (68.4%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>dyspnea_rest: No</td><td>63 (64.9%)</td><td>8 (42.1%)</td><td>χ²</td><td>0.1071</td><td>2.55</td><td>0/0</td></tr>
-            <tr><td>dyspnea_rest: Yes</td><td>34 (35.1%)</td><td>11 (57.9%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>dyspnea_exertion: No</td><td>12 (12.4%)</td><td>2 (10.5%)</td><td>χ²</td><td>1.0000</td><td>1.20</td><td>0/0</td></tr>
-            <tr><td>dyspnea_exertion: Yes</td><td>85 (87.6%)</td><td>17 (89.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>cough: No</td><td>77 (79.4%)</td><td>13 (68.4%)</td><td>χ²</td><td>0.4552</td><td>1.78</td><td>0/0</td></tr>
-            <tr><td>cough: Yes</td><td>13 (13.4%)</td><td>5 (26.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>cough: Hemoptysis</td><td>7 (7.2%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>syncope: No</td><td>76 (78.4%)</td><td>15 (78.9%)</td><td>χ²</td><td>1.0000</td><td>0.97</td><td>0/0</td></tr>
-            <tr><td>syncope: Yes</td><td>21 (21.6%)</td><td>4 (21.1%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>chestpain: No</td><td>79 (81.4%)</td><td>15 (78.9%)</td><td>χ²</td><td>1.0000</td><td>1.17</td><td>0/0</td></tr>
-            <tr><td>chestpain: Yes</td><td>18 (18.6%)</td><td>4 (21.1%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>edema: No</td><td>74 (76.3%)</td><td>12 (63.2%)</td><td>χ²</td><td>0.3634</td><td>1.88</td><td>0/0</td></tr>
-            <tr><td>edema: Yes</td><td>23 (23.7%)</td><td>7 (36.8%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>palpitation: No</td><td>78 (80.4%)</td><td>17 (89.5%)</td><td>χ²</td><td>0.5404</td><td>0.48</td><td>0/0</td></tr>
-            <tr><td>palpitation: Yes</td><td>19 (19.6%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>fever: No</td><td>92 (94.8%)</td><td>16 (84.2%)</td><td>χ²</td><td>0.2389</td><td>3.45</td><td>0/0</td></tr>
-            <tr><td>fever: Yes</td><td>5 (5.2%)</td><td>3 (15.8%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>resp: No</td><td>90 (92.8%)</td><td>13 (68.4%)</td><td>χ²</td><td class='p-value-significant'>0.0073</td><td>5.93</td><td>0/0</td></tr>
-            <tr><td>resp: Yes</td><td>7 (7.2%)</td><td>6 (31.6%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            </table>
-            
+    <table>
+    <tr><th>Variable</th><th>Lived (n=97)</th><th>Died (n=19)</th><th>Test</th><th>p-value</th><th>OR (95% CI)</th><th>Missing</th></tr>
+    <tr><td>desat: No</td><td>43 (44.3%)</td><td>6 (31.6%)</td><td>χ²</td><td>0.4383</td><td>1.73</td><td>0/0</td></tr>
+    <tr><td>desat: Yes</td><td>54 (55.7%)</td><td>13 (68.4%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>dyspnea_rest: No</td><td>63 (64.9%)</td><td>8 (42.1%)</td><td>χ²</td><td>0.1071</td><td>2.55</td><td>0/0</td></tr>
+    <tr><td>dyspnea_rest: Yes</td><td>34 (35.1%)</td><td>11 (57.9%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>dyspnea_exertion: No</td><td>12 (12.4%)</td><td>2 (10.5%)</td><td>χ²</td><td>1.0000</td><td>1.20</td><td>0/0</td></tr>
+    <tr><td>dyspnea_exertion: Yes</td><td>85 (87.6%)</td><td>17 (89.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>cough: No</td><td>77 (79.4%)</td><td>13 (68.4%)</td><td>χ²</td><td>0.4552</td><td>1.78</td><td>0/0</td></tr>
+    <tr><td>cough: Yes</td><td>13 (13.4%)</td><td>5 (26.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>cough: Hemoptysis</td><td>7 (7.2%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>syncope: No</td><td>76 (78.4%)</td><td>15 (78.9%)</td><td>χ²</td><td>1.0000</td><td>0.97</td><td>0/0</td></tr>
+    <tr><td>syncope: Yes</td><td>21 (21.6%)</td><td>4 (21.1%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>chestpain: No</td><td>79 (81.4%)</td><td>15 (78.9%)</td><td>χ²</td><td>1.0000</td><td>1.17</td><td>0/0</td></tr>
+    <tr><td>chestpain: Yes</td><td>18 (18.6%)</td><td>4 (21.1%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>edema: No</td><td>74 (76.3%)</td><td>12 (63.2%)</td><td>χ²</td><td>0.3634</td><td>1.88</td><td>0/0</td></tr>
+    <tr><td>edema: Yes</td><td>23 (23.7%)</td><td>7 (36.8%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>palpitation: No</td><td>78 (80.4%)</td><td>17 (89.5%)</td><td>χ²</td><td>0.5404</td><td>0.48</td><td>0/0</td></tr>
+    <tr><td>palpitation: Yes</td><td>19 (19.6%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>fever: No</td><td>92 (94.8%)</td><td>16 (84.2%)</td><td>χ²</td><td>0.2389</td><td>3.45</td><td>0/0</td></tr>
+    <tr><td>fever: Yes</td><td>5 (5.2%)</td><td>3 (15.8%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>resp: No</td><td>90 (92.8%)</td><td>13 (68.4%)</td><td>χ²</td><td class='p-value-significant'>0.0073</td><td>5.93</td><td>0/0</td></tr>
+    <tr><td>resp: Yes</td><td>7 (7.2%)</td><td>6 (31.6%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    </table>
+    
+    <div class="notes">
+        <strong>Key Findings (Clinical Presentation):</strong>
+        <ul>
+            <li><span class="key-finding">Respiratory failure</span> was significantly associated with mortality (p=0.0073, OR=5.93), with 31.6% of deceased patients presenting with respiratory failure vs only 7.2% of survivors.</li>
+            <li>Dyspnea at rest showed trend toward higher incidence in deceased patients (57.9% vs 35.1%, p=0.1071)</li>
+            <li>Most patients presented with dyspnea on exertion (87.6% in survivors, 89.5% in deceased)</li>
+            <li>Fever was more common in deceased patients (15.8% vs 5.2%)</li>
+        </ul>
+    </div>
+    
             <h2>3. PHYSICAL EXAMINATION FINDINGS</h2>
-            <table>
-            <tr><th>Variable</th><th>Lived (n=97)</th><th>Died (n=19)</th><th>Test</th><th>p-value</th><th>OR (95% CI)</th><th>Missing</th></tr>
-            <tr><td>Heart Rate (bpm)</td><td>102.6±20.9</td><td>109.8±19.7</td><td>t-test</td><td>0.1667</td><td>—</td><td>0/0</td></tr>
-            <tr><td>Respiratory Rate (per min)</td><td>22.8±4.8</td><td>25.3±4.1</td><td>t-test</td><td class='p-value-significant'>0.0373</td><td>—</td><td>0/0</td></tr>
-            <tr><td>Oxygen Saturation (%)</td><td>91.4±6.7</td><td>89.3±5.3</td><td>t-test</td><td>0.2001</td><td>—</td><td>1/0</td></tr>
-            <tr><td>jvd: No</td><td>91 (93.8%)</td><td>18 (94.7%)</td><td>χ²</td><td>1.0000</td><td>0.84</td><td>0/0</td></tr>
-            <tr><td>jvd: Yes</td><td>6 (6.2%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>leg_edema: No</td><td>65 (67.0%)</td><td>12 (63.2%)</td><td>χ²</td><td>0.9525</td><td>1.18</td><td>0/0</td></tr>
-            <tr><td>leg_edema: Yes</td><td>32 (33.0%)</td><td>7 (36.8%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            </table>
-            
+    <table>
+    <tr><th>Variable</th><th>Lived (n=97)</th><th>Died (n=19)</th><th>Test</th><th>p-value</th><th>OR (95% CI)</th><th>Missing</th></tr>
+    <tr><td>Heart Rate (bpm)</td><td>102.6±20.9</td><td>109.8±19.7</td><td>t-test</td><td>0.1667</td><td>—</td><td>0/0</td></tr>
+    <tr><td>Respiratory Rate (per min)</td><td>22.8±4.8</td><td>25.3±4.1</td><td>t-test</td><td class='p-value-significant'>0.0373</td><td>—</td><td>0/0</td></tr>
+    <tr><td>Oxygen Saturation (%)</td><td>91.4±6.7</td><td>89.3±5.3</td><td>t-test</td><td>0.2001</td><td>—</td><td>1/0</td></tr>
+    <tr><td>jvd: No</td><td>91 (93.8%)</td><td>18 (94.7%)</td><td>χ²</td><td>1.0000</td><td>0.84</td><td>0/0</td></tr>
+    <tr><td>jvd: Yes</td><td>6 (6.2%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>leg_edema: No</td><td>65 (67.0%)</td><td>12 (63.2%)</td><td>χ²</td><td>0.9525</td><td>1.18</td><td>0/0</td></tr>
+    <tr><td>leg_edema: Yes</td><td>32 (33.0%)</td><td>7 (36.8%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    </table>
+    
+    <div class="notes">
+        <strong>Key Findings (Physical Examination):</strong>
+        <ul>
+            <li><span class="key-finding">Respiratory Rate</span> was significantly higher in deceased patients (25.3±4.1 per min vs 22.8±4.8, p=0.0373)</li>
+            <li>Heart rate was elevated in both groups but higher in deceased patients (109.8±19.7 vs 102.6±20.9 bpm, p=0.1667)</li>
+            <li>Oxygen saturation was lower in deceased patients (89.3±5.3% vs 91.4±6.7%, p=0.2001)</li>
+            <li>Jugular vein distension and leg edema showed no significant difference between groups</li>
+        </ul>
+    </div>
+    
             <h2>4. LABORATORY VALUES</h2>
-            <table>
-            <tr><th>Variable</th><th>Lived (n=97)</th><th>Died (n=19)</th><th>Test</th><th>p-value</th><th>Missing (L/D)</th></tr>
-            <tr><td>pH</td><td>7.44±0.07</td><td>7.43±0.07</td><td>t-test</td><td>0.5250</td><td>37/4</td></tr>
-            <tr><td>PaO2</td><td>84.27±38.53</td><td>73.01±19.75</td><td>t-test</td><td>0.2956</td><td>43/5</td></tr>
-            <tr><td>PF ratio</td><td>285.08±77.95</td><td>240.84±110.01</td><td>t-test</td><td>0.0882</td><td>43/5</td></tr>
-            <tr><td>PCO2</td><td>29.92±7.82</td><td>29.65±6.72</td><td>t-test</td><td>0.9050</td><td>37/4</td></tr>
-            <tr><td>Lactate</td><td>1.76±0.98</td><td>2.45±1.55</td><td>t-test</td><td class='p-value-significant'>0.0256</td><td>31/2</td></tr>
-            <tr><td>Hemoglobin</td><td>12.11±2.32</td><td>10.86±1.82</td><td>t-test</td><td class='p-value-significant'>0.0283</td><td>0/0</td></tr>
-            <tr><td>Hematocrit</td><td>37.42±6.99</td><td>33.04±5.54</td><td>t-test</td><td class='p-value-significant'>0.0114</td><td>0/0</td></tr>
-            <tr><td>Platelet</td><td>232.04±81.97</td><td>3904.00±14819.65</td><td>t-test</td><td class='p-value-significant'>0.0144</td><td>0/0</td></tr>
-            <tr><td>Creatinine</td><td>0.92±0.36</td><td>0.84±0.51</td><td>t-test</td><td>0.3957</td><td>0/0</td></tr>
-            <tr><td>Bicarbonate</td><td>21.76±3.18</td><td>20.63±3.47</td><td>t-test</td><td>0.1652</td><td>0/0</td></tr>
-            <tr><td>Albumin</td><td>3.60±0.49</td><td>2.86±0.49</td><td>t-test</td><td class='p-value-significant'>0.0000</td><td>1/0</td></tr>
-            <tr><td>PT</td><td>12.79±1.03</td><td>15.19±2.70</td><td>t-test</td><td class='p-value-significant'>0.0000</td><td>0/0</td></tr>
-            <tr><td>PTT</td><td>25.17±3.47</td><td>28.04±5.49</td><td>t-test</td><td class='p-value-significant'>0.0038</td><td>0/0</td></tr>
-            <tr><td>INR</td><td>1.13±0.10</td><td>1.36±0.25</td><td>t-test</td><td class='p-value-significant'>0.0000</td><td>0/0</td></tr>
-            <tr><td>Troponin</td><td>338.05±743.04</td><td>242.49±247.49</td><td>t-test</td><td>0.6239</td><td>7/4</td></tr>
-            <tr><td>NTproBNP</td><td>3817.04±4831.05</td><td>4586.64±5251.09</td><td>t-test</td><td>0.5663</td><td>14/3</td></tr>
-            <tr><td>D-dimer</td><td>6237.05±2103.24</td><td>6107.25±3147.04</td><td>t-test</td><td>0.9105</td><td>56/15</td></tr>
-            </table>
-            
+    <table>
+    <tr><th>Variable</th><th>Lived (n=97)</th><th>Died (n=19)</th><th>Test</th><th>p-value</th><th>Missing (L/D)</th></tr>
+    <tr><td>pH</td><td>7.44±0.07</td><td>7.43±0.07</td><td>t-test</td><td>0.5250</td><td>37/4</td></tr>
+    <tr><td>PaO2</td><td>84.27±38.53</td><td>73.01±19.75</td><td>t-test</td><td>0.2956</td><td>43/5</td></tr>
+    <tr><td>PF ratio</td><td>285.08±77.95</td><td>240.84±110.01</td><td>t-test</td><td>0.0882</td><td>43/5</td></tr>
+    <tr><td>PCO2</td><td>29.92±7.82</td><td>29.65±6.72</td><td>t-test</td><td>0.9050</td><td>37/4</td></tr>
+    <tr><td>Lactate</td><td>1.76±0.98</td><td>2.45±1.55</td><td>t-test</td><td class='p-value-significant'>0.0256</td><td>31/2</td></tr>
+    <tr><td>Hemoglobin</td><td>12.11±2.32</td><td>10.86±1.82</td><td>t-test</td><td class='p-value-significant'>0.0283</td><td>0/0</td></tr>
+    <tr><td>Hematocrit</td><td>37.42±6.99</td><td>33.04±5.54</td><td>t-test</td><td class='p-value-significant'>0.0114</td><td>0/0</td></tr>
+    <tr><td>Platelet</td><td>232.04±81.97</td><td>3904.00±14819.65</td><td>t-test</td><td class='p-value-significant'>0.0144</td><td>0/0</td></tr>
+    <tr><td>Creatinine</td><td>0.92±0.36</td><td>0.84±0.51</td><td>t-test</td><td>0.3957</td><td>0/0</td></tr>
+    <tr><td>Bicarbonate</td><td>21.76±3.18</td><td>20.63±3.47</td><td>t-test</td><td>0.1652</td><td>0/0</td></tr>
+    <tr><td>Albumin</td><td>3.60±0.49</td><td>2.86±0.49</td><td>t-test</td><td class='p-value-significant'>0.0000</td><td>1/0</td></tr>
+    <tr><td>PT</td><td>12.79±1.03</td><td>15.19±2.70</td><td>t-test</td><td class='p-value-significant'>0.0000</td><td>0/0</td></tr>
+    <tr><td>PTT</td><td>25.17±3.47</td><td>28.04±5.49</td><td>t-test</td><td class='p-value-significant'>0.0038</td><td>0/0</td></tr>
+    <tr><td>INR</td><td>1.13±0.10</td><td>1.36±0.25</td><td>t-test</td><td class='p-value-significant'>0.0000</td><td>0/0</td></tr>
+    <tr><td>Troponin</td><td>338.05±743.04</td><td>242.49±247.49</td><td>t-test</td><td>0.6239</td><td>7/4</td></tr>
+    <tr><td>NTproBNP</td><td>3817.04±4831.05</td><td>4586.64±5251.09</td><td>t-test</td><td>0.5663</td><td>14/3</td></tr>
+    <tr><td>D-dimer</td><td>6237.05±2103.24</td><td>6107.25±3147.04</td><td>t-test</td><td>0.9105</td><td>56/15</td></tr>
+    </table>
+    
+    <div class="notes">
+        <strong>Key Findings (Laboratory Values):</strong>
+        <ul>
+            <li><span class="key-finding">Albumin</span> was significantly lower in deceased patients (2.86±0.49 vs 3.60±0.49, p=0.0000)</li>
+            <li><span class="key-finding">INR</span> was significantly elevated in deceased patients (1.36±0.25 vs 1.13±0.10, p=0.0000)</li>
+            <li><span class="key-finding">PT</span> was significantly prolonged in deceased patients (15.19±2.70 vs 12.79±1.03, p=0.0000)</li>
+            <li><span class="key-finding">PTT</span> was significantly elevated in deceased patients (28.04±5.49 vs 25.17±3.47, p=0.0038)</li>
+            <li><span class="key-finding">Hemoglobin</span> was significantly lower in deceased patients (10.86±1.82 vs 12.11±2.32, p=0.0283)</li>
+            <li><span class="key-finding">Hematocrit</span> was significantly lower in deceased patients (33.04±5.54 vs 37.42±6.99, p=0.0114)</li>
+            <li><span class="key-finding">Lactate</span> was elevated in deceased patients (2.45±1.55 vs 1.76±0.98, p=0.0256)</li>
+            <li>PF ratio showed trend toward lower values in deceased patients (240.84±110.01 vs 285.08±77.95, p=0.0882)</li>
+        </ul>
+    </div>
+    
             <h2>5. INVESTIGATION FINDINGS</h2>
-            <table>
-            <tr><th>Variable</th><th>Lived (n=97)</th><th>Died (n=19)</th><th>Test</th><th>p-value</th><th>OR (95% CI)</th><th>Missing (L/D)</th></tr>
-            <tr><td>sinus: No</td><td>5 (5.2%)</td><td>1 (5.3%)</td><td>χ²</td><td>1.0000</td><td>0.98</td><td>0/0</td></tr>
-            <tr><td>sinus: Yes</td><td>92 (94.8%)</td><td>18 (94.7%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>rate: <60</td><td>1 (1.0%)</td><td>0 (0.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
-            <tr><td>rate: 60-100</td><td>33 (34.0%)</td><td>3 (15.8%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>rate: 100-150</td><td>63 (64.9%)</td><td>16 (84.2%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>s1q3t3: No</td><td>64 (66.0%)</td><td>16 (84.2%)</td><td>χ²</td><td>0.1937</td><td>0.36</td><td>0/0</td></tr>
-            <tr><td>s1q3t3: Yes</td><td>33 (34.0%)</td><td>3 (15.8%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>rvstrain_EKG: No</td><td>65 (67.0%)</td><td>17 (89.5%)</td><td>χ²</td><td>0.0907</td><td>0.24</td><td>0/0</td></tr>
-            <tr><td>rvstrain_EKG: Yes</td><td>32 (33.0%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>rbbb: No</td><td>87 (89.7%)</td><td>17 (89.5%)</td><td>χ²</td><td>1.0000</td><td>1.02</td><td>0/0</td></tr>
-            <tr><td>rbbb: Yes</td><td>10 (10.3%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>cardiomegaly : 0</td><td>66 (68.0%)</td><td>15 (78.9%)</td><td>χ²</td><td>0.5004</td><td>0.57</td><td>0/0</td></tr>
-            <tr><td>cardiomegaly : 1</td><td>31 (32.0%)</td><td>4 (21.1%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>trunk: No</td><td>82 (84.5%)</td><td>18 (94.7%)</td><td>χ²</td><td>0.4149</td><td>0.30</td><td>0/0</td></tr>
-            <tr><td>trunk: Yes</td><td>15 (15.5%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>lung: 0</td><td>96 (99.0%)</td><td>19 (100.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
-            <tr><td>lung: 1</td><td>1 (1.0%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>effusion: No</td><td>82 (84.5%)</td><td>8 (42.1%)</td><td>χ²</td><td class='p-value-significant'>0.0002</td><td>7.52</td><td>0/0</td></tr>
-            <tr><td>effusion: Yes</td><td>15 (15.5%)</td><td>11 (57.9%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>prox_clot: 0</td><td>75 (77.3%)</td><td>13 (68.4%)</td><td>χ²</td><td>0.5921</td><td>1.57</td><td>0/0</td></tr>
-            <tr><td>prox_clot: 1</td><td>15 (15.5%)</td><td>3 (15.8%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>prox_clot: 2</td><td>7 (7.2%)</td><td>3 (15.8%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>rvstrain_CT: No</td><td>39 (40.2%)</td><td>8 (42.1%)</td><td>χ²</td><td>1.0000</td><td>0.92</td><td>0/0</td></tr>
-            <tr><td>rvstrain_CT: Yes</td><td>58 (59.8%)</td><td>11 (57.9%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>rvdilate: No (≤41 mm)</td><td>15 (16.3%)</td><td>3 (21.4%)</td><td>χ²</td><td>0.9253</td><td>0.71</td><td>5/5</td></tr>
-            <tr><td>rvdilate: Mild (42-45mm)</td><td>53 (57.6%)</td><td>10 (71.4%)</td><td>—</td><td>—</td><td>—</td><td>5/5</td></tr>
-            <tr><td>rvdilate: Moderate (46-55 mm)</td><td>13 (14.1%)</td><td>1 (7.1%)</td><td>—</td><td>—</td><td>—</td><td>5/5</td></tr>
-            <tr><td>rvdilate: Severe (>55 mm)</td><td>11 (12.0%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>5/5</td></tr>
-            <tr><td>rvfunction: No</td><td>36 (40.9%)</td><td>4 (33.3%)</td><td>χ²</td><td>0.8505</td><td>1.38</td><td>9/7</td></tr>
-            <tr><td>rvfunction: Mild</td><td>22 (25.0%)</td><td>5 (41.7%)</td><td>—</td><td>—</td><td>—</td><td>9/7</td></tr>
-            <tr><td>rvfunction: Moderate</td><td>17 (19.3%)</td><td>1 (8.3%)</td><td>—</td><td>—</td><td>—</td><td>9/7</td></tr>
-            <tr><td>rvfunction: Severe</td><td>13 (14.8%)</td><td>2 (16.7%)</td><td>—</td><td>—</td><td>—</td><td>9/7</td></tr>
-            <tr><td>tapse: Normal (>17 mm)</td><td>40 (52.6%)</td><td>4 (33.3%)</td><td>χ²</td><td>0.3514</td><td>2.22</td><td>21/7</td></tr>
-            <tr><td>tapse: Mild (15-16 mm)</td><td>10 (13.2%)</td><td>2 (16.7%)</td><td>—</td><td>—</td><td>—</td><td>21/7</td></tr>
-            <tr><td>tapse: Moderate(10-14 mm)</td><td>19 (25.0%)</td><td>4 (33.3%)</td><td>—</td><td>—</td><td>—</td><td>21/7</td></tr>
-            <tr><td>tapse: Severe(<10 mm)</td><td>7 (9.2%)</td><td>2 (16.7%)</td><td>—</td><td>—</td><td>—</td><td>21/7</td></tr>
-            <tr><td>pulmonaryht: No (≤ 20 mmHg)</td><td>10 (14.7%)</td><td>0 (0.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>29/13</td></tr>
-            <tr><td>pulmonaryht: Mild (21-30 mmHg)</td><td>29 (42.6%)</td><td>1 (16.7%)</td><td>—</td><td>—</td><td>—</td><td>29/13</td></tr>
-            <tr><td>pulmonaryht: Moderate (31-45 mmHg)</td><td>21 (30.9%)</td><td>4 (66.7%)</td><td>—</td><td>—</td><td>—</td><td>29/13</td></tr>
-            <tr><td>pulmonaryht: Severe (>45 mmHg)</td><td>8 (11.8%)</td><td>1 (16.7%)</td><td>—</td><td>—</td><td>—</td><td>29/13</td></tr>
-            <tr><td>tvr: No</td><td>11 (14.1%)</td><td>1 (11.1%)</td><td>χ²</td><td>1.0000</td><td>1.31</td><td>19/10</td></tr>
-            <tr><td>tvr: Mild</td><td>34 (43.6%)</td><td>4 (44.4%)</td><td>—</td><td>—</td><td>—</td><td>19/10</td></tr>
-            <tr><td>tvr: Moderate</td><td>24 (30.8%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>19/10</td></tr>
-            <tr><td>tvr: Severe</td><td>9 (11.5%)</td><td>4 (44.4%)</td><td>—</td><td>—</td><td>—</td><td>19/10</td></tr>
-            <tr><td>lvfunction:  </td><td>1 (1.0%)</td><td>0 (0.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
-            <tr><td>lvfunction: No</td><td>90 (92.8%)</td><td>18 (94.7%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>lvfunction: Yes</td><td>6 (6.2%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>dvt: 0</td><td>87 (89.7%)</td><td>17 (89.5%)</td><td>χ²</td><td>1.0000</td><td>1.02</td><td>0/0</td></tr>
-            <tr><td>dvt: 1</td><td>9 (9.3%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            <tr><td>dvt: N</td><td>1 (1.0%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
-            </table>
-
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
-            <h2>6. DETAILED CLINICAL FINDINGS & INTERPRETATION</h2>
-            
-            <div class="rank-box rank-1">
-                <h3 style="margin-top: 0; color: #c0392b;">RANK 1: ACTIVE MALIGNANCY</h3>
+    <table>
+    <tr><th>Variable</th><th>Lived (n=97)</th><th>Died (n=19)</th><th>Test</th><th>p-value</th><th>OR (95% CI)</th><th>Missing (L/D)</th></tr>
+    <tr><td>sinus: No</td><td>5 (5.2%)</td><td>1 (5.3%)</td><td>χ²</td><td>1.0000</td><td>0.98</td><td>0/0</td></tr>
+    <tr><td>sinus: Yes</td><td>92 (94.8%)</td><td>18 (94.7%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>rate: <60</td><td>1 (1.0%)</td><td>0 (0.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
+    <tr><td>rate: 60-100</td><td>33 (34.0%)</td><td>3 (15.8%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>rate: 100-150</td><td>63 (64.9%)</td><td>16 (84.2%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>s1q3t3: No</td><td>64 (66.0%)</td><td>16 (84.2%)</td><td>χ²</td><td>0.1937</td><td>0.36</td><td>0/0</td></tr>
+    <tr><td>s1q3t3: Yes</td><td>33 (34.0%)</td><td>3 (15.8%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>rvstrain_EKG: No</td><td>65 (67.0%)</td><td>17 (89.5%)</td><td>χ²</td><td>0.0907</td><td>0.24</td><td>0/0</td></tr>
+    <tr><td>rvstrain_EKG: Yes</td><td>32 (33.0%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>rbbb: No</td><td>87 (89.7%)</td><td>17 (89.5%)</td><td>χ²</td><td>1.0000</td><td>1.02</td><td>0/0</td></tr>
+    <tr><td>rbbb: Yes</td><td>10 (10.3%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>cardiomegaly : 0</td><td>66 (68.0%)</td><td>15 (78.9%)</td><td>χ²</td><td>0.5004</td><td>0.57</td><td>0/0</td></tr>
+    <tr><td>cardiomegaly : 1</td><td>31 (32.0%)</td><td>4 (21.1%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>trunk: No</td><td>82 (84.5%)</td><td>18 (94.7%)</td><td>χ²</td><td>0.4149</td><td>0.30</td><td>0/0</td></tr>
+    <tr><td>trunk: Yes</td><td>15 (15.5%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>lung: 0</td><td>96 (99.0%)</td><td>19 (100.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
+    <tr><td>lung: 1</td><td>1 (1.0%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>effusion: No</td><td>82 (84.5%)</td><td>8 (42.1%)</td><td>χ²</td><td class='p-value-significant'>0.0002</td><td>7.52</td><td>0/0</td></tr>
+    <tr><td>effusion: Yes</td><td>15 (15.5%)</td><td>11 (57.9%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>prox_clot: 0</td><td>75 (77.3%)</td><td>13 (68.4%)</td><td>χ²</td><td>0.5921</td><td>1.57</td><td>0/0</td></tr>
+    <tr><td>prox_clot: 1</td><td>15 (15.5%)</td><td>3 (15.8%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>prox_clot: 2</td><td>7 (7.2%)</td><td>3 (15.8%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>rvstrain_CT: No</td><td>39 (40.2%)</td><td>8 (42.1%)</td><td>χ²</td><td>1.0000</td><td>0.92</td><td>0/0</td></tr>
+    <tr><td>rvstrain_CT: Yes</td><td>58 (59.8%)</td><td>11 (57.9%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>rvdilate: No (≤41 mm)</td><td>15 (16.3%)</td><td>3 (21.4%)</td><td>χ²</td><td>0.9253</td><td>0.71</td><td>5/5</td></tr>
+    <tr><td>rvdilate: Mild (42-45mm)</td><td>53 (57.6%)</td><td>10 (71.4%)</td><td>—</td><td>—</td><td>—</td><td>5/5</td></tr>
+    <tr><td>rvdilate: Moderate (46-55 mm)</td><td>13 (14.1%)</td><td>1 (7.1%)</td><td>—</td><td>—</td><td>—</td><td>5/5</td></tr>
+    <tr><td>rvdilate: Severe (>55 mm)</td><td>11 (12.0%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>5/5</td></tr>
+    <tr><td>rvfunction: No</td><td>36 (40.9%)</td><td>4 (33.3%)</td><td>χ²</td><td>0.8505</td><td>1.38</td><td>9/7</td></tr>
+    <tr><td>rvfunction: Mild</td><td>22 (25.0%)</td><td>5 (41.7%)</td><td>—</td><td>—</td><td>—</td><td>9/7</td></tr>
+    <tr><td>rvfunction: Moderate</td><td>17 (19.3%)</td><td>1 (8.3%)</td><td>—</td><td>—</td><td>—</td><td>9/7</td></tr>
+    <tr><td>rvfunction: Severe</td><td>13 (14.8%)</td><td>2 (16.7%)</td><td>—</td><td>—</td><td>—</td><td>9/7</td></tr>
+    <tr><td>tapse: Normal (>17 mm)</td><td>40 (52.6%)</td><td>4 (33.3%)</td><td>χ²</td><td>0.3514</td><td>2.22</td><td>21/7</td></tr>
+    <tr><td>tapse: Mild (15-16 mm)</td><td>10 (13.2%)</td><td>2 (16.7%)</td><td>—</td><td>—</td><td>—</td><td>21/7</td></tr>
+    <tr><td>tapse: Moderate(10-14 mm)</td><td>19 (25.0%)</td><td>4 (33.3%)</td><td>—</td><td>—</td><td>—</td><td>21/7</td></tr>
+    <tr><td>tapse: Severe(<10 mm)</td><td>7 (9.2%)</td><td>2 (16.7%)</td><td>—</td><td>—</td><td>—</td><td>21/7</td></tr>
+    <tr><td>pulmonaryht: No (≤ 20 mmHg)</td><td>10 (14.7%)</td><td>0 (0.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>29/13</td></tr>
+    <tr><td>pulmonaryht: Mild (21-30 mmHg)</td><td>29 (42.6%)</td><td>1 (16.7%)</td><td>—</td><td>—</td><td>—</td><td>29/13</td></tr>
+    <tr><td>pulmonaryht: Moderate (31-45 mmHg)</td><td>21 (30.9%)</td><td>4 (66.7%)</td><td>—</td><td>—</td><td>—</td><td>29/13</td></tr>
+    <tr><td>pulmonaryht: Severe (>45 mmHg)</td><td>8 (11.8%)</td><td>1 (16.7%)</td><td>—</td><td>—</td><td>—</td><td>29/13</td></tr>
+    <tr><td>tvr: No</td><td>11 (14.1%)</td><td>1 (11.1%)</td><td>χ²</td><td>1.0000</td><td>1.31</td><td>19/10</td></tr>
+    <tr><td>tvr: Mild</td><td>34 (43.6%)</td><td>4 (44.4%)</td><td>—</td><td>—</td><td>—</td><td>19/10</td></tr>
+    <tr><td>tvr: Moderate</td><td>24 (30.8%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>19/10</td></tr>
+    <tr><td>tvr: Severe</td><td>9 (11.5%)</td><td>4 (44.4%)</td><td>—</td><td>—</td><td>—</td><td>19/10</td></tr>
+    <tr><td>lvfunction:  </td><td>1 (1.0%)</td><td>0 (0.0%)</td><td>χ²</td><td>nan</td><td>N/A</td><td>0/0</td></tr>
+    <tr><td>lvfunction: No</td><td>90 (92.8%)</td><td>18 (94.7%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>lvfunction: Yes</td><td>6 (6.2%)</td><td>1 (5.3%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>dvt: 0</td><td>87 (89.7%)</td><td>17 (89.5%)</td><td>χ²</td><td>1.0000</td><td>1.02</td><td>0/0</td></tr>
+    <tr><td>dvt: 1</td><td>9 (9.3%)</td><td>2 (10.5%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    <tr><td>dvt: N</td><td>1 (1.0%)</td><td>0 (0.0%)</td><td>—</td><td>—</td><td>—</td><td>0/0</td></tr>
+    </table>
+    
+    <div class="notes">
+        <strong>Key Findings (Investigations):</strong>
+        <ul>
+            <li><span class="key-finding">Pleural effusion</span> was significantly associated with mortality (p=0.0002, OR=7.52), with 57.9% of deceased patients having effusion vs 15.5% of survivors</li>
+            <li><span class="key-finding">RV strain on ECG</span> showed trend toward association with mortality (p=0.0907, OR=0.24)</li>
+            <li>S1Q3T3 pattern was more common in survivors (34.0%) than deceased (15.8%)</li>
+            <li>Most patients had heart rate 100-150 bpm on ECG</li>
+            <li>Right ventricular dysfunction was common in both groups but more severe in deceased patients</li>
+            <li>Pulmonary hypertension was more prevalent in deceased patients</li>
+        </ul>
+    </div>
+    
+            <h2>6. SUMMARY OF SIGNIFICANT FINDINGS</h2>
+            <div class="summary">
+                <strong>Independent Predictors of Mortality (p&lt;0.05):</strong>
+                <ol>
+                    <li><strong>Active Malignancy</strong> (p&lt;0.0001, OR=17.16) - Strongest predictor</li>
+                    <li><strong>Pleural Effusion</strong> (p=0.0002, OR=7.52)</li>
+                    <li><strong>Respiratory Failure</strong> (p=0.0073, OR=5.93)</li>
+                    <li><strong>Albumin (low)</strong> (p&lt;0.0001)</li>
+                    <li><strong>INR (elevated)</strong> (p&lt;0.0001)</li>
+                    <li><strong>PT (prolonged)</strong> (p&lt;0.0001)</li>
+                    <li><strong>PTT (elevated)</strong> (p=0.0038)</li>
+                    <li><strong>Hemoglobin (low)</strong> (p=0.0283)</li>
+                    <li><strong>Hematocrit (low)</strong> (p=0.0114)</li>
+                    <li><strong>Lactate (elevated)</strong> (p=0.0256)</li>
+                    <li><strong>Respiratory Rate (elevated)</strong> (p=0.0373)</li>
+                </ol>
+            </div>
+    
+            <div class="notes">
+                <strong>Clinical Implications:</strong>
                 <ul>
-                    <li><strong>p-value:</strong> < 0.0001 (highly significant)</li>
-                    <li><strong>Odds Ratio:</strong> 17.16</li>
+                    <li>Patients with active malignancy presenting with submassive PE have significantly higher mortality risk</li>
+                    <li>Presence of pleural effusion on imaging and respiratory failure on presentation are important negative prognostic indicators</li>
+                    <li>Coagulation abnormalities (elevated INR, PT, PTT) suggest advanced disease and poor prognosis</li>
+                    <li>Anemia is a significant marker of adverse outcomes</li>
+                    <li>Elevated lactate indicates tissue hypoxia and systemic compromise</li>
+                    <li>Elevated respiratory rate is associated with poor outcomes</li>
+                </ul>
+            </div>
+    
+            <div class="notes">
+                <strong>Statistical Notes:</strong>
+                <ul>
+                    <li>χ² (Chi-square test) used for categorical variables</li>
+                    <li>t-test (independent samples) used for continuous variables</li>
+                    <li>Odds Ratios (OR) calculated with 95% confidence intervals</li>
+                    <li>p-values &lt; 0.05 considered statistically significant</li>
+                    <li>Missing data indicated as (Lived/Died) format</li>
+                    <li>—: Not calculated due to collinearity or cell count &lt;5 in contingency table</li>
+                    <li>N/A: Could not be calculated due to zero cells</li>
+                </ul>
+            </div>
+    
+            <h2>7. EXECUTIVE SUMMARY & PREDICTORS REPORT</h2>
+            
+            <div class="summary" style="border-left: 5px solid #2c3e50; background-color: #f4f6f7;">
+                <h3 style="margin-top: 0; color: #2c3e50;">STUDY POPULATION OVERVIEW</h3>
+                <ul>
+                    <li><strong>Total Patients:</strong> 116 with Submassive PE</li>
+                    <li><strong>Survived (Lived):</strong> 97 patients (83.6%)</li>
+                    <li><strong>Died (30-day mortality):</strong> 19 patients (16.4%)</li>
+                </ul>
+                <p style="font-style: italic; font-size: 0.9em; margin-top: 10px;">
+                    This analysis compares clinical, laboratory, and radiological characteristics between submassive PE patients who survived versus those who died at 30 days.
+                </p>
+            </div>
+    
+            <h3 style="color: #c0392b; border-bottom: 2px solid #e74c3c; padding-bottom: 10px; margin-top: 30px;">KEY INDEPENDENT PREDICTORS OF MORTALITY (p < 0.05)</h3>
+    
+            <div class="notes" style="border-left: 4px solid #e74c3c; background-color: #fdedec;">
+                <h4 style="margin-top: 0; color: #c0392b;">RANK 1: ACTIVE MALIGNANCY</h4>
+                <ul>
+                    <li><strong>Statistics:</strong> p-value < 0.0001 (Highly Significant) | Odds Ratio: 17.16</li>
                     <li><strong>Interpretation:</strong> Among deceased patients, 84.2% had active malignancy vs only 23.7% of survivors. This represents the strongest independent predictor of mortality.</li>
                     <li><strong>Clinical Significance:</strong> Malignancy is likely a marker of:
                         <ul>
@@ -351,12 +533,11 @@
                     </li>
                 </ul>
             </div>
-
-            <div class="rank-box rank-2">
-                <h3 style="margin-top: 0; color: #d35400;">RANK 2: PLEURAL EFFUSION</h3>
+    
+            <div class="notes" style="border-left: 4px solid #e67e22; background-color: #fef5e7;">
+                <h4 style="margin-top: 0; color: #d35400;">RANK 2: PLEURAL EFFUSION</h4>
                 <ul>
-                    <li><strong>p-value:</strong> 0.0002</li>
-                    <li><strong>Odds Ratio:</strong> 7.52</li>
+                    <li><strong>Statistics:</strong> p-value: 0.0002 | Odds Ratio: 7.52</li>
                     <li><strong>Interpretation:</strong> Pleural effusion was present in 57.9% of deceased patients vs 15.5% of survivors. This indicates significant hemodynamic and pulmonary compromise.</li>
                     <li><strong>Clinical Significance:</strong>
                         <ul>
@@ -367,12 +548,11 @@
                     </li>
                 </ul>
             </div>
-
-            <div class="rank-box rank-3">
-                <h3 style="margin-top: 0; color: #b7950b;">RANK 3: RESPIRATORY FAILURE</h3>
+    
+            <div class="notes" style="border-left: 4px solid #f1c40f; background-color: #fffaf0;">
+                <h4 style="margin-top: 0; color: #b7950b;">RANK 3: RESPIRATORY FAILURE</h4>
                 <ul>
-                    <li><strong>p-value:</strong> 0.0073</li>
-                    <li><strong>Odds Ratio:</strong> 5.93</li>
+                    <li><strong>Statistics:</strong> p-value: 0.0073 | Odds Ratio: 5.93</li>
                     <li><strong>Interpretation:</strong> 31.6% of deceased patients presented with respiratory failure vs only 7.2% of survivors.</li>
                     <li><strong>Clinical Significance:</strong>
                         <ul>
@@ -382,98 +562,6 @@
                         </ul>
                     </li>
                 </ul>
-            </div>
-
-            <h3 style="color: #34495e; border-left: 5px solid #e74c3c; padding-left: 15px; margin-top: 30px;">COAGULATION AND BLEEDING MARKERS</h3>
-            <div class="discussion-box" style="background: white; border: 1px solid #e0e0e0; border-left: 5px solid #e74c3c;">
-                <p><strong>PROTHROMBIN TIME (PT)</strong> (p < 0.0001)<br>
-                Deceased: 15.19±2.70 vs Survived: 12.79±1.03. <strong>19% elevation</strong> in deceased. Severe prolongation suggests liver dysfunction, severe DIC, or massive consumption.</p>
-                
-                <p><strong>ACTIVATED PARTIAL THROMBOPLASTIN TIME (PTT)</strong> (p=0.0038)<br>
-                Deceased: 28.04±5.49 vs Survived: 25.17±3.47. <strong>11% elevation</strong> showing coagulation system exhaustion.</p>
-
-                <p><strong>INTERNATIONAL NORMALIZED RATIO (INR)</strong> (p < 0.0001)<br>
-                Deceased: 1.36±0.25 vs Survived: 1.13±0.10. <strong>20% elevation</strong>. Interpretation: Severe coagulopathy indicating multi-organ failure or advanced shock state.</p>
-            </div>
-
-            <h3 style="color: #34495e; border-left: 5px solid #3498db; padding-left: 15px; margin-top: 30px;">NUTRITIONAL AND HEMATOLOGIC MARKERS</h3>
-            <div class="discussion-box" style="background: white; border: 1px solid #e0e0e0; border-left: 5px solid #3498db;">
-                <p><strong>ALBUMIN</strong> (p < 0.0001)<br>
-                Deceased: 2.86±0.49 vs Survived: 3.60±0.49. <strong>21% reduction</strong>. Marker of chronic disease burden, nutritional status, and cachexia.</p>
-
-                <p><strong>HEMOGLOBIN</strong> (p=0.0283) & <strong>HEMATOCRIT</strong> (p=0.0114)<br>
-                Significant reduction in deceased patients (approx 10-12%). Anemia reduces oxygen carrying capacity and may reflect bleeding complications or malignancy.</p>
-            </div>
-
-            <h3 style="color: #34495e; border-left: 5px solid #9b59b6; padding-left: 15px; margin-top: 30px;">TISSUE PERFUSION AND METABOLIC MARKERS</h3>
-            <div class="discussion-box" style="background: white; border: 1px solid #e0e0e0; border-left: 5px solid #9b59b6;">
-                <p><strong>LACTATE</strong> (p=0.0256)<br>
-                Deceased: 2.45±1.55 vs Survived: 1.76±0.98. <strong>39% elevation</strong>. Indicates tissue hypoxia, anaerobic metabolism, and shock severity.</p>
-
-                <p><strong>RESPIRATORY RATE</strong> (p=0.0373)<br>
-                Deceased: 25.3±4.1 vs Survived: 22.8±4.8 breaths/min. Compensatory response to hypoxia and sign of distress.</p>
-            </div>
-
-            <h3>CLINICAL FINDINGS WITH BORDERLINE SIGNIFICANCE</h3>
-            <ul>
-                <li><strong>DYSPNEA AT REST (p=0.1071):</strong> Trend toward significance (57.9% in deceased vs 35.1%).</li>
-                <li><strong>RV STRAIN ON ECG (p=0.0907):</strong> Interestingly more common in survivors (33.0%) than deceased (10.5%), possibly suggesting acute strain is more survivable than chronic dysfunction/failure.</li>
-                <li><strong>PF RATIO (p=0.0882):</strong> Mild reduction in deceased, not statistically significant.</li>
-            </ul>
-
-            <h3>FINDINGS WITHOUT STATISTICAL SIGNIFICANCE</h3>
-            <ul>
-                <li><strong>Demographics:</strong> Age, Gender (trend only), Race.</li>
-                <li><strong>Biomarkers:</strong> Troponin and BNP differences were not statistically significant, possibly due to high variance.</li>
-            </ul>
-
-            <h2 style="margin-top: 40px;">7. CLINICAL PROFILE INTERPRETATION</h2>
-            <div class="risk-grid">
-                <div class="risk-card risk-high">
-                    <h3>⚠️ DECEASED PATIENTS (Higher Risk Profile)</h3>
-                    <ul>
-                        <li>More likely to have <strong>active malignancy</strong></li>
-                        <li>Present with <strong>respiratory failure</strong></li>
-                        <li>Have <strong>pleural effusion</strong> on imaging</li>
-                        <li>Evidence of <strong>coagulopathy</strong> (High INR/PT/PTT)</li>
-                        <li>Lower <strong>nutritional status</strong> (Low Albumin)</li>
-                        <li>Frequently <strong>anemic</strong></li>
-                        <li>Tissue hypoxia (<strong>High Lactate</strong>)</li>
-                    </ul>
-                    <p><strong>Pattern:</strong> Advanced disease, severe hemodynamic compromise, and systemic failure.</p>
-                </div>
-                <div class="risk-card risk-low">
-                    <h3>✅ SURVIVOR PROFILE</h3>
-                    <ul>
-                        <li>Fewer with active malignancy</li>
-                        <li>Better preserved hemodynamic status</li>
-                        <li>No respiratory failure</li>
-                        <li>Normal coagulation profile</li>
-                        <li>Normal albumin and hemoglobin</li>
-                        <li>Lower lactate levels</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h2 style="margin-top: 40px;">8. RECOMMENDATIONS FOR RISK STRATIFICATION</h2>
-            <div class="model-box" style="background-color: #fff3cd; border-left-color: #f1c40f; border: 1px solid #faebcc;">
-                <strong>High-Risk Features (Consider for Advanced Therapy):</strong>
-                <ul>
-                    <li>Active malignancy with submassive PE</li>
-                    <li>Presence of pleural effusion</li>
-                    <li>Respiratory failure at presentation</li>
-                    <li>Elevated coagulation markers (INR >1.3, PT >15)</li>
-                    <li>Low albumin (<3.0 g/dL)</li>
-                    <li>Anemia (Hb <11 g/dL)</li>
-                    <li>Elevated lactate (>2.0 mmol/L)</li>
-                </ul>
-            </div>
-
-            <h2 style="margin-top: 40px;">9. STATISTICAL METHODS & CONCLUSION</h2>
-            <div class="summary">
-                <p><strong>Statistical Methods:</strong> Chi-square (χ²) for categorical, Independent t-test for continuous. Odds Ratios calculated with 95% CI. Significance level p < 0.05.</p>
-                <hr>
-                <p><strong>Conclusion:</strong> In this cohort of 116 submassive PE patients, mortality is multifactorial. <strong>Active Malignancy</strong> is the strongest predictor (OR=17.16). <strong>Pleural Effusion</strong> and <strong>Respiratory Failure</strong> are key clinical signs. Systemic markers like <strong>Coagulopathy</strong> (INR/PT), <strong>Anemia</strong>, and <strong>Low Albumin</strong> strongly predict poor outcomes, reflecting the severity of the underlying disease burden and physiological stress.</p>
             </div>
         </div>
 
