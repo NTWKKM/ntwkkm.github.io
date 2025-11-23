@@ -2,20 +2,36 @@
 <html>
 <head>
 <style>
-  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 14px; }
-  table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
-  th, td { border: 1px solid #ddd; padding: 8px; text-align: left; vertical-align: top; }
-  th { background-color: #f2f2f2; font-weight: bold; }
-  tr:nth-child(even) { background-color: #f9f9f9; }
-  tr:hover { background-color: #f1f1f1; }
-  .sig { color: #d9534f; font-weight: bold; }
-  h2 { color: #333; }
-  .section-header { background-color: #e0e0e0; font-weight: bold; text-align: center; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  th {
+    background-color: #f2f2f2;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+    padding: 10px;
+    border-bottom: 2px solid #000;
+  }
+  td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: top;
+  }
+  tr:hover {background-color: #f9f9f9;}
+  .category-header {
+    background-color: #e6e6e6;
+    font-weight: bold;
+    color: #000;
+  }
 </style>
 </head>
 <body>
 
-<h2>Complete Descriptive Analysis: Lived (N=97) vs Died (N=19)</h2>
+<h2>Table 1: Baseline characteristics, clinical presentation, and outcomes comparing Lived vs Died groups</h2>
 
 <table>
   <thead>
@@ -28,53 +44,118 @@
     </tr>
   </thead>
   <tbody>
-    <tr class="section-header"><td colspan="5">Demographic Data</td></tr>
-    <tr><td>Age</td><td>57.44 ± 19.75</td><td>58.63 ± 16.53</td><td>1.00 (0.98-1.03)</td><td>0.873</td></tr>
-    <tr><td>Sex<br>- Female<br>- Male</td><td>69 (71.1%)<br>28 (28.9%)</td><td>10 (52.6%)<br>9 (47.4%)</td><td>2.22 (0.81-6.04)</td><td>0.176</td></tr>
-    <tr><td>Race<br>- Asian<br>- Caucasian<br>- African</td><td>94 (96.9%)<br>1 (1.0%)<br>2 (2.1%)</td><td>18 (94.7%)<br>0 (0.0%)<br>1 (5.3%)</td><td>-</td><td>0.659</td></tr>
-    <tr><td>Active malignancy<br>- No<br>- Yes</td><td>74 (76.3%)<br>23 (23.7%)</td><td>3 (15.8%)<br>16 (84.2%)</td><td>17.16 (4.59-64.17)</td><td class="sig">0.000</td></tr>
-    <tr><td>Underlying disease<br>- None<br>- >= 1 disease</td><td>23 (23.7%)<br>74 (76.3%)</td><td>0 (0.0%)<br>19 (100.0%)</td><td>Inf</td><td class="sig">0.013</td></tr>
-    <tr><td>History of OCP use</td><td>18 (18.6%)</td><td>0 (0.0%)</td><td>0.00</td><td class="sig">0.041</td></tr>
-    
-    <tr class="section-header"><td colspan="5">Clinical Presentation</td></tr>
-    <tr><td>Respiratory failure<br>- No<br>- Yes</td><td>90 (92.8%)<br>7 (7.2%)</td><td>13 (68.4%)<br>6 (31.6%)</td><td>5.93 (1.72-20.42)</td><td class="sig">0.007</td></tr>
-    <tr><td>Dyspnea at rest</td><td>34 (35.1%)</td><td>11 (57.9%)</td><td>2.55 (0.94-6.94)</td><td>0.075</td></tr>
-    <tr><td>Syncope</td><td>21 (21.6%)</td><td>4 (21.1%)</td><td>0.97 (0.29-3.22)</td><td>1.000</td></tr>
+    <tr class="category-header"><td colspan="5">Demographics</td></tr>
+    <tr><td>Age (years)</td><td>57.44 ± 19.75<br>Median: 59.00 (IQR: 31.00)</td><td>58.63 ± 16.53<br>Median: 57.00 (IQR: 21.50)</td><td>-</td><td>0.873</td></tr>
+    <tr><td>Sex</td><td>Female: 49 (50.5%)<br>Male: 48 (49.5%)</td><td>Female: 12 (63.2%)<br>Male: 7 (36.8%)</td><td>0.60 (0.21-1.68)</td><td>0.315</td></tr>
+    <tr><td>Race</td><td>Asian: 93 (95.9%)<br>Caucasian: 4 (4.1%)</td><td>Asian: 19 (100.0%)<br>Caucasian: 0 (0.0%)</td><td>0.00 (0.00-nan)</td><td>1.000</td></tr>
+    <tr><td>Hypertension</td><td>No: 62 (63.9%)<br>Yes: 35 (36.1%)</td><td>No: 12 (63.2%)<br>Yes: 7 (36.8%)</td><td>1.03 (0.35-2.92)</td><td>1.000</td></tr>
+    <tr><td>Dyslipidemia</td><td>No: 72 (74.2%)<br>Yes: 25 (25.8%)</td><td>No: 15 (78.9%)<br>Yes: 4 (21.1%)</td><td>0.77 (0.21-2.43)</td><td>0.778</td></tr>
+    <tr><td>Diabetes Mellitus type2</td><td>No: 81 (83.5%)<br>Yes: 16 (16.5%)</td><td>No: 17 (89.5%)<br>Yes: 2 (10.5%)</td><td>0.59 (0.10-2.34)</td><td>0.733</td></tr>
+    <tr><td>History of stroke</td><td>No: 92 (94.8%)<br>Yes: 5 (5.2%)</td><td>No: 17 (89.5%)<br>Yes: 2 (10.5%)</td><td>2.16 (0.32-11.41)</td><td>0.327</td></tr>
+    <tr><td>Chronic kidney disease</td><td>No: 90 (92.8%)<br>Yes: 7 (7.2%)</td><td>No: 18 (94.7%)<br>Yes: 1 (5.3%)</td><td>0.71 (0.05-5.32)</td><td>1.000</td></tr>
+    <tr><td>Coronary artery disease</td><td>No: 93 (95.9%)<br>Yes: 4 (4.1%)</td><td>No: 19 (100.0%)<br>Yes: 0 (0.0%)</td><td>0.00 (0.00-nan)</td><td>1.000</td></tr>
+    <tr><td>Cirrhosis</td><td>No: 95 (97.9%)<br>Yes: 2 (2.1%)</td><td>No: 19 (100.0%)<br>Yes: 0 (0.0%)</td><td>0.00 (0.00-nan)</td><td>1.000</td></tr>
+    <tr><td>Connective tissue disease</td><td>No: 96 (99.0%)<br>Yes: 1 (1.0%)</td><td>No: 19 (100.0%)<br>Yes: 0 (0.0%)</td><td>0.00 (0.00-nan)</td><td>1.000</td></tr>
+    <tr><td>Chronic lung disease</td><td>No: 94 (96.9%)<br>Yes: 3 (3.1%)</td><td>No: 19 (100.0%)<br>Yes: 0 (0.0%)</td><td>0.00 (0.00-nan)</td><td>1.000</td></tr>
+    <tr><td>Atrial fibrillation </td><td>No: 95 (97.9%)<br>Yes: 2 (2.1%)</td><td>No: 19 (100.0%)<br>Yes: 0 (0.0%)</td><td>0.00 (0.00-nan)</td><td>1.000</td></tr>
+    <tr><td>Active malignancy </td><td>No: 57 (58.8%)<br>Yes: 40 (41.2%)</td><td>No: 7 (36.8%)<br>Yes: 12 (63.2%)</td><td>2.44 (0.84-7.23)</td><td>0.081</td></tr>
+    <tr><td>Underlying disease</td><td>>= 1 medical disease: 64 (66.0%)<br>none: 33 (34.0%)</td><td>>= 1 medical disease: 14 (73.7%)<br>none: 5 (26.3%)</td><td>-</td><td>0.597</td></tr>
+    <tr><td>Immobilization</td><td>No: 62 (63.9%)<br>Yes: 35 (36.1%)</td><td>No: 13 (68.4%)<br>Yes: 6 (31.6%)</td><td>0.82 (0.26-2.43)</td><td>0.796</td></tr>
+    <tr><td>History of Deep vein thrombosis</td><td>N: 1 (1.0%)<br>No: 92 (94.8%)<br>Yes: 4 (4.1%)</td><td>No: 19 (100.0%)</td><td>-</td><td>1.000</td></tr>
+    <tr><td>ocp</td><td>0: 92 (94.8%)<br>1: 5 (5.2%)</td><td>0: 17 (89.5%)<br>1: 2 (10.5%)</td><td>2.16 (0.32-11.41)</td><td>0.327</td></tr>
+    <tr><td>smoking</td><td>0: 90 (92.8%)<br>1: 7 (7.2%)</td><td>0: 18 (94.7%)<br>1: 1 (5.3%)</td><td>0.71 (0.05-5.32)</td><td>1.000</td></tr>
+    <tr><td>sx</td><td>0: 46 (47.4%)<br>1: 51 (52.6%)</td><td>0: 7 (36.8%)<br>1: 12 (63.2%)</td><td>1.54 (0.52-4.66)</td><td>0.435</td></tr>
+    <tr><td>trauma</td><td>0: 89 (91.8%)<br>1: 8 (8.2%)</td><td>0: 16 (84.2%)<br>1: 3 (15.8%)</td><td>2.09 (0.42-8.79)</td><td>0.375</td></tr>
 
-    <tr class="section-header"><td colspan="5">Physical Examination</td></tr>
-    <tr><td>Systolic BP</td><td>131.54 ± 20.84</td><td>123.58 ± 27.60</td><td>0.99 (0.97-1.01)</td><td>0.298</td></tr>
-    <tr><td>Heart Rate</td><td>102.34 ± 18.23</td><td>100.58 ± 22.39</td><td>1.00 (0.97-1.02)</td><td>0.625</td></tr>
-    <tr><td>O2 Saturation</td><td>93.79 ± 4.97</td><td>90.47 ± 11.23</td><td>0.96 (0.91-1.00)</td><td>0.294</td></tr>
+    <tr class="category-header"><td colspan="5">Clinical Presentation</td></tr>
+    <tr><td>desat</td><td>0.0: 30 (30.9%)<br>1.0: 67 (69.1%)</td><td>0.0: 2 (10.5%)<br>1.0: 17 (89.5%)</td><td>3.81 (0.75-26.68)</td><td>0.088</td></tr>
+    <tr><td>dyspnea_rest</td><td>0.0: 36 (37.1%)<br>1.0: 61 (62.9%)</td><td>0.0: 7 (36.8%)<br>1.0: 12 (63.2%)</td><td>1.01 (0.34-2.96)</td><td>1.000</td></tr>
+    <tr><td>dyspnea_exertion</td><td>0.0: 26 (26.8%)<br>1.0: 71 (73.2%)</td><td>0.0: 5 (26.3%)<br>1.0: 14 (73.7%)</td><td>1.02 (0.31-3.66)</td><td>1.000</td></tr>
+    <tr><td>cough</td><td>0.0: 85 (87.6%)<br>1.0: 12 (12.4%)</td><td>0.0: 15 (78.9%)<br>1.0: 4 (21.1%)</td><td>1.89 (0.46-7.14)</td><td>0.273</td></tr>
+    <tr><td>syncope</td><td>0.0: 89 (91.8%)<br>1.0: 8 (8.2%)</td><td>0.0: 18 (94.7%)<br>1.0: 1 (5.3%)</td><td>0.62 (0.04-4.88)</td><td>1.000</td></tr>
+    <tr><td>chestpain</td><td>0.0: 78 (80.4%)<br>1.0: 19 (19.6%)</td><td>0.0: 16 (84.2%)<br>1.0: 3 (15.8%)</td><td>0.77 (0.16-3.08)</td><td>1.000</td></tr>
+    <tr><td>edema</td><td>0.0: 55 (56.7%)<br>1.0: 42 (43.3%)</td><td>0.0: 11 (57.9%)<br>1.0: 8 (42.1%)</td><td>0.95 (0.33-2.73)</td><td>1.000</td></tr>
+    <tr><td>palpitation</td><td>0.0: 92 (94.8%)<br>1.0: 5 (5.2%)</td><td>0.0: 19 (100.0%)<br>1.0: 0 (0.0%)</td><td>0.00 (0.00-nan)</td><td>1.000</td></tr>
+    <tr><td>fever</td><td>0.0: 92 (94.8%)<br>1.0: 5 (5.2%)</td><td>0.0: 17 (89.5%)<br>1.0: 2 (10.5%)</td><td>2.16 (0.32-11.41)</td><td>0.327</td></tr>
+    <tr><td>resp</td><td>0.0: 84 (86.6%)<br>1.0: 13 (13.4%)</td><td>0.0: 12 (63.2%)<br>1.0: 7 (36.8%)</td><td>3.77 (1.17-11.95)</td><td>0.016</td></tr>
 
-    <tr class="section-header"><td colspan="5">Laboratory Data</td></tr>
-    <tr><td>Hemoglobin (g/dL)</td><td>12.11 ± 2.32</td><td>10.86 ± 1.82</td><td>0.79 (0.63-0.98)</td><td class="sig">0.012</td></tr>
-    <tr><td>Hematocrit (%)</td><td>37.42 ± 6.99</td><td>33.04 ± 5.54</td><td>0.90 (0.83-0.98)</td><td class="sig">0.005</td></tr>
-    <tr><td>Platelet (x10^3)</td><td>232.04 ± 81.97</td><td>~3904 (High var)</td><td>1.00</td><td class="sig">0.002</td></tr>
-    <tr><td>Albumin (g/dL)</td><td>3.60 ± 0.49</td><td>2.86 ± 0.49</td><td>0.07 (0.02-0.23)</td><td class="sig">0.000</td></tr>
-    <tr><td>PT (sec)</td><td>12.79 ± 1.03</td><td>15.19 ± 2.70</td><td>2.42 (1.58-3.70)</td><td class="sig">0.000</td></tr>
-    <tr><td>INR</td><td>1.13 ± 0.10</td><td>1.36 ± 0.25</td><td>High</td><td class="sig">0.000</td></tr>
-    <tr><td>Troponin</td><td>338.05 ± 743.04</td><td>242.49 ± 247.49</td><td>1.00</td><td>0.611</td></tr>
-    <tr><td>NTproBNP</td><td>3817.04 ± 4831.05</td><td>4586.64 ± 5251.09</td><td>1.00</td><td>0.831</td></tr>
-    <tr><td>D-dimer</td><td>6237.05 ± 2103.24</td><td>6107.25 ± 3147.04</td><td>1.00</td><td>0.921</td></tr>
+    <tr class="category-header"><td colspan="5">Physical Examination</td></tr>
+    <tr><td>Body temperature</td><td>36.86 ± 0.48<br>Median: 37.00 (IQR: 0.40)</td><td>37.02 ± 0.59<br>Median: 37.00 (IQR: 0.30)</td><td>-</td><td>0.216</td></tr>
+    <tr><td>Systolic BP (mmHg)</td><td>131.08 ± 19.04<br>Median: 131.00 (IQR: 26.00)</td><td>116.05 ± 17.70<br>Median: 110.00 (IQR: 16.00)</td><td>-</td><td><0.001</td></tr>
+    <tr><td>Diastolic BP (mmHg)</td><td>81.94 ± 14.33<br>Median: 80.00 (IQR: 16.00)</td><td>72.11 ± 18.24<br>Median: 74.00 (IQR: 20.00)</td><td>-</td><td>0.028</td></tr>
+    <tr><td>Heart Rate (bpm)</td><td>102.57 ± 20.87<br>Median: 105.00 (IQR: 24.00)</td><td>109.79 ± 19.69<br>Median: 113.00 (IQR: 21.00)</td><td>-</td><td>0.089</td></tr>
+    <tr><td>Respiratory Rate (min)</td><td>22.82 ± 4.81<br>Median: 22.00 (IQR: 4.00)</td><td>25.32 ± 4.14<br>Median: 24.00 (IQR: 7.00)</td><td>-</td><td>0.007</td></tr>
+    <tr><td>Oxygen Saturation (%)</td><td>91.36 ± 6.70<br>Median: 92.00 (IQR: 7.00)</td><td>89.26 ± 5.31<br>Median: 88.00 (IQR: 7.00)</td><td>-</td><td>0.033</td></tr>
+    <tr><td>jvd</td><td>0.0: 92 (94.8%)<br>1.0: 5 (5.2%)</td><td>0.0: 18 (94.7%)<br>1.0: 1 (5.3%)</td><td>1.02 (0.06-9.74)</td><td>1.000</td></tr>
+    <tr><td>leg_edema</td><td>0.0: 59 (60.8%)<br>1.0: 38 (39.2%)</td><td>0.0: 13 (68.4%)<br>1.0: 6 (31.6%)</td><td>0.72 (0.24-2.09)</td><td>0.605</td></tr>
 
-    <tr class="section-header"><td colspan="5">Investigation (CXR, Echo, CT)</td></tr>
-    <tr><td>Lung pathology in CXR<br>- Normal<br>- Infiltration/Other</td><td>72 (74.2%)<br>25 (25.8%)</td><td>7 (36.8%)<br>12 (63.2%)</td><td>-</td><td class="sig">0.000</td></tr>
-    <tr><td>Pleural effusion in CXR</td><td>15 (15.5%)</td><td>11 (57.9%)</td><td>7.52 (2.59-21.79)</td><td class="sig">0.000</td></tr>
-    <tr><td>RV dilatation (Echo)<br>- No/Mild<br>- Mod/Severe</td><td>68 (73.9%)<br>24 (26.1%)</td><td>13 (92.8%)<br>1 (7.1%)</td><td>-</td><td>0.440</td></tr>
-    <tr><td>Tricuspid Regurgitation<br>- No/Mild<br>- Mod/Severe</td><td>45 (57.7%)<br>33 (42.3%)</td><td>5 (55.5%)<br>4 (44.4%)</td><td>-</td><td class="sig">0.034</td></tr>
-    <tr><td>Pulmonary Hypertension<br>- No/Mild<br>- Mod/Severe</td><td>39 (57.3%)<br>29 (42.7%)</td><td>1 (16.7%)<br>5 (83.3%)</td><td>-</td><td>0.262</td></tr>
+    <tr class="category-header"><td colspan="5">Laboratory Data</td></tr>
+    <tr><td>Arterial pH</td><td>7.44 ± 0.07<br>Median: 7.45 (IQR: 0.07)</td><td>7.43 ± 0.07<br>Median: 7.45 (IQR: 0.06)</td><td>-</td><td>0.796</td></tr>
+    <tr><td>PaO2 (mmHg)</td><td>84.27 ± 38.53<br>Median: 71.85 (IQR: 27.95)</td><td>73.01 ± 19.75<br>Median: 69.30 (IQR: 21.50)</td><td>-</td><td>0.585</td></tr>
+    <tr><td>pfratio</td><td>285.08 ± 77.95<br>Median: 282.85 (IQR: 75.75)</td><td>240.84 ± 110.01<br>Median: 258.00 (IQR: 164.25)</td><td>-</td><td>0.195</td></tr>
+    <tr><td>PaCO2 (mmHg)</td><td>33.15 ± 7.97<br>Median: 32.50 (IQR: 8.65)</td><td>31.42 ± 9.39<br>Median: 30.10 (IQR: 13.00)</td><td>-</td><td>0.589</td></tr>
+    <tr><td>Lactate (mmol/L)</td><td>2.12 ± 1.63<br>Median: 1.50 (IQR: 1.25)</td><td>3.68 ± 3.42<br>Median: 2.40 (IQR: 3.00)</td><td>-</td><td>0.063</td></tr>
+    <tr><td>hb</td><td>12.02 ± 2.22<br>Median: 12.00 (IQR: 3.10)</td><td>11.45 ± 2.48<br>Median: 11.50 (IQR: 4.10)</td><td>-</td><td>0.435</td></tr>
+    <tr><td>hct</td><td>36.56 ± 6.64<br>Median: 36.80 (IQR: 9.30)</td><td>34.46 ± 7.93<br>Median: 33.60 (IQR: 13.00)</td><td>-</td><td>0.245</td></tr>
+    <tr><td>plt</td><td>253.90 ± 119.26<br>Median: 247.00 (IQR: 131.00)</td><td>224.22 ± 113.84<br>Median: 204.00 (IQR: 181.50)</td><td>-</td><td>0.364</td></tr>
+    <tr><td>cr</td><td>1.30 ± 1.26<br>Median: 0.90 (IQR: 0.60)</td><td>1.79 ± 1.54<br>Median: 1.28 (IQR: 1.39)</td><td>-</td><td>0.082</td></tr>
+    <tr><td>bicarb</td><td>22.25 ± 4.54<br>Median: 22.85 (IQR: 5.00)</td><td>20.65 ± 5.62<br>Median: 22.00 (IQR: 7.70)</td><td>-</td><td>0.316</td></tr>
+    <tr><td>alb</td><td>3.32 ± 0.66<br>Median: 3.40 (IQR: 0.90)</td><td>3.13 ± 0.61<br>Median: 3.10 (IQR: 0.85)</td><td>-</td><td>0.306</td></tr>
+    <tr><td>pt</td><td>14.88 ± 5.56<br>Median: 12.90 (IQR: 2.15)</td><td>15.82 ± 4.39<br>Median: 14.40 (IQR: 4.60)</td><td>-</td><td>0.177</td></tr>
+    <tr><td>ptt</td><td>32.09 ± 15.69<br>Median: 26.65 (IQR: 7.00)</td><td>35.12 ± 13.37<br>Median: 31.50 (IQR: 18.05)</td><td>-</td><td>0.144</td></tr>
+    <tr><td>inr</td><td>1.36 ± 0.66<br>Median: 1.15 (IQR: 0.17)</td><td>1.54 ± 0.72<br>Median: 1.28 (IQR: 0.64)</td><td>-</td><td>0.086</td></tr>
+    <tr><td>Troponin</td><td>133.09 ± 372.48<br>Median: 21.65 (IQR: 70.88)</td><td>675.31 ± 1406.82<br>Median: 104.50 (IQR: 331.00)</td><td>-</td><td>0.126</td></tr>
+    <tr><td>BNP</td><td>3226.79 ± 6032.22<br>Median: 1039.00 (IQR: 2899.75)</td><td>2573.71 ± 2548.53<br>Median: 1475.00 (IQR: 4235.00)</td><td>-</td><td>0.435</td></tr>
+    <tr><td>D-Dimer</td><td>5960.67 ± 6614.99<br>Median: 3450.00 (IQR: 4224.00)</td><td>8309.80 ± 9706.74<br>Median: 4780.00 (IQR: 10600.00)</td><td>-</td><td>0.679</td></tr>
 
-    <tr class="section-header"><td colspan="5">Management</td></tr>
-    <tr><td>Initial anticoagulant<br>- LMWH<br>- UFH</td><td>66 (68.0%)<br>31 (32.0%)</td><td>10 (52.6%)<br>8 (42.1%)</td><td>-</td><td class="sig">0.046</td></tr>
-    <tr><td>Ventilatory support<br>- No/Cannula<br>- High Flow/Tube</td><td>73 (75.3%)<br>13 (13.4%)</td><td>8 (42.1%)<br>11 (57.9%)</td><td>-</td><td class="sig">0.000</td></tr>
-    <tr><td>Endotracheal tube</td><td>6 (6.2%)</td><td>7 (36.8%)</td><td>8.85 (2.55-30.74)</td><td class="sig">0.001</td></tr>
+    <tr class="category-header"><td colspan="5">Investigations (ECG/CT/Echo)</td></tr>
+    <tr><td>sinus</td><td>0: 45 (46.4%)<br>1: 52 (53.6%)</td><td>0: 7 (36.8%)<br>1: 12 (63.2%)</td><td>1.48 (0.50-4.49)</td><td>0.463</td></tr>
+    <tr><td>rate</td><td>1: 22 (22.7%)<br>2: 75 (77.3%)</td><td>1: 3 (15.8%)<br>2: 16 (84.2%)</td><td>-</td><td>0.760</td></tr>
+    <tr><td>s1q3t3</td><td>0: 67 (69.1%)<br>1: 30 (30.9%)</td><td>0: 15 (78.9%)<br>1: 4 (21.1%)</td><td>0.60 (0.15-2.02)</td><td>0.423</td></tr>
+    <tr><td>rvstrain_EKG</td><td>0: 76 (78.4%)<br>1: 21 (21.6%)</td><td>0: 12 (63.2%)<br>1: 7 (36.8%)</td><td>2.11 (0.64-6.66)</td><td>0.151</td></tr>
+    <tr><td>rbbb</td><td>0: 84 (86.6%)<br>1: 13 (13.4%)</td><td>0: 15 (78.9%)<br>1: 4 (21.1%)</td><td>1.72 (0.42-6.19)</td><td>0.464</td></tr>
+    <tr><td>cardiomegaly </td><td>0: 38 (39.2%)<br>1: 59 (60.8%)</td><td>0: 6 (31.6%)<br>1: 13 (68.4%)</td><td>1.39 (0.46-4.57)</td><td>0.605</td></tr>
+    <tr><td>trunk</td><td>0: 44 (45.4%)<br>1: 53 (54.6%)</td><td>0: 9 (47.4%)<br>1: 10 (52.6%)</td><td>0.92 (0.33-2.61)</td><td>0.871</td></tr>
+    <tr><td>lung_investigate</td><td>0: 83 (85.6%)<br>1: 14 (14.4%)</td><td>0: 18 (94.7%)<br>1: 1 (5.3%)</td><td>0.33 (0.02-2.73)</td><td>0.457</td></tr>
+    <tr><td>effusion</td><td>0: 71 (73.2%)<br>1: 26 (26.8%)</td><td>0: 12 (63.2%)<br>1: 7 (36.8%)</td><td>1.59 (0.52-4.70)</td><td>0.419</td></tr>
+    <tr><td>prox_clot</td><td>0: 65 (67.0%)<br>1: 32 (33.0%)</td><td>0: 9 (47.4%)<br>1: 10 (52.6%)</td><td>2.26 (0.80-6.31)</td><td>0.126</td></tr>
+    <tr><td>rvstrain_CT</td><td>0: 30 (30.9%)<br>1: 67 (69.1%)</td><td>0: 2 (10.5%)<br>1: 17 (89.5%)</td><td>3.81 (0.75-26.68)</td><td>0.088</td></tr>
+    <tr><td>rvdilate</td><td>0.0: 30 (30.9%)<br>1.0: 32 (33.0%)<br>2.0: 17 (17.5%)<br>3.0: 18 (18.6%)</td><td>0.0: 3 (15.8%)<br>1.0: 6 (31.6%)<br>2.0: 4 (21.1%)<br>3.0: 6 (31.6%)</td><td>-</td><td>0.465</td></tr>
+    <tr><td>rvfunction</td><td>0.0: 62 (63.9%)<br>1.0: 13 (13.4%)<br>2.0: 11 (11.3%)<br>3.0: 11 (11.3%)</td><td>0.0: 9 (47.4%)<br>1.0: 4 (21.1%)<br>2.0: 4 (21.1%)<br>3.0: 2 (10.5%)</td><td>-</td><td>0.548</td></tr>
+    <tr><td>tapse</td><td>1.0: 15 (15.5%)<br>2.0: 22 (22.7%)<br>3.0: 10 (10.3%)<br>nan: 50 (51.5%)</td><td>1.0: 7 (36.8%)<br>2.0: 2 (10.5%)<br>3.0: 2 (10.5%)<br>nan: 8 (42.1%)</td><td>-</td><td>0.092</td></tr>
+    <tr><td>pulmonaryht</td><td>0.0: 45 (46.4%)<br>1.0: 24 (24.7%)<br>2.0: 23 (23.7%)<br>3.0: 5 (5.2%)</td><td>0.0: 6 (31.6%)<br>1.0: 5 (26.3%)<br>2.0: 6 (31.6%)<br>3.0: 2 (10.5%)</td><td>-</td><td>0.669</td></tr>
+    <tr><td>tvr</td><td>0.0: 65 (67.0%)<br>1.0: 2 (2.1%)<br>2.0: 30 (30.9%)</td><td>0.0: 12 (63.2%)<br>1.0: 1 (5.3%)<br>2.0: 6 (31.6%)</td><td>-</td><td>0.627</td></tr>
+    <tr><td>lvfunction</td><td>0: 92 (94.8%)<br>1: 5 (5.2%)</td><td>0: 18 (94.7%)<br>1: 1 (5.3%)</td><td>1.02 (0.06-9.74)</td><td>1.000</td></tr>
+    <tr><td>dvt_investigate</td><td>0.0: 40 (41.2%)<br>1.0: 24 (24.7%)<br>nan: 33 (34.0%)</td><td>0.0: 5 (26.3%)<br>1.0: 9 (47.4%)<br>nan: 5 (26.3%)</td><td>-</td><td>0.126</td></tr>
 
-    <tr class="section-header"><td colspan="5">Outcomes & Follow-up</td></tr>
-    <tr><td>Pulmonary HT (Follow-up)</td><td>Most Improved</td><td>High Mortality</td><td>-</td><td class="sig">0.017</td></tr>
-    <tr><td>In-hospital Arrest</td><td>4 (4.1%)</td><td>19 (100.0%)</td><td>-</td><td class="sig">0.000</td></tr>
+    <tr class="category-header"><td colspan="5">Management</td></tr>
+    <tr><td>anticoag</td><td>1: 51 (52.6%)<br>2: 46 (47.4%)</td><td>1: 9 (47.4%)<br>2: 10 (52.6%)</td><td>-</td><td>0.672</td></tr>
+    <tr><td>LMWH</td><td>0: 47 (48.5%)<br>1: 50 (51.5%)</td><td>0: 10 (52.6%)<br>1: 9 (47.4%)</td><td>0.85 (0.30-2.39)</td><td>0.796</td></tr>
+    <tr><td>UFH</td><td>0: 50 (51.5%)<br>1: 47 (48.5%)</td><td>0: 9 (47.4%)<br>1: 10 (52.6%)</td><td>1.18 (0.42-3.32)</td><td>0.796</td></tr>
+    <tr><td>reperfusion</td><td>0: 64 (66.0%)<br>1: 33 (34.0%)</td><td>0: 10 (52.6%)<br>1: 9 (47.4%)</td><td>1.75 (0.61-4.99)</td><td>0.297</td></tr>
+    <tr><td>catheter-based fibrinolysis</td><td>0: 76 (78.4%)<br>1: 21 (21.6%)</td><td>0: 12 (63.2%)<br>1: 7 (36.8%)</td><td>2.11 (0.64-6.66)</td><td>0.151</td></tr>
+    <tr><td>systemic fibrinolysis</td><td>0: 84 (86.6%)<br>1: 13 (13.4%)</td><td>0: 15 (78.9%)<br>1: 4 (21.1%)</td><td>1.72 (0.42-6.19)</td><td>0.464</td></tr>
+    <tr><td>surgical embolectomy</td><td>0: 96 (99.0%)<br>1: 1 (1.0%)</td><td>0: 18 (94.7%)<br>1: 1 (5.3%)</td><td>5.33 (0.13-289.87)</td><td>0.304</td></tr>
+    <tr><td>vent</td><td>0: 62 (63.9%)<br>1: 29 (29.9%)<br>2: 4 (4.1%)<br>3: 1 (1.0%)<br>4: 1 (1.0%)</td><td>0: 3 (15.8%)<br>1: 5 (26.3%)<br>2: 3 (15.8%)<br>3: 1 (5.3%)<br>4: 7 (36.8%)</td><td>-</td><td><0.001</td></tr>
+    <tr><td>oxygen canula</td><td>0: 52 (53.6%)<br>1: 45 (46.4%)</td><td>0: 13 (68.4%)<br>1: 6 (31.6%)</td><td>0.53 (0.17-1.57)</td><td>0.231</td></tr>
+    <tr><td>mask with bag</td><td>0: 93 (95.9%)<br>1: 4 (4.1%)</td><td>0: 15 (78.9%)<br>1: 4 (21.1%)</td><td>6.20 (1.18-35.09)</td><td>0.019</td></tr>
+    <tr><td>High flow nasal canula</td><td>0: 97 (100.0%)</td><td>0: 18 (94.7%)<br>1: 1 (5.3%)</td><td>-</td><td>0.164</td></tr>
+    <tr><td>endotracheal tube</td><td>0: 96 (99.0%)<br>1: 1 (1.0%)</td><td>0: 12 (63.2%)<br>1: 7 (36.8%)</td><td>56.00 (6.10-1498.05)</td><td><0.001</td></tr>
+
+    <tr class="category-header"><td colspan="5">Secondary Outcomes</td></tr>
+    <tr><td>mortality_pe</td><td>0: 97 (100.0%)</td><td>1: 15 (78.9%)<br>nan: 4 (21.1%)</td><td>-</td><td><0.001</td></tr>
+    <tr><td>mortality_nonpe</td><td>0: 97 (100.0%)</td><td>1: 1 (5.3%)<br>2: 1 (5.3%)<br>3: 1 (5.3%)<br>4: 1 (5.3%)<br>nan: 15 (78.9%)</td><td>-</td><td><0.001</td></tr>
+    <tr><td>arrest</td><td>0: 97 (100.0%)</td><td>1: 2 (10.5%)<br>2: 17 (89.5%)</td><td>-</td><td><0.001</td></tr>
+    <tr><td>rvdilate_outcome</td><td>0.0: 24 (24.7%)<br>1.0: 20 (20.6%)<br>2.0: 5 (5.2%)<br>3.0: 6 (6.2%)<br>nan: 42 (43.3%)</td><td>2.0: 1 (5.3%)<br>nan: 18 (94.7%)</td><td>-</td><td>0.038</td></tr>
+    <tr><td>Rv correct</td><td>0.0: 25 (25.8%)<br>1.0: 30 (30.9%)<br>nan: 42 (43.3%)</td><td>1.0: 1 (5.3%)<br>nan: 18 (94.7%)</td><td>-</td><td>0.021</td></tr>
+    <tr><td>rvfunction_outcome</td><td>0.0: 36 (37.1%)<br>1.0: 11 (11.3%)<br>2.0: 8 (8.2%)<br>nan: 42 (43.3%)</td><td>2.0: 1 (5.3%)<br>nan: 18 (94.7%)</td><td>-</td><td>0.027</td></tr>
+    <tr><td>tapse_outcome</td><td>0.0: 30 (30.9%)<br>1.0: 25 (25.8%)<br>nan: 42 (43.3%)</td><td>1.0: 1 (5.3%)<br>nan: 18 (94.7%)</td><td>-</td><td>0.013</td></tr>
+    <tr><td>pulmonaryht_outcome</td><td>0.0: 27 (27.8%)<br>2.0: 21 (21.6%)<br>3.0: 7 (7.2%)<br>nan: 42 (43.3%)</td><td>2.0: 1 (5.3%)<br>nan: 18 (94.7%)</td><td>-</td><td>0.032</td></tr>
+    <tr><td>tvr_outcome</td><td>0.0: 13 (13.4%)<br>1.0: 22 (22.7%)<br>2.0: 20 (20.6%)<br>nan: 42 (43.3%)</td><td>2.0: 1 (5.3%)<br>nan: 18 (94.7%)</td><td>-</td><td>0.027</td></tr>
+    <tr><td>lvfunction_outcome</td><td>0.0: 52 (53.6%)<br>1.0: 3 (3.1%)<br>nan: 42 (43.3%)</td><td>1.0: 1 (5.3%)<br>nan: 18 (94.7%)</td><td>-</td><td>0.014</td></tr>
+
   </tbody>
 </table>
 
-<p><b>Note:</b> p-value ที่ < 0.05 แสดงเป็นตัวหนาสีแดง (Significant)</p>
 </body>
 </html>
