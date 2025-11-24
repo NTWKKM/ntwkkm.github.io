@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สรุป Workflow: กรอง PubMed Paper รายสัปดาห์ (NCBI + n8n)</title>
+    <style>
+        :root {
+            --bg-body: #D0D0D0;
+            --bg-card: #EDEDED; 
+            --text-main: #333;
+            --heading-primary: #2c3e50;
+            --heading-secondary: #e67e22; 
+            --color-code-inline: #c0392b; 
+            --bg-code-block: #2d3436; 
+            --text-code-block: #dfe6e9; 
+            --border-primary: #ccc;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-body);
+        }
+        h1 { color: var(--heading-primary); border-bottom: 2px solid var(--border-primary); padding-bottom: 10px; }
+        h2 { color: var(--heading-secondary); margin-top: 35px; border-left: 4px solid var(--heading-secondary); padding-left: 10px; }
+        .card {
+            background-color: var(--bg-card); 
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        code {
+            background-color: #f0f2f5; 
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "Consolas", "Monaco", monospace;
+            color: var(--color-code-inline);
+            font-size: 0.95em;
+        }
+        pre {
+            background-color: var(--bg-code-block); 
+            color: var(--text-code-block); 
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: 0.9em;
+            margin: 15px 0;
+        }
+        .step-header {
+            font-weight: bold;
+            color: var(--heading-primary);
+            margin-bottom: 10px;
+        }
+        .warning {
+            background-color: #fff3cd; 
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>สรุป Workflow: กรอง PubMed Paper ประจำสัปดาห์</h1>
+    <p>Workflow นี้มีขั้นตอนหลัก 5 ส่วน โดยใช้ **QueryKey** และ **WebEnv** ในการดึงข้อมูลเพื่อประสิทธิภาพสูงสุด และใช้ Python เพื่อดึงมาเฉพาะชื่อเรื่องเท่านั้น</p>
+
+    <div class="card">
+        <h2>1. 🎯 E-Search: ค้นหา PMIDs และสร้าง WebEnv</h2>
+        <p class="step-header">Node: HTTP Request (GET) </p>
+        <p>Endpoint: <code>https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi</code></p>
+        
+        <p><strong>Query Parameters:</strong></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Value</th>
+                    <th>คำอธิบาย</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>db</code></td>
+                    <td><code>pubmed</code></td>
+                    <td>ฐานข้อมูล</td>
+                </tr>
+                <tr>
+                    <td><code>term</code></td>
+                    <td><code>emergency medicine</code></td>
+                    <td>คำค้นหาของคุณ</td>
+                </tr>
+                <tr>
+                    <td><code>mindate</code></td>
+                    <td><code>7</code></td>
+                    <td>7 วันที่แล้ว</td>
+                </tr>
+                <tr>
+                    <td><code>maxdate</code></td>
+                    <td><code>today</code></td>
+                    <td>วันนี้</td>
+                </tr>
+                <tr>
+                    <td><code>retmax</code></td>
+                    <td><code>100</code></td>
+                    <td>จำนวนรายการสูงสุดที่ต้องการ</td>
+                </tr>
+                <tr>
+                    <td><code>usehistory</code></td>
+                    <td><code>y</code></td>
+                    <td><strong>สำคัญ:</strong> เพื่อให้ NCBI เก็บชุดผลลัพธ์ (WebEnv) ไว้</td>
+                </tr>
+                <tr>
+                    <td><code>api_key</code></td>
+                    <td><code>&lt;API Key ของคุณ&gt;</code></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="warning">
+            <p><strong>แก้ไขสำคัญ:</strong> เราตัด <code>datetype</code> ออก เพื่อป้องกันข้อผิดพลาดในการตีความช่วงวันที่เมื่อใช้ <code>mindate/maxdate</code></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. 🐍 Python Code #1: ดึง QueryKey & WebEnv</h2>
+        <p class="step-header">Node: Code (Python) </p>
+        <p>โค้ดนี้ใช้ Library มาตรฐานของ Python (<code>xml.etree.ElementTree</code>) เพื่อแปลง XML และดึงค่าสำคัญสำหรับขั้นตอน E-Fetch</p>
+        <pre>
+import xml.etree.ElementTree as ET
+import json
+
+xml_string = items[0]['json']['data']
+
+try:
+    root = ET.fromstring(xml_string)
+except Exception as e:
+    return []
+
+# ดึงค่า QueryKey และ WebEnv
+query_key = root.find('QueryKey').text
+web_env = root.find('WebEnv').text
+
+# คืนค่าเป็น JSON Object
+return [{
+    "query_key": query_key,
+    "web_env": web_env,
+}]</pre>
+    </div>
+
+    <div class="card">
+        <h2>3. 🚀 E-Fetch: ดึง XML Full Record (Medline)</h2>
+        <p class="step-header">Node: HTTP Request (GET) </p>
+        <p>Endpoint: <code>https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi</code></p>
+        <p>Node นี้ใช้ QueryKey และ WebEnv เพื่อดึง XML Full Record ที่ซับซ้อน (Medline) ซึ่งเป็นวิธีที่รวดเร็วและปลอดภัยที่สุดเมื่อมีรายการผลลัพธ์จำนวนมาก</p>
+        
+        <p><strong>Query Parameters:</strong></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Value (Expression)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>db</code></td>
+                    <td><code>pubmed</code></td>
+                </tr>
+                <tr>
+                    <td><code>query_key</code></td>
+                    <td><code>{{ $json.query_key }}</code></td>
+                </tr>
+                <tr>
+                    <td><code>WebEnv</code></td>
+                    <td><code>{{ $json.web_env }}</code></td>
+                </tr>
+                <tr>
+                    <td><code>retmode</code></td>
+                    <td><code>xml</code></td>
+                </tr>
+                <tr>
+                    <td><code>rettype</code></td>
+                    <td>(เว้นว่างไว้)</td>
+                </tr>
+                <tr>
+                    <td><code>api_key</code></td>
+                    <td><code>&lt;API Key ของคุณ&gt;</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>4. 🔪 Python Code #2: กรองเอาเฉพาะ Title และ URL</h2>
+        <p class="step-header">Node: Code (Python) </p>
+        <p>โค้ดนี้จะรับ XML Full Record เข้ามา และกรองทิ้ง Abstract/Authors/MeSH Terms ทั้งหมด คงเหลือไว้แค่ **PMID** และ **Title** เพื่อให้ข้อมูลมีขนาดเล็กที่สุด</p>
+        <pre>
+import xml.etree.ElementTree as ET
+
+xml_string = items[0]['json']['data']
+
+try:
+    root = ET.fromstring(xml_string)
+except Exception as e:
+    print(f"E-Fetch XML Parsing Error: {e}")
+    return []
+
+results = []
+
+# วนลูปเพื่อหาแต่ละบทความใน Tag 'PubmedArticle'
+for article in root.findall('PubmedArticle'):
+    try:
+        # 1. ดึง PMID
+        pmid_element = article.find('.//PMID')
+        pmid = pmid_element.text if pmid_element is not None else "N/A"
+        
+        # 2. ดึง Title
+        title_element = article.find('.//ArticleTitle') 
+        title = title_element.text if title_element is not None else "No Title Found"
+        
+        # 3. สร้าง URL
+        pubmed_url = f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
+        
+        results.append({
+            "PMID": pmid,
+            "Title": title,
+            "URL": pubmed_url 
+        })
+    except Exception:
+        continue
+
+return results</pre>
+    </div>
+
+    <div class="card">
+        <h2>5. 🔔 ขั้นตอนสุดท้าย: แจ้งเตือน</h2>
+        <p class="step-header">Node: LINE Messaging / Slack / Email </p>
+        <p>ตอนนี้คุณมีรายการ JSON Array ที่มีแต่ Title และ URL ของบทความ 100 ชิ้นแล้ว คุณสามารถส่งต่อข้อมูลนี้ไปยัง Node แจ้งเตือนที่คุณต้องการได้ทันที</p>
+        <p><strong>ตัวอย่างการใช้งาน:</strong> ใช้ <strong>Item List Node</strong> เพื่อรวมผลลัพธ์ทั้งหมดเป็นข้อความยาว ๆ ก่อนส่งไปที่ LINE Notify</p>
+    </div>
+
+</body>
+</html>
