@@ -186,7 +186,8 @@ flyctl auth login</pre>
             <h2 id="config">2. สร้างไฟล์ Config</h2>
             
             <h3 id="config-docker">2.1 สร้างไฟล์ <code>Dockerfile</code></h3>
-            <p>ใช้คำสั่ง <code>nano Dockerfile</code> เพื่อสร้างและวางโค้ด:</p>
+            <p>ใช้คำสั่ง <code>nano Dockerfile</code> เพื่อสร้างและวางโค้ด:
+            (เมื่อวางโค้ดเสร็จแล้ว ให้กด **Ctrl+O** > **Enter** > **Ctrl+X** เพื่อบันทึกและออกจาก nano)</p>
             <pre>
 FROM n8nio/n8n:latest
 USER root
@@ -194,13 +195,13 @@ RUN npm install -g playwright
 USER node</pre>
 
             <h3 id="config-flytoml">2.2 สร้างไฟล์ <code>fly.toml</code> (ตั้งค่า Sleep Mode)</h3>
-            <p>ใช้คำสั่ง <code>nano fly.toml</code> เพื่อสร้างและวางโค้ด:</p>
+            <p>ใช้คำสั่ง <code>nano fly.toml</code> เพื่อสร้างและวางโค้ด:
+            (เมื่อวางโค้ดเสร็จแล้ว ให้กด **Ctrl+O** > **Enter** > **Ctrl+X** เพื่อบันทึกและออกจาก nano)</p>
             <p class="warning">จุดสำคัญคือการตั้งค่า <code>min_machines_running = 0</code> เพื่ออนุญาตให้เครื่องหยุดทำงานได้</p>
             <pre>
 # fly.toml
 app = 'YOUR_APP_NAME_BASE-n8n' 
-primary_region = 'hkg' # แนะนำ hkg (ฮ่องกง) หรือ lax (LA)
-
+primary_region = 'sin' # แนะนำ sin (สิงคโปร์) สำหรับความเร็วในไทย
 [build]
   dockerfile = "Dockerfile"
 
@@ -232,15 +233,17 @@ primary_region = 'hkg' # แนะนำ hkg (ฮ่องกง) หรือ l
 
         <div class="card">
             <h2 id="infra">3. สร้าง Infrastructure</h2>
+            <p>ถ้ากังวลว่าการเปิด database ตลอด จะทำให้ server database run ตลอด จนเกิดงบ ให้ข้ามข้อเกี่ยวกับ database ไปทั้งหมด</p>
+            <p>ถ้าไม่สร้าง database n8n จะใช้ volume เป็นที่เก็บข้อมูล(จะมีขนาด 1 GB ตามcodeที่สร้าง)</p>
             <pre>
 # 1. สร้าง App
 flyctl apps create YOUR_APP_NAME_BASE-n8n --org personal
 
 # 2. สร้าง Volume
-flyctl volumes create n8n_vol --region hkg --size 1 --app YOUR_APP_NAME_BASE-n8n
+flyctl volumes create n8n_vol --region sin --size 1 --app YOUR_APP_NAME_BASE-n8n
 
 # 3. สร้าง Database
-flyctl postgres create --name YOUR_APP_NAME_BASE-n8n-db --region hkg --vm-size shared-cpu-1x --volume-size 1
+flyctl postgres create --name YOUR_APP_NAME_BASE-n8n-db --region sin --vm-size shared-cpu-1x --volume-size 1
 
 # 4. เชื่อมต่อ Database (เพื่อเอา User/Pass)
 flyctl postgres attach --app YOUR_APP_NAME_BASE-n8n YOUR_APP_NAME_BASE-n8n-db</pre>
@@ -248,6 +251,7 @@ flyctl postgres attach --app YOUR_APP_NAME_BASE-n8n YOUR_APP_NAME_BASE-n8n-db</p
 
         <div class="card">
             <h2 id="secrets">4. ตั้งค่า Secrets (แยกตัวแปร DB เพื่อความชัวร์)</h2>
+            <p>0. ถ้าไม่เอา database แยก ข้ามข้อ 1. กับ 2. และไม่ต้อง run code DB_ ทั้งหมด</p>
             <p>1. รันคำสั่งเพื่อดูรหัสผ่าน: <code>flyctl ssh console --app YOUR_APP_NAME_BASE-n8n -C 'echo $DATABASE_URL'</code></p>
             <p>2. นำ User/Password ที่ได้ มาใส่ในคำสั่งด้านล่างนี้:</p>
             <pre>
