@@ -70,7 +70,7 @@
 <body>
 
     <h1>สรุป Workflow: กรอง PubMed Paper ประจำสัปดาห์</h1>
-    <p>Workflow นี้มีขั้นตอนหลัก 6 ส่วน โดยใช้ <strong>id (PMID List)</strong> ดึงข้อมูลโดยตรง ควบคู่กับ WebEnv เพื่อความแม่นยำ</p>
+    <p>Workflow นี้มีขั้นตอนหลัก 6 ส่วน โดยเน้นการใช้ Python Code ในการจัดการข้อมูล XML และรวมผลลัพธ์เป็นข้อความเดียวเพื่อลดภาระการแจ้งเตือน</p>
 
     <div class="card">
         <h2>1. 🎯 E-Search: ค้นหา PMIDs</h2>
@@ -110,7 +110,7 @@
                 <tr>
                     <td><code>usehistory</code></td>
                     <td><code>y</code></td>
-                    <td>(Optional)</td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td><code>api_key</code></td>
@@ -125,50 +125,53 @@
     </div>
 
     <div class="card">
-        <h2>2. 🐍 Python Code #1: รวม PMIDs เป็น String เดียว</h2>
+        <h2>2. 🐍 Python Code #1: ดึงค่า Key และรวม PMIDs</h2>
         <p class="step-header">Node: Code (Python) </p>
-        <p>โค้ดนี้จะเตรียมทั้ง <strong>pmid_list</strong> และ <strong>WebEnv</strong> ส่งต่อไปยัง Node ถัดไป</p>
+        <p>โค้ดนี้ดึงทั้ง <code>QueryKey</code>, <code>WebEnv</code> และสร้าง <code>pmid_list</code> สำหรับทางเลือกในการดึงข้อมูลทั้งสองแบบ</p>
         <pre>
 import xml.etree.ElementTree as ET
 import json
 
 # เปลี่ยนจาก 'data' เป็น 'items' เพื่อให้เข้าถึง Input Item ได้ถูกต้อง
-xml_string = items[0]['json']['data'] 
+# xml_string = data[0]['json']['data'] 
+xml_string = items[0]['json']['data']
 
-# 2. แปลง XML String เป็น Element Tree
+# 2. แปลง XML String เป็น Element Tree (โครงสร้างข้อมูล XML)
 try:
+    # .fromstring() จัดการแปลง String เป็น Element Tree
     root = ET.fromstring(xml_string)
 except Exception as e:
     print(f"XML Parsing Error with ElementTree: {e}")
     return []
 
-# 3. ดึงค่า WebEnv (และ QueryKey ถ้าจำเป็น)
+# 3. ดึงค่า QueryKey และ WebEnv
 try:
+    query_key = root.find('QueryKey').text
     web_env = root.find('WebEnv').text
-except AttributeError:
-    web_env = ""
-
-# 4. ดึงรายการ PMIDs ทั้งหมด
-try:
+    
+    # 4. ดึงรายการ PMIDs ทั้งหมด
     id_list_element = root.find('IdList')
     pmid_list_items = []
     
     # วนลูปดึงค่า text ของ Element 'Id' ทั้งหมด
     for id_element in id_list_element.findall('Id'):
+        # ตรวจสอบว่า element มี text หรือไม่ก่อน append
         if id_element.text:
             pmid_list_items.append(id_element.text)
         
-    # รวม PMIDs เป็น String คั่นด้วยลูกน้ำ (1234,5678,9012)
+    # รวม PMIDs เป็น String คั่นด้วยลูกน้ำ
     pmid_list = ','.join(pmid_list_items)
     
 except AttributeError as e:
     print(f"Error accessing XML element: {e}")
     return []
 
-# 5. คืนค่าผลลัพธ์
+# 5. คืนค่าผลลัพธ์ในรูปแบบ JSON Object ที่ n8n ต้องการ
+# ใน Python Node จะต้องคืนค่าเป็น List of Dictionaries
 return [{
-    "pmid_list": pmid_list,
-    "web_env": web_env
+    "query_key": query_key,
+    "web_env": web_env,
+    "pmid_list": pmid_list 
 }]</pre>
     </div>
 
@@ -176,7 +179,7 @@ return [{
         <h2>3. 🚀 E-Fetch: ดึง XML Full Record (Medline)</h2>
         <p class="step-header">Node: HTTP Request (GET) </p>
         <p>Endpoint: <code>https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi</code></p>
-        <p>Node นี้ใช้ <strong>id</strong> (PMID List) เป็นหลัก และแนบ <strong>WebEnv</strong> ตามที่คุณต้องการ</p>
+        <p>Node นี้ใช้ <strong>id</strong> (PMID List) เป็นหลัก และแนบ <strong>WebEnv</strong> ตามที่กำหนด</p>
         
         <p><strong>Query Parameters:</strong></p>
         <table>
@@ -196,12 +199,12 @@ return [{
                 <tr>
                     <td><code>id</code></td>
                     <td><code>{{ $json.pmid_list }}</code></td>
-                    <td><strong>แก้ไข:</strong> เปลี่ยนจาก query_key เป็น id</td>
+                    <td>ใช้รายการ PMIDs โดยตรง</td>
                 </tr>
                 <tr>
                     <td><code>WebEnv</code></td>
                     <td><code>{{ $json.web_env }}</code></td>
-                    <td>ใช้ WebEnv เหมือนเดิม</td>
+                    <td>ใช้ WebEnv ร่วมด้วย</td>
                 </tr>
                 <tr>
                     <td><code>retmode</code></td>
@@ -223,7 +226,7 @@ return [{
     </div>
 
     <div class="card">
-        <h2>4. 🔪 Python Code #2: กรองเอาเฉพาะ Title และ URL</h2>
+        <h2>4. 🔪 Python Code #2: กรองเอาเฉพาะ Title</h2>
         <p class="step-header">Node: Code (Python) </p>
         <p>โค้ดนี้จะรับ XML Full Record เข้ามา และกรองทิ้งข้อมูลที่ไม่จำเป็น คงเหลือไว้แค่ <strong>PMID</strong> และ <strong>Title</strong></p>
         <pre>
@@ -252,12 +255,18 @@ for article in root.findall('PubmedArticle'):
         title_element = article.find('.//ArticleTitle') 
         title = title_element.text if title_element is not None else "No Title Found"
         
+        # 3. ดึง Abstract (// เราสามารถลบส่วนนี้ออกได้ถ้าไม่ต้องการ)
+        # abstract_element = article.find('.//AbstractText')
+        # abstract = abstract_element.text if abstract_element is not None else "Abstract Missing"
+        
         results.append({
             "PMID": pmid,
             "Title": title,
-            "URL": f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/"
+            # ลบ 'Abstract' ออกจาก Object ที่จะส่งออก
+            # "Abstract": abstract
         })
     except Exception:
+        # หากเกิด Error ในการประมวลผลบทความใด ให้ข้ามไป
         continue
 
 # คืนค่าผลลัพธ์เป็น List of JSON Objects
@@ -267,16 +276,16 @@ return results</pre>
     <div class="card">
         <h2>5. 📦 Aggregate: รวมข้อมูลเป็น 1 ข้อความ</h2>
         <p class="step-header">Node: Code (Python) หรือ Aggregate</p>
-        <p>รวมรายการทั้งหมดให้เป็น <strong>String เดียว</strong> ก่อนส่งออก</p>
+        <p>รวมรายการทั้งหมดให้เป็น <strong>String เดียว</strong> พร้อมจัดรูปแบบลิงก์ด้วย PMID</p>
         <pre>
 # วนลูปข้อมูลจาก Node ก่อนหน้า (items) เพื่อสร้างข้อความสรุปยาวๆ
 summary_text = "📑 รายการงานวิจัยล่าสุด:\n\n"
 
 for item in items:
     title = item['json']['Title']
-    url = item['json']['URL']
+    pmid = item['json']['PMID']
     # จัดรูปแบบข้อความ
-    summary_text += f"🔹 {title}\n🔗 {url}\n\n"
+    summary_text += f"🔹 {title}\n🔗 {pmid}\n\n"
 
 # ส่งออกเป็น 1 Item ที่มีข้อความรวมทั้งหมด
 return [{
