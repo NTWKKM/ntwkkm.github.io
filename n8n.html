@@ -3,31 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>วิธีติดตั้ง n8n บน Fly.io แบบฟรีตลอดชีพ (Free Tier Optimized)</title>
+    <title>คู่มือติดตั้ง n8n บน Fly.io แบบประหยัดงบ (Vintage Deep Blue)</title>
     <style>
+        /* --- Vintage Deep Blue Theme Colors --- */
+        :root {
+            --bg-dark: #244885; /* พื้นหลังหลัก (Body) */
+            --bg-card: #FBE9D0; /* พื้นหลังการ์ด */
+            --text-dark: #333333; /* สีข้อความบนการ์ด */
+            --text-light: #FBE9D0; /* สีข้อความบนพื้นหลังเข้ม */
+            --heading-main: #871F41; /* สีหัวข้อหลัก */
+            --color-muted: #90AEAD; /* สีรอง/จาง */
+            --color-link: #2980b9;
+            --color-code: #c0392b;
+            --bg-button: #F5F5F5;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.7;
-            color: #333;
+            color: var(--text-light); /* Text on dark background */
             max-width: 850px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #fcfcfc;
+            background-color: var(--bg-dark);
         }
-        h1 { color: #2c3e50; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        h2 { color: #e67e22; margin-top: 35px; border-left: 4px solid #e67e22; padding-left: 10px; }
-        h3 { color: #34495e; margin-top: 25px; }
+        h1 { 
+            color: var(--heading-main); 
+            border-bottom: 2px solid var(--color-muted); 
+            padding-bottom: 10px; 
+        }
+        h2 { 
+            color: var(--heading-main); 
+            margin-top: 35px; 
+            border-left: 4px solid var(--heading-main); 
+            padding-left: 10px; 
+        }
+        h3 { 
+            color: var(--heading-main); 
+            margin-top: 25px; 
+        }
+        
+        /* --- Card Styles --- */
+        .card {
+            background-color: var(--bg-card); /* Vintage Cream */
+            color: var(--text-dark); /* Dark Gray text */
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .card h2, .card h3 {
+            color: var(--heading-main); /* Headings inside card use main color */
+            border-left: none;
+        }
+        
+        /* --- Code & Pre Styles --- */
         code {
-            background-color: #f0f2f5;
+            background-color: var(--bg-button); 
             padding: 2px 6px;
             border-radius: 4px;
             font-family: "Consolas", "Monaco", monospace;
-            color: #c0392b;
+            color: var(--color-code);
             font-size: 0.95em;
         }
         pre {
-            background-color: #2d3436;
-            color: #dfe6e9;
+            background-color: #2d3436; 
+            color: #dfe6e9; 
             padding: 15px;
             border-radius: 8px;
             overflow-x: auto;
@@ -35,43 +76,52 @@
             font-size: 0.9em;
             margin: 15px 0;
         }
+        
+        /* --- Utility Boxes --- */
         .note {
-            background-color: #e8f6f3;
-            border-left: 5px solid #1abc9c;
+            background-color: #f0f8f8;
+            border-left: 5px solid var(--color-muted);
             padding: 15px;
             margin: 20px 0;
             border-radius: 4px;
         }
         .warning {
-            background-color: #fff3cd;
+            background-color: #fff3cd; 
             border-left: 5px solid #ffc107;
             padding: 15px;
             margin: 20px 0;
             border-radius: 4px;
         }
+        
+        /* --- TOC/Quicklinks --- */
         .toc {
-            border: 1px solid #ddd;
             padding: 15px;
             margin: 20px 0;
             border-radius: 8px;
-            background-color: #f9f9f9;
+            background-color: rgba(251, 233, 208, 0.15); /* Light transparent background */
+            color: var(--text-light);
+        }
+        .toc summary {
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            display: list-item; /* Fixes alignment for details/summary */
+            margin-left: 10px;
         }
         .toc a {
             text-decoration: none;
-            color: #2980b9;
-            font-weight: 500;
+            color: var(--text-light);
+            font-weight: 400;
         }
         .toc ul {
             list-style: none;
-            padding: 0;
+            padding-left: 20px;
+            margin-top: 10px;
         }
         .toc ul li {
             margin-bottom: 5px;
         }
-        .toc h3 {
-            margin-top: 0;
-            color: #2c3e50;
-        }
+
         #appNameInput {
             padding: 8px;
             border: 1px solid #ccc;
@@ -79,31 +129,39 @@
             width: 50%;
             margin-right: 10px;
         }
-        .app-name-display {
+        button {
+            background-color: var(--bg-button);
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
             font-weight: bold;
-            color: #1abc9c;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: var(--bg-dark);
+            color: white;
         }
     </style>
 </head>
 <body>
 
     <article>
-        <h1>คู่มือติดตั้ง n8n บน Fly.io แบบประหยัดงบ (ใช้ Cron-job.org กระตุ้น)</h1>
-        <p>คู่มือนี้จะสอนวิธีติดตั้ง n8n โดยใช้ Database แยกเพื่อความเสถียร และตั้งค่าให้ Server <strong>"หลับ"</strong> เมื่อไม่มีการใช้งาน เพื่อให้อยู่ในงบ Free Tier ($5/เดือน) โดยใช้ Cron-job.org เป็นตัวปลุกให้ทำงานตามเวลา</p>
+        <h1>คู่มือติดตั้ง n8n บน Fly.io แบบประหยัดงบ</h1>
+        <p>คู่มือนี้จะสอนวิธีติดตั้ง n8n โดยใช้ Database แยกและตั้งค่าให้ Server **"หลับ"** เพื่อให้อยู่ในงบ Free Tier โดยใช้ Cron-job.org เป็นตัวปลุกให้ทำงานตามเวลา</p>
 
         <div id="app-name-setup" class="warning">
-            <h3>🛠️ กำหนดชื่อแอปพลิเคชัน (สำคัญ!)</h3>
-            <p>กรุณาใส่ชื่อฐานของแอปพลิเคชันหลักของคุณ (เช่น <code>ntwkkm</code>). ชื่อนี้จะถูกใช้เพื่อสร้างชื่อเต็ม เช่น <code id="app-name-display-code">YOUR_APP_NAME_PH-n8n</code> ทั่วทั้งหน้า.</p>
+            <h3>🛠️ กำหนดชื่อแอปพลิเคชัน n8n ของคุณ (สำคัญ!)</h3>
+            <p>กรุณาใส่ชื่อฐานของแอปพลิเคชันหลักของคุณ (เช่น <code>ntwkkm</code>). ชื่อนี้จะถูกใช้เพื่อสร้างชื่อเต็ม เช่น <code id="app-name-display-code">YOUR_APP_NAME_BASE-n8n</code> ทั่วทั้งหน้า.</p>
             <input type="text" id="appNameInput" placeholder="ตัวอย่าง: my-project" />
             <button onclick="updateAppNames()">ยืนยัน &amp; แทนที่ชื่อทั้งหมด</button>
         </div>
 
         <div class="toc">
-            <details>
-                <summary><h3>🗂️ สารบัญ (Quick Link)</h3></summary>
+            <details open>
+                <summary>📑 สารบัญ (Quick Link)</summary>
                 <ul>
                     <li><a href="#prep">1. เตรียมความพร้อม</a></li>
-                    <li><a href="#config">2. สร้างไฟล์ Config</a> (<a href="#config-flytoml">ตั้งค่า Sleep Mode</a>)</li>
+                    <li><a href="#config">2. สร้างไฟล์ Config</a></li>
                     <li><a href="#infra">3. สร้าง Infrastructure</a></li>
                     <li><a href="#secrets">4. ตั้งค่า Secrets</a></li>
                     <li><a href="#deploy">5. Deploy และเริ่มใช้งาน</a></li>
@@ -112,26 +170,29 @@
             </details>
         </div>
 
-        <h2 id="prep">1. เตรียมความพร้อม</h2>
-        <pre>
+        <div class="card">
+            <h2 id="prep">1. เตรียมความพร้อม</h2>
+            <pre>
 mkdir YOUR_APP_NAME_BASE-n8n
 cd YOUR_APP_NAME_BASE-n8n
 flyctl auth login</pre>
-
-        <h2 id="config">2. สร้างไฟล์ Config</h2>
+        </div>
         
-        <h3 id="config-docker">2.1 สร้างไฟล์ <code>Dockerfile</code></h3>
-        <p>ใช้คำสั่ง <code>nano Dockerfile</code> เพื่อสร้างและวางโค้ด:</p>
-        <pre>
+        <div class="card">
+            <h2 id="config">2. สร้างไฟล์ Config</h2>
+            
+            <h3 id="config-docker">2.1 สร้างไฟล์ <code>Dockerfile</code></h3>
+            <p>ใช้คำสั่ง <code>nano Dockerfile</code> เพื่อสร้างและวางโค้ด:</p>
+            <pre>
 FROM n8nio/n8n:latest
 USER root
 RUN npm install -g playwright
 USER node</pre>
 
-        <h3 id="config-flytoml">2.2 สร้างไฟล์ <code>fly.toml</code> (ตั้งค่า Sleep Mode)</h3>
-        <p>ใช้คำสั่ง <code>nano fly.toml</code> เพื่อสร้างและวางโค้ด:</p>
-        <p class="warning">จุดสำคัญคือการตั้งค่า <code>min_machines_running = 0</code> เพื่ออนุญาตให้เครื่องหยุดทำงานได้</p>
-        <pre>
+            <h3 id="config-flytoml">2.2 สร้างไฟล์ <code>fly.toml</code> (ตั้งค่า Sleep Mode)</h3>
+            <p>ใช้คำสั่ง <code>nano fly.toml</code> เพื่อสร้างและวางโค้ด:</p>
+            <p class="warning">จุดสำคัญคือการตั้งค่า <code>min_machines_running = 0</code> เพื่ออนุญาตให้เครื่องหยุดทำงานได้</p>
+            <pre>
 # fly.toml
 app = 'YOUR_APP_NAME_BASE-n8n' 
 primary_region = 'hkg' # แนะนำ hkg (ฮ่องกง) หรือ lax (LA)
@@ -163,9 +224,11 @@ primary_region = 'hkg' # แนะนำ hkg (ฮ่องกง) หรือ l
   memory = '1024mb' 
   cpu_kind = 'shared'
   cpus = 1</pre>
+        </div>
 
-        <h2 id="infra">3. สร้าง Infrastructure</h2>
-        <pre>
+        <div class="card">
+            <h2 id="infra">3. สร้าง Infrastructure</h2>
+            <pre>
 # 1. สร้าง App
 flyctl apps create YOUR_APP_NAME_BASE-n8n --org personal
 
@@ -177,11 +240,13 @@ flyctl postgres create --name YOUR_APP_NAME_BASE-n8n-db --region hkg --vm-size s
 
 # 4. เชื่อมต่อ Database (เพื่อเอา User/Pass)
 flyctl postgres attach --app YOUR_APP_NAME_BASE-n8n YOUR_APP_NAME_BASE-n8n-db</pre>
+        </div>
 
-        <h2 id="secrets">4. ตั้งค่า Secrets (แยกตัวแปร DB เพื่อความชัวร์)</h2>
-        <p>1. รันคำสั่งเพื่อดูรหัสผ่าน: <code>flyctl ssh console --app YOUR_APP_NAME_BASE-n8n -C 'echo $DATABASE_URL'</code></p>
-        <p>2. นำ User/Password ที่ได้ มาใส่ในคำสั่งด้านล่างนี้:</p>
-        <pre>
+        <div class="card">
+            <h2 id="secrets">4. ตั้งค่า Secrets (แยกตัวแปร DB เพื่อความชัวร์)</h2>
+            <p>1. รันคำสั่งเพื่อดูรหัสผ่าน: <code>flyctl ssh console --app YOUR_APP_NAME_BASE-n8n -C 'echo $DATABASE_URL'</code></p>
+            <p>2. นำ User/Password ที่ได้ มาใส่ในคำสั่งด้านล่างนี้:</p>
+            <pre>
 flyctl secrets set \
   N8N_HOST='YOUR_APP_NAME_BASE-n8n.fly.dev' \
   N8N_PORT='5678' \
@@ -196,56 +261,59 @@ flyctl secrets set \
   DB_POSTGRESDB_USER=&lt;User_ที่ได้มา&gt; \
   DB_POSTGRESDB_PASSWORD=&lt;Password_ที่ได้มา&gt; \
   --app YOUR_APP_NAME_BASE-n8n</pre>
-
-        <h2 id="deploy">5. Deploy และเริ่มใช้งาน</h2>
-        <pre>flyctl deploy --app YOUR_APP_NAME_BASE-n8n</pre>
-
-        <h2 id="cronjob">6. วิธีตั้งค่า Cron-job.org (สำคัญมาก!)</h2>
-        <p>เนื่องจากเครื่องจะ "หลับ" เราจึงใช้ Node <code>Schedule Trigger</code> ใน n8n ไม่ได้ (เพราะนาฬิกาจะหยุดเดิน) เราต้องใช้วิธี <span class="highlight">External Trigger</span> นี้แทน:</p>
-        
-        <h3>🚪 กลไกการปลุกเครื่อง (The Cold Start)</h3>
-        <p>คุณไม่ได้ยิง Webhook ไปที่ Server ที่หลับอยู่โดยตรง แต่คุณกำลังยิงไปที่ **Fly.io Proxy Layer** ซึ่งทำหน้าที่เป็นยามเฝ้าประตูและสั่งเปิดเครื่องโดยอัตโนมัติ:</p>
-        <ol>
-            <li><strong>Server Sleep:</strong> n8n VM ถูกปิด (Count 0) แต่ URL ยังคงทำงานอยู่</li>
-            <li><strong>The Wake-Up Call:</strong> Cron-job.org ยิง Request ไปที่ Webhook URL</li>
-            <li><strong>Proxy Intercepts:</strong> Fly.io Proxy รับสัญญาณและสั่ง **Scale Up** VM จาก 0 เป็น 1 ทันที</li>
-            <li><strong>Cold Start Delay:</strong> VM ใช้เวลาประมาณ 5-15 วินาทีในการบูตเครื่อง</li>
-            <li><strong>Execution:</strong> เมื่อ VM เปิดสมบูรณ์ Request ที่ถูก Hold ไว้จะถูกส่งเข้า Node Webhook เพื่อสั่งรัน Workflow ต่อไป</li>
-        </ol>
-
-        <h3>ขั้นตอนการตั้งค่า:</h3>
-        
-        <h4>ใน n8n:</h4>
-        <ol>
-            <li>สร้าง Workflow ใหม่</li>
-            <li>ใช้ Node <strong>Webhook</strong> เป็นตัวเริ่ม (Start Node)</li>
-            <li>ตั้ง Method เป็น <code>GET</code></li>
-            <li>Copy <span class="highlight">Production URL</span> (เช่น <code>https://.../webhook/...</code>)</li>
-            <li>กด <strong>Active</strong> Workflow ไว้</li>
-        </ol>
-
-        <h4>ใน Cron-job.org:</h4>
-        <ol>
-            <li>สมัครสมาชิกและสร้าง Cronjob ใหม่</li>
-            <li>ใส่ URL ที่ได้จาก n8n ลงไป</li>
-            <li>ตั้งเวลาที่ต้องการ (เช่น ทุก 15 นาที หรือ ทุกวันเวลา 08.00 น.)</li>
-            <li>บันทึก</li>
-        </ol>
-        
-        <div class="note">
-            เมื่อถึงเวลา Cron-job.org จะยิง Request มาที่ Fly.io > เครื่อง n8n จะตื่นขึ้น > รันงานจนเสร็จ > และกลับไปหลับเมื่อไม่มีงานต่อ ประหยัดงบได้ 100%
         </div>
 
+        <div class="card">
+            <h2 id="deploy">5. Deploy และเริ่มใช้งาน</h2>
+            <pre>flyctl deploy --app YOUR_APP_NAME_BASE-n8n</pre>
+        </div>
+
+        <div class="card">
+            <h2 id="cronjob">6. วิธีตั้งค่า Cron-job.org (สำคัญมาก!)</h2>
+            <p>เนื่องจากเครื่องจะ "หลับ" เราจึงใช้ Node <code>Schedule Trigger</code> ใน n8n ไม่ได้ (เพราะนาฬิกาจะหยุดเดิน) เราต้องใช้วิธี External Trigger นี้แทน:</p>
+            
+            <h3>🚪 กลไกการปลุกเครื่อง (The Cold Start)</h3>
+            <p>คุณไม่ได้ยิง Webhook ไปที่ Server ที่หลับอยู่โดยตรง แต่คุณกำลังยิงไปที่ **Fly.io Proxy Layer** ซึ่งทำหน้าที่เป็นยามเฝ้าประตูและสั่งเปิดเครื่องโดยอัตโนมัติ:</p>
+            <ol>
+                <li><strong>Server Sleep:</strong> n8n VM ถูกปิด (Count 0) แต่ URL ยังคงทำงานอยู่</li>
+                <li><strong>The Wake-Up Call:</strong> Cron-job.org ยิง Request ไปที่ Webhook URL</li>
+                <li><strong>Proxy Intercepts:</strong> Fly.io Proxy รับสัญญาณและสั่ง **Scale Up** VM จาก 0 เป็น 1 ทันที</li>
+                <li><strong>Cold Start Delay:</strong> VM ใช้เวลาประมาณ 5-15 วินาทีในการบูตเครื่อง</li>
+                <li><strong>Execution:</strong> เมื่อ VM เปิดสมบูรณ์ Request ที่ถูก Hold ไว้จะถูกส่งเข้า Node Webhook เพื่อสั่งรัน Workflow ต่อไป</li>
+            </ol>
+
+            <h3>ขั้นตอนการตั้งค่า:</h3>
+            
+            <h4>ใน n8n:</h4>
+            <ol>
+                <li>สร้าง Workflow ใหม่</li>
+                <li>ใช้ Node <strong>Webhook</strong> เป็นตัวเริ่ม (Start Node)</li>
+                <li>ตั้ง Method เป็น <code>GET</code></li>
+                <li>Copy <span class="highlight">Production URL</span> (เช่น <code>https://.../webhook/...</code>)</li>
+                <li>กด <strong>Active</strong> Workflow ไว้</li>
+            </ol>
+
+            <h4>ใน Cron-job.org:</h4>
+            <ol>
+                <li>สมัครสมาชิกและสร้าง Cronjob ใหม่</li>
+                <li>ใส่ URL ที่ได้จาก n8n ลงไป</li>
+                <li>ตั้งเวลาที่ต้องการ (เช่น ทุก 15 นาที หรือ ทุกวันเวลา 08.00 น.)</li>
+                <li>บันทึก</li>
+            </ol>
+            
+            <div class="note">
+                เมื่อถึงเวลา Cron-job.org จะยิง Request มาที่ Fly.io > เครื่อง n8n จะตื่นขึ้น > รันงานจนเสร็จ > และกลับไปหลับเมื่อไม่มีงานต่อ ประหยัดงบได้ 100%
+            </div>
+        </div>
     </article>
     
     <script>
-        // Target string used for replacement in HTML content
         const placeholderTarget = 'YOUR_APP_NAME_BASE'; 
 
         function updateAppNames() {
             let input = document.getElementById('appNameInput').value.toLowerCase().trim();
             
-            // Remove non-alphanumeric characters, only allow letters, numbers, and dashes
+            // Allow only letters, numbers, and dashes
             input = input.replace(/[^a-z0-9-]/g, '');
 
             if (!input) {
@@ -253,20 +321,19 @@ flyctl secrets set \
                 return;
             }
 
-            // Define the full placeholders based on user input
             const appNameFull = input + '-n8n';
             const dbNameFull = input + '-n8n-db'; 
             
             // --- Step 1: Replace all instances in the document's HTML ---
             let htmlContent = document.body.innerHTML;
 
-            // Replace full DB name placeholder
+            // 1. Replace full DB name placeholder
             htmlContent = htmlContent.replace(new RegExp(placeholderTarget + '-n8n-db', 'g'), dbNameFull);
             
-            // Replace full App name placeholder
+            // 2. Replace full App name placeholder
             htmlContent = htmlContent.replace(new RegExp(placeholderTarget + '-n8n', 'g'), appNameFull);
             
-            // Replace the app base placeholder (in things like mkdir and fly.toml app name)
+            // 3. Replace the app base placeholder (in things like mkdir and fly.toml app name)
             htmlContent = htmlContent.replace(new RegExp(placeholderTarget, 'g'), input);
 
             document.body.innerHTML = htmlContent;
@@ -277,14 +344,16 @@ flyctl secrets set \
                  displayArea.textContent = appNameFull;
             }
 
-            alert(`อัปเดตชื่อแอปเป็น "${appNameFull}" ทั่วทั้งหน้าเรียบร้อยแล้ว!`);
-            
-            // Hide the setup box after successful update
+            // --- Step 3: Update and hide the setup box ---
             const setupBox = document.getElementById('app-name-setup');
             if (setupBox) {
                  setupBox.style.border = '2px solid #1abc9c';
                  setupBox.innerHTML = `<h3>✅ ชื่อแอปพลิเคชันถูกกำหนดเรียบร้อยแล้ว</h3><p>ชื่อแอปของคุณ: <span class="app-name-display">${appNameFull}</span></p><p>ชื่อ Database: <span class="app-name-display">${dbNameFull}</span></p><p>ขั้นตอนต่อไป: คัดลอกคำสั่งในส่วน 1-5 ไปรันได้เลยครับ</p>`;
             }
+            
+            // Re-run script to re-attach event listeners and ensure the new HTML is parsed by the browser
+            // A simple innerHTML replacement breaks the function call, so we rely on the browser's dynamic parsing.
+            alert(`อัปเดตชื่อแอปเป็น "${appNameFull}" ทั่วทั้งหน้าเรียบร้อยแล้ว!`);
         }
     </script>
 
