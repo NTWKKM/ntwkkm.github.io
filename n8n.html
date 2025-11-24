@@ -72,6 +72,17 @@
             margin-top: 0;
             color: #2c3e50;
         }
+        #appNameInput {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 50%;
+            margin-right: 10px;
+        }
+        .app-name-display {
+            font-weight: bold;
+            color: #1abc9c;
+        }
     </style>
 </head>
 <body>
@@ -80,31 +91,37 @@
         <h1>คู่มือติดตั้ง n8n บน Fly.io แบบประหยัดงบ (ใช้ Cron-job.org กระตุ้น)</h1>
         <p>คู่มือนี้จะสอนวิธีติดตั้ง n8n โดยใช้ Database แยกเพื่อความเสถียร และตั้งค่าให้ Server <strong>"หลับ"</strong> เมื่อไม่มีการใช้งาน เพื่อให้อยู่ในงบ Free Tier ($5/เดือน) โดยใช้ Cron-job.org เป็นตัวปลุกให้ทำงานตามเวลา</p>
 
-        <div class="note">
-            <strong>หลักการทำงาน:</strong> Server จะปิดตัวเองเมื่อไม่มีงาน และจะตื่นขึ้นมาเมื่อเราส่ง Webhook เข้าไปกระตุ้น ทำให้ไม่เปลืองชั่วโมงการทำงาน
+        <div id="app-name-setup" class="warning">
+            <h3>🛠️ กำหนดชื่อแอปพลิเคชัน (สำคัญ!)</h3>
+            <p>กรุณาใส่ชื่อฐานของแอปพลิเคชันหลักของคุณ (เช่น <code>ntwkkm</code>). ชื่อนี้จะถูกใช้เพื่อสร้างชื่อเต็ม เช่น <code id="app-name-display-code">YOUR_APP_NAME_PH-n8n</code> ทั่วทั้งหน้า.</p>
+            <input type="text" id="appNameInput" placeholder="ตัวอย่าง: my-project" />
+            <button onclick="updateAppNames()">ยืนยัน &amp; แทนที่ชื่อทั้งหมด</button>
         </div>
 
         <div class="toc">
-            <h3>🗂️ สารบัญ (Quick Link)</h3>
-            <ul>
-                <li><a href="#prep">1. เตรียมความพร้อม</a></li>
-                <li><a href="#config">2. สร้างไฟล์ Config</a> (<a href="#config-flytoml">ตั้งค่า Sleep Mode</a>)</li>
-                <li><a href="#infra">3. สร้าง Infrastructure</a></li>
-                <li><a href="#secrets">4. ตั้งค่า Secrets</a></li>
-                <li><a href="#deploy">5. Deploy และเริ่มใช้งาน</a></li>
-                <li><a href="#cronjob">6. วิธีตั้งค่า Cron-job.org (Cold Start)</a></li>
-            </ul>
+            <details>
+                <summary><h3>🗂️ สารบัญ (Quick Link)</h3></summary>
+                <ul>
+                    <li><a href="#prep">1. เตรียมความพร้อม</a></li>
+                    <li><a href="#config">2. สร้างไฟล์ Config</a> (<a href="#config-flytoml">ตั้งค่า Sleep Mode</a>)</li>
+                    <li><a href="#infra">3. สร้าง Infrastructure</a></li>
+                    <li><a href="#secrets">4. ตั้งค่า Secrets</a></li>
+                    <li><a href="#deploy">5. Deploy และเริ่มใช้งาน</a></li>
+                    <li><a href="#cronjob">6. วิธีตั้งค่า Cron-job.org (Cold Start)</a></li>
+                </ul>
+            </details>
         </div>
 
         <h2 id="prep">1. เตรียมความพร้อม</h2>
         <pre>
-mkdir my-n8n-fly
-cd my-n8n-fly
+mkdir YOUR_APP_NAME_BASE-n8n
+cd YOUR_APP_NAME_BASE-n8n
 flyctl auth login</pre>
 
         <h2 id="config">2. สร้างไฟล์ Config</h2>
         
         <h3 id="config-docker">2.1 สร้างไฟล์ <code>Dockerfile</code></h3>
+        <p>ใช้คำสั่ง <code>nano Dockerfile</code> เพื่อสร้างและวางโค้ด:</p>
         <pre>
 FROM n8nio/n8n:latest
 USER root
@@ -112,10 +129,11 @@ RUN npm install -g playwright
 USER node</pre>
 
         <h3 id="config-flytoml">2.2 สร้างไฟล์ <code>fly.toml</code> (ตั้งค่า Sleep Mode)</h3>
+        <p>ใช้คำสั่ง <code>nano fly.toml</code> เพื่อสร้างและวางโค้ด:</p>
         <p class="warning">จุดสำคัญคือการตั้งค่า <code>min_machines_running = 0</code> เพื่ออนุญาตให้เครื่องหยุดทำงานได้</p>
         <pre>
 # fly.toml
-app = 'ชื่อแอพของคุณ-n8n' 
+app = 'YOUR_APP_NAME_BASE-n8n' 
 primary_region = 'hkg' # แนะนำ hkg (ฮ่องกง) หรือ lax (LA)
 
 [build]
@@ -149,38 +167,38 @@ primary_region = 'hkg' # แนะนำ hkg (ฮ่องกง) หรือ l
         <h2 id="infra">3. สร้าง Infrastructure</h2>
         <pre>
 # 1. สร้าง App
-flyctl apps create ชื่อแอพของคุณ-n8n --org personal
+flyctl apps create YOUR_APP_NAME_BASE-n8n --org personal
 
 # 2. สร้าง Volume
-flyctl volumes create n8n_vol --region hkg --size 1 --app ชื่อแอพของคุณ-n8n
+flyctl volumes create n8n_vol --region hkg --size 1 --app YOUR_APP_NAME_BASE-n8n
 
 # 3. สร้าง Database
-flyctl postgres create --name ชื่อแอพของคุณ-n8n-db --region hkg --vm-size shared-cpu-1x --volume-size 1
+flyctl postgres create --name YOUR_APP_NAME_BASE-n8n-db --region hkg --vm-size shared-cpu-1x --volume-size 1
 
 # 4. เชื่อมต่อ Database (เพื่อเอา User/Pass)
-flyctl postgres attach --app ชื่อแอพของคุณ-n8n ชื่อแอพของคุณ-n8n-db</pre>
+flyctl postgres attach --app YOUR_APP_NAME_BASE-n8n YOUR_APP_NAME_BASE-n8n-db</pre>
 
         <h2 id="secrets">4. ตั้งค่า Secrets (แยกตัวแปร DB เพื่อความชัวร์)</h2>
-        <p>1. รันคำสั่งเพื่อดูรหัสผ่าน: <code>flyctl ssh console --app ชื่อแอพของคุณ-n8n -C 'echo $DATABASE_URL'</code></p>
+        <p>1. รันคำสั่งเพื่อดูรหัสผ่าน: <code>flyctl ssh console --app YOUR_APP_NAME_BASE-n8n -C 'echo $DATABASE_URL'</code></p>
         <p>2. นำ User/Password ที่ได้ มาใส่ในคำสั่งด้านล่างนี้:</p>
         <pre>
 flyctl secrets set \
-  N8N_HOST='ชื่อแอพของคุณ-n8n.fly.dev' \
+  N8N_HOST='YOUR_APP_NAME_BASE-n8n.fly.dev' \
   N8N_PORT='5678' \
   N8N_PROTOCOL='https' \
-  WEBHOOK_URL='https://ชื่อแอพของคุณ-n8n.fly.dev' \
+  WEBHOOK_URL='https://YOUR_APP_NAME_BASE-n8n.fly.dev' \
   GENERIC_TIMEZONE='Asia/Bangkok' \
   N8N_ENCRYPTION_KEY='ใส่รหัสสุ่มยาวๆ' \
   DB_TYPE=postgresdb \
-  DB_POSTGRESDB_HOST=ชื่อแอพของคุณ-n8n-db.internal \
+  DB_POSTGRESDB_HOST=YOUR_APP_NAME_BASE-n8n-db.internal \
   DB_POSTGRESDB_PORT=5432 \
-  DB_POSTGRESDB_DATABASE=ชื่อแอพของคุณ-n8n \
+  DB_POSTGRESDB_DATABASE=YOUR_APP_NAME_BASE-n8n \
   DB_POSTGRESDB_USER=&lt;User_ที่ได้มา&gt; \
   DB_POSTGRESDB_PASSWORD=&lt;Password_ที่ได้มา&gt; \
-  --app ชื่อแอพของคุณ-n8n</pre>
+  --app YOUR_APP_NAME_BASE-n8n</pre>
 
         <h2 id="deploy">5. Deploy และเริ่มใช้งาน</h2>
-        <pre>flyctl deploy --app ชื่อแอพของคุณ-n8n</pre>
+        <pre>flyctl deploy --app YOUR_APP_NAME_BASE-n8n</pre>
 
         <h2 id="cronjob">6. วิธีตั้งค่า Cron-job.org (สำคัญมาก!)</h2>
         <p>เนื่องจากเครื่องจะ "หลับ" เราจึงใช้ Node <code>Schedule Trigger</code> ใน n8n ไม่ได้ (เพราะนาฬิกาจะหยุดเดิน) เราต้องใช้วิธี <span class="highlight">External Trigger</span> นี้แทน:</p>
@@ -210,7 +228,7 @@ flyctl secrets set \
         <ol>
             <li>สมัครสมาชิกและสร้าง Cronjob ใหม่</li>
             <li>ใส่ URL ที่ได้จาก n8n ลงไป</li>
-            <li>ตั้งเวลาที่ต้องการ (เช่น ทุก 15 นาที เพื่อให้เครื่องอุ่นอยู่เสมอ, หรือ ทุกวันเวลา 08.00 น.)</li>
+            <li>ตั้งเวลาที่ต้องการ (เช่น ทุก 15 นาที หรือ ทุกวันเวลา 08.00 น.)</li>
             <li>บันทึก</li>
         </ol>
         
@@ -219,6 +237,56 @@ flyctl secrets set \
         </div>
 
     </article>
+    
+    <script>
+        // Target string used for replacement in HTML content
+        const placeholderTarget = 'YOUR_APP_NAME_BASE'; 
+
+        function updateAppNames() {
+            let input = document.getElementById('appNameInput').value.toLowerCase().trim();
+            
+            // Remove non-alphanumeric characters, only allow letters, numbers, and dashes
+            input = input.replace(/[^a-z0-9-]/g, '');
+
+            if (!input) {
+                alert("กรุณาใส่ชื่อแอปพลิเคชัน (ตัวอักษร, ตัวเลข, หรือขีดกลาง) ก่อนครับ/ค่ะ");
+                return;
+            }
+
+            // Define the full placeholders based on user input
+            const appNameFull = input + '-n8n';
+            const dbNameFull = input + '-n8n-db'; 
+            
+            // --- Step 1: Replace all instances in the document's HTML ---
+            let htmlContent = document.body.innerHTML;
+
+            // Replace full DB name placeholder
+            htmlContent = htmlContent.replace(new RegExp(placeholderTarget + '-n8n-db', 'g'), dbNameFull);
+            
+            // Replace full App name placeholder
+            htmlContent = htmlContent.replace(new RegExp(placeholderTarget + '-n8n', 'g'), appNameFull);
+            
+            // Replace the app base placeholder (in things like mkdir and fly.toml app name)
+            htmlContent = htmlContent.replace(new RegExp(placeholderTarget, 'g'), input);
+
+            document.body.innerHTML = htmlContent;
+
+            // --- Step 2: Update the display area and confirm ---
+            const displayArea = document.getElementById('app-name-display-code');
+            if (displayArea) {
+                 displayArea.textContent = appNameFull;
+            }
+
+            alert(`อัปเดตชื่อแอปเป็น "${appNameFull}" ทั่วทั้งหน้าเรียบร้อยแล้ว!`);
+            
+            // Hide the setup box after successful update
+            const setupBox = document.getElementById('app-name-setup');
+            if (setupBox) {
+                 setupBox.style.border = '2px solid #1abc9c';
+                 setupBox.innerHTML = `<h3>✅ ชื่อแอปพลิเคชันถูกกำหนดเรียบร้อยแล้ว</h3><p>ชื่อแอปของคุณ: <span class="app-name-display">${appNameFull}</span></p><p>ชื่อ Database: <span class="app-name-display">${dbNameFull}</span></p><p>ขั้นตอนต่อไป: คัดลอกคำสั่งในส่วน 1-5 ไปรันได้เลยครับ</p>`;
+            }
+        }
+    </script>
 
 </body>
 </html>
