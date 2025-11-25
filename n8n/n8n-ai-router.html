@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How-to: สร้าง AI Router แยกประเภทข้อความ LINE ด้วย n8n</title>
+    <style>
+        :root {
+            --bg-body: #D0D0D0; /* เทาเข้ม */
+            --bg-card: #EDEDED; /* เทาอ่อน */
+            --text-main: #333;
+            --heading-primary: #2c3e50;
+            --heading-secondary: #e67e22; 
+            --color-code-inline: #c0392b; 
+            --bg-code-block: #2d3436; 
+            --text-code-block: #dfe6e9; 
+            --border-primary: #ccc;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-body);
+        }
+        h1 { color: var(--heading-primary); border-bottom: 2px solid var(--border-primary); padding-bottom: 10px; }
+        h2 { color: var(--heading-secondary); margin-top: 35px; border-left: 4px solid var(--heading-secondary); padding-left: 10px; }
+        .card {
+            background-color: var(--bg-card); 
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        code {
+            background-color: #f0f2f5; 
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: "Consolas", "Monaco", monospace;
+            color: var(--color-code-inline);
+            font-size: 0.95em;
+        }
+        pre {
+            background-color: var(--bg-code-block); 
+            color: var(--text-code-block); 
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: "Consolas", "Monaco", monospace;
+            font-size: 0.9em;
+            margin: 15px 0;
+            white-space: pre-wrap; /* ให้ตัดบรรทัดอัตโนมัติ */
+        }
+        .step-header {
+            font-weight: bold;
+            color: var(--heading-primary);
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #e8f6f3;
+            border-left: 5px solid #1abc9c;
+            padding: 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🤖 How-to: สร้าง AI Router แยกประเภทข้อความ LINE</h1>
+    <p>คู่มือการสร้าง Workflow เพื่อรับข้อความจาก LINE, ใช้ AI วิเคราะห์เจตนา (Intent), แปลงข้อมูลด้วย Python และแจกจ่ายงาน (Switch) ไปยัง Sub-workflow ต่างๆ</p>
+
+    <div class="card">
+        <h2>1. 🟢 Trigger: รับข้อความจาก LINE</h2>
+        <p class="step-header">Node: LINE Messaging Trigger (Webhook)</p>
+        <p>ตั้งค่าให้รับ Events จาก LINE OA ของคุณ ข้อมูลที่สำคัญที่จะถูกส่งต่อไปยัง AI คือ:</p>
+        <ul>
+            <li><code>message.type</code> (text, image, location)</li>
+            <li><code>message.text</code> (ข้อความที่พิมพ์มา)</li>
+            <li><code>message.latitude</code> / <code>longitude</code> (พิกัด)</li>
+            <li><code>message.id</code> (รหัสรูปภาพ)</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>2. 🧠 AI Agent: วิเคราะห์และจัดหมวดหมู่</h2>
+        <p class="step-header">Node: AI Agent (LangChain) / OpenAI Chat Model</p>
+        <p>เชื่อมต่อกับ Model (เช่น GPT-4o-mini หรือ Claude 3.5 Sonnet) และตั้งค่า Prompt ดังนี้:</p>
+        
+        <p><strong>System Prompt (คำสั่งหลัก):</strong></p>
+        <pre>
+Role: คุณคือ AI Router ในระบบ n8n มีหน้าที่คัดกรองความต้องการของ User และแปลงข้อมูลให้อยู่ในรูปแบบ JSON เท่านั้น
+
+Categories Definitions:
+1. Research (งานวิจัย) -> code: "A"
+   - ใช้เมื่อ User ต้องการค้นหา paper, PubMed, ข้อมูลทางการแพทย์
+   - ห้ามใช้กับการถามพิกัด
+
+2. Weather (สภาพอากาศ) -> code: "B"
+   - ใช้เมื่อ User ถามเกี่ยวกับสภาพอากาศ, ฝนตกไหม
+   - ต้องมีการระบุชื่อสถานที่ หรือแนบ Location
+
+3. Other (อื่นๆ/สนทนาทั่วไป/ถามข้อมูล) -> code: "C"
+   - สนทนาทั่วไป, ถามพิกัดสถานที่, ความรู้รอบตัว
+   - หากไม่เข้าข่าย A, B, หรือ D ให้ลงหมวดนี้ทั้งหมด
+
+4. Image (รูปภาพ) -> code: "D"
+   - ใช้เมื่อ Input Type เป็น "image" เท่านั้น
+
+Output Format (Strict JSON):
+{
+  "category": "A, B, C, หรือ D",
+  "text": "ข้อความเดิมของ user",
+  "latitude": "ค่าเดิม หรือ null",
+  "longitude": "ค่าเดิม หรือ null",
+  "chatInput": "ข้อความเดิมของ user",
+  "image_id": "รหัสรูป หรือ null"
+}
+
+กฎเหล็ก: ห้ามใส่ Markdown (```json) และห้ามมีคำอธิบายเพิ่ม</pre>
+
+        <p><strong>User Message (ข้อมูลขาเข้า):</strong></p>
+        <pre>
+Type : {{ $json.message.type }}
+User Input: {{ $json.message.text }}
+Latitude: {{ $json.message.latitude }}
+Longitude: {{ $json.message.longitude }}
+Image ID: {{ $json.message.id }}
+
+ช่วยสร้าง JSON ตาม System Prompt</pre>
+    </div>
+
+    <div class="card">
+        <h2>3. 🐍 Code Node: แปลงผลลัพธ์ AI เป็น JSON (Python)</h2>
+        <p class="step-header">Node: Code (Python)</p>
+        <p>ใช้ Python เพื่อล้าง Markdown (```json) ที่ AI อาจเผลอส่งมา และแปลง String ให้เป็น JSON Object ที่นำไปใช้งานต่อได้จริง</p>
+        <pre>
+import json
+import re
+
+results = []
+
+# วนลูปทุก Item ที่ส่งมาจาก AI Agent
+for item in items:
+    # 1. ดึงข้อความ String ที่ AI ตอบกลับมา
+    # *กรุณาตรวจสอบชื่อ field ขาเข้าของคุณ* (ปกติคือ output หรือ text)
+    ai_string = item['json'].get('output', '') 
+
+    if not ai_string:
+        ai_string = item['json'].get('text', '')
+
+    # 2. ทำความสะอาดข้อมูล (Clean Up Markdown)
+    cleaned_string = re.sub(r'^```json\s*|\s*```$', '', ai_string.strip(), flags=re.MULTILINE)
+
+    try:
+        # 3. แปลง String เป็น Python Dictionary (JSON Object)
+        parsed_data = json.loads(cleaned_string)
+        
+        # 4. เตรียมข้อมูลส่งออก
+        results.append({
+            "json": parsed_data
+        })
+        
+    except json.JSONDecodeError as e:
+        # กรณีแปลงไม่ได้ ให้ส่ง Error ออกไปดู
+        results.append({
+            "json": {
+                "error": "JSON Parse Error",
+                "details": str(e),
+                "raw_string": ai_string
+            }
+        })
+
+return results</pre>
+    </div>
+
+    <div class="card">
+        <h2>4. 🔀 Switch Node: แยกเส้นทางตาม Category</h2>
+        <p class="step-header">Node: Switch</p>
+        <p>ตั้งค่า <strong>Mode: Rules</strong> และสร้างกฎโดยอ้างอิงจากตัวแปร <code>{{ $json.category }}</code> ที่ได้จาก Node Python</p>
+        
+        <table border="1" cellpadding="10" cellspacing="0" style="width:100%; border-collapse: collapse; border-color: #ddd;">
+            <thead>
+                <tr style="background-color: #f0f0f0;">
+                    <th>Rule Name</th>
+                    <th>Condition (String Match)</th>
+                    <th>Value</th>
+                    <th>ไปที่ Node...</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Research</td>
+                    <td>Equal to</td>
+                    <td><code>A</code></td>
+                    <td>Sub-workflow: ค้นหา PubMed</td>
+                </tr>
+                <tr>
+                    <td>Weather</td>
+                    <td>Equal to</td>
+                    <td><code>B</code></td>
+                    <td>Sub-workflow: พยากรณ์อากาศ</td>
+                </tr>
+                <tr>
+                    <td>General/Other</td>
+                    <td>Equal to</td>
+                    <td><code>C</code></td>
+                    <td>Sub-workflow: ตอบแชททั่วไป (LLM)</td>
+                </tr>
+                <tr>
+                    <td>Image</td>
+                    <td>Equal to</td>
+                    <td><code>D</code></td>
+                    <td>Sub-workflow: วิเคราะห์รูปภาพ (Vision)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>5. 🚀 Execute Sub-workflow: ทำงานตามคำสั่ง</h2>
+        <p class="step-header">Node: Execute Workflow</p>
+        <p>ในแต่ละ Output ของ Switch Node ให้ต่อด้วย Node นี้เพื่อเรียกใช้ Workflow ย่อยที่เตรียมไว้</p>
+        <div class="note">
+            <strong>Tip:</strong> การส่งข้อมูลไปยัง Sub-workflow ควรส่ง JSON ทั้งก้อน (text, lat, long, category) ไปด้วย เพื่อให้ Workflow ปลายทางทำงานต่อได้ทันที
+        </div>
+    </div>
+
+</body>
+</html>
