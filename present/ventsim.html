@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หลักการทางฟิสิกส์ของการจำลองเครื่องช่วยหายใจ (VentSim Dual-Lung)</title>
+    <style>
+        body { font-family: 'Sukhumvit Set', 'Kanit', sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; background-color: #f7f7f7; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); }
+        h1 { color: #075985; border-bottom: 3px solid #075985; padding-bottom: 10px; margin-bottom: 25px; text-align: center; }
+        h2 { color: #1e40af; border-left: 5px solid #3b82f6; padding-left: 10px; margin-top: 30px; margin-bottom: 15px; }
+        h3 { color: #1f2937; margin-top: 20px; margin-bottom: 10px; }
+        p, ul { margin-bottom: 15px; }
+        strong { font-weight: 700; color: #374151; }
+        .equation { background-color: #f0f9ff; border-left: 4px solid #3b82f6; padding: 15px; margin: 15px 0; overflow-x: auto; font-family: 'Consolas', 'Courier New', monospace; }
+        .note { background-color: #fffbeb; border-left: 4px solid #f59e0b; padding: 10px; margin: 15px 0; font-size: 0.9em; }
+        .highlight { color: #b91c1c; font-weight: 700; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>หลักการทางฟิสิกส์ของการจำลองเครื่องช่วยหายใจ (VentSim Dual-Lung)</h1>
+        <p>การจำลองนี้ถูกสร้างขึ้นบนพื้นฐานของฟิสิกส์การหายใจแบบ **Non-Linear Model** ซึ่งเป็นการขยายแนวคิดจากสมการการเคลื่อนที่ (Equation of Motion) แบบดั้งเดิม เพื่อให้สามารถจำลองพฤติกรรมของปอดจริงได้อย่างซับซ้อนและใกล้เคียงกับผู้ป่วยที่มีพยาธิสภาพที่แตกต่างกัน โดยมีหลักการสำคัญดังต่อไปนี้:</p>
+
+        <hr>
+        <h2>1. สมการการเคลื่อนที่ของการหายใจ (Equation of Motion) และวงจรคู่ขนาน</h2>
+        <p>หลักการพื้นฐานที่สุดที่ใช้ในการขับเคลื่อนการจำลองคือสมการการเคลื่อนที่ ซึ่งกำหนดความสัมพันธ์ระหว่างแรงดัน (Pressure) ปริมาตร (Volume) การไหล (Flow) ความยืดหยุ่น (Compliance) และแรงต้าน (Resistance) โดยเฉพาะอย่างยิ่งในรูปแบบ **Dual-Lung** (ปอดซ้ายและปอดขวาแยกกัน) ที่เป็นวงจรขนาน:</p>
+        <div class="equation">
+            <strong>P<sub>alv</sub> (Pressure in Alveoli)</strong> = (V / C) + (F · R) + PEEP - P<sub>mus</sub>
+        </div>
+        <ul>
+            <li><strong>P<sub>alv</sub>:</strong> แรงดันในถุงลม (Alveolar Pressure) ซึ่งเป็นแรงดันที่กลไกปอดต้องเอาชนะ</li>
+            <li><strong>V / C:</strong> ส่วนของแรงดันที่เกิดจากความยืดหยุ่นของปอด (Elastic Pressure, P<sub>el</sub>)</li>
+            <li><strong>F · R:</strong> ส่วนของแรงดันที่เกิดจากแรงต้านทานของทางเดินหายใจ (Resistive Pressure)</li>
+            <li><strong>P<sub>mus</sub>:</strong> แรงดันกล้ามเนื้อหายใจ (Muscle Pressure) ที่เกิดจากผู้ป่วย (เป็นค่าลบเมื่อหายใจเข้า)</li>
+            <li><strong>วงจรคู่ขนาน (Dual-Lung Parallel Circuit):</strong> เมื่อเกิดความแตกต่างของค่า R และ C ระหว่างปอดซ้ายและขวา ($R_{\text{L}} \neq R_{\text{R}}$ หรือ $C_{\text{L}} \neq C_{\text{R}}$) การไหลของอากาศ ($F$) จะถูกแบ่งไปยังปอดที่มีค่าความต้านทานต่ำกว่าและใช้เวลาในการขยายตัว (Time Constant) ต่างกัน</li>
+        </ul>
+
+        <hr>
+        <h2>2. กลศาสตร์ที่ไม่เป็นเชิงเส้น (Non-Linear Mechanics)</h2>
+        <p>เพื่อให้การจำลองมีความสมจริงระดับสูง ฟังก์ชัน $C$ และ $R$ จะไม่คงที่เป็นตัวเลขเดียว แต่จะเปลี่ยนแปลงไปตามสภาวะปัจจุบันของปอด (Volume และ Flow) และพยาธิสภาพที่เลือกไว้:</p>
+
+        <h3>2.1 Dynamic Compliance (getDynamicCompliance)</h3>
+        <p>ความยืดหยุ่นของปอดจะเปลี่ยนไปตามปริมาตร (Volume Dependence) เพื่อจำลองกราฟ P/V Loop ที่มีจุดหักเห:</p>
+        <ul>
+            <li><strong>Upper Inflection Point:</strong> เมื่อปริมาตรของปอดเกินขีดจำกัดที่ตั้งไว้ (เช่น $0.8$ ลิตรสำหรับ ARDS) ค่า $C$ จะถูกลดลงอย่างรวดเร็วด้วยฟังก์ชัน <strong class="highlight">Exponential Stiffness</strong> เพื่อจำลองภาวะปอดตึงและเกิด Overdistension (VILI)</li>
+            <li><strong>Lower Inflection Point (Hysteresis):</strong> ในช่วงต้นของการหายใจเข้า (Inspiration) ค่า $C$ จะถูกลดลงชั่วคราว (โดยเฉพาะใน ARDS) เพื่อจำลองความยากในการเปิดถุงลมที่ยุบตัว (Recruitment)</li>
+        </ul>
+
+        <h3>2.2 Dynamic Resistance (getDynamicResistance)</h3>
+        <p>แรงต้านทานทางเดินหายใจ ($R$) จะถูกปรับตามหลักการทางฟิสิกส์ 2 ข้อ:</p>
+        <ul>
+            <li><strong>Flow Dependence (Turbulence):</strong> แรงต้านทานจะเพิ่มขึ้นตามความเร็วของการไหล ($|F| \cdot \text{turbulenceFactor}$) ซึ่งจำลอง <strong class="highlight">การไหลแบบปั่นป่วน (Turbulence)</strong> ตามสมการของ Rohrer's (โดยเฉพาะอย่างยิ่งในภาวะ COPD ที่มีการตีบแคบของท่อลม)</li>
+            <li><strong>Volume Dependence (Airway Tethering):</strong> แรงต้านทานจะลดลงเมื่อปริมาตรปอดเพิ่มขึ้น ($\text{volEffect}$) เนื่องจากเนื้อเยื่อปอดดึงให้ทางเดินหายใจเปิดออกกว้างขึ้น (Airway Tethering)</li>
+        </ul>
+
+        <hr>
+        <h2>3. กลไกควบคุมเครื่องช่วยหายใจและการแลกเปลี่ยนก๊าซ</h2>
+
+        <h3>3.1 การควบคุม Mode (Cycling and Limits)</h3>
+        <ul>
+            <li><strong>VCV (Volume Control):</strong> ควบคุมให้ Flow เป็นไปตามที่กำหนด (Square หรือ Decelerating Ramp) และจะ <strong>Cycle (ตัดเข้าสู่ Expiration)</strong> เมื่อปริมาตรที่ส่งมอบถึงเป้าหมาย ($\text{Tidal Volume}$) หรือหมดเวลา $\text{Ti}$</li>
+            <li><strong>PCV (Pressure Control):</strong> ควบคุม $P_{\text{aw}}$ ให้ขึ้นไปถึง $P_{\text{insp}} + PEEP$ โดยใช้ฟังก์ชัน <strong class="highlight">Smoothing (PCV_RISE_SMOOTHING)</strong> เพื่อจำลอง Rise Time และจะ Cycle เมื่อหมดเวลา $\text{Ti}$</li>
+            <li><strong>PSV (Pressure Support):</strong> ควบคุม $P_{\text{aw}}$ ไปยัง $P_{\text{support}} + PEEP$ และจะ <strong>Cycle</strong> เมื่ออัตราการไหลตกลงถึงระดับที่กำหนดไว้ ($\text{E-Sense} \%$ ของ $\text{Peak Flow}$ ในรอบนั้น)</li>
+        </ul>
+        
+        <h3>3.2 Patient Spontaneous Effort (P<sub>mus</sub>)</h3>
+        <p>แรงดันลบจากกล้ามเนื้อหายใจของผู้ป่วย ($\text{Pmus}$) ถูกจำลองให้เป็น <strong class="highlight">Waveform ที่มีลักษณะพุ่งขึ้นและลดลงแบบ Exponential</strong> (ไม่ใช่แค่แรงดันลบคงที่) เพื่อจำลองจังหวะการหายใจของระบบประสาทที่สมจริงขึ้น โดยมีผลกระทบหลัก 2 อย่าง:</p>
+        <ul>
+            <li><strong>Triggering:</strong> ช่วยกระตุ้นเครื่องช่วยหายใจให้เริ่มรอบการหายใจ (โดยเฉพาะในโหมด PSV)</li>
+            <li><strong>Double Triggering:</strong> มีการจำลองภาวะที่เครื่อง Cycle จบเร็วเกินไป แต่ $\text{Pmus}$ ยังคงสูงอยู่ ทำให้เกิดการ Trigger รอบถัดไปทันที</li>
+        </ul>
+
+        <h3>3.3 การแลกเปลี่ยนก๊าซ (Gas Exchange - Simplified)</h3>
+        <p>การจำลองค่า $\text{SpO}_2$ และ $\text{EtCO}_2$ ที่แสดงบนหน้าจอจะอิงตามตัวแปรทางกลศาสตร์ที่คุณกำหนด:</p>
+        <ul>
+            <li><strong>$\mathbf{SpO_2}$ (Oxygenation):</strong> คำนวณจากค่า <strong class="highlight">Intrapulmonary Shunt</strong> ($\text{shunt}$) และ <strong class="highlight">Fraction of Inspired Oxygen ($\text{FiO}_2$)</strong> โดยมีการปรับค่า $S p O_2$ ให้ลดลงตามปริมาณ $\text{Shunt}$ ที่ตั้งไว้ และใช้ $\text{FiO}_2$ เป็นปัจจัยในการปรับแก้ออกซิเจนในเลือด</li>
+            <li><strong>$\mathbf{EtCO_2}$ (Ventilation):</strong> คำนวณจากค่า $\text{Minute Ventilation}$ ($\text{MV} = \text{RR} \times \text{VtExp}$) และ <strong class="highlight">Dead Space Fraction</strong> โดย $\text{EtCO}_2$ จะเพิ่มขึ้นเมื่อ Dead Space สูงขึ้น หรือ $\text{MV}$ ต่ำกว่าความต้องการของร่างกาย</li>
+        </ul>
+    </div>
+</body>
+</html>
