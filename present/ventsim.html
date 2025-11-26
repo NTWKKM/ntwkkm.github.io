@@ -42,7 +42,8 @@
         .gas-exchange-box { background-color: #40485a; border-color: #74d0f7; } /* Dark Blue/Cyan */
         .setting-box { background-color: #444a56; border-color: #a4c9ff; } /* Light Blue accent */
         .graph-box { background-color: #424653; border-color: #f7b44e; } /* Orange accent */
-        .graph-img-caption { font-size: 0.85em; margin-top: 10px; color: #f7b44e; text-align: center; }
+        .graph-display { background-color: #1e2126; border: 1px solid #444a56; border-radius: 4px; margin-top: 15px; padding: 10px; }
+        .graph-canvas { width: 100%; height: 100px; display: block; background-color: #222831; border: 1px solid #555555; margin-bottom: 5px; }
 
         /* Separator */
         hr { border: 0; height: 1px; background-color: #555555; margin: 30px 0; }
@@ -148,43 +149,50 @@
         </div>
         
         <hr>
-        <h2><span class="icon">📉</span> 6. ตัวอย่างกราฟในสภาวะพยาธิสภาพต่างๆ</h2>
-        <p>การตีความกราฟจะช่วยให้เข้าใจว่าปอดของผู้ป่วยมีปัญหาด้าน Resistance หรือ Compliance ซึ่งเป็นหัวใจของการช่วยหายใจ:</p>
+        <h2><span class="icon">📉</span> 6. ตัวอย่างกราฟ (Waveforms และ Loops)</h2>
+        <p>กราฟเหล่านี้สะท้อนการทำงานของฟิสิกส์ใน Simulator โดยแสดงความสัมพันธ์ระหว่าง Pressure, Flow, และ Volume:</p>
 
-        <h3><span class="icon">🧱</span> 6.1 ARDS / Fibrosis (Restrictive: Low C)</h3>
+        <div class="graph-display">
+            <h4 style="color: #74d0f7; margin-bottom: 5px;">Waveforms (P-T, F-T, V-T)</h4>
+            <canvas id="canvasP" class="graph-canvas" width="700" height="100"></canvas>
+            <canvas id="canvasF" class="graph-canvas" width="700" height="100"></canvas>
+            <canvas id="canvasV" class="graph-canvas" width="700" height="100"></canvas>
+
+            <h4 style="color: #74d0f7; margin-top: 20px; margin-bottom: 5px;">Loops (P-V, F-V)</h4>
+            <div style="display: flex; justify-content: space-between;">
+                <canvas id="canvasPV" class="graph-canvas" width="345" height="150" style="width: 49%;"></canvas>
+                <canvas id="canvasFV" class="graph-canvas" width="345" height="150" style="width: 49%;"></canvas>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 30px;"><span class="icon">🧱</span> 6.1 ARDS / Fibrosis (Restrictive: Low C)</h3>
         <div class="info-box graph-box">
-            <p><strong>ลักษณะ:</strong> ปอดแข็ง (Low C) ต้องใช้แรงดันสูงมากในการขยายตัวเล็กน้อย</p>
+            <p><strong>ลักษณะกราฟที่คาดหวัง:</strong></p>
             <ul>
-                <li>**P-V Loop:** **ชันมาก** (Steep Slope) บ่งชี้ถึง $\mathbf{C_{\text{stat}} \text{ ต่ำ}}$ และอาจเห็น Upper Inflection Point ชัดเจน</li>
+                <li>**P-V Loop:** **ชันมาก** (Steep Slope) บ่งชี้ถึง **C<sub>stat</sub> ต่ำ**</li>
                 <li>**P-T Graph (VCV):** P<sub>peak</sub> และ P<sub>plat</sub> **สูงมาก** แต่ห่างกันน้อย $\rightarrow$ ปัญหาเกิดจาก Elasticity</li>
             </ul>
-            <div class="graph-img-caption">
-                
-            </div>
+            <p class="graph-img-caption">
+                (การแสดงผลของกราฟจะปรากฏเมื่อรันโค้ด Simulator หลัก)
+            </p>
         </div>
 
-        <h3><span class="icon">🕳️</span> 6.2 COPD / Asthma (Obstructive: High R)</h3>
+        <h3 style="margin-top: 30px;"><span class="icon">🕳️</span> 6.2 COPD / Asthma (Obstructive: High R)</h3>
         <div class="info-box graph-box">
-            <p><strong>ลักษณะ:</strong> ทางเดินหายใจตีบ (High R) ทำให้หายใจเข้า-ออกช้า โดยเฉพาะหายใจออก</p>
+            <p><strong>ลักษณะกราฟที่คาดหวัง:</strong></p>
             <ul>
-                <li>**P-T Graph (VCV):** P<sub>peak</sub> **สูงโดด**, แต่ P<sub>plat</sub> ไม่สูง $\rightarrow$ $\mathbf{P_{\text{peak}} - P_{\text{plat}} \text{ แตกต่างกันมาก}}$ (บ่งชี้ R สูง)</li>
+                <li>**P-T Graph (VCV):** P<sub>peak</sub> **สูงโดด**, แต่ P<sub>plat</sub> ไม่สูง $\rightarrow$ **P<sub>peak</sub> - P<sub>plat</sub> แตกต่างกันมาก** (บ่งชี้ R สูง)</li>
                 <li>**F-T Graph:** Expiratory Flow **ไม่กลับสู่ศูนย์** ก่อนเริ่มรอบใหม่ $\rightarrow$ <strong class="highlight">สัญญาณชัดเจนของ Air Trapping และ AutoPEEP</strong></li>
             </ul>
-            <div class="graph-img-caption">
-                
-            </div>
         </div>
 
-        <h3><span class="icon">⚖️</span> 6.3 Dual-Lung Pathology (Unilateral Low C หรือ High R)</h3>
+        <h3 style="margin-top: 30px;"><span class="icon">⚖️</span> 6.3 Dual-Lung Pathology (Unilateral Low C หรือ High R)</h3>
         <div class="info-box graph-box">
-            <p><strong>ลักษณะ:</strong> ปอดซ้าย-ขวาทำงานไม่เท่ากัน (Uneven Ventilation) ทำให้การกระจาย Flow ไม่สม่ำเสมอ</p>
+            <p><strong>ลักษณะกราฟที่คาดหวัง:</strong></p>
             <ul>
                 <li>**P-V Loop / F-V Loop:** อาจมีรูปทรง <strong class="highlight">ผิดรูปทรงหรือมีลักษณะ Biphasic</strong> (มีรอยหัก 2 จังหวะ) ในโหมด Pressure Control เนื่องจากปอดทั้งสองมี Time Constant ต่างกัน</li>
                 <li>**Monitor:** จะเห็นความแตกต่างของ Flow ที่เข้าปอดซ้ายและขวา (F<sub>L</sub> vs F<sub>R</sub>) บนกราฟ Flow-Time</li>
             </ul>
-            <div class="graph-img-caption">
-                
-            </div>
         </div>
     </div>
 </body>
