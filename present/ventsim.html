@@ -82,11 +82,7 @@
             </div>
 
             <canvas id="waveforms" height="300"></canvas>
-            <div style="display:flex; gap:10px; margin-top:5px;">
-                <canvas id="loopPV" height="150"></canvas>
-                <canvas id="loopFV" height="150"></canvas>
             </div>
-        </div>
 
         <hr>
         <h2><span class="icon">⚙️</span> 1. สมการการเคลื่อนที่และวงจรคู่ขนาน (Dual-Lung)</h2>
@@ -243,7 +239,7 @@
         // Buffer for ~32 seconds to show 6-7 complete cycles (RR14 -> cycle ~4.2s)
         const MAX_POINTS = 2000; 
         let history = { p: [], f: [], v: [] };
-        let loops = { pv: [], fv: [] };
+        // Loops removed
 
         // --- 2. PHYSICS ENGINE ---
         function updatePhysics() {
@@ -258,7 +254,6 @@
             if (state.phase === 'INS' && state.cycleTime >= SETTINGS.Ti) {
                 state.phase = 'EXP';
                 state.cycleTime = 0;
-                loops.pv = []; loops.fv = []; // Reset loops for new breath
             } else if (state.phase === 'EXP' && state.cycleTime >= expDuration) {
                 state.phase = 'INS';
                 state.cycleTime = 0;
@@ -300,12 +295,6 @@
             history.f.push(state.flow * 60); // L/min
             history.v.push(relVol);
             
-            // Loop Data
-            if (state.phase === 'INS' || (state.phase === 'EXP' && state.cycleTime < 0.5)) {
-                loops.pv.push({x: state.paw, y: relVol});
-                loops.fv.push({x: relVol, y: state.flow * 60});
-            }
-
             if (history.p.length > MAX_POINTS) {
                 history.p.shift(); history.f.shift(); history.v.shift();
             }
@@ -346,10 +335,6 @@
             
             drawWaveform('waveforms', [history.p, history.f, history.v], ['#f7b44e', '#4ade80', '#4a90e2']);
             
-            // Loop scaling based on current cycle
-            drawLoop('loopPV', loops.pv, 'Pressure', 'Volume');
-            drawLoop('loopFV', loops.fv, 'Volume', 'Flow');
-
             requestAnimationFrame(draw);
         }
 
@@ -404,69 +389,6 @@
             });
         }
 
-        function drawLoop(id, data, xLabel, yLabel) {
-            const canvas = document.getElementById(id);
-            const ctx = canvas.getContext('2d');
-            const w = canvas.width = canvas.parentElement.offsetWidth / 2;
-            const h = canvas.height;
-            ctx.clearRect(0,0,w,h);
-
-            // Auto-scale loop
-            let xData = data.map(p => p.x);
-            let yData = data.map(p => p.y);
-            let xBounds = getMinMax(xData, xLabel === 'Pressure' ? 'P' : 'V');
-            let yBounds = getMinMax(yData, yLabel === 'Volume' ? 'V' : 'F');
-
-            // Grid
-            ctx.strokeStyle = '#333'; ctx.lineWidth = 1;
-            
-            // Draw Zero Lines if within bounds
-            // X-Axis zero
-            if (yBounds.min < 0 && yBounds.max > 0) {
-                let yZero = h - ((0 - yBounds.min) / (yBounds.max - yBounds.min)) * h;
-                ctx.beginPath(); ctx.moveTo(0, yZero); ctx.lineTo(w, yZero); ctx.stroke();
-            }
-            // Y-Axis zero
-            if (xBounds.min < 0 && xBounds.max > 0) {
-                let xZero = ((0 - xBounds.min) / (xBounds.max - xBounds.min)) * w;
-                ctx.beginPath(); ctx.moveTo(xZero, 0); ctx.lineTo(xZero, h); ctx.stroke();
-            }
-
-            ctx.fillStyle = '#aaa'; 
-            ctx.font = '10px sans-serif';
-            ctx.textAlign = "left";
-            ctx.fillText(yLabel, 5, 10);
-            
-            // Y-Axis Min/Max Labels
-            ctx.textAlign = "left";
-            ctx.fillText(Math.round(yBounds.max), 5, 25);
-            ctx.fillText(Math.round(yBounds.min), 5, h - 5);
-
-            // X-Axis Label
-            ctx.textAlign = "right";
-            ctx.fillText(xLabel, w-5, h-5);
-            
-            // X-Axis Min/Max Labels
-            ctx.fillText(Math.round(xBounds.max), w - 5, h - 15);
-            ctx.textAlign = "left";
-            ctx.fillText(Math.round(xBounds.min), 5, h - 15);
-
-            if(data.length < 2) return;
-            ctx.beginPath();
-            ctx.strokeStyle = '#fff'; ctx.lineWidth = 2;
-            
-            data.forEach((p, i) => {
-                let xNorm = (p.x - xBounds.min) / (xBounds.max - xBounds.min);
-                let yNorm = (p.y - yBounds.min) / (yBounds.max - yBounds.min);
-                
-                let x = xNorm * w;
-                let y = h - (yNorm * h);
-
-                if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
-            });
-            ctx.stroke();
-        }
-
         // --- 4. CONTROLS ---
         function setPreset(key) {
             currentPreset = PRESETS[key];
@@ -476,7 +398,6 @@
             // Reset state slightly to show change effect
             state.volL = (SETTINGS.PEEP * currentPreset.compL)/1000;
             state.volR = (SETTINGS.PEEP * currentPreset.compR)/1000;
-            loops.pv = []; loops.fv = [];
         }
 
         function toggleSim() {
