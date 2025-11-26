@@ -34,12 +34,15 @@
 
         /* Simulation UI */
         .sim-container { background-color: #1e2126; border: 1px solid #555; border-radius: 8px; padding: 15px; margin-top: 20px; }
-        .controls { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+        .controls { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; align-items: center; }
         .btn { 
-            background-color: #393e46; color: white; border: 1px solid #4a90e2; padding: 8px 16px; border-radius: 4px; cursor: pointer; transition: 0.2s; font-family: inherit;
+            background-color: #393e46; color: white; border: 1px solid #4a90e2; padding: 8px 16px; border-radius: 4px; cursor: pointer; transition: 0.2s; font-family: inherit; font-size: 0.9em;
         }
         .btn:hover { background-color: #4a90e2; }
         .btn.active { background-color: #4a90e2; font-weight: bold; box-shadow: 0 0 8px rgba(74, 144, 226, 0.5); }
+        .btn.control-btn { border-color: #f7b44e; color: #f7b44e; }
+        .btn.control-btn:hover { background-color: #f7b44e; color: #222; }
+        .btn.control-btn.paused { background-color: #f7b44e; color: #222; }
         
         canvas { background-color: #000; border: 1px solid #333; width: 100%; display: block; margin-bottom: 5px; border-radius: 4px; }
         .monitor-values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 10px; }
@@ -59,10 +62,12 @@
                 <span class="icon">💻</span> Live Simulation (กราฟจำลองการทำงานจริง)
             </h3>
             <div style="font-size: 0.9em; color: #aaa; margin-bottom: 10px;">
-                <strong>Setting:</strong> Mode: PCV | Pinsp: 10 | PEEP: 5 | RR: 14 | Ti: 1.0s | Pmus: 0
+                <strong>Setting:</strong> Mode: PCV | Pinsp: 10 | PEEP: 5 | RR: 14 | Ti: 1.0s | Pmus: 0 | <strong>Display: ~6-7 Breath Cycles (30s)</strong>
             </div>
             
             <div class="controls">
+                <button class="btn control-btn" id="btn-toggle" onclick="toggleSim()">⏸ Pause</button>
+                <div style="width: 1px; height: 30px; background: #444; margin: 0 10px;"></div>
                 <button class="btn active" onclick="setPreset('NORMAL')">Normal</button>
                 <button class="btn" onclick="setPreset('ARDS')">ARDS (Stiff)</button>
                 <button class="btn" onclick="setPreset('COPD')">COPD (Obstructive)</button>
@@ -70,13 +75,13 @@
             </div>
 
             <div class="monitor-values">
-                <div class="monitor-card"><span class="monitor-label">Ppeak</span><span class="monitor-val text-yellow" id="val-ppeak">15</span></div>
-                <div class="monitor-card"><span class="monitor-label">Vte</span><span class="monitor-val text-blue" id="val-vte">450</span></div>
-                <div class="monitor-card"><span class="monitor-label">MV</span><span class="monitor-val text-green" id="val-mv">6.3</span></div>
+                <div class="monitor-card"><span class="monitor-label">Ppeak</span><span class="monitor-val text-yellow" id="val-ppeak">--</span></div>
+                <div class="monitor-card"><span class="monitor-label">Vte (ml)</span><span class="monitor-val text-blue" id="val-vte">--</span></div>
+                <div class="monitor-card"><span class="monitor-label">MV (L)</span><span class="monitor-val text-green" id="val-mv">--</span></div>
                 <div class="monitor-card"><span class="monitor-label">RR</span><span class="monitor-val text-blue">14</span></div>
             </div>
 
-            <canvas id="waveforms" height="250"></canvas>
+            <canvas id="waveforms" height="300"></canvas>
             <div style="display:flex; gap:10px; margin-top:5px;">
                 <canvas id="loopPV" height="150"></canvas>
                 <canvas id="loopFV" height="150"></canvas>
@@ -211,7 +216,7 @@
             'DUAL': { resL: 5, compL: 50, resR: 20, compR: 20, name: 'Dual-Lung' }
         };
         
-        // Ventilator Settings (Fixed per request)
+        // Ventilator Settings
         const SETTINGS = {
             mode: 'PCV',
             Pinsp: 10,
@@ -222,23 +227,25 @@
         };
 
         // State
+        let isRunning = true;
         let currentPreset = PRESETS['NORMAL'];
         let state = {
             time: 0,
             cycleTime: 0,
-            phase: 'EXP', // INS, EXP
-            volL: (5 * 50)/1000, // Initial Volume at PEEP
+            phase: 'EXP', 
+            volL: (5 * 50)/1000, 
             volR: (5 * 50)/1000,
             paw: 5,
             flow: 0
         };
 
         // History Buffers for Canvas
-        const MAX_POINTS = 300;
-        let history = { p: [], f: [], v: [], fl: [], fr: [] };
+        // Buffer for ~32 seconds to show 6-7 complete cycles (RR14 -> cycle ~4.2s)
+        const MAX_POINTS = 2000; 
+        let history = { p: [], f: [], v: [] };
         let loops = { pv: [], fv: [] };
 
-        // --- 2. PHYSICS ENGINE (Simplified Equation of Motion) ---
+        // --- 2. PHYSICS ENGINE ---
         function updatePhysics() {
             const dt = 0.016; // 60fps
             state.time += dt;
@@ -282,7 +289,11 @@
             // Total Flow & Volume
             state.flow = FlowL + FlowR;
             const totalVol = (state.volL + state.volR) * 1000; // ml
-            const relVol = totalVol - ((SETTINGS.PEEP * (currentPreset.compL + currentPreset.compR))); 
+            
+            // Calculate Vt (Volume relative to PEEP baseline)
+            // This shows purely the tidal volume entering/leaving, excluding PEEP volume.
+            const volumeAtPEEP = (SETTINGS.PEEP * (currentPreset.compL + currentPreset.compR));
+            const relVol = totalVol - volumeAtPEEP; 
 
             // Update History
             history.p.push(state.paw);
@@ -302,18 +313,42 @@
             // Update Monitors (Approx)
             if (state.phase === 'EXP' && state.cycleTime < dt*2) {
                 // End of Insp
+                document.getElementById('val-ppeak').innerText = Math.round(state.paw);
                 document.getElementById('val-vte').innerText = Math.round(relVol);
                 document.getElementById('val-mv').innerText = ((relVol * SETTINGS.RR)/1000).toFixed(1);
             }
         }
 
         // --- 3. RENDERING ---
+        function getMinMax(data, type) {
+            if (data.length === 0) return { min: 0, max: 10 };
+            
+            let min = Math.min(...data);
+            let max = Math.max(...data);
+            
+            // Auto-scale padding
+            let range = max - min;
+            if (range === 0) range = 10;
+            
+            // Specific logic for types
+            if (type === 'P') { min = 0; max = Math.max(30, max + range * 0.1); } // P always starts at 0
+            else if (type === 'V') { min = -50; max = Math.max(500, max + range * 0.1); } // V starts near 0
+            else if (type === 'F') { // Flow needs symmetry or fit
+                let absMax = Math.max(Math.abs(min), Math.abs(max));
+                min = -absMax * 1.1; max = absMax * 1.1;
+            }
+            
+            return { min, max };
+        }
+
         function draw() {
-            updatePhysics();
+            if (isRunning) updatePhysics();
             
             drawWaveform('waveforms', [history.p, history.f, history.v], ['#f7b44e', '#4ade80', '#4a90e2']);
-            drawLoop('loopPV', loops.pv, 'Pressure', 'Volume', 40, 600);
-            drawLoop('loopFV', loops.fv, 'Volume', 'Flow', 600, 60);
+            
+            // Loop scaling based on current cycle
+            drawLoop('loopPV', loops.pv, 'Pressure', 'Volume');
+            drawLoop('loopFV', loops.fv, 'Volume', 'Flow');
 
             requestAnimationFrame(draw);
         }
@@ -326,54 +361,76 @@
             ctx.clearRect(0, 0, w, h);
 
             // Draw Grids & Labels
+            const zoneH = h / 3;
             ctx.strokeStyle = '#333'; ctx.lineWidth = 1;
-            ctx.beginPath(); ctx.moveTo(0, h/3); ctx.lineTo(w, h/3); ctx.stroke();
-            ctx.beginPath(); ctx.moveTo(0, 2*h/3); ctx.lineTo(w, 2*h/3); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(0, zoneH); ctx.lineTo(w, zoneH); ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(0, 2*zoneH); ctx.lineTo(w, 2*zoneH); ctx.stroke();
             
+            // Titles
             ctx.font = '10px sans-serif'; 
             ctx.fillStyle = colors[0]; ctx.fillText('Paw (cmH2O)', 5, 15);
-            ctx.fillStyle = colors[1]; ctx.fillText('Flow (L/min)', 5, h/3 + 15);
-            ctx.fillStyle = colors[2]; ctx.fillText('Vol (ml)', 5, 2*h/3 + 15);
+            ctx.fillStyle = colors[1]; ctx.fillText('Flow (L/min)', 5, zoneH + 15);
+            ctx.fillStyle = colors[2]; ctx.fillText('Vol (ml)', 5, 2*zoneH + 15);
 
-            // Draw Lines
+            // Draw Lines with Auto-Scale
+            const types = ['P', 'F', 'V'];
+            
             dataArrays.forEach((data, idx) => {
                 ctx.beginPath();
                 ctx.strokeStyle = colors[idx];
                 ctx.lineWidth = 2;
                 
-                let yOffset = (idx * h/3);
-                let yRange = (idx === 1) ? 120 : (idx === 0 ? 40 : 600); // Scale ranges
-                let yZero = (idx === 1) ? yOffset + (h/6) : yOffset + (h/3) - 5;
+                const bounds = getMinMax(data, types[idx]);
+                const range = bounds.max - bounds.min;
+                const yOffset = idx * zoneH;
                 
-                if (idx === 0) yZero = h/3 - 5; // Pressure baseline
-                if (idx === 1) yZero = h/2;     // Flow middle
+                // Draw Min/Max labels
+                ctx.fillStyle = colors[idx];
+                ctx.textAlign = "right";
+                ctx.fillText(Math.round(bounds.max), w - 5, yOffset + 15);
+                ctx.fillText(Math.round(bounds.min), w - 5, yOffset + zoneH - 5);
+                ctx.textAlign = "left";
 
                 for (let i = 0; i < data.length; i++) {
                     const x = (i / MAX_POINTS) * w;
                     let val = data[i];
-                    // Manual Scaling for display
-                    let y = 0;
-                    if(idx === 0) y = (h/3) - (val/40)*(h/3); // Pressure 0-40
-                    if(idx === 1) y = (h/2) - (val/120)*(h/3); // Flow -60 to 60
-                    if(idx === 2) y = h - (val/800)*(h/3); // Vol 0-800
-
+                    // Normalize to 0-1 then project to zone
+                    let norm = (val - bounds.min) / range;
+                    let y = yOffset + zoneH - (norm * zoneH); // Invert Y
+                    
                     if (i===0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
                 }
                 ctx.stroke();
             });
         }
 
-        function drawLoop(id, data, xLabel, yLabel, xMax, yMax) {
+        function drawLoop(id, data, xLabel, yLabel) {
             const canvas = document.getElementById(id);
             const ctx = canvas.getContext('2d');
             const w = canvas.width = canvas.parentElement.offsetWidth / 2;
             const h = canvas.height;
             ctx.clearRect(0,0,w,h);
 
+            // Auto-scale loop
+            let xData = data.map(p => p.x);
+            let yData = data.map(p => p.y);
+            let xBounds = getMinMax(xData, xLabel === 'Pressure' ? 'P' : 'V');
+            let yBounds = getMinMax(yData, yLabel === 'Volume' ? 'V' : 'F');
+
             // Grid
             ctx.strokeStyle = '#333'; ctx.lineWidth = 1;
-            ctx.beginPath(); ctx.moveTo(w/2, 0); ctx.lineTo(w/2, h); ctx.stroke(); // Mid X
-            ctx.beginPath(); ctx.moveTo(0, h/2); ctx.lineTo(w, h/2); ctx.stroke(); // Mid Y
+            
+            // Draw Zero Lines if within bounds
+            // X-Axis zero
+            if (yBounds.min < 0 && yBounds.max > 0) {
+                let yZero = h - ((0 - yBounds.min) / (yBounds.max - yBounds.min)) * h;
+                ctx.beginPath(); ctx.moveTo(0, yZero); ctx.lineTo(w, yZero); ctx.stroke();
+            }
+            // Y-Axis zero
+            if (xBounds.min < 0 && xBounds.max > 0) {
+                let xZero = ((0 - xBounds.min) / (xBounds.max - xBounds.min)) * w;
+                ctx.beginPath(); ctx.moveTo(xZero, 0); ctx.lineTo(xZero, h); ctx.stroke();
+            }
 
             ctx.fillStyle = '#aaa'; ctx.fillText(yLabel, 5, 10);
             ctx.fillText(xLabel, w-40, h-5);
@@ -383,14 +440,12 @@
             ctx.strokeStyle = '#fff'; ctx.lineWidth = 2;
             
             data.forEach((p, i) => {
-                let x, y;
-                if (id === 'loopPV') { // P (x) vs V (y)
-                    x = (p.x / xMax) * w;
-                    y = h - (p.y / yMax) * h;
-                } else { // V (x) vs F (y)
-                    x = (p.x / xMax) * w;
-                    y = (h/2) - (p.y / yMax) * (h/2);
-                }
+                let xNorm = (p.x - xBounds.min) / (xBounds.max - xBounds.min);
+                let yNorm = (p.y - yBounds.min) / (yBounds.max - yBounds.min);
+                
+                let x = xNorm * w;
+                let y = h - (yNorm * h);
+
                 if (i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
             });
             ctx.stroke();
@@ -399,12 +454,25 @@
         // --- 4. CONTROLS ---
         function setPreset(key) {
             currentPreset = PRESETS[key];
-            // Update Buttons
-            document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.btn:not(.control-btn)').forEach(b => b.classList.remove('active'));
             event.target.classList.add('active');
             
-            // Reset Sim slightly to show change
+            // Reset state slightly to show change effect
+            state.volL = (SETTINGS.PEEP * currentPreset.compL)/1000;
+            state.volR = (SETTINGS.PEEP * currentPreset.compR)/1000;
             loops.pv = []; loops.fv = [];
+        }
+
+        function toggleSim() {
+            isRunning = !isRunning;
+            const btn = document.getElementById('btn-toggle');
+            if (isRunning) {
+                btn.innerText = "⏸ Pause";
+                btn.classList.remove('paused');
+            } else {
+                btn.innerText = "▶ Play";
+                btn.classList.add('paused');
+            }
         }
 
         // Start
