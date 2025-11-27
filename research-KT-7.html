@@ -1,0 +1,63 @@
+<html>
+<head>
+<style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h2 { color: #2c3e50; border-bottom: 2px solid #2c3e50; padding-bottom: 10px; margin-top: 30px; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 20px; font-size: 14px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; font-weight: bold; color: #333; }
+    tr:nth-child(even) { background-color: #f9f9f9; }
+    tr:hover { background-color: #f1f1f1; }
+    .sig { font-weight: bold; color: #d9534f; } /* Highlight significant P-values */
+</style>
+</head>
+<body>
+
+<h2>Table 1: Factors associated with sumoutcome (Composite Outcome)</h2>
+<table>
+  <tr>
+    <th>Variable</th>
+    <th>Total (n=116)</th>
+    <th>Outcome (-)</th>
+    <th>Outcome (+)</th>
+    <th>OR (95% CI)</th>
+    <th>P-value (Comp)</th>
+  </tr>
+  <tr><td>Active malignancy (Yes)</td><td>33.6%</td><td>21.8%</td><td>57.9%</td><td>4.93 (2.13-11.42)</td><td class="sig">0.000</td></tr>
+  <tr><td>Dyspnea at rest</td><td>38.8%</td><td>29.5%</td><td>57.9%</td><td>3.29 (1.47-7.37)</td><td class="sig">0.006</td></tr>
+  <tr><td>Respiration rate (median)</td><td>22.00</td><td>21.00</td><td>24.00</td><td>1.14 (1.04-1.25)</td><td class="sig">0.000</td></tr>
+  <tr><td>Systolic BP (mean)</td><td>127.97</td><td>131.72</td><td>120.26</td><td>0.98 (0.97-1.00)</td><td class="sig">0.020</td></tr>
+  <tr><td>Albumin (median)</td><td>3.60</td><td>3.70</td><td>3.20</td><td>0.34 (0.16-0.71)</td><td class="sig">0.007</td></tr>
+  <tr><td>PT (median)</td><td>12.90</td><td>12.60</td><td>13.40</td><td>1.89 (1.34-2.65)</td><td class="sig">0.000</td></tr>
+  <tr><td>INR (median)</td><td>1.14</td><td>1.11</td><td>1.20</td><td>780.42 (23-26512)</td><td class="sig">0.000</td></tr>
+  <tr><td>Pleural effusion (CXR)</td><td>21.6%</td><td>14.5%</td><td>35.1%</td><td>3.21 (1.19-8.62)</td><td class="sig">0.018</td></tr>
+  <tr><td>RV systolic dysfunction</td><td>39.7%</td><td>32.3%</td><td>54.8%</td><td>2.01 (1.20-3.35)</td><td class="sig">0.000</td></tr>
+  <tr><td>Pulmonary Hypertension</td><td>34.4%</td><td>23.3%</td><td>53.8%</td><td>2.69 (1.37-5.27)</td><td class="sig">0.002</td></tr>
+</table>
+
+<h2>Table 2: Factors associated with sumrv (RV Outcome)</h2>
+<table>
+  <tr>
+    <th>Variable</th>
+    <th>Total (n=116)</th>
+    <th>Outcome (-)</th>
+    <th>Outcome (+)</th>
+    <th>OR (95% CI)</th>
+    <th>P-value (Comp)</th>
+  </tr>
+  <tr><td>Palpitation</td><td>18.1%</td><td>11.0%</td><td>35.0%</td><td>4.34 (1.38-13.62)</td><td class="sig">0.007</td></tr>
+  <tr><td>Proximal Clot</td><td>45.0%</td><td>46.4%</td><td>11.8%</td><td>0.15 (0.02-0.90)</td><td class="sig">0.044</td></tr>
+  <tr><td>RV Strain (CT)</td><td>15.7%</td><td>9.5%</td><td>38.5%</td><td>5.99 (1.50-23.95)</td><td class="sig">0.006</td></tr>
+  <tr><td>RV Dilatation (Echo)</td><td>40.4%</td><td>37.2%</td><td>52.0%</td><td>1.83 (1.19-2.82)</td><td class="sig">0.006</td></tr>
+  <tr><td>Reperfusion therapy</td><td>8.6%</td><td>6.5%</td><td>17.4%</td><td>2.47 (0.75-8.15)</td><td class="sig">0.033</td></tr>
+</table>
+
+<br>
+<h3>Summary</h3>
+<ul>
+  <li><b>sumoutcome:</b> สัมพันธ์กับ Malignancy, Dyspnea, High RR, Low BP, High INR, และ Low Albumin.</li>
+  <li><b>sumrv:</b> สัมพันธ์กับ Palpitation, RV strain/dilatation, และประวัติการได้รับ Reperfusion therapy.</li>
+</ul>
+
+</body>
+</html>
