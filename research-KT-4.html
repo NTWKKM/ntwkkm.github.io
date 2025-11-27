@@ -5,1631 +5,1972 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comprehensive Statistical Analysis - Pulmonary Embolism Study</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            color: #2c3e50;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #1a5f7a 0%, #2196F3 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .header h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 14px;
-            opacity: 0.95;
-        }
-
-        .summary-box {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 30px;
-        }
-
-        .summary-item {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-left: 4px solid #1a5f7a;
-        }
-
-        .summary-item h3 {
-            color: #1a5f7a;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #ffffff;
+            color: #000;
+            line-height: 1.5;
             font-size: 12px;
+        }
+
+        .container { max-width: 1800px; margin: 0 auto; padding: 30px; }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 15px;
+        }
+
+        .title h1 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .title p {
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        .study-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            font-size: 11px;
+        }
+
+        .section {
+            margin-top: 40px;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: bold;
+            margin: 20px 0 15px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #000;
             text-transform: uppercase;
-            margin-bottom: 10px;
             letter-spacing: 1px;
         }
 
-        .summary-item p {
-            font-size: 18px;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .category-section {
-            background: white;
-            padding: 25px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .category-title {
-            background: #f8f9fa;
-            border-left: 4px solid #1a5f7a;
-            padding: 15px;
-            margin: -25px -25px 20px -25px;
-            border-radius: 8px 8px 0 0;
-        }
-
-        .category-title h2 {
-            color: #1a5f7a;
-            font-size: 18px;
-            margin: 0;
-        }
-
-        .outcome-table {
-            margin-top: 20px;
-        }
-
         .outcome-title {
+            font-size: 11px;
             font-weight: bold;
-            color: #1a5f7a;
-            padding: 10px;
-            background-color: #e8f4f8;
-            margin-bottom: 10px;
-            border-radius: 4px;
+            margin: 15px 0 10px 0;
+            padding: 8px;
+            background-color: #f0f0f0;
+            border-left: 3px solid #000;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            font-size: 13px;
+            font-size: 11px;
             margin-bottom: 20px;
+            border: 1px solid #000;
         }
 
         th {
-            background-color: #1a5f7a;
-            color: white;
-            padding: 12px;
+            background-color: #e0e0e0;
+            border: 1px solid #000;
+            padding: 8px;
             text-align: left;
-            font-weight: 600;
-            border: none;
+            font-weight: bold;
+            font-size: 10px;
         }
 
         td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #ecf0f1;
+            border: 1px solid #000;
+            padding: 7px;
         }
 
-        tbody tr:hover {
-            background-color: #f8f9fa;
-        }
+        tbody tr:nth-child(odd) { background-color: #fafafa; }
 
-        tbody tr:nth-child(odd) {
-            background-color: #fafbfc;
-        }
+        .sig-05 { background-color: #ffffcc; }
+        .sig-01 { background-color: #ccffcc; }
 
-        .p-value {
-            text-align: center;
-            font-family: monospace;
-            font-weight: 500;
-        }
-
-        .sig-005 {
-            background-color: #fff3cd;
-        }
-
-        .sig-001 {
-            background-color: #d4edda;
-        }
-
-        .not-sig {
-            color: #999;
-        }
+        .right-align { text-align: right; }
+        .center { text-align: center; }
 
         .footnote {
-            font-size: 11px;
-            color: #666;
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #ecf0f1;
+            font-size: 10px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #000;
         }
 
-        .stats-legend {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin: 30px 0;
+        .page-break { page-break-after: always; }
+
+        .summary-table {
+            margin-top: 30px;
+            border: 2px solid #000;
         }
 
-        .legend-item {
-            padding: 15px;
-            border-radius: 4px;
-            font-size: 12px;
-            background: #f8f9fa;
-            border-left: 3px solid #1a5f7a;
-        }
-
-        .legend-item strong {
-            color: #1a5f7a;
-        }
-
-        .back-to-top {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 20px;
-            border-top: 1px solid #ecf0f1;
-        }
-
-        .back-to-top a {
-            color: #1a5f7a;
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        .back-to-top a:hover {
-            text-decoration: underline;
+        .abbrev {
+            font-size: 10px;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f5f5f5;
+            line-height: 1.4;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>Comprehensive Statistical Analysis</h1>
-            <p>Pulmonary Embolism Patient Study - Comparative Analysis Across Outcomes</p>
+
+        <div class="title">
+            <h1>Univariate Logistic Regression Analysis: Pulmonary Embolism Study</h1>
+            <p>Predictors of 6-Month Right Ventricular Function Outcomes</p>
+            <p style="margin-top: 10px; font-style: normal; font-size: 11px;">
+                Analysis Date: November 2025 | Total Sample: N = 116
+            </p>
         </div>
 
-        <div class="summary-box">
-            <div class="summary-item">
-                <h3>Total Patients</h3>
-                <p>n = 116</p>
-            </div>
-            <div class="summary-item">
-                <h3>RV Bad (6-mo)</h3>
-                <p>Yes: 3 | No: 63 | Missing: 50</p>
-            </div>
-            <div class="summary-item">
-                <h3>RV Good (6-mo)</h3>
-                <p>Yes: 38 | No: 28 | Missing: 50</p>
-            </div>
-            <div class="summary-item">
-                <h3>Significant Findings</h3>
-                <p>3 variables (p &lt; 0.05)</p>
-            </div>
+        <div class="study-info">
+            <div><strong>Primary Outcome:</strong> newrvgood = 6-month improved RV dysfunction</div>
+            <div><strong>Secondary Outcome:</strong> newrvbad = 6-month severe RV dysfunction</div>
+            <div><strong>Statistical Method:</strong> Univariate Logistic Regression</div>
         </div>
 
-        <div class="stats-legend">
-            <div class="legend-item">
-                <strong>Data Type Legend:</strong> Variables classified as Categorical (binary/ordinal) or Continuous based on distribution.
-            </div>
-            <div class="legend-item">
-                <strong>Statistical Tests:</strong> Chi-square/Fisher's exact for categorical; Mann-Whitney U for continuous.
-            </div>
-            <div class="legend-item">
-                <strong>Significance Levels:</strong> Yellow = p&lt;0.05; Green = p&lt;0.01
-            </div>
-            <div class="legend-item">
-                <strong>Descriptive Stats:</strong> Frequency (%) for categorical; Mean ± SD for continuous variables.
-            </div>
+        <div class="abbrev">
+            <strong>Abbreviations:</strong> OR = Odds Ratio; CI = Confidence Interval; 
+            MW-U = Mann-Whitney U test; Chi = Chi-square test; Fisher = Fisher's exact test; 
+            n = number; % = percent; SD = Standard Deviation; 
+            CI calculations based on standard error from information matrix.
         </div>
 
-        <div class="category-section">
-            <div class="category-title">
-                <h2>Demographic Variables vs 6-Month RV Function Improvement</h2>
-            </div>
+        <div class="section">
+            <div class="section-title">Demographic Variables - Analysis vs 6-Month RV Function Improvement (newrvgood)</div>
 
-            <div class="outcome-table">
-                <div class="outcome-title">6-Month RV Function Improvement - Complete Analysis</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">Variable</th>
-                            <th style="width: 15%;">Total (n=116)</th>
-                            <th style="width: 20%;">No Improvement (n=28)</th>
-                            <th style="width: 20%;">Improved RV (n=38)</th>
-                            <th style="width: 10%;">P-value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div class="outcome-title">TABLE: Analysis vs 6-Month RV Function Improvement (newrvgood)</div>
 
-                        <tr class="not-sig">
-                            <td><strong>age</strong><br><small>(continuous)</small></td>
-                            <td>55.39 ± 20.68</td>
-                            <td>53.39 ± 19.27</td>
-                            <td>56.87 ± 21.79</td>
-                            <td class="p-value">0.4515</td>
-                        </tr>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Variable</th>
+                        <th style="width: 10%;">Total (n=116)</th>
+                        <th style="width: 15%;">No Improve (n=28)</th>
+                        <th style="width: 15%;">Improved (n=38)</th>
+                        <th style="width: 15%;">OR (95% CI)</th>
+                        <th style="width: 12%;">P-value</th>
+                        <th style="width: 8%;">Sig.*</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                        <tr class="not-sig">
-                            <td><strong>Sex</strong><br><small>(categorical)</small></td>
-                            <td>46/66 (69.7%)</td>
-                            <td>11/28 (39.3%)</td>
-                            <td>9/38 (23.7%)</td>
-                            <td class="p-value">0.1888</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Age (years)</strong></td>
+                        <td class="center">55.39±20.68</td>
+                        <td class="center">53.39±19.27</td>
+                        <td class="center">56.87±21.79</td>
+                        <td class="center">1.17 (0.72–1.92)</td>
+                        <td class="center">0.5235</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Race</strong><br><small>(categorical)</small></td>
-                            <td>63/66 (95.5%)</td>
-                            <td>1/28 (3.6%)</td>
-                            <td>0/38 (0.0%)</td>
-                            <td class="p-value">0.2422</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Sex</strong></td>
+                        <td class="center">20/66 (30.3%)</td>
+                        <td class="center">11/28 (39.3%)</td>
+                        <td class="center">9/38 (23.7%)</td>
+                        <td class="center">0.57 (0.20–1.64)</td>
+                        <td class="center">0.2937</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Hypertension</strong><br><small>(categorical)</small></td>
-                            <td>40/66 (60.6%)</td>
-                            <td>11/28 (39.3%)</td>
-                            <td>15/38 (39.5%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Race</strong></td>
+                        <td class="center">1/66 (1.5%)</td>
+                        <td class="center">1/28 (3.6%)</td>
+                        <td class="center">0/38 (0.0%)</td>
+                        <td class="center">1.46 (0.33–6.57)</td>
+                        <td class="center">0.6182</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Dyslipidemia</strong><br><small>(categorical)</small></td>
-                            <td>52/66 (78.8%)</td>
-                            <td>5/28 (17.9%)</td>
-                            <td>9/38 (23.7%)</td>
-                            <td class="p-value">0.7620</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Hypertension</strong></td>
+                        <td class="center">26/66 (39.4%)</td>
+                        <td class="center">11/28 (39.3%)</td>
+                        <td class="center">15/38 (39.5%)</td>
+                        <td class="center">1.01 (0.37–2.73)</td>
+                        <td class="center">0.9895</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Diabetes Mellitus type2</strong><br><small>(categorical)</small></td>
-                            <td>55/66 (83.3%)</td>
-                            <td>4/28 (14.3%)</td>
-                            <td>7/38 (18.4%)</td>
-                            <td class="p-value">0.7474</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Dyslipidemia</strong></td>
+                        <td class="center">14/66 (21.2%)</td>
+                        <td class="center">5/28 (17.9%)</td>
+                        <td class="center">9/38 (23.7%)</td>
+                        <td class="center">1.29 (0.38–4.34)</td>
+                        <td class="center">0.6787</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>History of stroke</strong><br><small>(categorical)</small></td>
-                            <td>62/66 (93.9%)</td>
-                            <td>3/28 (10.7%)</td>
-                            <td>1/38 (2.6%)</td>
-                            <td class="p-value">0.3036</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Diabetes Mellitus</strong></td>
+                        <td class="center">11/66 (16.7%)</td>
+                        <td class="center">4/28 (14.3%)</td>
+                        <td class="center">7/38 (18.4%)</td>
+                        <td class="center">1.23 (0.33–4.64)</td>
+                        <td class="center">0.7599</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Chronic kidney disease</strong><br><small>(categorical)</small></td>
-                            <td>61/66 (92.4%)</td>
-                            <td>2/28 (7.1%)</td>
-                            <td>3/38 (7.9%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>History of stroke</strong></td>
+                        <td class="center">4/66 (6.1%)</td>
+                        <td class="center">3/28 (10.7%)</td>
+                        <td class="center">1/38 (2.6%)</td>
+                        <td class="center">0.51 (0.07–3.95)</td>
+                        <td class="center">0.5179</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Coronary artery disease</strong><br><small>(categorical)</small></td>
-                            <td>65/66 (98.5%)</td>
-                            <td>0/28 (0.0%)</td>
-                            <td>1/38 (2.6%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Chronic kidney disease</strong></td>
+                        <td class="center">5/66 (7.6%)</td>
+                        <td class="center">2/28 (7.1%)</td>
+                        <td class="center">3/38 (7.9%)</td>
+                        <td class="center">1.06 (0.17–6.75)</td>
+                        <td class="center">0.9518</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Cirrhosis</strong><br><small>(categorical)</small></td>
-                            <td>62/66 (93.9%)</td>
-                            <td>2/28 (7.1%)</td>
-                            <td>2/38 (5.3%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Coronary artery disease</strong></td>
+                        <td class="center">1/66 (1.5%)</td>
+                        <td class="center">0/28 (0.0%)</td>
+                        <td class="center">1/38 (2.6%)</td>
+                        <td class="center">1.41 (0.02–89.92)</td>
+                        <td class="center">0.8710</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Connective tissue disease</strong><br><small>(categorical)</small></td>
-                            <td>65/66 (98.5%)</td>
-                            <td>0/28 (0.0%)</td>
-                            <td>1/38 (2.6%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Cirrhosis</strong></td>
+                        <td class="center">4/66 (6.1%)</td>
+                        <td class="center">2/28 (7.1%)</td>
+                        <td class="center">2/38 (5.3%)</td>
+                        <td class="center">0.85 (0.11–6.50)</td>
+                        <td class="center">0.8792</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Chronic lung disease</strong><br><small>(categorical)</small></td>
-                            <td>66/66 (100.0%)</td>
-                            <td>0/28 (0.0%)</td>
-                            <td>0/38 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Connective tissue disease</strong></td>
+                        <td class="center">1/66 (1.5%)</td>
+                        <td class="center">0/28 (0.0%)</td>
+                        <td class="center">1/38 (2.6%)</td>
+                        <td class="center">1.41 (0.02–89.92)</td>
+                        <td class="center">0.8710</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Atrial fibrillation</strong><br><small>(categorical)</small></td>
-                            <td>66/66 (100.0%)</td>
-                            <td>0/28 (0.0%)</td>
-                            <td>0/38 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Chronic lung disease</strong></td>
+                        <td class="center">0/66 (0.0%)</td>
+                        <td class="center">0/28 (0.0%)</td>
+                        <td class="center">0/38 (0.0%)</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Active malignancy</strong><br><small>(categorical)</small></td>
-                            <td>49/66 (74.2%)</td>
-                            <td>9/28 (32.1%)</td>
-                            <td>8/38 (21.1%)</td>
-                            <td class="p-value">0.3960</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Atrial fibrillation</strong></td>
+                        <td class="center">0/66 (0.0%)</td>
+                        <td class="center">0/28 (0.0%)</td>
+                        <td class="center">0/38 (0.0%)</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Underlying disease</strong><br><small>(categorical)</small></td>
-                            <td>48/66 (72.7%)</td>
-                            <td>21/28 (75.0%)</td>
-                            <td>27/38 (71.1%)</td>
-                            <td class="p-value">0.7855</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Active malignancy</strong></td>
+                        <td class="center">17/66 (25.8%)</td>
+                        <td class="center">9/28 (32.1%)</td>
+                        <td class="center">8/38 (21.1%)</td>
+                        <td class="center">0.65 (0.21–1.96)</td>
+                        <td class="center">0.4425</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Immobilization</strong><br><small>(categorical)</small></td>
-                            <td>63/66 (95.5%)</td>
-                            <td>3/28 (10.7%)</td>
-                            <td>0/38 (0.0%)</td>
-                            <td class="p-value">0.0716</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Underlying disease</strong></td>
+                        <td class="center">48/66 (72.7%)</td>
+                        <td class="center">21/28 (75.0%)</td>
+                        <td class="center">27/38 (71.1%)</td>
+                        <td class="center">0.86 (0.28–2.59)</td>
+                        <td class="center">0.7868</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>History of Deep vein thrombosis</strong><br><small>(categorical)</small></td>
-                            <td>62/65 (95.4%)</td>
-                            <td>3/27 (11.1%)</td>
-                            <td>0/38 (0.0%)</td>
-                            <td class="p-value">0.0670</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Immobilization</strong></td>
+                        <td class="center">3/66 (4.5%)</td>
+                        <td class="center">3/28 (10.7%)</td>
+                        <td class="center">0/38 (0.0%)</td>
+                        <td class="center">0.36 (0.03–4.15)</td>
+                        <td class="center">0.4140</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>History of OCP use</strong><br><small>(categorical)</small></td>
-                            <td>53/66 (80.3%)</td>
-                            <td>3/28 (10.7%)</td>
-                            <td>10/38 (26.3%)</td>
-                            <td class="p-value">0.1331</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>History of DVT</strong></td>
+                        <td class="center">3/65 (4.6%)</td>
+                        <td class="center">3/27 (11.1%)</td>
+                        <td class="center">0/38 (0.0%)</td>
+                        <td class="center">0.36 (0.03–4.06)</td>
+                        <td class="center">0.4056</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Chronic smoking</strong><br><small>(categorical)</small></td>
-                            <td>64/66 (97.0%)</td>
-                            <td>2/28 (7.1%)</td>
-                            <td>0/38 (0.0%)</td>
-                            <td class="p-value">0.1762</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>History of OCP use</strong></td>
+                        <td class="center">13/66 (19.7%)</td>
+                        <td class="center">3/28 (10.7%)</td>
+                        <td class="center">10/38 (26.3%)</td>
+                        <td class="center">2.09 (0.56–7.80)</td>
+                        <td class="center">0.2724</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Recent surgery within 1 year</strong><br><small>(categorical)</small></td>
-                            <td>64/66 (97.0%)</td>
-                            <td>2/28 (7.1%)</td>
-                            <td>0/38 (0.0%)</td>
-                            <td class="p-value">0.1762</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Chronic smoking</strong></td>
+                        <td class="center">2/66 (3.0%)</td>
+                        <td class="center">2/28 (7.1%)</td>
+                        <td class="center">0/38 (0.0%)</td>
+                        <td class="center">0.46 (0.03–8.22)</td>
+                        <td class="center">0.5967</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Recent trauma within 1 year</strong><br><small>(categorical)</small></td>
-                            <td>63/66 (95.5%)</td>
-                            <td>2/28 (7.1%)</td>
-                            <td>1/38 (2.6%)</td>
-                            <td class="p-value">0.5698</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Recent surgery</strong></td>
+                        <td class="center">2/66 (3.0%)</td>
+                        <td class="center">2/28 (7.1%)</td>
+                        <td class="center">0/38 (0.0%)</td>
+                        <td class="center">0.46 (0.03–8.22)</td>
+                        <td class="center">0.5967</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                    </tbody>
-                </table>
-                <div class="footnote">
-                    * Continuous variables: Mean ± SD | Categorical: Frequency (%) | Missing data excluded (listwise)
-                </div>
-            </div>
-        </div>
+                    <tr class="">
+                        <td><strong>Recent trauma</strong></td>
+                        <td class="center">3/66 (4.5%)</td>
+                        <td class="center">2/28 (7.1%)</td>
+                        <td class="center">1/38 (2.6%)</td>
+                        <td class="center">0.65 (0.06–6.65)</td>
+                        <td class="center">0.7185</td>
+                        <td class="center">—</td>
+                    </tr>
 
-        <div class="category-section">
-            <div class="category-title">
-                <h2>Clinical Variables vs 6-Month RV Function Improvement</h2>
-            </div>
-
-            <div class="outcome-table">
-                <div class="outcome-title">6-Month RV Function Improvement - Complete Analysis</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">Variable</th>
-                            <th style="width: 15%;">Total (n=116)</th>
-                            <th style="width: 20%;">No Improvement (n=28)</th>
-                            <th style="width: 20%;">Improved RV (n=38)</th>
-                            <th style="width: 10%;">P-value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr class="not-sig">
-                            <td><strong>Desaturation</strong><br><small>(categorical)</small></td>
-                            <td>39/66 (59.1%)</td>
-                            <td>16/28 (57.1%)</td>
-                            <td>23/38 (60.5%)</td>
-                            <td class="p-value">0.8051</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Dyspnea at rest</strong><br><small>(categorical)</small></td>
-                            <td>43/66 (65.2%)</td>
-                            <td>12/28 (42.9%)</td>
-                            <td>11/38 (28.9%)</td>
-                            <td class="p-value">0.2997</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Dyspnea on exertion</strong><br><small>(categorical)</small></td>
-                            <td>61/66 (92.4%)</td>
-                            <td>25/28 (89.3%)</td>
-                            <td>36/38 (94.7%)</td>
-                            <td class="p-value">0.6432</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Cough</strong><br><small>(categorical)</small></td>
-                            <td>50/66 (75.8%)</td>
-                            <td>3/28 (10.7%)</td>
-                            <td>7/38 (18.4%)</td>
-                            <td class="p-value">0.0879</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Syncope</strong><br><small>(categorical)</small></td>
-                            <td>50/66 (75.8%)</td>
-                            <td>5/28 (17.9%)</td>
-                            <td>11/38 (28.9%)</td>
-                            <td class="p-value">0.3885</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Chest pain</strong><br><small>(categorical)</small></td>
-                            <td>53/66 (80.3%)</td>
-                            <td>7/28 (25.0%)</td>
-                            <td>6/38 (15.8%)</td>
-                            <td class="p-value">0.3692</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Leg edema</strong><br><small>(categorical)</small></td>
-                            <td>52/66 (78.8%)</td>
-                            <td>6/28 (21.4%)</td>
-                            <td>8/38 (21.1%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Palpitation</strong><br><small>(categorical)</small></td>
-                            <td>50/66 (75.8%)</td>
-                            <td>5/28 (17.9%)</td>
-                            <td>11/38 (28.9%)</td>
-                            <td class="p-value">0.3885</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Fever</strong><br><small>(categorical)</small></td>
-                            <td>61/66 (92.4%)</td>
-                            <td>4/28 (14.3%)</td>
-                            <td>1/38 (2.6%)</td>
-                            <td class="p-value">0.1542</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>respiratory failure</strong><br><small>(categorical)</small></td>
-                            <td>63/66 (95.5%)</td>
-                            <td>2/28 (7.1%)</td>
-                            <td>1/38 (2.6%)</td>
-                            <td class="p-value">0.5698</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-                <div class="footnote">
-                    * Continuous variables: Mean ± SD | Categorical: Frequency (%) | Missing data excluded (listwise)
-                </div>
+                </tbody>
+            </table>
+            <div class="footnote">
+                * Significance level: * p &lt; 0.05; ** p &lt; 0.01
+                <br/>Continuous variables analyzed with Mann-Whitney U test; categorical with Chi-square or Fisher's exact test
             </div>
         </div>
 
-        <div class="category-section">
-            <div class="category-title">
-                <h2>Physical Variables vs 6-Month RV Function Improvement</h2>
-            </div>
+        <div class="section">
+            <div class="section-title">Clinical Variables - Analysis vs 6-Month RV Function Improvement (newrvgood)</div>
 
-            <div class="outcome-table">
-                <div class="outcome-title">6-Month RV Function Improvement - Complete Analysis</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">Variable</th>
-                            <th style="width: 15%;">Total (n=116)</th>
-                            <th style="width: 20%;">No Improvement (n=28)</th>
-                            <th style="width: 20%;">Improved RV (n=38)</th>
-                            <th style="width: 10%;">P-value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div class="outcome-title">TABLE: Analysis vs 6-Month RV Function Improvement (newrvgood)</div>
 
-                        <tr class="not-sig">
-                            <td><strong>bt</strong><br><small>(continuous)</small></td>
-                            <td>36.81 ± 0.48</td>
-                            <td>36.82 ± 0.46</td>
-                            <td>36.81 ± 0.50</td>
-                            <td class="p-value">0.9346</td>
-                        </tr>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Variable</th>
+                        <th style="width: 10%;">Total (n=116)</th>
+                        <th style="width: 15%;">No Improve (n=28)</th>
+                        <th style="width: 15%;">Improved (n=38)</th>
+                        <th style="width: 15%;">OR (95% CI)</th>
+                        <th style="width: 12%;">P-value</th>
+                        <th style="width: 8%;">Sig.*</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                        <tr class="not-sig">
-                            <td><strong>hr</strong><br><small>(continuous)</small></td>
-                            <td>103.74 ± 20.49</td>
-                            <td>104.22 ± 19.88</td>
-                            <td>103.39 ± 21.18</td>
-                            <td class="p-value">0.7041</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Desaturation</strong></td>
+                        <td class="center">39/66 (59.1%)</td>
+                        <td class="center">16/28 (57.1%)</td>
+                        <td class="center">23/38 (60.5%)</td>
+                        <td class="center">1.12 (0.41–3.01)</td>
+                        <td class="center">0.8260</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>rr</strong><br><small>(continuous)</small></td>
-                            <td>24.26 ± 5.52</td>
-                            <td>25.00 ± 6.06</td>
-                            <td>23.74 ± 5.12</td>
-                            <td class="p-value">0.4064</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Dyspnea at rest</strong></td>
+                        <td class="center">23/66 (34.8%)</td>
+                        <td class="center">12/28 (42.9%)</td>
+                        <td class="center">11/38 (28.9%)</td>
+                        <td class="center">0.62 (0.22–1.72)</td>
+                        <td class="center">0.3583</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>sat</strong><br><small>(continuous)</small></td>
-                            <td>89.97 ± 7.46</td>
-                            <td>90.04 ± 6.62</td>
-                            <td>89.92 ± 8.06</td>
-                            <td class="p-value">0.7420</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Dyspnea on exertion</strong></td>
+                        <td class="center">61/66 (92.4%)</td>
+                        <td class="center">25/28 (89.3%)</td>
+                        <td class="center">36/38 (94.7%)</td>
+                        <td class="center">1.51 (0.24–9.36)</td>
+                        <td class="center">0.6603</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Jugular vein distension</strong><br><small>(categorical)</small></td>
-                            <td>61/65 (93.8%)</td>
-                            <td>1/27 (3.7%)</td>
-                            <td>3/38 (7.9%)</td>
-                            <td class="p-value">0.6355</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Cough</strong></td>
+                        <td class="center">10/66 (15.2%)</td>
+                        <td class="center">3/28 (10.7%)</td>
+                        <td class="center">7/38 (18.4%)</td>
+                        <td class="center">0.61 (0.28–1.34)</td>
+                        <td class="center">0.2208</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Leg edema (PE)</strong><br><small>(categorical)</small></td>
-                            <td>46/65 (70.8%)</td>
-                            <td>6/27 (22.2%)</td>
-                            <td>13/38 (34.2%)</td>
-                            <td class="p-value">0.4082</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Syncope</strong></td>
+                        <td class="center">16/66 (24.2%)</td>
+                        <td class="center">5/28 (17.9%)</td>
+                        <td class="center">11/38 (28.9%)</td>
+                        <td class="center">1.58 (0.49–5.13)</td>
+                        <td class="center">0.4424</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                    </tbody>
-                </table>
-                <div class="footnote">
-                    * Continuous variables: Mean ± SD | Categorical: Frequency (%) | Missing data excluded (listwise)
-                </div>
-            </div>
-        </div>
+                    <tr class="">
+                        <td><strong>Chest pain</strong></td>
+                        <td class="center">13/66 (19.7%)</td>
+                        <td class="center">7/28 (25.0%)</td>
+                        <td class="center">6/38 (15.8%)</td>
+                        <td class="center">0.66 (0.20–2.23)</td>
+                        <td class="center">0.5044</td>
+                        <td class="center">—</td>
+                    </tr>
 
-        <div class="category-section">
-            <div class="category-title">
-                <h2>Lab Variables vs 6-Month RV Function Improvement</h2>
-            </div>
+                    <tr class="">
+                        <td><strong>Leg edema</strong></td>
+                        <td class="center">14/66 (21.2%)</td>
+                        <td class="center">6/28 (21.4%)</td>
+                        <td class="center">8/38 (21.1%)</td>
+                        <td class="center">0.98 (0.30–3.24)</td>
+                        <td class="center">0.9785</td>
+                        <td class="center">—</td>
+                    </tr>
 
-            <div class="outcome-table">
-                <div class="outcome-title">6-Month RV Function Improvement - Complete Analysis</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">Variable</th>
-                            <th style="width: 15%;">Total (n=116)</th>
-                            <th style="width: 20%;">No Improvement (n=28)</th>
-                            <th style="width: 20%;">Improved RV (n=38)</th>
-                            <th style="width: 10%;">P-value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                    <tr class="">
+                        <td><strong>Palpitation</strong></td>
+                        <td class="center">16/66 (24.2%)</td>
+                        <td class="center">5/28 (17.9%)</td>
+                        <td class="center">11/38 (28.9%)</td>
+                        <td class="center">1.58 (0.49–5.13)</td>
+                        <td class="center">0.4424</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>ph</strong><br><small>(continuous)</small></td>
-                            <td>7.44 ± 0.09</td>
-                            <td>7.44 ± 0.07</td>
-                            <td>7.44 ± 0.10</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Fever</strong></td>
+                        <td class="center">5/66 (7.6%)</td>
+                        <td class="center">4/28 (14.3%)</td>
+                        <td class="center">1/38 (2.6%)</td>
+                        <td class="center">0.41 (0.06–2.72)</td>
+                        <td class="center">0.3592</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>pao2</strong><br><small>(continuous)</small></td>
-                            <td>81.10 ± 33.52</td>
-                            <td>73.93 ± 25.45</td>
-                            <td>86.48 ± 38.13</td>
-                            <td class="p-value">0.1179</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Respiratory failure</strong></td>
+                        <td class="center">3/66 (4.5%)</td>
+                        <td class="center">2/28 (7.1%)</td>
+                        <td class="center">1/38 (2.6%)</td>
+                        <td class="center">0.65 (0.06–6.65)</td>
+                        <td class="center">0.7185</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>pfratio</strong><br><small>(continuous)</small></td>
-                            <td>267.25 ± 86.68</td>
-                            <td>254.43 ± 79.68</td>
-                            <td>276.86 ± 92.06</td>
-                            <td class="p-value">0.2083</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>pco2</strong><br><small>(continuous)</small></td>
-                            <td>29.90 ± 7.56</td>
-                            <td>29.27 ± 7.24</td>
-                            <td>30.30 ± 7.87</td>
-                            <td class="p-value">0.8219</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>lactate</strong><br><small>(continuous)</small></td>
-                            <td>1.79 ± 1.12</td>
-                            <td>2.00 ± 1.13</td>
-                            <td>1.66 ± 1.11</td>
-                            <td class="p-value">0.1570</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>hb</strong><br><small>(continuous)</small></td>
-                            <td>12.14 ± 2.02</td>
-                            <td>12.24 ± 2.09</td>
-                            <td>12.07 ± 2.00</td>
-                            <td class="p-value">0.8730</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>hct</strong><br><small>(continuous)</small></td>
-                            <td>37.27 ± 6.07</td>
-                            <td>37.14 ± 5.82</td>
-                            <td>37.36 ± 6.31</td>
-                            <td class="p-value">0.8417</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>plt</strong><br><small>(continuous)</small></td>
-                            <td>1238.17 ± 8032.70</td>
-                            <td>2646.70 ± 12461.82</td>
-                            <td>237.37 ± 73.12</td>
-                            <td class="p-value">0.7849</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>cr</strong><br><small>(continuous)</small></td>
-                            <td>0.91 ± 0.42</td>
-                            <td>0.86 ± 0.42</td>
-                            <td>0.96 ± 0.42</td>
-                            <td class="p-value">0.1542</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>bicarb</strong><br><small>(continuous)</small></td>
-                            <td>21.46 ± 3.38</td>
-                            <td>20.96 ± 3.61</td>
-                            <td>21.82 ± 3.21</td>
-                            <td class="p-value">0.4577</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>alb</strong><br><small>(continuous)</small></td>
-                            <td>3.44 ± 0.59</td>
-                            <td>3.43 ± 0.58</td>
-                            <td>3.45 ± 0.61</td>
-                            <td class="p-value">0.8886</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>pt</strong><br><small>(continuous)</small></td>
-                            <td>13.35 ± 1.71</td>
-                            <td>13.53 ± 1.59</td>
-                            <td>13.23 ± 1.80</td>
-                            <td class="p-value">0.2773</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>ptt</strong><br><small>(continuous)</small></td>
-                            <td>26.04 ± 3.82</td>
-                            <td>26.13 ± 3.31</td>
-                            <td>25.97 ± 4.19</td>
-                            <td class="p-value">0.5489</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>inr</strong><br><small>(continuous)</small></td>
-                            <td>1.18 ± 0.16</td>
-                            <td>1.21 ± 0.15</td>
-                            <td>1.16 ± 0.17</td>
-                            <td class="p-value">0.1052</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>trop</strong><br><small>(continuous)</small></td>
-                            <td>341.24 ± 718.57</td>
-                            <td>255.24 ± 349.83</td>
-                            <td>406.39 ± 904.32</td>
-                            <td class="p-value">0.8629</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>bnp</strong><br><small>(continuous)</small></td>
-                            <td>4054.45 ± 4847.04</td>
-                            <td>3950.41 ± 3473.80</td>
-                            <td>4130.11 ± 5694.45</td>
-                            <td class="p-value">0.3124</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>ddimer</strong><br><small>(continuous)</small></td>
-                            <td>6184.28 ± 2153.27</td>
-                            <td>7006.33 ± 1481.01</td>
-                            <td>5721.88 ± 2369.63</td>
-                            <td class="p-value">0.2027</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-                <div class="footnote">
-                    * Continuous variables: Mean ± SD | Categorical: Frequency (%) | Missing data excluded (listwise)
-                </div>
+                </tbody>
+            </table>
+            <div class="footnote">
+                * Significance level: * p &lt; 0.05; ** p &lt; 0.01
+                <br/>Continuous variables analyzed with Mann-Whitney U test; categorical with Chi-square or Fisher's exact test
             </div>
         </div>
 
-        <div class="category-section">
-            <div class="category-title">
-                <h2>Investigations Variables vs 6-Month RV Function Improvement</h2>
-            </div>
+        <div class="section">
+            <div class="section-title">Physical Variables - Analysis vs 6-Month RV Function Improvement (newrvgood)</div>
 
-            <div class="outcome-table">
-                <div class="outcome-title">6-Month RV Function Improvement - Complete Analysis</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">Variable</th>
-                            <th style="width: 15%;">Total (n=116)</th>
-                            <th style="width: 20%;">No Improvement (n=28)</th>
-                            <th style="width: 20%;">Improved RV (n=38)</th>
-                            <th style="width: 10%;">P-value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div class="outcome-title">TABLE: Analysis vs 6-Month RV Function Improvement (newrvgood)</div>
 
-                        <tr class="not-sig">
-                            <td><strong>Sinus rhythm</strong><br><small>(categorical)</small></td>
-                            <td>64/66 (97.0%)</td>
-                            <td>28/28 (100.0%)</td>
-                            <td>36/38 (94.7%)</td>
-                            <td class="p-value">0.5040</td>
-                        </tr>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Variable</th>
+                        <th style="width: 10%;">Total (n=116)</th>
+                        <th style="width: 15%;">No Improve (n=28)</th>
+                        <th style="width: 15%;">Improved (n=38)</th>
+                        <th style="width: 15%;">OR (95% CI)</th>
+                        <th style="width: 12%;">P-value</th>
+                        <th style="width: 8%;">Sig.*</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                        <tr class="not-sig">
-                            <td><strong>Rate(bpm)</strong><br><small>(categorical)</small></td>
-                            <td>46/66 (69.7%)</td>
-                            <td>7/28 (25.0%)</td>
-                            <td>13/38 (34.2%)</td>
-                            <td class="p-value">0.5886</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Body temperature</strong></td>
+                        <td class="center">36.81±0.48</td>
+                        <td class="center">36.82±0.46</td>
+                        <td class="center">36.81±0.50</td>
+                        <td class="center">0.97 (0.59–1.58)</td>
+                        <td class="center">0.8944</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>s1q3t3</strong><br><small>(categorical)</small></td>
-                            <td>42/66 (63.6%)</td>
-                            <td>8/28 (28.6%)</td>
-                            <td>16/38 (42.1%)</td>
-                            <td class="p-value">0.3075</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Heart rate</strong></td>
+                        <td class="center">103.74±20.49</td>
+                        <td class="center">104.22±19.88</td>
+                        <td class="center">103.39±21.18</td>
+                        <td class="center">0.96 (0.59–1.58)</td>
+                        <td class="center">0.8795</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Right ventricular strain pattern</strong><br><small>(categorical)</small></td>
-                            <td>42/66 (63.6%)</td>
-                            <td>7/28 (25.0%)</td>
-                            <td>17/38 (44.7%)</td>
-                            <td class="p-value">0.1247</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Respiration rate</strong></td>
+                        <td class="center">24.26±5.52</td>
+                        <td class="center">25.00±6.06</td>
+                        <td class="center">23.74±5.12</td>
+                        <td class="center">0.81 (0.49–1.32)</td>
+                        <td class="center">0.3946</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Right bundle branch block</strong><br><small>(categorical)</small></td>
-                            <td>60/66 (90.9%)</td>
-                            <td>2/28 (7.1%)</td>
-                            <td>4/38 (10.5%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Oxygen saturation</strong></td>
+                        <td class="center">89.97±7.46</td>
+                        <td class="center">90.04±6.62</td>
+                        <td class="center">89.92±8.06</td>
+                        <td class="center">0.99 (0.60–1.62)</td>
+                        <td class="center">0.9534</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>cardiomegaly </strong><br><small>(categorical)</small></td>
-                            <td>41/66 (62.1%)</td>
-                            <td>10/28 (35.7%)</td>
-                            <td>15/38 (39.5%)</td>
-                            <td class="p-value">0.8021</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Jugular vein distension</strong></td>
+                        <td class="center">4/65 (6.2%)</td>
+                        <td class="center">1/27 (3.7%)</td>
+                        <td class="center">3/38 (7.9%)</td>
+                        <td class="center">1.42 (0.17–12.00)</td>
+                        <td class="center">0.7466</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Enlarged pulmonary trunk in CXR</strong><br><small>(categorical)</small></td>
-                            <td>53/66 (80.3%)</td>
-                            <td>5/28 (17.9%)</td>
-                            <td>8/38 (21.1%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Leg edema (exam)</strong></td>
+                        <td class="center">19/65 (29.2%)</td>
+                        <td class="center">6/27 (22.2%)</td>
+                        <td class="center">13/38 (34.2%)</td>
+                        <td class="center">1.57 (0.52–4.78)</td>
+                        <td class="center">0.4269</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Pleural effusion in CXR</strong><br><small>(categorical)</small></td>
-                            <td>54/66 (81.8%)</td>
-                            <td>5/28 (17.9%)</td>
-                            <td>7/38 (18.4%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>rvstrain_CT</strong><br><small>(categorical)</small></td>
-                            <td>47/66 (71.2%)</td>
-                            <td>17/28 (60.7%)</td>
-                            <td>30/38 (78.9%)</td>
-                            <td class="p-value">0.1683</td>
-                        </tr>
-
-                        <tr class="sig-005">
-                            <td><strong>RV dilatation in echo</strong><br><small>(categorical)</small></td>
-                            <td>35/66 (53.0%)</td>
-                            <td>18/28 (64.3%)</td>
-                            <td>17/38 (44.7%)</td>
-                            <td class="p-value">0.0418</td>
-                        </tr>
-
-                        <tr class="sig-001">
-                            <td><strong>RV systolic dysfunction in echo</strong><br><small>(categorical)</small></td>
-                            <td>21/66 (31.8%)</td>
-                            <td>8/28 (28.6%)</td>
-                            <td>13/38 (34.2%)</td>
-                            <td class="p-value">4.12e-09</td>
-                        </tr>
-
-                        <tr class="sig-001">
-                            <td><strong>TAPSE in echo (cm)</strong><br><small>(categorical)</small></td>
-                            <td>28/60 (46.7%)</td>
-                            <td>3/25 (12.0%)</td>
-                            <td>5/35 (14.3%)</td>
-                            <td class="p-value">8.23e-05</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Pulmonary hypertension in echo</strong><br><small>(categorical)</small></td>
-                            <td>27/56 (48.2%)</td>
-                            <td>10/22 (45.5%)</td>
-                            <td>17/34 (50.0%)</td>
-                            <td class="p-value">0.7991</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Tricuspid valve regurgitation in echo</strong><br><small>(categorical)</small></td>
-                            <td>26/61 (42.6%)</td>
-                            <td>11/25 (44.0%)</td>
-                            <td>15/36 (41.7%)</td>
-                            <td class="p-value">0.2980</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>LV systolic dysfunction in echo</strong><br><small>(categorical)</small></td>
-                            <td>60/65 (92.3%)</td>
-                            <td>3/28 (10.7%)</td>
-                            <td>2/37 (5.4%)</td>
-                            <td class="p-value">0.6444</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-                <div class="footnote">
-                    * Continuous variables: Mean ± SD | Categorical: Frequency (%) | Missing data excluded (listwise)
-                </div>
+                </tbody>
+            </table>
+            <div class="footnote">
+                * Significance level: * p &lt; 0.05; ** p &lt; 0.01
+                <br/>Continuous variables analyzed with Mann-Whitney U test; categorical with Chi-square or Fisher's exact test
             </div>
         </div>
 
-        <div class="category-section">
-            <div class="category-title">
-                <h2>Demographic Variables vs 6-Month Severe RV Dysfunction</h2>
-            </div>
+        <div class="section">
+            <div class="section-title">Lab Variables - Analysis vs 6-Month RV Function Improvement (newrvgood)</div>
 
-            <div class="outcome-table">
-                <div class="outcome-title">6-Month Severe RV Dysfunction - Complete Analysis</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">Variable</th>
-                            <th style="width: 15%;">Total (n=116)</th>
-                            <th style="width: 20%;">Normal/Mild (n=63)</th>
-                            <th style="width: 20%;">Severe RV Dysfn (n=3)</th>
-                            <th style="width: 10%;">P-value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div class="outcome-title">TABLE: Analysis vs 6-Month RV Function Improvement (newrvgood)</div>
 
-                        <tr class="not-sig">
-                            <td><strong>age</strong><br><small>(continuous)</small></td>
-                            <td>55.39 ± 20.68</td>
-                            <td>55.33 ± 21.13</td>
-                            <td>56.67 ± 7.23</td>
-                            <td class="p-value">0.9754</td>
-                        </tr>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Variable</th>
+                        <th style="width: 10%;">Total (n=116)</th>
+                        <th style="width: 15%;">No Improve (n=28)</th>
+                        <th style="width: 15%;">Improved (n=38)</th>
+                        <th style="width: 15%;">OR (95% CI)</th>
+                        <th style="width: 12%;">P-value</th>
+                        <th style="width: 8%;">Sig.*</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                        <tr class="not-sig">
-                            <td><strong>Sex</strong><br><small>(categorical)</small></td>
-                            <td>46/66 (69.7%)</td>
-                            <td>19/63 (30.2%)</td>
-                            <td>1/3 (33.3%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>pH (ABG/VBG)</strong></td>
+                        <td class="center">7.44±0.09</td>
+                        <td class="center">7.44±0.07</td>
+                        <td class="center">7.44±0.10</td>
+                        <td class="center">1.03 (0.57–1.85)</td>
+                        <td class="center">0.9294</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Race</strong><br><small>(categorical)</small></td>
-                            <td>63/66 (95.5%)</td>
-                            <td>1/63 (1.6%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">0.9279</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>PaO2</strong></td>
+                        <td class="center">81.10±33.52</td>
+                        <td class="center">73.93±25.45</td>
+                        <td class="center">86.48±38.13</td>
+                        <td class="center">1.49 (0.71–3.13)</td>
+                        <td class="center">0.2961</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Hypertension</strong><br><small>(categorical)</small></td>
-                            <td>40/66 (60.6%)</td>
-                            <td>26/63 (41.3%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">0.2727</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>PF ratio</strong></td>
+                        <td class="center">267.25±86.68</td>
+                        <td class="center">254.43±79.68</td>
+                        <td class="center">276.86±92.06</td>
+                        <td class="center">1.27 (0.69–2.35)</td>
+                        <td class="center">0.4472</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Dyslipidemia</strong><br><small>(categorical)</small></td>
-                            <td>52/66 (78.8%)</td>
-                            <td>14/63 (22.2%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>PCO2</strong></td>
+                        <td class="center">29.90±7.56</td>
+                        <td class="center">29.27±7.24</td>
+                        <td class="center">30.30±7.87</td>
+                        <td class="center">1.14 (0.62–2.09)</td>
+                        <td class="center">0.6776</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Diabetes Mellitus type2</strong><br><small>(categorical)</small></td>
-                            <td>55/66 (83.3%)</td>
-                            <td>11/63 (17.5%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Lactate</strong></td>
+                        <td class="center">1.79±1.12</td>
+                        <td class="center">2.00±1.13</td>
+                        <td class="center">1.66±1.11</td>
+                        <td class="center">0.76 (0.42–1.35)</td>
+                        <td class="center">0.3432</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>History of stroke</strong><br><small>(categorical)</small></td>
-                            <td>62/66 (93.9%)</td>
-                            <td>4/63 (6.3%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Hemoglobin</strong></td>
+                        <td class="center">12.14±2.02</td>
+                        <td class="center">12.24±2.09</td>
+                        <td class="center">12.07±2.00</td>
+                        <td class="center">0.92 (0.56–1.52)</td>
+                        <td class="center">0.7542</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Chronic kidney disease</strong><br><small>(categorical)</small></td>
-                            <td>61/66 (92.4%)</td>
-                            <td>5/63 (7.9%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Hematocrit</strong></td>
+                        <td class="center">37.27±6.07</td>
+                        <td class="center">37.14±5.82</td>
+                        <td class="center">37.36±6.31</td>
+                        <td class="center">1.03 (0.63–1.69)</td>
+                        <td class="center">0.8949</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Coronary artery disease</strong><br><small>(categorical)</small></td>
-                            <td>65/66 (98.5%)</td>
-                            <td>1/63 (1.6%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Platelet</strong></td>
+                        <td class="center">1238.17±8032.70</td>
+                        <td class="center">2646.70±12461.82</td>
+                        <td class="center">237.37±73.12</td>
+                        <td class="center">0.66 (0.21–2.04)</td>
+                        <td class="center">0.4723</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Cirrhosis</strong><br><small>(categorical)</small></td>
-                            <td>62/66 (93.9%)</td>
-                            <td>3/63 (4.8%)</td>
-                            <td>1/3 (33.3%)</td>
-                            <td class="p-value">0.1735</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Creatinine</strong></td>
+                        <td class="center">0.91±0.42</td>
+                        <td class="center">0.86±0.42</td>
+                        <td class="center">0.96±0.42</td>
+                        <td class="center">1.27 (0.75–2.18)</td>
+                        <td class="center">0.3758</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Connective tissue disease</strong><br><small>(categorical)</small></td>
-                            <td>65/66 (98.5%)</td>
-                            <td>1/63 (1.6%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Bicarbonate</strong></td>
+                        <td class="center">21.46±3.38</td>
+                        <td class="center">20.96±3.61</td>
+                        <td class="center">21.82±3.21</td>
+                        <td class="center">1.27 (0.77–2.10)</td>
+                        <td class="center">0.3462</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Chronic lung disease</strong><br><small>(categorical)</small></td>
-                            <td>66/66 (100.0%)</td>
-                            <td>0/63 (0.0%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Albumin</strong></td>
+                        <td class="center">3.44±0.59</td>
+                        <td class="center">3.43±0.58</td>
+                        <td class="center">3.45±0.61</td>
+                        <td class="center">1.04 (0.64–1.71)</td>
+                        <td class="center">0.8655</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Atrial fibrillation</strong><br><small>(categorical)</small></td>
-                            <td>66/66 (100.0%)</td>
-                            <td>0/63 (0.0%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>PT</strong></td>
+                        <td class="center">13.35±1.71</td>
+                        <td class="center">13.53±1.59</td>
+                        <td class="center">13.23±1.80</td>
+                        <td class="center">0.84 (0.51–1.39)</td>
+                        <td class="center">0.5041</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Active malignancy</strong><br><small>(categorical)</small></td>
-                            <td>49/66 (74.2%)</td>
-                            <td>15/63 (23.8%)</td>
-                            <td>2/3 (66.7%)</td>
-                            <td class="p-value">0.1605</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>PTT</strong></td>
+                        <td class="center">26.04±3.82</td>
+                        <td class="center">26.13±3.31</td>
+                        <td class="center">25.97±4.19</td>
+                        <td class="center">0.96 (0.59–1.57)</td>
+                        <td class="center">0.8742</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Underlying disease</strong><br><small>(categorical)</small></td>
-                            <td>48/66 (72.7%)</td>
-                            <td>45/63 (71.4%)</td>
-                            <td>3/3 (100.0%)</td>
-                            <td class="p-value">0.5563</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>INR</strong></td>
+                        <td class="center">1.18±0.16</td>
+                        <td class="center">1.21±0.15</td>
+                        <td class="center">1.16±0.17</td>
+                        <td class="center">0.77 (0.46–1.28)</td>
+                        <td class="center">0.3084</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Immobilization</strong><br><small>(categorical)</small></td>
-                            <td>63/66 (95.5%)</td>
-                            <td>3/63 (4.8%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Troponin</strong></td>
+                        <td class="center">341.24±718.57</td>
+                        <td class="center">255.24±349.83</td>
+                        <td class="center">406.39±904.32</td>
+                        <td class="center">1.26 (0.67–2.36)</td>
+                        <td class="center">0.4791</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>History of Deep vein thrombosis</strong><br><small>(categorical)</small></td>
-                            <td>62/65 (95.4%)</td>
-                            <td>3/62 (4.8%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>NTproBNP</strong></td>
+                        <td class="center">4054.45±4847.04</td>
+                        <td class="center">3950.41±3473.80</td>
+                        <td class="center">4130.11±5694.45</td>
+                        <td class="center">1.04 (0.61–1.76)</td>
+                        <td class="center">0.8968</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>History of OCP use</strong><br><small>(categorical)</small></td>
-                            <td>53/66 (80.3%)</td>
-                            <td>13/63 (20.6%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>D-dimer</strong></td>
+                        <td class="center">6184.28±2153.27</td>
+                        <td class="center">7006.33±1481.01</td>
+                        <td class="center">5721.88±2369.63</td>
+                        <td class="center">0.58 (0.24–1.41)</td>
+                        <td class="center">0.2292</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Chronic smoking</strong><br><small>(categorical)</small></td>
-                            <td>64/66 (97.0%)</td>
-                            <td>2/63 (3.2%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Recent surgery within 1 year</strong><br><small>(categorical)</small></td>
-                            <td>64/66 (97.0%)</td>
-                            <td>2/63 (3.2%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Recent trauma within 1 year</strong><br><small>(categorical)</small></td>
-                            <td>63/66 (95.5%)</td>
-                            <td>3/63 (4.8%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-                <div class="footnote">
-                    * Continuous variables: Mean ± SD | Categorical: Frequency (%) | Missing data excluded (listwise)
-                </div>
-            </div>
-        </div>
-
-        <div class="category-section">
-            <div class="category-title">
-                <h2>Clinical Variables vs 6-Month Severe RV Dysfunction</h2>
-            </div>
-
-            <div class="outcome-table">
-                <div class="outcome-title">6-Month Severe RV Dysfunction - Complete Analysis</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">Variable</th>
-                            <th style="width: 15%;">Total (n=116)</th>
-                            <th style="width: 20%;">Normal/Mild (n=63)</th>
-                            <th style="width: 20%;">Severe RV Dysfn (n=3)</th>
-                            <th style="width: 10%;">P-value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <tr class="not-sig">
-                            <td><strong>Desaturation</strong><br><small>(categorical)</small></td>
-                            <td>39/66 (59.1%)</td>
-                            <td>38/63 (60.3%)</td>
-                            <td>1/3 (33.3%)</td>
-                            <td class="p-value">0.5628</td>
-                        </tr>
-
-                        <tr class="sig-005">
-                            <td><strong>Dyspnea at rest</strong><br><small>(categorical)</small></td>
-                            <td>43/66 (65.2%)</td>
-                            <td>20/63 (31.7%)</td>
-                            <td>3/3 (100.0%)</td>
-                            <td class="p-value">0.0387</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Dyspnea on exertion</strong><br><small>(categorical)</small></td>
-                            <td>61/66 (92.4%)</td>
-                            <td>58/63 (92.1%)</td>
-                            <td>3/3 (100.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Cough</strong><br><small>(categorical)</small></td>
-                            <td>50/66 (75.8%)</td>
-                            <td>10/63 (15.9%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">0.6048</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Syncope</strong><br><small>(categorical)</small></td>
-                            <td>50/66 (75.8%)</td>
-                            <td>16/63 (25.4%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Chest pain</strong><br><small>(categorical)</small></td>
-                            <td>53/66 (80.3%)</td>
-                            <td>13/63 (20.6%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Leg edema</strong><br><small>(categorical)</small></td>
-                            <td>52/66 (78.8%)</td>
-                            <td>14/63 (22.2%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Palpitation</strong><br><small>(categorical)</small></td>
-                            <td>50/66 (75.8%)</td>
-                            <td>16/63 (25.4%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Fever</strong><br><small>(categorical)</small></td>
-                            <td>61/66 (92.4%)</td>
-                            <td>5/63 (7.9%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>respiratory failure</strong><br><small>(categorical)</small></td>
-                            <td>63/66 (95.5%)</td>
-                            <td>2/63 (3.2%)</td>
-                            <td>1/3 (33.3%)</td>
-                            <td class="p-value">0.1322</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-                <div class="footnote">
-                    * Continuous variables: Mean ± SD | Categorical: Frequency (%) | Missing data excluded (listwise)
-                </div>
+                </tbody>
+            </table>
+            <div class="footnote">
+                * Significance level: * p &lt; 0.05; ** p &lt; 0.01
+                <br/>Continuous variables analyzed with Mann-Whitney U test; categorical with Chi-square or Fisher's exact test
             </div>
         </div>
 
-        <div class="category-section">
-            <div class="category-title">
-                <h2>Physical Variables vs 6-Month Severe RV Dysfunction</h2>
-            </div>
+        <div class="section">
+            <div class="section-title">Investigations Variables - Analysis vs 6-Month RV Function Improvement (newrvgood)</div>
 
-            <div class="outcome-table">
-                <div class="outcome-title">6-Month Severe RV Dysfunction - Complete Analysis</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">Variable</th>
-                            <th style="width: 15%;">Total (n=116)</th>
-                            <th style="width: 20%;">Normal/Mild (n=63)</th>
-                            <th style="width: 20%;">Severe RV Dysfn (n=3)</th>
-                            <th style="width: 10%;">P-value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div class="outcome-title">TABLE: Analysis vs 6-Month RV Function Improvement (newrvgood)</div>
 
-                        <tr class="not-sig">
-                            <td><strong>bt</strong><br><small>(continuous)</small></td>
-                            <td>36.81 ± 0.48</td>
-                            <td>36.79 ± 0.43</td>
-                            <td>37.23 ± 1.17</td>
-                            <td class="p-value">0.6300</td>
-                        </tr>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Variable</th>
+                        <th style="width: 10%;">Total (n=116)</th>
+                        <th style="width: 15%;">No Improve (n=28)</th>
+                        <th style="width: 15%;">Improved (n=38)</th>
+                        <th style="width: 15%;">OR (95% CI)</th>
+                        <th style="width: 12%;">P-value</th>
+                        <th style="width: 8%;">Sig.*</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                        <tr class="not-sig">
-                            <td><strong>hr</strong><br><small>(continuous)</small></td>
-                            <td>103.74 ± 20.49</td>
-                            <td>103.90 ± 20.85</td>
-                            <td>100.33 ± 13.05</td>
-                            <td class="p-value">0.6613</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Sinus rhythm</strong></td>
+                        <td class="center">64/66 (97.0%)</td>
+                        <td class="center">28/28 (100.0%)</td>
+                        <td class="center">36/38 (94.7%)</td>
+                        <td class="center">0.55 (0.03–12.11)</td>
+                        <td class="center">0.7079</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>rr</strong><br><small>(continuous)</small></td>
-                            <td>24.26 ± 5.52</td>
-                            <td>24.02 ± 5.28</td>
-                            <td>29.33 ± 9.24</td>
-                            <td class="p-value">0.2047</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Heart rate category</strong></td>
+                        <td class="center">20/66 (30.3%)</td>
+                        <td class="center">7/28 (25.0%)</td>
+                        <td class="center">13/38 (34.2%)</td>
+                        <td class="center">0.71 (0.24–2.09)</td>
+                        <td class="center">0.5357</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>sat</strong><br><small>(continuous)</small></td>
-                            <td>89.97 ± 7.46</td>
-                            <td>89.89 ± 7.53</td>
-                            <td>91.67 ± 6.66</td>
-                            <td class="p-value">0.7742</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>S1Q3T3 pattern</strong></td>
+                        <td class="center">24/66 (36.4%)</td>
+                        <td class="center">8/28 (28.6%)</td>
+                        <td class="center">16/38 (42.1%)</td>
+                        <td class="center">1.59 (0.57–4.48)</td>
+                        <td class="center">0.3761</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Jugular vein distension</strong><br><small>(categorical)</small></td>
-                            <td>61/65 (93.8%)</td>
-                            <td>4/62 (6.5%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>RV strain (EKG)</strong></td>
+                        <td class="center">24/66 (36.4%)</td>
+                        <td class="center">7/28 (25.0%)</td>
+                        <td class="center">17/38 (44.7%)</td>
+                        <td class="center">1.99 (0.70–5.68)</td>
+                        <td class="center">0.1996</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Leg edema (PE)</strong><br><small>(categorical)</small></td>
-                            <td>46/65 (70.8%)</td>
-                            <td>19/62 (30.6%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">0.5498</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Right bundle block</strong></td>
+                        <td class="center">6/66 (9.1%)</td>
+                        <td class="center">2/28 (7.1%)</td>
+                        <td class="center">4/38 (10.5%)</td>
+                        <td class="center">1.26 (0.22–7.15)</td>
+                        <td class="center">0.7904</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                    </tbody>
-                </table>
-                <div class="footnote">
-                    * Continuous variables: Mean ± SD | Categorical: Frequency (%) | Missing data excluded (listwise)
-                </div>
-            </div>
-        </div>
+                    <tr class="">
+                        <td><strong>Cardiomegaly (CXR)</strong></td>
+                        <td class="center">25/66 (37.9%)</td>
+                        <td class="center">10/28 (35.7%)</td>
+                        <td class="center">15/38 (39.5%)</td>
+                        <td class="center">1.14 (0.41–3.12)</td>
+                        <td class="center">0.8037</td>
+                        <td class="center">—</td>
+                    </tr>
 
-        <div class="category-section">
-            <div class="category-title">
-                <h2>Lab Variables vs 6-Month Severe RV Dysfunction</h2>
-            </div>
+                    <tr class="">
+                        <td><strong>Enlarged pulmonary trunk</strong></td>
+                        <td class="center">13/66 (19.7%)</td>
+                        <td class="center">5/28 (17.9%)</td>
+                        <td class="center">8/38 (21.1%)</td>
+                        <td class="center">1.16 (0.34–3.99)</td>
+                        <td class="center">0.8172</td>
+                        <td class="center">—</td>
+                    </tr>
 
-            <div class="outcome-table">
-                <div class="outcome-title">6-Month Severe RV Dysfunction - Complete Analysis</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">Variable</th>
-                            <th style="width: 15%;">Total (n=116)</th>
-                            <th style="width: 20%;">Normal/Mild (n=63)</th>
-                            <th style="width: 20%;">Severe RV Dysfn (n=3)</th>
-                            <th style="width: 10%;">P-value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                    <tr class="">
+                        <td><strong>Pleural effusion</strong></td>
+                        <td class="center">12/66 (18.2%)</td>
+                        <td class="center">5/28 (17.9%)</td>
+                        <td class="center">7/38 (18.4%)</td>
+                        <td class="center">1.03 (0.29–3.65)</td>
+                        <td class="center">0.9669</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>ph</strong><br><small>(continuous)</small></td>
-                            <td>7.44 ± 0.09</td>
-                            <td>7.44 ± 0.09</td>
-                            <td>7.45 ± nan</td>
-                            <td class="p-value">0.9100</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>RV strain (CT)</strong></td>
+                        <td class="center">47/66 (71.2%)</td>
+                        <td class="center">17/28 (60.7%)</td>
+                        <td class="center">30/38 (78.9%)</td>
+                        <td class="center">1.97 (0.67–5.80)</td>
+                        <td class="center">0.2171</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>pao2</strong><br><small>(continuous)</small></td>
-                            <td>81.10 ± 33.52</td>
-                            <td>81.86 ± 33.57</td>
-                            <td>50.00 ± nan</td>
-                            <td class="p-value">0.1169</td>
-                        </tr>
+                    <tr class="sig-05">
+                        <td><strong>RV dilatation</strong></td>
+                        <td class="center">35/66 (53.0%)</td>
+                        <td class="center">18/28 (64.3%)</td>
+                        <td class="center">17/38 (44.7%)</td>
+                        <td class="center">2.23 (1.16–4.28)</td>
+                        <td class="center">0.0156</td>
+                        <td class="center">*</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>pfratio</strong><br><small>(continuous)</small></td>
-                            <td>267.25 ± 86.68</td>
-                            <td>267.96 ± 87.63</td>
-                            <td>238.00 ± nan</td>
-                            <td class="p-value">0.4093</td>
-                        </tr>
+                    <tr class="sig-01">
+                        <td><strong>RV function</strong></td>
+                        <td class="center">21/66 (31.8%)</td>
+                        <td class="center">8/28 (28.6%)</td>
+                        <td class="center">13/38 (34.2%)</td>
+                        <td class="center">9.81 (3.27–29.44)</td>
+                        <td class="center">4.69e-05</td>
+                        <td class="center">**</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>pco2</strong><br><small>(continuous)</small></td>
-                            <td>29.90 ± 7.56</td>
-                            <td>29.90 ± 7.65</td>
-                            <td>30.00 ± nan</td>
-                            <td class="p-value">0.7632</td>
-                        </tr>
+                    <tr class="sig-01">
+                        <td><strong>TAPSE</strong></td>
+                        <td class="center">8/60 (13.3%)</td>
+                        <td class="center">3/25 (12.0%)</td>
+                        <td class="center">5/35 (14.3%)</td>
+                        <td class="center">3.84 (1.90–7.77)</td>
+                        <td class="center">0.0002</td>
+                        <td class="center">**</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>lactate</strong><br><small>(continuous)</small></td>
-                            <td>1.79 ± 1.12</td>
-                            <td>1.74 ± 1.10</td>
-                            <td>3.10 ± 0.99</td>
-                            <td class="p-value">0.0880</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Pulmonary hypertension</strong></td>
+                        <td class="center">27/56 (48.2%)</td>
+                        <td class="center">10/22 (45.5%)</td>
+                        <td class="center">17/34 (50.0%)</td>
+                        <td class="center">0.86 (0.43–1.71)</td>
+                        <td class="center">0.6636</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>hb</strong><br><small>(continuous)</small></td>
-                            <td>12.14 ± 2.02</td>
-                            <td>12.14 ± 2.07</td>
-                            <td>12.10 ± 0.92</td>
-                            <td class="p-value">0.7073</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Tricuspid regurgitation</strong></td>
+                        <td class="center">26/61 (42.6%)</td>
+                        <td class="center">11/25 (44.0%)</td>
+                        <td class="center">15/36 (41.7%)</td>
+                        <td class="center">1.23 (0.68–2.21)</td>
+                        <td class="center">0.4933</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>hct</strong><br><small>(continuous)</small></td>
-                            <td>37.27 ± 6.07</td>
-                            <td>37.33 ± 6.15</td>
-                            <td>36.00 ± 4.65</td>
-                            <td class="p-value">0.6959</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>LV dysfunction</strong></td>
+                        <td class="center">5/65 (7.7%)</td>
+                        <td class="center">3/28 (10.7%)</td>
+                        <td class="center">2/37 (5.4%)</td>
+                        <td class="center">0.67 (0.11–4.19)</td>
+                        <td class="center">0.6713</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>plt</strong><br><small>(continuous)</small></td>
-                            <td>1238.17 ± 8032.70</td>
-                            <td>1285.98 ± 8224.75</td>
-                            <td>250.00 ± 139.37</td>
-                            <td class="p-value">0.7545</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>cr</strong><br><small>(continuous)</small></td>
-                            <td>0.91 ± 0.42</td>
-                            <td>0.89 ± 0.39</td>
-                            <td>1.44 ± 0.74</td>
-                            <td class="p-value">0.0854</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>bicarb</strong><br><small>(continuous)</small></td>
-                            <td>21.46 ± 3.38</td>
-                            <td>21.50 ± 3.42</td>
-                            <td>20.67 ± 2.89</td>
-                            <td class="p-value">0.6262</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>alb</strong><br><small>(continuous)</small></td>
-                            <td>3.44 ± 0.59</td>
-                            <td>3.45 ± 0.58</td>
-                            <td>3.23 ± 0.86</td>
-                            <td class="p-value">0.6496</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>pt</strong><br><small>(continuous)</small></td>
-                            <td>13.35 ± 1.71</td>
-                            <td>13.32 ± 1.64</td>
-                            <td>13.97 ± 3.29</td>
-                            <td class="p-value">0.9003</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>ptt</strong><br><small>(continuous)</small></td>
-                            <td>26.04 ± 3.82</td>
-                            <td>26.19 ± 3.83</td>
-                            <td>22.90 ± 1.85</td>
-                            <td class="p-value">0.0798</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>inr</strong><br><small>(continuous)</small></td>
-                            <td>1.18 ± 0.16</td>
-                            <td>1.18 ± 0.16</td>
-                            <td>1.25 ± 0.30</td>
-                            <td class="p-value">0.9625</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>trop</strong><br><small>(continuous)</small></td>
-                            <td>341.24 ± 718.57</td>
-                            <td>346.77 ± 735.04</td>
-                            <td>239.93 ± 334.18</td>
-                            <td class="p-value">0.8606</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>bnp</strong><br><small>(continuous)</small></td>
-                            <td>4054.45 ± 4847.04</td>
-                            <td>4083.19 ± 4926.44</td>
-                            <td>3537.17 ± 3775.18</td>
-                            <td class="p-value">0.8163</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>ddimer</strong><br><small>(continuous)</small></td>
-                            <td>6184.28 ± 2153.27</td>
-                            <td>6122.21 ± 2176.61</td>
-                            <td>7674.00 ± nan</td>
-                            <td class="p-value">0.6400</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-                <div class="footnote">
-                    * Continuous variables: Mean ± SD | Categorical: Frequency (%) | Missing data excluded (listwise)
-                </div>
+                </tbody>
+            </table>
+            <div class="footnote">
+                * Significance level: * p &lt; 0.05; ** p &lt; 0.01
+                <br/>Continuous variables analyzed with Mann-Whitney U test; categorical with Chi-square or Fisher's exact test
             </div>
         </div>
 
-        <div class="category-section">
-            <div class="category-title">
-                <h2>Investigations Variables vs 6-Month Severe RV Dysfunction</h2>
-            </div>
+        <div class="section">
+            <div class="section-title">Management Variables - Analysis vs 6-Month RV Function Improvement (newrvgood)</div>
 
-            <div class="outcome-table">
-                <div class="outcome-title">6-Month Severe RV Dysfunction - Complete Analysis</div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th style="width: 25%;">Variable</th>
-                            <th style="width: 15%;">Total (n=116)</th>
-                            <th style="width: 20%;">Normal/Mild (n=63)</th>
-                            <th style="width: 20%;">Severe RV Dysfn (n=3)</th>
-                            <th style="width: 10%;">P-value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div class="outcome-title">TABLE: Analysis vs 6-Month RV Function Improvement (newrvgood)</div>
 
-                        <tr class="not-sig">
-                            <td><strong>Sinus rhythm</strong><br><small>(categorical)</small></td>
-                            <td>64/66 (97.0%)</td>
-                            <td>61/63 (96.8%)</td>
-                            <td>3/3 (100.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Variable</th>
+                        <th style="width: 10%;">Total (n=116)</th>
+                        <th style="width: 15%;">No Improve (n=28)</th>
+                        <th style="width: 15%;">Improved (n=38)</th>
+                        <th style="width: 15%;">OR (95% CI)</th>
+                        <th style="width: 12%;">P-value</th>
+                        <th style="width: 8%;">Sig.*</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                        <tr class="not-sig">
-                            <td><strong>Rate(bpm)</strong><br><small>(categorical)</small></td>
-                            <td>46/66 (69.7%)</td>
-                            <td>19/63 (30.2%)</td>
-                            <td>1/3 (33.3%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Anticoagulation</strong></td>
+                        <td class="center">40/66 (60.6%)</td>
+                        <td class="center">18/28 (64.3%)</td>
+                        <td class="center">22/38 (57.9%)</td>
+                        <td class="center">1.24 (0.45–3.38)</td>
+                        <td class="center">0.6771</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>s1q3t3</strong><br><small>(categorical)</small></td>
-                            <td>42/66 (63.6%)</td>
-                            <td>24/63 (38.1%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">0.2951</td>
-                        </tr>
+                    <tr class="">
+                        <td><strong>Ventilatory support</strong></td>
+                        <td class="center">27/66 (40.9%)</td>
+                        <td class="center">14/28 (50.0%)</td>
+                        <td class="center">13/38 (34.2%)</td>
+                        <td class="center">1.11 (0.72–1.72)</td>
+                        <td class="center">0.6386</td>
+                        <td class="center">—</td>
+                    </tr>
 
-                        <tr class="not-sig">
-                            <td><strong>Right ventricular strain pattern</strong><br><small>(categorical)</small></td>
-                            <td>42/66 (63.6%)</td>
-                            <td>24/63 (38.1%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">0.2951</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Right bundle branch block</strong><br><small>(categorical)</small></td>
-                            <td>60/66 (90.9%)</td>
-                            <td>6/63 (9.5%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>cardiomegaly </strong><br><small>(categorical)</small></td>
-                            <td>41/66 (62.1%)</td>
-                            <td>23/63 (36.5%)</td>
-                            <td>2/3 (66.7%)</td>
-                            <td class="p-value">0.5520</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Enlarged pulmonary trunk in CXR</strong><br><small>(categorical)</small></td>
-                            <td>53/66 (80.3%)</td>
-                            <td>13/63 (20.6%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Pleural effusion in CXR</strong><br><small>(categorical)</small></td>
-                            <td>54/66 (81.8%)</td>
-                            <td>10/63 (15.9%)</td>
-                            <td>2/3 (66.7%)</td>
-                            <td class="p-value">0.0827</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>rvstrain_CT</strong><br><small>(categorical)</small></td>
-                            <td>47/66 (71.2%)</td>
-                            <td>44/63 (69.8%)</td>
-                            <td>3/3 (100.0%)</td>
-                            <td class="p-value">0.5512</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>RV dilatation in echo</strong><br><small>(categorical)</small></td>
-                            <td>35/66 (53.0%)</td>
-                            <td>32/63 (50.8%)</td>
-                            <td>3/3 (100.0%)</td>
-                            <td class="p-value">0.4262</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>RV systolic dysfunction in echo</strong><br><small>(categorical)</small></td>
-                            <td>21/66 (31.8%)</td>
-                            <td>18/63 (28.6%)</td>
-                            <td>3/3 (100.0%)</td>
-                            <td class="p-value">0.0809</td>
-                        </tr>
-
-                        <tr class="sig-005">
-                            <td><strong>TAPSE in echo (cm)</strong><br><small>(categorical)</small></td>
-                            <td>28/60 (46.7%)</td>
-                            <td>6/57 (10.5%)</td>
-                            <td>2/3 (66.7%)</td>
-                            <td class="p-value">0.0436</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Pulmonary hypertension in echo</strong><br><small>(categorical)</small></td>
-                            <td>27/56 (48.2%)</td>
-                            <td>27/53 (50.9%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">0.2338</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>Tricuspid valve regurgitation in echo</strong><br><small>(categorical)</small></td>
-                            <td>26/61 (42.6%)</td>
-                            <td>24/58 (41.4%)</td>
-                            <td>2/3 (66.7%)</td>
-                            <td class="p-value">0.7386</td>
-                        </tr>
-
-                        <tr class="not-sig">
-                            <td><strong>LV systolic dysfunction in echo</strong><br><small>(categorical)</small></td>
-                            <td>60/65 (92.3%)</td>
-                            <td>5/62 (8.1%)</td>
-                            <td>0/3 (0.0%)</td>
-                            <td class="p-value">1.0000</td>
-                        </tr>
-
-                    </tbody>
-                </table>
-                <div class="footnote">
-                    * Continuous variables: Mean ± SD | Categorical: Frequency (%) | Missing data excluded (listwise)
-                </div>
+                </tbody>
+            </table>
+            <div class="footnote">
+                * Significance level: * p &lt; 0.05; ** p &lt; 0.01
+                <br/>Continuous variables analyzed with Mann-Whitney U test; categorical with Chi-square or Fisher's exact test
             </div>
         </div>
 
-        <div class="back-to-top">
-            <a href="#top">↑ Back to Top</a>
+        <div class="section">
+            <div class="section-title">Demographic Variables - Analysis vs 6-Month Severe RV Dysfunction (newrvbad)</div>
+
+            <div class="outcome-title">TABLE: Analysis vs 6-Month Severe RV Dysfunction (newrvbad)</div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Variable</th>
+                        <th style="width: 10%;">Total (n=116)</th>
+                        <th style="width: 15%;">Normal/Mild (n=63)</th>
+                        <th style="width: 15%;">Severe (n=3)</th>
+                        <th style="width: 15%;">OR (95% CI)</th>
+                        <th style="width: 12%;">P-value</th>
+                        <th style="width: 8%;">Sig.*</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="">
+                        <td><strong>Age (years)</strong></td>
+                        <td class="center">55.39±20.68</td>
+                        <td class="center">55.33±21.13</td>
+                        <td class="center">56.67±7.23</td>
+                        <td class="center">1.05 (0.33–3.35)</td>
+                        <td class="center">0.9351</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Sex</strong></td>
+                        <td class="center">20/66 (30.3%)</td>
+                        <td class="center">19/63 (30.2%)</td>
+                        <td class="center">1/3 (33.3%)</td>
+                        <td class="center">1.06 (0.09–12.84)</td>
+                        <td class="center">0.9646</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Race</strong></td>
+                        <td class="center">1/66 (1.5%)</td>
+                        <td class="center">1/63 (1.6%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.84 (0.02–33.73)</td>
+                        <td class="center">0.9256</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Hypertension</strong></td>
+                        <td class="center">26/66 (39.4%)</td>
+                        <td class="center">26/63 (41.3%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.48 (0.03–7.04)</td>
+                        <td class="center">0.5932</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Dyslipidemia</strong></td>
+                        <td class="center">14/66 (21.2%)</td>
+                        <td class="center">14/63 (22.2%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.64 (0.03–16.23)</td>
+                        <td class="center">0.7862</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Diabetes Mellitus</strong></td>
+                        <td class="center">11/66 (16.7%)</td>
+                        <td class="center">11/63 (17.5%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.69 (0.02–23.08)</td>
+                        <td class="center">0.8364</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>History of stroke</strong></td>
+                        <td class="center">4/66 (6.1%)</td>
+                        <td class="center">4/63 (6.3%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.85 (0.00–151.53)</td>
+                        <td class="center">0.9519</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Chronic kidney disease</strong></td>
+                        <td class="center">5/66 (7.6%)</td>
+                        <td class="center">5/63 (7.9%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.82 (0.01–92.93)</td>
+                        <td class="center">0.9362</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Coronary artery disease</strong></td>
+                        <td class="center">1/66 (1.5%)</td>
+                        <td class="center">1/63 (1.6%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.96 (0.00–15193.63)</td>
+                        <td class="center">0.9926</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Cirrhosis</strong></td>
+                        <td class="center">4/66 (6.1%)</td>
+                        <td class="center">3/63 (4.8%)</td>
+                        <td class="center">1/3 (33.3%)</td>
+                        <td class="center">1.96 (0.04–86.86)</td>
+                        <td class="center">0.7269</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Connective tissue disease</strong></td>
+                        <td class="center">1/66 (1.5%)</td>
+                        <td class="center">1/63 (1.6%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.96 (0.00–15193.63)</td>
+                        <td class="center">0.9926</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Chronic lung disease</strong></td>
+                        <td class="center">0/66 (0.0%)</td>
+                        <td class="center">0/63 (0.0%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Atrial fibrillation</strong></td>
+                        <td class="center">0/66 (0.0%)</td>
+                        <td class="center">0/63 (0.0%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Active malignancy</strong></td>
+                        <td class="center">17/66 (25.8%)</td>
+                        <td class="center">15/63 (23.8%)</td>
+                        <td class="center">2/3 (66.7%)</td>
+                        <td class="center">2.13 (0.20–22.63)</td>
+                        <td class="center">0.5316</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Underlying disease</strong></td>
+                        <td class="center">48/66 (72.7%)</td>
+                        <td class="center">45/63 (71.4%)</td>
+                        <td class="center">3/3 (100.0%)</td>
+                        <td class="center">1.73 (0.09–34.16)</td>
+                        <td class="center">0.7203</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Immobilization</strong></td>
+                        <td class="center">3/66 (4.5%)</td>
+                        <td class="center">3/63 (4.8%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.88 (0.00–309.96)</td>
+                        <td class="center">0.9662</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>History of DVT</strong></td>
+                        <td class="center">3/65 (4.6%)</td>
+                        <td class="center">3/62 (4.8%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.88 (0.00–298.17)</td>
+                        <td class="center">0.9655</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>History of OCP use</strong></td>
+                        <td class="center">13/66 (19.7%)</td>
+                        <td class="center">13/63 (20.6%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.66 (0.02–18.04)</td>
+                        <td class="center">0.8028</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Chronic smoking</strong></td>
+                        <td class="center">2/66 (3.0%)</td>
+                        <td class="center">2/63 (3.2%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.92 (0.00–1020.83)</td>
+                        <td class="center">0.9805</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Recent surgery</strong></td>
+                        <td class="center">2/66 (3.0%)</td>
+                        <td class="center">2/63 (3.2%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.92 (0.00–1020.83)</td>
+                        <td class="center">0.9805</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Recent trauma</strong></td>
+                        <td class="center">3/66 (4.5%)</td>
+                        <td class="center">3/63 (4.8%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.88 (0.00–309.96)</td>
+                        <td class="center">0.9662</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="footnote">
+                * Significance level: * p &lt; 0.05; ** p &lt; 0.01
+                <br/>Continuous variables analyzed with Mann-Whitney U test; categorical with Chi-square or Fisher's exact test
+            </div>
         </div>
+
+        <div class="section">
+            <div class="section-title">Clinical Variables - Analysis vs 6-Month Severe RV Dysfunction (newrvbad)</div>
+
+            <div class="outcome-title">TABLE: Analysis vs 6-Month Severe RV Dysfunction (newrvbad)</div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Variable</th>
+                        <th style="width: 10%;">Total (n=116)</th>
+                        <th style="width: 15%;">Normal/Mild (n=63)</th>
+                        <th style="width: 15%;">Severe (n=3)</th>
+                        <th style="width: 15%;">OR (95% CI)</th>
+                        <th style="width: 12%;">P-value</th>
+                        <th style="width: 8%;">Sig.*</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="">
+                        <td><strong>Desaturation</strong></td>
+                        <td class="center">39/66 (59.1%)</td>
+                        <td class="center">38/63 (60.3%)</td>
+                        <td class="center">1/3 (33.3%)</td>
+                        <td class="center">0.64 (0.06–6.46)</td>
+                        <td class="center">0.7016</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Dyspnea at rest</strong></td>
+                        <td class="center">23/66 (34.8%)</td>
+                        <td class="center">20/63 (31.7%)</td>
+                        <td class="center">3/3 (100.0%)</td>
+                        <td class="center">3.16 (0.29–34.29)</td>
+                        <td class="center">0.3433</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Dyspnea on exertion</strong></td>
+                        <td class="center">61/66 (92.4%)</td>
+                        <td class="center">58/63 (92.1%)</td>
+                        <td class="center">3/3 (100.0%)</td>
+                        <td class="center">1.21 (0.01–135.82)</td>
+                        <td class="center">0.9366</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Cough</strong></td>
+                        <td class="center">10/66 (15.2%)</td>
+                        <td class="center">10/63 (15.9%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.59 (0.05–6.80)</td>
+                        <td class="center">0.6705</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Syncope</strong></td>
+                        <td class="center">16/66 (24.2%)</td>
+                        <td class="center">16/63 (25.4%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.61 (0.03–13.47)</td>
+                        <td class="center">0.7530</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Chest pain</strong></td>
+                        <td class="center">13/66 (19.7%)</td>
+                        <td class="center">13/63 (20.6%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.66 (0.02–18.04)</td>
+                        <td class="center">0.8028</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Leg edema</strong></td>
+                        <td class="center">14/66 (21.2%)</td>
+                        <td class="center">14/63 (22.2%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.64 (0.03–16.23)</td>
+                        <td class="center">0.7862</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Palpitation</strong></td>
+                        <td class="center">16/66 (24.2%)</td>
+                        <td class="center">16/63 (25.4%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.61 (0.03–13.47)</td>
+                        <td class="center">0.7530</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Fever</strong></td>
+                        <td class="center">5/66 (7.6%)</td>
+                        <td class="center">5/63 (7.9%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.82 (0.01–92.93)</td>
+                        <td class="center">0.9362</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Respiratory failure</strong></td>
+                        <td class="center">3/66 (4.5%)</td>
+                        <td class="center">2/63 (3.2%)</td>
+                        <td class="center">1/3 (33.3%)</td>
+                        <td class="center">2.10 (0.03–139.10)</td>
+                        <td class="center">0.7296</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="footnote">
+                * Significance level: * p &lt; 0.05; ** p &lt; 0.01
+                <br/>Continuous variables analyzed with Mann-Whitney U test; categorical with Chi-square or Fisher's exact test
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Physical Variables - Analysis vs 6-Month Severe RV Dysfunction (newrvbad)</div>
+
+            <div class="outcome-title">TABLE: Analysis vs 6-Month Severe RV Dysfunction (newrvbad)</div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Variable</th>
+                        <th style="width: 10%;">Total (n=116)</th>
+                        <th style="width: 15%;">Normal/Mild (n=63)</th>
+                        <th style="width: 15%;">Severe (n=3)</th>
+                        <th style="width: 15%;">OR (95% CI)</th>
+                        <th style="width: 12%;">P-value</th>
+                        <th style="width: 8%;">Sig.*</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="">
+                        <td><strong>Body temperature</strong></td>
+                        <td class="center">36.81±0.48</td>
+                        <td class="center">36.79±0.43</td>
+                        <td class="center">37.23±1.17</td>
+                        <td class="center">1.74 (0.71–4.27)</td>
+                        <td class="center">0.2273</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Heart rate</strong></td>
+                        <td class="center">103.74±20.49</td>
+                        <td class="center">103.90±20.85</td>
+                        <td class="center">100.33±13.05</td>
+                        <td class="center">0.88 (0.27–2.86)</td>
+                        <td class="center">0.8267</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Respiration rate</strong></td>
+                        <td class="center">24.26±5.52</td>
+                        <td class="center">24.02±5.28</td>
+                        <td class="center">29.33±9.24</td>
+                        <td class="center">1.72 (0.73–4.02)</td>
+                        <td class="center">0.2132</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Oxygen saturation</strong></td>
+                        <td class="center">89.97±7.46</td>
+                        <td class="center">89.89±7.53</td>
+                        <td class="center">91.67±6.66</td>
+                        <td class="center">1.21 (0.33–4.49)</td>
+                        <td class="center">0.7705</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Jugular vein distension</strong></td>
+                        <td class="center">4/65 (6.2%)</td>
+                        <td class="center">4/62 (6.5%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.85 (0.00–146.48)</td>
+                        <td class="center">0.9510</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Leg edema (exam)</strong></td>
+                        <td class="center">19/65 (29.2%)</td>
+                        <td class="center">19/62 (30.6%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.56 (0.03–10.47)</td>
+                        <td class="center">0.6994</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="footnote">
+                * Significance level: * p &lt; 0.05; ** p &lt; 0.01
+                <br/>Continuous variables analyzed with Mann-Whitney U test; categorical with Chi-square or Fisher's exact test
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Lab Variables - Analysis vs 6-Month Severe RV Dysfunction (newrvbad)</div>
+
+            <div class="outcome-title">TABLE: Analysis vs 6-Month Severe RV Dysfunction (newrvbad)</div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Variable</th>
+                        <th style="width: 10%;">Total (n=116)</th>
+                        <th style="width: 15%;">Normal/Mild (n=63)</th>
+                        <th style="width: 15%;">Severe (n=3)</th>
+                        <th style="width: 15%;">OR (95% CI)</th>
+                        <th style="width: 12%;">P-value</th>
+                        <th style="width: 8%;">Sig.*</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="">
+                        <td><strong>pH (ABG/VBG)</strong></td>
+                        <td class="center">7.44±0.09</td>
+                        <td class="center">7.44±0.09</td>
+                        <td class="center">7.45±nan</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>PaO2</strong></td>
+                        <td class="center">81.10±33.52</td>
+                        <td class="center">81.86±33.57</td>
+                        <td class="center">50.00±nan</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>PF ratio</strong></td>
+                        <td class="center">267.25±86.68</td>
+                        <td class="center">267.96±87.63</td>
+                        <td class="center">238.00±nan</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>PCO2</strong></td>
+                        <td class="center">29.90±7.56</td>
+                        <td class="center">29.90±7.65</td>
+                        <td class="center">30.00±nan</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Lactate</strong></td>
+                        <td class="center">1.79±1.12</td>
+                        <td class="center">1.74±1.10</td>
+                        <td class="center">3.10±0.99</td>
+                        <td class="center">1.89 (0.64–5.58)</td>
+                        <td class="center">0.2485</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Hemoglobin</strong></td>
+                        <td class="center">12.14±2.02</td>
+                        <td class="center">12.14±2.07</td>
+                        <td class="center">12.10±0.92</td>
+                        <td class="center">0.99 (0.31–3.12)</td>
+                        <td class="center">0.9799</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Hematocrit</strong></td>
+                        <td class="center">37.27±6.07</td>
+                        <td class="center">37.33±6.15</td>
+                        <td class="center">36.00±4.65</td>
+                        <td class="center">0.85 (0.26–2.75)</td>
+                        <td class="center">0.7827</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Platelet</strong></td>
+                        <td class="center">1238.17±8032.70</td>
+                        <td class="center">1285.98±8224.75</td>
+                        <td class="center">250.00±139.37</td>
+                        <td class="center">0.88 (0.13–5.81)</td>
+                        <td class="center">0.8924</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Creatinine</strong></td>
+                        <td class="center">0.91±0.42</td>
+                        <td class="center">0.89±0.39</td>
+                        <td class="center">1.44±0.74</td>
+                        <td class="center">1.93 (0.88–4.24)</td>
+                        <td class="center">0.0998</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Bicarbonate</strong></td>
+                        <td class="center">21.46±3.38</td>
+                        <td class="center">21.50±3.42</td>
+                        <td class="center">20.67±2.89</td>
+                        <td class="center">0.83 (0.26–2.64)</td>
+                        <td class="center">0.7554</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Albumin</strong></td>
+                        <td class="center">3.44±0.59</td>
+                        <td class="center">3.45±0.58</td>
+                        <td class="center">3.23±0.86</td>
+                        <td class="center">0.77 (0.25–2.33)</td>
+                        <td class="center">0.6389</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>PT</strong></td>
+                        <td class="center">13.35±1.71</td>
+                        <td class="center">13.32±1.64</td>
+                        <td class="center">13.97±3.29</td>
+                        <td class="center">1.27 (0.50–3.21)</td>
+                        <td class="center">0.6203</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>PTT</strong></td>
+                        <td class="center">26.04±3.82</td>
+                        <td class="center">26.19±3.83</td>
+                        <td class="center">22.90±1.85</td>
+                        <td class="center">0.38 (0.05–2.89)</td>
+                        <td class="center">0.3475</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>INR</strong></td>
+                        <td class="center">1.18±0.16</td>
+                        <td class="center">1.18±0.16</td>
+                        <td class="center">1.25±0.30</td>
+                        <td class="center">1.30 (0.51–3.31)</td>
+                        <td class="center">0.5754</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Troponin</strong></td>
+                        <td class="center">341.24±718.57</td>
+                        <td class="center">346.77±735.04</td>
+                        <td class="center">239.93±334.18</td>
+                        <td class="center">0.88 (0.19–3.95)</td>
+                        <td class="center">0.8631</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>NTproBNP</strong></td>
+                        <td class="center">4054.45±4847.04</td>
+                        <td class="center">4083.19±4926.44</td>
+                        <td class="center">3537.17±3775.18</td>
+                        <td class="center">0.92 (0.26–3.18)</td>
+                        <td class="center">0.8894</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>D-dimer</strong></td>
+                        <td class="center">6184.28±2153.27</td>
+                        <td class="center">6122.21±2176.61</td>
+                        <td class="center">7674.00±nan</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="footnote">
+                * Significance level: * p &lt; 0.05; ** p &lt; 0.01
+                <br/>Continuous variables analyzed with Mann-Whitney U test; categorical with Chi-square or Fisher's exact test
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Investigations Variables - Analysis vs 6-Month Severe RV Dysfunction (newrvbad)</div>
+
+            <div class="outcome-title">TABLE: Analysis vs 6-Month Severe RV Dysfunction (newrvbad)</div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Variable</th>
+                        <th style="width: 10%;">Total (n=116)</th>
+                        <th style="width: 15%;">Normal/Mild (n=63)</th>
+                        <th style="width: 15%;">Severe (n=3)</th>
+                        <th style="width: 15%;">OR (95% CI)</th>
+                        <th style="width: 12%;">P-value</th>
+                        <th style="width: 8%;">Sig.*</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="">
+                        <td><strong>Sinus rhythm</strong></td>
+                        <td class="center">64/66 (97.0%)</td>
+                        <td class="center">61/63 (96.8%)</td>
+                        <td class="center">3/3 (100.0%)</td>
+                        <td class="center">1.09 (0.00–1206.96)</td>
+                        <td class="center">0.9809</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Heart rate category</strong></td>
+                        <td class="center">20/66 (30.3%)</td>
+                        <td class="center">19/63 (30.2%)</td>
+                        <td class="center">1/3 (33.3%)</td>
+                        <td class="center">0.94 (0.08–11.40)</td>
+                        <td class="center">0.9628</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>S1Q3T3 pattern</strong></td>
+                        <td class="center">24/66 (36.4%)</td>
+                        <td class="center">24/63 (38.1%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.50 (0.03–7.83)</td>
+                        <td class="center">0.6244</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>RV strain (EKG)</strong></td>
+                        <td class="center">24/66 (36.4%)</td>
+                        <td class="center">24/63 (38.1%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.50 (0.03–7.83)</td>
+                        <td class="center">0.6244</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Right bundle block</strong></td>
+                        <td class="center">6/66 (9.1%)</td>
+                        <td class="center">6/63 (9.5%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.80 (0.01–64.58)</td>
+                        <td class="center">0.9200</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Cardiomegaly (CXR)</strong></td>
+                        <td class="center">25/66 (37.9%)</td>
+                        <td class="center">23/63 (36.5%)</td>
+                        <td class="center">2/3 (66.7%)</td>
+                        <td class="center">1.66 (0.16–16.91)</td>
+                        <td class="center">0.6678</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Enlarged pulmonary trunk</strong></td>
+                        <td class="center">13/66 (19.7%)</td>
+                        <td class="center">13/63 (20.6%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.66 (0.02–18.04)</td>
+                        <td class="center">0.8028</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Pleural effusion</strong></td>
+                        <td class="center">12/66 (18.2%)</td>
+                        <td class="center">10/63 (15.9%)</td>
+                        <td class="center">2/3 (66.7%)</td>
+                        <td class="center">2.58 (0.22–30.07)</td>
+                        <td class="center">0.4506</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>RV strain (CT)</strong></td>
+                        <td class="center">47/66 (71.2%)</td>
+                        <td class="center">44/63 (69.8%)</td>
+                        <td class="center">3/3 (100.0%)</td>
+                        <td class="center">1.77 (0.09–33.32)</td>
+                        <td class="center">0.7041</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>RV dilatation</strong></td>
+                        <td class="center">35/66 (53.0%)</td>
+                        <td class="center">32/63 (50.8%)</td>
+                        <td class="center">3/3 (100.0%)</td>
+                        <td class="center">0.66 (0.15–2.80)</td>
+                        <td class="center">0.5713</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>RV function</strong></td>
+                        <td class="center">21/66 (31.8%)</td>
+                        <td class="center">18/63 (28.6%)</td>
+                        <td class="center">3/3 (100.0%)</td>
+                        <td class="center">0.81 (0.26–2.46)</td>
+                        <td class="center">0.7051</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>TAPSE</strong></td>
+                        <td class="center">8/60 (13.3%)</td>
+                        <td class="center">6/57 (10.5%)</td>
+                        <td class="center">2/3 (66.7%)</td>
+                        <td class="center">0.76 (0.24–2.40)</td>
+                        <td class="center">0.6411</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Pulmonary hypertension</strong></td>
+                        <td class="center">27/56 (48.2%)</td>
+                        <td class="center">27/53 (50.9%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">2.51 (0.56–11.35)</td>
+                        <td class="center">0.2305</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Tricuspid regurgitation</strong></td>
+                        <td class="center">26/61 (42.6%)</td>
+                        <td class="center">24/58 (41.4%)</td>
+                        <td class="center">2/3 (66.7%)</td>
+                        <td class="center">0.82 (0.21–3.14)</td>
+                        <td class="center">0.7707</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>LV dysfunction</strong></td>
+                        <td class="center">5/65 (7.7%)</td>
+                        <td class="center">5/62 (8.1%)</td>
+                        <td class="center">0/3 (0.0%)</td>
+                        <td class="center">0.82 (0.01–90.13)</td>
+                        <td class="center">0.9350</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="footnote">
+                * Significance level: * p &lt; 0.05; ** p &lt; 0.01
+                <br/>Continuous variables analyzed with Mann-Whitney U test; categorical with Chi-square or Fisher's exact test
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Management Variables - Analysis vs 6-Month Severe RV Dysfunction (newrvbad)</div>
+
+            <div class="outcome-title">TABLE: Analysis vs 6-Month Severe RV Dysfunction (newrvbad)</div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Variable</th>
+                        <th style="width: 10%;">Total (n=116)</th>
+                        <th style="width: 15%;">Normal/Mild (n=63)</th>
+                        <th style="width: 15%;">Severe (n=3)</th>
+                        <th style="width: 15%;">OR (95% CI)</th>
+                        <th style="width: 12%;">P-value</th>
+                        <th style="width: 8%;">Sig.*</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="">
+                        <td><strong>Anticoagulation</strong></td>
+                        <td class="center">40/66 (60.6%)</td>
+                        <td class="center">38/63 (60.3%)</td>
+                        <td class="center">2/3 (66.7%)</td>
+                        <td class="center">0.90 (0.08–9.87)</td>
+                        <td class="center">0.9294</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                    <tr class="">
+                        <td><strong>Ventilatory support</strong></td>
+                        <td class="center">27/66 (40.9%)</td>
+                        <td class="center">25/63 (39.7%)</td>
+                        <td class="center">2/3 (66.7%)</td>
+                        <td class="center">1.59 (0.67–3.81)</td>
+                        <td class="center">0.2951</td>
+                        <td class="center">—</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="footnote">
+                * Significance level: * p &lt; 0.05; ** p &lt; 0.01
+                <br/>Continuous variables analyzed with Mann-Whitney U test; categorical with Chi-square or Fisher's exact test
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <div class="section">
+            <div class="section-title">Summary of Statistically Significant Findings (p &lt; 0.05)</div>
+
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Variable</th>
+                        <th>Outcome</th>
+                        <th>OR (95% CI)</th>
+                        <th>P-value</th>
+                        <th>Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="sig-01">
+                        <td>Investigations</td>
+                        <td><strong>RV function</strong></td>
+                        <td>newrvgood</td>
+                        <td class="center">9.81 (3.27–29.44)</td>
+                        <td class="center">4.69e-05 **</td>
+                        <td>Highly sig.</td>
+                    </tr>
+
+                    <tr class="sig-01">
+                        <td>Investigations</td>
+                        <td><strong>TAPSE</strong></td>
+                        <td>newrvgood</td>
+                        <td class="center">3.84 (1.90–7.77)</td>
+                        <td class="center">0.0002 **</td>
+                        <td>Highly sig.</td>
+                    </tr>
+
+                    <tr class="sig-05">
+                        <td>Investigations</td>
+                        <td><strong>RV dilatation</strong></td>
+                        <td>newrvgood</td>
+                        <td class="center">2.23 (1.16–4.28)</td>
+                        <td class="center">0.0156 *</td>
+                        <td>Significant</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Statistical Methods</div>
+
+            <p style="margin: 10px 0; font-size: 11px; line-height: 1.6;">
+            <strong>Univariate Logistic Regression:</strong> For each predictor variable, a separate logistic regression model 
+            was fitted with the outcome variable (newrvgood or newrvbad) as the dependent variable. 
+            <br/><br/>
+            <strong>Odds Ratios:</strong> For continuous variables, OR represents the increase in odds per one standard deviation 
+            increase in the predictor. For binary categorical variables, OR represents the odds of the outcome in the presence 
+            versus absence of the predictor.
+            <br/><br/>
+            <strong>95% Confidence Intervals:</strong> Calculated using the standard error from the logistic regression 
+            information matrix. CI is derived as exp(β ± 1.96×SE).
+            <br/><br/>
+            <strong>P-values:</strong> Derived from Wald Z-test (Z = β/SE; two-tailed).
+            <br/><br/>
+            <strong>Statistical Tests (descriptive/comparative):</strong> Mann-Whitney U test for continuous variables 
+            (non-parametric); Chi-square test or Fisher's exact test for categorical variables.
+            <br/><br/>
+            <strong>Significance Level:</strong> α = 0.05 (two-tailed). No adjustment for multiple comparisons.
+            <br/><br/>
+            <strong>Missing Data:</strong> Subjects with missing outcome or predictor values were excluded from analysis 
+            (listwise deletion).
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #000; font-size: 10px;">
+            <p>Report generated: November 2025 | Analysis software: Python (scipy, sklearn, pandas)</p>
+            <p>This analysis is for research purposes only and should be interpreted by qualified statisticians and clinicians.</p>
+        </div>
+
     </div>
-
-    <script>
-        // Highlight significant findings
-        document.querySelectorAll('tr').forEach(row => {
-            const pval = row.querySelector('.p-value');
-            if (pval) {
-                const text = pval.textContent;
-                if (text.includes('e-') && parseFloat(text) < 0.01) {
-                    row.classList.add('sig-001');
-                }
-            }
-        });
-    </script>
 </body>
 </html>
