@@ -1,0 +1,2761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistical Analysis: Pulmonary Embolism RV Dysfunction Outcomes</title>
+    <style>
+        body {
+            font-family: 'Calibri', Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #5d6d7b;
+            margin-top: 20px;
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-left: 4px solid #3498db;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+        thead {
+            background-color: #34495e;
+            color: white;
+        }
+        th {
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #bdc3c7;
+        }
+        td {
+            padding: 10px 12px;
+            border: 1px solid #bdc3c7;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #f8f9fa;
+        }
+        tbody tr:hover {
+            background-color: #ecf0f1;
+        }
+        .summary {
+            background-color: #e8f4f8;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 3px;
+        }
+        .note {
+            font-style: italic;
+            color: #666;
+            font-size: 12px;
+            margin-top: 15px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #bdc3c7;
+            font-size: 12px;
+            color: #666;
+        }
+        .significant {
+            color: #c0392b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Statistical Analysis Report</h1>
+    <h2>Pulmonary Embolism: Right Ventricular Dysfunction Outcomes</h2>
+
+    <div class="summary">
+        <h3>Analysis Summary</h3>
+        <ul>
+            <li><strong>Study Design:</strong> Univariate Logistic Regression Analysis</li>
+            <li><strong>Total Sample:</strong> N = 116 pulmonary embolism patients</li>
+            <li><strong>Follow-up:</strong> 6-month clinical outcomes</li>
+            <li><strong>Primary Outcomes:</strong>
+                <ul>
+                    <li><strong>newrvbad:</strong> 6-month severe RV dysfunction (n=66, Case=3, Control=63)</li>
+                    <li><strong>newrvgood:</strong> 6-month improved RV dysfunction (n=66, Case=38, Control=28)</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h2>Outcome 1: Severe RV Dysfunction at 6-Month Follow-up (newrvbad)</h2>
+    
+    <h3>newrvbad (Severe RV dysfunction at 6mo)</h3>
+    <p><strong>Sample Size:</strong> Total n=66 (Case: 3, Control: 63)</p>
+    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%; font-size: 12px;">
+    <thead>
+    <tr style="background-color: #f0f0f0;">
+    <th style="width: 20%;">Variable</th>
+    <th style="width: 12%;">Total (n=66)</th>
+    <th style="width: 12%;">Group (-) (n=63)</th>
+    <th style="width: 12%;">Group (+) (n=3)</th>
+    <th style="width: 12%;">OR (95% CI)</th>
+    <th style="width: 10%;">P-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    <tr>
+    <td><strong>Age (years)</strong></td>
+    <td>55.39 ± 20.68</td>
+    <td>55.33 ± 21.13</td>
+    <td>56.67 ± 7.23</td>
+    <td>1.003 (0.948-1.062)</td>
+    <td>0.9125</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Sex: Female</strong></td>
+    <td>46</td>
+    <td>44</td>
+    <td>2</td>
+    <td>0.864 (0.074-10.109)</td>
+    <td>0.9070</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Sex: Male</strong></td>
+    <td>20</td>
+    <td>19</td>
+    <td>1</td>
+    <td>1.158 (0.099-13.554)</td>
+    <td>0.9070</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Race: Asian</strong></td>
+    <td>63</td>
+    <td>60</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Race: Caucasian</strong></td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>2.42e-08</td>
+    <td>0.9992</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Race: African</strong></td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>2.38e-08</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Hypertension: No</strong></td>
+    <td>40</td>
+    <td>37</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Hypertension: Yes</strong></td>
+    <td>26</td>
+    <td>26</td>
+    <td>0</td>
+    <td>7.19e-10</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Dyslipidemia: No</strong></td>
+    <td>52</td>
+    <td>49</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Dyslipidemia: Yes</strong></td>
+    <td>14</td>
+    <td>14</td>
+    <td>0</td>
+    <td>2.59e-09</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Diabetes Mellitus: No</strong></td>
+    <td>55</td>
+    <td>52</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Diabetes Mellitus: Yes</strong></td>
+    <td>11</td>
+    <td>11</td>
+    <td>0</td>
+    <td>2.75e-09</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>History of stroke: No</strong></td>
+    <td>62</td>
+    <td>59</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>History of stroke: Yes</strong></td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>8.47e-09</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Chronic kidney disease: No</strong></td>
+    <td>61</td>
+    <td>58</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Chronic kidney disease: Yes</strong></td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>8.32e-09</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Coronary artery disease: No</strong></td>
+    <td>65</td>
+    <td>62</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9992</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Coronary artery disease: Yes</strong></td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>2.42e-08</td>
+    <td>0.9992</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Cirrhosis: No</strong></td>
+    <td>62</td>
+    <td>60</td>
+    <td>2</td>
+    <td>0.100 (0.007-1.438)</td>
+    <td>0.0905</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Cirrhosis: Yes</strong></td>
+    <td>4</td>
+    <td>3</td>
+    <td>1</td>
+    <td>10.000 (0.695-143.807)</td>
+    <td>0.0905</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Connective tissue disease: No</strong></td>
+    <td>65</td>
+    <td>62</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9992</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Connective tissue disease: Yes</strong></td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>2.42e-08</td>
+    <td>0.9992</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Chronic lung disease: No</strong></td>
+    <td>66</td>
+    <td>63</td>
+    <td>3</td>
+    <td>0.218 (0.122-0.389)</td>
+    <td><0.001</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Atrial fibrillation: No</strong></td>
+    <td>66</td>
+    <td>63</td>
+    <td>3</td>
+    <td>0.218 (0.122-0.389)</td>
+    <td><0.001</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Active malignancy: No</strong></td>
+    <td>49</td>
+    <td>48</td>
+    <td>1</td>
+    <td>0.156 (0.013-1.846)</td>
+    <td>0.1407</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Active malignancy: Yes</strong></td>
+    <td>17</td>
+    <td>15</td>
+    <td>2</td>
+    <td>6.400 (0.542-75.628)</td>
+    <td>0.1407</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Underlying disease: none</strong></td>
+    <td>18</td>
+    <td>18</td>
+    <td>0</td>
+    <td>2.38e-09</td>
+    <td>0.9986</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Underlying disease: >= 1 medical disease</strong></td>
+    <td>48</td>
+    <td>45</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9986</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Immobilization: No</strong></td>
+    <td>63</td>
+    <td>60</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Immobilization: Yes</strong></td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>8.61e-09</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>History of OCP use: No</strong></td>
+    <td>53</td>
+    <td>50</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>History of OCP use: Yes</strong></td>
+    <td>13</td>
+    <td>13</td>
+    <td>0</td>
+    <td>2.64e-09</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Chronic smoking: No</strong></td>
+    <td>64</td>
+    <td>61</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Chronic smoking: Yes</strong></td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>2.38e-08</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Recent surgery: No</strong></td>
+    <td>64</td>
+    <td>61</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Recent surgery: Yes</strong></td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>2.38e-08</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Recent trauma: No</strong></td>
+    <td>63</td>
+    <td>60</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Recent trauma: Yes</strong></td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>8.61e-09</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Desaturation: No</strong></td>
+    <td>27</td>
+    <td>25</td>
+    <td>2</td>
+    <td>3.040 (0.262-35.334)</td>
+    <td>0.3743</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Desaturation: Yes</strong></td>
+    <td>39</td>
+    <td>38</td>
+    <td>1</td>
+    <td>0.329 (0.028-3.823)</td>
+    <td>0.3743</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Dyspnea at rest: No</strong></td>
+    <td>43</td>
+    <td>43</td>
+    <td>0</td>
+    <td>3.88e-10</td>
+    <td>0.9986</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Dyspnea at rest: Yes</strong></td>
+    <td>23</td>
+    <td>20</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9986</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Dyspnea on exertion: No</strong></td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>8.32e-09</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Dyspnea on exertion: Yes</strong></td>
+    <td>61</td>
+    <td>58</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Cough: No</strong></td>
+    <td>50</td>
+    <td>47</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Cough: Yes</strong></td>
+    <td>10</td>
+    <td>10</td>
+    <td>0</td>
+    <td>2.80e-09</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Cough: Hemoptysis</strong></td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>8.18e-09</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Syncope: No</strong></td>
+    <td>50</td>
+    <td>47</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Syncope: Yes</strong></td>
+    <td>16</td>
+    <td>16</td>
+    <td>0</td>
+    <td>2.48e-09</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Chest pain: No</strong></td>
+    <td>53</td>
+    <td>50</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Chest pain: Yes</strong></td>
+    <td>13</td>
+    <td>13</td>
+    <td>0</td>
+    <td>2.64e-09</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Leg edema: No</strong></td>
+    <td>52</td>
+    <td>49</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Leg edema: Yes</strong></td>
+    <td>14</td>
+    <td>14</td>
+    <td>0</td>
+    <td>2.59e-09</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Palpitation: No</strong></td>
+    <td>50</td>
+    <td>47</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Palpitation: Yes</strong></td>
+    <td>16</td>
+    <td>16</td>
+    <td>0</td>
+    <td>2.48e-09</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Fever: No</strong></td>
+    <td>61</td>
+    <td>58</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Fever: Yes</strong></td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>8.32e-09</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Respiratory failure: No</strong></td>
+    <td>63</td>
+    <td>61</td>
+    <td>2</td>
+    <td>0.066 (0.004-1.060)</td>
+    <td>0.0550</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Respiratory failure: Yes</strong></td>
+    <td>3</td>
+    <td>2</td>
+    <td>1</td>
+    <td>15.250 (0.943-246.602)</td>
+    <td>0.0550</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Body temperature</strong></td>
+    <td>36.87 ± 0.48</td>
+    <td>36.87 ± 0.49</td>
+    <td>36.73 ± 0.23</td>
+    <td>0.497 (0.031-8.048)</td>
+    <td>0.6228</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Heart rate</strong></td>
+    <td>105.26 ± 21.40</td>
+    <td>104.84 ± 21.69</td>
+    <td>114.00 ± 13.86</td>
+    <td>1.020 (0.968-1.074)</td>
+    <td>0.4640</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Respiration rate</strong></td>
+    <td>23.32 ± 4.73</td>
+    <td>23.19 ± 4.77</td>
+    <td>26.00 ± 3.46</td>
+    <td>1.097 (0.911-1.321)</td>
+    <td>0.3290</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Heart examination: Normal</strong></td>
+    <td>59</td>
+    <td>56</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Heart examination: Abnormal</strong></td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>2.18e-08</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Jugular vein distension: No</strong></td>
+    <td>59</td>
+    <td>56</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Jugular vein distension: Yes</strong></td>
+    <td>7</td>
+    <td>7</td>
+    <td>0</td>
+    <td>2.96e-09</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Leg edema: No</strong></td>
+    <td>45</td>
+    <td>42</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Leg edema: Yes</strong></td>
+    <td>21</td>
+    <td>21</td>
+    <td>0</td>
+    <td>8.16e-10</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Unnamed: 2_LAB</strong></td>
+    <td>81.07 ± 34.90</td>
+    <td>79.09 ± 33.16</td>
+    <td>154.00 ± nan</td>
+    <td>1.000</td>
+    <td>1.0000</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Unnamed: 3_LAB</strong></td>
+    <td>282.07 ± 77.95</td>
+    <td>282.94 ± 78.84</td>
+    <td>250.00 ± nan</td>
+    <td>1.000</td>
+    <td>1.0000</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Unnamed: 4_LAB</strong></td>
+    <td>29.56 ± 8.74</td>
+    <td>29.14 ± 8.40</td>
+    <td>47.00 ± nan</td>
+    <td>1.000</td>
+    <td>1.0000</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Unnamed: 5_LAB</strong></td>
+    <td>1.89 ± 1.06</td>
+    <td>1.91 ± 1.06</td>
+    <td>0.60 ± nan</td>
+    <td>5.83e-11</td>
+    <td>0.9997</td>
+    </tr>
+    
+    <tr>
+    <td><strong>sinus_INV: No</strong></td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>2.38e-08</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>sinus_INV: Yes</strong></td>
+    <td>64</td>
+    <td>61</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rate_INV: 60-100</strong></td>
+    <td>20</td>
+    <td>19</td>
+    <td>1</td>
+    <td>1.158 (0.099-13.554)</td>
+    <td>0.9070</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rate_INV: 100-150</strong></td>
+    <td>46</td>
+    <td>44</td>
+    <td>2</td>
+    <td>0.864 (0.074-10.109)</td>
+    <td>0.9070</td>
+    </tr>
+    
+    <tr>
+    <td><strong>s1q3t3_INV: No</strong></td>
+    <td>42</td>
+    <td>39</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>s1q3t3_INV: Yes</strong></td>
+    <td>24</td>
+    <td>24</td>
+    <td>0</td>
+    <td>7.57e-10</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvstrain_EKG_INV: No</strong></td>
+    <td>42</td>
+    <td>39</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvstrain_EKG_INV: Yes</strong></td>
+    <td>24</td>
+    <td>24</td>
+    <td>0</td>
+    <td>7.57e-10</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rbbb_INV: No</strong></td>
+    <td>60</td>
+    <td>57</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rbbb_INV: Yes</strong></td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>8.18e-09</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>cardiomegaly _INV: 0</strong></td>
+    <td>41</td>
+    <td>40</td>
+    <td>1</td>
+    <td>0.288 (0.025-3.347)</td>
+    <td>0.3196</td>
+    </tr>
+    
+    <tr>
+    <td><strong>cardiomegaly _INV: 1</strong></td>
+    <td>25</td>
+    <td>23</td>
+    <td>2</td>
+    <td>3.478 (0.299-40.496)</td>
+    <td>0.3196</td>
+    </tr>
+    
+    <tr>
+    <td><strong>trunk_INV: No</strong></td>
+    <td>53</td>
+    <td>50</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>trunk_INV: Yes</strong></td>
+    <td>13</td>
+    <td>13</td>
+    <td>0</td>
+    <td>2.64e-09</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>lung_INV: Normal</strong></td>
+    <td>48</td>
+    <td>46</td>
+    <td>2</td>
+    <td>0.739 (0.063-8.687)</td>
+    <td>0.8100</td>
+    </tr>
+    
+    <tr>
+    <td><strong>lung_INV: Pulmonary infiltration</strong></td>
+    <td>8</td>
+    <td>7</td>
+    <td>1</td>
+    <td>4.000 (0.320-50.005)</td>
+    <td>0.2820</td>
+    </tr>
+    
+    <tr>
+    <td><strong>lung_INV: Oligemic/Westermark sign</strong></td>
+    <td>7</td>
+    <td>7</td>
+    <td>0</td>
+    <td>2.96e-09</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>lung_INV: Hampton</strong></td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>8.61e-09</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>effusion_INV: No</strong></td>
+    <td>54</td>
+    <td>53</td>
+    <td>1</td>
+    <td>0.094 (0.008-1.142)</td>
+    <td>0.0635</td>
+    </tr>
+    
+    <tr>
+    <td><strong>effusion_INV: Yes</strong></td>
+    <td>12</td>
+    <td>10</td>
+    <td>2</td>
+    <td>10.600 (0.876-128.336)</td>
+    <td>0.0635</td>
+    </tr>
+    
+    <tr>
+    <td><strong>prox_clot_INV: Main trunk</strong></td>
+    <td>56</td>
+    <td>53</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>prox_clot_INV: Lobar</strong></td>
+    <td>8</td>
+    <td>8</td>
+    <td>0</td>
+    <td>2.90e-09</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>prox_clot_INV: Segmental/subsegmental</strong></td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>2.38e-08</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvstrain_CT_INV: No</strong></td>
+    <td>19</td>
+    <td>19</td>
+    <td>0</td>
+    <td>8.55e-10</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvstrain_CT_INV: Yes</strong></td>
+    <td>47</td>
+    <td>44</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvdilate_INV: No</strong></td>
+    <td>7</td>
+    <td>7</td>
+    <td>0</td>
+    <td>2.96e-09</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvdilate_INV: Mild</strong></td>
+    <td>35</td>
+    <td>32</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvdilate_INV: Moderate</strong></td>
+    <td>13</td>
+    <td>13</td>
+    <td>0</td>
+    <td>2.64e-09</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvdilate_INV: Severe</strong></td>
+    <td>11</td>
+    <td>11</td>
+    <td>0</td>
+    <td>2.75e-09</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvfunction_INV: No</strong></td>
+    <td>19</td>
+    <td>19</td>
+    <td>0</td>
+    <td>8.55e-10</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvfunction_INV: Mild</strong></td>
+    <td>21</td>
+    <td>18</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9985</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvfunction_INV: Moderate</strong></td>
+    <td>13</td>
+    <td>13</td>
+    <td>0</td>
+    <td>2.64e-09</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvfunction_INV: Severe</strong></td>
+    <td>13</td>
+    <td>13</td>
+    <td>0</td>
+    <td>2.64e-09</td>
+    <td>0.9988</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tapse_INV: Normal</strong></td>
+    <td>28</td>
+    <td>27</td>
+    <td>1</td>
+    <td>0.556 (0.048-6.478)</td>
+    <td>0.6390</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tapse_INV: Mild</strong></td>
+    <td>8</td>
+    <td>6</td>
+    <td>2</td>
+    <td>17.000 (1.334-216.676)</td>
+    <td>0.0291</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tapse_INV: Moderate</strong></td>
+    <td>17</td>
+    <td>17</td>
+    <td>0</td>
+    <td>2.11e-09</td>
+    <td>0.9986</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tapse_INV: Severe</strong></td>
+    <td>7</td>
+    <td>7</td>
+    <td>0</td>
+    <td>2.64e-09</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>pulmonaryht_INV: No</strong></td>
+    <td>4</td>
+    <td>4</td>
+    <td>0</td>
+    <td>7.03e-09</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>pulmonaryht_INV: Mild</strong></td>
+    <td>27</td>
+    <td>27</td>
+    <td>0</td>
+    <td>5.05e-10</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>pulmonaryht_INV: Moderate</strong></td>
+    <td>19</td>
+    <td>17</td>
+    <td>2</td>
+    <td>4.235 (0.359-50.012)</td>
+    <td>0.2518</td>
+    </tr>
+    
+    <tr>
+    <td><strong>pulmonaryht_INV: Severe</strong></td>
+    <td>6</td>
+    <td>5</td>
+    <td>1</td>
+    <td>4.800 (0.367-62.787)</td>
+    <td>0.2318</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tvr_INV: No</strong></td>
+    <td>6</td>
+    <td>6</td>
+    <td>0</td>
+    <td>7.46e-09</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tvr_INV: Mild</strong></td>
+    <td>26</td>
+    <td>24</td>
+    <td>2</td>
+    <td>2.833 (0.243-33.055)</td>
+    <td>0.4060</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tvr_INV: Moderate</strong></td>
+    <td>19</td>
+    <td>18</td>
+    <td>1</td>
+    <td>1.111 (0.095-13.059)</td>
+    <td>0.9332</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tvr_INV: Severe</strong></td>
+    <td>10</td>
+    <td>10</td>
+    <td>0</td>
+    <td>2.53e-09</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>dvt_INV: No</strong></td>
+    <td>10</td>
+    <td>10</td>
+    <td>0</td>
+    <td>1.000</td>
+    <td>1.0000</td>
+    </tr>
+    
+    <tr>
+    <td><strong>dvt_INV: Yes</strong></td>
+    <td>13</td>
+    <td>13</td>
+    <td>0</td>
+    <td>1.000</td>
+    <td>1.0000</td>
+    </tr>
+    
+    <tr>
+    <td><strong>anticoag_MGMT: LMWH</strong></td>
+    <td>40</td>
+    <td>38</td>
+    <td>2</td>
+    <td>1.316 (0.113-15.293)</td>
+    <td>0.8264</td>
+    </tr>
+    
+    <tr>
+    <td><strong>anticoag_MGMT: UFH</strong></td>
+    <td>26</td>
+    <td>25</td>
+    <td>1</td>
+    <td>0.760 (0.065-8.834)</td>
+    <td>0.8264</td>
+    </tr>
+    
+    <tr>
+    <td><strong>LMWH_MGMT: 0</strong></td>
+    <td>26</td>
+    <td>25</td>
+    <td>1</td>
+    <td>0.760 (0.065-8.834)</td>
+    <td>0.8264</td>
+    </tr>
+    
+    <tr>
+    <td><strong>LMWH_MGMT: 1</strong></td>
+    <td>40</td>
+    <td>38</td>
+    <td>2</td>
+    <td>1.316 (0.113-15.293)</td>
+    <td>0.8264</td>
+    </tr>
+    
+    <tr>
+    <td><strong>UFH_MGMT: 0</strong></td>
+    <td>40</td>
+    <td>38</td>
+    <td>2</td>
+    <td>1.316 (0.113-15.293)</td>
+    <td>0.8264</td>
+    </tr>
+    
+    <tr>
+    <td><strong>UFH_MGMT: 1</strong></td>
+    <td>26</td>
+    <td>25</td>
+    <td>1</td>
+    <td>0.760 (0.065-8.834)</td>
+    <td>0.8264</td>
+    </tr>
+    
+    <tr>
+    <td><strong>reperfusion_MGMT: None</strong></td>
+    <td>27</td>
+    <td>24</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>reperfusion_MGMT: Catheter-based fibrinolysis</strong></td>
+    <td>38</td>
+    <td>38</td>
+    <td>0</td>
+    <td>4.86e-10</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>reperfusion_MGMT: Surgical embolectomy</strong></td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>2.42e-08</td>
+    <td>0.9992</td>
+    </tr>
+    
+    <tr>
+    <td><strong>catheter-based fibrinolysis_MGMT: 0</strong></td>
+    <td>28</td>
+    <td>25</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>catheter-based fibrinolysis_MGMT: 1</strong></td>
+    <td>38</td>
+    <td>38</td>
+    <td>0</td>
+    <td>4.86e-10</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>systemic fibrinolysis_MGMT: 0</strong></td>
+    <td>66</td>
+    <td>63</td>
+    <td>3</td>
+    <td>0.218 (0.122-0.389)</td>
+    <td><0.001</td>
+    </tr>
+    
+    <tr>
+    <td><strong>surgical embolectomy_MGMT: 0</strong></td>
+    <td>65</td>
+    <td>62</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9992</td>
+    </tr>
+    
+    <tr>
+    <td><strong>surgical embolectomy_MGMT: 1</strong></td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>2.42e-08</td>
+    <td>0.9992</td>
+    </tr>
+    
+    <tr>
+    <td><strong>vent_MGMT: No</strong></td>
+    <td>21</td>
+    <td>21</td>
+    <td>0</td>
+    <td>8.16e-10</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>vent_MGMT: Oxygen cannula</strong></td>
+    <td>27</td>
+    <td>25</td>
+    <td>2</td>
+    <td>3.040 (0.262-35.334)</td>
+    <td>0.3743</td>
+    </tr>
+    
+    <tr>
+    <td><strong>vent_MGMT: Mask with bag</strong></td>
+    <td>9</td>
+    <td>9</td>
+    <td>0</td>
+    <td>2.85e-09</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>vent_MGMT: High flow nasal cannula</strong></td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>8.32e-09</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>vent_MGMT: Endotracheal tube</strong></td>
+    <td>4</td>
+    <td>3</td>
+    <td>1</td>
+    <td>10.000 (0.695-143.807)</td>
+    <td>0.0905</td>
+    </tr>
+    
+    <tr>
+    <td><strong>oxygen canula_MGMT: 0</strong></td>
+    <td>39</td>
+    <td>38</td>
+    <td>1</td>
+    <td>0.329 (0.028-3.823)</td>
+    <td>0.3743</td>
+    </tr>
+    
+    <tr>
+    <td><strong>oxygen canula_MGMT: 1</strong></td>
+    <td>27</td>
+    <td>25</td>
+    <td>2</td>
+    <td>3.040 (0.262-35.334)</td>
+    <td>0.3743</td>
+    </tr>
+    
+    <tr>
+    <td><strong>mask with bag_MGMT: 0</strong></td>
+    <td>57</td>
+    <td>54</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>mask with bag_MGMT: 1</strong></td>
+    <td>9</td>
+    <td>9</td>
+    <td>0</td>
+    <td>2.85e-09</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>High flow nasal canula_MGMT: 0</strong></td>
+    <td>61</td>
+    <td>58</td>
+    <td>3</td>
+    <td>N/C</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>High flow nasal canula_MGMT: 1</strong></td>
+    <td>5</td>
+    <td>5</td>
+    <td>0</td>
+    <td>8.32e-09</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>endotracheal tube_MGMT: 0</strong></td>
+    <td>62</td>
+    <td>60</td>
+    <td>2</td>
+    <td>0.100 (0.007-1.438)</td>
+    <td>0.0905</td>
+    </tr>
+    
+    <tr>
+    <td><strong>endotracheal tube_MGMT: 1</strong></td>
+    <td>4</td>
+    <td>3</td>
+    <td>1</td>
+    <td>10.000 (0.695-143.807)</td>
+    <td>0.0905</td>
+    </tr>
+    
+    </tbody>
+    </table>
+    <p style="margin-top: 20px;"><em>Note: OR = Odds Ratio, CI = Confidence Interval</em></p>
+    
+
+    <h2>Outcome 2: Improved RV Dysfunction at 6-Month Follow-up (newrvgood)</h2>
+    
+    <h3>newrvgood (Improved RV dysfunction at 6mo)</h3>
+    <p><strong>Sample Size:</strong> Total n=66 (Case: 38, Control: 28)</p>
+    <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%; font-size: 12px;">
+    <thead>
+    <tr style="background-color: #f0f0f0;">
+    <th style="width: 20%;">Variable</th>
+    <th style="width: 12%;">Total (n=66)</th>
+    <th style="width: 12%;">Group (-) (n=28)</th>
+    <th style="width: 12%;">Group (+) (n=38)</th>
+    <th style="width: 12%;">OR (95% CI)</th>
+    <th style="width: 10%;">P-value</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+    <tr>
+    <td><strong>Age (years)</strong></td>
+    <td>55.39 ± 20.68</td>
+    <td>53.39 ± 19.27</td>
+    <td>56.87 ± 21.79</td>
+    <td>1.008 (0.984-1.033)</td>
+    <td>0.4974</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Sex: Female</strong></td>
+    <td>46</td>
+    <td>17</td>
+    <td>29</td>
+    <td>2.085 (0.719-6.049)</td>
+    <td>0.1764</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Sex: Male</strong></td>
+    <td>20</td>
+    <td>11</td>
+    <td>9</td>
+    <td>0.480 (0.165-1.392)</td>
+    <td>0.1764</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Race: Asian</strong></td>
+    <td>63</td>
+    <td>27</td>
+    <td>36</td>
+    <td>0.667 (0.057-7.740)</td>
+    <td>0.7458</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Race: Caucasian</strong></td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>8.31e-10</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Race: African</strong></td>
+    <td>2</td>
+    <td>0</td>
+    <td>2</td>
+    <td>N/C</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Hypertension: No</strong></td>
+    <td>40</td>
+    <td>17</td>
+    <td>23</td>
+    <td>0.992 (0.365-2.695)</td>
+    <td>0.9877</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Hypertension: Yes</strong></td>
+    <td>26</td>
+    <td>11</td>
+    <td>15</td>
+    <td>1.008 (0.371-2.738)</td>
+    <td>0.9877</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Dyslipidemia: No</strong></td>
+    <td>52</td>
+    <td>23</td>
+    <td>29</td>
+    <td>0.700 (0.206-2.379)</td>
+    <td>0.5682</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Dyslipidemia: Yes</strong></td>
+    <td>14</td>
+    <td>5</td>
+    <td>9</td>
+    <td>1.428 (0.420-4.848)</td>
+    <td>0.5682</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Diabetes Mellitus: No</strong></td>
+    <td>55</td>
+    <td>24</td>
+    <td>31</td>
+    <td>0.738 (0.193-2.816)</td>
+    <td>0.6567</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Diabetes Mellitus: Yes</strong></td>
+    <td>11</td>
+    <td>4</td>
+    <td>7</td>
+    <td>1.355 (0.355-5.170)</td>
+    <td>0.6567</td>
+    </tr>
+    
+    <tr>
+    <td><strong>History of stroke: No</strong></td>
+    <td>62</td>
+    <td>25</td>
+    <td>37</td>
+    <td>4.440 (0.437-45.153)</td>
+    <td>0.2078</td>
+    </tr>
+    
+    <tr>
+    <td><strong>History of stroke: Yes</strong></td>
+    <td>4</td>
+    <td>3</td>
+    <td>1</td>
+    <td>0.225 (0.022-2.290)</td>
+    <td>0.2078</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Chronic kidney disease: No</strong></td>
+    <td>61</td>
+    <td>26</td>
+    <td>35</td>
+    <td>0.897 (0.140-5.764)</td>
+    <td>0.9092</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Chronic kidney disease: Yes</strong></td>
+    <td>5</td>
+    <td>2</td>
+    <td>3</td>
+    <td>1.114 (0.173-7.156)</td>
+    <td>0.9092</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Coronary artery disease: No</strong></td>
+    <td>65</td>
+    <td>28</td>
+    <td>37</td>
+    <td>1.55e-09</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Coronary artery disease: Yes</strong></td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>N/C</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Cirrhosis: No</strong></td>
+    <td>62</td>
+    <td>26</td>
+    <td>36</td>
+    <td>1.385 (0.183-10.478)</td>
+    <td>0.7526</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Cirrhosis: Yes</strong></td>
+    <td>4</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0.722 (0.095-5.465)</td>
+    <td>0.7526</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Connective tissue disease: No</strong></td>
+    <td>65</td>
+    <td>28</td>
+    <td>37</td>
+    <td>1.55e-09</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Connective tissue disease: Yes</strong></td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>N/C</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Chronic lung disease: No</strong></td>
+    <td>66</td>
+    <td>28</td>
+    <td>38</td>
+    <td>1.165 (0.913-1.487)</td>
+    <td>0.2201</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Atrial fibrillation: No</strong></td>
+    <td>66</td>
+    <td>28</td>
+    <td>38</td>
+    <td>1.165 (0.913-1.487)</td>
+    <td>0.2201</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Active malignancy: No</strong></td>
+    <td>49</td>
+    <td>19</td>
+    <td>30</td>
+    <td>1.776 (0.584-5.403)</td>
+    <td>0.3114</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Active malignancy: Yes</strong></td>
+    <td>17</td>
+    <td>9</td>
+    <td>8</td>
+    <td>0.563 (0.185-1.712)</td>
+    <td>0.3114</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Underlying disease: none</strong></td>
+    <td>18</td>
+    <td>7</td>
+    <td>11</td>
+    <td>1.222 (0.404-3.694)</td>
+    <td>0.7221</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Underlying disease: >= 1 medical disease</strong></td>
+    <td>48</td>
+    <td>21</td>
+    <td>27</td>
+    <td>0.818 (0.271-2.473)</td>
+    <td>0.7221</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Immobilization: No</strong></td>
+    <td>63</td>
+    <td>25</td>
+    <td>38</td>
+    <td>N/C</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Immobilization: Yes</strong></td>
+    <td>3</td>
+    <td>3</td>
+    <td>0</td>
+    <td>2.83e-10</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>History of OCP use: No</strong></td>
+    <td>53</td>
+    <td>25</td>
+    <td>28</td>
+    <td>0.336 (0.083-1.360)</td>
+    <td>0.1264</td>
+    </tr>
+    
+    <tr>
+    <td><strong>History of OCP use: Yes</strong></td>
+    <td>13</td>
+    <td>3</td>
+    <td>10</td>
+    <td>2.976 (0.735-12.050)</td>
+    <td>0.1264</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Chronic smoking: No</strong></td>
+    <td>64</td>
+    <td>26</td>
+    <td>38</td>
+    <td>N/C</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Chronic smoking: Yes</strong></td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>8.01e-10</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Recent surgery: No</strong></td>
+    <td>64</td>
+    <td>26</td>
+    <td>38</td>
+    <td>N/C</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Recent surgery: Yes</strong></td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>8.01e-10</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Recent trauma: No</strong></td>
+    <td>63</td>
+    <td>26</td>
+    <td>37</td>
+    <td>2.846 (0.245-33.060)</td>
+    <td>0.4032</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Recent trauma: Yes</strong></td>
+    <td>3</td>
+    <td>2</td>
+    <td>1</td>
+    <td>0.351 (0.030-4.081)</td>
+    <td>0.4032</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Desaturation: No</strong></td>
+    <td>27</td>
+    <td>12</td>
+    <td>15</td>
+    <td>0.870 (0.323-2.344)</td>
+    <td>0.7824</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Desaturation: Yes</strong></td>
+    <td>39</td>
+    <td>16</td>
+    <td>23</td>
+    <td>1.150 (0.427-3.100)</td>
+    <td>0.7824</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Dyspnea at rest: No</strong></td>
+    <td>43</td>
+    <td>16</td>
+    <td>27</td>
+    <td>1.841 (0.660-5.134)</td>
+    <td>0.2435</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Dyspnea at rest: Yes</strong></td>
+    <td>23</td>
+    <td>12</td>
+    <td>11</td>
+    <td>0.543 (0.195-1.515)</td>
+    <td>0.2435</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Dyspnea on exertion: No</strong></td>
+    <td>5</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0.463 (0.072-2.976)</td>
+    <td>0.4172</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Dyspnea on exertion: Yes</strong></td>
+    <td>61</td>
+    <td>25</td>
+    <td>36</td>
+    <td>2.160 (0.336-13.883)</td>
+    <td>0.4172</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Cough: No</strong></td>
+    <td>50</td>
+    <td>20</td>
+    <td>30</td>
+    <td>1.500 (0.484-4.651)</td>
+    <td>0.4825</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Cough: Yes</strong></td>
+    <td>10</td>
+    <td>3</td>
+    <td>7</td>
+    <td>1.882 (0.441-8.034)</td>
+    <td>0.3933</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Cough: Hemoptysis</strong></td>
+    <td>6</td>
+    <td>5</td>
+    <td>1</td>
+    <td>0.124 (0.014-1.132)</td>
+    <td>0.0644</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Syncope: No</strong></td>
+    <td>50</td>
+    <td>23</td>
+    <td>27</td>
+    <td>0.534 (0.162-1.762)</td>
+    <td>0.3027</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Syncope: Yes</strong></td>
+    <td>16</td>
+    <td>5</td>
+    <td>11</td>
+    <td>1.874 (0.568-6.188)</td>
+    <td>0.3027</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Chest pain: No</strong></td>
+    <td>53</td>
+    <td>21</td>
+    <td>32</td>
+    <td>1.778 (0.524-6.031)</td>
+    <td>0.3559</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Chest pain: Yes</strong></td>
+    <td>13</td>
+    <td>7</td>
+    <td>6</td>
+    <td>0.563 (0.166-1.908)</td>
+    <td>0.3559</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Leg edema: No</strong></td>
+    <td>52</td>
+    <td>22</td>
+    <td>30</td>
+    <td>1.023 (0.310-3.372)</td>
+    <td>0.9705</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Leg edema: Yes</strong></td>
+    <td>14</td>
+    <td>6</td>
+    <td>8</td>
+    <td>0.978 (0.297-3.224)</td>
+    <td>0.9705</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Palpitation: No</strong></td>
+    <td>50</td>
+    <td>23</td>
+    <td>27</td>
+    <td>0.534 (0.162-1.762)</td>
+    <td>0.3027</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Palpitation: Yes</strong></td>
+    <td>16</td>
+    <td>5</td>
+    <td>11</td>
+    <td>1.874 (0.568-6.188)</td>
+    <td>0.3027</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Fever: No</strong></td>
+    <td>61</td>
+    <td>24</td>
+    <td>37</td>
+    <td>6.167 (0.649-58.552)</td>
+    <td>0.1132</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Fever: Yes</strong></td>
+    <td>5</td>
+    <td>4</td>
+    <td>1</td>
+    <td>0.162 (0.017-1.540)</td>
+    <td>0.1132</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Respiratory failure: No</strong></td>
+    <td>63</td>
+    <td>26</td>
+    <td>37</td>
+    <td>2.846 (0.245-33.060)</td>
+    <td>0.4032</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Respiratory failure: Yes</strong></td>
+    <td>3</td>
+    <td>2</td>
+    <td>1</td>
+    <td>0.351 (0.030-4.081)</td>
+    <td>0.4032</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Body temperature</strong></td>
+    <td>36.87 ± 0.48</td>
+    <td>36.92 ± 0.52</td>
+    <td>36.82 ± 0.46</td>
+    <td>0.651 (0.232-1.831)</td>
+    <td>0.4160</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Heart rate</strong></td>
+    <td>105.26 ± 21.40</td>
+    <td>106.86 ± 24.36</td>
+    <td>104.08 ± 19.19</td>
+    <td>0.994 (0.971-1.017)</td>
+    <td>0.6005</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Respiration rate</strong></td>
+    <td>23.32 ± 4.73</td>
+    <td>23.21 ± 5.56</td>
+    <td>23.39 ± 4.10</td>
+    <td>1.008 (0.908-1.119)</td>
+    <td>0.8775</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Heart examination: Normal</strong></td>
+    <td>59</td>
+    <td>24</td>
+    <td>35</td>
+    <td>1.71e-09</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Heart examination: Abnormal</strong></td>
+    <td>2</td>
+    <td>0</td>
+    <td>2</td>
+    <td>N/C</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Jugular vein distension: No</strong></td>
+    <td>59</td>
+    <td>24</td>
+    <td>35</td>
+    <td>1.944 (0.399-9.483)</td>
+    <td>0.4108</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Jugular vein distension: Yes</strong></td>
+    <td>7</td>
+    <td>4</td>
+    <td>3</td>
+    <td>0.514 (0.105-2.508)</td>
+    <td>0.4108</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Leg edema: No</strong></td>
+    <td>45</td>
+    <td>21</td>
+    <td>24</td>
+    <td>0.571 (0.194-1.683)</td>
+    <td>0.3098</td>
+    </tr>
+    
+    <tr>
+    <td><strong>Leg edema: Yes</strong></td>
+    <td>21</td>
+    <td>7</td>
+    <td>14</td>
+    <td>1.750 (0.594-5.153)</td>
+    <td>0.3098</td>
+    </tr>
+    
+    <tr>
+    <td><strong>sinus_INV: No</strong></td>
+    <td>2</td>
+    <td>0</td>
+    <td>2</td>
+    <td>N/C</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>sinus_INV: Yes</strong></td>
+    <td>64</td>
+    <td>28</td>
+    <td>36</td>
+    <td>1.50e-09</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rate_INV: 60-100</strong></td>
+    <td>20</td>
+    <td>7</td>
+    <td>13</td>
+    <td>1.560 (0.526-4.625)</td>
+    <td>0.4225</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rate_INV: 100-150</strong></td>
+    <td>46</td>
+    <td>21</td>
+    <td>25</td>
+    <td>0.641 (0.216-1.900)</td>
+    <td>0.4225</td>
+    </tr>
+    
+    <tr>
+    <td><strong>s1q3t3_INV: No</strong></td>
+    <td>42</td>
+    <td>20</td>
+    <td>22</td>
+    <td>0.550 (0.194-1.560)</td>
+    <td>0.2611</td>
+    </tr>
+    
+    <tr>
+    <td><strong>s1q3t3_INV: Yes</strong></td>
+    <td>24</td>
+    <td>8</td>
+    <td>16</td>
+    <td>1.818 (0.641-5.157)</td>
+    <td>0.2611</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvstrain_EKG_INV: No</strong></td>
+    <td>42</td>
+    <td>21</td>
+    <td>21</td>
+    <td>0.412 (0.142-1.198)</td>
+    <td>0.1034</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvstrain_EKG_INV: Yes</strong></td>
+    <td>24</td>
+    <td>7</td>
+    <td>17</td>
+    <td>2.429 (0.835-7.066)</td>
+    <td>0.1034</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rbbb_INV: No</strong></td>
+    <td>60</td>
+    <td>26</td>
+    <td>34</td>
+    <td>0.654 (0.111-3.848)</td>
+    <td>0.6385</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rbbb_INV: Yes</strong></td>
+    <td>6</td>
+    <td>2</td>
+    <td>4</td>
+    <td>1.529 (0.260-9.002)</td>
+    <td>0.6385</td>
+    </tr>
+    
+    <tr>
+    <td><strong>cardiomegaly _INV: 0</strong></td>
+    <td>41</td>
+    <td>18</td>
+    <td>23</td>
+    <td>0.852 (0.310-2.340)</td>
+    <td>0.7558</td>
+    </tr>
+    
+    <tr>
+    <td><strong>cardiomegaly _INV: 1</strong></td>
+    <td>25</td>
+    <td>10</td>
+    <td>15</td>
+    <td>1.174 (0.427-3.224)</td>
+    <td>0.7558</td>
+    </tr>
+    
+    <tr>
+    <td><strong>trunk_INV: No</strong></td>
+    <td>53</td>
+    <td>23</td>
+    <td>30</td>
+    <td>0.815 (0.235-2.824)</td>
+    <td>0.7472</td>
+    </tr>
+    
+    <tr>
+    <td><strong>trunk_INV: Yes</strong></td>
+    <td>13</td>
+    <td>5</td>
+    <td>8</td>
+    <td>1.227 (0.354-4.249)</td>
+    <td>0.7472</td>
+    </tr>
+    
+    <tr>
+    <td><strong>lung_INV: Normal</strong></td>
+    <td>48</td>
+    <td>19</td>
+    <td>29</td>
+    <td>1.526 (0.513-4.540)</td>
+    <td>0.4471</td>
+    </tr>
+    
+    <tr>
+    <td><strong>lung_INV: Pulmonary infiltration</strong></td>
+    <td>8</td>
+    <td>5</td>
+    <td>3</td>
+    <td>0.394 (0.086-1.812)</td>
+    <td>0.2316</td>
+    </tr>
+    
+    <tr>
+    <td><strong>lung_INV: Oligemic/Westermark sign</strong></td>
+    <td>7</td>
+    <td>3</td>
+    <td>4</td>
+    <td>0.980 (0.201-4.777)</td>
+    <td>0.9804</td>
+    </tr>
+    
+    <tr>
+    <td><strong>lung_INV: Hampton</strong></td>
+    <td>3</td>
+    <td>1</td>
+    <td>2</td>
+    <td>1.500 (0.129-17.414)</td>
+    <td>0.7458</td>
+    </tr>
+    
+    <tr>
+    <td><strong>effusion_INV: No</strong></td>
+    <td>54</td>
+    <td>23</td>
+    <td>31</td>
+    <td>0.963 (0.271-3.422)</td>
+    <td>0.9532</td>
+    </tr>
+    
+    <tr>
+    <td><strong>effusion_INV: Yes</strong></td>
+    <td>12</td>
+    <td>5</td>
+    <td>7</td>
+    <td>1.039 (0.292-3.692)</td>
+    <td>0.9532</td>
+    </tr>
+    
+    <tr>
+    <td><strong>prox_clot_INV: Main trunk</strong></td>
+    <td>56</td>
+    <td>23</td>
+    <td>33</td>
+    <td>1.435 (0.372-5.530)</td>
+    <td>0.5999</td>
+    </tr>
+    
+    <tr>
+    <td><strong>prox_clot_INV: Lobar</strong></td>
+    <td>8</td>
+    <td>3</td>
+    <td>5</td>
+    <td>1.263 (0.275-5.789)</td>
+    <td>0.7641</td>
+    </tr>
+    
+    <tr>
+    <td><strong>prox_clot_INV: Segmental/subsegmental</strong></td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>8.01e-10</td>
+    <td>0.9987</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvstrain_CT_INV: No</strong></td>
+    <td>19</td>
+    <td>11</td>
+    <td>8</td>
+    <td>0.412 (0.139-1.223)</td>
+    <td>0.1102</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvstrain_CT_INV: Yes</strong></td>
+    <td>47</td>
+    <td>17</td>
+    <td>30</td>
+    <td>2.426 (0.818-7.202)</td>
+    <td>0.1102</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvdilate_INV: No</strong></td>
+    <td>7</td>
+    <td>5</td>
+    <td>2</td>
+    <td>0.256 (0.046-1.429)</td>
+    <td>0.1203</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvdilate_INV: Mild</strong></td>
+    <td>35</td>
+    <td>18</td>
+    <td>17</td>
+    <td>0.450 (0.165-1.226)</td>
+    <td>0.1185</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvdilate_INV: Moderate</strong></td>
+    <td>13</td>
+    <td>3</td>
+    <td>10</td>
+    <td>2.976 (0.735-12.050)</td>
+    <td>0.1264</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvdilate_INV: Severe</strong></td>
+    <td>11</td>
+    <td>2</td>
+    <td>9</td>
+    <td>4.034 (0.798-20.408)</td>
+    <td>0.0917</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvfunction_INV: No</strong></td>
+    <td>19</td>
+    <td>19</td>
+    <td>0</td>
+    <td>1.38e-11</td>
+    <td>0.9989</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvfunction_INV: Mild</strong></td>
+    <td>21</td>
+    <td>8</td>
+    <td>13</td>
+    <td>1.300 (0.451-3.748)</td>
+    <td>0.6273</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvfunction_INV: Moderate</strong></td>
+    <td>13</td>
+    <td>1</td>
+    <td>12</td>
+    <td>12.462 (1.511-102.778)</td>
+    <td>0.0191</td>
+    </tr>
+    
+    <tr>
+    <td><strong>rvfunction_INV: Severe</strong></td>
+    <td>13</td>
+    <td>0</td>
+    <td>13</td>
+    <td>N/C</td>
+    <td>0.9986</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tapse_INV: Normal</strong></td>
+    <td>28</td>
+    <td>20</td>
+    <td>8</td>
+    <td>0.074 (0.021-0.261)</td>
+    <td><0.001</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tapse_INV: Mild</strong></td>
+    <td>8</td>
+    <td>3</td>
+    <td>5</td>
+    <td>1.222 (0.264-5.664)</td>
+    <td>0.7976</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tapse_INV: Moderate</strong></td>
+    <td>17</td>
+    <td>2</td>
+    <td>15</td>
+    <td>8.625 (1.755-42.400)</td>
+    <td>0.0080</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tapse_INV: Severe</strong></td>
+    <td>7</td>
+    <td>0</td>
+    <td>7</td>
+    <td>N/C</td>
+    <td>0.9990</td>
+    </tr>
+    
+    <tr>
+    <td><strong>pulmonaryht_INV: No</strong></td>
+    <td>4</td>
+    <td>1</td>
+    <td>3</td>
+    <td>2.032 (0.198-20.888)</td>
+    <td>0.5508</td>
+    </tr>
+    
+    <tr>
+    <td><strong>pulmonaryht_INV: Mild</strong></td>
+    <td>27</td>
+    <td>10</td>
+    <td>17</td>
+    <td>1.200 (0.409-3.517)</td>
+    <td>0.7396</td>
+    </tr>
+    
+    <tr>
+    <td><strong>pulmonaryht_INV: Moderate</strong></td>
+    <td>19</td>
+    <td>9</td>
+    <td>10</td>
+    <td>0.602 (0.195-1.855)</td>
+    <td>0.3766</td>
+    </tr>
+    
+    <tr>
+    <td><strong>pulmonaryht_INV: Severe</strong></td>
+    <td>6</td>
+    <td>2</td>
+    <td>4</td>
+    <td>1.333 (0.223-7.980)</td>
+    <td>0.7527</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tvr_INV: No</strong></td>
+    <td>6</td>
+    <td>4</td>
+    <td>2</td>
+    <td>0.309 (0.052-1.836)</td>
+    <td>0.1963</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tvr_INV: Mild</strong></td>
+    <td>26</td>
+    <td>11</td>
+    <td>15</td>
+    <td>0.909 (0.324-2.549)</td>
+    <td>0.8562</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tvr_INV: Moderate</strong></td>
+    <td>19</td>
+    <td>5</td>
+    <td>14</td>
+    <td>2.545 (0.777-8.344)</td>
+    <td>0.1230</td>
+    </tr>
+    
+    <tr>
+    <td><strong>tvr_INV: Severe</strong></td>
+    <td>10</td>
+    <td>5</td>
+    <td>5</td>
+    <td>0.645 (0.165-2.516)</td>
+    <td>0.5280</td>
+    </tr>
+    
+    <tr>
+    <td><strong>dvt_INV: No</strong></td>
+    <td>10</td>
+    <td>3</td>
+    <td>7</td>
+    <td>2.000 (0.352-11.365)</td>
+    <td>0.4342</td>
+    </tr>
+    
+    <tr>
+    <td><strong>dvt_INV: Yes</strong></td>
+    <td>13</td>
+    <td>6</td>
+    <td>7</td>
+    <td>0.500 (0.088-2.841)</td>
+    <td>0.4342</td>
+    </tr>
+    
+    <tr>
+    <td><strong>anticoag_MGMT: LMWH</strong></td>
+    <td>40</td>
+    <td>18</td>
+    <td>22</td>
+    <td>0.764 (0.279-2.089)</td>
+    <td>0.5998</td>
+    </tr>
+    
+    <tr>
+    <td><strong>anticoag_MGMT: UFH</strong></td>
+    <td>26</td>
+    <td>10</td>
+    <td>16</td>
+    <td>1.309 (0.479-3.580)</td>
+    <td>0.5998</td>
+    </tr>
+    
+    <tr>
+    <td><strong>LMWH_MGMT: 0</strong></td>
+    <td>26</td>
+    <td>10</td>
+    <td>16</td>
+    <td>1.309 (0.479-3.580)</td>
+    <td>0.5998</td>
+    </tr>
+    
+    <tr>
+    <td><strong>LMWH_MGMT: 1</strong></td>
+    <td>40</td>
+    <td>18</td>
+    <td>22</td>
+    <td>0.764 (0.279-2.089)</td>
+    <td>0.5998</td>
+    </tr>
+    
+    <tr>
+    <td><strong>UFH_MGMT: 0</strong></td>
+    <td>40</td>
+    <td>18</td>
+    <td>22</td>
+    <td>0.764 (0.279-2.089)</td>
+    <td>0.5998</td>
+    </tr>
+    
+    <tr>
+    <td><strong>UFH_MGMT: 1</strong></td>
+    <td>26</td>
+    <td>10</td>
+    <td>16</td>
+    <td>1.309 (0.479-3.580)</td>
+    <td>0.5998</td>
+    </tr>
+    
+    <tr>
+    <td><strong>reperfusion_MGMT: None</strong></td>
+    <td>27</td>
+    <td>13</td>
+    <td>14</td>
+    <td>0.673 (0.249-1.817)</td>
+    <td>0.4346</td>
+    </tr>
+    
+    <tr>
+    <td><strong>reperfusion_MGMT: Catheter-based fibrinolysis</strong></td>
+    <td>38</td>
+    <td>15</td>
+    <td>23</td>
+    <td>1.329 (0.495-3.567)</td>
+    <td>0.5724</td>
+    </tr>
+    
+    <tr>
+    <td><strong>reperfusion_MGMT: Surgical embolectomy</strong></td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>N/C</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>catheter-based fibrinolysis_MGMT: 0</strong></td>
+    <td>28</td>
+    <td>13</td>
+    <td>15</td>
+    <td>0.753 (0.280-2.020)</td>
+    <td>0.5724</td>
+    </tr>
+    
+    <tr>
+    <td><strong>catheter-based fibrinolysis_MGMT: 1</strong></td>
+    <td>38</td>
+    <td>15</td>
+    <td>23</td>
+    <td>1.329 (0.495-3.567)</td>
+    <td>0.5724</td>
+    </tr>
+    
+    <tr>
+    <td><strong>systemic fibrinolysis_MGMT: 0</strong></td>
+    <td>66</td>
+    <td>28</td>
+    <td>38</td>
+    <td>1.165 (0.913-1.487)</td>
+    <td>0.2201</td>
+    </tr>
+    
+    <tr>
+    <td><strong>surgical embolectomy_MGMT: 0</strong></td>
+    <td>65</td>
+    <td>28</td>
+    <td>37</td>
+    <td>1.55e-09</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>surgical embolectomy_MGMT: 1</strong></td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>N/C</td>
+    <td>0.9991</td>
+    </tr>
+    
+    <tr>
+    <td><strong>vent_MGMT: No</strong></td>
+    <td>21</td>
+    <td>9</td>
+    <td>12</td>
+    <td>0.974 (0.342-2.777)</td>
+    <td>0.9612</td>
+    </tr>
+    
+    <tr>
+    <td><strong>vent_MGMT: Oxygen cannula</strong></td>
+    <td>27</td>
+    <td>14</td>
+    <td>13</td>
+    <td>0.520 (0.191-1.412)</td>
+    <td>0.1995</td>
+    </tr>
+    
+    <tr>
+    <td><strong>vent_MGMT: Mask with bag</strong></td>
+    <td>9</td>
+    <td>1</td>
+    <td>8</td>
+    <td>7.200 (0.845-61.372)</td>
+    <td>0.0710</td>
+    </tr>
+    
+    <tr>
+    <td><strong>vent_MGMT: High flow nasal cannula</strong></td>
+    <td>5</td>
+    <td>2</td>
+    <td>3</td>
+    <td>1.114 (0.173-7.156)</td>
+    <td>0.9092</td>
+    </tr>
+    
+    <tr>
+    <td><strong>vent_MGMT: Endotracheal tube</strong></td>
+    <td>4</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0.722 (0.095-5.465)</td>
+    <td>0.7526</td>
+    </tr>
+    
+    <tr>
+    <td><strong>oxygen canula_MGMT: 0</strong></td>
+    <td>39</td>
+    <td>14</td>
+    <td>25</td>
+    <td>1.923 (0.708-5.222)</td>
+    <td>0.1995</td>
+    </tr>
+    
+    <tr>
+    <td><strong>oxygen canula_MGMT: 1</strong></td>
+    <td>27</td>
+    <td>14</td>
+    <td>13</td>
+    <td>0.520 (0.191-1.412)</td>
+    <td>0.1995</td>
+    </tr>
+    
+    <tr>
+    <td><strong>mask with bag_MGMT: 0</strong></td>
+    <td>57</td>
+    <td>27</td>
+    <td>30</td>
+    <td>0.139 (0.016-1.184)</td>
+    <td>0.0710</td>
+    </tr>
+    
+    <tr>
+    <td><strong>mask with bag_MGMT: 1</strong></td>
+    <td>9</td>
+    <td>1</td>
+    <td>8</td>
+    <td>7.200 (0.845-61.372)</td>
+    <td>0.0710</td>
+    </tr>
+    
+    <tr>
+    <td><strong>High flow nasal canula_MGMT: 0</strong></td>
+    <td>61</td>
+    <td>26</td>
+    <td>35</td>
+    <td>0.897 (0.140-5.764)</td>
+    <td>0.9092</td>
+    </tr>
+    
+    <tr>
+    <td><strong>High flow nasal canula_MGMT: 1</strong></td>
+    <td>5</td>
+    <td>2</td>
+    <td>3</td>
+    <td>1.114 (0.173-7.156)</td>
+    <td>0.9092</td>
+    </tr>
+    
+    <tr>
+    <td><strong>endotracheal tube_MGMT: 0</strong></td>
+    <td>62</td>
+    <td>26</td>
+    <td>36</td>
+    <td>1.385 (0.183-10.478)</td>
+    <td>0.7526</td>
+    </tr>
+    
+    <tr>
+    <td><strong>endotracheal tube_MGMT: 1</strong></td>
+    <td>4</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0.722 (0.095-5.465)</td>
+    <td>0.7526</td>
+    </tr>
+    
+    </tbody>
+    </table>
+    <p style="margin-top: 20px;"><em>Note: OR = Odds Ratio, CI = Confidence Interval</em></p>
+    
+
+    <div class="footer">
+        <h3>Statistical Methods</h3>
+        <p>
+            <strong>Descriptive Statistics:</strong> Continuous variables are presented as mean ± SD or median (IQR), 
+            and categorical variables as frequency (percentage).<br>
+            <strong>Comparative Analysis:</strong> Categorical variables were compared using Chi-square or Fisher's exact test. 
+            Continuous variables were compared using independent t-test or Mann-Whitney U test.<br>
+            <strong>Univariate Logistic Regression:</strong> Crude Odds Ratios (OR) with 95% confidence intervals (CI) and p-values 
+            were calculated for each variable using logistic regression models.
+        </p>
+        <p><strong>Report Generated:</strong> 2025-11-27 18:39:24</p>
+    </div>
+</div>
+</body>
+</html>
