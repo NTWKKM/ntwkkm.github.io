@@ -3,418 +3,346 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หลักการทางฟิสิกส์ของการจำลองเครื่องช่วยหายใจ (VentSim Dual-Lung)</title>
+    <title>Advanced VentSim: Physiology Engine</title>
     <style>
         /* --- Styles (Dark Mode) --- */
-        body { font-family: 'Sukhumvit Set', 'Kanit', sans-serif; line-height: 1.7; color: #eeeeee; margin: 0; padding: 20px; background-color: #222831; }
-        .container { max-width: 900px; margin: auto; background: #393e46; padding: 30px 40px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4); }
+        body { font-family: 'Segoe UI', 'Kanit', sans-serif; line-height: 1.6; color: #e0e0e0; margin: 0; padding: 20px; background-color: #1a1d21; }
+        .container { max-width: 1000px; margin: auto; background: #2c313a; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         
-        h1 { color: #74d0f7; border-bottom: 4px solid #74d0f7; padding-bottom: 12px; margin-bottom: 30px; text-align: center; font-size: 2em; font-weight: 800; }
-        h2 { color: #a4c9ff; border-left: 6px solid #4a90e2; padding-left: 15px; margin-top: 40px; margin-bottom: 20px; font-size: 1.5em; font-weight: 700; background-color: #4a5462; padding-top: 5px; padding-bottom: 5px; border-radius: 4px; }
-        h3 { color: #4ade80; margin-top: 25px; margin-bottom: 12px; font-size: 1.25em; font-weight: 700; }
+        h1 { color: #61afef; border-bottom: 3px solid #61afef; padding-bottom: 10px; text-align: center; }
+        h3 { color: #98c379; margin-top: 25px; border-left: 5px solid #98c379; padding-left: 10px; }
         
-        .equation { 
-            background-color: #2e343d; border: 1px solid #4a90e2; border-radius: 8px; padding: 20px; margin: 20px 0 0; 
-            overflow-x: auto; font-family: 'Consolas', 'Courier New', monospace; font-size: 1.2em; font-weight: 700; text-align: center;
-        }
-        .equation strong { color: #74d0f7; }
-        .info-box { background-color: #4a4f56; border: 1px solid #757b85; padding: 15px; margin: 15px 0; border-radius: 8px; font-size: 0.95em; }
-        .info-box p, .info-box ul { color: #dddddd; }
-        .highlight { color: #ff7f7f; font-weight: 700; }
-        .icon { font-size: 1.2em; margin-right: 8px; }
-
-        /* Color Coding Boxes */
-        .elastic-box { background-color: #424f46; border-color: #4ade80; }
-        .resistive-box { background-color: #554446; border-color: #ff7f7f; }
-        .gas-exchange-box { background-color: #40485a; border-color: #74d0f7; }
-        .setting-box { background-color: #444a56; border-color: #a4c9ff; }
-        .graph-box { background-color: #424653; border-color: #f7b44e; }
-
-        hr { border: 0; height: 1px; background-color: #555555; margin: 30px 0; }
-
-        /* Simulation UI */
-        .sim-container { background-color: #1e2126; border: 1px solid #555; border-radius: 8px; padding: 15px; margin-top: 20px; }
-        .controls { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; align-items: center; }
-        .btn { 
-            background-color: #393e46; color: white; border: 1px solid #4a90e2; padding: 8px 16px; border-radius: 4px; cursor: pointer; transition: 0.2s; font-family: inherit; font-size: 0.9em;
-        }
-        .btn:hover { background-color: #4a90e2; }
-        .btn.active { background-color: #4a90e2; font-weight: bold; box-shadow: 0 0 8px rgba(74, 144, 226, 0.5); }
-        .btn.control-btn { border-color: #f7b44e; color: #f7b44e; }
-        .btn.control-btn:hover { background-color: #f7b44e; color: #222; }
-        .btn.control-btn.paused { background-color: #f7b44e; color: #222; }
+        .sim-box { background: #21252b; border: 1px solid #3e4451; border-radius: 8px; padding: 20px; margin-top: 20px; }
         
-        canvas { background-color: #000; border: 1px solid #333; width: 100%; display: block; margin-bottom: 5px; border-radius: 4px; }
-        .monitor-values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 10px; }
-        .monitor-card { background: #222; padding: 8px; border-radius: 4px; text-align: center; border: 1px solid #444; }
-        .monitor-label { font-size: 0.8em; color: #aaa; display: block; }
-        .monitor-val { font-size: 1.2em; font-weight: bold; color: #fff; }
-        .text-blue { color: #4a90e2; } .text-green { color: #4ade80; } .text-red { color: #ff7f7f; } .text-yellow { color: #f7b44e; }
+        /* Controls */
+        .controls { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; justify-content: center; }
+        .btn { background: #3e4451; color: #fff; border: 1px solid #5c6370; padding: 8px 16px; border-radius: 4px; cursor: pointer; transition: 0.2s; }
+        .btn:hover { background: #61afef; border-color: #61afef; color: #21252b; }
+        .btn.active { background: #61afef; color: #21252b; font-weight: bold; box-shadow: 0 0 10px rgba(97, 175, 239, 0.4); }
+        .btn-play { border-color: #e5c07b; color: #e5c07b; }
+        .btn-play:hover { background: #e5c07b; color: #21252b; }
+
+        /* Monitors */
+        .monitor-panel { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 15px; }
+        .monitor-card { background: #181a1f; padding: 10px; border-radius: 6px; text-align: center; border: 1px solid #333; }
+        .monitor-label { font-size: 0.75em; color: #abb2bf; display: block; margin-bottom: 5px; }
+        .monitor-val { font-size: 1.4em; font-weight: bold; font-family: 'Consolas', monospace; }
+        .text-blue { color: #61afef; } .text-green { color: #98c379; } .text-yellow { color: #e5c07b; } .text-red { color: #e06c75; }
+
+        /* Canvas */
+        canvas { background: #000; border: 1px solid #5c6370; width: 100%; display: block; border-radius: 4px; }
+
+        /* Explanations */
+        .phys-info { font-size: 0.9em; background: #333842; padding: 15px; border-radius: 6px; margin-top: 20px; color: #d1d5db; }
+        .phys-tag { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; font-weight: bold; margin-right: 5px; }
+        .tag-res { background: #e06c75; color: #21252b; }
+        .tag-comp { background: #98c379; color: #21252b; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>หลักการทางฟิสิกส์ของการจำลองเครื่องช่วยหายใจ (VentSim Dual-Lung)</h1>
-        <p>การจำลองนี้ถูกออกแบบโดยใช้ **Non-Linear Model** ซึ่งต่อยอดจากกลศาสตร์การหายใจแบบดั้งเดิม เพื่อให้สามารถจำลองการทำงานของปอดที่มีความซับซ้อนและมีพยาธิสภาพที่แตกต่างกัน (Dual-Lung) ได้อย่างสมจริง</p>
 
-        <div class="sim-container">
-            <h3 style="margin-top:0; color:#fff; border-bottom:1px solid #444; padding-bottom:10px;">
-                <span class="icon">💻</span> Live Simulation (กราฟจำลองการทำงานจริง)
-            </h3>
-            <div style="font-size: 0.9em; color: #aaa; margin-bottom: 10px;">
-                <strong>Setting:</strong> Mode: PCV | Pinsp: 10 | PEEP: 5 | RR: 14 | Ti: 1.0s | Pmus: 0 | <strong>Display: ~6-7 Breath Cycles (30s)</strong>
-            </div>
-            
-            <div class="controls">
-                <button class="btn control-btn" id="btn-toggle" onclick="toggleSim()">⏸ Pause</button>
-                <div style="width: 1px; height: 30px; background: #444; margin: 0 10px;"></div>
-                <button class="btn active" onclick="setPreset('NORMAL')">Normal</button>
-                <button class="btn" onclick="setPreset('ARDS')">ARDS (Stiff)</button>
-                <button class="btn" onclick="setPreset('COPD')">COPD (Obstructive)</button>
-                <button class="btn" onclick="setPreset('DUAL')">Dual-Lung (Unilateral)</button>
-            </div>
+<div class="container">
+    <h1>Advanced Respiratory Physics Engine (Non-Linear)</h1>
+    <p style="text-align: center; color: #abb2bf;">จำลองกลศาสตร์ปอดตามหลักสรีรวิทยา: Hysteresis, Turbulence, และ Volume-Dependent Resistance</p>
 
-            <div class="monitor-values">
-                <div class="monitor-card"><span class="monitor-label">Ppeak</span><span class="monitor-val text-yellow" id="val-ppeak">--</span></div>
-                <div class="monitor-card"><span class="monitor-label">Vte (ml)</span><span class="monitor-val text-blue" id="val-vte">--</span></div>
-                <div class="monitor-card"><span class="monitor-label">MV (L)</span><span class="monitor-val text-green" id="val-mv">--</span></div>
-                <div class="monitor-card"><span class="monitor-label">RR</span><span class="monitor-val text-blue">14</span></div>
-            </div>
-
-            <canvas id="waveforms" height="300"></canvas>
-            </div>
-
-        <hr>
-        <h2><span class="icon">⚙️</span> 1. สมการการเคลื่อนที่และวงจรคู่ขนาน (Dual-Lung)</h2>
-        <p>หัวใจของการจำลองคือสมการการเคลื่อนที่ ซึ่งกำหนดแรงดันที่ต้องใช้ในการขยายปอดในแต่ละช่วงเวลา (P<sub>alv</sub>) โดยมีส่วนประกอบหลัก 3 ส่วน:</p>
-
-        <div class="equation">
-            P<sub>alv</sub> = (V / C) &nbsp;&nbsp;+&nbsp;&nbsp; (F &middot; R) &nbsp;&nbsp;+&nbsp;&nbsp; PEEP &nbsp;&nbsp;-&nbsp;&nbsp; P<sub>mus</sub>
-        </div>
-        <div style="font-size: 0.9em; text-align: center; margin-top: 5px; margin-bottom: 20px;">
-            <span style="color: #4ade80; margin-right: 50px;">(Elastic P.)</span> <span style="color: #ff7f7f;">(Resistive P.)</span>
+    <div class="sim-box">
+        <div class="controls">
+            <button class="btn btn-play" id="btn-toggle" onclick="toggleSim()">⏸ Pause</button>
+            <div style="width: 1px; background: #555; height: 30px; margin: 0 10px;"></div>
+            <button class="btn active" onclick="setPreset('NORMAL')">Normal Lung</button>
+            <button class="btn" onclick="setPreset('ARDS')">ARDS (Stiff & Hysteresis)</button>
+            <button class="btn" onclick="setPreset('COPD')">COPD (Dynamic Compression)</button>
+            <button class="btn" onclick="setPreset('FIBROSIS')">Fibrosis (Restrictive)</button>
         </div>
 
-        <h3><span class="icon">🫁</span> วงจรคู่ขนาน (Dual-Lung Parallel Circuit)</h3>
-        <div class="info-box elastic-box">
-            <p style="color: #4ade80;">**ความหมาย:** ปอดซ้าย (R<sub>L</sub>, C<sub>L</sub>) และปอดขวา (R<sub>R</sub>, C<sub>R</sub>) ถูกจำลองให้เป็นวงจรไฟฟ้าแบบขนาน หากคุณตั้งค่าให้ปอดทั้งสองข้างมีค่าต่างกัน จะเกิดการกระจายการไหลของอากาศ (F) ที่ไม่เท่ากัน และส่งผลต่อปริมาตรที่ได้รับ:</p>
-            <ul>
-                <li>**ปอดที่มี R &middot; C (Time Constant) ต่ำ:** ปอดจะขยายตัวและยุบตัวจนถึงความสมดุลได้เร็วกว่า และได้รับ Volume ก่อนในโหมด PCV/PSV</li>
-            </ul>
-        </div>
-        
-        <h3><span class="icon">💨</span> Circuit Compliance</h3>
-        <p>มีการจำลองปริมาตรอากาศที่สูญเสียไปในสายวงจรช่วยหายใจ (volCircuit) ซึ่งไม่ได้เข้าถึงปอด แต่ถูกนับรวมใน flowTotal ที่เครื่องวัดได้ ทำให้ Vt ที่เครื่องอ่านได้สูงกว่าปริมาตรที่เข้าปอดจริงเล็กน้อย</p>
-
-        <hr>
-        <h2><span class="icon">🔬</span> 2. กลศาสตร์ที่ไม่เป็นเชิงเส้น (Non-Linear Mechanics)</h2>
-        <p>ค่าความต้านทาน (R) และความยืดหยุ่น (C) ไม่ใช่ค่าคงที่ แต่จะเปลี่ยนแปลงตามสภาวะของปอด เพื่อให้ได้ <strong class="highlight">Pressure-Volume Loop และ Flow-Volume Loop ที่โค้งงอตามพยาธิสภาพจริง</strong></p>
-
-        <h3>2.1 Dynamic Compliance: ผลกระทบจากปริมาตร (Volume Dependence)</h3>
-        <div class="info-box resistive-box">
-            <p style="color: #ff7f7f;"><span class="icon">🎈</span> **Balloon Effect:** ความยืดหยุ่นปอดจะถูกปรับตามปริมาตรปัจจุบันของปอด (V<sub>current</sub>):</p>
-            <ul>
-                <li>**Overdistension (Upper Inflection):** เมื่อ V<sub>current</sub> สูงเกินขีดจำกัด ค่า C จะถูกลดลงแบบ <strong class="highlight">Exponential Stiffness</strong> ทันที เพื่อจำลองภาวะปอดตึงที่อันตราย</li>
-                <li>**Recruitment (Hysteresis):** ในช่วงต้นของการหายใจเข้า ค่า C จะต่ำลงกว่าช่วงหายใจออกเล็กน้อย เพื่อจำลองแรงดันที่ต้องใช้ในการเปิดถุงลมที่ยุบตัว</li>
-            </ul>
+        <div class="monitor-panel">
+            <div class="monitor-card"><span class="monitor-label">Ppeak</span><span class="monitor-val text-yellow" id="val-ppeak">--</span></div>
+            <div class="monitor-card"><span class="monitor-label">Vte (ml)</span><span class="monitor-val text-blue" id="val-vte">--</span></div>
+            <div class="monitor-card"><span class="monitor-label">MV (L)</span><span class="monitor-val text-green" id="val-mv">--</span></div>
+            <div class="monitor-card"><span class="monitor-label">C_dyn</span><span class="monitor-val text-blue" id="val-cdyn">--</span></div>
+            <div class="monitor-card"><span class="monitor-label">R_aw (Dyn)</span><span class="monitor-val text-red" id="val-raw">--</span></div>
         </div>
 
-        <h3>2.2 Dynamic Resistance: ผลกระทบจากการไหลและปริมาตร</h3>
-        <div class="info-box resistive-box">
-            <p style="color: #ff7f7f;"><span class="icon">🌪️</span> **Airway Dynamics:** ค่า R จะเปลี่ยนไปตามความเร็วของการไหล (F) และปริมาตร (V):</p>
-            <ul>
-                <li>**Flow Dependence:** R เพิ่มขึ้นตาม |F| เพื่อจำลอง <strong class="highlight">Turbulence (การไหลแบบปั่นป่วน)</strong> (ตามกฎของ Rohrer's)</li>
-                <li>**Volume Dependence:** R ลดลงเมื่อ V สูง เพื่อจำลองภาวะ **Airway Tethering** (เนื้อปอดที่ขยายตัวดึงให้ท่อลมเปิดกว้างขึ้น)</li>
-            </ul>
-        </div>
-
-        <hr>
-        <h2><span class="icon">🧪</span> 3. พยาธิสภาพ (Pathology Presets)</h2>
-        <p>แต่ละ Preset ถูกกำหนดค่า R, C, Shunt, Deadspace เพื่อจำลองสภาวะทางสรีรวิทยาที่แตกต่างกัน และการปรับ Patient Mechanics มีแนวคิดดังนี้:</p>
-        <div class="info-box setting-box">
-            <h4 style="color: #a4c9ff; font-weight: bold;">Presets และผลกระทบหลัก:</h4>
-            <ul>
-                <li>**NORMAL:** ค่าอ้างอิง. Time Constant เหมาะสม.</li>
-                <li>**ARDS (Restrictive):** C ต่ำ (ปอดแข็ง), Shunt และ Deadspace สูง <strong class="highlight">(เสี่ยงต่อ Hypoxemia และ VILI)</strong></li>
-                <li>**COPD (Obstructive):** R สูง (หลอดลมตีบ), Deadspace สูง <strong class="highlight">(เสี่ยงต่อ Air Trapping/AutoPEEP)</strong></li>
-                <li>**UNILATERAL C/R DEC/INC:** แสดงผลลัพธ์ของ **Dual-Lung Circuit** ทำให้ปอดทั้งสองข้างได้รับ Volume ไม่เท่ากัน (Uneven Ventilation)</li>
-            </ul>
-        </div>
-
-        <hr>
-        <h2><span class="icon">🎛️</span> 4. ผลกระทบของการตั้งค่าต่อระบบสรีรวิทยา</h2>
-        <p>การตั้งค่าแต่ละตัวมีผลโดยตรงต่อการป้องกันการบาดเจ็บของปอด (VILI) และการแก้ไขภาวะก๊าซในเลือด:</p>
-
-        <div class="info-box setting-box">
-            <ul>
-                <li>**Vt (Tidal Volume):** ควบคุมปริมาตรที่ปอดได้รับโดยตรง. การจำกัด V<sub>t</sub> (เช่น 4-8 ml/kg PBW) เป็นหัวใจของการควบคุม Driving Pressure และลดความเสี่ยง <strong class="highlight">Volutrauma</strong></li>
-                <li>**Pinsp / PS (Pressure):** ควบคุมแรงดันสูงสุด. หากแรงดันสูงเกินไป อาจทำให้ P<sub>plat</sub> เกิน 30 cmH<sub>2</sub>O ซึ่งเสี่ยงต่อ <strong class="highlight">Barotrauma</strong> และ Overdistension</li>
-                <li>**RR และ Ti (Inspiratory Time):** กำหนด T<sub>e</sub> (Expiratory Time). หาก T<sub>e</sub> สั้นเกินไปเมื่อ R สูง (Time Constant ยาว) จะเกิดภาวะ <strong class="highlight">Air Trapping</strong> และ AutoPEEP</li>
-                <li>**PEEP:** ตั้งค่าแรงดันพื้นฐาน. PEEP ที่เหมาะสมช่วยป้องกันถุงลมยุบตัว (Recruitment) และลด **Shunt** ซึ่งเพิ่ม SpO<sub>2</sub> แต่ PEEP ที่สูงเกินไปอาจลด Cardiac Output</li>
-                <li>**FiO<sub>2</sub>:** **ตัวแปรหลัก** ที่ใช้ในการแก้ไขภาวะ Hypoxemia (SpO<sub>2</sub> ต่ำ) ที่เกิดจาก **Shunt** โดยตรง</li>
-            </ul>
-        </div>
-
-        <hr>
-        <h2><span class="icon">📈</span> 5. ความหมายของกราฟและค่า Monitor</h2>
-        <p>กราฟและค่า Monitor คือเครื่องมือสำคัญในการประเมิน Mechanics และ Gas Exchange ของผู้ป่วยแบบ Real-time:</p>
-
-        <h3>5.1 Monitor Values (ตัวเลขสำคัญ)</h3>
-        <div class="info-box gas-exchange-box">
-            <ul>
-                <li>**Pplat (P<sub>plateau</sub>):** แรงดันที่วัดได้จากการทำ Inspiratory Hold เป็นตัวแทนของความเครียด (Stress) ของปอด ควรควบคุมให้ **Pplat &lt; 30** cmH<sub>2</sub>O</li>
-                <li>**Driving Pressure (P<sub>plat</sub> - PEEP):** ตัวบ่งชี้ถึงความเครียด/การยืด (Strain) ที่แท้จริงของเนื้อปอด ควรควบคุมให้ **Driving P &lt; 15** cmH<sub>2</sub>O</li>
-                <li>**PEEPi (AutoPEEP):** แรงดันที่ค้างอยู่ในถุงลมเมื่อหายใจออกไม่หมด บ่งชี้ภาวะ <strong class="highlight">Air Trapping</strong></li>
-                <li>**Cstat (Static Compliance):** Vt / Driving P บ่งชี้ถึงความแข็งแรงโดยรวมของปอด (Stiffness)</li>
-                <li>**SpO<sub>2</sub> (Estimated):** ได้รับผลกระทบหลักจาก **Shunt** และ **FiO<sub>2</sub>**</li>
-                <li>**EtCO<sub>2</sub> (Estimated):** ได้รับผลกระทบหลักจาก MV และ **Deadspace**</li>
-            </ul>
-        </div>
-        
-        <hr>
-        <h2><span class="icon">📉</span> 6. ตัวอย่างกราฟในสภาวะพยาธิสภาพต่างๆ</h2>
-        <p>การตีความกราฟจะช่วยให้เข้าใจว่าปอดของผู้ป่วยมีปัญหาด้าน Resistance หรือ Compliance ซึ่งเป็นหัวใจของการช่วยหายใจ (ดูตัวอย่างกราฟด้านบนประกอบ):</p>
-
-        <h3><span class="icon">🧱</span> 6.1 ARDS / Fibrosis (Restrictive: Low C)</h3>
-        <div class="info-box graph-box">
-            <p><strong>ลักษณะ:</strong> ปอดแข็ง (Low C) ต้องใช้แรงดันสูงมากในการขยายตัวเล็กน้อย</p>
-            <ul>
-                <li>**P-V Loop:** **ชันมาก** (Steep Slope) บ่งชี้ถึง **C<sub>stat</sub> ต่ำ**</li>
-                <li>**P-T Graph:** P<sub>peak</sub> และ P<sub>plat</sub> **สูงมาก** แต่ห่างกันน้อย (ปัญหาเกิดจาก Elasticity)</li>
-            </ul>
-        </div>
-
-        <h3><span class="icon">🕳️</span> 6.2 COPD / Asthma (Obstructive: High R)</h3>
-        <div class="info-box graph-box">
-            <p><strong>ลักษณะ:</strong> ทางเดินหายใจตีบ (High R) ทำให้หายใจเข้า-ออกช้า โดยเฉพาะหายใจออก</p>
-            <ul>
-                <li>**P-T Graph:** P<sub>peak</sub> **สูงโดด**, แต่ P<sub>plat</sub> ไม่สูง (P<sub>peak</sub> - P<sub>plat</sub> แตกต่างกันมาก บ่งชี้ R สูง)</li>
-                <li>**F-T Graph:** Expiratory Flow **ไม่กลับสู่ศูนย์** ก่อนเริ่มรอบใหม่ (สัญญาณ Air Trapping)</li>
-            </ul>
-        </div>
-
-        <h3><span class="icon">⚖️</span> 6.3 Dual-Lung Pathology (Unilateral Low C หรือ High R)</h3>
-        <div class="info-box graph-box">
-            <p><strong>ลักษณะ:</strong> ปอดซ้าย-ขวาทำงานไม่เท่ากัน (Uneven Ventilation) ทำให้การกระจาย Flow ไม่สม่ำเสมอ</p>
-            <ul>
-                <li>**P-V Loop / F-V Loop:** อาจมีรูปทรง <strong class="highlight">ผิดรูปทรงหรือมีลักษณะ Biphasic</strong> (มีรอยหัก 2 จังหวะ) ในโหมด Pressure Control เนื่องจากปอดทั้งสองมี Time Constant ต่างกัน</li>
-                <li>**Monitor:** จะเห็นความแตกต่างของ Flow ที่เข้าปอดซ้ายและขวา (F<sub>L</sub> vs F<sub>R</sub>) บนกราฟ Flow-Time</li>
-            </ul>
-        </div>
+        <canvas id="waveforms" height="320"></canvas>
+        <div style="text-align: right; font-size: 0.8em; color: #777; margin-top: 5px;">*Showing 30s window</div>
     </div>
 
-    <script>
-        // --- 1. CONFIGURATION ---
-        const PRESETS = {
-            'NORMAL': { resL: 15, compL: 50, resR: 15, compR: 50, name: 'Normal' },
-            'ARDS': { resL: 15, compL: 30, resR: 15, compR: 30, name: 'ARDS' },
-            'COPD': { resL: 20, compL: 45, resR: 20, compR: 45, name: 'COPD' },
-            'DUAL': { resL: 5, compL: 50, resR: 20, compR: 20, name: 'Dual-Lung' }
-        };
+    <div class="phys-info" id="phys-desc">
+        </div>
+</div>
+
+<script>
+    // --- 1. ADVANCED CONFIGURATION ---
+    const PRESETS = {
+        'NORMAL': { 
+            name: "Normal Physiological Lung",
+            // Compliance Params
+            cBase: 60,      // Basic Compliance (ml/cmH2O)
+            hysteresis: 2,  // Pressure difference required for recruitment (cmH2O)
+            vMax: 3.0,      // Capacity (L)
+            
+            // Resistance Params
+            rBase: 5,       // Airway Resistance (cmH2O/L/s)
+            rFlowFactor: 0.5, // Turbulence factor (Rohrer's K2)
+            rVolDependence: 1.0, // How much R drops with Volume (1 = Normal)
+            
+            desc: "<b>Normal:</b> Resistance และ Compliance เปลี่ยนแปลงเล็กน้อยตามการหายใจ Hysteresis มีค่าต่ำ (Surfactant ทำงานปกติ)"
+        },
+        'ARDS': { 
+            name: "Severe ARDS",
+            cBase: 25,      // Very Stiff
+            hysteresis: 8,  // High Hysteresis (Massive Recruitment/Derecruitment)
+            vMax: 1.0,      // Baby Lung
+            
+            rBase: 8,       // Slightly higher R
+            rFlowFactor: 0.5,
+            rVolDependence: 0.5, 
+
+            desc: "<b>ARDS:</b> <span class='tag-comp'>Low Compliance</span> ปอดแข็งมากต้องใช้แรงดันสูง <span class='tag-comp'>High Hysteresis</span> กราฟขาขึ้นและลงต่างกันมากจากการเปิด/ปิดของถุงลม (Recruitment)"
+        },
+        'COPD': { 
+            name: "Severe COPD",
+            cBase: 80,      // High Static Compliance (Emphysema)
+            hysteresis: 3,  
+            vMax: 3.5,      // Hyperinflated
+            
+            rBase: 15,      // High Base Resistance
+            rFlowFactor: 2.5, // High Turbulence sensitivity
+            rVolDependence: 4.0, // **Critical**: R increases massively at low volumes (Dynamic Compression)
+
+            desc: "<b>COPD:</b> <span class='tag-res'>High Resistance</span> โดยเฉพาะช่วงหายใจออก (Dynamic Compression) ค่า R จะพุ่งสูงขึ้นเมื่อ Flow สูงหรือ Volume ต่ำ ทำให้เกิด Air Trapping"
+        },
+        'FIBROSIS': {
+             name: "Pulmonary Fibrosis",
+             cBase: 20,
+             hysteresis: 3,
+             vMax: 0.8, // Restrictive
+
+             rBase: 6, // Traction airway dilation (R might be low-normal)
+             rFlowFactor: 0.5,
+             rVolDependence: 1.5,
+
+             desc: "<b>Fibrosis:</b> <span class='tag-comp'>Restrictive</span> ปอดหดรัดตัว ปริมาตรจำกัด (Low Vmax) กราฟชันมากแต่นิ่มนวลกว่า ARDS เพราะ Hysteresis น้อยกว่า"
+        }
+    };
+
+    const SETTINGS = {
+        PEEP: 5,
+        Pinsp: 15, // Pressure Control Level (Above PEEP)
+        RR: 15,
+        Ti: 1.0
+    };
+
+    // Simulation State
+    let isRunning = true;
+    let currentPreset = PRESETS['NORMAL'];
+    let t = 0;
+    let cycleT = 0;
+    let phase = 'EXP';
+    
+    // Physics State
+    let state = {
+        paw: 5,     // Airway Pressure
+        palv: 5,    // Alveolar Pressure
+        vol: 0,     // Volume above FRC (L)
+        flow: 0,    // Flow (L/s)
         
-        // Ventilator Settings
-        const SETTINGS = {
-            mode: 'PCV',
-            Pinsp: 10,
-            PEEP: 5,
-            RR: 14,
-            Ti: 1.0,
-            Pmus: 0
-        };
+        // Monitoring variables
+        lastRaw: 0,
+        lastComp: 0
+    };
 
-        // State
-        let isRunning = true;
-        let currentPreset = PRESETS['NORMAL'];
-        let state = {
-            time: 0,
-            cycleTime: 0,
-            phase: 'EXP', 
-            volL: (5 * 50)/1000, 
-            volR: (5 * 50)/1000,
-            paw: 5,
-            flow: 0
-        };
+    // Data History
+    const MAX_POINTS = 1800; // 30s @ 60fps
+    let history = { p: [], f: [], v: [] };
 
-        // History Buffers for Canvas
-        // Buffer for ~32 seconds to show 6-7 complete cycles (RR14 -> cycle ~4.2s)
-        const MAX_POINTS = 2000; 
-        let history = { p: [], f: [], v: [] };
-        // Loops removed
+    // --- 2. PHYSICS ENGINE (Logic Refined) ---
+    function updatePhysics() {
+        const dt = 0.0167; // 1/60 s
+        t += dt;
+        cycleT += dt;
 
-        // --- 2. PHYSICS ENGINE ---
-        function updatePhysics() {
-            const dt = 0.016; // 60fps
-            state.time += dt;
-            state.cycleTime += dt;
-
-            // Cycle Logic
-            const cycleDuration = 60 / SETTINGS.RR;
-            const expDuration = cycleDuration - SETTINGS.Ti;
-
-            if (state.phase === 'INS' && state.cycleTime >= SETTINGS.Ti) {
-                state.phase = 'EXP';
-                state.cycleTime = 0;
-            } else if (state.phase === 'EXP' && state.cycleTime >= expDuration) {
-                state.phase = 'INS';
-                state.cycleTime = 0;
-            }
-
-            // Target Pressure (PCV)
-            let targetPaw = SETTINGS.PEEP;
-            if (state.phase === 'INS') {
-                targetPaw = SETTINGS.PEEP + SETTINGS.Pinsp;
-            }
-
-            // Smooth Pressure Rise (RC filter for machine valve)
-            state.paw += (targetPaw - state.paw) * 0.15;
-
-            // Equation of Motion: Flow = (Paw - Palv) / R
-            // Palv = Vol / C
-            
-            // Left Lung
-            const PalvL = (state.volL * 1000) / currentPreset.compL;
-            const FlowL = (state.paw - PalvL) / currentPreset.resL; // L/s
-            state.volL += FlowL * dt;
-
-            // Right Lung
-            const PalvR = (state.volR * 1000) / currentPreset.compR;
-            const FlowR = (state.paw - PalvR) / currentPreset.resR; // L/s
-            state.volR += FlowR * dt;
-
-            // Total Flow & Volume
-            state.flow = FlowL + FlowR;
-            const totalVol = (state.volL + state.volR) * 1000; // ml
-            
-            // Calculate Vt (Volume relative to PEEP baseline)
-            // This shows purely the tidal volume entering/leaving, excluding PEEP volume.
-            const volumeAtPEEP = (SETTINGS.PEEP * (currentPreset.compL + currentPreset.compR));
-            const relVol = totalVol - volumeAtPEEP; 
-
-            // Update History
-            history.p.push(state.paw);
-            history.f.push(state.flow * 60); // L/min
-            history.v.push(relVol);
-            
-            if (history.p.length > MAX_POINTS) {
-                history.p.shift(); history.f.shift(); history.v.shift();
-            }
-
-            // Update Monitors (Approx)
-            if (state.phase === 'EXP' && state.cycleTime < dt*2) {
-                // End of Insp
-                document.getElementById('val-ppeak').innerText = Math.round(state.paw);
-                document.getElementById('val-vte').innerText = Math.round(relVol); // Corrected: Use relVol directly
-                document.getElementById('val-mv').innerText = ((relVol * SETTINGS.RR)/1000).toFixed(1);
-            }
+        // 2.1 Cycle Logic (PCV Simulation)
+        const cycleDur = 60 / SETTINGS.RR;
+        if (phase === 'INS' && cycleT >= SETTINGS.Ti) {
+            phase = 'EXP'; cycleT = 0;
+        } else if (phase === 'EXP' && cycleT >= (cycleDur - SETTINGS.Ti)) {
+            phase = 'INS'; cycleT = 0;
         }
 
-        // --- 3. RENDERING ---
-        function getMinMax(data, type) {
-            if (data.length === 0) return { min: 0, max: 10 };
-            
-            let min = Math.min(...data);
-            let max = Math.max(...data);
-            
-            // Auto-scale padding
-            let range = max - min;
-            if (range === 0) range = 10;
-            
-            // Specific logic for types
-            if (type === 'P') { min = 0; max = Math.max(30, max + range * 0.1); } // P always starts at 0
-            else if (type === 'V') { min = -50; max = Math.max(500, max + range * 0.1); } // V starts near 0
-            else if (type === 'F') { // Flow needs symmetry or fit
-                let absMax = Math.max(Math.abs(min), Math.abs(max));
-                min = -absMax * 1.1; max = absMax * 1.1;
-            }
-            
-            return { min, max };
+        // 2.2 Ventilator Output (Target Paw)
+        let targetPaw = SETTINGS.PEEP;
+        if (phase === 'INS') targetPaw = SETTINGS.PEEP + SETTINGS.Pinsp;
+        
+        // Valve lag smoothing
+        state.paw += (targetPaw - state.paw) * 0.2;
+
+        // --- 2.3 ADVANCED LUNG MECHANICS ---
+
+        // A. RESISTANCE (Non-Linear)
+        // Formula: R = (Rbase + K_turb * |Flow|) * (V_ref / V_current)^k_vol
+        // Logic: Resistance increases with Flow (Turbulence) AND increases as lung empties (Tethering loss)
+        
+        let volForRes = Math.max(0.1, state.vol + 0.5); // Avoid div by zero, assume FRC ~ 0.5 offset
+        let volFactor = Math.pow(1.0 / volForRes, currentPreset.rVolDependence);
+        let flowFactor = 1 + (currentPreset.rFlowFactor * Math.abs(state.flow));
+        
+        let currentR = currentPreset.rBase * flowFactor * volFactor;
+        // Clamp R to realistic bounds (e.g., COPD dynamic compression limit)
+        currentR = Math.min(currentR, 200); 
+
+        // B. COMPLIANCE & ELASTIC RECOIL (Non-Linear + Hysteresis)
+        // Logic: Sigmoidal Curve + Hysteresis Offset
+        
+        // 1. Base Elastic Pressure (Sigmoid: P = -ln(Vmax/V - 1) / k)
+        // Simplified Sigmoid approximation for Alveolar Pressure:
+        // Palv_elastic = V / C_base + Overdistension_Penalty
+        
+        let relativeVol = state.vol / currentPreset.vMax;
+        if(relativeVol > 0.95) relativeVol = 0.95; // Limit
+        
+        // Overdistension term (exponential rise near Vmax)
+        let overdistension = Math.pow(relativeVol, 4) * 20; 
+        
+        // Hysteresis: Inspiration requires EXTRA pressure (Recruitment force)
+        // Expiration requires LESS pressure (Stress relaxation)
+        let hysteresisForce = 0;
+        if (state.flow > 0) { // Insp
+            hysteresisForce = currentPreset.hysteresis * (1 - relativeVol); // High at start, low at end
+        } else { // Exp
+            hysteresisForce = -currentPreset.hysteresis * 0.2; // Slight relaxation
         }
 
-        function draw() {
-            if (isRunning) updatePhysics();
-            
-            drawWaveform('waveforms', [history.p, history.f, history.v], ['#f7b44e', '#4ade80', '#4a90e2']);
-            
-            requestAnimationFrame(draw);
+        // Total Elastic Recoil Pressure
+        let Pel = (state.vol * 1000 / currentPreset.cBase) + overdistension + hysteresisForce;
+
+        // C. EQUATION OF MOTION
+        // Flow = (Paw - Palv) / R
+        // Palv = Pel + PEEP_offset (assumed base pressure)
+        
+        // Calculate Flow
+        // Note: Palv in equation is the pressure *inside* the alveoli due to recoil + PEEP
+        let drivingP = state.paw - Pel; 
+        
+        // Solve for Flow iteratively or directly?
+        // Simple Euler: Flow = drivingP / currentR
+        state.flow = drivingP / currentR;
+
+        // Update Volume
+        state.vol += state.flow * dt;
+        if(state.vol < 0) state.vol = 0; // No negative volume below collapse
+
+        // --- 2.4 DATA LOGGING ---
+        // Store raw values for monitors
+        state.lastRaw = currentR; 
+        
+        // Calculate Dynamic Compliance (approx for cycle)
+        if (phase === 'INS' && Math.abs(state.flow) < 0.05) {
+             // Near end inspiration
+             let dP = state.paw - SETTINGS.PEEP;
+             if(dP > 0) state.lastComp = (state.vol * 1000) / dP;
         }
 
-        function drawWaveform(canvasId, dataArrays, colors) {
-            const canvas = document.getElementById(canvasId);
-            const ctx = canvas.getContext('2d');
-            const w = canvas.width = canvas.parentElement.offsetWidth;
-            const h = canvas.height;
-            ctx.clearRect(0, 0, w, h);
+        history.p.push(state.paw);
+        history.f.push(state.flow * 60); // L/min
+        history.v.push(state.vol * 1000); // ml
 
-            // Draw Grids & Labels
-            const zoneH = h / 3;
-            ctx.strokeStyle = '#333'; ctx.lineWidth = 1;
-            ctx.beginPath(); ctx.moveTo(0, zoneH); ctx.lineTo(w, zoneH); ctx.stroke();
-            ctx.beginPath(); ctx.moveTo(0, 2*zoneH); ctx.lineTo(w, 2*zoneH); ctx.stroke();
-            
-            // Titles
-            ctx.font = '10px sans-serif'; 
-            ctx.fillStyle = colors[0]; ctx.fillText('Paw (cmH2O)', 5, 15);
-            ctx.fillStyle = colors[1]; ctx.fillText('Flow (L/min)', 5, zoneH + 15);
-            ctx.fillStyle = colors[2]; ctx.fillText('Vol (ml)', 5, 2*zoneH + 15);
-
-            // Draw Lines with Auto-Scale
-            const types = ['P', 'F', 'V'];
-            
-            dataArrays.forEach((data, idx) => {
-                ctx.beginPath();
-                ctx.strokeStyle = colors[idx];
-                ctx.lineWidth = 2;
-                
-                const bounds = getMinMax(data, types[idx]);
-                const range = bounds.max - bounds.min;
-                const yOffset = idx * zoneH;
-                
-                // Draw Min/Max labels
-                ctx.fillStyle = colors[idx];
-                ctx.textAlign = "right";
-                ctx.fillText(Math.round(bounds.max), w - 5, yOffset + 15);
-                ctx.fillText(Math.round(bounds.min), w - 5, yOffset + zoneH - 5);
-                ctx.textAlign = "left";
-
-                for (let i = 0; i < data.length; i++) {
-                    const x = (i / MAX_POINTS) * w;
-                    let val = data[i];
-                    // Normalize to 0-1 then project to zone
-                    let norm = (val - bounds.min) / range;
-                    let y = yOffset + zoneH - (norm * zoneH); // Invert Y
-                    
-                    if (i===0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
-                }
-                ctx.stroke();
-            });
+        if (history.p.length > MAX_POINTS) {
+            history.p.shift(); history.f.shift(); history.v.shift();
         }
 
-        // --- 4. CONTROLS ---
-        function setPreset(key) {
-            currentPreset = PRESETS[key];
-            document.querySelectorAll('.btn:not(.control-btn)').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            // Reset state slightly to show change effect
-            state.volL = (SETTINGS.PEEP * currentPreset.compL)/1000;
-            state.volR = (SETTINGS.PEEP * currentPreset.compR)/1000;
+        // Update UI every 5 frames
+        if (Math.floor(t * 60) % 10 === 0) updateMonitors(Pel);
+    }
+
+    function updateMonitors(Pel) {
+        // Find Peak and Vte from recent history (last cycle approx)
+        // Just showing instantaneous for demo smoothness
+        document.getElementById('val-ppeak').innerText = Math.round(state.paw);
+        document.getElementById('val-vte').innerText = Math.round(state.vol * 1000);
+        document.getElementById('val-mv').innerText = ((state.vol * 1000 * SETTINGS.RR) / 1000).toFixed(1);
+        
+        document.getElementById('val-cdyn').innerText = state.lastComp > 0 ? Math.round(state.lastComp) : "--";
+        document.getElementById('val-raw').innerText = Math.round(state.lastRaw);
+    }
+
+    // --- 3. RENDERING ---
+    function draw() {
+        if (isRunning) updatePhysics();
+        
+        const canvas = document.getElementById('waveforms');
+        const ctx = canvas.getContext('2d');
+        const w = canvas.width = canvas.offsetWidth;
+        const h = canvas.height;
+
+        ctx.clearRect(0, 0, w, h);
+        
+        // Grid
+        ctx.strokeStyle = '#333'; ctx.lineWidth = 1;
+        ctx.beginPath(); 
+        ctx.moveTo(0, h/3); ctx.lineTo(w, h/3); 
+        ctx.moveTo(0, 2*h/3); ctx.lineTo(w, 2*h/3);
+        ctx.stroke();
+
+        // Draw Waves
+        drawWave(ctx, history.p, 0, h/3, '#e5c07b', 0, 40, "Paw (cmH2O)");
+        drawWave(ctx, history.f, h/3, h/3, '#98c379', -60, 60, "Flow (L/min)");
+        drawWave(ctx, history.v, 2*h/3, h/3, '#61afef', 0, 800, "Volume (ml)");
+
+        requestAnimationFrame(draw);
+    }
+
+    function drawWave(ctx, data, yOffset, h, color, min, max, label) {
+        ctx.beginPath();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
+        
+        // Auto scale logic or fixed? Use fixed for medical consistency
+        const range = max - min;
+        
+        for (let i = 0; i < data.length; i++) {
+            let x = (i / MAX_POINTS) * ctx.canvas.width;
+            let val = data[i];
+            let norm = (val - min) / range;
+            let y = yOffset + h - (norm * h); // Invert Y
+            if (i===0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
         }
+        ctx.stroke();
 
-        function toggleSim() {
-            isRunning = !isRunning;
-            const btn = document.getElementById('btn-toggle');
-            if (isRunning) {
-                btn.innerText = "⏸ Pause";
-                btn.classList.remove('paused');
-            } else {
-                btn.innerText = "▶ Play";
-                btn.classList.add('paused');
-            }
-        }
+        // Label
+        ctx.fillStyle = color;
+        ctx.font = "12px sans-serif";
+        ctx.fillText(label, 5, yOffset + 15);
+        
+        // Min/Max Text
+        ctx.textAlign = "right";
+        ctx.fillText(max, ctx.canvas.width - 5, yOffset + 15);
+        ctx.fillText(min, ctx.canvas.width - 5, yOffset + h - 5);
+        ctx.textAlign = "left";
+    }
 
-        // Start
-        draw();
+    // --- 4. CONTROLS ---
+    function setPreset(key) {
+        currentPreset = PRESETS[key];
+        document.querySelectorAll('.btn:not(.btn-play)').forEach(b => b.classList.remove('active'));
+        event.target.classList.add('active');
+        document.getElementById('phys-desc').innerHTML = currentPreset.desc;
+        
+        // Reset State to avoid physics explosion
+        state.vol = 0; state.flow = 0; state.paw = SETTINGS.PEEP;
+        history = { p: [], f: [], v: [] };
+    }
 
-    </script>
+    function toggleSim() {
+        isRunning = !isRunning;
+        const btn = document.getElementById('btn-toggle');
+        btn.innerText = isRunning ? "⏸ Pause" : "▶ Play";
+    }
+
+    // Init
+    setPreset('NORMAL'); // Set initial desc
+    draw();
+
+</script>
 </body>
 </html>
