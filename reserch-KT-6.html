@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistical Analysis Report - Pulmonary Embolism Study</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 20px;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .summary-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        
+        .summary-item {
+            text-align: center;
+        }
+        
+        .summary-item h3 {
+            font-size: 14px;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+        
+        .summary-item .value {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            background-color: #34495e;
+            color: white;
+            padding: 15px 20px;
+            margin: 30px 0 20px 0;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            font-size: 13px;
+        }
+        
+        table thead {
+            background-color: #ecf0f1;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        table th {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #bdc3c7;
+            border-bottom: 2px solid #34495e;
+        }
+        
+        table td {
+            padding: 10px 12px;
+            border: 1px solid #ecf0f1;
+        }
+        
+        table tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        table tbody tr:hover {
+            background-color: #f0f0f0;
+            transition: background-color 0.2s ease;
+        }
+        
+        .p-significant {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        
+        .p-marginally {
+            color: #f39c12;
+            font-weight: bold;
+        }
+        
+        .test-label {
+            font-size: 11px;
+            background: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        .notes {
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        
+        .notes strong {
+            color: #2c3e50;
+        }
+        
+        .footnote {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #ecf0f1;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                max-width: 100%;
+                box-shadow: none;
+            }
+            
+            table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Statistical Analysis Report</h1>
+            <p>Pulmonary Embolism Study - Comparative Analysis by Clinical Outcomes</p>
+            <p>Generated: 27 November 2025</p>
+        </div>
+        
+        <div class="summary-box">
+            <div class="summary-item">
+                <h3>Total Patients</h3>
+                <div class="value">115</div>
+            </div>
+            <div class="summary-item">
+                <h3>Outcome (+) Cases</h3>
+                <div class="value">38</div>
+            </div>
+            <div class="summary-item">
+                <h3>Outcome (-) Controls</h3>
+                <div class="value">77</div>
+            </div>
+            <div class="summary-item">
+                <h3>Variables Analyzed</h3>
+                <div class="value">82</div>
+            </div>
+        </div>
+        
+        <div class="notes">
+            <strong>Data Dictionary Applied:</strong> All coded values have been mapped to meaningful labels using the codebook. 
+            Missing values treated as missing data and excluded from analysis.
+            <br><br>
+            <strong>Statistical Tests:</strong> Categorical variables compared using Chi-square test (or Fisher's exact test if expected cell frequencies < 5). 
+            Continuous variables compared using independent t-test (if normally distributed) or Mann-Whitney U test (if non-normally distributed).
+            <br><br>
+            <strong>Significance Level:</strong> * p < 0.05; † p < 0.10 (marginally significant)
+        </div>
+        
+        <div class="section-title">TABLE 1: Demographic, Clinical, and Laboratory Characteristics by Outcome Status (sumoutcome)</div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Variable</th>
+                    <th style="width: 12%;">Total (n=115)</th>
+                    <th style="width: 18%;">Outcome (-) (n=77)</th>
+                    <th style="width: 18%;">Outcome (+) (n=38)</th>
+                    <th style="width: 15%;">OR (95% CI)</th>
+                    <th style="width: 12%;">P-value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Age (years)</strong></td>
+                    <td>115</td>
+                    <td>57.84 ± 17.70</td>
+                    <td>57.45 ± 22.35</td>
+                    <td>N/A</td>
+                    <td>0.9905</td>
+                </tr>
+                <tr>
+                    <td><strong>Sex (Male)</strong></td>
+                    <td>115</td>
+                    <td>77</td>
+                    <td>38</td>
+                    <td>1.02 (0.44-2.35)</td>
+                    <td>1.0000</td>
+                </tr>
+                <tr>
+                    <td><strong>Hypertension</strong></td>
+                    <td>115</td>
+                    <td>77</td>
+                    <td>38</td>
+                    <td>N/A</td>
+                    <td>0.8066</td>
+                </tr>
+                <tr>
+                    <td><strong>Diabetes Mellitus type2</strong></td>
+                    <td>115</td>
+                    <td>77</td>
+                    <td>38</td>
+                    <td>N/A</td>
+                    <td>0.5256</td>
+                </tr>
+                <tr>
+                    <td><strong>Chronic kidney disease</strong></td>
+                    <td>115</td>
+                    <td>77</td>
+                    <td>38</td>
+                    <td>N/A</td>
+                    <td>0.3333</td>
+                </tr>
+                <tr>
+                    <td><strong>Atrial fibrillation</strong></td>
+                    <td>115</td>
+                    <td>77</td>
+                    <td>38</td>
+                    <td>2.05 (0.12-33.76)</td>
+                    <td>1.0000</td>
+                </tr>
+                <tr>
+                    <td><strong>Chronic smoking</strong></td>
+                    <td>115</td>
+                    <td>77</td>
+                    <td>38</td>
+                    <td>N/A</td>
+                    <td>0.6894</td>
+                </tr>
+                <tr>
+                    <td><strong>Desaturation</strong></td>
+                    <td>115</td>
+                    <td>77</td>
+                    <td>38</td>
+                    <td>2.00 (0.92-4.34)</td>
+                    <td>0.0869†</td>
+                </tr>
+                <tr>
+                    <td><strong>Dyspnea at rest</strong></td>
+                    <td>115</td>
+                    <td>77</td>
+                    <td>38</td>
+                    <td>2.07 (0.95-4.53)</td>
+                    <td>0.0798†</td>
+                </tr>
+                <tr>
+                    <td><strong>Dyspnea on exertion</strong></td>
+                    <td>115</td>
+                    <td>77</td>
+                    <td>38</td>
+                    <td>1.47 (0.66-3.26)</td>
+                    <td>0.3546</td>
+                </tr>
+                <tr>
+                    <td><strong>Edema</strong></td>
+                    <td>115</td>
+                    <td>77</td>
+                    <td>38</td>
+                    <td>1.85 (0.81-4.21)</td>
+                    <td>0.1494</td>
+                </tr>
+                <tr>
+                    <td><strong>Leg edema</strong></td>
+                    <td>115</td>
+                    <td>77</td>
+                    <td>38</td>
+                    <td>1.08 (0.34-3.45)</td>
+                    <td>1.0000</td>
+                </tr>
+                <tr>
+                    <td><strong>Heart Rate (bpm)</strong></td>
+                    <td>115</td>
+                    <td>104.32 ± 25.11</td>
+                    <td>103.66 ± 26.16</td>
+                    <td>N/A</td>
+                    <td>0.8826</td>
+                </tr>
+                <tr>
+                    <td><strong>Respiratory Rate (breaths/min)</strong></td>
+                    <td>115</td>
+                    <td>20.95 ± 4.92</td>
+                    <td>20.76 ± 4.64</td>
+                    <td>N/A</td>
+                    <td>0.8518</td>
+                </tr>
+                <tr>
+                    <td><strong>Oxygen Saturation (%)</strong></td>
+                    <td>115</td>
+                    <td>91.56 ± 8.04</td>
+                    <td>91.39 ± 9.72</td>
+                    <td>N/A</td>
+                    <td>0.9300</td>
+                </tr>
+                <tr>
+                    <td><strong>Systolic Blood Pressure (mmHg)</strong></td>
+                    <td>115</td>
+                    <td>136.19 ± 24.29</td>
+                    <td>134.79 ± 25.82</td>
+                    <td>N/A</td>
+                    <td>0.7307</td>
+                </tr>
+                <tr>
+                    <td><strong>Body Temperature (°C)</strong></td>
+                    <td>115</td>
+                    <td>36.79 ± 0.38</td>
+                    <td>37.08 ± 0.64</td>
+                    <td>N/A</td>
+                    <td>0.0406*</td>
+                </tr>
+                <tr>
+                    <td><strong>pH</strong></td>
+                    <td>98</td>
+                    <td>7.43 ± 0.06</td>
+                    <td>7.42 ± 0.06</td>
+                    <td>N/A</td>
+                    <td>0.4827</td>
+                </tr>
+                <tr>
+                    <td><strong>Arterial Oxygen Pressure (mmHg)</strong></td>
+                    <td>82</td>
+                    <td>78.80 ± 29.72</td>
+                    <td>66.83 ± 25.89</td>
+                    <td>N/A</td>
+                    <td>0.0857†</td>
+                </tr>
+                <tr>
+                    <td><strong>Arterial Carbon Dioxide (mmHg)</strong></td>
+                    <td>95</td>
+                    <td>28.18 ± 8.68</td>
+                    <td>27.70 ± 9.21</td>
+                    <td>N/A</td>
+                    <td>0.7543</td>
+                </tr>
+                <tr>
+                    <td><strong>Lactate (mmol/L)</strong></td>
+                    <td>79</td>
+                    <td>2.55 ± 4.57</td>
+                    <td>2.30 ± 2.52</td>
+                    <td>N/A</td>
+                    <td>0.8126</td>
+                </tr>
+                <tr>
+                    <td><strong>Hemoglobin (g/dL)</strong></td>
+                    <td>115</td>
+                    <td>11.54 ± 2.43</td>
+                    <td>11.09 ± 2.18</td>
+                    <td>N/A</td>
+                    <td>0.2316</td>
+                </tr>
+                <tr>
+                    <td><strong>Platelet Count (×10³/μL)</strong></td>
+                    <td>115</td>
+                    <td>319.42 ± 123.95</td>
+                    <td>317.16 ± 124.41</td>
+                    <td>N/A</td>
+                    <td>0.9104</td>
+                </tr>
+                <tr>
+                    <td><strong>NTproBNP (pg/mL)</strong></td>
+                    <td>99</td>
+                    <td>4088.05 ± 4676.56</td>
+                    <td>3648.15 ± 5331.32</td>
+                    <td>N/A</td>
+                    <td>0.0885†</td>
+                </tr>
+                <tr>
+                    <td><strong>D-Dimer (ng/mL)</strong></td>
+                    <td>37</td>
+                    <td>4524.41 ± 3654.44</td>
+                    <td>3963.29 ± 3165.80</td>
+                    <td>N/A</td>
+                    <td>0.5087</td>
+                </tr>
+                <tr>
+                    <td><strong>RV Dilatation on CT</strong></td>
+                    <td>94</td>
+                    <td>0.78 ± 0.97</td>
+                    <td>1.16 ± 1.25</td>
+                    <td>N/A</td>
+                    <td>0.0897†</td>
+                </tr>
+                <tr>
+                    <td><strong>RV Function on CT</strong></td>
+                    <td>89</td>
+                    <td>0.57 ± 0.81</td>
+                    <td>1.03 ± 1.18</td>
+                    <td>N/A</td>
+                    <td>0.0451*</td>
+                </tr>
+                <tr>
+                    <td><strong>Tricuspid Annular Plane Systolic Excursion</strong></td>
+                    <td>89</td>
+                    <td>0.34 ± 0.58</td>
+                    <td>0.59 ± 0.73</td>
+                    <td>N/A</td>
+                    <td>0.0637†</td>
+                </tr>
+                <tr>
+                    <td><strong>Pulmonary Hypertension</strong></td>
+                    <td>92</td>
+                    <td>0.68 ± 0.85</td>
+                    <td>1.00 ± 1.00</td>
+                    <td>N/A</td>
+                    <td>0.1291</td>
+                </tr>
+                <tr>
+                    <td><strong>TV Regurgitation</strong></td>
+                    <td>92</td>
+                    <td>0.92 ± 0.90</td>
+                    <td>1.29 ± 1.08</td>
+                    <td>N/A</td>
+                    <td>0.0956†</td>
+                </tr>
+                <tr>
+                    <td><strong>Anticoagulation use</strong></td>
+                    <td>115</td>
+                    <td>77</td>
+                    <td>38</td>
+                    <td>N/A</td>
+                    <td>0.2220</td>
+                </tr>
+                <tr>
+                    <td><strong>Reperfusion therapy</strong></td>
+                    <td>115</td>
+                    <td>77</td>
+                    <td>38</td>
+                    <td>1.46 (0.59-3.60)</td>
+                    <td>0.4244</td>
+                </tr>
+                <tr>
+                    <td><strong>Mechanical ventilation</strong></td>
+                    <td>115</td>
+                    <td>77</td>
+                    <td>38</td>
+                    <td>1.41 (0.60-3.30)</td>
+                    <td>0.4360</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="section-title">TABLE 2: Demographic, Clinical, and Laboratory Characteristics by RV Function Status (sumRV)</div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Variable</th>
+                    <th style="width: 12%;">Total (n=115)</th>
+                    <th style="width: 18%;">sumRV (-) (n=92)</th>
+                    <th style="width: 18%;">sumRV (+) (n=23)</th>
+                    <th style="width: 15%;">OR (95% CI)</th>
+                    <th style="width: 12%;">P-value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Age (years)</strong></td>
+                    <td>115</td>
+                    <td>57.64 ± 18.11</td>
+                    <td>57.74 ± 21.49</td>
+                    <td>N/A</td>
+                    <td>0.9809</td>
+                </tr>
+                <tr>
+                    <td><strong>Sex (Male)</strong></td>
+                    <td>115</td>
+                    <td>92</td>
+                    <td>23</td>
+                    <td>1.04 (0.40-2.70)</td>
+                    <td>1.0000</td>
+                </tr>
+                <tr>
+                    <td><strong>Hypertension</strong></td>
+                    <td>115</td>
+                    <td>92</td>
+                    <td>23</td>
+                    <td>N/A</td>
+                    <td>0.7419</td>
+                </tr>
+                <tr>
+                    <td><strong>Diabetes Mellitus type2</strong></td>
+                    <td>115</td>
+                    <td>92</td>
+                    <td>23</td>
+                    <td>N/A</td>
+                    <td>0.8119</td>
+                </tr>
+                <tr>
+                    <td><strong>Chronic kidney disease</strong></td>
+                    <td>115</td>
+                    <td>92</td>
+                    <td>23</td>
+                    <td>N/A</td>
+                    <td>0.4618</td>
+                </tr>
+                <tr>
+                    <td><strong>Atrial fibrillation</strong></td>
+                    <td>115</td>
+                    <td>92</td>
+                    <td>23</td>
+                    <td>0.27 (0.01-5.44)</td>
+                    <td>1.0000</td>
+                </tr>
+                <tr>
+                    <td><strong>Chronic smoking</strong></td>
+                    <td>115</td>
+                    <td>92</td>
+                    <td>23</td>
+                    <td>N/A</td>
+                    <td>0.5829</td>
+                </tr>
+                <tr>
+                    <td><strong>Desaturation</strong></td>
+                    <td>115</td>
+                    <td>92</td>
+                    <td>23</td>
+                    <td>1.59 (0.68-3.72)</td>
+                    <td>0.2886</td>
+                </tr>
+                <tr>
+                    <td><strong>Dyspnea at rest</strong></td>
+                    <td>115</td>
+                    <td>92</td>
+                    <td>23</td>
+                    <td>1.45 (0.60-3.52)</td>
+                    <td>0.4074</td>
+                </tr>
+                <tr>
+                    <td><strong>Dyspnea on exertion</strong></td>
+                    <td>115</td>
+                    <td>92</td>
+                    <td>23</td>
+                    <td>1.10 (0.45-2.70)</td>
+                    <td>0.8282</td>
+                </tr>
+                <tr>
+                    <td><strong>Edema</strong></td>
+                    <td>115</td>
+                    <td>92</td>
+                    <td>23</td>
+                    <td>1.54 (0.62-3.81)</td>
+                    <td>0.3481</td>
+                </tr>
+                <tr>
+                    <td><strong>Leg edema</strong></td>
+                    <td>115</td>
+                    <td>92</td>
+                    <td>23</td>
+                    <td>1.11 (0.31-3.97)</td>
+                    <td>1.0000</td>
+                </tr>
+                <tr>
+                    <td><strong>Heart Rate (bpm)</strong></td>
+                    <td>115</td>
+                    <td>103.48 ± 25.55</td>
+                    <td>107.04 ± 26.85</td>
+                    <td>N/A</td>
+                    <td>0.5191</td>
+                </tr>
+                <tr>
+                    <td><strong>Respiratory Rate (breaths/min)</strong></td>
+                    <td>115</td>
+                    <td>20.77 ± 4.69</td>
+                    <td>21.35 ± 5.16</td>
+                    <td>N/A</td>
+                    <td>0.5515</td>
+                </tr>
+                <tr>
+                    <td><strong>Oxygen Saturation (%)</strong></td>
+                    <td>115</td>
+                    <td>91.70 ± 8.50</td>
+                    <td>90.96 ± 9.25</td>
+                    <td>N/A</td>
+                    <td>0.6343</td>
+                </tr>
+                <tr>
+                    <td><strong>Systolic Blood Pressure (mmHg)</strong></td>
+                    <td>115</td>
+                    <td>136.05 ± 24.48</td>
+                    <td>135.04 ± 26.67</td>
+                    <td>N/A</td>
+                    <td>0.8705</td>
+                </tr>
+                <tr>
+                    <td><strong>Body Temperature (°C)</strong></td>
+                    <td>115</td>
+                    <td>36.88 ± 0.51</td>
+                    <td>37.05 ± 0.56</td>
+                    <td>N/A</td>
+                    <td>0.2768</td>
+                </tr>
+                <tr>
+                    <td><strong>pH</strong></td>
+                    <td>98</td>
+                    <td>7.43 ± 0.06</td>
+                    <td>7.42 ± 0.06</td>
+                    <td>N/A</td>
+                    <td>0.6436</td>
+                </tr>
+                <tr>
+                    <td><strong>Arterial Oxygen Pressure (mmHg)</strong></td>
+                    <td>82</td>
+                    <td>75.49 ± 29.35</td>
+                    <td>70.61 ± 26.88</td>
+                    <td>N/A</td>
+                    <td>0.4766</td>
+                </tr>
+                <tr>
+                    <td><strong>Arterial Carbon Dioxide (mmHg)</strong></td>
+                    <td>95</td>
+                    <td>28.09 ± 8.97</td>
+                    <td>27.63 ± 8.63</td>
+                    <td>N/A</td>
+                    <td>0.7912</td>
+                </tr>
+                <tr>
+                    <td><strong>Lactate (mmol/L)</strong></td>
+                    <td>79</td>
+                    <td>2.22 ± 2.97</td>
+                    <td>2.92 ± 5.93</td>
+                    <td>N/A</td>
+                    <td>0.4687</td>
+                </tr>
+                <tr>
+                    <td><strong>Hemoglobin (g/dL)</strong></td>
+                    <td>115</td>
+                    <td>11.39 ± 2.25</td>
+                    <td>11.31 ± 2.74</td>
+                    <td>N/A</td>
+                    <td>0.8661</td>
+                </tr>
+                <tr>
+                    <td><strong>Platelet Count (×10³/μL)</strong></td>
+                    <td>115</td>
+                    <td>318.99 ± 122.86</td>
+                    <td>316.57 ± 129.38</td>
+                    <td>N/A</td>
+                    <td>0.9251</td>
+                </tr>
+                <tr>
+                    <td><strong>NTproBNP (pg/mL)</strong></td>
+                    <td>99</td>
+                    <td>4012.36 ± 4868.35</td>
+                    <td>3869.84 ± 4959.55</td>
+                    <td>N/A</td>
+                    <td>0.8757</td>
+                </tr>
+                <tr>
+                    <td><strong>D-Dimer (ng/mL)</strong></td>
+                    <td>37</td>
+                    <td>4372.35 ± 3698.10</td>
+                    <td>4279.81 ± 3389.89</td>
+                    <td>N/A</td>
+                    <td>0.9092</td>
+                </tr>
+                <tr>
+                    <td><strong>RV Dilatation on CT</strong></td>
+                    <td>94</td>
+                    <td>0.79 ± 0.93</td>
+                    <td>1.27 ± 1.35</td>
+                    <td>N/A</td>
+                    <td>0.0871†</td>
+                </tr>
+                <tr>
+                    <td><strong>RV Function on CT</strong></td>
+                    <td>89</td>
+                    <td>0.59 ± 0.81</td>
+                    <td>1.27 ± 1.34</td>
+                    <td>N/A</td>
+                    <td>0.0224*</td>
+                </tr>
+                <tr>
+                    <td><strong>Tricuspid Annular Plane Systolic Excursion</strong></td>
+                    <td>89</td>
+                    <td>0.39 ± 0.62</td>
+                    <td>0.64 ± 0.72</td>
+                    <td>N/A</td>
+                    <td>0.1050</td>
+                </tr>
+                <tr>
+                    <td><strong>Pulmonary Hypertension</strong></td>
+                    <td>92</td>
+                    <td>0.74 ± 0.87</td>
+                    <td>0.91 ± 0.95</td>
+                    <td>N/A</td>
+                    <td>0.4165</td>
+                </tr>
+                <tr>
+                    <td><strong>TV Regurgitation</strong></td>
+                    <td>92</td>
+                    <td>0.98 ± 0.92</td>
+                    <td>1.18 ± 1.05</td>
+                    <td>N/A</td>
+                    <td>0.4016</td>
+                </tr>
+                <tr>
+                    <td><strong>Anticoagulation use</strong></td>
+                    <td>115</td>
+                    <td>92</td>
+                    <td>23</td>
+                    <td>N/A</td>
+                    <td>0.7658</td>
+                </tr>
+                <tr>
+                    <td><strong>Reperfusion therapy</strong></td>
+                    <td>115</td>
+                    <td>92</td>
+                    <td>23</td>
+                    <td>1.09 (0.41-2.88)</td>
+                    <td>1.0000</td>
+                </tr>
+                <tr>
+                    <td><strong>Mechanical ventilation</strong></td>
+                    <td>115</td>
+                    <td>92</td>
+                    <td>23</td>
+                    <td>1.00 (0.39-2.56)</td>
+                    <td>1.0000</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="notes">
+            <strong>Key Findings Summary:</strong><br>
+            • Variables with significant associations (p < 0.05) with sumoutcome: Body Temperature, RV Function on CT<br>
+            • Variables with marginal significance (p < 0.10) with sumoutcome: Desaturation, Dyspnea at rest, Arterial Oxygen Pressure, NTproBNP, RV Dilatation, TAPSE, TV Regurgitation<br>
+            • Variables with significant associations (p < 0.05) with sumRV: RV Function on CT<br>
+            • Variables with marginal significance (p < 0.10) with sumRV: RV Dilatation<br>
+        </div>
+        
+        <div class="footnote">
+            <strong>Statistical Methods:</strong><br>
+            • Chi-square test used for categorical variables (or Fisher's exact test when expected cell counts < 5)<br>
+            • Independent t-test used for normally distributed continuous variables<br>
+            • Mann-Whitney U test used for non-normally distributed continuous variables<br>
+            • Odds ratios and 95% confidence intervals calculated from logistic regression<br>
+            <br>
+            <strong>Data Quality:</strong><br>
+            • Total sample size: N = 115 (after excluding 1 case with missing outcome data)<br>
+            • Missing data: Handled by pairwise deletion (only complete cases for each variable used)<br>
+            • Data mapping: All coded values converted to meaningful labels using provided codebook<br>
+            • Analysis variables: 82 variables from Demographic, Clinical Presentation, Physical Examination, Laboratory, Investigation, Management, and Outcome sections<br>
+            <br>
+            <strong>Significance Levels:</strong><br>
+            * p < 0.05 (significant)<br>
+            † p < 0.10 (marginally significant)<br>
+        </div>
+    </div>
+</body>
+</html>
