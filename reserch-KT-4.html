@@ -1,0 +1,410 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Analysis - Submassive PE</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #16a085;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 5px solid #16a085;
+            padding-left: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 30px;
+            font-size: 12px;
+        }
+        table tr:first-child {
+            background-color: #16a085;
+            color: white;
+            font-weight: bold;
+        }
+        table tr:nth-child(even) {
+            background-color: #ecf0f1;
+        }
+        table tr:hover {
+            background-color: #d5f4e6;
+        }
+        td, th {
+            border: 1px solid #bdc3c7;
+            padding: 10px;
+            text-align: left;
+        }
+        .p-value-sig {
+            color: #c0392b;
+            font-weight: bold;
+        }
+        .summary {
+            background-color: #d5f4e6;
+            border-left: 4px solid #16a085;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+        .notes {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 12px;
+        }
+        .key-finding {
+            color: #c0392b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Management Strategies Analysis - Submassive PE Patients</h1>
+
+        <div class="summary">
+            <strong>Study Population:</strong>
+            <ul>
+                <li><strong>Total Patients:</strong> 116</li>
+                <li><strong>Survived:</strong> 97 patients (83.6%)</li>
+                <li><strong>Died (30-day):</strong> 19 patients (16.4%)</li>
+            </ul>
+        </div>
+
+        <h2>1. ANTICOAGULATION THERAPY</h2>
+
+        <table>
+            <tr>
+                <th>Variable</th>
+                <th>Lived (n=97)</th>
+                <th>Died (n=19)</th>
+                <th>Test</th>
+                <th>p-value</th>
+                <th>OR (95% CI)</th>
+            </tr>
+            <tr>
+                <td>LMWH (Low Molecular Weight Heparin)</td>
+                <td>66 (68.0%)</td>
+                <td>10 (52.6%)</td>
+                <td>χ²</td>
+                <td>0.3038</td>
+                <td>0.52</td>
+            </tr>
+            <tr>
+                <td>UFH (Unfractionated Heparin)</td>
+                <td>31 (32.0%)</td>
+                <td>8 (42.1%)</td>
+                <td>χ²</td>
+                <td>0.5548</td>
+                <td>1.55</td>
+            </tr>
+        </table>
+
+        <div class="notes">
+            <strong>Anticoagulation Findings:</strong>
+            <ul>
+                <li>LMWH was used in 68% of survivors vs 52.6% of deceased patients (p=0.3038)</li>
+                <li>UFH was used in 32% of survivors vs 42.1% of deceased patients (p=0.5548)</li>
+                <li>No significant difference in anticoagulation choice between groups</li>
+                <li>Both agents commonly used, no superiority demonstrated</li>
+                <li>Selection likely based on clinical factors (renal function, weight, ICU status)</li>
+            </ul>
+        </div>
+
+        <h2>2. REPERFUSION THERAPY</h2>
+
+        <table>
+            <tr>
+                <th>Variable</th>
+                <th>Lived (n=97)</th>
+                <th>Died (n=19)</th>
+                <th>Test</th>
+                <th>p-value</th>
+                <th>OR (95% CI)</th>
+            </tr>
+            <tr>
+                <td>Reperfusion Therapy (Any)</td>
+                <td>38 (39.2%)</td>
+                <td>4 (21.1%)</td>
+                <td>χ²</td>
+                <td>0.1616</td>
+                <td>0.38</td>
+            </tr>
+            <tr>
+                <td>Catheter-Based Fibrinolysis</td>
+                <td>38 (39.2%)</td>
+                <td>4 (21.1%)</td>
+                <td>χ²</td>
+                <td>0.2142</td>
+                <td>0.41</td>
+            </tr>
+            <tr>
+                <td>Systemic Fibrinolysis</td>
+                <td>0 (0.0%)</td>
+                <td>0 (0.0%)</td>
+                <td>—</td>
+                <td>N/A</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>Surgical Embolectomy</td>
+                <td>2 (2.1%)</td>
+                <td>0 (0.0%)</td>
+                <td>—</td>
+                <td>N/A</td>
+                <td>N/A</td>
+            </tr>
+        </table>
+
+        <div class="notes">
+            <strong>Reperfusion Therapy Findings:</strong>
+            <ul>
+                <li><span class="key-finding">Reperfusion therapy (any type) was used in 39.2% of survivors vs 21.1% of deceased</span> (p=0.1616, trend toward benefit)</li>
+                <li>Catheter-based fibrinolysis was primary reperfusion strategy (39.2% of survivors)</li>
+                <li>Systemic fibrinolysis: NOT used in any patient (contraindicated or not attempted)</li>
+                <li>Surgical embolectomy: Rare, used in only 2 survivors (2.1%)</li>
+                <li>Trend suggests reperfusion therapy may be beneficial but not statistically significant</li>
+            </ul>
+        </div>
+
+        <h2>3. VENTILATORY SUPPORT</h2>
+
+        <table>
+            <tr>
+                <th>Variable</th>
+                <th>Lived (n=97)</th>
+                <th>Died (n=19)</th>
+                <th>Test</th>
+                <th>p-value</th>
+                <th>OR (95% CI)</th>
+            </tr>
+            <tr>
+                <td>No Ventilatory Support</td>
+                <td>35 (36.1%)</td>
+                <td>1 (5.3%)</td>
+                <td>χ²</td>
+                <td class="p-value-sig">0.0171</td>
+                <td class="p-value-sig">10.16</td>
+            </tr>
+            <tr>
+                <td>Any Ventilatory Support</td>
+                <td>62 (63.9%)</td>
+                <td>18 (94.7%)</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;• Non-invasive (Mask/Bag)</td>
+                <td>18 (18.5%)</td>
+                <td>4 (21.1%)</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;• High Flow Nasal Cannula</td>
+                <td>7 (7.2%)</td>
+                <td>4 (21.1%)</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td>&nbsp;&nbsp;• Invasive (Endotracheal Tube)</td>
+                <td>6 (6.2%)</td>
+                <td>7 (36.8%)</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+            </tr>
+        </table>
+
+        <div class="notes">
+            <strong>Ventilatory Support Findings (SIGNIFICANT):</strong>
+            <ul>
+                <li><span class="key-finding">Absence of ventilatory support was significantly associated with survival</span> (p=0.0171, OR=10.16)</li>
+                <li>36.1% of survivors required NO ventilatory support vs only 5.3% of deceased</li>
+                <li>94.7% of deceased patients required some form of ventilatory support</li>
+                <li><span class="key-finding">Endotracheal intubation was most strongly associated with death:</span></li>
+                <li style="margin-left: 20px;">• 36.8% of deceased required intubation</li>
+                <li style="margin-left: 20px;">• Only 6.2% of survivors required intubation</li>
+                <li>High flow nasal cannula used more frequently in deceased (21.1% vs 7.2%)</li>
+                <li>Non-invasive support (mask/bag) similar in both groups (~18-21%)</li>
+            </ul>
+        </div>
+
+        <h2>4. OXYGEN DELIVERY METHODS</h2>
+
+        <table>
+            <tr>
+                <th>Variable</th>
+                <th>Lived (n=97)</th>
+                <th>Died (n=19)</th>
+                <th>Test</th>
+                <th>p-value</th>
+                <th>OR (95% CI)</th>
+            </tr>
+            <tr>
+                <td>Oxygen Cannula</td>
+                <td>38 (39.2%)</td>
+                <td>7 (36.8%)</td>
+                <td>χ²</td>
+                <td>1.0000</td>
+                <td>0.91</td>
+            </tr>
+            <tr>
+                <td>Mask with Bag</td>
+                <td>11 (11.3%)</td>
+                <td>0 (0.0%)</td>
+                <td>χ²</td>
+                <td>N/A</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>High Flow Nasal Cannula</td>
+                <td>7 (7.2%)</td>
+                <td>4 (21.1%)</td>
+                <td>χ²</td>
+                <td>0.1459</td>
+                <td>3.43</td>
+            </tr>
+            <tr>
+                <td>Endotracheal Tube</td>
+                <td>6 (6.2%)</td>
+                <td>7 (36.8%)</td>
+                <td>χ²</td>
+                <td class="p-value-sig">0.0005</td>
+                <td class="p-value-sig">8.85</td>
+            </tr>
+        </table>
+
+        <div class="notes">
+            <strong>Oxygen Delivery Method Findings (SIGNIFICANT):</strong>
+            <ul>
+                <li><span class="key-finding">Endotracheal intubation strongly associated with mortality</span> (p=0.0005, OR=8.85)</li>
+                <li>36.8% of deceased patients intubated vs only 6.2% of survivors</li>
+                <li>Standard oxygen cannula: Similar use in both groups (~39-37%)</li>
+                <li>Mask with bag: Used in survivors (11.3%) but NOT in any deceased patient</li>
+                <li>High flow nasal cannula: More common in deceased (21.1% vs 7.2%), p=0.1459 (trend)</li>
+                <li><strong>Interpretation:</strong> Need for intubation indicates severe respiratory failure and poor prognosis</li>
+            </ul>
+        </div>
+
+        <h2>5. MANAGEMENT SUMMARY TABLE</h2>
+
+        <table>
+            <tr>
+                <th>Management Strategy</th>
+                <th>Survived (n=97)</th>
+                <th>Died (n=19)</th>
+                <th>Significance</th>
+            </tr>
+            <tr>
+                <td>LMWH for anticoagulation</td>
+                <td>66 (68.0%)</td>
+                <td>10 (52.6%)</td>
+                <td>p=0.304 (NS)</td>
+            </tr>
+            <tr>
+                <td>Reperfusion therapy attempted</td>
+                <td>38 (39.2%)</td>
+                <td>4 (21.1%)</td>
+                <td>p=0.162 (trend)</td>
+            </tr>
+            <tr>
+                <td>No ventilatory support needed</td>
+                <td>35 (36.1%)</td>
+                <td>1 (5.3%)</td>
+                <td class="p-value-sig">p=0.017 *</td>
+            </tr>
+            <tr>
+                <td>Non-invasive ventilation only</td>
+                <td>18 (18.5%)</td>
+                <td>4 (21.1%)</td>
+                <td>p=NS</td>
+            </tr>
+            <tr>
+                <td>Required intubation</td>
+                <td>6 (6.2%)</td>
+                <td>7 (36.8%)</td>
+                <td class="p-value-sig">p&lt;0.001 *</td>
+            </tr>
+        </table>
+
+        <h2>6. CLINICAL IMPLICATIONS</h2>
+
+        <div class="notes">
+            <strong>Key Management Findings:</strong>
+            <ol>
+                <li><strong>Ventilatory Status is Critical Prognostic Factor</strong>
+                    <ul>
+                        <li>Need for any ventilatory support: 94.7% of deceased vs 63.9% of survivors</li>
+                        <li>Particularly, endotracheal intubation (36.8% of deceased vs 6.2% of survivors)</li>
+                        <li>Reflects severity of cardiopulmonary compromise</li>
+                    </ul>
+                </li>
+                <li><strong>Reperfusion Therapy Shows Promise</strong>
+                    <ul>
+                        <li>39.2% of survivors received reperfusion therapy (mainly catheter-based)</li>
+                        <li>Only 21.1% of deceased received reperfusion</li>
+                        <li>Trend toward benefit (p=0.162), though not statistically significant</li>
+                        <li>May warrant consideration for acute management</li>
+                    </ul>
+                </li>
+                <li><strong>Anticoagulation Choice Less Important</strong>
+                    <ul>
+                        <li>No significant difference between LMWH and UFH</li>
+                        <li>Suggests both are appropriate choices</li>
+                        <li>Selection based on clinical factors (renal function, weight, ICU access)</li>
+                    </ul>
+                </li>
+                <li><strong>High Flow O2 Systems Associated with Higher Mortality</strong>
+                    <ul>
+                        <li>High flow nasal cannula and intubation more common in non-survivors</li>
+                        <li>Marker of respiratory failure, not necessarily cause</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="summary">
+            <strong>Recommendations for PE Management:</strong>
+            <ul>
+                <li>✓ Early risk stratification based on presentation and severity</li>
+                <li>✓ Consider reperfusion therapy in eligible candidates (40% received in survivors)</li>
+                <li>✓ Monitor respiratory status closely; need for intubation indicates worst prognosis</li>
+                <li>✓ Both LMWH and UFH appropriate for anticoagulation</li>
+                <li>✓ Comprehensive supportive care critical in ventilator-dependent patients</li>
+            </ul>
+        </div>
+
+        <footer style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #bdc3c7; text-align: center; color: #7f8c8d; font-size: 11px;">
+            <p>Report Generated: 2025-11-27 05:53:05</p>
+            <p>* Statistically significant at p&lt;0.05 level</p>
+            <p>Data includes 116 submassive PE patients (97 survived, 19 died at 30 days)</p>
+        </footer>
+    </div>
+</body>
+</html>
