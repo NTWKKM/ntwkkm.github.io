@@ -56,7 +56,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            display: none;
+            display: block;
         }
         .tab-content.active {
             display: block;
@@ -113,13 +113,6 @@
     </div>
 
     <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
-
-    <div class="nav-tabs">
-        <button class="tab-btn active" onclick="switchTab(event, 'tab1')">1. newrvbad</button>
-        <button class="tab-btn" onclick="switchTab(event, 'tab2')">2. newrvgood</button>
-        <button class="tab-btn" onclick="switchTab(event, 'tab3')">3. sumrv</button>
-        <button class="tab-btn" onclick="switchTab(event, 'tab4')">4. sumoutcome</button>
-    </div>
 
     <div id="tab1" class="tab-content active">
         <h2 style="text-align: center; color: #2c3e50; margin-top: 20px;">Outcome 1: newrvbad (RV Bad)</h2>
@@ -5121,40 +5114,5 @@
         <p><strong>Methods:</strong> Chi-square/Fisher's exact for categorical; Mann-Whitney U for continuous variables. Significance: p &lt; 0.05.</p>
         <p style="margin: 5px 0;"><em>Report generated: 2025-11-28 01:04:54</em></p>
     </div>
-
-  <script>
-    function switchTab(evt, tabName) {
-        var i, tabcontent, tablinks;
-        
-        // 1. ซ่อนเนื้อหาทั้งหมด
-        tabcontent = document.getElementsByClassName("tab-content");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].classList.remove("active");
-        }
-        
-        // 2. เอาสถานะ active ออกจากปุ่มทั้งหมด
-        tablinks = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].classList.remove("active");
-        }
-        
-        // 3. แสดงเนื้อหาตาม tabName (เพิ่มตัวกันพลาด เผื่อพิมพ์ชื่อผิด)
-        var selectedTab = document.getElementById(tabName);
-        if (selectedTab) {
-            selectedTab.classList.add("active");
-            evt.currentTarget.classList.add("active");
-        } else {
-            console.error("หา ID ชื่อนี้ไม่เจอ: " + tabName); // เช็คใน Console ได้ถ้าพิมพ์ผิด
-        }
-    }
-
-    // 4. สั่งให้คลิก Tab แรกทันทีที่โหลดหน้าเว็บเสร็จ (แก้ปัญหาเปิดมาแล้วว่าง)
-    document.addEventListener("DOMContentLoaded", function() {
-        var firstTab = document.getElementsByClassName("tab-btn")[0];
-        if (firstTab) {
-            firstTab.click();
-        }
-    });
-</script>
 </body>
 </html>
