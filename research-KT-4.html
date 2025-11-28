@@ -31,31 +31,12 @@
             color: #666;
             margin: 10px 0 0 0;
         }
-        .nav-tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-        .nav-tabs button {
-            padding: 10px 20px;
-            background-color: #ecf0f1;
-            border: 2px solid #34495e;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: bold;
-            transition: all 0.3s;
-        }
-        .nav-tabs button.active {
-            background-color: #34495e;
-            color: white;
-        }
         .tab-content {
             background-color: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: block;
         }
         .tab-content.active {
             display: block;
@@ -113,7 +94,7 @@
 
     <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
 
-    <div id="tab1" class="tab-content active">
+    <div class="tab-content active">
         <h2 style="text-align: center; color: #2c3e50; margin-top: 20px;">Outcome 1: newrvbad (RV Bad)</h2>
         <p style="text-align: center; font-size: 12px; color: #666;">n=66 (Positive: 3, Negative: 63)</p>
 
@@ -1365,7 +1346,7 @@
         Multivariate: Variables with univariate p < 0.20 were entered into the model using logistic regression.
     </p>
     
-    <div id="tab2" class="tab-content active">
+    <div class="tab-content active">
         <h2 style="text-align: center; color: #2c3e50; margin-top: 20px;">Outcome 2: newrvgood (RV Good)</h2>
         <p style="text-align: center; font-size: 12px; color: #666;">n=66 (Positive: 38, Negative: 28)</p>
 
@@ -2617,7 +2598,7 @@
         Multivariate: Variables with univariate p < 0.20 were entered into the model using logistic regression.
     </p>
     
-    <div id="tab3" class="tab-content active">
+    <div class="tab-content active">
         <h2 style="text-align: center; color: #2c3e50; margin-top: 20px;">Outcome 3: sumrv (RV Dysfunction)</h2>
         <p style="text-align: center; font-size: 12px; color: #666;">n=116 (Positive: 23, Negative: 93)</p>
 
@@ -3857,7 +3838,7 @@
         Multivariate: Variables with univariate p < 0.20 were entered into the model using logistic regression.
     </p>
     
-    <div id="tab4" class="tab-content active">
+    <div class="tab-content active">
         <h2 style="text-align: center; color: #2c3e50; margin-top: 20px;">Outcome 4: sumoutcome (Overall Outcome)</h2>
         <p style="text-align: center; font-size: 12px; color: #666;">n=116 (Positive: 38, Negative: 78)</p>
 
