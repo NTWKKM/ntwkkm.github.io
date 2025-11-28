@@ -3,31 +3,118 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistical Analysis Results</title>
     
 <style>
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; background-color: #f4f6f8; color: #333; }
+    /* Base Styles */
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; padding-bottom: 80px; background-color: #f4f6f8; color: #333; }
     h1 { text-align: center; color: #2c3e50; margin-bottom: 30px; font-weight: 300; letter-spacing: 1px; }
-    .table-container { background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden; margin-bottom: 50px; }
-    .outcome-title { background-color: #2c3e50; color: white; padding: 15px 20px; font-size: 1.2em; font-weight: 500; }
-    table { width: 100%; border-collapse: collapse; text-align: left; }
-    th { background-color: #34495e; color: #fff; font-weight: 600; padding: 12px 15px; text-transform: uppercase; font-size: 0.85em; letter-spacing: 0.5px; position: sticky; top: 0; }
+    
+    /* Table & Sticky Logic */
+    .table-container { 
+        background: white; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+        margin-bottom: 50px; 
+        position: relative;
+        scroll-margin-top: 20px; /* Space when scrolling to anchor */
+    }
+
+    .outcome-title { background-color: #2c3e50; color: white; padding: 15px 20px; font-size: 1.2em; font-weight: 500; border-radius: 8px 8px 0 0; }
+    
+    table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; }
+    
+    th { 
+        background-color: #34495e; 
+        color: #fff; 
+        font-weight: 600; 
+        padding: 12px 15px; 
+        text-transform: uppercase; 
+        font-size: 0.85em; 
+        letter-spacing: 0.5px;
+        position: sticky; 
+        top: 0; 
+        z-index: 100;
+        box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+    }
+
     td { padding: 12px 15px; border-bottom: 1px solid #eee; vertical-align: top; font-size: 0.95em; }
     tr:nth-child(even) { background-color: #f9f9f9; }
     tr:hover { background-color: #f1f7ff; transition: background-color 0.2s; }
+    
     .sheet-header td { background-color: #e8f4f8; color: #2980b9; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9em; padding: 10px 20px; border-left: 5px solid #3498db; }
     .n-badge { font-size: 0.75em; background-color: #eee; padding: 2px 6px; border-radius: 4px; color: #555; display: inline-block; margin-bottom: 4px; }
     .sig-p { color: #d32f2f; font-weight: bold; background-color: #ffebee; padding: 2px 5px; border-radius: 4px; }
-    .summary-box { padding: 15px 20px; background-color: #fff; border-top: 1px solid #eee; font-size: 0.9em; color: #555; }
+    .summary-box { padding: 15px 20px; background-color: #fff; border-top: 1px solid #eee; font-size: 0.9em; color: #555; border-radius: 0 0 8px 8px; }
     .timestamp { text-align: center; color: #aaa; font-size: 0.8em; margin-bottom: 40px; }
+
+    /* Floating Quick Tab */
+    .quick-nav {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 10px 15px;
+        border-radius: 30px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        display: flex;
+        gap: 8px;
+        z-index: 1000;
+        backdrop-filter: blur(5px);
+        border: 1px solid #eee;
+    }
+    .quick-nav a {
+        text-decoration: none;
+        color: #555;
+        font-weight: 500;
+        font-size: 0.85em;
+        padding: 8px 16px;
+        border-radius: 20px;
+        background: #f4f6f8;
+        transition: all 0.2s;
+        white-space: nowrap;
+    }
+    .quick-nav a:hover {
+        background: #3498db;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
+    }
+    .quick-nav .top-btn {
+        background: #2c3e50;
+        color: white;
+    }
+
+    /* Mobile Responsive */
+    @media screen and (max-width: 768px) {
+        body { padding: 10px; padding-bottom: 100px; }
+        .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        table { min-width: 900px; }
+        .outcome-title { position: sticky; left: 0; width: 100%; box-sizing: border-box; }
+        th, td { padding: 10px 8px; font-size: 0.85em; }
+        
+        .quick-nav {
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 15px;
+            width: 90%;
+            max-width: 400px;
+            justify-content: center;
+            flex-wrap: wrap;
+            border-radius: 20px;
+        }
+        .quick-nav a { flex: 1; text-align: center; font-size: 0.8em; padding: 8px 5px; }
+    }
 </style>
 
 </head>
 <body>
+    <div id="top"></div>
     <h1>Statistical Analysis Report</h1>
     <div class="timestamp">Generated by Automated Statistical Analysis Tool</div>
 
-    <div class='table-container'>
+    <div id='Outcomes_newrvbad' class='table-container'>
     <div class='outcome-title'>Outcome: Outcomes_newrvbad</div>
     <table>
         <thead>
@@ -1029,7 +1116,7 @@
             <td><span class='n-badge'>n=65</span><br>No: 61 (93.8%)<br>Yes: 4 (6.2%)</td>
             <td><span class='n-badge'>n=62</span><br>No: 58 (93.5%)<br>Yes: 4 (6.5%)</td>
             <td><span class='n-badge'>n=3</span><br>No: 3 (100.0%)<br>Yes: 0 (0.0%)</td>
-            <td>0.00 (0.00-460207958515840.....00)</td>
+            <td>0.00 (0.00-4602079585158408096510480074875819112994742950142680014057349098932950679434365688512207020924338388280012735250432.00)</td>
             <td>1.000</td>
             <td><span style='color:#ccc'>N/A</span></td>
             <td>-</td>
@@ -1073,7 +1160,7 @@
     </div>
     <br>
     
-    <div class='table-container'>
+    <div id='Outcomes_newrvgood' class='table-container'>
     <div class='outcome-title'>Outcome: Outcomes_newrvgood</div>
     <table>
         <thead>
@@ -2119,7 +2206,7 @@
     </div>
     <br>
     
-    <div class='table-container'>
+    <div id='Outcomes_sumrv' class='table-container'>
     <div class='outcome-title'>Outcome: Outcomes_sumrv</div>
     <table>
         <thead>
@@ -3165,7 +3252,7 @@
     </div>
     <br>
     
-    <div class='table-container'>
+    <div id='Outcomes_sumoutcome' class='table-container'>
     <div class='outcome-title'>Outcome: Outcomes_sumoutcome</div>
     <table>
         <thead>
@@ -4210,4 +4297,10 @@
     </div>
     </div>
     <br>
-    </body></html>
+    
+    <div class="quick-nav">
+        <a href='#Outcomes_newrvbad'>newrvbad</a><a href='#Outcomes_newrvgood'>newrvgood</a><a href='#Outcomes_sumrv'>sumrv</a><a href='#Outcomes_sumoutcome'>sumoutcome</a>
+        <a href="#top" class="top-btn">↑ Top</a>
+    </div>
+</body>
+</html>
