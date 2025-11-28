@@ -11,20 +11,36 @@
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 20px; padding-bottom: 80px; background-color: #f4f6f8; color: #333; }
     h1 { text-align: center; color: #2c3e50; margin-bottom: 30px; font-weight: 300; letter-spacing: 1px; }
     
-    /* Table & Sticky Logic */
+    /* Table & Container */
     .table-container { 
         background: white; 
         border-radius: 8px; 
         box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
         margin-bottom: 50px; 
-        position: relative;
-        scroll-margin-top: 20px; /* Space when scrolling to anchor */
+        position: relative; /* Scope for some elements, but sticky works with body scroll */
+        scroll-margin-top: 20px;
     }
 
-    .outcome-title { background-color: #2c3e50; color: white; padding: 15px 20px; font-size: 1.2em; font-weight: 500; border-radius: 8px 8px 0 0; }
-    
     table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; }
     
+    /* --- Double Sticky Logic --- */
+    
+    /* 1. Outcome Title (Topmost Sticky) */
+    .outcome-title { 
+        background-color: #2c3e50; 
+        color: white; 
+        padding: 15px 20px; 
+        font-size: 1.2em; 
+        font-weight: 500; 
+        border-radius: 8px 8px 0 0;
+        
+        position: sticky;
+        top: 0; /* ติดขอบบนสุด */
+        z-index: 102; /* อยู่บนสุด */
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    /* 2. Table Header (Sticky under Title) */
     th { 
         background-color: #34495e; 
         color: #fff; 
@@ -33,9 +49,10 @@
         text-transform: uppercase; 
         font-size: 0.85em; 
         letter-spacing: 0.5px;
-        position: sticky; 
-        top: 0; 
-        z-index: 100;
+        
+        position: sticky;
+        top: 55px; /* เว้นที่ให้ Outcome Title (ประมาณ 50-60px) */
+        z-index: 101; /* อยู่ใต้ Outcome Title แต่อยู่บนข้อมูล */
         box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
     }
 
@@ -81,17 +98,26 @@
         transform: translateY(-2px);
         box-shadow: 0 2px 5px rgba(52, 152, 219, 0.3);
     }
-    .quick-nav .top-btn {
-        background: #2c3e50;
-        color: white;
-    }
+    .quick-nav .top-btn { background: #2c3e50; color: white; }
 
     /* Mobile Responsive */
     @media screen and (max-width: 768px) {
         body { padding: 10px; padding-bottom: 100px; }
         .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
         table { min-width: 900px; }
-        .outcome-title { position: sticky; left: 0; width: 100%; box-sizing: border-box; }
+        
+        .outcome-title {
+            position: sticky;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            top: 0;
+            z-index: 102;
+        }
+        th {
+            top: 55px; /* Ensure offset works on mobile too */
+        }
+        
         th, td { padding: 10px 8px; font-size: 0.85em; }
         
         .quick-nav {
