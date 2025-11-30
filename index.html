@@ -1,408 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Welcome to NTWKKM GitHub Pages</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    /* --- Day Theme (Default) --- */
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: #244885; 
-      min-height: 100vh;
-      color: #FBE9D0; 
-      line-height: 1.6;
-      /* เพิ่ม transition ให้การเปลี่ยนสีนุ่มนวล */
-      transition: background-color 0.3s, color 0.3s;
-    }
-    header {
-      background: #244885; 
-      color: white; 
-      text-align: center;
-      padding: 25px 20px 20px 20px; 
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-      border-bottom: 4px solid #FBE9D0;
-      position: relative; /* เพื่อให้ปุ่ม Toggle อยู่ถูกที่ */
-      transition: background-color 0.3s, border-color 0.3s;
-    }
-    h1 {
-      font-size: 2.2em; 
-      margin: 0 0 10px 0;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-    .subtitle {
-      font-size: 1.1em; 
-      font-weight: 300;
-      color: #FBE9D0; 
-      opacity: 0.9;
-      transition: color 0.3s;
-    }
-    .card {
-      max-width: 1000px; 
-      margin: 30px auto;
-      background: #FBE9D0; 
-      border-radius: 12px;
-      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
-      padding: 30px;
-      text-align: left;
-      transition: background-color 0.3s;
-    }
-    h2 {
-      color: #871F41; 
-      font-size: 1.5em;
-      margin-top: 0;
-      margin-bottom: 20px;
-      font-weight: 600;
-      border-bottom: 2px solid #e6dacb; 
-      padding-bottom: 10px;
-      transition: color 0.3s, border-color 0.3s;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 30px 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 15px; 
-    }
-    li {
-      margin-bottom: 0; 
-      font-size: 1.05em;
-    }
-    .card ul li a {
-      display: block;
-      color: #333;
-      background: #F5F5F5; 
-      text-decoration: none;
-      padding: 15px 20px;
-      border-radius: 8px;
-      transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
-      font-weight: 500;
-      border: 1px solid #e0e0e0; 
-      height: 100%; 
-      box-sizing: border-box; 
-    }
-    .card ul li a:hover {
-      color: #fff;
-      background: #244885; 
-      border-color: #244885;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(36, 72, 133, 0.3);
-    }
-    .description {
-      font-size: 1.05em;
-      color: #555;
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid #e6dacb;
-      transition: color 0.3s, border-color 0.3s;
-    }
-    .footer {
-      text-align: center;
-      margin: 50px auto 30px auto;
-      font-size: 0.9em;
-      color: #90AEAD;
-      transition: color 0.3s;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTWKKM | Emergency Medicine & Dev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     
-    /* --- 1. สไตล์สำหรับปุ่มสลับธีม --- */
-    #theme-toggle {
-      position: absolute;
-      top: 25px;
-      right: 25px;
-      background: #FBE9D0; /* Day: พื้นครีม */
-      color: #244885; /* Day: ตัวอักษรน้ำเงิน */
-      border: 1px solid #244885;
-      padding: 8px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.9em;
-      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    }
-    #theme-toggle:hover {
-      opacity: 0.8;
-    }
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #244885;     /* สีหลักจากเว็บเดิม แต่ปรับให้ Modern ขึ้น */
+            --accent: #E63946;      /* สีแดงสำหรับ Emergency / Highlight */
+            --bg-body: #F8F9FA;     /* พื้นหลังสีเทาอ่อน สบายตา */
+            --bg-card: #FFFFFF;     /* พื้นหลังการ์ด */
+            --text-main: #1F2937;   /* สีตัวอักษรเข้ม */
+            --text-muted: #6B7280;  /* สีตัวอักษรจาง */
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+        }
 
-    /* --- 2. CSS สำหรับ Night Mode --- */
-    body.night {
-      background: #1a2b48; /* Darker Blue */
-    }
-    body.night header {
-      background: #1a2b48;
-      border-bottom-color: #3a4b69; /* Muted Darker Border */
-    }
-    body.night .subtitle {
-      color: #90AEAD; /* Muted Teal */
-    }
-    body.night .card {
-      background: #244885; /* Card becomes Deep Blue */
-    }
-    body.night .card h2 {
-      color: #FBE9D0; /* Cream Text */
-      border-bottom-color: #3a4b69;
-    }
-    body.night .card ul li a {
-      background: #1a2b48; /* Button is Darkest Blue */
-      color: #FBE9D0; /* Cream Text */
-      border-color: #3a4b69; /* Muted Border */
-    }
-    body.night .card ul li a:hover {
-      background: #FBE9D0; /* Hover is Cream */
-      color: #1a2b48; /* Text is Darkest Blue */
-      border-color: #FBE9D0;
-      box-shadow: 0 4px 10px rgba(251, 233, 208, 0.2);
-    }
-    body.night .description {
-      color: #FBE9D0; /* Cream Text */
-      border-top-color: #3a4b69;
-    }
-    body.night .footer {
-      color: #90AEAD; /* Muted Teal */
-    }
-    /* ปุ่ม Toggle ใน Night Mode */
-    body.night #theme-toggle {
-      background: #3a4b69; /* Night: พื้นสีเทาเข้ม */
-      color: #FBE9D0; /* Night: ตัวอักษรครีม */
-      border-color: #FBE9D0;
-    }
-    /* Media Query (ปรับปุ่มบนจอมือถือ) */
-    /* 1. ขยายขอบเขตจาก 640px เป็น 768px ให้ครอบคลุมแท็บเล็ตแนวตั้ง */
-    @media (max-width: 768px) { 
-      header { padding: 20px 15px 15px 15px; }
-      h1 { font-size: 1.8em; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-      /* 2. ลดขนาด .subtitle และปรับ line-height เล็กน้อยในจอมือถือ */
-      .subtitle {
-        font-size: 1.0em; /* ลดขนาดลงจาก 1.1em */
-        line-height: 1.4;
-      }
-      
-      .card { 
-        padding: 20px;
-        margin: 20px;
-      }
-      ul {
-        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-      }
-      #theme-toggle {
-        /* (โค้ดเดิมของคุณส่วนนี้ถูกต้องแล้วครับ) */
-        /* ย้ายปุ่มไปไว้ตรงกลางใต้ Subtitle บนจอมือถือ */
-        position: static; 
-        margin-top: 15px;
-      }
-    }
-  </style>
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- LAYOUT UTILITIES --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section { margin-bottom: 80px; }
+
+        /* --- HEADER --- */
+        header {
+            background: var(--bg-card);
+            padding: 40px 0;
+            border-bottom: 1px solid #E5E7EB;
+            margin-bottom: 40px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .brand h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .brand p {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .social-link {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            padding: 8px 16px;
+            border: 1px solid #E5E7EB;
+            border-radius: 50px;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* --- SECTION TITLES --- */
+        .section-header {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .section-line {
+            height: 2px;
+            background: #E5E7EB;
+            flex-grow: 1;
+        }
+
+        /* --- PART 1: PAPER SLIDER (HORIZONTAL) --- */
+        .paper-scroll-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* Hide Scrollbar but keep functionality */
+        .paper-scroll-container::-webkit-scrollbar { height: 8px; }
+        .paper-scroll-container::-webkit-scrollbar-track { background: transparent; }
+        .paper-scroll-container::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+
+        .paper-card {
+            flex: 0 0 300px; /* Fixed width for cards */
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.2s;
+        }
+
+        .paper-card:hover { transform: translateY(-4px); }
+
+        .paper-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .paper-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .paper-comment {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .paper-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+            align-self: flex-start;
+        }
+
+        /* --- PART 2: PORTFOLIO GRID --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-card:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--primary);
+        }
+
+        .project-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        footer a { color: var(--primary); text-decoration: none; }
+
+        /* --- LOADING STATE --- */
+        .loading { text-align: center; color: var(--text-muted); padding: 40px; }
+
+        /* MOBILE ADJUSTMENTS */
+        @media (max-width: 640px) {
+            .brand h1 { font-size: 1.75rem; }
+            .header-content { flex-direction: column; text-align: center; }
+            .paper-card { flex: 0 0 260px; }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to NTWKKM GitHub Pages</h1>
-    <div class="subtitle">Your hub for bookmarks, study resources, and projects</div>
-    <button id="theme-toggle">Night Mode</button>
-  </header>
 
-  <div class="card">
-    <h2>Featured Links & Projects</h2>
-    <ul>
-      <li>
-        <a href="https://medstat.netlify.app/" target="_blank">
-          Med statatistcs online
-        </a>
-      </li>
-      <li>
-        <a href="https://ntwkkm.github.io/Toxico/" target="_blank">
-          Toxico Course Bookmarks
-        </a>
-      </li>
-      <li>
-         <a href="https://cpr-mnrh.vercel.app/" target="_blank">
-          MNRH CPR Recorder
-         </a>
-      </li>
-      <li>
-         <a href="https://cpr-mnrh.vercel.app/cpr_archrive" target="_blank">
-          CPR Archrive
-         </a>
-      </li>  
-      <li>
-        <a href="https://ntwkkm.github.io/QRcodegenarator/index.html" target="_blank">
-          QR code generator
-        </a>
-      </li>
-      <li>
-        <a href="https://ntwkkm.github.io/present/ESICM%20part%202%20%5BICU-%20Nov-Nattawit%202%5D.pdf " target="_blank">
-          ESICM II[ICU- Nov-Nattawit]
-        </a>
-      </li>
-      <li>
-        <a href="https://ntwkkm.github.io/present/ESICM%20part%202%20%5BAutosaved%5D.pptx" target="_blank">
-          PPT ESICM II[ICU- Nov-Nattawit]
-        </a>
-      </li> 
-      <li>
-        <a href="https://ntwkkm.github.io/present/Summary%20of%20Landmark%20Studies%20(Fluid).pdf" target="_blank">
-          LANDMARK STUDIES FLUID
-        </a>
-      </li> 
-      <li>
-        <a href="https://tomato-worthy-basilisk-257.mypinata.cloud/ipfs/bafybeidcslrmerg5bsanr3rfiq45bpjdsd5aejfoq3f5ncztzsoo4xruhe/" target="_blank">
-          ESICM 2024-2025
-        </a>
-      </li>
-      <li>
-        <a href="https://ntwkkm-n8n-final.fly.dev/" target="_blank">
-          ntwkkm-n8n
-        </a>
-      </li>
-      <li>
-        <a href="https://ntwkkm.github.io/n8n/n8n.html" target="_blank">
-          Tutorrial n8n with fly.io
-        </a>
-      </li>
-      <li>
-        <a href="https://ntwkkm.github.io/n8n/n8n-ai-router.html" target="_blank">
-          Tutorrial n8n router
-        </a>
-      </li>
-      <li>
-        <a href="https://ntwkkm.github.io/n8n/n8n-git.html" target="_blank">
-          Tutorrial n8n with git
-        </a>
-      </li>
-      <li>
-        <a href="https://ntwkkm.github.io/n8n/n8n-pubmed.html" target="_blank">
-          Tutorrial n8n-pubmed
-        </a>
-      </li> 
-      <li>
-        <a href="https://ntwkkm.github.io/present/hypokalemia/content%20hypokalemia.pdf" target="_blank">
-          content hypokalemia
-        </a>
-      </li>
-      <li>
-        <a href="https://ntwkkm.github.io/present/hypokalemia/emcrit-content%20hypokalemia.pdf" target="_blank">
-          emcrit-content hypokalemia
-        </a>
-      </li>
-      <li>
-        <a href="https://ntwkkm.github.io/present/hypokalemia/HypoK%20-%20primary%20hyperaldo.pdf" target="_blank">
-          HypoK - primary hyperaldo
-        </a>
-      </li> 
-        <li>
-      <a href="https://ntwkkm.github.io/present/ACLS%202025Adult%20special%20circumstance.pdf" target="_blank">
-        ACLS 2025 Adult special
-      </a>
-        </li>
-          <li>
-        <a href="https://ntwkkm.github.io/research-KT.html" target="_blank">
-          research kt
-        </a>
-      </li>
-        <li>
-        <a href="https://ntwkkm.github.io/research-KT-5.html" target="_blank">
-          research kt-5
-        </a>
-      </li>
-    </ul>
-    <h2>Completed Projects</h2>
-    <ul>
-      <li>
-        <a href="https://rt-pa-mnrh-v4.vercel.app/" target="_blank">
-          rtPA-MNRH-V4-vercel
-        </a>
-      </li>
-      <li>
-        <a href="https://rtpa-mnrh.replit.app/" target="_blank">
-          rtPA-MNRH-V2-replit
-        </a>
-      </li>
-      <li>
-        <a href="https://rtpa-mnrh-v6-builder.netlify.app/" target="_blank">
-          rtPA-MNRH-V6-netilfy
-        </a>
-      </li>
-      <li>
-        <a href="https://rtpamnrh.vercel.app/" target="_blank">
-          rtPA-MNRH-V1-vercel
-        </a>
-      </li>
-      <li>
-        <a href="https://mnrhrefer.vercel.app/" target="_blank">
-          ED-MNRH-refer-vercel
-        </a>
-      </li>
-      <li>
-        <a href="https://er-mnrh-consult.replit.app/" target="_blank">
-          ED-MNRH-consult-replit
-        </a>
-      </li>
-      <li>
-        <a href="https://acetatox.netlify.app/" target="_blank">
-          Acetatox-netlify
-        </a>
-      </li>
-        <li>
-        <a href="https://shocksimulation.vercel.app/" target="_blank">
-          Shock simulation
-        </a>
-      </li>
-        <li>
-        <a href="https://ventsim.vercel.app/ target="_blank">
-          Ventsim
-        </a>
-      </li>
-       <li>
-        <a href="https://ntwkkm.github.io/present/ventsim.html" target="_blank">
-          LOG VENTSIM
-        </a>
-      </li> 
-    </ul>
+    <header>
+        <div class="container header-content">
+            <div class="brand">
+                <h1>NTWKKM</h1>
+                <p>Emergency Medicine & Digital Health Developer</p>
+            </div>
+            <a href="https://github.com/NTWKKM" target="_blank" class="social-link">
+                GitHub Profile
+            </a>
+        </div>
+    </header>
 
-    <div class="description">
-      This GitHub Pages site is a repository of medical learning resources, created to support anyone interested in healthcare education.
+    <div class="container">
+        
+        <section id="papers-section">
+            <div class="section-header">
+                <h2 class="section-title">Daily EM Papers</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="paper-scroll-container" id="paper-container">
+                <div class="loading">Loading latest papers...</div>
+            </div>
+        </section>
+
+        <section id="works-section">
+            <div class="section-header">
+                <h2 class="section-title">Selected Works</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="portfolio-grid">
+                <a href="https://medstat.netlify.app/" target="_blank" class="project-card">
+                    <div class="project-title">Med Statistics Online</div>
+                    <div class="project-desc">Medical Statistics Tools</div>
+                </a>
+
+                <a href="https://acetatox.netlify.app/" target="_blank" class="project-card">
+                    <div class="project-title">Acetaminophen Toxicology</div>
+                    <div class="project-desc">Toxico Reference</div>
+                </a>
+
+                <a href="https://ventsim.vercel.app/" target="_blank" class="project-card">
+                    <div class="project-title">VentSim</div>
+                    <div class="project-desc">Ventilator Simulation</div>
+                </a>
+
+                <a href="https://shocksimulation.vercel.app/" target="_blank" class="project-card">
+                    <div class="project-title">Shock Simulation</div>
+                    <div class="project-desc">Hemodynamic Simulation</div>
+                </a>
+
+                <a href="https://mnrhrefer.vercel.app/" target="_blank" class="project-card">
+                    <div class="project-title">MNRH Refer</div>
+                    <div class="project-desc">Referral System</div>
+                </a>
+
+                <a href="https://rtpamnrh.vercel.app/" target="_blank" class="project-card">
+                    <div class="project-title">rtPA MNRH V1</div>
+                    <div class="project-desc">Stroke Protocol V1</div>
+                </a>
+
+                <a href="https://rt-pa-mnrh-v4.vercel.app/" target="_blank" class="project-card">
+                    <div class="project-title">rtPA MNRH V4</div>
+                    <div class="project-desc">Stroke Protocol V4 (Latest)</div>
+                </a>
+            </div>
+        </section>
+
     </div>
-  </div>
-  
-  <div class="footer">
-    &copy; 2025 NTWKKM &nbsp;|&nbsp; Powered by GitHub Pages
-  </div>
 
-  <script>
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
+    <footer>
+        &copy; 2025 NTWKKM. Powered by GitHub Pages.<br>
+        <a href="https://github.com/NTWKKM">Visit GitHub Profile</a>
+    </footer>
 
-    // ฟังก์ชันสำหรับตั้งค่าธีมและปุ่ม
-    function setTheme(theme) {
-      if (theme === 'night') {
-        body.classList.add('night');
-        localStorage.setItem('theme', 'night');
-        themeToggle.textContent = 'Day Mode'; // อัปเดตข้อความปุ่ม
-      } else {
-        body.classList.remove('night');
-        localStorage.setItem('theme', 'day');
-        themeToggle.textContent = 'Night Mode'; // อัปเดตข้อความปุ่ม
-      }
-    }
+    <script>
+        // --- PART 1 CONFIGURATION ---
+        
+        // นี่คือ Mock Data (ข้อมูลจำลอง) เพื่อให้หน้าเว็บแสดงผลสวยงามก่อน
+        // เมื่อ n8n เสร็จแล้ว คุณสามารถเปลี่ยน function fetchPapers() ให้ไปดึง data.json จริงๆ ได้
+        const mockPapers = [
+            {
+                title: "Early vasopressor use in septic shock: A multicenter trial",
+                comment: "น่าสนใจตรงที่เริ่มใช้ภายใน 1 ชม. แรก ลด mortality ได้อย่างมีนัยสำคัญ",
+                date: "2025-11-20",
+                link: "#"
+            },
+            {
+                title: "Point-of-care ultrasound in undifferentiated hypotension",
+                comment: "RUSH protocol ยังคงเป็น standard แต่มีการปรับเรื่อง VTI assessment",
+                date: "2025-11-19",
+                link: "#"
+            },
+            {
+                title: "High-flow nasal oxygen vs NIV in acute respiratory failure",
+                comment: "เปรียบเทียบในกลุ่ม Immunocompromised ผลออกมาไม่ต่างกันมาก",
+                date: "2025-11-19",
+                link: "#"
+            },
+            {
+                title: "Tranexamic acid in traumatic brain injury: Subgroup analysis",
+                comment: "ผลดีชัดเจนในกลุ่ม Moderate TBI ที่ได้รับยาภายใน 2 ชม.",
+                date: "2025-11-18",
+                link: "#"
+            },
+            {
+                title: "Ketamine for agitation in the ED: Safety profile update",
+                comment: "ระวังเรื่อง Laryngospasm ใน dose ที่สูงกว่า 5mg/kg",
+                date: "2025-11-18",
+                link: "#"
+            }
+        ];
 
-    // เมื่อหน้าโหลด: ตรวจสอบธีมที่บันทึกไว้
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme === 'night') {
-      setTheme('night');
-    } else {
-      setTheme('day'); // ค่าเริ่มต้นคือ Day
-    }
+        async function fetchPapers() {
+            const container = document.getElementById('paper-container');
+            
+            // --- อนาคต: เมื่อ n8n พร้อม ---
+            // 1. ให้ n8n สร้างไฟล์ชื่อ 'papers.json' และ commit ลงใน repo นี้
+            // 2. Uncomment บรรทัดด้านล่างเพื่อดึงข้อมูลจริง:
+            // const response = await fetch('./papers.json');
+            // const data = await response.json();
+            
+            // --- ปัจจุบัน: ใช้ Mock Data ---
+            const data = mockPapers; 
 
-    // เมื่อคลิกปุ่ม: สลับธีม
-    themeToggle.addEventListener('click', () => {
-      if (body.classList.contains('night')) {
-        setTheme('day');
-      } else {
-        setTheme('night');
-      }
-    });
-  </script>
+            // Clear Loading
+            container.innerHTML = '';
+
+            // Render Cards
+            data.forEach(paper => {
+                const card = document.createElement('div');
+                card.className = 'paper-card';
+                card.innerHTML = `
+                    <div class="paper-date">${paper.date}</div>
+                    <div class="paper-title">${paper.title}</div>
+                    <div class="paper-comment">"${paper.comment}"</div>
+                    <a href="${paper.link}" class="paper-link" target="_blank">READ FULL PAPER →</a>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Run function on load
+        document.addEventListener('DOMContentLoaded', fetchPapers);
+
+    </script>
 </body>
 </html>
