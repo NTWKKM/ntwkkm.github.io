@@ -82,14 +82,14 @@
             padding: 0 20px;
         }
 
-        section { margin-bottom: 80px; position: relative; }
+        section { margin-bottom: 60px; position: relative; } /* Reduced margin from 80px */
 
-        /* --- HEADER & NAV --- */
+        /* --- HEADER & NAV (UPDATED: Compact Size) --- */
         header {
             background: var(--bg-card);
-            padding: 30px 0;
+            padding: 15px 0; /* Reduced from 30px */
             border-bottom: 1px solid var(--border);
-            margin-bottom: 50px;
+            margin-bottom: 30px; /* Reduced from 50px */
             position: sticky;
             top: 0;
             z-index: 100;
@@ -110,7 +110,7 @@
         }
 
         .brand h1 {
-            font-size: 1.8rem;
+            font-size: 1.5rem; /* Reduced from 1.8rem */
             font-weight: 800;
             color: var(--text-main);
             letter-spacing: -0.5px;
@@ -122,7 +122,7 @@
         .brand p {
             color: var(--text-muted);
             font-weight: 500;
-            font-size: 0.95rem; /* Increased slightly */
+            font-size: 0.85rem; /* Reduced from 0.95rem */
             letter-spacing: 0.2px;
         }
 
@@ -136,8 +136,8 @@
         .theme-btn {
             background: var(--toggle-bg);
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 36px; /* Reduced slightly */
+            height: 36px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
@@ -151,18 +151,18 @@
             transform: scale(1.1) rotate(15deg);
         }
 
-        .theme-btn svg { width: 20px; height: 20px; fill: currentColor; }
+        .theme-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
         /* --- GITHUB BUTTON --- */
         .social-link {
             text-decoration: none;
             color: var(--text-main);
             font-weight: 600;
-            padding: 8px 18px;
+            padding: 6px 16px; /* Reduced padding */
             border: 1px solid var(--border);
             border-radius: 50px;
             transition: all 0.2s ease;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             background: var(--bg-card);
         }
 
@@ -206,7 +206,11 @@
             opacity: 0.5;
         }
 
-        /* --- PART 1: PAPER SLIDER --- */
+        /* --- PART 1: PAPER SLIDER (UPDATED: Arrows) --- */
+        .paper-section-wrapper {
+            position: relative;
+        }
+
         .paper-scroll-container {
             display: flex;
             gap: 20px;
@@ -214,6 +218,7 @@
             padding: 10px 5px 30px 5px;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth; /* Ensure smooth scrolling for JS */
         }
 
         .paper-scroll-container::-webkit-scrollbar { height: 8px; }
@@ -297,6 +302,43 @@
         }
 
         .paper-link:hover { gap: 10px; }
+
+        /* Navigation Buttons for Slider */
+        .slider-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 10;
+            transition: all 0.2s ease;
+            opacity: 0.8;
+        }
+        
+        .slider-nav-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .slider-nav-btn.prev { left: -20px; }
+        .slider-nav-btn.next { right: -20px; }
+
+        /* Hide buttons on mobile or if touch is available mostly */
+        @media (max-width: 768px) {
+            .slider-nav-btn { display: none; }
+        }
 
         /* --- PART 2: PORTFOLIO GRID --- */
         .portfolio-grid {
@@ -402,15 +444,16 @@
 
         /* MOBILE ADJUSTMENTS */
         @media (max-width: 640px) {
-            .brand h1 { font-size: 1.5rem; }
+            .brand h1 { font-size: 1.3rem; }
             .header-content { flex-direction: row; justify-content: space-between; align-items: center; }
             .brand-group { max-width: 70%; }
             .controls { gap: 10px; }
             .social-link span { display: none; }
-            .social-link { padding: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center; width: 40px; height: 40px;}
+            .social-link { padding: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px;}
             .social-link::after { content: 'GH'; font-size: 0.8rem; }
             
             .paper-card { flex: 0 0 280px; }
+            .slider-nav-btn { display: none; } /* Ensure buttons hidden on mobile */
         }
     </style>
 </head>
@@ -437,15 +480,19 @@
     <div class="container">
         
         <section id="papers-section" class="animate-entry delay-1">
-            <div class="section-header">
-                <h2 class="section-title">Daily EM Picks</h2>
-                <div class="section-line"></div>
-            </div>
-            
-            <div class="paper-scroll-container" id="paper-container">
-                <div class="skeleton-card"><div class="skeleton-line w-50"></div><div class="skeleton-line w-80"></div><div class="skeleton-line"></div></div>
-                <div class="skeleton-card"><div class="skeleton-line w-50"></div><div class="skeleton-line w-80"></div><div class="skeleton-line"></div></div>
-                <div class="skeleton-card"><div class="skeleton-line w-50"></div><div class="skeleton-line w-80"></div><div class="skeleton-line"></div></div>
+            <div class="paper-section-wrapper">
+                <button class="slider-nav-btn prev" id="slide-prev" aria-label="Previous">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <button class="slider-nav-btn next" id="slide-next" aria-label="Next">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+
+                <div class="paper-scroll-container" id="paper-container">
+                    <div class="skeleton-card"><div class="skeleton-line w-50"></div><div class="skeleton-line w-80"></div><div class="skeleton-line"></div></div>
+                    <div class="skeleton-card"><div class="skeleton-line w-50"></div><div class="skeleton-line w-80"></div><div class="skeleton-line"></div></div>
+                    <div class="skeleton-card"><div class="skeleton-line w-50"></div><div class="skeleton-line w-80"></div><div class="skeleton-line"></div></div>
+                </div>
             </div>
         </section>
 
@@ -537,47 +584,12 @@
             updateIcon(newTheme);
         });
 
-        // --- 2. PAPER DATA MOCKUP (Replace with n8n later) ---
-        const mockPapers = [
-            {
-                title: "Early vasopressor use in septic shock: A multicenter trial",
-                comment: "เริ่มใช้ภายใน 1 ชม. แรก ลด mortality ได้อย่างมีนัยสำคัญ",
-                date: "20 Nov",
-                link: "#"
-            },
-            {
-                title: "Point-of-care ultrasound in undifferentiated hypotension",
-                comment: "RUSH protocol ยังคงเป็น standard ปรับเรื่อง VTI",
-                date: "19 Nov",
-                link: "#"
-            },
-            {
-                title: "High-flow nasal oxygen vs NIV in acute respiratory failure",
-                comment: "ในกลุ่ม Immunocompromised ผลออกมาไม่ต่างกันมาก",
-                date: "19 Nov",
-                link: "#"
-            },
-            {
-                title: "Tranexamic acid in traumatic brain injury",
-                comment: "ผลดีชัดเจนในกลุ่ม Moderate TBI ที่ได้รับยาภายใน 2 ชม.",
-                date: "18 Nov",
-                link: "#"
-            },
-            {
-                title: "Ketamine for agitation in the ED: Safety profile update",
-                comment: "ระวังเรื่อง Laryngospasm ใน dose ที่สูงกว่า 5mg/kg",
-                date: "18 Nov",
-                link: "#"
-            }
-        ];
-
         // --- 2. FETCH PAPERS FROM JSON (UPDATED) ---
         async function fetchPapers() {
             const container = document.getElementById('paper-container');
             
             try {
                 // เปลี่ยนไปดึงไฟล์ papers.json ที่ n8n สร้างไว้ใน Repo เดียวกัน
-                // ต้องแน่ใจว่า n8n save ไฟล์ชื่อ 'papers.json' ไว้ที่ root folder หรือระบุ path ให้ถูก
                 const response = await fetch('./papers.json'); 
                 
                 if (!response.ok) throw new Error('Failed to fetch papers');
@@ -586,7 +598,7 @@
                 
                 container.innerHTML = ''; // Clear Skeletons
 
-                // Loop ข้อมูลมาแสดงผล (Code ชุดเดิมของคุณ)
+                // Loop ข้อมูลมาแสดงผล
                 papers.forEach((paper, index) => {
                     const card = document.createElement('div');
                     card.className = 'paper-card animate-entry';
@@ -604,11 +616,72 @@
                     container.appendChild(card);
                 });
 
+                // Start Auto Scroll after content is loaded
+                initSliderControls();
+
             } catch (error) {
                 console.error("Error loading papers:", error);
-                // กรณีโหลดไม่ได้ อาจจะแสดงข้อความเตือน หรือคง Skeleton ไว้
                 container.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted);">Failed to load latest papers.</div>';
             }
+        }
+
+        // --- 3. SLIDER CONTROLS & AUTO-SCROLL (NEW) ---
+        function initSliderControls() {
+            const container = document.getElementById('paper-container');
+            const prevBtn = document.getElementById('slide-prev');
+            const nextBtn = document.getElementById('slide-next');
+            
+            // Calculate scroll amount (2 cards + gaps)
+            // Card width ~320px + gap 20px = 340px * 2 = 680px
+            const getScrollAmount = () => {
+                 // Try to get dynamic width if possible, fallback to static
+                 const card = container.querySelector('.paper-card');
+                 return card ? (card.offsetWidth + 20) * 2 : 680;
+            };
+
+            // Manual Navigation
+            nextBtn.addEventListener('click', () => {
+                resetAutoScroll();
+                container.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                resetAutoScroll();
+                container.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+            });
+
+            // Auto Scroll Logic
+            let autoScrollInterval;
+
+            function startAutoScroll() {
+                autoScrollInterval = setInterval(() => {
+                    const scrollAmount = getScrollAmount();
+                    
+                    // Check if we are near the end
+                    // Tolerance of 10px
+                    const isAtEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 10;
+                    
+                    if (isAtEnd) {
+                        // Loop back to start
+                        container.scrollTo({ left: 0, behavior: 'smooth' });
+                    } else {
+                        // Scroll next 2 cards
+                        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                    }
+                }, 5000); // Change slide every 5 seconds (adjust as needed)
+            }
+
+            function resetAutoScroll() {
+                clearInterval(autoScrollInterval);
+                startAutoScroll();
+            }
+
+            // Start logic
+            startAutoScroll();
+            
+            // Optional: Pause on hover
+            container.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+            container.addEventListener('mouseleave', () => startAutoScroll());
         }
 
         document.addEventListener('DOMContentLoaded', fetchPapers);
