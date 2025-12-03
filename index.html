@@ -571,14 +571,23 @@
             }
         ];
 
+        // --- 2. FETCH PAPERS FROM JSON (UPDATED) ---
         async function fetchPapers() {
             const container = document.getElementById('paper-container');
             
-            // Simulate network delay for effect
-            setTimeout(() => {
+            try {
+                // เปลี่ยนไปดึงไฟล์ papers.json ที่ n8n สร้างไว้ใน Repo เดียวกัน
+                // ต้องแน่ใจว่า n8n save ไฟล์ชื่อ 'papers.json' ไว้ที่ root folder หรือระบุ path ให้ถูก
+                const response = await fetch('./papers.json'); 
+                
+                if (!response.ok) throw new Error('Failed to fetch papers');
+                
+                const papers = await response.json();
+                
                 container.innerHTML = ''; // Clear Skeletons
 
-                mockPapers.forEach((paper, index) => {
+                // Loop ข้อมูลมาแสดงผล (Code ชุดเดิมของคุณ)
+                papers.forEach((paper, index) => {
                     const card = document.createElement('div');
                     card.className = 'paper-card animate-entry';
                     card.style.animationDelay = `${index * 0.1}s`; 
@@ -594,11 +603,15 @@
                     `;
                     container.appendChild(card);
                 });
-            }, 800); 
+
+            } catch (error) {
+                console.error("Error loading papers:", error);
+                // กรณีโหลดไม่ได้ อาจจะแสดงข้อความเตือน หรือคง Skeleton ไว้
+                container.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted);">Failed to load latest papers.</div>';
+            }
         }
 
         document.addEventListener('DOMContentLoaded', fetchPapers);
-
     </script>
 </body>
 </html>
