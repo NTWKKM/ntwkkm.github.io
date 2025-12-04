@@ -1,62 +1,20 @@
 [
   {
-    "date": "4 Dec",
-    "title": "Pharmacotherapy Management of Beta-Blocker Toxicity in the Emergency Department.",
-    "comment": "การทบทวนนี้สำคัญต่อแพทย์ ER เพื่ออัปเดตแนวทางการรักษาภาวะพิษจาก Beta-blocker ที่เป็นอันตรายถึงชีวิต.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/https://pubmed.ncbi.nlm.nih.gov/41337704/"
-  },
-  {
-    "date": "4 Dec",
-    "title": "Retrieval-Augmented Generation for Medical Decision-Making in Emergency Care.",
-    "comment": "นวัตกรรม AI นี้อาจพลิกโฉมการตัดสินใจทางคลินิกที่รวดเร็วและแม่นยำขึ้นในห้องฉุกเฉิน.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/https://pubmed.ncbi.nlm.nih.gov/41337300/"
-  },
-  {
-    "date": "4 Dec",
-    "title": "A Natural Language Processing Model Based on Anamnesis Reports to Predict Acute Myocardial Infarction Risk in Emergency Chest Pain Patients.",
-    "comment": "งานวิจัย AI นี้ช่วยคัดกรองผู้ป่วยเจ็บหน้าอกเพื่อระบุความเสี่ยง AMI ได้อย่างรวดเร็วและมีประสิทธิภาพใน ER.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/https://pubmed.ncbi.nlm.nih.gov/41335973/"
-  },
-  {
-    "date": "4 Dec",
-    "title": "Prehospital Interventions, Early Detection, and Their Impact on Survival Outcomes in Patients with Sepsis: A Systematic Review.",
-    "comment": "การทบทวนนี้เน้นย้ำความสำคัญของการตรวจจับและการรักษาภาวะติดเชื้อในกระแสเลือดตั้งแต่ก่อนถึงโรงพยาบาล ซึ่งส่งผลต่อการรอดชีวิตอย่างชัดเจน.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/https://pubmed.ncbi.nlm.nih.gov/41334884/"
-  },
-  {
-    "date": "4 Dec",
-    "title": "Bystanders' attitudes towards drone delivered Automated External Defibrillators for out-of-hospital cardiac arrest: A qualitative interview study.",
-    "comment": "การใช้โดรนส่ง AED เป็นนวัตกรรมที่อาจเปลี่ยนแนวทางการรับมือภาวะหัวใจหยุดเต้นนอกโรงพยาบาล ซึ่งต้องพิจารณามุมมองของประชาชน.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/https://pubmed.ncbi.nlm.nih.gov/41335586/"
-  },
-  {
-    "date": "4 Dec",
-    "title": "Time to dialysis matters: a prospective study on emergency hemodialysis outcomes.",
-    "comment": "การศึกษาชิ้นนี้ชี้ให้เห็นว่าระยะเวลาก่อนการล้างไตฉุกเฉินส่งผลต่อผลลัพธ์ผู้ป่วยอย่างมีนัยสำคัญ ซึ่งแพทย์ ER ควรให้ความสำคัญ.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/https://pubmed.ncbi.nlm.nih.gov/41335301/"
-  },
-  {
-    "date": "4 Dec",
-    "title": "Impact of an oncology urgent care center on preventable emergency department visits: revisiting lessons from a global pandemic to improve quality of care.",
-    "comment": "การจัดตั้งศูนย์ดูแลผู้ป่วยมะเร็งเร่งด่วนอาจลดภาระ ER และเพิ่มคุณภาพการดูแลผู้ป่วยได้.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/https://pubmed.ncbi.nlm.nih.gov/41335211/"
-  },
-  {
-    "date": "4 Dec",
-    "title": "Correlation Between Cardiopulmonary Resuscitation Duration and Neurological Outcomes Following Out-of-Hospital Cardiac Arrest: A Dose-Response Meta-Analysis.",
-    "comment": "ข้อมูลใหม่นี้ช่วยให้แพทย์ ER ประเมินระยะเวลาการทำ CPR และให้ข้อมูลการพยากรณ์โรคทางระบบประสาทแก่ญาติผู้ป่วย OHCA ได้ดียิ่งขึ้น.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/https://pubmed.ncbi.nlm.nih.gov/41335117/"
-  },
-  {
-    "date": "4 Dec",
-    "title": "Noninferiority of One HPV Vaccine Dose to Two Doses.",
-    "comment": "หากวัคซีน HPV เข็มเดียวมีประสิทธิภาพไม่ด้อยกว่าสองเข็ม จะมีผลอย่างมากต่อการขยายการเข้าถึงและการป้องกันมะเร็งปากมดลูกในวงกว้าง.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/https://pubmed.ncbi.nlm.nih.gov/41337735/"
-  },
-  {
-    "date": "4 Dec",
-    "title": "🔟 Non-Invasive Camera-Based Cardiac Output Monitoring via Facial Photoplethysmography: Advancing Hemodynamic Assessment in Critical Care.",
-    "comment": "เทคโนโลยีใหม่ในการวัด Cardiac Output แบบไม่รุกรานด้วยกล้อง อาจเปลี่ยนแปลงการติดตามผู้ป่วยวิกฤตใน ER ให้สะดวกและปลอดภัยยิ่งขึ้น.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/https://pubmed.ncbi.nlm.nih.gov/41337242/"
+    "name": "papers.json",
+    "path": "papers.json",
+    "sha": "c4b8e2413605331264e5fe7d36a40830515c063b",
+    "size": 5873,
+    "url": "https://api.github.com/repos/NTWKKM/ntwkkm.github.io/contents/papers.json?ref=main",
+    "html_url": "https://github.com/NTWKKM/ntwkkm.github.io/blob/main/papers.json",
+    "git_url": "https://api.github.com/repos/NTWKKM/ntwkkm.github.io/git/blobs/c4b8e2413605331264e5fe7d36a40830515c063b",
+    "download_url": "https://raw.githubusercontent.com/NTWKKM/ntwkkm.github.io/main/papers.json",
+    "type": "file",
+    "content": "WwogIHsKICAgICJkYXRlIjogIjQgRGVjIiwKICAgICJ0aXRsZSI6ICJQaGFy\nbWFjb3RoZXJhcHkgTWFuYWdlbWVudCBvZiBCZXRhLUJsb2NrZXIgVG94aWNp\ndHkgaW4gdGhlIEVtZXJnZW5jeSBEZXBhcnRtZW50LiIsCiAgICAiY29tbWVu\ndCI6ICLguIHguLLguKPguJfguJrguJfguKfguJnguJnguLXguYnguKrguLPg\nuITguLHguI3guJXguYjguK3guYHguJ7guJfguKLguYwgRVIg4LmA4Lie4Li3\n4LmI4Lit4Lit4Lix4Lib4LmA4LiU4LiV4LmB4LiZ4Lin4LiX4Liy4LiH4LiB\n4Liy4Lij4Lij4Lix4LiB4Lip4Liy4Lig4Liy4Lin4Liw4Lie4Li04Lip4LiI\n4Liy4LiBIEJldGEtYmxvY2tlciDguJfguLXguYjguYDguJvguYfguJnguK3g\nuLHguJnguJXguKPguLLguKLguJbguLbguIfguIrguLXguKfguLTguJUuIiwK\nICAgICJsaW5rIjogImh0dHBzOi8vcHVibWVkLm5jYmkubmxtLm5paC5nb3Yv\naHR0cHM6Ly9wdWJtZWQubmNiaS5ubG0ubmloLmdvdi80MTMzNzcwNC8iCiAg\nfSwKICB7CiAgICAiZGF0ZSI6ICI0IERlYyIsCiAgICAidGl0bGUiOiAiUmV0\ncmlldmFsLUF1Z21lbnRlZCBHZW5lcmF0aW9uIGZvciBNZWRpY2FsIERlY2lz\naW9uLU1ha2luZyBpbiBFbWVyZ2VuY3kgQ2FyZS4iLAogICAgImNvbW1lbnQi\nOiAi4LiZ4Lin4Lix4LiV4LiB4Lij4Lij4LihIEFJIOC4meC4teC5ieC4reC4\nsuC4iOC4nuC4peC4tOC4geC5guC4ieC4oeC4geC4suC4o+C4leC4seC4lOC4\nquC4tOC4meC5g+C4iOC4l+C4suC4h+C4hOC4peC4tOC4meC4tOC4geC4l+C4\nteC5iOC4o+C4p+C4lOC5gOC4o+C5h+C4p+C5geC4peC4sOC5geC4oeC5iOC4\nmeC4ouC4s+C4guC4tuC5ieC4meC5g+C4meC4q+C5ieC4reC4h+C4ieC4uOC4\ngeC5gOC4ieC4tOC4mS4iLAogICAgImxpbmsiOiAiaHR0cHM6Ly9wdWJtZWQu\nbmNiaS5ubG0ubmloLmdvdi9odHRwczovL3B1Ym1lZC5uY2JpLm5sbS5uaWgu\nZ292LzQxMzM3MzAwLyIKICB9LAogIHsKICAgICJkYXRlIjogIjQgRGVjIiwK\nICAgICJ0aXRsZSI6ICJBIE5hdHVyYWwgTGFuZ3VhZ2UgUHJvY2Vzc2luZyBN\nb2RlbCBCYXNlZCBvbiBBbmFtbmVzaXMgUmVwb3J0cyB0byBQcmVkaWN0IEFj\ndXRlIE15b2NhcmRpYWwgSW5mYXJjdGlvbiBSaXNrIGluIEVtZXJnZW5jeSBD\naGVzdCBQYWluIFBhdGllbnRzLiIsCiAgICAiY29tbWVudCI6ICLguIfguLLg\nuJnguKfguLTguIjguLHguKIgQUkg4LiZ4Li14LmJ4LiK4LmI4Lin4Lii4LiE\n4Lix4LiU4LiB4Lij4Lit4LiH4Lic4Li54LmJ4Lib4LmI4Lin4Lii4LmA4LiI\n4LmH4Lia4Lir4LiZ4LmJ4Liy4Lit4LiB4LmA4Lie4Li34LmI4Lit4Lij4Liw\n4Lia4Li44LiE4Lin4Liy4Lih4LmA4Liq4Li14LmI4Lii4LiHIEFNSSDguYTg\nuJTguYnguK3guKLguYjguLLguIfguKPguKfguJTguYDguKPguYfguKfguYHg\nuKXguLDguKHguLXguJvguKPguLDguKrguLTguJfguJjguLTguKDguLLguJ7g\nuYPguJkgRVIuIiwKICAgICJsaW5rIjogImh0dHBzOi8vcHVibWVkLm5jYmku\nbmxtLm5paC5nb3YvaHR0cHM6Ly9wdWJtZWQubmNiaS5ubG0ubmloLmdvdi80\nMTMzNTk3My8iCiAgfSwKICB7CiAgICAiZGF0ZSI6ICI0IERlYyIsCiAgICAi\ndGl0bGUiOiAiUHJlaG9zcGl0YWwgSW50ZXJ2ZW50aW9ucywgRWFybHkgRGV0\nZWN0aW9uLCBhbmQgVGhlaXIgSW1wYWN0IG9uIFN1cnZpdmFsIE91dGNvbWVz\nIGluIFBhdGllbnRzIHdpdGggU2Vwc2lzOiBBIFN5c3RlbWF0aWMgUmV2aWV3\nLiIsCiAgICAiY29tbWVudCI6ICLguIHguLLguKPguJfguJrguJfguKfguJng\nuJnguLXguYnguYDguJnguYnguJnguKLguYnguLPguITguKfguLLguKHguKrg\nuLPguITguLHguI3guILguK3guIfguIHguLLguKPguJXguKPguKfguIjguIjg\nuLHguJrguYHguKXguLDguIHguLLguKPguKPguLHguIHguKnguLLguKDguLLg\nuKfguLDguJXguLTguJTguYDguIrguLfguYnguK3guYPguJnguIHguKPguLDg\nuYHguKrguYDguKXguLfguK3guJTguJXguLHguYnguIfguYHguJXguYjguIHg\nuYjguK3guJnguJbguLbguIfguYLguKPguIfguJ7guKLguLLguJrguLLguKUg\n4LiL4Li24LmI4LiH4Liq4LmI4LiH4Lic4Lil4LiV4LmI4Lit4LiB4Liy4Lij\n4Lij4Lit4LiU4LiK4Li14Lin4Li04LiV4Lit4Lii4LmI4Liy4LiH4LiK4Lix\n4LiU4LmA4LiI4LiZLiIsCiAgICAibGluayI6ICJodHRwczovL3B1Ym1lZC5u\nY2JpLm5sbS5uaWguZ292L2h0dHBzOi8vcHVibWVkLm5jYmkubmxtLm5paC5n\nb3YvNDEzMzQ4ODQvIgogIH0sCiAgewogICAgImRhdGUiOiAiNCBEZWMiLAog\nICAgInRpdGxlIjogIkJ5c3RhbmRlcnMnIGF0dGl0dWRlcyB0b3dhcmRzIGRy\nb25lIGRlbGl2ZXJlZCBBdXRvbWF0ZWQgRXh0ZXJuYWwgRGVmaWJyaWxsYXRv\ncnMgZm9yIG91dC1vZi1ob3NwaXRhbCBjYXJkaWFjIGFycmVzdDogQSBxdWFs\naXRhdGl2ZSBpbnRlcnZpZXcgc3R1ZHkuIiwKICAgICJjb21tZW50IjogIuC4\ngeC4suC4o+C5g+C4iuC5ieC5guC4lOC4o+C4meC4quC5iOC4hyBBRUQg4LmA\n4Lib4LmH4LiZ4LiZ4Lin4Lix4LiV4LiB4Lij4Lij4Lih4LiX4Li14LmI4Lit\n4Liy4LiI4LmA4Lib4Lil4Li14LmI4Lii4LiZ4LmB4LiZ4Lin4LiX4Liy4LiH\n4LiB4Liy4Lij4Lij4Lix4Lia4Lih4Li34Lit4Lig4Liy4Lin4Liw4Lir4Lix\n4Lin4LmD4LiI4Lir4Lii4Li44LiU4LmA4LiV4LmJ4LiZ4LiZ4Lit4LiB4LmC\n4Lij4LiH4Lie4Lii4Liy4Lia4Liy4LilIOC4i+C4tuC5iOC4h+C4leC5ieC4\nreC4h+C4nuC4tOC4iOC4suC4o+C4k+C4suC4oeC4uOC4oeC4oeC4reC4h+C4\nguC4reC4h+C4m+C4o+C4sOC4iuC4suC4iuC4mS4iLAogICAgImxpbmsiOiAi\naHR0cHM6Ly9wdWJtZWQubmNiaS5ubG0ubmloLmdvdi9odHRwczovL3B1Ym1l\nZC5uY2JpLm5sbS5uaWguZ292LzQxMzM1NTg2LyIKICB9LAogIHsKICAgICJk\nYXRlIjogIjQgRGVjIiwKICAgICJ0aXRsZSI6ICJUaW1lIHRvIGRpYWx5c2lz\nIG1hdHRlcnM6IGEgcHJvc3BlY3RpdmUgc3R1ZHkgb24gZW1lcmdlbmN5IGhl\nbW9kaWFseXNpcyBvdXRjb21lcy4iLAogICAgImNvbW1lbnQiOiAi4LiB4Liy\n4Lij4Lio4Li24LiB4Lip4Liy4LiK4Li04LmJ4LiZ4LiZ4Li14LmJ4LiK4Li1\n4LmJ4LmD4Lir4LmJ4LmA4Lir4LmH4LiZ4Lin4LmI4Liy4Lij4Liw4Lii4Liw\n4LmA4Lin4Lil4Liy4LiB4LmI4Lit4LiZ4LiB4Liy4Lij4Lil4LmJ4Liy4LiH\n4LmE4LiV4LiJ4Li44LiB4LmA4LiJ4Li04LiZ4Liq4LmI4LiH4Lic4Lil4LiV\n4LmI4Lit4Lic4Lil4Lil4Lix4Lie4LiY4LmM4Lic4Li54LmJ4Lib4LmI4Lin\n4Lii4Lit4Lii4LmI4Liy4LiH4Lih4Li14LiZ4Lix4Lii4Liq4Liz4LiE4Lix\n4LiNIOC4i+C4tuC5iOC4h+C5geC4nuC4l+C4ouC5jCBFUiDguITguKfguKPg\nuYPguKvguYnguITguKfguLLguKHguKrguLPguITguLHguI0uIiwKICAgICJs\naW5rIjogImh0dHBzOi8vcHVibWVkLm5jYmkubmxtLm5paC5nb3YvaHR0cHM6\nLy9wdWJtZWQubmNiaS5ubG0ubmloLmdvdi80MTMzNTMwMS8iCiAgfSwKICB7\nCiAgICAiZGF0ZSI6ICI0IERlYyIsCiAgICAidGl0bGUiOiAiSW1wYWN0IG9m\nIGFuIG9uY29sb2d5IHVyZ2VudCBjYXJlIGNlbnRlciBvbiBwcmV2ZW50YWJs\nZSBlbWVyZ2VuY3kgZGVwYXJ0bWVudCB2aXNpdHM6IHJldmlzaXRpbmcgbGVz\nc29ucyBmcm9tIGEgZ2xvYmFsIHBhbmRlbWljIHRvIGltcHJvdmUgcXVhbGl0\neSBvZiBjYXJlLiIsCiAgICAiY29tbWVudCI6ICLguIHguLLguKPguIjguLHg\nuJTguJXguLHguYnguIfguKjguLnguJnguKLguYzguJTguLnguYHguKXguJzg\nuLnguYnguJvguYjguKfguKLguKHguLDguYDguKPguYfguIfguYDguKPguYjg\nuIfguJTguYjguKfguJnguK3guLLguIjguKXguJTguKDguLLguKPguLAgRVIg\n4LmB4Lil4Liw4LmA4Lie4Li04LmI4Lih4LiE4Li44LiT4Lig4Liy4Lie4LiB\n4Liy4Lij4LiU4Li54LmB4Lil4Lic4Li54LmJ4Lib4LmI4Lin4Lii4LmE4LiU\n4LmJLiIsCiAgICAibGluayI6ICJodHRwczovL3B1Ym1lZC5uY2JpLm5sbS5u\naWguZ292L2h0dHBzOi8vcHVibWVkLm5jYmkubmxtLm5paC5nb3YvNDEzMzUy\nMTEvIgogIH0sCiAgewogICAgImRhdGUiOiAiNCBEZWMiLAogICAgInRpdGxl\nIjogIkNvcnJlbGF0aW9uIEJldHdlZW4gQ2FyZGlvcHVsbW9uYXJ5IFJlc3Vz\nY2l0YXRpb24gRHVyYXRpb24gYW5kIE5ldXJvbG9naWNhbCBPdXRjb21lcyBG\nb2xsb3dpbmcgT3V0LW9mLUhvc3BpdGFsIENhcmRpYWMgQXJyZXN0OiBBIERv\nc2UtUmVzcG9uc2UgTWV0YS1BbmFseXNpcy4iLAogICAgImNvbW1lbnQiOiAi\n4LiC4LmJ4Lit4Lih4Li54Lil4LmD4Lir4Lih4LmI4LiZ4Li14LmJ4LiK4LmI\n4Lin4Lii4LmD4Lir4LmJ4LmB4Lie4LiX4Lii4LmMIEVSIOC4m+C4o+C4sOC5\ngOC4oeC4tOC4meC4o+C4sOC4ouC4sOC5gOC4p+C4peC4suC4geC4suC4o+C4\nl+C4syBDUFIg4LmB4Lil4Liw4LmD4Lir4LmJ4LiC4LmJ4Lit4Lih4Li54Lil\n4LiB4Liy4Lij4Lie4Lii4Liy4LiB4Lij4LiT4LmM4LmC4Lij4LiE4LiX4Liy\n4LiH4Lij4Liw4Lia4Lia4Lib4Lij4Liw4Liq4Liy4LiX4LmB4LiB4LmI4LiN\n4Liy4LiV4Li04Lic4Li54LmJ4Lib4LmI4Lin4LiiIE9IQ0Eg4LmE4LiU4LmJ\n4LiU4Li14Lii4Li04LmI4LiH4LiC4Li24LmJ4LiZLiIsCiAgICAibGluayI6\nICJodHRwczovL3B1Ym1lZC5uY2JpLm5sbS5uaWguZ292L2h0dHBzOi8vcHVi\nbWVkLm5jYmkubmxtLm5paC5nb3YvNDEzMzUxMTcvIgogIH0sCiAgewogICAg\nImRhdGUiOiAiNCBEZWMiLAogICAgInRpdGxlIjogIk5vbmluZmVyaW9yaXR5\nIG9mIE9uZSBIUFYgVmFjY2luZSBEb3NlIHRvIFR3byBEb3Nlcy4iLAogICAg\nImNvbW1lbnQiOiAi4Lir4Liy4LiB4Lin4Lix4LiE4LiL4Li14LiZIEhQViDg\nuYDguILguYfguKHguYDguJTguLXguKLguKfguKHguLXguJvguKPguLDguKrg\nuLTguJfguJjguLTguKDguLLguJ7guYTguKHguYjguJTguYnguK3guKLguIHg\nuKfguYjguLLguKrguK3guIfguYDguILguYfguKEg4LiI4Liw4Lih4Li14Lic\n4Lil4Lit4Lii4LmI4Liy4LiH4Lih4Liy4LiB4LiV4LmI4Lit4LiB4Liy4Lij\n4LiC4Lii4Liy4Lii4LiB4Liy4Lij4LmA4LiC4LmJ4Liy4LiW4Li24LiH4LmB\n4Lil4Liw4LiB4Liy4Lij4Lib4LmJ4Lit4LiH4LiB4Lix4LiZ4Lih4Liw4LmA\n4Lij4LmH4LiH4Lib4Liy4LiB4Lih4LiU4Lil4Li54LiB4LmD4LiZ4Lin4LiH\n4LiB4Lin4LmJ4Liy4LiHLiIsCiAgICAibGluayI6ICJodHRwczovL3B1Ym1l\nZC5uY2JpLm5sbS5uaWguZ292L2h0dHBzOi8vcHVibWVkLm5jYmkubmxtLm5p\naC5nb3YvNDEzMzc3MzUvIgogIH0sCiAgewogICAgImRhdGUiOiAiNCBEZWMi\nLAogICAgInRpdGxlIjogIvCflJ8gTm9uLUludmFzaXZlIENhbWVyYS1CYXNl\nZCBDYXJkaWFjIE91dHB1dCBNb25pdG9yaW5nIHZpYSBGYWNpYWwgUGhvdG9w\nbGV0aHlzbW9ncmFwaHk6IEFkdmFuY2luZyBIZW1vZHluYW1pYyBBc3Nlc3Nt\nZW50IGluIENyaXRpY2FsIENhcmUuIiwKICAgICJjb21tZW50IjogIuC5gOC4\nl+C4hOC5guC4meC5guC4peC4ouC4teC5g+C4q+C4oeC5iOC5g+C4meC4geC4\nsuC4o+C4p+C4seC4lCBDYXJkaWFjIE91dHB1dCDguYHguJrguJrguYTguKHg\nuYjguKPguLjguIHguKPguLLguJnguJTguYnguKfguKLguIHguKXguYnguK3g\nuIcg4Lit4Liy4LiI4LmA4Lib4Lil4Li14LmI4Lii4LiZ4LmB4Lib4Lil4LiH\n4LiB4Liy4Lij4LiV4Li04LiU4LiV4Liy4Lih4Lic4Li54LmJ4Lib4LmI4Lin\n4Lii4Lin4Li04LiB4Lik4LiV4LmD4LiZIEVSIOC5g+C4q+C5ieC4quC4sOC4\nlOC4p+C4geC5geC4peC4sOC4m+C4peC4reC4lOC4oOC4seC4ouC4ouC4tOC5\niOC4h+C4guC4tuC5ieC4mS4iLAogICAgImxpbmsiOiAiaHR0cHM6Ly9wdWJt\nZWQubmNiaS5ubG0ubmloLmdvdi9odHRwczovL3B1Ym1lZC5uY2JpLm5sbS5u\naWguZ292LzQxMzM3MjQyLyIKICB9Cl0=\n",
+    "encoding": "base64",
+    "_links": {
+      "self": "https://api.github.com/repos/NTWKKM/ntwkkm.github.io/contents/papers.json?ref=main",
+      "git": "https://api.github.com/repos/NTWKKM/ntwkkm.github.io/git/blobs/c4b8e2413605331264e5fe7d36a40830515c063b",
+      "html": "https://github.com/NTWKKM/ntwkkm.github.io/blob/main/papers.json"
+    }
   }
 ]
