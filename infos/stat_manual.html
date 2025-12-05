@@ -1,201 +1,301 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Statistical Tool - User Manual</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&family=Segoe+UI:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #2c3e50;
             --accent-color: #3498db;
-            --bg-light: #f8f9fa;
+            --bg-color: #f0f2f5;
             --text-color: #333;
-            --sidebar-width: 280px;
+            --menu-width: 280px;
+            --menu-bg: #ffffff;
         }
 
         body {
-            font-family: 'Sarabun', sans-serif;
+            font-family: 'Segoe UI', 'Sarabun', sans-serif;
             margin: 0;
             padding: 0;
             color: var(--text-color);
-            background-color: #fff;
+            background-color: var(--bg-color);
             display: flex;
         }
 
-        /* --- Sidebar Navigation --- */
-        nav#sidebar {
-            width: var(--sidebar-width);
-            height: 100vh;
+        /* --- 🟢 1. Floating Menu Design --- */
+        nav#floating-menu {
+            width: var(--menu-width);
+            height: calc(100vh - 40px); /* เว้นขอบบนล่างให้ดูเหมือนลอย */
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--menu-bg);
+            border-radius: 16px; /* ขอบมน */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* เงาให้ดูลอย */
+            overflow-y: auto;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-header {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
             background-color: var(--primary-color);
             color: white;
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow-y: auto;
-            padding-top: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            border-radius: 16px 16px 0 0;
         }
 
-        nav#sidebar h3 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 600;
-            font-size: 1.2rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 15px;
-        }
+        .menu-header h3 { margin: 0; font-size: 1.2rem; }
+        .menu-header small { opacity: 0.8; font-weight: 300; }
 
-        nav#sidebar ul {
-            list-style: none;
-            padding: 0;
+        /* --- Language Switcher --- */
+        .lang-switch {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
-
-        nav#sidebar ul li a {
-            display: block;
-            padding: 15px 25px;
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            transition: all 0.3s;
-            border-left: 4px solid transparent;
-        }
-
-        nav#sidebar ul li a:hover,
-        nav#sidebar ul li a.active {
-            background-color: rgba(0,0,0,0.2);
+        
+        .lang-btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
             color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn:hover { background: rgba(255,255,255,0.4); }
+        .lang-btn.active { background: var(--accent-color); border-color: var(--accent-color); font-weight: bold; }
+
+        /* --- Menu List --- */
+        nav#floating-menu ul {
+            list-style: none;
+            padding: 10px 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        nav#floating-menu ul li a {
+            display: block;
+            padding: 12px 25px;
+            color: #555;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-left: 4px solid transparent;
+            font-size: 0.95rem;
+        }
+
+        nav#floating-menu ul li a:hover,
+        nav#floating-menu ul li a.active {
+            background-color: #f8f9fa;
+            color: var(--accent-color);
             border-left-color: var(--accent-color);
+            font-weight: 600;
         }
 
         /* --- Main Content --- */
         main {
-            margin-left: var(--sidebar-width);
+            margin-left: calc(var(--menu-width) + 40px); /* เว้นที่ให้เมนูลอย */
             padding: 40px;
-            width: calc(100% - var(--sidebar-width));
-            scroll-behavior: smooth;
+            width: calc(100% - var(--menu-width) - 80px);
+            max-width: 900px; /* จำกัดความกว้างให้อ่านง่าย */
         }
 
-        h1 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 10px; }
-        h2 { font-size: 1.8rem; color: var(--accent-color); margin-top: 40px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        h3 { font-size: 1.4rem; color: var(--primary-color); margin-top: 25px; }
-        p { line-height: 1.6; margin-bottom: 15px; font-size: 1rem; }
+        section {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            scroll-margin-top: 40px;
+        }
+
+        h1 { font-size: 2.2rem; color: var(--primary-color); margin-bottom: 10px; border-bottom: none; }
+        h2 { font-size: 1.6rem; color: var(--accent-color); margin-top: 0; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        h3 { font-size: 1.3rem; color: var(--primary-color); margin-top: 30px; }
+        p, li { line-height: 1.7; color: #444; }
 
         .feature-box {
-            background-color: var(--bg-light);
-            border-left: 5px solid var(--accent-color);
+            background-color: #eaf6ff;
+            border-left: 4px solid var(--accent-color);
             padding: 20px;
             margin: 20px 0;
-            border-radius: 4px;
+            border-radius: 6px;
         }
 
         .stat-badge {
             display: inline-block;
             background-color: #e1f0fa;
             color: #2980b9;
-            padding: 4px 8px;
+            padding: 3px 8px;
             border-radius: 4px;
-            font-size: 0.9em;
+            font-size: 0.85em;
             font-weight: 600;
             margin-right: 5px;
-            margin-bottom: 5px;
+            border: 1px solid #bedbf3;
         }
 
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background-color: var(--primary-color); color: white; }
-        tr:nth-child(even) { background-color: #f2f2f2; }
-
-        code { background-color: #eee; padding: 2px 5px; border-radius: 3px; font-family: monospace; color: #c0392b; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; }
+        th, td { border: 1px solid #e1e4e8; padding: 12px; text-align: left; }
+        th { background-color: #f8f9fa; color: var(--primary-color); font-weight: 600; }
+        
+        /* Language Display Logic */
+        [lang="th"] { display: none; }
+        [lang="en"] { display: block; }
+        
+        body.show-th [lang="en"] { display: none; }
+        body.show-th [lang="th"] { display: block; }
 
         /* Responsive */
-        @media (max-width: 768px) {
-            nav#sidebar { width: 100%; height: auto; position: relative; }
-            main { margin-left: 0; width: 100%; }
+        @media (max-width: 992px) {
+            nav#floating-menu {
+                width: 100%; height: auto; position: relative;
+                top: 0; left: 0; border-radius: 0;
+                margin-bottom: 20px;
+            }
+            main { margin-left: 0; width: 100%; padding: 20px; }
             body { flex-direction: column; }
+            .menu-header { border-radius: 0; }
         }
     </style>
 </head>
 <body>
 
-    <nav id="sidebar">
-        <h3>🏥 คู่มือการใช้งาน<br><small style="font-size:0.7em; font-weight:300;">Medical Stat Tool</small></h3>
+    <nav id="floating-menu">
+        <div class="menu-header">
+            <h3>🏥 Medical Stat Tool</h3>
+            <small>User Manual / คู่มือการใช้งาน</small>
+            
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+                <button class="lang-btn" onclick="setLang('th')" id="btn-th">TH</button>
+            </div>
+        </div>
+
         <ul>
-            <li><a href="#intro" class="active">📌 บทนำ (Introduction)</a></li>
-            <li><a href="#data">1. จัดการข้อมูล (Data)</a></li>
-            <li><a href="#table1">2. ตารางพื้นฐาน (Table 1)</a></li>
-            <li><a href="#diag">3. ทดสอบวินิจฉัย (Diagnostic)</a></li>
-            <li><a href="#corr">4. ความสัมพันธ์ (Correlation)</a></li>
-            <li><a href="#logit">5. Logistic Regression</a></li>
-            <li><a href="#survival">6. Survival Analysis</a></li>
+            <li><a href="#intro" class="active">
+                <span lang="en">📌 Introduction</span>
+                <span lang="th">📌 บทนำ</span>
+            </a></li>
+            <li><a href="#data">
+                <span lang="en">1. Data Management</span>
+                <span lang="th">1. จัดการข้อมูล</span>
+            </a></li>
+            <li><a href="#table1">
+                <span lang="en">2. Baseline Table 1</span>
+                <span lang="th">2. ตารางพื้นฐาน</span>
+            </a></li>
+            <li><a href="#diag">
+                <span lang="en">3. Diagnostic Test</span>
+                <span lang="th">3. ทดสอบวินิจฉัย</span>
+            </a></li>
+            <li><a href="#corr">
+                <span lang="en">4. Correlation</span>
+                <span lang="th">4. ความสัมพันธ์</span>
+            </a></li>
+            <li><a href="#logit">
+                <span lang="en">5. Logistic Regression</span>
+                <span lang="th">5. Logistic Regression</span>
+            </a></li>
+            <li><a href="#survival">
+                <span lang="en">6. Survival Analysis</span>
+                <span lang="th">6. Survival Analysis</span>
+            </a></li>
         </ul>
     </nav>
 
     <main>
         <section id="intro">
-            <h1>คู่มือการใช้งานเว็บไซต์</h1>
-            <p class="feature-box">
-                <strong>Medical Statistical Tool</strong> คือเครื่องมือวิเคราะห์สถิติทางการแพทย์สำเร็จรูป ที่ออกแบบมาให้ใช้งานง่าย ไม่ต้องเขียนโค้ด รองรับการวิเคราะห์ตั้งแต่ข้อมูลพื้นฐานไปจนถึงสถิติขั้นสูง เช่น Survival Analysis และ Logistic Regression
-            </p>
-            <p>คู่มือนี้จะอธิบายขั้นตอนการใช้งาน การเลือกตัวแปร สถิติที่ระบบคำนวณให้ และวิธีการแปลผลข้อมูลในแต่ละส่วนอย่างละเอียด</p>
+            <h1 lang="en">User Manual</h1>
+            <h1 lang="th">คู่มือการใช้งานเว็บไซต์</h1>
+            
+            <div class="feature-box">
+                <span lang="en">
+                    <strong>Medical Statistical Tool</strong> is a comprehensive, no-code statistical analysis web application designed for medical researchers. It supports analysis ranging from basic descriptive statistics to advanced methods like Survival Analysis and Logistic Regression.
+                </span>
+                <span lang="th">
+                    <strong>Medical Statistical Tool</strong> คือเครื่องมือวิเคราะห์สถิติทางการแพทย์สำเร็จรูป ที่ออกแบบมาให้ใช้งานง่าย ไม่ต้องเขียนโค้ด รองรับการวิเคราะห์ตั้งแต่ข้อมูลพื้นฐานไปจนถึงสถิติขั้นสูง เช่น Survival Analysis และ Logistic Regression
+                </span>
+            </div>
+            
+            <p lang="en">This manual guides you through data preparation, statistical test selection, and result interpretation for each module.</p>
+            <p lang="th">คู่มือนี้จะอธิบายขั้นตอนการใช้งาน การเลือกตัวแปร สถิติที่ระบบคำนวณให้ และวิธีการแปลผลข้อมูลในแต่ละส่วนอย่างละเอียด</p>
         </section>
 
         <section id="data">
-            <h2>1. การจัดการข้อมูล (Data Management)</h2>
-            <p>ส่วนสำหรับนำเข้าข้อมูลและตรวจสอบความถูกต้องของข้อมูล (Data Cleaning) ก่อนเริ่มวิเคราะห์</p>
+            <h2 lang="en">1. Data Management</h2>
+            <h2 lang="th">1. การจัดการข้อมูล (Data Management)</h2>
             
-            <h3>ฟีเจอร์หลัก</h3>
+            <p lang="en">Import and clean your dataset before analysis.</p>
+            <p lang="th">ส่วนสำหรับนำเข้าข้อมูลและตรวจสอบความถูกต้องของข้อมูล (Data Cleaning) ก่อนเริ่มวิเคราะห์</p>
+            
+            <h3 lang="en">Key Features</h3>
+            <h3 lang="th">ฟีเจอร์หลัก</h3>
             <ul>
-                <li><strong>Upload Data:</strong> รองรับไฟล์ <code>.csv</code> และ <code>.xlsx</code> (Excel)</li>
-                <li><strong>Interactive Editor:</strong> สามารถแก้ไขข้อมูลในตารางได้โดยตรง (เช่น แก้คำผิด)</li>
-                <li><strong>Data Quality Check:</strong> ระบบจะตรวจสอบและแจ้งเตือนอัตโนมัติหากพบข้อมูลผิดปกติ เช่น:
-                    <ul>
-                        <li>พบตัวอักษร (Text) ปะปนอยู่ในคอลัมน์ตัวเลข</li>
-                        <li>พบค่าผิดปกติ (Rare Category) ในคอลัมน์กลุ่มข้อมูล</li>
-                    </ul>
+                <li>
+                    <span lang="en"><strong>Upload Data:</strong> Supports <code>.csv</code> and <code>.xlsx</code> (Excel) files.</span>
+                    <span lang="th"><strong>Upload Data:</strong> รองรับไฟล์ <code>.csv</code> และ <code>.xlsx</code> (Excel)</span>
                 </li>
-                <li><strong>Safety Logic:</strong> ข้อมูลที่ User แก้ไขในตาราง (เช่น พิมพ์ผิด) จะถูกแสดงตามจริงเพื่อให้รู้ตัว แต่เมื่อส่งไปคำนวณ <strong>ระบบจะเปลี่ยนค่าที่ผิดให้เป็น Missing Value (NaN) โดยอัตโนมัติ</strong> เพื่อป้องกันกราฟ Error</li>
+                <li>
+                    <span lang="en"><strong>Interactive Editor:</strong> Edit raw data directly in the table (e.g., fixing typos).</span>
+                    <span lang="th"><strong>Interactive Editor:</strong> สามารถแก้ไขข้อมูลในตารางได้โดยตรง (เช่น แก้คำผิด)</span>
+                </li>
+                <li>
+                    <span lang="en"><strong>Data Quality Check:</strong> Automatic detection of issues such as text in numeric columns or rare categories.</span>
+                    <span lang="th"><strong>Data Quality Check:</strong> ระบบตรวจสอบข้อมูลอัตโนมัติ (เช่น พบตัวอักษรในช่องตัวเลข)</span>
+                </li>
+                <li>
+                    <span lang="en"><strong>Safety Logic:</strong> Invalid entries (e.g., typos in numeric fields) are preserved in the raw view for you to see but are automatically treated as <strong>Missing Values (NaN)</strong> during calculation to prevent errors.</span>
+                    <span lang="th"><strong>Safety Logic:</strong> ข้อมูลที่พิมพ์ผิดจะยังแสดงให้เห็น แต่ระบบจะเปลี่ยนเป็น <strong>Missing Value (NaN) อัตโนมัติ</strong> ตอนคำนวณเพื่อป้องกัน Error</span>
+                </li>
             </ul>
         </section>
 
         <section id="table1">
-            <h2>2. ตารางข้อมูลพื้นฐาน (Baseline Table 1)</h2>
-            <p>สร้างตารางสรุปข้อมูลประชากร (Baseline Characteristics) เปรียบเทียบระหว่างกลุ่ม พร้อมคำนวณค่า P-value ให้อัตโนมัติ</p>
-
-            <h3>การเลือกข้อมูล</h3>
-            <ul>
-                <li><strong>Split by Group (Optional):</strong> เลือกตัวแปรเพื่อแบ่งกลุ่มเปรียบเทียบ (เช่น Treatment vs Control)</li>
-                <li><strong>Select Variables:</strong> เลือกตัวแปรที่ต้องการนำเสนอในตาราง</li>
-            </ul>
+            <h2 lang="en">2. Baseline Table 1</h2>
+            <h2 lang="th">2. ตารางข้อมูลพื้นฐาน (Baseline Table 1)</h2>
+            
+            <p lang="en">Generates a demographic summary table comparing groups with automatic P-value calculation.</p>
+            <p lang="th">สร้างตารางสรุปข้อมูลประชากร เปรียบเทียบระหว่างกลุ่ม พร้อมคำนวณค่า P-value ให้อัตโนมัติ</p>
 
             <div class="feature-box">
-                <strong>🤖 ระบบเลือกสถิติอัตโนมัติ (Auto-Logic):</strong>
+                <strong lang="en">🤖 Automated Statistical Selection Logic:</strong>
+                <strong lang="th">🤖 ระบบเลือกสถิติอัตโนมัติ (Auto-Logic):</strong>
+                
                 <table>
                     <thead>
                         <tr>
-                            <th>ชนิดตัวแปร</th>
-                            <th>การกระจายตัว (Distribution)</th>
-                            <th>การนำเสนอผล</th>
-                            <th>สถิติที่ใช้ทดสอบ (P-value)</th>
+                            <th><span lang="en">Variable Type</span><span lang="th">ชนิดตัวแปร</span></th>
+                            <th><span lang="en">Distribution</span><span lang="th">การกระจายตัว</span></th>
+                            <th><span lang="en">Presentation</span><span lang="th">การนำเสนอ</span></th>
+                            <th><span lang="en">Statistical Test</span><span lang="th">สถิติที่ใช้ (P-value)</span></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>ตัวเลข (Continuous)</td>
-                            <td>การแจกแจงปกติ (Normal)</td>
+                            <td>Numeric</td>
+                            <td>Normal</td>
                             <td>Mean ± SD</td>
-                            <td><span class="stat-badge">T-test</span> หรือ <span class="stat-badge">ANOVA</span></td>
+                            <td><span class="stat-badge">T-test</span> / <span class="stat-badge">ANOVA</span></td>
                         </tr>
                         <tr>
-                            <td>ตัวเลข (Continuous)</td>
-                            <td>ไม่ปกติ (Non-normal)</td>
+                            <td>Numeric</td>
+                            <td>Non-normal</td>
                             <td>Median (IQR)</td>
-                            <td><span class="stat-badge">Mann-Whitney U</span> หรือ <span class="stat-badge">Kruskal-Wallis</span></td>
+                            <td><span class="stat-badge">Mann-Whitney U</span> / <span class="stat-badge">Kruskal-Wallis</span></td>
                         </tr>
                         <tr>
-                            <td>กลุ่ม (Categorical)</td>
+                            <td>Categorical</td>
                             <td>-</td>
                             <td>Count (%)</td>
-                            <td><span class="stat-badge">Chi-square</span> หรือ <span class="stat-badge">Fisher's Exact</span> (ถ้า n น้อย)</td>
+                            <td><span class="stat-badge">Chi-square</span> / <span class="stat-badge">Fisher's Exact</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -203,116 +303,120 @@
         </section>
 
         <section id="diag">
-            <h2>3. การทดสอบวินิจฉัย (Diagnostic Test)</h2>
-            <p>ประเมินประสิทธิภาพของเครื่องมือหรือค่า Lab ในการวินิจฉัยโรค โดยเทียบกับมาตรฐาน (Gold Standard)</p>
+            <h2 lang="en">3. Diagnostic Test</h2>
+            <h2 lang="th">3. การทดสอบวินิจฉัย (Diagnostic Test)</h2>
+            
+            <p lang="en">Evaluates the performance of a diagnostic tool or lab value against a Gold Standard.</p>
+            <p lang="th">ประเมินประสิทธิภาพของเครื่องมือหรือค่า Lab ในการวินิจฉัยโรค โดยเทียบกับมาตรฐาน (Gold Standard)</p>
 
-            <h3>การเลือกข้อมูล</h3>
+            <h3 lang="en">Results & Interpretation</h3>
+            <h3 lang="th">ผลลัพธ์และการแปลผล</h3>
             <ul>
-                <li><strong>Gold Standard (Y):</strong> ต้องเป็นตัวแปรกลุ่ม 2 ค่า (Binary) เช่น 0=ปกติ, 1=เป็นโรค</li>
-                <li><strong>Test Variable (X):</strong> เป็นได้ทั้งตัวเลขต่อเนื่อง (เช่น ค่า Lab) หรือ ตัวแปรกลุ่ม (ผล Test)</li>
-            </ul>
-
-            <h3>ผลลัพธ์และการแปลผล</h3>
-            <ul>
-                <li><strong>กรณี X เป็นตัวเลข (Continuous):</strong>
-                    <ul>
-                        <li>แสดงกราฟ <strong>ROC Curve</strong> และพื้นที่ใต้กราฟ <strong>(AUC)</strong></li>
-                        <li>คำนวณ <strong>Optimal Cut-off</strong> (จุดตัดที่ดีที่สุด) ด้วยวิธี Youden's Index</li>
-                    </ul>
+                <li>
+                    <span lang="en"><strong>ROC Curve & AUC:</strong> Shows overall performance. The system calculates the <strong>Optimal Cut-off Point</strong> using Youden's Index.</span>
+                    <span lang="th"><strong>ROC Curve & AUC:</strong> แสดงประสิทธิภาพรวม และคำนวณ <strong>Optimal Cut-off</strong> (จุดตัดที่ดีที่สุด) ด้วยวิธี Youden's Index</span>
                 </li>
-                <li><strong>ตาราง 2x2 และค่าสถิติ:</strong>
-                    <ul>
-                        <li><strong>Sensitivity (ความไว):</strong> โอกาสที่คนเป็นโรคจะตรวจได้ผลบวก</li>
-                        <li><strong>Specificity (ความจำเพาะ):</strong> โอกาสที่คนปกติจะตรวจได้ผลลบ</li>
-                        <li><strong>PPV / NPV:</strong> ค่าทำนายผลบวก/ลบ</li>
-                        <li><strong>Likelihood Ratio (LR+ / LR-):</strong> อัตราส่วนความน่าจะเป็น</li>
-                    </ul>
+                <li>
+                    <span lang="en"><strong>2x2 Table Metrics:</strong> Includes Sensitivity, Specificity, PPV, NPV, and Likelihood Ratios (LR+, LR-).</span>
+                    <span lang="th"><strong>ค่าสถิติจากตาราง 2x2:</strong> แสดงค่า Sensitivity, Specificity, PPV, NPV, และ Likelihood Ratios</span>
                 </li>
             </ul>
         </section>
 
         <section id="corr">
-            <h2>4. ความสัมพันธ์ (Correlation)</h2>
-            <p>วิเคราะห์ความสัมพันธ์เชิงเส้นระหว่างตัวแปรตัวเลข 2 ตัวขึ้นไป</p>
+            <h2 lang="en">4. Correlation</h2>
+            <h2 lang="th">4. ความสัมพันธ์ (Correlation)</h2>
+            
+            <p lang="en">Analyzes linear or monotonic relationships between continuous variables.</p>
+            <p lang="th">วิเคราะห์ความสัมพันธ์ระหว่างตัวแปรตัวเลข 2 ตัวขึ้นไป</p>
 
-            <h3>สถิติที่ใช้</h3>
             <ul>
-                <li><span class="stat-badge">Pearson Correlation (r)</span>: ใช้เมื่อข้อมูลมีการแจกแจงปกติ และความสัมพันธ์เป็นเส้นตรง</li>
-                <li><span class="stat-badge">Spearman Rank (rho)</span>: ใช้เมื่อข้อมูลไม่แจกแจงปกติ หรือความสัมพันธ์เป็นลำดับ (Monotonic)</li>
-            </ul>
-
-            <h3>การแปลผล Heatmap</h3>
-            <ul>
-                <li><strong>สีแดงเข้ม (ใกล้ +1):</strong> สัมพันธ์กันมากในทิศทางเดียวกัน (ตัวหนึ่งเพิ่ม อีกตัวเพิ่มตาม)</li>
-                <li><strong>สีน้ำเงินเข้ม (ใกล้ -1):</strong> สัมพันธ์กันมากในทิศทางตรงข้าม (ตัวหนึ่งเพิ่ม อีกตัวลดลง)</li>
-                <li><strong>สีจาง (ใกล้ 0):</strong> ไม่มีความสัมพันธ์กัน</li>
+                <li><span class="stat-badge">Pearson (r)</span>: <span lang="en">Linear relationship, Normal distribution.</span><span lang="th">ความสัมพันธ์เชิงเส้น ข้อมูลมีการแจกแจงปกติ</span></li>
+                <li><span class="stat-badge">Spearman (rho)</span>: <span lang="en">Monotonic relationship, Non-normal distribution.</span><span lang="th">ความสัมพันธ์เป็นลำดับ หรือข้อมูลไม่แจกแจงปกติ</span></li>
             </ul>
         </section>
 
         <section id="logit">
-            <h2>5. Logistic Regression</h2>
-            <p>วิเคราะห์ปัจจัยเสี่ยงที่มีผลต่อการเกิดโรค (Outcome เป็นกลุ่ม 2 ค่า)</p>
+            <h2 lang="en">5. Logistic Regression</h2>
+            <h2 lang="th">5. Logistic Regression</h2>
+            
+            <p lang="en">Analyzes risk factors associated with a binary outcome (e.g., Disease vs Healthy).</p>
+            <p lang="th">วิเคราะห์ปัจจัยเสี่ยงที่มีผลต่อการเกิดโรค (Outcome เป็นกลุ่ม 2 ค่า)</p>
 
-            <h3>รูปแบบการวิเคราะห์</h3>
-            <ol>
-                <li><strong>Univariate Analysis:</strong> วิเคราะห์ทีละตัวแปร เพื่อดูความสัมพันธ์เบื้องต้น (Crude OR)</li>
-                <li><strong>Multivariate Analysis:</strong> วิเคราะห์หลายตัวแปรพร้อมกัน เพื่อควบคุมปัจจัยกวน (Confounding) และหาความสัมพันธ์ที่แท้จริง (Adjusted OR)</li>
-            </ol>
-
-            <h3>การแปลผล (Odds Ratio - OR)</h3>
+            <h3 lang="en">Interpretation (Odds Ratio - OR)</h3>
+            <h3 lang="th">การแปลผล (Odds Ratio - OR)</h3>
             <ul>
-                <li><strong>OR > 1:</strong> เป็นปัจจัยเสี่ยง (Risk Factor) -> เพิ่มโอกาสเกิดโรค</li>
-                <li><strong>OR < 1:</strong> เป็นปัจจัยป้องกัน (Protective Factor) -> ลดโอกาสเกิดโรค</li>
-                <li><strong>OR = 1:</strong> ไม่มีความสัมพันธ์</li>
-                <li><em>ดู 95% CI และ P-value ประกอบ หาก CI คร่อม 1 แสดงว่าไม่มีนัยสำคัญ</em></li>
+                <li>
+                    <span lang="en"><strong>OR > 1:</strong> Risk Factor (Increases outcome probability).</span>
+                    <span lang="th"><strong>OR > 1:</strong> ปัจจัยเสี่ยง (เพิ่มโอกาสเกิดโรค)</span>
+                </li>
+                <li>
+                    <span lang="en"><strong>OR < 1:</strong> Protective Factor (Decreases outcome probability).</span>
+                    <span lang="th"><strong>OR < 1:</strong> ปัจจัยป้องกัน (ลดโอกาสเกิดโรค)</span>
+                </li>
+                <li>
+                    <span lang="en"><strong>Univariate vs Multivariate:</strong> Use Multivariate analysis to obtain <strong>Adjusted OR</strong>, controlling for confounders.</span>
+                    <span lang="th"><strong>Univariate vs Multivariate:</strong> ใช้ Multivariate เพื่อหาค่า <strong>Adjusted OR</strong> ที่ควบคุมตัวแปรอื่นแล้ว</span>
+                </li>
             </ul>
         </section>
 
         <section id="survival">
-            <h2>6. Survival Analysis</h2>
-            <p>วิเคราะห์ "ระยะเวลา" จนกว่าจะเกิดเหตุการณ์ (Time-to-Event Analysis)</p>
+            <h2 lang="en">6. Survival Analysis</h2>
+            <h2 lang="th">6. Survival Analysis</h2>
+            
+            <p lang="en">Analyzes "Time-to-Event" data.</p>
+            <p lang="th">วิเคราะห์ "ระยะเวลา" จนกว่าจะเกิดเหตุการณ์ (Time-to-Event)</p>
 
-            <h3>การเลือกข้อมูล</h3>
-            <ul>
-                <li><strong>Time Variable:</strong> เวลาที่ติดตามผล (ตัวเลขต่อเนื่อง)</li>
-                <li><strong>Event/Status:</strong> สถานะการเกิดเหตุการณ์ (0=Censored/Alive, 1=Event/Dead)</li>
-                <li><strong>Group (Optional):</strong> ตัวแปรแบ่งกลุ่มเพื่อเปรียบเทียบกราฟ</li>
-            </ul>
-
-            <h3>เครื่องมือวิเคราะห์</h3>
             <div class="feature-box">
                 <h4>1. Kaplan-Meier (Survival Curve)</h4>
-                <p>กราฟแสดง "โอกาสรอดชีวิต" ที่เวลาต่างๆ</p>
-                <ul>
-                    <li><strong>Median Survival Time:</strong> เวลาที่คนไข้ 50% เสียชีวิตไปแล้ว</li>
-                    <li><strong>Log-Rank Test:</strong> ใช้ทดสอบว่ากราฟของแต่ละกลุ่มแตกต่างกันอย่างมีนัยสำคัญหรือไม่</li>
-                </ul>
+                <p>
+                    <span lang="en">Plots survival probability over time. Includes <strong>Median Survival Time</strong> and <strong>Log-Rank Test</strong> for group comparison.</span>
+                    <span lang="th">กราฟแสดงโอกาสรอดชีวิต พร้อมค่า <strong>Median Survival Time</strong> และ <strong>Log-Rank Test</strong> สำหรับเปรียบเทียบกลุ่ม</span>
+                </p>
 
                 <h4>2. Nelson-Aalen (Cumulative Hazard)</h4>
-                <p>กราฟแสดง "ความเสี่ยงสะสม" ที่เพิ่มขึ้นตามเวลา (ตรงข้ามกับ KM)</p>
-                <ul>
-                    <li>ใช้ดูภาพรวมว่าความเสี่ยงเพิ่มขึ้นเร็วแค่ไหนในช่วงเวลาต่างๆ</li>
-                </ul>
+                <p>
+                    <span lang="en">Plots the cumulative risk/hazard over time.</span>
+                    <span lang="th">กราฟแสดงความเสี่ยงสะสมที่เพิ่มขึ้นตามเวลา</span>
+                </p>
 
                 <h4>3. Cox Proportional Hazards Model</h4>
-                <p>โมเดลวิเคราะห์ปัจจัยเสี่ยงที่มีผลต่อเวลา (Multivariate)</p>
-                <ul>
-                    <li><strong>Hazard Ratio (HR):</strong> แปลผลคล้าย OR (HR > 1 คือเสี่ยงมากตายเร็ว, HR < 1 คือรอดนานขึ้น)</li>
-                    <li><strong>Assumption Check:</strong> ระบบจะตรวจสอบ Schoenfeld Residuals ให้ เพื่อดูว่าโมเดลเหมาะสมหรือไม่</li>
-                </ul>
+                <p>
+                    <span lang="en">Multivariate regression for survival data. Reports <strong>Hazard Ratio (HR)</strong> and checks assumptions (Schoenfeld Residuals).</span>
+                    <span lang="th">โมเดลวิเคราะห์ปัจจัยเสี่ยง รายงานค่า <strong>Hazard Ratio (HR)</strong> พร้อมตรวจสอบ Assumption (Schoenfeld Residuals)</span>
+                </p>
             </div>
         </section>
     </main>
 
     <script>
+        // 1. Language Switching Logic
+        function setLang(lang) {
+            const body = document.body;
+            const btnEn = document.getElementById('btn-en');
+            const btnTh = document.getElementById('btn-th');
+
+            if (lang === 'th') {
+                body.classList.add('show-th');
+                btnTh.classList.add('active');
+                btnEn.classList.remove('active');
+            } else {
+                body.classList.remove('show-th');
+                btnEn.classList.add('active');
+                btnTh.classList.remove('active');
+            }
+        }
+
+        // 2. Active Link on Scroll Logic
         const sections = document.querySelectorAll("section");
         const navLi = document.querySelectorAll("nav ul li a");
 
-        window.onscroll = () => {
-            var current = "";
+        window.addEventListener('scroll', () => {
+            let current = "";
             sections.forEach((section) => {
                 const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 60) {
+                if (pageYOffset >= sectionTop - 100) {
                     current = section.getAttribute("id");
                 }
             });
@@ -323,7 +427,7 @@
                     a.classList.add("active");
                 }
             });
-        };
+        });
     </script>
 </body>
 </html>
