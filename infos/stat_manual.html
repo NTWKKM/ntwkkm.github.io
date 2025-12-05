@@ -9,10 +9,9 @@
         :root {
             --primary-color: #2c3e50;
             --accent-color: #3498db;
-            --bg-color: #f0f2f5;
+            --bg-color: #f5f7fa;
             --text-color: #333;
-            --menu-width: 280px;
-            --menu-bg: #ffffff;
+            --nav-height: 64px; /* ความสูงของแถบเมนู */
         }
 
         body {
@@ -21,122 +20,137 @@
             padding: 0;
             color: var(--text-color);
             background-color: var(--bg-color);
-            display: flex;
+            padding-top: var(--nav-height); /* เว้นที่ให้เมนูบาร์ */
         }
 
         /* --- 🟢 ส่วนจัดการภาษา (Language Logic) --- */
-        /* ค่าเริ่มต้น (ไม่มีคลาส show-th): ซ่อนภาษาไทย, โชว์ภาษาอังกฤษ */
         body:not(.show-th) [lang="th"] { display: none !important; }
-        
-        /* เมื่อมีคลาส show-th: ซ่อนภาษาอังกฤษ, โชว์ภาษาไทย */
         body.show-th [lang="en"] { display: none !important; }
         body.show-th [lang="th"] { display: block !important; }
 
-        /* --- Floating Menu --- */
-        nav#floating-menu {
-            width: var(--menu-width);
-            height: calc(100vh - 40px);
+        /* --- 🟢 Fixed Top Navigation Bar --- */
+        nav#top-navbar {
             position: fixed;
-            top: 20px;
-            left: 20px;
-            background-color: var(--menu-bg);
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            overflow-y: auto;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background-color: var(--primary-color);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
             display: flex;
-            flex-direction: column;
-        }
-
-        .menu-header {
-            padding: 25px 20px;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-            background: linear-gradient(135deg, var(--primary-color), #34495e); /* พื้นหลังสีเข้ม */
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
             color: white;
-            border-radius: 16px 16px 0 0;
         }
 
-        .menu-header h3 { margin: 0; font-size: 1.2rem; margin-bottom: 5px; }
-        .menu-header small { opacity: 0.8; font-weight: 300; display: block; margin-bottom: 15px; }
+        /* Logo Area */
+        .nav-brand {
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            min-width: 200px;
+        }
+        .nav-brand span { margin-left: 10px; }
 
-        /* --- 🟢 ปุ่มเปลี่ยนภาษา (Language Switcher) --- */
+        /* Menu Links Area */
+        .nav-links {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            height: 100%;
+            overflow-x: auto; /* เลื่อนแนวนอนได้ถ้าจอเล็ก */
+        }
+
+        .nav-links ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .nav-links li {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            padding: 0 15px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+            border-bottom: 3px solid transparent; /* เส้นใต้เวลา Active */
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: white;
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .nav-links a.active {
+            color: white;
+            border-bottom-color: var(--accent-color);
+            background-color: rgba(0,0,0,0.1);
+        }
+
+        /* Language Switcher Area */
         .lang-switch-container {
-            background: rgba(255,255,255,0.2);
-            border-radius: 30px;
-            padding: 4px;
-            display: inline-flex;
-            position: relative;
+            min-width: 140px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 5px;
         }
-        
+
         .lang-btn {
             background: transparent;
-            border: none;
-            color: rgba(255,255,255,0.7);
-            padding: 6px 16px;
-            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: rgba(255,255,255,0.8);
+            padding: 4px 12px;
+            border-radius: 20px;
             cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            z-index: 1;
+            font-size: 0.8rem;
+            transition: all 0.2s;
         }
 
-        .lang-btn:hover { color: white; }
+        .lang-btn:hover { border-color: white; color: white; }
         
-        /* ปุ่มที่ถูกเลือก (Active) */
         .lang-btn.active {
             background-color: white;
             color: var(--primary-color);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        /* --- Menu List --- */
-        nav#floating-menu ul {
-            list-style: none;
-            padding: 10px 0;
-            margin: 0;
-            flex-grow: 1;
-        }
-
-        nav#floating-menu ul li a {
-            display: block;
-            padding: 12px 25px;
-            color: #555;
-            text-decoration: none;
-            transition: all 0.2s;
-            border-left: 4px solid transparent;
-            font-size: 0.95rem;
-        }
-
-        nav#floating-menu ul li a:hover,
-        nav#floating-menu ul li a.active {
-            background-color: #f8f9fa;
-            color: var(--accent-color);
-            border-left-color: var(--accent-color);
-            font-weight: 600;
+            font-weight: bold;
+            border-color: white;
         }
 
         /* --- Main Content --- */
         main {
-            margin-left: calc(var(--menu-width) + 40px);
-            padding: 40px;
-            width: calc(100% - var(--menu-width) - 80px);
-            max-width: 900px;
+            max-width: 1000px; /* จำกัดความกว้างให้อ่านสบาย */
+            margin: 30px auto; /* จัดกึ่งกลาง */
+            padding: 0 20px;
         }
 
         section {
             background: white;
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             margin-bottom: 30px;
-            scroll-margin-top: 40px;
+            /* แก้ปัญหา Anchor Link แล้วโดน Header บัง */
+            scroll-margin-top: calc(var(--nav-height) + 20px); 
         }
 
-        h1 { font-size: 2.2rem; color: var(--primary-color); margin-bottom: 10px; border-bottom: none; }
-        h2 { font-size: 1.6rem; color: var(--accent-color); margin-top: 0; padding-bottom: 15px; border-bottom: 1px solid #eee; }
-        h3 { font-size: 1.3rem; color: var(--primary-color); margin-top: 30px; }
+        h1 { font-size: 2rem; color: var(--primary-color); margin-bottom: 15px; }
+        h2 { font-size: 1.5rem; color: var(--accent-color); border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0; }
+        h3 { font-size: 1.2rem; color: var(--primary-color); margin-top: 25px; }
         p, li { line-height: 1.7; color: #444; }
 
         .feature-box {
@@ -144,7 +158,7 @@
             border-left: 4px solid var(--accent-color);
             padding: 20px;
             margin: 20px 0;
-            border-radius: 6px;
+            border-radius: 4px;
         }
 
         .stat-badge {
@@ -163,65 +177,51 @@
         th, td { border: 1px solid #e1e4e8; padding: 12px; text-align: left; }
         th { background-color: #f8f9fa; color: var(--primary-color); font-weight: 600; }
 
-        /* Responsive */
-        @media (max-width: 992px) {
-            nav#floating-menu {
-                width: 100%; height: auto; position: relative;
-                top: 0; left: 0; border-radius: 0;
-                margin-bottom: 20px;
-            }
-            main { margin-left: 0; width: 100%; padding: 20px; }
-            body { flex-direction: column; }
-            .menu-header { border-radius: 0; }
+        /* Responsive Tweaks */
+        @media (max-width: 768px) {
+            .nav-brand span { display: none; } /* ซ่อนชื่อยาวในมือถือ */
+            .nav-brand::before { content: "🏥 MST"; } /* แสดงชื่อย่อแทน */
+            .nav-links { justify-content: flex-start; } /* เมนูชิดซ้ายแล้วเลื่อนเอา */
         }
     </style>
 </head>
 <body>
 
-    <nav id="floating-menu">
-        <div class="menu-header">
-            <h3>🏥 Medical Stat Tool</h3>
-            <small>
-                <span lang="en">User Manual</span>
-                <span lang="th">คู่มือการใช้งาน</span>
-            </small>
-            
-            <div class="lang-switch-container">
-                <button class="lang-btn active" onclick="setLang('en')" id="btn-en">English</button>
-                <button class="lang-btn" onclick="setLang('th')" id="btn-th">ไทย</button>
-            </div>
+    <nav id="top-navbar">
+        <div class="nav-brand">
+            <span>Medical Stat Tool</span>
         </div>
 
-        <ul>
-            <li><a href="#intro" class="active">
-                <span lang="en">📌 Introduction</span>
-                <span lang="th">📌 บทนำ</span>
-            </a></li>
-            <li><a href="#data">
-                <span lang="en">1. Data Management</span>
-                <span lang="th">1. จัดการข้อมูล</span>
-            </a></li>
-            <li><a href="#table1">
-                <span lang="en">2. Baseline Table 1</span>
-                <span lang="th">2. ตารางพื้นฐาน</span>
-            </a></li>
-            <li><a href="#diag">
-                <span lang="en">3. Diagnostic Test</span>
-                <span lang="th">3. ทดสอบวินิจฉัย</span>
-            </a></li>
-            <li><a href="#corr">
-                <span lang="en">4. Correlation</span>
-                <span lang="th">4. ความสัมพันธ์</span>
-            </a></li>
-            <li><a href="#logit">
-                <span lang="en">5. Logistic Regression</span>
-                <span lang="th">5. Logistic Regression</span>
-            </a></li>
-            <li><a href="#survival">
-                <span lang="en">6. Survival Analysis</span>
-                <span lang="th">6. Survival Analysis</span>
-            </a></li>
-        </ul>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#intro" class="active">
+                    <span lang="en">Intro</span><span lang="th">บทนำ</span>
+                </a></li>
+                <li><a href="#data">
+                    <span lang="en">1. Data</span><span lang="th">1. ข้อมูล</span>
+                </a></li>
+                <li><a href="#table1">
+                    <span lang="en">2. Table 1</span><span lang="th">2. ตาราง 1</span>
+                </a></li>
+                <li><a href="#diag">
+                    <span lang="en">3. Diagnostic</span><span lang="th">3. วินิจฉัย</span>
+                </a></li>
+                <li><a href="#corr">
+                    <span lang="en">4. Correlation</span><span lang="th">4. สัมพันธ์</span>
+                </a></li>
+                <li><a href="#logit">
+                    <span lang="en">5. Logistic</span><span lang="th">5. Logistic</span>
+                </a></li>
+                <li><a href="#survival">
+                    <span lang="en">6. Survival</span><span lang="th">6. Survival</span>
+                </a></li>
+            </ul>
+        </div>
+
+        <div class="lang-switch-container">
+            <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+            <button class="lang-btn" onclick="setLang('th')" id="btn-th">TH</button>
+        </div>
     </nav>
 
     <main>
@@ -231,10 +231,10 @@
             
             <div class="feature-box">
                 <span lang="en">
-                    <strong>Medical Statistical Tool</strong> is a comprehensive, no-code statistical analysis web application designed for medical researchers. It supports analysis ranging from basic descriptive statistics to advanced methods like Survival Analysis and Logistic Regression.
+                    <strong>Medical Statistical Tool</strong> is a comprehensive, no-code statistical analysis web application designed for medical researchers.
                 </span>
                 <span lang="th">
-                    <strong>Medical Statistical Tool</strong> คือเครื่องมือวิเคราะห์สถิติทางการแพทย์สำเร็จรูป ที่ออกแบบมาให้ใช้งานง่าย ไม่ต้องเขียนโค้ด รองรับการวิเคราะห์ตั้งแต่ข้อมูลพื้นฐานไปจนถึงสถิติขั้นสูง เช่น Survival Analysis และ Logistic Regression
+                    <strong>Medical Statistical Tool</strong> คือเครื่องมือวิเคราะห์สถิติทางการแพทย์สำเร็จรูป ที่ออกแบบมาให้ใช้งานง่าย ไม่ต้องเขียนโค้ด
                 </span>
             </div>
             
@@ -261,12 +261,8 @@
                     <span lang="th"><strong>Interactive Editor:</strong> สามารถแก้ไขข้อมูลในตารางได้โดยตรง (เช่น แก้คำผิด)</span>
                 </li>
                 <li>
-                    <span lang="en"><strong>Data Quality Check:</strong> Automatic detection of issues such as text in numeric columns or rare categories.</span>
+                    <span lang="en"><strong>Data Quality Check:</strong> Automatic detection of issues such as text in numeric columns.</span>
                     <span lang="th"><strong>Data Quality Check:</strong> ระบบตรวจสอบข้อมูลอัตโนมัติ (เช่น พบตัวอักษรในช่องตัวเลข)</span>
-                </li>
-                <li>
-                    <span lang="en"><strong>Safety Logic:</strong> Invalid entries (e.g., typos in numeric fields) are preserved in the raw view for you to see but are automatically treated as <strong>Missing Values (NaN)</strong> during calculation to prevent errors.</span>
-                    <span lang="th"><strong>Safety Logic:</strong> ข้อมูลที่พิมพ์ผิดจะยังแสดงให้เห็น แต่ระบบจะเปลี่ยนเป็น <strong>Missing Value (NaN) อัตโนมัติ</strong> ตอนคำนวณเพื่อป้องกัน Error</span>
                 </li>
             </ul>
         </section>
@@ -285,29 +281,25 @@
                 <table>
                     <thead>
                         <tr>
-                            <th><span lang="en">Variable Type</span><span lang="th">ชนิดตัวแปร</span></th>
+                            <th><span lang="en">Type</span><span lang="th">ชนิด</span></th>
                             <th><span lang="en">Distribution</span><span lang="th">การกระจายตัว</span></th>
-                            <th><span lang="en">Presentation</span><span lang="th">การนำเสนอ</span></th>
-                            <th><span lang="en">Statistical Test</span><span lang="th">สถิติที่ใช้ (P-value)</span></th>
+                            <th><span lang="en">Stat Test</span><span lang="th">สถิติที่ใช้</span></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Numeric</td>
                             <td>Normal</td>
-                            <td>Mean ± SD</td>
                             <td><span class="stat-badge">T-test</span> / <span class="stat-badge">ANOVA</span></td>
                         </tr>
                         <tr>
                             <td>Numeric</td>
                             <td>Non-normal</td>
-                            <td>Median (IQR)</td>
-                            <td><span class="stat-badge">Mann-Whitney U</span> / <span class="stat-badge">Kruskal-Wallis</span></td>
+                            <td><span class="stat-badge">Mann-Whitney U</span></td>
                         </tr>
                         <tr>
                             <td>Categorical</td>
                             <td>-</td>
-                            <td>Count (%)</td>
                             <td><span class="stat-badge">Chi-square</span> / <span class="stat-badge">Fisher's Exact</span></td>
                         </tr>
                     </tbody>
@@ -322,16 +314,14 @@
             <p lang="en">Evaluates the performance of a diagnostic tool or lab value against a Gold Standard.</p>
             <p lang="th">ประเมินประสิทธิภาพของเครื่องมือหรือค่า Lab ในการวินิจฉัยโรค โดยเทียบกับมาตรฐาน (Gold Standard)</p>
 
-            <h3 lang="en">Results & Interpretation</h3>
-            <h3 lang="th">ผลลัพธ์และการแปลผล</h3>
             <ul>
                 <li>
-                    <span lang="en"><strong>ROC Curve & AUC:</strong> Shows overall performance. The system calculates the <strong>Optimal Cut-off Point</strong> using Youden's Index.</span>
-                    <span lang="th"><strong>ROC Curve & AUC:</strong> แสดงประสิทธิภาพรวม และคำนวณ <strong>Optimal Cut-off</strong> (จุดตัดที่ดีที่สุด) ด้วยวิธี Youden's Index</span>
+                    <span lang="en"><strong>ROC Curve & AUC:</strong> Shows overall performance with Optimal Cut-off Point.</span>
+                    <span lang="th"><strong>ROC Curve & AUC:</strong> แสดงประสิทธิภาพรวม และ Optimal Cut-off (จุดตัดที่ดีที่สุด)</span>
                 </li>
                 <li>
-                    <span lang="en"><strong>2x2 Table Metrics:</strong> Includes Sensitivity, Specificity, PPV, NPV, and Likelihood Ratios (LR+, LR-).</span>
-                    <span lang="th"><strong>ค่าสถิติจากตาราง 2x2:</strong> แสดงค่า Sensitivity, Specificity, PPV, NPV, และ Likelihood Ratios</span>
+                    <span lang="en"><strong>Metrics:</strong> Sensitivity, Specificity, PPV, NPV, Likelihood Ratios.</span>
+                    <span lang="th"><strong>ค่าสถิติ:</strong> Sensitivity, Specificity, PPV, NPV, Likelihood Ratios</span>
                 </li>
             </ul>
         </section>
@@ -340,12 +330,12 @@
             <h2 lang="en">4. Correlation</h2>
             <h2 lang="th">4. ความสัมพันธ์ (Correlation)</h2>
             
-            <p lang="en">Analyzes linear or monotonic relationships between continuous variables.</p>
+            <p lang="en">Analyzes relationships between continuous variables.</p>
             <p lang="th">วิเคราะห์ความสัมพันธ์ระหว่างตัวแปรตัวเลข 2 ตัวขึ้นไป</p>
 
             <ul>
-                <li><span class="stat-badge">Pearson (r)</span>: <span lang="en">Linear relationship, Normal distribution.</span><span lang="th">ความสัมพันธ์เชิงเส้น ข้อมูลมีการแจกแจงปกติ</span></li>
-                <li><span class="stat-badge">Spearman (rho)</span>: <span lang="en">Monotonic relationship, Non-normal distribution.</span><span lang="th">ความสัมพันธ์เป็นลำดับ หรือข้อมูลไม่แจกแจงปกติ</span></li>
+                <li><span class="stat-badge">Pearson (r)</span>: <span lang="en">Linear relationship, Normal.</span><span lang="th">ความสัมพันธ์เชิงเส้น, ข้อมูลปกติ</span></li>
+                <li><span class="stat-badge">Spearman (rho)</span>: <span lang="en">Monotonic, Non-normal.</span><span lang="th">ความสัมพันธ์เป็นลำดับ, ข้อมูลไม่ปกติ</span></li>
             </ul>
         </section>
 
@@ -353,25 +343,13 @@
             <h2 lang="en">5. Logistic Regression</h2>
             <h2 lang="th">5. Logistic Regression</h2>
             
-            <p lang="en">Analyzes risk factors associated with a binary outcome (e.g., Disease vs Healthy).</p>
+            <p lang="en">Analyzes risk factors associated with a binary outcome.</p>
             <p lang="th">วิเคราะห์ปัจจัยเสี่ยงที่มีผลต่อการเกิดโรค (Outcome เป็นกลุ่ม 2 ค่า)</p>
 
-            <h3 lang="en">Interpretation (Odds Ratio - OR)</h3>
-            <h3 lang="th">การแปลผล (Odds Ratio - OR)</h3>
-            <ul>
-                <li>
-                    <span lang="en"><strong>OR > 1:</strong> Risk Factor (Increases outcome probability).</span>
-                    <span lang="th"><strong>OR > 1:</strong> ปัจจัยเสี่ยง (เพิ่มโอกาสเกิดโรค)</span>
-                </li>
-                <li>
-                    <span lang="en"><strong>OR < 1:</strong> Protective Factor (Decreases outcome probability).</span>
-                    <span lang="th"><strong>OR < 1:</strong> ปัจจัยป้องกัน (ลดโอกาสเกิดโรค)</span>
-                </li>
-                <li>
-                    <span lang="en"><strong>Univariate vs Multivariate:</strong> Use Multivariate analysis to obtain <strong>Adjusted OR</strong>, controlling for confounders.</span>
-                    <span lang="th"><strong>Univariate vs Multivariate:</strong> ใช้ Multivariate เพื่อหาค่า <strong>Adjusted OR</strong> ที่ควบคุมตัวแปรอื่นแล้ว</span>
-                </li>
-            </ul>
+            <div class="feature-box">
+                <span lang="en"><strong>Interpretation (OR):</strong> OR > 1 (Risk), OR < 1 (Protective).</span>
+                <span lang="th"><strong>การแปลผล (OR):</strong> OR > 1 (ปัจจัยเสี่ยง), OR < 1 (ปัจจัยป้องกัน)</span>
+            </div>
         </section>
 
         <section id="survival">
@@ -381,25 +359,16 @@
             <p lang="en">Analyzes "Time-to-Event" data.</p>
             <p lang="th">วิเคราะห์ "ระยะเวลา" จนกว่าจะเกิดเหตุการณ์ (Time-to-Event)</p>
 
-            <div class="feature-box">
-                <h4>1. Kaplan-Meier (Survival Curve)</h4>
-                <p>
-                    <span lang="en">Plots survival probability over time. Includes <strong>Median Survival Time</strong> and <strong>Log-Rank Test</strong> for group comparison.</span>
-                    <span lang="th">กราฟแสดงโอกาสรอดชีวิต พร้อมค่า <strong>Median Survival Time</strong> และ <strong>Log-Rank Test</strong> สำหรับเปรียบเทียบกลุ่ม</span>
-                </p>
-
-                <h4>2. Nelson-Aalen (Cumulative Hazard)</h4>
-                <p>
-                    <span lang="en">Plots the cumulative risk/hazard over time.</span>
-                    <span lang="th">กราฟแสดงความเสี่ยงสะสมที่เพิ่มขึ้นตามเวลา</span>
-                </p>
-
-                <h4>3. Cox Proportional Hazards Model</h4>
-                <p>
-                    <span lang="en">Multivariate regression for survival data. Reports <strong>Hazard Ratio (HR)</strong> and checks assumptions (Schoenfeld Residuals).</span>
-                    <span lang="th">โมเดลวิเคราะห์ปัจจัยเสี่ยง รายงานค่า <strong>Hazard Ratio (HR)</strong> พร้อมตรวจสอบ Assumption (Schoenfeld Residuals)</span>
-                </p>
-            </div>
+            <ul>
+                <li>
+                    <span lang="en"><strong>Kaplan-Meier:</strong> Survival probability curve & Median Survival Time.</span>
+                    <span lang="th"><strong>Kaplan-Meier:</strong> กราฟโอกาสรอดชีวิต & เวลาที่รอดชีวิตเฉลี่ย (Median Time)</span>
+                </li>
+                <li>
+                    <span lang="en"><strong>Cox Regression:</strong> Multivariate analysis (Hazard Ratio - HR).</span>
+                    <span lang="th"><strong>Cox Regression:</strong> วิเคราะห์ปัจจัยเสี่ยงหลายตัวแปร (Hazard Ratio - HR)</span>
+                </li>
+            </ul>
         </section>
     </main>
 
@@ -411,25 +380,26 @@
             const btnTh = document.getElementById('btn-th');
 
             if (lang === 'th') {
-                body.classList.add('show-th'); // เพิ่มคลาส -> CSS จะซ่อน EN และโชว์ TH
+                body.classList.add('show-th');
                 btnTh.classList.add('active');
                 btnEn.classList.remove('active');
             } else {
-                body.classList.remove('show-th'); // ลบคลาส -> กลับเป็น Default (EN)
+                body.classList.remove('show-th');
                 btnEn.classList.add('active');
                 btnTh.classList.remove('active');
             }
         }
 
-        // 2. Active Link Logic (เหมือนเดิม)
+        // 2. Active Link Logic (Updated for Top Nav)
         const sections = document.querySelectorAll("section");
-        const navLi = document.querySelectorAll("nav ul li a");
+        const navLi = document.querySelectorAll(".nav-links a");
+        const navHeight = 70; // Offset for fixed header
 
         window.addEventListener('scroll', () => {
             let current = "";
             sections.forEach((section) => {
                 const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 100) {
+                if (pageYOffset >= sectionTop - navHeight - 20) {
                     current = section.getAttribute("id");
                 }
             });
