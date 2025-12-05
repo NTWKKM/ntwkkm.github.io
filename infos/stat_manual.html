@@ -24,16 +24,24 @@
             display: flex;
         }
 
-        /* --- 🟢 1. Floating Menu Design --- */
+        /* --- 🟢 ส่วนจัดการภาษา (Language Logic) --- */
+        /* ค่าเริ่มต้น (ไม่มีคลาส show-th): ซ่อนภาษาไทย, โชว์ภาษาอังกฤษ */
+        body:not(.show-th) [lang="th"] { display: none !important; }
+        
+        /* เมื่อมีคลาส show-th: ซ่อนภาษาอังกฤษ, โชว์ภาษาไทย */
+        body.show-th [lang="en"] { display: none !important; }
+        body.show-th [lang="th"] { display: block !important; }
+
+        /* --- Floating Menu --- */
         nav#floating-menu {
             width: var(--menu-width);
-            height: calc(100vh - 40px); /* เว้นขอบบนล่างให้ดูเหมือนลอย */
+            height: calc(100vh - 40px);
             position: fixed;
             top: 20px;
             left: 20px;
             background-color: var(--menu-bg);
-            border-radius: 16px; /* ขอบมน */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* เงาให้ดูลอย */
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             overflow-y: auto;
             z-index: 1000;
             display: flex;
@@ -41,38 +49,47 @@
         }
 
         .menu-header {
-            padding: 20px;
+            padding: 25px 20px;
             text-align: center;
             border-bottom: 1px solid #eee;
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), #34495e); /* พื้นหลังสีเข้ม */
             color: white;
             border-radius: 16px 16px 0 0;
         }
 
-        .menu-header h3 { margin: 0; font-size: 1.2rem; }
-        .menu-header small { opacity: 0.8; font-weight: 300; }
+        .menu-header h3 { margin: 0; font-size: 1.2rem; margin-bottom: 5px; }
+        .menu-header small { opacity: 0.8; font-weight: 300; display: block; margin-bottom: 15px; }
 
-        /* --- Language Switcher --- */
-        .lang-switch {
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
+        /* --- 🟢 ปุ่มเปลี่ยนภาษา (Language Switcher) --- */
+        .lang-switch-container {
+            background: rgba(255,255,255,0.2);
+            border-radius: 30px;
+            padding: 4px;
+            display: inline-flex;
+            position: relative;
         }
         
         .lang-btn {
-            background: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.4);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
+            background: transparent;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            padding: 6px 16px;
+            border-radius: 25px;
             cursor: pointer;
-            font-size: 0.85rem;
-            transition: all 0.2s;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            z-index: 1;
         }
 
-        .lang-btn:hover { background: rgba(255,255,255,0.4); }
-        .lang-btn.active { background: var(--accent-color); border-color: var(--accent-color); font-weight: bold; }
+        .lang-btn:hover { color: white; }
+        
+        /* ปุ่มที่ถูกเลือก (Active) */
+        .lang-btn.active {
+            background-color: white;
+            color: var(--primary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
 
         /* --- Menu List --- */
         nav#floating-menu ul {
@@ -102,10 +119,10 @@
 
         /* --- Main Content --- */
         main {
-            margin-left: calc(var(--menu-width) + 40px); /* เว้นที่ให้เมนูลอย */
+            margin-left: calc(var(--menu-width) + 40px);
             padding: 40px;
             width: calc(100% - var(--menu-width) - 80px);
-            max-width: 900px; /* จำกัดความกว้างให้อ่านง่าย */
+            max-width: 900px;
         }
 
         section {
@@ -145,13 +162,6 @@
         table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; }
         th, td { border: 1px solid #e1e4e8; padding: 12px; text-align: left; }
         th { background-color: #f8f9fa; color: var(--primary-color); font-weight: 600; }
-        
-        /* Language Display Logic */
-        [lang="th"] { display: none; }
-        [lang="en"] { display: block; }
-        
-        body.show-th [lang="en"] { display: none; }
-        body.show-th [lang="th"] { display: block; }
 
         /* Responsive */
         @media (max-width: 992px) {
@@ -171,11 +181,14 @@
     <nav id="floating-menu">
         <div class="menu-header">
             <h3>🏥 Medical Stat Tool</h3>
-            <small>User Manual / คู่มือการใช้งาน</small>
+            <small>
+                <span lang="en">User Manual</span>
+                <span lang="th">คู่มือการใช้งาน</span>
+            </small>
             
-            <div class="lang-switch">
-                <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
-                <button class="lang-btn" onclick="setLang('th')" id="btn-th">TH</button>
+            <div class="lang-switch-container">
+                <button class="lang-btn active" onclick="setLang('en')" id="btn-en">English</button>
+                <button class="lang-btn" onclick="setLang('th')" id="btn-th">ไทย</button>
             </div>
         </div>
 
@@ -398,17 +411,17 @@
             const btnTh = document.getElementById('btn-th');
 
             if (lang === 'th') {
-                body.classList.add('show-th');
+                body.classList.add('show-th'); // เพิ่มคลาส -> CSS จะซ่อน EN และโชว์ TH
                 btnTh.classList.add('active');
                 btnEn.classList.remove('active');
             } else {
-                body.classList.remove('show-th');
+                body.classList.remove('show-th'); // ลบคลาส -> กลับเป็น Default (EN)
                 btnEn.classList.add('active');
                 btnTh.classList.remove('active');
             }
         }
 
-        // 2. Active Link on Scroll Logic
+        // 2. Active Link Logic (เหมือนเดิม)
         const sections = document.querySelectorAll("section");
         const navLi = document.querySelectorAll("nav ul li a");
 
