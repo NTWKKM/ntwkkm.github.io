@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Statistical Tool - User Manual</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -13,7 +13,6 @@
             --bg-body: #f8f9fa;
             --bg-card: #ffffff;
             --text-main: #333;
-            --text-muted: #666;
             --nav-height: 60px;
         }
 
@@ -23,19 +22,19 @@
             padding: 0;
             background-color: var(--bg-body);
             color: var(--text-main);
-            padding-top: var(--nav-height); /* Prevent content overlap */
+            padding-top: var(--nav-height);
             line-height: 1.6;
         }
 
-        /* --- 1. Minimal Navigation Bar --- */
+        /* --- Minimal Nav --- */
         nav.minimal-nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: var(--nav-height);
-            background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
-            backdrop-filter: blur(10px); /* Glassmorphism effect */
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid #eaeaea;
             display: flex;
             align-items: center;
@@ -43,17 +42,16 @@
             padding: 0 40px;
             box-sizing: border-box;
             z-index: 1000;
-            transition: all 0.3s ease;
         }
 
         .nav-logo {
             font-weight: 700;
             font-size: 1.1rem;
             color: var(--primary);
+            text-decoration: none;
             display: flex;
             align-items: center;
             gap: 8px;
-            text-decoration: none;
         }
 
         .nav-links {
@@ -66,35 +64,29 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-muted);
+            color: #666;
             font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.2s;
             position: relative;
         }
 
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--accent);
-        }
-        
-        /* Minimal Active Indicator */
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
         .nav-links a.active::after {
             content: '';
             position: absolute;
-            bottom: -20px;
+            bottom: -21px;
             left: 0;
             width: 100%;
             height: 2px;
             background-color: var(--accent);
         }
 
-        /* Language Switcher (Pill Style) */
         .lang-switch {
             background-color: #f1f1f1;
             border-radius: 20px;
             padding: 3px;
             display: flex;
-            gap: 2px;
         }
 
         .lang-btn {
@@ -109,19 +101,11 @@
             transition: all 0.2s;
         }
 
-        .lang-btn.active {
-            background-color: white;
-            color: var(--primary);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
+        .lang-btn.active { background-color: white; color: var(--primary); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
 
-        /* --- 2. Content Layout --- */
-        main {
-            max-width: 960px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
+        /* --- Content --- */
+        main { max-width: 960px; margin: 40px auto; padding: 0 20px; }
+        
         section {
             background: var(--bg-card);
             border-radius: 12px;
@@ -131,67 +115,47 @@
             scroll-margin-top: calc(var(--nav-height) + 20px);
         }
 
-        h1 { font-size: 2rem; color: var(--primary); margin-bottom: 10px; margin-top: 0; }
-        h2 { font-size: 1.5rem; color: var(--primary); margin-top: 0; padding-bottom: 15px; border-bottom: 1px solid #eee; display: flex; align-items: center; gap: 10px; }
+        h1 { font-size: 2rem; color: var(--primary); margin: 0 0 10px 0; }
+        h2 { font-size: 1.5rem; color: var(--primary); border-bottom: 1px solid #eee; padding-bottom: 15px; margin-top: 0; }
         h3 { font-size: 1.1rem; color: #444; margin-top: 25px; font-weight: 600; }
         
-        p { color: #555; margin-bottom: 15px; }
-        ul { color: #555; padding-left: 20px; }
-        li { margin-bottom: 8px; }
-
-        /* Feature Box */
-        .info-box {
-            background-color: #f8fbff;
-            border: 1px solid #cce5ff;
+        /* Table Styles */
+        .data-guide {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            border: 1px solid #e1e4e8;
             border-radius: 8px;
-            padding: 20px;
-            margin: 20px 0;
+            overflow: hidden;
         }
-
-        /* Stat Badges */
-        .badge {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            font-weight: 600;
-            background-color: #e9ecef;
-            color: #495057;
-            margin-right: 4px;
-        }
-        .badge.param { background-color: #d1e7dd; color: #0f5132; } /* Parametric */
-        .badge.nonparam { background-color: #fff3cd; color: #664d03; } /* Non-Parametric */
-
-        /* Table Design */
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; }
-        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee; }
-        th { background-color: #f8f9fa; color: var(--primary); font-weight: 600; }
-        tr:last-child td { border-bottom: none; }
-
-        /* --- 3. Bilingual Logic --- */
-        /* Default: EN Visible, TH Hidden */
-        [lang="th"] { display: none; }
+        .data-guide th { background-color: #f8f9fa; color: var(--primary); font-weight: 600; text-align: left; padding: 12px 15px; border-bottom: 2px solid #e1e4e8; }
+        .data-guide td { padding: 12px 15px; border-bottom: 1px solid #eee; vertical-align: top; }
+        .data-guide tr:last-child td { border-bottom: none; }
         
-        /* State: Thai Active */
+        /* Badges */
+        .badge { display: inline-block; padding: 2px 6px; border-radius: 4px; font-size: 0.8em; font-weight: 600; margin-right: 4px; border: 1px solid transparent; }
+        .badge-num { background-color: #e3f2fd; color: #0d47a1; border-color: #bbdefb; }
+        .badge-cat { background-color: #f3e5f5; color: #4a148c; border-color: #e1bee7; }
+        .badge-bin { background-color: #fff3e0; color: #e65100; border-color: #ffe0b2; }
+
+        /* Language Logic */
+        [lang="th"] { display: none; }
         body.show-th [lang="en"] { display: none; }
         body.show-th [lang="th"] { display: block; }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            nav.minimal-nav { padding: 0 20px; overflow-x: auto; }
+            nav.minimal-nav { overflow-x: auto; padding: 0 15px; }
             .nav-links { gap: 15px; }
-            .nav-logo span { display: none; } /* Hide text logo on mobile */
-            .nav-logo::after { content: "MST"; } /* Show short logo */
+            .nav-logo span { display: none; }
+            .nav-logo::after { content: "MST"; }
         }
     </style>
 </head>
 <body>
 
     <nav class="minimal-nav">
-        <a href="#" class="nav-logo">
-            🏥 <span>Medical Stat Tool</span>
-        </a>
-
+        <a href="#" class="nav-logo">🏥 <span>Medical Stat Tool</span></a>
         <ul class="nav-links">
             <li><a href="#intro" class="active"><span lang="en">Intro</span><span lang="th">บทนำ</span></a></li>
             <li><a href="#data"><span lang="en">Data</span><span lang="th">ข้อมูล</span></a></li>
@@ -201,7 +165,6 @@
             <li><a href="#logit"><span lang="en">Logistic</span><span lang="th">Logistic</span></a></li>
             <li><a href="#survival"><span lang="en">Survival</span><span lang="th">Survival</span></a></li>
         </ul>
-
         <div class="lang-switch">
             <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
             <button class="lang-btn" onclick="setLang('th')" id="btn-th">TH</button>
@@ -210,81 +173,55 @@
 
     <main>
         <section id="intro">
-            <h1 lang="en">User Manual & Documentation</h1>
-            <h1 lang="th">คู่มือการใช้งานและเอกสารประกอบ</h1>
-            
-            <p lang="en">
-                <strong>Medical Statistical Tool</strong> is a web-based application designed to simplify statistical analysis for medical research. 
-                It automates complex statistical logic (such as hypothesis testing selection) while providing advanced analysis capabilities like Survival Analysis and Logistic Regression without requiring any coding.
-            </p>
-            <p lang="th">
-                <strong>Medical Statistical Tool</strong> คือเว็บแอปพลิเคชันที่ออกแบบมาเพื่อลดความซับซ้อนในการวิเคราะห์สถิติทางการแพทย์ 
-                ระบบมีจุดเด่นในการ "เลือกสถิติให้อัตโนมัติ" (Automated Logic) และรองรับการวิเคราะห์ขั้นสูงอย่าง Survival Analysis และ Logistic Regression โดยผู้ใช้ไม่ต้องเขียนโค้ดเอง
-            </p>
+            <h1 lang="en">User Manual</h1>
+            <h1 lang="th">คู่มือการใช้งาน</h1>
+            <p lang="en">Welcome to the Medical Statistical Tool. This guide details how to prepare your data and select the right statistics for your research.</p>
+            <p lang="th">ยินดีต้อนรับสู่เครื่องมือวิเคราะห์สถิติทางการแพทย์ คู่มือนี้จะแนะนำวิธีการเตรียมข้อมูลและการเลือกใช้สถิติให้ถูกต้องสำหรับงานวิจัยของคุณ</p>
         </section>
 
         <section id="data">
             <h2 lang="en">1. Data Management</h2>
-            <h2 lang="th">1. การจัดการข้อมูล (Data Management)</h2>
-
-            <p lang="en">The module handles data import, cleaning, and quality assurance.</p>
-            <p lang="th">โมดูลสำหรับนำเข้าข้อมูล ตรวจสอบความถูกต้อง และจัดการคุณภาพข้อมูล</p>
-
-            <div class="info-box">
-                <h3 lang="en">Safety & Auto-Cleaning Logic</h3>
-                <h3 lang="th">ระบบความปลอดภัยและการทำความสะอาดอัตโนมัติ</h3>
-                <ul>
-                    <li>
-                        <span lang="en"><strong>Visual vs. Analysis:</strong> The table you see allows text editing (so you can see typos like 'abc' in Age). However, the background engine converts these errors to <strong>NaN (Missing)</strong> before calculation.</span>
-                        <span lang="th"><strong>การแสดงผล vs การคำนวณ:</strong> ตารางหน้าเว็บจะยอมให้คุณพิมพ์แก้ข้อมูลได้อิสระ (เพื่อให้เห็นคำผิด เช่น 'abc' ในช่องอายุ) แต่ระบบเบื้องหลังจะแปลงค่าผิดปกติเหล่านี้เป็น <strong>NaN (ค่าว่าง)</strong> ทันทีตอนคำนวณ เพื่อกันกราฟ Error</span>
-                    </li>
-                    <li>
-                        <span lang="en"><strong>Quality Alerts:</strong> The system scans columns and warns about issues like mixed data types (Text in Numeric) or Rare Categories (potential typos in groups).</span>
-                        <span lang="th"><strong>ระบบแจ้งเตือน:</strong> ระบบจะสแกนข้อมูลและแจ้งเตือนเมื่อพบสิ่งผิดปกติ เช่น มีตัวหนังสือปนในช่องตัวเลข หรือมีกลุ่มข้อมูลแปลกๆ (Rare Category) ที่อาจเกิดจากการพิมพ์ผิด</span>
-                    </li>
-                </ul>
-            </div>
+            <h2 lang="th">1. การจัดการข้อมูล</h2>
+            <p lang="en">Prepare your file (.csv/.xlsx) with clean headers. The system includes an auto-cleaning feature.</p>
+            <p lang="th">เตรียมไฟล์ข้อมูล (.csv/.xlsx) โดยมีหัวตารางที่ชัดเจน ระบบมีฟังก์ชันทำความสะอาดข้อมูลอัตโนมัติ</p>
         </section>
 
         <section id="table1">
             <h2 lang="en">2. Baseline Table 1</h2>
-            <h2 lang="th">2. ตารางข้อมูลพื้นฐาน (Baseline Table 1)</h2>
+            <h2 lang="th">2. ตารางข้อมูลพื้นฐาน (Table 1)</h2>
+            <p lang="en">Auto-generates demographics table with hypothesis testing.</p>
+            <p lang="th">สร้างตารางข้อมูลพื้นฐานพร้อมทดสอบสมมติฐานทางสถิติอัตโนมัติ</p>
 
-            <p lang="en">Automatically generates "Table 1" for demographic comparison between groups.</p>
-            <p lang="th">สร้างตารางเปรียบเทียบข้อมูลพื้นฐาน (Demographic) ระหว่างกลุ่มโดยอัตโนมัติ</p>
-
-            <h3 lang="en">Statistical Logic (Auto-Selection)</h3>
-            <h3 lang="th">ตรรกะการเลือกสถิติอัตโนมัติ</h3>
-            <p lang="en">The system detects variable types and distribution (Shapiro-Wilk test) to select the correct test:</p>
-            <p lang="th">ระบบจะตรวจสอบชนิดตัวแปรและการกระจายตัว (Shapiro-Wilk) เพื่อเลือกสถิติที่ถูกต้องให้เอง:</p>
-
-            <table>
+            <h3 lang="en">📊 Data Selection & Statistical Logic</h3>
+            <h3 lang="th">📊 การเลือกข้อมูลและตรรกะทางสถิติ</h3>
+            
+            <table class="data-guide">
                 <thead>
                     <tr>
                         <th><span lang="en">Variable Type</span><span lang="th">ชนิดตัวแปร</span></th>
-                        <th><span lang="en">Condition</span><span lang="th">เงื่อนไข</span></th>
-                        <th><span lang="en">Report Format</span><span lang="th">การแสดงผล</span></th>
-                        <th><span lang="en">Statistical Test</span><span lang="th">สถิติที่ใช้ (P-value)</span></th>
+                        <th><span lang="en">Condition (Distribution)</span><span lang="th">เงื่อนไข (การกระจาย)</span></th>
+                        <th><span lang="en">Display Format</span><span lang="th">รูปแบบการแสดงผล</span></th>
+                        <th><span lang="en">Statistical Test (P-value)</span><span lang="th">สถิติที่ใช้ (P-value)</span></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Numeric</td>
-                        <td><span class="badge param">Normal Dist.</span></td>
+                        <td><span class="badge badge-num">Numeric</span></td>
+                        <td>Normal Distribution</td>
                         <td>Mean ± SD</td>
-                        <td><strong>T-test</strong> (2 groups) / <strong>ANOVA</strong> (>2 groups)</td>
+                        <td><strong>T-test</strong> (2 groups)<br><strong>ANOVA</strong> (>2 groups)</td>
                     </tr>
                     <tr>
-                        <td>Numeric</td>
-                        <td><span class="badge nonparam">Non-Normal</span></td>
+                        <td><span class="badge badge-num">Numeric</span></td>
+                        <td>Non-Normal Distribution</td>
                         <td>Median (IQR)</td>
-                        <td><strong>Mann-Whitney U</strong> (2 groups) / <strong>Kruskal-Wallis</strong> (>2 groups)</td>
+                        <td><strong>Mann-Whitney U</strong> (2 groups)<br><strong>Kruskal-Wallis</strong> (>2 groups)</td>
                     </tr>
                     <tr>
-                        <td>Categorical</td>
+                        <td><span class="badge badge-cat">Categorical</span></td>
                         <td>All cases</td>
                         <td>Count (%)</td>
-                        <td><strong>Chi-square</strong> / <strong>Fisher's Exact</strong> (if n &lt; 5)</td>
+                        <td><strong>Chi-square</strong><br><strong>Fisher's Exact</strong> (if expected count < 5)</td>
                     </tr>
                 </tbody>
             </table>
@@ -292,140 +229,195 @@
 
         <section id="diag">
             <h2 lang="en">3. Diagnostic Test</h2>
-            <h2 lang="th">3. การทดสอบวินิจฉัย (Diagnostic Test)</h2>
+            <h2 lang="th">3. การทดสอบวินิจฉัย</h2>
+            <p lang="en">Analysis of Sensitivity, Specificity, and ROC Curve.</p>
+            <p lang="th">การวิเคราะห์ความไว ความจำเพาะ และกราฟ ROC</p>
 
-            <p lang="en">Evaluates the performance of a diagnostic tool against a binary Gold Standard.</p>
-            <p lang="th">ประเมินประสิทธิภาพของเครื่องมือวินิจฉัย หรือค่า Lab โดยเทียบกับมาตรฐาน (Gold Standard)</p>
+            <h3 lang="en">📊 Data Selection Guide</h3>
+            <h3 lang="th">📊 คำแนะนำการเลือกข้อมูล</h3>
 
-            <ul>
-                <li>
-                    <span lang="en"><strong>ROC Curve & AUC:</strong> Visualizes the trade-off between Sensitivity and Specificity.</span>
-                    <span lang="th"><strong>ROC Curve & AUC:</strong> กราฟแสดงประสิทธิภาพโดยรวมของเครื่องมือ</span>
-                </li>
-                <li>
-                    <span lang="en"><strong>Optimal Cut-off:</strong> Calculated using <em>Youden's Index</em> (Sensitivity + Specificity - 1) to find the best threshold.</span>
-                    <span lang="th"><strong>Optimal Cut-off:</strong> คำนวณจุดตัดที่ดีที่สุดโดยใช้ <em>Youden's Index</em></span>
-                </li>
-                <li>
-                    <span lang="en"><strong>Metrics:</strong> Reports Sensitivity, Specificity, PPV (Precision), NPV, and Likelihood Ratios (+/-).</span>
-                    <span lang="th"><strong>ค่าสถิติสำคัญ:</strong> รายงานค่า Sensitivity, Specificity, PPV (Precision), NPV, และ Likelihood Ratios (+/-)</span>
-                </li>
-            </ul>
+            <table class="data-guide">
+                <thead>
+                    <tr>
+                        <th width="25%"><span lang="en">Input Role</span><span lang="th">หน้าที่ตัวแปร</span></th>
+                        <th width="25%"><span lang="en">Required Data Type</span><span lang="th">ชนิดข้อมูลที่ต้องใช้</span></th>
+                        <th><span lang="en">Description & Condition</span><span lang="th">คำอธิบายและเงื่อนไข</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Gold Standard (Y)</strong></td>
+                        <td><span class="badge badge-bin">Binary (0/1)</span></td>
+                        <td>
+                            <span lang="en">Must be categorical with 2 values. <br><code>0</code> = Negative/Normal, <code>1</code> = Positive/Disease.</span>
+                            <span lang="th">ต้องเป็นตัวแปรกลุ่มที่มี 2 ค่าเท่านั้น <br><code>0</code> = ผลลบ/ปกติ, <code>1</code> = ผลบวก/เป็นโรค</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Test Variable (X)</strong></td>
+                        <td><span class="badge badge-num">Numeric</span> / <span class="badge badge-cat">Score</span></td>
+                        <td>
+                            <span lang="en">Continuous value (e.g., Lab result, Risk Score). System will find the Optimal Cut-off.</span>
+                            <span lang="th">ค่าตัวเลขต่อเนื่อง (เช่น ผล Lab, คะแนนความเสี่ยง) ระบบจะหาจุดตัด (Cut-off) ที่ดีที่สุดให้เอง</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <section id="corr">
             <h2 lang="en">4. Correlation</h2>
-            <h2 lang="th">4. ความสัมพันธ์ (Correlation)</h2>
+            <h2 lang="th">4. ความสัมพันธ์</h2>
+            <p lang="en">Analysis of relationship between continuous variables.</p>
+            <p lang="th">การวิเคราะห์ความสัมพันธ์ระหว่างตัวแปรตัวเลข</p>
 
-            <p lang="en">Analyzes the relationship between multiple continuous variables.</p>
-            <p lang="th">วิเคราะห์ความสัมพันธ์ระหว่างตัวแปรตัวเลข (Continuous) หลายตัวพร้อมกัน</p>
+            <h3 lang="en">📊 Statistical Method Selection</h3>
+            <h3 lang="th">📊 การเลือกวิธีทางสถิติ</h3>
 
-            <ul>
-                <li>
-                    <span lang="en"><strong>Pearson Correlation (r):</strong> For linear relationships with normal distribution.</span>
-                    <span lang="th"><strong>Pearson Correlation (r):</strong> ใช้เมื่อข้อมูลมีความสัมพันธ์เชิงเส้น และมีการแจกแจงปกติ</span>
-                </li>
-                <li>
-                    <span lang="en"><strong>Spearman Rank (rho):</strong> For monotonic relationships or non-normal distribution.</span>
-                    <span lang="th"><strong>Spearman Rank (rho):</strong> ใช้เมื่อข้อมูลเป็นลำดับ หรือไม่แจกแจงปกติ</span>
-                </li>
-                <li>
-                    <span lang="en"><strong>Heatmap:</strong> Visualizes the strength of correlation. <br><small>Dark Red = Strong Positive, Dark Blue = Strong Negative.</small></span>
-                    <span lang="th"><strong>Heatmap:</strong> แสดงความแรงของความสัมพันธ์ด้วยสี <br><small>แดงเข้ม = สัมพันธ์ทางบวกมาก, น้ำเงินเข้ม = สัมพันธ์ทางลบมาก</small></span>
-                </li>
-            </ul>
+            <table class="data-guide">
+                <thead>
+                    <tr>
+                        <th><span lang="en">Statistical Method</span><span lang="th">วิธีการทางสถิติ</span></th>
+                        <th><span lang="en">Data Requirement</span><span lang="th">ข้อกำหนดของข้อมูล</span></th>
+                        <th><span lang="en">Interpretation</span><span lang="th">การแปลผล</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pearson (r)</strong></td>
+                        <td>
+                            <span class="badge badge-num">Numeric</span> + Normal Dist.<br>
+                            <small>(Linear Relationship)</small>
+                        </td>
+                        <td>
+                            <span lang="en">Measure linear correlation strength (-1 to +1).</span>
+                            <span lang="th">วัดความสัมพันธ์เชิงเส้นตรง</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Spearman (rho)</strong></td>
+                        <td>
+                            <span class="badge badge-num">Numeric</span> + Non-Normal<br>
+                            <small>(Monotonic Relationship)</small>
+                        </td>
+                        <td>
+                            <span lang="en">Measure rank-based correlation (robust to outliers).</span>
+                            <span lang="th">วัดความสัมพันธ์แบบลำดับ (ทนต่อค่าผิดปกติได้ดีกว่า)</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <section id="logit">
             <h2 lang="en">5. Logistic Regression</h2>
             <h2 lang="th">5. Logistic Regression</h2>
+            <p lang="en">Identify risk factors for a binary outcome.</p>
+            <p lang="th">ค้นหาปัจจัยเสี่ยงที่มีผลต่อผลลัพธ์ (Outcome)</p>
 
-            <p lang="en">Analyzes risk factors associated with a binary outcome (e.g., Disease: Yes/No).</p>
-            <p lang="th">วิเคราะห์หาปัจจัยเสี่ยงที่มีผลต่อผลลัพธ์แบบทวิภาค (เช่น เป็นโรค/ไม่เป็นโรค)</p>
+            <h3 lang="en">📊 Data Selection Guide</h3>
+            <h3 lang="th">📊 คำแนะนำการเลือกข้อมูล</h3>
 
-            <h3 lang="en">Analysis Modes</h3>
-            <h3 lang="th">รูปแบบการวิเคราะห์</h3>
-            <ul>
-                <li>
-                    <span lang="en"><strong>Univariate Analysis:</strong> Examines each factor individually. Reports Crude Odds Ratio (OR).</span>
-                    <span lang="th"><strong>Univariate Analysis:</strong> วิเคราะห์ทีละปัจจัย เพื่อดูความสัมพันธ์เบื้องต้น (Crude OR)</span>
-                </li>
-                <li>
-                    <span lang="en"><strong>Multivariate Analysis:</strong> Adjusts for confounders. Reports Adjusted Odds Ratio (AOR). Essential for proving independent risk factors.</span>
-                    <span lang="th"><strong>Multivariate Analysis:</strong> วิเคราะห์หลายปัจจัยพร้อมกัน เพื่อควบคุมตัวแปรกวน (Confounding) ได้ค่า Adjusted OR</span>
-                </li>
-            </ul>
-            
-            <div class="info-box">
-                <strong lang="en">Interpretation:</strong>
-                <strong lang="th">การแปลผล:</strong>
-                <ul style="margin-top: 5px;">
-                    <li><span lang="en"><strong>OR > 1:</strong> Risk Factor (Increases likelihood of event).</span><span lang="th"><strong>OR > 1:</strong> ปัจจัยเสี่ยง (เพิ่มโอกาสเกิดเหตุการณ์)</span></li>
-                    <li><span lang="en"><strong>OR < 1:</strong> Protective Factor (Decreases likelihood).</span><span lang="th"><strong>OR < 1:</strong> ปัจจัยป้องกัน (ลดโอกาสเกิดเหตุการณ์)</span></li>
-                    <li><span lang="en"><strong>P-value < 0.05:</strong> Statistically significant.</span><span lang="th"><strong>P-value < 0.05:</strong> มีนัยสำคัญทางสถิติ</span></li>
-                </ul>
-            </div>
+            <table class="data-guide">
+                <thead>
+                    <tr>
+                        <th width="25%"><span lang="en">Input Role</span><span lang="th">หน้าที่ตัวแปร</span></th>
+                        <th width="25%"><span lang="en">Required Data Type</span><span lang="th">ชนิดข้อมูลที่ต้องใช้</span></th>
+                        <th><span lang="en">Description</span><span lang="th">คำอธิบาย</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Dependent (Y)</strong><br><small>(Outcome)</small></td>
+                        <td><span class="badge badge-bin">Binary (0/1)</span></td>
+                        <td>
+                            <span lang="en">Target Event. <br><code>0</code> = No Event, <code>1</code> = Event Occurred.</span>
+                            <span lang="th">ผลลัพธ์ที่สนใจ <br><code>0</code> = ไม่เกิดเหตุการณ์, <code>1</code> = เกิดเหตุการณ์</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Independent (X)</strong><br><small>(Predictors)</small></td>
+                        <td>
+                            <span class="badge badge-num">Numeric</span> or<br>
+                            <span class="badge badge-cat">Categorical</span>
+                        </td>
+                        <td>
+                            <span lang="en">Factors to analyze (e.g., Age, Sex, Treatment). <br>Categorical vars are auto-encoded.</span>
+                            <span lang="th">ปัจจัยที่ต้องการศึกษา (เช่น อายุ, เพศ, การรักษา) <br>ตัวแปรกลุ่มจะถูกแปลงค่า (Dummy encoding) อัตโนมัติ</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <section id="survival">
             <h2 lang="en">6. Survival Analysis</h2>
             <h2 lang="th">6. Survival Analysis</h2>
+            <p lang="en">Time-to-event analysis (Kaplan-Meier, Cox Regression).</p>
+            <p lang="th">การวิเคราะห์ระยะเวลาปลอดเหตุการณ์ (Time-to-event)</p>
 
-            <p lang="en">Analyzes "Time-to-Event" data (e.g., time until death or relapse).</p>
-            <p lang="th">วิเคราะห์ข้อมูล "ระยะเวลาจนกว่าจะเกิดเหตุการณ์" (Time-to-Event)</p>
+            <h3 lang="en">📊 Data Selection Guide</h3>
+            <h3 lang="th">📊 คำแนะนำการเลือกข้อมูล</h3>
 
-            <h3 lang="en">Included Methods</h3>
-            <h3 lang="th">สถิติที่มีให้ใช้งาน</h3>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                <div>
-                    <h4 style="margin-bottom: 5px;">1. Kaplan-Meier</h4>
-                    <p style="font-size: 0.9rem;">
-                        <span lang="en">Survival probability curve. Calculates <strong>Median Survival Time</strong> and compares groups using <strong>Log-Rank Test</strong>.</span>
-                        <span lang="th">กราฟแสดงโอกาสรอดชีวิต คำนวณค่ามัธยฐานเวลา (Median Time) และเปรียบเทียบกลุ่มด้วย <strong>Log-Rank Test</strong></span>
-                    </p>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 5px;">2. Nelson-Aalen</h4>
-                    <p style="font-size: 0.9rem;">
-                        <span lang="en">Cumulative Hazard curve. Shows how risk accumulates over time.</span>
-                        <span lang="th">กราฟแสดงความเสี่ยงสะสม (Cumulative Hazard) ที่เพิ่มขึ้นตามเวลา</span>
-                    </p>
-                </div>
-                <div>
-                    <h4 style="margin-bottom: 5px;">3. Cox Regression</h4>
-                    <p style="font-size: 0.9rem;">
-                        <span lang="en">Multivariate model. Reports <strong>Hazard Ratio (HR)</strong>. Includes Schoenfeld residuals check for assumptions.</span>
-                        <span lang="th">โมเดลวิเคราะห์ปัจจัยเสี่ยงหลายตัวแปร รายงานค่า <strong>Hazard Ratio (HR)</strong> พร้อมตรวจสอบ Assumption</span>
-                    </p>
-                </div>
-            </div>
+            <table class="data-guide">
+                <thead>
+                    <tr>
+                        <th width="20%"><span lang="en">Input Role</span><span lang="th">หน้าที่ตัวแปร</span></th>
+                        <th width="25%"><span lang="en">Required Data Type</span><span lang="th">ชนิดข้อมูลที่ต้องใช้</span></th>
+                        <th><span lang="en">Description & Condition</span><span lang="th">คำอธิบายและเงื่อนไข</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Time</strong></td>
+                        <td><span class="badge badge-num">Numeric</span></td>
+                        <td>
+                            <span lang="en">Duration of follow-up (e.g., days, months). Must be > 0.</span>
+                            <span lang="th">ระยะเวลาที่ติดตามผล (เช่น วัน, เดือน) ค่าต้องมากกว่า 0</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Event / Status</strong></td>
+                        <td><span class="badge badge-bin">Binary (0/1)</span></td>
+                        <td>
+                            <span lang="en">Status at the end of follow-up. <br><code>0</code> = Censored (Alive/Lost), <code>1</code> = Event (Dead/Relapse).</span>
+                            <span lang="th">สถานะเมื่อสิ้นสุดการติดตาม <br><code>0</code> = Censored (ยังอยู่/หายไป), <code>1</code> = Event (ตาย/กลับเป็นซ้ำ)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Group</strong> <small>(Optional)</small></td>
+                        <td><span class="badge badge-cat">Categorical</span></td>
+                        <td>
+                            <span lang="en">Factor to compare survival curves (e.g., Treatment A vs B).</span>
+                            <span lang="th">ตัวแปรแบ่งกลุ่มเพื่อเปรียบเทียบกราฟ (เช่น ยา A vs ยา B)</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
     </main>
 
     <script>
-        // 1. Language Toggle
         function setLang(lang) {
             const body = document.body;
             const btnEn = document.getElementById('btn-en');
             const btnTh = document.getElementById('btn-th');
 
             if (lang === 'th') {
-                body.classList.add('show-th'); // Hide EN, Show TH via CSS
+                body.classList.add('show-th');
                 btnTh.classList.add('active');
                 btnEn.classList.remove('active');
             } else {
-                body.classList.remove('show-th'); // Show EN, Hide TH via CSS
+                body.classList.remove('show-th');
                 btnEn.classList.add('active');
                 btnTh.classList.remove('active');
             }
         }
 
-        // 2. Active Link Highlight on Scroll
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll(".nav-links a");
-        const navHeight = 70; // Offset
+        const navHeight = 70;
 
         window.addEventListener('scroll', () => {
             let current = "";
