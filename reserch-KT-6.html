@@ -1,0 +1,898 @@
+<!DOCTYPE html><html><head>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; padding: 20px; background-color: #f4f6f8; }
+        .table-container { background: white; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow-x: auto; }
+        table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; min-width: 800px; }
+        th { background-color: #34495e; color: #fff; padding: 12px; position: sticky; top: 0; }
+        td { padding: 12px; border-bottom: 1px solid #eee; vertical-align: top; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .outcome-title { background-color: #2c3e50; color: white; padding: 15px; font-weight: bold; border-radius: 8px 8px 0 0; }
+        .sig-p { color: #d32f2f; font-weight: bold; background-color: #ffebee; padding: 2px 4px; border-radius: 4px; }
+        .sheet-header td { background-color: #e8f4f8; color: #2980b9; font-weight: bold; letter-spacing: 1px; padding: 8px 15px; }
+        .n-badge { font-size: 0.75em; color: #888; background: #eee; padding: 1px 4px; border-radius: 3px; }
+        .summary-box { padding: 15px; background: #fff; font-size: 0.9em; color: #555; }
+        .report-footer {
+            text-align: right;
+            font-size: 0.75em;
+            color: var(--text-color);
+            margin-top: 20px;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 10px;
+        }
+    </style>
+    </head><body><h1>Analysis Report</h1>
+    <div id='sumoutcome' class='table-container'>
+    <div class='outcome-title'>Outcome: sumoutcome (Total n=116)</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Variable</th>
+                <th>Total</th>
+                <th>Group 0</th>
+                <th>Group 1</th>
+                <th>Crude OR (95% CI)</th>
+                <th>Test Used</th> <th>Crude P-value</th>
+                <th>aOR (95% CI)<br><span style='font-size:0.8em; font-weight:normal'>(n=46)</span></th>
+                <th>aP-value</th>
+            </tr>
+        </thead>
+        <tbody><tr class='sheet-header'><td colspan='9'>Variables</td></tr>
+        <tr>
+            <td><b>High flow nasal canula</b><br><span style='color:#666; font-size:0.9em'>High flow nasal canula</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 105 (90.5%)<br>1.0: 11 (9.5%)</td>
+            <td><span class='n-badge'>n=78</span><br>73 (93.6%)<br>5 (6.4%)</td>
+            <td><span class='n-badge'>n=38</span><br>32 (84.2%)<br>6 (15.8%)</td>
+            <td>2.74 (0.78-9.63)</td>
+            <td>Chi-square</td> <td>0.200</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>LMWH</b><br><span style='color:#666; font-size:0.9em'>LMWH</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 40 (34.5%)<br>1.0: 76 (65.5%)</td>
+            <td><span class='n-badge'>n=78</span><br>24 (30.8%)<br>54 (69.2%)</td>
+            <td><span class='n-badge'>n=38</span><br>16 (42.1%)<br>22 (57.9%)</td>
+            <td>0.61 (0.27-1.37)</td>
+            <td>Chi-square</td> <td>0.319</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>UFH</b><br><span style='color:#666; font-size:0.9em'>UFH</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 77 (66.4%)<br>1.0: 39 (33.6%)</td>
+            <td><span class='n-badge'>n=78</span><br>54 (69.2%)<br>24 (30.8%)</td>
+            <td><span class='n-badge'>n=38</span><br>23 (60.5%)<br>15 (39.5%)</td>
+            <td>1.47 (0.65-3.29)</td>
+            <td>Chi-square</td> <td>0.470</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>age</b><br><span style='color:#666; font-size:0.9em'>age</span></td>
+            <td><span class='n-badge'>n=116</span><br>Mean: 57.64<br>(SD 19.19)</td>
+            <td>57.19 (20.34)</td>
+            <td>58.55 (16.82)</td>
+            <td>1.00 (0.98-1.02)</td>
+            <td>Mann-Whitney U</td> <td>0.821</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>alb</b><br><span style='color:#666; font-size:0.9em'>alb</span></td>
+            <td><span class='n-badge'>n=115</span><br>Mean: 3.48<br>(SD 0.56)</td>
+            <td>3.58 (0.51)</td>
+            <td>3.25 (0.60)</td>
+            <td>0.34 (0.16-0.71)</td>
+            <td>Mann-Whitney U</td> <td><span class='sig-p'>0.007*</span></td>
+            <td>0.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>bicarb</b><br><span style='color:#666; font-size:0.9em'>bicarb</span></td>
+            <td><span class='n-badge'>n=116</span><br>Mean: 21.58<br>(SD 3.24)</td>
+            <td>21.87 (3.20)</td>
+            <td>20.97 (3.28)</td>
+            <td>0.92 (0.81-1.04)</td>
+            <td>Mann-Whitney U</td> <td>0.205</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>bnp</b><br><span style='color:#666; font-size:0.9em'>bnp</span></td>
+            <td><span class='n-badge'>n=99</span><br>Mean: 3941.42<br>(SD 4881.61)</td>
+            <td>3649.97 (4865.90)</td>
+            <td>4551.63 (4935.28)</td>
+            <td>1.00 (1.00-1.00)</td>
+            <td>Mann-Whitney U</td> <td>0.443</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>bt</b><br><span style='color:#666; font-size:0.9em'>bt</span></td>
+            <td><span class='n-badge'>n=115</span><br>Mean: 36.89<br>(SD 0.50)</td>
+            <td>36.79 (0.38)</td>
+            <td>37.08 (0.64)</td>
+            <td>3.26 (1.37-7.72)</td>
+            <td>Mann-Whitney U</td> <td><span class='sig-p'>0.041*</span></td>
+            <td>22788137446644986564593033436971336204288.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>cad</b><br><span style='color:#666; font-size:0.9em'>cad</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 112 (96.6%)<br>1.0: 4 (3.4%)</td>
+            <td><span class='n-badge'>n=78</span><br>76 (97.4%)<br>2 (2.6%)</td>
+            <td><span class='n-badge'>n=38</span><br>36 (94.7%)<br>2 (5.3%)</td>
+            <td>2.11 (0.29-15.59)</td>
+            <td>Chi-square</td> <td>0.837</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>cardiomegaly </b><br><span style='color:#666; font-size:0.9em'>cardiomegaly </span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 81 (69.8%)<br>1.0: 35 (30.2%)</td>
+            <td><span class='n-badge'>n=78</span><br>56 (71.8%)<br>22 (28.2%)</td>
+            <td><span class='n-badge'>n=38</span><br>25 (65.8%)<br>13 (34.2%)</td>
+            <td>1.32 (0.58-3.04)</td>
+            <td>Chi-square</td> <td>0.656</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>catheter-based fibrinolysis</b><br><span style='color:#666; font-size:0.9em'>catheter-based fibrinolysis</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 74 (63.8%)<br>1.0: 42 (36.2%)</td>
+            <td><span class='n-badge'>n=78</span><br>51 (65.4%)<br>27 (34.6%)</td>
+            <td><span class='n-badge'>n=38</span><br>23 (60.5%)<br>15 (39.5%)</td>
+            <td>1.23 (0.55-2.74)</td>
+            <td>Chi-square</td> <td>0.760</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>chestpain</b><br><span style='color:#666; font-size:0.9em'>chestpain</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 94 (81.0%)<br>1.0: 22 (19.0%)</td>
+            <td><span class='n-badge'>n=78</span><br>63 (80.8%)<br>15 (19.2%)</td>
+            <td><span class='n-badge'>n=38</span><br>31 (81.6%)<br>7 (18.4%)</td>
+            <td>0.95 (0.35-2.56)</td>
+            <td>Chi-square</td> <td>1.000</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>cirrhosis</b><br><span style='color:#666; font-size:0.9em'>cirrhosis</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 109 (94.0%)<br>1.0: 7 (6.0%)</td>
+            <td><span class='n-badge'>n=78</span><br>74 (94.9%)<br>4 (5.1%)</td>
+            <td><span class='n-badge'>n=38</span><br>35 (92.1%)<br>3 (7.9%)</td>
+            <td>1.59 (0.34-7.47)</td>
+            <td>Chi-square</td> <td>0.864</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>ckd</b><br><span style='color:#666; font-size:0.9em'>ckd</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 108 (93.1%)<br>1.0: 8 (6.9%)</td>
+            <td><span class='n-badge'>n=78</span><br>74 (94.9%)<br>4 (5.1%)</td>
+            <td><span class='n-badge'>n=38</span><br>34 (89.5%)<br>4 (10.5%)</td>
+            <td>2.18 (0.51-9.22)</td>
+            <td>Chi-square</td> <td>0.492</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>cnt</b><br><span style='color:#666; font-size:0.9em'>cnt</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 113 (97.4%)<br>1.0: 3 (2.6%)</td>
+            <td><span class='n-badge'>n=78</span><br>77 (98.7%)<br>1 (1.3%)</td>
+            <td><span class='n-badge'>n=38</span><br>36 (94.7%)<br>2 (5.3%)</td>
+            <td>4.28 (0.38-48.73)</td>
+            <td>Chi-square</td> <td>0.519</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>comorbid</b><br><span style='color:#666; font-size:0.9em'>comorbid</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 23 (19.8%)<br>1.0: 93 (80.2%)</td>
+            <td><span class='n-badge'>n=78</span><br>18 (23.1%)<br>60 (76.9%)</td>
+            <td><span class='n-badge'>n=38</span><br>5 (13.2%)<br>33 (86.8%)</td>
+            <td>1.98 (0.67-5.82)</td>
+            <td>Chi-square</td> <td>0.313</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>cough</b><br><span style='color:#666; font-size:0.9em'>cough</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 90 (77.6%)<br>1.0: 18 (15.5%)<br>2.0: 8 (6.9%)</td>
+            <td><span class='n-badge'>n=78</span><br>61 (78.2%)<br>10 (12.8%)<br>7 (9.0%)</td>
+            <td><span class='n-badge'>n=38</span><br>29 (76.3%)<br>8 (21.1%)<br>1 (2.6%)</td>
+            <td>0.88 (0.44-1.73)</td>
+            <td>Chi-square</td> <td>0.270</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>cr</b><br><span style='color:#666; font-size:0.9em'>cr</span></td>
+            <td><span class='n-badge'>n=116</span><br>Mean: 0.91<br>(SD 0.39)</td>
+            <td>0.90 (0.29)</td>
+            <td>0.92 (0.54)</td>
+            <td>1.12 (0.42-3.03)</td>
+            <td>Mann-Whitney U</td> <td>0.146</td>
+            <td>117946769440613236752799223822024568334720557819635025671128963607951009957715691768676158094917140217856.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>ddimer</b><br><span style='color:#666; font-size:0.9em'>ddimer</span></td>
+            <td><span class='n-badge'>n=45</span><br>Mean: 6225.51<br>(SD 2167.52)</td>
+            <td>6239.70 (2158.59)</td>
+            <td>6159.88 (2358.37)</td>
+            <td>1.00 (1.00-1.00)</td>
+            <td>Mann-Whitney U</td> <td>1.000</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>desat</b><br><span style='color:#666; font-size:0.9em'>desat</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 49 (42.2%)<br>1.0: 67 (57.8%)</td>
+            <td><span class='n-badge'>n=78</span><br>34 (43.6%)<br>44 (56.4%)</td>
+            <td><span class='n-badge'>n=38</span><br>15 (39.5%)<br>23 (60.5%)</td>
+            <td>1.18 (0.54-2.61)</td>
+            <td>Chi-square</td> <td>0.825</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>dlp</b><br><span style='color:#666; font-size:0.9em'>dlp</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 85 (73.3%)<br>1.0: 31 (26.7%)</td>
+            <td><span class='n-badge'>n=78</span><br>55 (70.5%)<br>23 (29.5%)</td>
+            <td><span class='n-badge'>n=38</span><br>30 (78.9%)<br>8 (21.1%)</td>
+            <td>0.64 (0.25-1.60)</td>
+            <td>Chi-square</td> <td>0.459</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>dm</b><br><span style='color:#666; font-size:0.9em'>dm</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 94 (81.0%)<br>1.0: 22 (19.0%)</td>
+            <td><span class='n-badge'>n=78</span><br>59 (75.6%)<br>19 (24.4%)</td>
+            <td><span class='n-badge'>n=38</span><br>35 (92.1%)<br>3 (7.9%)</td>
+            <td>0.27 (0.07-0.96)</td>
+            <td>Chi-square</td> <td>0.061</td>
+            <td>0.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>dvt</b><br><span style='color:#666; font-size:0.9em'>dvt</span></td>
+            <td><span class='n-badge'>n=115</span><br>0.0: 104 (90.4%)<br>1.0: 11 (9.6%)</td>
+            <td><span class='n-badge'>n=77</span><br>68 (88.3%)<br>9 (11.7%)</td>
+            <td><span class='n-badge'>n=38</span><br>36 (94.7%)<br>2 (5.3%)</td>
+            <td>0.42 (0.09-2.05)</td>
+            <td>Chi-square</td> <td>0.444</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>dvt.1</b><br><span style='color:#666; font-size:0.9em'>dvt.1</span></td>
+            <td><span class='n-badge'>n=46</span><br>0.0: 22 (47.8%)<br>1.0: 24 (52.2%)</td>
+            <td><span class='n-badge'>n=35</span><br>19 (54.3%)<br>16 (45.7%)</td>
+            <td><span class='n-badge'>n=11</span><br>3 (27.3%)<br>8 (72.7%)</td>
+            <td>3.17 (0.72-13.97)</td>
+            <td>Chi-square</td> <td>0.223</td>
+            <td>-</td>
+            <td>-</td>
+        </tr><tr class='sheet-header'><td colspan='9'>dyspnea</td></tr>
+        <tr>
+            <td><b>exertion</b><br><span style='color:#666; font-size:0.9em'>exertion</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 14 (12.1%)<br>1.0: 102 (87.9%)</td>
+            <td><span class='n-badge'>n=78</span><br>10 (12.8%)<br>68 (87.2%)</td>
+            <td><span class='n-badge'>n=38</span><br>4 (10.5%)<br>34 (89.5%)</td>
+            <td>1.25 (0.37-4.28)</td>
+            <td>Chi-square</td> <td>0.958</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>rest</b><br><span style='color:#666; font-size:0.9em'>rest</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 71 (61.2%)<br>1.0: 45 (38.8%)</td>
+            <td><span class='n-badge'>n=78</span><br>55 (70.5%)<br>23 (29.5%)</td>
+            <td><span class='n-badge'>n=38</span><br>16 (42.1%)<br>22 (57.9%)</td>
+            <td>3.29 (1.47-7.37)</td>
+            <td>Chi-square</td> <td><span class='sig-p'>0.006*</span></td>
+            <td>74544791273841645599624429484599665040003443052890154806910140140169694693447704049930821357963462672719160561816684328937920904060718813064052107294985834986713932300235614552326144.00 (nan-nan)</td>
+            <td>-</td>
+        </tr><tr class='sheet-header'><td colspan='9'>Variables</td></tr>
+        <tr>
+            <td><b>edema</b><br><span style='color:#666; font-size:0.9em'>edema</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 86 (74.1%)<br>1.0: 30 (25.9%)</td>
+            <td><span class='n-badge'>n=78</span><br>61 (78.2%)<br>17 (21.8%)</td>
+            <td><span class='n-badge'>n=38</span><br>25 (65.8%)<br>13 (34.2%)</td>
+            <td>1.87 (0.79-4.41)</td>
+            <td>Chi-square</td> <td>0.227</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>effusion</b><br><span style='color:#666; font-size:0.9em'>effusion</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 90 (77.6%)<br>1.0: 26 (22.4%)</td>
+            <td><span class='n-badge'>n=78</span><br>66 (84.6%)<br>12 (15.4%)</td>
+            <td><span class='n-badge'>n=38</span><br>24 (63.2%)<br>14 (36.8%)</td>
+            <td>3.21 (1.30-7.90)</td>
+            <td>Chi-square</td> <td><span class='sig-p'>0.018*</span></td>
+            <td>3342472451762361113039561179903328610068769198261708599965079504311323333522986179864644759630089078903751604370708511442304183385547717872135952806147142975488.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>endotracheal tube</b><br><span style='color:#666; font-size:0.9em'>endotracheal tube</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 103 (88.8%)<br>1.0: 13 (11.2%)</td>
+            <td><span class='n-badge'>n=78</span><br>73 (93.6%)<br>5 (6.4%)</td>
+            <td><span class='n-badge'>n=38</span><br>30 (78.9%)<br>8 (21.1%)</td>
+            <td>3.89 (1.18-12.87)</td>
+            <td>Chi-square</td> <td><span class='sig-p'>0.042*</span></td>
+            <td>0.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>fever</b><br><span style='color:#666; font-size:0.9em'>fever</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 108 (93.1%)<br>1.0: 8 (6.9%)</td>
+            <td><span class='n-badge'>n=78</span><br>74 (94.9%)<br>4 (5.1%)</td>
+            <td><span class='n-badge'>n=38</span><br>34 (89.5%)<br>4 (10.5%)</td>
+            <td>2.18 (0.51-9.22)</td>
+            <td>Chi-square</td> <td>0.492</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>hb</b><br><span style='color:#666; font-size:0.9em'>hb</span></td>
+            <td><span class='n-badge'>n=116</span><br>Mean: 11.91<br>(SD 2.29)</td>
+            <td>12.13 (2.34)</td>
+            <td>11.45 (2.14)</td>
+            <td>0.88 (0.74-1.04)</td>
+            <td>Mann-Whitney U</td> <td>0.080</td>
+            <td>124158037918678600195306497458477347272993799338106851829827963593568443018727852593448836956890014116411500196322446478593962328457257093857776359459382944299067962744886311541316309959261937534882610258325052373800067396615175782524953259658767761408.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>hct</b><br><span style='color:#666; font-size:0.9em'>hct</span></td>
+            <td><span class='n-badge'>n=116</span><br>Mean: 36.70<br>(SD 6.94)</td>
+            <td>37.47 (7.17)</td>
+            <td>35.12 (6.25)</td>
+            <td>0.95 (0.90-1.01)</td>
+            <td>Mann-Whitney U</td> <td>0.065</td>
+            <td>0.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>heart</b><br><span style='color:#666; font-size:0.9em'>heart</span></td>
+            <td><span class='n-badge'>n=110</span><br>0.0: 104 (94.5%)<br>1.0: 6 (5.5%)</td>
+            <td><span class='n-badge'>n=74</span><br>69 (93.2%)<br>5 (6.8%)</td>
+            <td><span class='n-badge'>n=36</span><br>35 (97.2%)<br>1 (2.8%)</td>
+            <td>0.39 (0.04-3.51)</td>
+            <td>Chi-square</td> <td>0.678</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>hr</b><br><span style='color:#666; font-size:0.9em'>hr</span></td>
+            <td><span class='n-badge'>n=115</span><br>Mean: 103.77<br>(SD 20.86)</td>
+            <td>102.99 (20.77)</td>
+            <td>105.34 (21.24)</td>
+            <td>1.01 (0.99-1.02)</td>
+            <td>Mann-Whitney U</td> <td>0.844</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>ht</b><br><span style='color:#666; font-size:0.9em'>ht</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 66 (56.9%)<br>1.0: 50 (43.1%)</td>
+            <td><span class='n-badge'>n=78</span><br>42 (53.8%)<br>36 (46.2%)</td>
+            <td><span class='n-badge'>n=38</span><br>24 (63.2%)<br>14 (36.8%)</td>
+            <td>0.68 (0.31-1.51)</td>
+            <td>Chi-square</td> <td>0.453</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>immobilize</b><br><span style='color:#666; font-size:0.9em'>immobilize</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 100 (86.2%)<br>1.0: 16 (13.8%)</td>
+            <td><span class='n-badge'>n=78</span><br>68 (87.2%)<br>10 (12.8%)</td>
+            <td><span class='n-badge'>n=38</span><br>32 (84.2%)<br>6 (15.8%)</td>
+            <td>1.28 (0.43-3.81)</td>
+            <td>Chi-square</td> <td>0.882</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>inr</b><br><span style='color:#666; font-size:0.9em'>inr</span></td>
+            <td><span class='n-badge'>n=116</span><br>Mean: 1.17<br>(SD 0.16)</td>
+            <td>1.12 (0.10)</td>
+            <td>1.26 (0.21)</td>
+            <td>780.42 (22.97-26512.04)</td>
+            <td>Mann-Whitney U</td> <td><span class='sig-p'><0.001*</span></td>
+            <td>212372006368123.81 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>jvd</b><br><span style='color:#666; font-size:0.9em'>jvd</span></td>
+            <td><span class='n-badge'>n=115</span><br>0.0: 108 (93.9%)<br>1.0: 7 (6.1%)</td>
+            <td><span class='n-badge'>n=77</span><br>72 (93.5%)<br>5 (6.5%)</td>
+            <td><span class='n-badge'>n=38</span><br>36 (94.7%)<br>2 (5.3%)</td>
+            <td>0.80 (0.15-4.33)</td>
+            <td>Chi-square</td> <td>1.000</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>lactate</b><br><span style='color:#666; font-size:0.9em'>lactate</span></td>
+            <td><span class='n-badge'>n=83</span><br>Mean: 1.90<br>(SD 1.14)</td>
+            <td>1.75 (0.97)</td>
+            <td>2.21 (1.42)</td>
+            <td>1.41 (0.94-2.10)</td>
+            <td>Mann-Whitney U</td> <td>0.222</td>
+            <td>-</td>
+            <td>-</td>
+        </tr><tr class='sheet-header'><td colspan='9'>leg</td></tr>
+        <tr>
+            <td><b>edema</b><br><span style='color:#666; font-size:0.9em'>edema</span></td>
+            <td><span class='n-badge'>n=115</span><br>0.0: 76 (66.1%)<br>1.0: 39 (33.9%)</td>
+            <td><span class='n-badge'>n=77</span><br>52 (67.5%)<br>25 (32.5%)</td>
+            <td><span class='n-badge'>n=38</span><br>24 (63.2%)<br>14 (36.8%)</td>
+            <td>1.21 (0.54-2.74)</td>
+            <td>Chi-square</td> <td>0.797</td>
+            <td>-</td>
+            <td>-</td>
+        </tr><tr class='sheet-header'><td colspan='9'>Variables</td></tr>
+        <tr>
+            <td><b>lung </b><br><span style='color:#666; font-size:0.9em'>lung </span></td>
+            <td><span class='n-badge'>n=110</span><br>0.0: 83 (75.5%)<br>1.0: 14 (12.7%)<br>2.0: 4 (3.6%)<br>3.0: 9 (8.2%)</td>
+            <td><span class='n-badge'>n=74</span><br>58 (78.4%)<br>7 (9.5%)<br>3 (4.1%)<br>6 (8.1%)</td>
+            <td><span class='n-badge'>n=36</span><br>25 (69.4%)<br>7 (19.4%)<br>1 (2.8%)<br>3 (8.3%)</td>
+            <td>1.10 (0.72-1.70)</td>
+            <td>Chi-square</td> <td>0.520</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>lung.1</b><br><span style='color:#666; font-size:0.9em'>lung.1</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 79 (68.1%)<br>1.0: 26 (22.4%)<br>2.0: 8 (6.9%)<br>3.0: 3 (2.6%)</td>
+            <td><span class='n-badge'>n=78</span><br>58 (74.4%)<br>12 (15.4%)<br>6 (7.7%)<br>2 (2.6%)</td>
+            <td><span class='n-badge'>n=38</span><br>21 (55.3%)<br>14 (36.8%)<br>2 (5.3%)<br>1 (2.6%)</td>
+            <td>1.35 (0.81-2.24)</td>
+            <td>Chi-square</td> <td>0.077</td>
+            <td>90376889159372722213403248696492032.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>lvfunction</b><br><span style='color:#666; font-size:0.9em'>lvfunction</span></td>
+            <td><span class='n-badge'>n=115</span><br>0.0: 108 (93.9%)<br>1.0: 7 (6.1%)</td>
+            <td><span class='n-badge'>n=77</span><br>71 (92.2%)<br>6 (7.8%)</td>
+            <td><span class='n-badge'>n=38</span><br>37 (97.4%)<br>1 (2.6%)</td>
+            <td>0.32 (0.04-2.76)</td>
+            <td>Chi-square</td> <td>0.500</td>
+            <td>-</td>
+            <td>-</td>
+        </tr><tr class='sheet-header'><td colspan='9'>lvfunction</td></tr>
+        <tr>
+            <td><b>outcome</b><br><span style='color:#666; font-size:0.9em'>outcome</span></td>
+            <td><span class='n-badge'>n=74</span><br>0.0: 71 (95.9%)<br>1.0: 3 (4.1%)</td>
+            <td><span class='n-badge'>n=49</span><br>48 (98.0%)<br>1 (2.0%)</td>
+            <td><span class='n-badge'>n=25</span><br>23 (92.0%)<br>2 (8.0%)</td>
+            <td>4.17 (0.36-48.44)</td>
+            <td>Chi-square</td> <td>0.544</td>
+            <td>-</td>
+            <td>-</td>
+        </tr><tr class='sheet-header'><td colspan='9'>Variables</td></tr>
+        <tr>
+            <td><b>malignancy</b><br><span style='color:#666; font-size:0.9em'>malignancy</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 77 (66.4%)<br>1.0: 39 (33.6%)</td>
+            <td><span class='n-badge'>n=78</span><br>61 (78.2%)<br>17 (21.8%)</td>
+            <td><span class='n-badge'>n=38</span><br>16 (42.1%)<br>22 (57.9%)</td>
+            <td>4.93 (2.13-11.42)</td>
+            <td>Chi-square</td> <td><span class='sig-p'><0.001*</span></td>
+            <td>3410224649319588477543420499305121945739676955506502262011888955970842905075886494758270723605911744268993452023086911332390528412740386819711139028594881720120329499710995027178265660303933016375296.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>mask with bag</b><br><span style='color:#666; font-size:0.9em'>mask with bag</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 105 (90.5%)<br>1.0: 11 (9.5%)</td>
+            <td><span class='n-badge'>n=78</span><br>69 (88.5%)<br>9 (11.5%)</td>
+            <td><span class='n-badge'>n=38</span><br>36 (94.7%)<br>2 (5.3%)</td>
+            <td>0.43 (0.09-2.08)</td>
+            <td>Chi-square</td> <td>0.456</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>newrvgood</b><br><span style='color:#666; font-size:0.9em'>newrvgood</span></td>
+            <td><span class='n-badge'>n=66</span><br>0.0: 66 (100.0%)</td>
+            <td><span class='n-badge'>n=46</span><br>46 (100.0%)</td>
+            <td><span class='n-badge'>n=20</span><br>20 (100.0%)</td>
+            <td>-</td>
+            <td>Chi-square</td> <td>1.000</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>ocp</b><br><span style='color:#666; font-size:0.9em'>ocp</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 98 (84.5%)<br>1.0: 18 (15.5%)</td>
+            <td><span class='n-badge'>n=78</span><br>62 (79.5%)<br>16 (20.5%)</td>
+            <td><span class='n-badge'>n=38</span><br>36 (94.7%)<br>2 (5.3%)</td>
+            <td>0.22 (0.05-0.99)</td>
+            <td>Chi-square</td> <td>0.063</td>
+            <td>0.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>oxygen canula</b><br><span style='color:#666; font-size:0.9em'>oxygen canula</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 71 (61.2%)<br>1.0: 45 (38.8%)</td>
+            <td><span class='n-badge'>n=78</span><br>50 (64.1%)<br>28 (35.9%)</td>
+            <td><span class='n-badge'>n=38</span><br>21 (55.3%)<br>17 (44.7%)</td>
+            <td>1.45 (0.66-3.18)</td>
+            <td>Chi-square</td> <td>0.475</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>palpitation</b><br><span style='color:#666; font-size:0.9em'>palpitation</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 95 (81.9%)<br>1.0: 21 (18.1%)</td>
+            <td><span class='n-badge'>n=78</span><br>67 (85.9%)<br>11 (14.1%)</td>
+            <td><span class='n-badge'>n=38</span><br>28 (73.7%)<br>10 (26.3%)</td>
+            <td>2.18 (0.83-5.70)</td>
+            <td>Chi-square</td> <td>0.178</td>
+            <td>1191951755042594324812821465505162752964436100865510515204682377530331495691630504699791986995193364231346586537980507533067279559414222619313401615712729762785696751043904873448358907443548987808661525120031916032.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>pao2</b><br><span style='color:#666; font-size:0.9em'>pao2</span></td>
+            <td><span class='n-badge'>n=68</span><br>Mean: 81.95<br>(SD 35.66)</td>
+            <td>84.92 (39.68)</td>
+            <td>76.16 (25.89)</td>
+            <td>0.99 (0.98-1.01)</td>
+            <td>Mann-Whitney U</td> <td>0.476</td>
+            <td>-</td>
+            <td>-</td>
+        </tr><tr class='sheet-header'><td colspan='9'>patient</td></tr>
+        <tr>
+            <td><b>id</b><br><span style='color:#666; font-size:0.9em'>id</span></td>
+            <td><span class='n-badge'>n=116</span><br>Mean: 58.50<br>(SD 33.63)</td>
+            <td>56.13 (32.81)</td>
+            <td>63.37 (35.20)</td>
+            <td>1.01 (0.99-1.02)</td>
+            <td>Mann-Whitney U</td> <td>0.278</td>
+            <td>-</td>
+            <td>-</td>
+        </tr><tr class='sheet-header'><td colspan='9'>Variables</td></tr>
+        <tr>
+            <td><b>pco2</b><br><span style='color:#666; font-size:0.9em'>pco2</span></td>
+            <td><span class='n-badge'>n=75</span><br>Mean: 29.86<br>(SD 7.57)</td>
+            <td>30.34 (7.84)</td>
+            <td>28.85 (7.00)</td>
+            <td>0.97 (0.91-1.04)</td>
+            <td>Mann-Whitney U</td> <td>0.349</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>pfratio</b><br><span style='color:#666; font-size:0.9em'>pfratio</span></td>
+            <td><span class='n-badge'>n=68</span><br>Mean: 275.97<br>(SD 86.48)</td>
+            <td>283.17 (82.92)</td>
+            <td>261.88 (93.35)</td>
+            <td>1.00 (0.99-1.00)</td>
+            <td>Mann-Whitney U</td> <td>0.429</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>ph</b><br><span style='color:#666; font-size:0.9em'>ph</span></td>
+            <td><span class='n-badge'>n=75</span><br>Mean: 7.44<br>(SD 0.07)</td>
+            <td>7.44 (0.08)</td>
+            <td>7.44 (0.06)</td>
+            <td>0.49 (0.00-347.74)</td>
+            <td>Mann-Whitney U</td> <td>0.767</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>plt</b><br><span style='color:#666; font-size:0.9em'>plt</span></td>
+            <td><span class='n-badge'>n=116</span><br>Mean: 833.48<br>(SD 6020.30)</td>
+            <td>230.00 (78.43)</td>
+            <td>2072.21 (10502.09)</td>
+            <td>1.00 (1.00-1.01)</td>
+            <td>Mann-Whitney U</td> <td><span class='sig-p'>0.036*</span></td>
+            <td>563.54 (nan-nan)</td>
+            <td>-</td>
+        </tr><tr class='sheet-header'><td colspan='9'>prox</td></tr>
+        <tr>
+            <td><b>clot</b><br><span style='color:#666; font-size:0.9em'>clot</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 88 (75.9%)<br>1.0: 18 (15.5%)<br>2.0: 10 (8.6%)</td>
+            <td><span class='n-badge'>n=78</span><br>57 (73.1%)<br>14 (17.9%)<br>7 (9.0%)</td>
+            <td><span class='n-badge'>n=38</span><br>31 (81.6%)<br>4 (10.5%)<br>3 (7.9%)</td>
+            <td>0.77 (0.40-1.49)</td>
+            <td>Chi-square</td> <td>0.553</td>
+            <td>-</td>
+            <td>-</td>
+        </tr><tr class='sheet-header'><td colspan='9'>Variables</td></tr>
+        <tr>
+            <td><b>pt</b><br><span style='color:#666; font-size:0.9em'>pt</span></td>
+            <td><span class='n-badge'>n=116</span><br>Mean: 13.19<br>(SD 1.68)</td>
+            <td>12.71 (1.07)</td>
+            <td>14.16 (2.23)</td>
+            <td>1.89 (1.34-2.65)</td>
+            <td>Mann-Whitney U</td> <td><span class='sig-p'><0.001*</span></td>
+            <td>0.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>ptt</b><br><span style='color:#666; font-size:0.9em'>ptt</span></td>
+            <td><span class='n-badge'>n=116</span><br>Mean: 25.64<br>(SD 3.99)</td>
+            <td>24.96 (3.64)</td>
+            <td>27.04 (4.35)</td>
+            <td>1.14 (1.03-1.28)</td>
+            <td>Mann-Whitney U</td> <td><span class='sig-p'>0.005*</span></td>
+            <td>7974108019975617950495419662336.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>pulmonaryht</b><br><span style='color:#666; font-size:0.9em'>pulmonaryht</span></td>
+            <td><span class='n-badge'>n=74</span><br>0.0: 10 (13.5%)<br>1.0: 30 (40.5%)<br>2.0: 25 (33.8%)<br>3.0: 9 (12.2%)</td>
+            <td><span class='n-badge'>n=51</span><br>9 (17.6%)<br>26 (51.0%)<br>11 (21.6%)<br>5 (9.8%)</td>
+            <td><span class='n-badge'>n=23</span><br>1 (4.3%)<br>4 (17.4%)<br>14 (60.9%)<br>4 (17.4%)</td>
+            <td>2.69 (1.38-5.23)</td>
+            <td>Chi-square</td> <td><span class='sig-p'>0.002*</span></td>
+            <td>1078624233363623187086155488627907430039626956040034970645329688365198222375577798991201951578503460590871304438958149173459812352.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>rbbb</b><br><span style='color:#666; font-size:0.9em'>rbbb</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 104 (89.7%)<br>1.0: 12 (10.3%)</td>
+            <td><span class='n-badge'>n=78</span><br>70 (89.7%)<br>8 (10.3%)</td>
+            <td><span class='n-badge'>n=38</span><br>34 (89.5%)<br>4 (10.5%)</td>
+            <td>1.03 (0.29-3.66)</td>
+            <td>Chi-square</td> <td>1.000</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>reperfusion</b><br><span style='color:#666; font-size:0.9em'>reperfusion</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 72 (62.1%)<br>1.0: 42 (36.2%)<br>3.0: 2 (1.7%)</td>
+            <td><span class='n-badge'>n=78</span><br>50 (64.1%)<br>27 (34.6%)<br>1 (1.3%)</td>
+            <td><span class='n-badge'>n=38</span><br>22 (57.9%)<br>15 (39.5%)<br>1 (2.6%)</td>
+            <td>1.28 (0.67-2.45)</td>
+            <td>Chi-square</td> <td>0.743</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>resp</b><br><span style='color:#666; font-size:0.9em'>resp</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 103 (88.8%)<br>1.0: 13 (11.2%)</td>
+            <td><span class='n-badge'>n=78</span><br>72 (92.3%)<br>6 (7.7%)</td>
+            <td><span class='n-badge'>n=38</span><br>31 (81.6%)<br>7 (18.4%)</td>
+            <td>2.71 (0.84-8.72)</td>
+            <td>Chi-square</td> <td>0.160</td>
+            <td>92264736096647152524570144087556229374647930363558755882642647203155434079854166350327099424768.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>rr</b><br><span style='color:#666; font-size:0.9em'>rr</span></td>
+            <td><span class='n-badge'>n=115</span><br>Mean: 23.26<br>(SD 4.79)</td>
+            <td>22.81 (3.30)</td>
+            <td>24.18 (6.86)</td>
+            <td>1.06 (0.98-1.15)</td>
+            <td>Mann-Whitney U</td> <td>0.952</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>rvdilate</b><br><span style='color:#666; font-size:0.9em'>rvdilate</span></td>
+            <td><span class='n-badge'>n=106</span><br>0.0: 18 (17.0%)<br>1.0: 63 (59.4%)<br>2.0: 14 (13.2%)<br>3.0: 11 (10.4%)</td>
+            <td><span class='n-badge'>n=74</span><br>15 (20.3%)<br>43 (58.1%)<br>7 (9.5%)<br>9 (12.2%)</td>
+            <td><span class='n-badge'>n=32</span><br>3 (9.4%)<br>20 (62.5%)<br>7 (21.9%)<br>2 (6.2%)</td>
+            <td>1.18 (0.72-1.93)</td>
+            <td>Chi-square</td> <td>0.172</td>
+            <td>100052170187349954616859393363289494307930136644602971741939773259819827800419170810716026193426460521914437131147377784127488.00 (nan-nan)</td>
+            <td>-</td>
+        </tr><tr class='sheet-header'><td colspan='9'>rvdilate</td></tr>
+        <tr>
+            <td><b>outcome</b><br><span style='color:#666; font-size:0.9em'>outcome</span></td>
+            <td><span class='n-badge'>n=74</span><br>0.0: 39 (52.7%)<br>1.0: 26 (35.1%)<br>2.0: 4 (5.4%)<br>3.0: 5 (6.8%)</td>
+            <td><span class='n-badge'>n=49</span><br>33 (67.3%)<br>14 (28.6%)<br>1 (2.0%)<br>1 (2.0%)</td>
+            <td><span class='n-badge'>n=25</span><br>6 (24.0%)<br>12 (48.0%)<br>3 (12.0%)<br>4 (16.0%)</td>
+            <td>3.42 (1.65-7.10)</td>
+            <td>Chi-square</td> <td><span class='sig-p'>0.001*</span></td>
+            <td>1698203704977840376747114359027286435399159976658566915864592199027647017729915604293765591687417613454867429884161480612476405413648062766718207770006660261624092602806918425610531405815577362474736633243273159275086374857109629007211402648907642044416.00 (nan-nan)</td>
+            <td>-</td>
+        </tr><tr class='sheet-header'><td colspan='9'>Variables</td></tr>
+        <tr>
+            <td><b>rvfunction</b><br><span style='color:#666; font-size:0.9em'>rvfunction</span></td>
+            <td><span class='n-badge'>n=100</span><br>0.0: 40 (40.0%)<br>1.0: 27 (27.0%)<br>2.0: 18 (18.0%)<br>3.0: 15 (15.0%)</td>
+            <td><span class='n-badge'>n=71</span><br>36 (50.7%)<br>15 (21.1%)<br>15 (21.1%)<br>5 (7.0%)</td>
+            <td><span class='n-badge'>n=29</span><br>4 (13.8%)<br>12 (41.4%)<br>3 (10.3%)<br>10 (34.5%)</td>
+            <td>2.01 (1.32-3.06)</td>
+            <td>Chi-square</td> <td><span class='sig-p'><0.001*</span></td>
+            <td>119208615497993900535955027686064128.00 (nan-nan)</td>
+            <td>-</td>
+        </tr><tr class='sheet-header'><td colspan='9'>rvstrain</td></tr>
+        <tr>
+            <td><b>CT</b><br><span style='color:#666; font-size:0.9em'>CT</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 47 (40.5%)<br>1.0: 69 (59.5%)</td>
+            <td><span class='n-badge'>n=78</span><br>36 (46.2%)<br>42 (53.8%)</td>
+            <td><span class='n-badge'>n=38</span><br>11 (28.9%)<br>27 (71.1%)</td>
+            <td>2.10 (0.92-4.83)</td>
+            <td>Chi-square</td> <td>0.116</td>
+            <td>461293507009999733477245860472064258069403655380680535789881191177532933106729664411869713515624966013351856550875055340449008582381332008148146343552672387279278108770265212429859113851847338827980402560335872.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>EKG</b><br><span style='color:#666; font-size:0.9em'>EKG</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 82 (70.7%)<br>1.0: 34 (29.3%)</td>
+            <td><span class='n-badge'>n=78</span><br>57 (73.1%)<br>21 (26.9%)</td>
+            <td><span class='n-badge'>n=38</span><br>25 (65.8%)<br>13 (34.2%)</td>
+            <td>1.41 (0.61-3.26)</td>
+            <td>Chi-square</td> <td>0.554</td>
+            <td>-</td>
+            <td>-</td>
+        </tr><tr class='sheet-header'><td colspan='9'>Variables</td></tr>
+        <tr>
+            <td><b>s1q3t3</b><br><span style='color:#666; font-size:0.9em'>s1q3t3</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 80 (69.0%)<br>1.0: 36 (31.0%)</td>
+            <td><span class='n-badge'>n=78</span><br>52 (66.7%)<br>26 (33.3%)</td>
+            <td><span class='n-badge'>n=38</span><br>28 (73.7%)<br>10 (26.3%)</td>
+            <td>0.71 (0.30-1.69)</td>
+            <td>Chi-square</td> <td>0.580</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>sat</b><br><span style='color:#666; font-size:0.9em'>sat</span></td>
+            <td><span class='n-badge'>n=114</span><br>Mean: 91.04<br>(SD 6.54)</td>
+            <td>91.07 (6.03)</td>
+            <td>91.00 (7.53)</td>
+            <td>1.00 (0.94-1.06)</td>
+            <td>Mann-Whitney U</td> <td>0.738</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>sex</b><br><span style='color:#666; font-size:0.9em'>sex</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 79 (68.1%)<br>1.0: 37 (31.9%)</td>
+            <td><span class='n-badge'>n=78</span><br>56 (71.8%)<br>22 (28.2%)</td>
+            <td><span class='n-badge'>n=38</span><br>23 (60.5%)<br>15 (39.5%)</td>
+            <td>1.66 (0.73-3.76)</td>
+            <td>Chi-square</td> <td>0.313</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>sinus</b><br><span style='color:#666; font-size:0.9em'>sinus</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 6 (5.2%)<br>1.0: 110 (94.8%)</td>
+            <td><span class='n-badge'>n=78</span><br>5 (6.4%)<br>73 (93.6%)</td>
+            <td><span class='n-badge'>n=38</span><br>1 (2.6%)<br>37 (97.4%)</td>
+            <td>2.53 (0.29-22.49)</td>
+            <td>Chi-square</td> <td>0.678</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>smoking</b><br><span style='color:#666; font-size:0.9em'>smoking</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 111 (95.7%)<br>1.0: 5 (4.3%)</td>
+            <td><span class='n-badge'>n=78</span><br>74 (94.9%)<br>4 (5.1%)</td>
+            <td><span class='n-badge'>n=38</span><br>37 (97.4%)<br>1 (2.6%)</td>
+            <td>0.50 (0.05-4.63)</td>
+            <td>Chi-square</td> <td>0.893</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>stroke</b><br><span style='color:#666; font-size:0.9em'>stroke</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 106 (91.4%)<br>1.0: 10 (8.6%)</td>
+            <td><span class='n-badge'>n=78</span><br>70 (89.7%)<br>8 (10.3%)</td>
+            <td><span class='n-badge'>n=38</span><br>36 (94.7%)<br>2 (5.3%)</td>
+            <td>0.49 (0.10-2.41)</td>
+            <td>Chi-square</td> <td>0.584</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>surgical embolectomy</b><br><span style='color:#666; font-size:0.9em'>surgical embolectomy</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 114 (98.3%)<br>1.0: 2 (1.7%)</td>
+            <td><span class='n-badge'>n=78</span><br>77 (98.7%)<br>1 (1.3%)</td>
+            <td><span class='n-badge'>n=38</span><br>37 (97.4%)<br>1 (2.6%)</td>
+            <td>2.08 (0.13-34.20)</td>
+            <td>Chi-square</td> <td>1.000</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>sx</b><br><span style='color:#666; font-size:0.9em'>sx</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 108 (93.1%)<br>1.0: 8 (6.9%)</td>
+            <td><span class='n-badge'>n=78</span><br>73 (93.6%)<br>5 (6.4%)</td>
+            <td><span class='n-badge'>n=38</span><br>35 (92.1%)<br>3 (7.9%)</td>
+            <td>1.25 (0.28-5.54)</td>
+            <td>Chi-square</td> <td>1.000</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>syncope</b><br><span style='color:#666; font-size:0.9em'>syncope</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 91 (78.4%)<br>1.0: 25 (21.6%)</td>
+            <td><span class='n-badge'>n=78</span><br>60 (76.9%)<br>18 (23.1%)</td>
+            <td><span class='n-badge'>n=38</span><br>31 (81.6%)<br>7 (18.4%)</td>
+            <td>0.75 (0.28-2.00)</td>
+            <td>Chi-square</td> <td>0.740</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>systemic fibrinolysis</b><br><span style='color:#666; font-size:0.9em'>systemic fibrinolysis</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 116 (100.0%)</td>
+            <td><span class='n-badge'>n=78</span><br>78 (100.0%)</td>
+            <td><span class='n-badge'>n=38</span><br>38 (100.0%)</td>
+            <td>-</td>
+            <td>Chi-square</td> <td>1.000</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>tapse</b><br><span style='color:#666; font-size:0.9em'>tapse</span></td>
+            <td><span class='n-badge'>n=88</span><br>0.0: 44 (50.0%)<br>1.0: 12 (13.6%)<br>2.0: 23 (26.1%)<br>3.0: 9 (10.2%)</td>
+            <td><span class='n-badge'>n=59</span><br>34 (57.6%)<br>7 (11.9%)<br>15 (25.4%)<br>3 (5.1%)</td>
+            <td><span class='n-badge'>n=29</span><br>10 (34.5%)<br>5 (17.2%)<br>8 (27.6%)<br>6 (20.7%)</td>
+            <td>1.62 (1.07-2.46)</td>
+            <td>Chi-square</td> <td>0.067</td>
+            <td>16708592090485976717187822568861613430626768283498836952466635767916488519013895807582510841125064968710049996124622438456522532390842817787240730599129346984072452572506898689666217957916672.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>trauma</b><br><span style='color:#666; font-size:0.9em'>trauma</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 112 (96.6%)<br>1.0: 4 (3.4%)</td>
+            <td><span class='n-badge'>n=78</span><br>75 (96.2%)<br>3 (3.8%)</td>
+            <td><span class='n-badge'>n=38</span><br>37 (97.4%)<br>1 (2.6%)</td>
+            <td>0.68 (0.07-6.72)</td>
+            <td>Chi-square</td> <td>1.000</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>trop</b><br><span style='color:#666; font-size:0.9em'>trop</span></td>
+            <td><span class='n-badge'>n=105</span><br>Mean: 324.40<br>(SD 694.16)</td>
+            <td>344.87 (818.37)</td>
+            <td>279.75 (277.62)</td>
+            <td>1.00 (1.00-1.00)</td>
+            <td>Mann-Whitney U</td> <td><span class='sig-p'>0.023*</span></td>
+            <td>1.37 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>trunk</b><br><span style='color:#666; font-size:0.9em'>trunk</span></td>
+            <td><span class='n-badge'>n=116</span><br>0.0: 100 (86.2%)<br>1.0: 16 (13.8%)</td>
+            <td><span class='n-badge'>n=78</span><br>67 (85.9%)<br>11 (14.1%)</td>
+            <td><span class='n-badge'>n=38</span><br>33 (86.8%)<br>5 (13.2%)</td>
+            <td>0.92 (0.30-2.88)</td>
+            <td>Chi-square</td> <td>1.000</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>tvr</b><br><span style='color:#666; font-size:0.9em'>tvr</span></td>
+            <td><span class='n-badge'>n=87</span><br>0.0: 12 (13.8%)<br>1.0: 38 (43.7%)<br>2.0: 24 (27.6%)<br>3.0: 13 (14.9%)</td>
+            <td><span class='n-badge'>n=61</span><br>10 (16.4%)<br>28 (45.9%)<br>17 (27.9%)<br>6 (9.8%)</td>
+            <td><span class='n-badge'>n=26</span><br>2 (7.7%)<br>10 (38.5%)<br>7 (26.9%)<br>7 (26.9%)</td>
+            <td>1.68 (0.99-2.84)</td>
+            <td>Chi-square</td> <td>0.187</td>
+            <td>0.00 (nan-nan)</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><b>vent</b><br><span style='color:#666; font-size:0.9em'>vent</span></td>
+            <td><span class='n-badge'>n=116</span><br>Mean: 1.31<br>(SD 1.31)</td>
+            <td>1.04 (1.17)</td>
+            <td>1.87 (1.42)</td>
+            <td>1.62 (1.19-2.20)</td>
+            <td>Mann-Whitney U</td> <td><span class='sig-p'>0.002*</span></td>
+            <td>0.00 (nan-nan)</td>
+            <td>-</td>
+        </tr></tbody>
+    </table>
+    <div class='summary-box'>
+        <b>Method:</b> Binary Logistic Regression (BFGS). Complete Case Analysis.<br>
+        <i>Univariate comparison uses Chi-square test (Categorical) or Mann-Whitney U test (Continuous).</i>
+    </div>
+    </div><br>
+    <div class='report-footer'>
+    &copy; 2025 <a href="https://github.com/NTWKKM/" target="_blank" style="text-decoration:none; color:inherit;">NTWKKM n donate</a>. All Rights Reserved. | Powered by GitHub, Gemini, Streamlit
+    </div></body></html>
