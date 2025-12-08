@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "date": "8 Dec",
+    "title": "Prediction of Bacteremia and Bacterial Meningitis Among Febrile Infants Aged 28 Days or Younger.",
+    "comment": "งานวิจัยนี้มีผลต่อการตัดสินใจตรวจและรักษาภาวะติดเชื้อรุนแรงในทารกแรกเกิด ซึ่งเป็นประเด็นสำคัญที่แพทย์ ER ต้องเจอและมีการเปลี่ยนแปลงแนวทางบ่อยครั้ง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41359314/"
+  },
+  {
+    "date": "8 Dec",
+    "title": "Estimate the severity of acute ischemic stroke by optic nerve sheath ultrasound.",
+    "comment": "นวัตกรรมใหม่ที่อาจเปลี่ยนแนวทางการประเมินความรุนแรงของภาวะสมองขาดเลือดเฉียบพลันใน ER ด้วย POCUS ได้อย่างรวดเร็วและไม่รุกราน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41359145/"
+  },
+  {
+    "date": "8 Dec",
+    "title": "Triage and workflow optimization with artificial intelligence in pediatric imaging.",
+    "comment": "การนำ AI มาช่วยในการจัดการคิวและปรับปรุงขั้นตอนการทำงานด้านภาพวินิจฉัยในผู้ป่วยเด็ก ซึ่งอาจช่วยเพิ่มประสิทธิภาพและความปลอดภัยใน ER ได้อย่างมาก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41359272/"
+  },
+  {
+    "date": "8 Dec",
+    "title": "Patient self-inflicted lung injury an important phenomenon.",
+    "comment": "ทำความเข้าใจแนวคิดใหม่เกี่ยวกับภาวะปอดบาดเจ็บที่เกิดจากผู้ป่วยเอง ซึ่งอาจเปลี่ยนแนวทางการดูแลผู้ป่วยวิกฤตที่ต้องใส่เครื่องช่วยหายใจใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41359372/"
+  },
+  {
+    "date": "8 Dec",
+    "title": "Frailty: a prognostic marker or a self-fulfilling prophecy in cardiac arrest outcomes?",
+    "comment": "ประเด็นถกเถียงและมีความสำคัญเชิงจริยธรรมเกี่ยวกับการประเมินภาวะเปราะบาง (Frailty) เพื่อทำนายผลลัพธ์ในการช่วยชีวิตผู้ป่วยภาวะหัวใจหยุดเต้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41359027/"
+  },
+  {
+    "date": "8 Dec",
+    "title": "Magnesium Supplementation and Tachyarrhythmias: A Nonrandomized Clinical Trial.",
+    "comment": "งานวิจัยนี้อาจมีผลต่อแนวทางการให้ Magnesium เพื่อรักษาภาวะหัวใจเต้นเร็วผิดจังหวะ ซึ่งเป็นยาที่ใช้บ่อยใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41359319/"
+  },
+  {
+    "date": "8 Dec",
+    "title": "Direct Oral Anticoagulants Versus Vitamin K Antagonists in Cerebral Venous Thrombosis: A Systematic Review and Meta-Analysis of 4,929 Patients.",
+    "comment": "ข้อมูลสำคัญที่อาจเปลี่ยนแปลงแนวทางการเลือกใช้ยาต้านการแข็งตัวของเลือดในผู้ป่วย Cerebral Venous Thrombosis ที่แพทย์ ER ต้องให้การวินิจฉัยและรักษาเบื้องต้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41358859/"
+  },
+  {
+    "date": "8 Dec",
+    "title": "Evaluating Risk Factors for Severe Renin-Angiotensin-Aldosterone System Inhibitor Induced Angioedema.",
+    "comment": "การทบทวนปัจจัยเสี่ยงสำหรับภาวะ Angioedema รุนแรงจากยา ACEI/ARB ซึ่งเป็นภาวะฉุกเฉินที่คุกคามทางเดินหายใจและแพทย์ ER ต้องระวัง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41358543/"
+  },
+  {
+    "date": "8 Dec",
+    "title": "Applications and indications of point-of-care ultrasound in emergency department encounters involving palliative care patients.",
+    "comment": "การประยุกต์ใช้ POCUS ในผู้ป่วย Palliative care ซึ่งเป็นนวัตกรรมที่ช่วยตอบสนองความต้องการของผู้ป่วยใน ER ได้อย่างตรงจุดและมีมนุษยธรรม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41357477/"
+  },
+  {
+    "date": "8 Dec",
+    "title": "Fluid therapy strategies in acute pancreatitis: Randomized controlled trial comparing dextran and Ringer's lactate.",
+    "comment": "งานวิจัยที่อาจเปลี่ยนแนวทางการให้สารน้ำในผู้ป่วยตับอ่อนอักเสบเฉียบพลัน ซึ่งเป็นภาวะที่พบได้บ่อยใน ER และการรักษาด้วยสารน้ำที่เหมาะสมมีความสำคัญต่อผลลัพธ์ผู้ป่วย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41357631/"
+  }
+]
