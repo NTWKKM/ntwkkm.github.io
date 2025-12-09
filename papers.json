@@ -1,6 +1,66 @@
 [
   {
     "date": "9 Dec",
+    "title": "Pre-Hospital Resuscitative Thoracotomy Performed in New South Wales, Australia: A Case-Series.",
+    "comment": "การทำ resuscitative thoracotomy นอกโรงพยาบาลเป็นประเด็นถกเถียงอย่างมาก งานวิจัยนี้ให้ข้อมูลเชิงลึกที่สำคัญต่อแนวทางการรักษาผู้ป่วยบาดเจ็บวิกฤต prehospital",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41362072/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Targeting the cognitive failures of fatigue: a randomized, double-blind, crossover pilot trial of a rapid countermeasure in night-shift emergency physicians.",
+    "comment": "ภาวะสมองล้าของแพทย์เวร ER โดยเฉพาะเวรดึกเป็นปัญหาสำคัญที่กระทบความปลอดภัยผู้ป่วย การศึกษาหาวิธีแก้นับเป็นนวัตกรรมที่มีผลต่อการปฏิบัติงานโดยตรง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41363357/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Emergency Department Pediatric Mental Health Care Bundle and Family Quality of Life.",
+    "comment": "ผู้ป่วยเด็กและวัยรุ่นที่มีปัญหาสุขภาพจิตมา ER เพิ่มขึ้น การใช้ care bundle เป็นแนวทางใหม่ที่ช่วยยกระดับการดูแลและคุณภาพชีวิตครอบครัวในภาวะฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41364438/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "[Tranexamic acid for prevention of bleeding complications-a rational approach? : Results of a systematic literature review and evidence synthesis].",
+    "comment": "ยา TXA ถูกใช้แพร่หลายใน ER แต่ยังมีข้อถกเถียงในหลายภาวะ การทบทวนนี้จะช่วยให้แพทย์ใช้ยาได้อย่างเหมาะสมและมีหลักฐานรองรับมากขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41364110/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Diagnostic performance of the bacterial meningitis score in the emergency department patients: a multicenter retrospective study.",
+    "comment": "Meningitis เป็นภาวะเร่งด่วน การมีคะแนนประเมินที่แม่นยำใน ER ช่วยให้วินิจฉัยเร็วขึ้น ลดความจำเป็นในการทำ LP หรือการให้ยาปฏิชีวนะเกินความจำเป็น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41363880/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Nudging Emergency Department Clinicians to Reduce Unnecessary Diagnostic Test Ordering: A Multi-Arm Vignette-Based Experiment.",
+    "comment": "การสั่งตรวจที่ไม่จำเป็นใน ER เป็นประเด็นถกเถียงเรื่องประสิทธิภาพและค่าใช้จ่าย การศึกษาเรื่อง \"การกระตุ้น\" พฤติกรรมนี้เป็นแนวทางใหม่ที่อาจเปลี่ยนการปฏิบัติงานได้อย่างมาก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41362107/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Neuroimaging in Non-fatal Strangulation: a Retrospective Analysis of Injury Patterns, Clinical Features and Diagnostic Utility.",
+    "comment": "การรัดคอที่ไม่ถึงแก่ชีวิตมักถูกมองข้ามแต่มีโอกาสเกิดภาวะแทรกซ้อนร้ายแรง การศึกษาภาพถ่ายทางสมองจะเปลี่ยนแนวทางการประเมินผู้ป่วยกลุ่มนี้ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41364213/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Opioid use disorder and concurrent benzodiazepine use: clinical risks and management strategies.",
+    "comment": "การใช้ยา Opioid และ Benzodiazepine ร่วมกันเป็นความเสี่ยงสูงที่พบได้บ่อยใน ER การศึกษาแนวทางการจัดการที่ดีขึ้นเป็นสิ่งสำคัญต่อความปลอดภัยของผู้ป่วย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41362111/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "A randomised controlled trial of high-flow nasal oxygen compared with standard oxygen delivery in obese patients undergoing gastroscopy.",
+    "comment": "การดูแลทางเดินหายใจในผู้ป่วยอ้วนระหว่างการทำหัตถการเป็นเรื่องท้าทาย การใช้ HFNC เป็นนวัตกรรมที่อาจช่วยปรับปรุงความปลอดภัยและประสิทธิภาพการให้ออกซิเจนใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41361741/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Optical coherence tomography in the emergency department setting: a case series.",
+    "comment": "OCT เป็นเทคโนโลยีการถ่ายภาพขั้นสูงที่ปกติใช้ในเฉพาะทาง การนำมาใช้ใน ER เป็นนวัตกรรมใหม่ที่อาจช่วยในการวินิจฉัยภาวะฉุกเฉินได้อย่างรวดเร็ว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41362907/"
+  },
+  {
+    "date": "9 Dec",
     "title": "Efficacy and Safety of Hydrocortisone, Ascorbic Acid, and Thiamine Combination Therapy for the Management of Sepsis and Septic Shock: A Systematic Review and Meta-Analysis of Randomised Controlled Trials.",
     "comment": "งานวิจัยนี้สรุปผล HAT Therapy ใน Sepsis/Septic Shock จาก RCTs จำนวนมาก ซึ่งยังคงเป็นประเด็นถกเถียงและแนวทางปฏิบัติไม่ชัดเจน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/38870923/"
