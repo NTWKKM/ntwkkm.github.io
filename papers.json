@@ -1,6 +1,66 @@
 [
   {
     "date": "9 Dec",
+    "title": "Efficacy and Safety of Hydrocortisone, Ascorbic Acid, and Thiamine Combination Therapy for the Management of Sepsis and Septic Shock: A Systematic Review and Meta-Analysis of Randomised Controlled Trials.",
+    "comment": "งานวิจัยนี้สรุปผล HAT Therapy ใน Sepsis/Septic Shock จาก RCTs จำนวนมาก ซึ่งยังคงเป็นประเด็นถกเถียงและแนวทางปฏิบัติไม่ชัดเจน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/38870923/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Effect of Vitamin C, Thiamine, and Hydrocortisone on Ventilator- and Vasopressor-Free Days in Patients With Sepsis: The VICTAS Randomized Clinical Trial.",
+    "comment": "หนึ่งใน RCT ขนาดใหญ่ที่สำคัญ แสดงให้เห็นว่า HAT Therapy ไม่ได้ลดจำนวนวันใช้เครื่องช่วยหายใจหรือยากระตุ้นความดันในผู้ป่วย Sepsis.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/33620405/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Effect of Vitamin C, Hydrocortisone, and Thiamine vs Hydrocortisone Alone on Time Alive and Free of Vasopressor Support Among Patients With Septic Shock: The VITAMINS Randomized Clinical Trial.",
+    "comment": "RCT สำคัญอีกชิ้นที่ชี้ว่า HAT Therapy ไม่เหนือกว่า Hydrocortisone เดี่ยวๆ ในการทำให้ผู้ป่วยรอดชีวิตและปลอด Vasopressor.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/31950979/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Cross-Sectional Study of Thiamine Deficiency and Its Associated Risks in Emergency Care.",
+    "comment": "งานวิจัยนี้สำรวจอุบัติการณ์และปัจจัยเสี่ยงของภาวะขาด Thiamine ใน ER ซึ่งสำคัญต่อการคัดกรองและวินิจฉัยเบื้องต้น.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/39319797/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Reversible Severe Acute Lactic Acidosis Caused by Thiamine Deficiency in Intensive Care Unit.",
+    "comment": "กรณีศึกษานี้เน้นย้ำถึง Thiamine Deficiency ว่าเป็นสาเหตุที่รักษาได้ของภาวะ Lactic Acidosis รุนแรงที่แพทย์ ER ควรระลึกถึง.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/40375943/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Thiamine supplementation in septic shock patients: still looking for the target population.",
+    "comment": "บทความนี้ถกเถียงถึงกลุ่มเป้าหมายที่เหมาะสมสำหรับการให้ Thiamine เสริมในผู้ป่วย Septic Shock ซึ่งยังคงเป็นคำถามสำคัญ.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/38978127/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Resuscitation With Vitamin C, Hydrocortisone, and Thiamin in Children With Septic Shock: A Multicenter Randomized Pilot Study.",
+    "comment": "งานวิจัยนำร่องสำหรับ HAT Therapy ใน Septic Shock ในเด็ก ซึ่งเป็นกลุ่มผู้ป่วยเฉพาะที่ต้องการข้อมูลเพิ่มเติม.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/38240537/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Beyond Fluid Therapy: The Role of Vitamin C, Steroids, and Thiamine in Sepsis Management.",
+    "comment": "รีวิวที่สรุปบทบาทของ Vitamin C, Steroids และ Thiamine ใน Sepsis เพื่อทำความเข้าใจทางเลือกการรักษาที่ซับซ้อน.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/40546532/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "A Clinician's View of Wernicke-Korsakoff Syndrome.",
+    "comment": "บทความที่ให้มุมมองทางคลินิกเกี่ยวกับการวินิจฉัยและการจัดการ Wernicke-Korsakoff Syndrome ซึ่งเป็นภาวะฉุกเฉินที่ต้องรับรู้.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/36431232/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Vasoplegic Syndrome and Anaesthesia: A Narrative Review.",
+    "comment": "รีวิวที่ครอบคลุม Vasoplegic Syndrome ซึ่งเป็นส่วนสำคัญของภาวะ Shock ที่แพทย์ ER ต้องเข้าใจเพื่อการจัดการที่เหมาะสม.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/37587654/"
+  },
+  {
+    "date": "9 Dec",
     "title": "Precision Immunotherapy to Improve Sepsis Outcomes: The ImmunoSep Randomized Clinical Trial.",
     "comment": "งานวิจัย RCT นี้เสนอแนวทางการรักษาภาวะติดเชื้อในกระแสเลือดแบบใหม่ด้วยภูมิคุ้มกันบำบัด ซึ่งอาจเปลี่ยนแปลงมาตรฐานการรักษาและผลลัพธ์ผู้ป่วยใน ER ได้อย่างมีนัยสำคัญ.",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41359996/"
