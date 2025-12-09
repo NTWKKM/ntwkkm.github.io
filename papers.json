@@ -1,1 +1,62 @@
-[]
+[
+  {
+    "date": "9 Dec",
+    "title": "Precision Immunotherapy to Improve Sepsis Outcomes: The ImmunoSep Randomized Clinical Trial.",
+    "comment": "งานวิจัย RCT นี้เสนอแนวทางการรักษาภาวะติดเชื้อในกระแสเลือดแบบใหม่ด้วยภูมิคุ้มกันบำบัด ซึ่งอาจเปลี่ยนแปลงมาตรฐานการรักษาและผลลัพธ์ผู้ป่วยใน ER ได้อย่างมีนัยสำคัญ.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41359996/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Prediction of Bacteremia and Bacterial Meningitis Among Febrile Infants Aged 28 Days or Younger.",
+    "comment": "การศึกษานี้พัฒนาเครื่องมือช่วยทำนายภาวะติดเชื้อรุนแรงในทารกแรกเกิดที่มีไข้ ซึ่งเป็นภาวะฉุกเฉินสำคัญและท้าทายในการตัดสินใจใน ER.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41359314/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Estimate the severity of acute ischemic stroke by optic nerve sheath ultrasound.",
+    "comment": "การใช้ POCUS ประเมินความรุนแรงของโรคหลอดเลือดสมองตีบผ่านเส้นประสาทตา เป็นนวัตกรรมที่รวดเร็วและช่วยในการ triage หรือตัดสินใจส่งต่อผู้ป่วยได้อย่างทันท่วงทีใน ER.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41359145/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Point-of-Care Ultrasound in Japanese Mamushi (Gloydius blomhoffii) Envenomation: A Prospective Observational Study.",
+    "comment": "POCUS ถูกนำมาใช้ประเมินความรุนแรงจากการถูกงูกัด ซึ่งเป็นการประยุกต์ใช้ใหม่ที่อาจเปลี่ยนแปลงแนวทางการจัดการพิษงูใน ER ได้.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41359485/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Fluid therapy strategies in acute pancreatitis: Randomized controlled trial comparing dextran and Ringer's lactate.",
+    "comment": "การวิจัยนี้เปรียบเทียบชนิดของสารน้ำในผู้ป่วยตับอ่อนอักเสบเฉียบพลัน ซึ่งเป็นประเด็นที่ถกเถียงและอาจนำไปสู่การเปลี่ยนแปลงแนวทางการให้สารน้ำใน ER.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41357631/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Association of Cerebral Oxygenation During Prehospital Anaesthesia and Functional Outcome: A Prospective, Observational Multi-Centre Cohort Study of 1014 Patients.",
+    "comment": "การศึกษาขนาดใหญ่นี้ชี้ให้เห็นความสำคัญของการควบคุมออกซิเจนในสมองระหว่างการให้ยาสลบก่อนถึงโรงพยาบาล ซึ่งอาจนำไปสู่แนวทางใหม่ในการดูแลผู้ป่วยวิกฤตที่ส่งมาจาก prehospital.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41359999/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Direct Oral Anticoagulants Versus Vitamin K Antagonists in Cerebral Venous Thrombosis: A Systematic Review and Meta-Analysis of 4,929 Patients.",
+    "comment": "การทบทวนวรรณกรรมขนาดใหญ่นี้ให้ข้อมูลเชิงลึกเกี่ยวกับการใช้ยาต้านการแข็งตัวของเลือดชนิดใหม่ (DOACs) ในภาวะลิ่มเลือดอุดตันในหลอดเลือดดำสมอง ซึ่งอาจเปลี่ยนแปลงแนวทางการรักษาจากยาเดิมในอนาคต.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41358859/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Magnesium Supplementation and Tachyarrhythmias: A Nonrandomized Clinical Trial.",
+    "comment": "การศึกษาเชิงทดลองนี้ท้าทายความเชื่อเดิมเกี่ยวกับการให้แมกนีเซียมในภาวะหัวใจเต้นผิดจังหวะเร็ว ซึ่งอาจทำให้เกิดข้อถกเถียงและปรับเปลี่ยนการใช้ยาใน ER.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41359319/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Frailty: a prognostic marker or a self-fulfilling prophecy in cardiac arrest outcomes?",
+    "comment": "งานวิจัยนี้ตั้งคำถามเชิงจริยธรรมและผลลัพธ์ของการประเมินภาวะเปราะบางในผู้ป่วยหัวใจหยุดเต้น ซึ่งส่งผลโดยตรงต่อการตัดสินใจเรื่องการกู้ชีพใน ER สำหรับผู้สูงอายุ.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41359027/"
+  },
+  {
+    "date": "9 Dec",
+    "title": "Emergency nurses' experiences following resuscitation care: When the adrenaline wears off.",
+    "comment": "การศึกษานี้เน้นย้ำถึงสุขภาพจิตใจของพยาบาล ER หลังการกู้ชีพ ซึ่งเป็นประเด็นสำคัญที่ส่งผลต่อการทำงานและคุณภาพการดูแลผู้ป่วยในระยะยาว.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41360034/"
+  }
+]
