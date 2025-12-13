@@ -218,19 +218,33 @@
     </div>
 
     <script>
-        document.getElementById('nav-button').addEventListener('click', function() {
-            var content = document.getElementById('mobile-nav-content');
-            content.classList.toggle('expanded');
-        });
-        
-        // Optional: Close the mobile menu when a link is clicked
-        var links = document.querySelectorAll('#mobile-nav-content a');
-        links.forEach(function(link) {
-            link.addEventListener('click', function() {
-                var content = document.getElementById('mobile-nav-content');
-                content.classList.remove('expanded');
-            });
-        });
-    </script>
+        // COMMENT: สคริปต์ควบคุมการเปิด/ปิดเมนูนำทางสำหรับมือถือ (Mobile Navigation)
+        const navButton = document.getElementById('nav-button');
+        const mobileNavContent = document.getElementById('mobile-nav-content');
+        const links = mobileNavContent.querySelectorAll('a');
+
+        // ฟังก์ชันสลับสถานะเมนู
+        function toggleMobileNav() {
+            mobileNavContent.classList.toggle('expanded');
+            // COMMENT: เปลี่ยนข้อความบนปุ่มตามสถานะการเปิด/ปิด
+            if (mobileNavContent.classList.contains('expanded')) {
+                navButton.textContent = 'Close Indexes';
+            } else {
+                navButton.textContent = 'Indexes';
+            }
+        }
+
+        // 1. จัดการการคลิกที่ปุ่มเปิด/ปิด
+        navButton.addEventListener('click', toggleMobileNav);
+        
+        // 2. ปิดเมนูเมื่อคลิกที่ลิงก์ใดๆ
+        links.forEach(function(link) {
+            link.addEventListener('click', function() {
+                // COMMENT: ปิดเมนูและเปลี่ยนข้อความปุ่มกลับไปเป็น 'Indexes'
+                mobileNavContent.classList.remove('expanded');
+                navButton.textContent = 'Indexes';
+            });
+        });
+    </script>
 </body>
 </html>
