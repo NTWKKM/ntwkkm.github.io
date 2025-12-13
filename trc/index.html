@@ -5,100 +5,284 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2025 TRC Guidelines Update</title>
     <style>
+        /* Base Styles */
         body { font-family: Tahoma, sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f4; }
         .container { max-width: 900px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1 { color: #098dcf; border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-bottom: 20px; }
-        details { border: 1px solid #ddd; border-radius: 4px; margin-bottom: 15px; background-color: #f9f9f9; }
+        h1 { color: #098dcf; border-bottom: 2px solid #ccc; padding-bottom: 10px; margin-bottom: 20px; font-size: 2rem; }
+        details { border: 1px solid #ddd; border-radius: 4px; margin-bottom: 15px; background-color: #f9f9f9; scroll-margin-top: 60px; /* Offset for anchor links */ }
         summary { padding: 15px; cursor: pointer; background-color: #e9e9e9; font-weight: bold; outline: none; transition: background-color 0.3s; }
         summary:hover { background-color: #ddd; }
         .video-content { padding: 15px; }
         .meta { font-size: 0.9em; color: #555; margin-top: 5px; }
         video { display: block; max-width: 100%; height: auto; margin-top: 10px; }
+
+        /* --- DESKTOP Floating Navigation Styles --- */
+        #desktop-nav {
+            position: fixed;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 250px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 10px 0;
+        }
+        #desktop-nav h3 {
+            font-size: 1rem;
+            color: #098dcf;
+            padding: 0 15px 5px;
+            margin: 0;
+            border-bottom: 1px solid #eee;
+        }
+        #desktop-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #desktop-nav li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #415b78;
+            font-size: 0.9rem;
+            border-left: 5px solid transparent;
+            transition: background-color 0.2s, border-left-color 0.2s;
+        }
+        #desktop-nav li a:hover {
+            background-color: #f0f8ff;
+            border-left-color: #098dcf;
+        }
+
+        /* --- MOBILE Floating Navigation Styles (Collapsible) --- */
+        #mobile-nav-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+        #nav-button {
+            background-color: #098dcf;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-weight: bold;
+            display: block; /* Make sure the button is always visible on mobile */
+        }
+        #mobile-nav-content {
+            position: absolute;
+            bottom: 100%; /* Position above the button */
+            right: 0;
+            width: 250px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            max-height: 0; /* Collapsed state */
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out, border 0.3s ease-out;
+            margin-bottom: 10px;
+            padding: 0;
+        }
+        #mobile-nav-content.expanded {
+            max-height: 80vh; /* Expanded state */
+            padding: 10px 0;
+            overflow-y: auto;
+        }
+        #mobile-nav-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #mobile-nav-content li a {
+            display: block;
+            padding: 8px 15px;
+            text-decoration: none;
+            color: #415b78;
+            font-size: 0.9rem;
+        }
+        #mobile-nav-content li a:hover {
+            background-color: #f0f8ff;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            /* HIDE Desktop Nav */
+            #desktop-nav {
+                display: none;
+            }
+            /* SHOW Mobile Nav Toggle */
+            #mobile-nav-toggle {
+                display: block;
+            }
+            .container {
+                /* Full width on smaller screens, no need for right margin */
+                margin: 0 auto;
+                max-width: 100%;
+                padding: 15px;
+            }
+            body {
+                padding: 10px;
+            }
+        }
+        
+        @media (min-width: 993px) {
+            /* SHOW Desktop Nav */
+            #desktop-nav {
+                display: block;
+            }
+            /* HIDE Mobile Nav Toggle */
+            #mobile-nav-toggle {
+                display: none;
+            }
+            /* Adjust container margin on desktop to make space for the floating nav */
+            .container {
+                margin-right: 280px; /* Space for the 250px nav + margin */
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.5rem; }
+            summary { padding: 12px; font-size: 0.95rem; }
+            .meta { font-size: 0.8em; }
+        }
     </style>
 </head>
 <body>
+    
+    <nav id="desktop-nav">
+        <h3>Indexes</h3>
+        <ul>
+            <li><a href="#vid-01">Opening Remarks</a></li>
+            <li><a href="#vid-02">System of Care</a></li>
+            <li><a href="#vid-03">Paediatric BLS Update</a></li>
+            <li><a href="#vid-04">Paediatric ALS Update</a></li>
+            <li><a href="#vid-05">Neonatal Resuscitation</a></li>
+            <li><a href="#vid-06">Adult BLS Update</a></li>
+            <li><a href="#vid-07">Respiratory arrest</a></li>
+            <li><a href="#vid-09">Pulseless arrest: non-shockable</a></li>
+            <li><a href="#vid-10">Pulseless arrest: VF, pVT</a></li>
+            <li><a href="#vid-11">Adult Tachyarrhythmia</a></li>
+            <li><a href="#vid-12">Adult Bradyarrhythmia</a></li>
+            <li><a href="#vid-13">Special circumstance</a></li>
+            <li><a href="#vid-14">Post arrest care</a></li>
+            <li><a href="#vid-15">Ethics &amp; Decision</a></li>
+        </ul>
+    </nav>
+
+    <div id="mobile-nav-toggle">
+        <button id="nav-button">Indexes</button>
+        <div id="mobile-nav-content">
+            <ul>
+                <li><a href="#vid-01">Opening Remarks</a></li>
+                <li><a href="#vid-02">System of Care</a></li>
+                <li><a href="#vid-03">Paediatric BLS Update</a></li>
+                <li><a href="#vid-04">Paediatric ALS Update</a></li>
+                <li><a href="#vid-05">Neonatal Resuscitation</a></li>
+                <li><a href="#vid-06">Adult BLS Update</a></li>
+                <li><a href="#vid-07">Respiratory arrest</a></li>
+                <li><a href="#vid-09">Pulseless arrest: non-shockable</a></li>
+                <li><a href="#vid-10">Pulseless arrest: VF, pVT</a></li>
+                <li><a href="#vid-11">Adult Tachyarrhythmia</a></li>
+                <li><a href="#vid-12">Adult Bradyarrhythmia</a></li>
+                <li><a href="#vid-13">Special circumstance</a></li>
+                <li><a href="#vid-14">Post arrest care</a></li>
+                <li><a href="#vid-15">Ethics &amp; Decision</a></li>
+            </ul>
+        </div>
+    </div>
+
+
     <div class="container">
         <h1>2025 TRC Guidelines Update</h1>
-        <p><strong>Note:</strong> The video player controls have been display the download button (may vary depending on the web browser).</p>
+        <p>The video player controls have been display the download button (may vary depending on the web browser).</p>
 
-<details>
+<details id="vid-01">
     <summary>09.00–09.10: Opening Remarks and National Update</summary>
     <div class="video-content">
         <div class="meta"><strong>วิทยากร:</strong> นอ.นพ.ปริญญา คุณาวุฒิ</div>
-        <video controls **controlslist="download"**>
+        <video controls controlslist="download">
             <source src="https://rerun.onvirtual-meeting.com/2025/011_November_2025/006_TRC_2025_24_11_2025/TCR_2025_24_11_01_Opening_Remarks_and_National_Update.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 </details>
 
-<details>
+<details id="vid-02">
     <summary>09.10-09.20: System of Care</summary>
     <div class="video-content">
         <div class="meta"><strong>วิทยากร:</strong> น.อ.พญ.จริยา สันตติอนันต์ ร.น.</div>
-        <video controls **controlslist="download"**>
+        <video controls controlslist="download">
             <source src="https://rerun.onvirtual-meeting.com/2025/011_November_2025/006_TRC_2025_24_11_2025/TCR_2025_24_11_02_System_of_Care.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 </details>
 
-<details>
+<details id="vid-03">
     <summary>09.20–09.40: Paediatric Basic Life Support Update</summary>
     <div class="video-content">
         <div class="meta"><strong>วิทยากร:</strong> ผศ.นพ.รัฐพล ว่องวันดี</div>
-        <video controls **controlslist="download"**>
+        <video controls controlslist="download">
             <source src="https://rerun.onvirtual-meeting.com/2025/011_November_2025/006_TRC_2025_24_11_2025/TCR_2025_24_11_03_Paediatric_Basic_Life.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 </details>
 
-<details>
+<details id="vid-04">
     <summary>09.40–10.25: Paediatric Advanced Life Support Update</summary>
     <div class="video-content">
         <div class="meta"><strong>วิทยากร:</strong> อ.นพ.ภูมิพร กตัญญูวงศ์</div>
-        <video controls **controlslist="download"**>
+        <video controls controlslist="download">
             <source src="https://rerun.onvirtual-meeting.com/2025/011_November_2025/006_TRC_2025_24_11_2025/TCR_2025_24_11_04_Paediatric_Advanced_Life_Support_Update.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 </details>
 
-<details>
+<details id="vid-05">
     <summary>10.45–11.15: Neonatal Resuscitation</summary>
     <div class="video-content">
         <div class="meta"><strong>วิทยากร:</strong> ผศ.พ.อ.นพ.ธานินทร์ พิรุณเนตร</div>
-        <video controls **controlslist="download"**>
+        <video controls controlslist="download">
             <source src="https://rerun.onvirtual-meeting.com/2025/011_November_2025/006_TRC_2025_24_11_2025/TCR_2025_24_11_05_Neonatal_Resuscitation.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 </details>
 
-<details>
+<details id="vid-06">
     <summary>11.15–11.35: Adult Basic Life Support Update</summary>
     <div class="video-content">
         <div class="meta"><strong>วิทยากร:</strong> อ.นพ.ณัฐดนัย มั่นเกษตรกิจ</div>
-        <video controls **controlslist="download"**>
+        <video controls controlslist="download">
             <source src="https://rerun.onvirtual-meeting.com/2025/011_November_2025/006_TRC_2025_24_11_2025/TCR_2025_24_11_06_Adult_Basic_Life_Support_Update.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 </details>
 
-<details>
+<details id="vid-07">
     <summary>11.35–11.50: Respiratory arrest and Advanced airway management</summary>
     <div class="video-content">
         <div class="meta"><strong>วิทยากร:</strong> รศ.พญ.อรลักษณ์ รอดอนันต์</div>
-        <video controls **controlslist="download"**>
+        <video controls controlslist="download">
             <source src="https://rerun.onvirtual-meeting.com/2025/011_November_2025/006_TRC_2025_24_11_2025/TCR_2025_24_11_07_Respiratory_arrest_and_Advanced.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 </details>
 
-<details>
+<details id="vid-08">
     <summary>11.50–12.50: Lunch (Demonstration)</summary>
     <div class="video-content">
         <div class="meta">วิดีโอนี้อาจเป็นส่วนหนึ่งของการสาธิตในช่วงพักกลางวัน และไม่มีชื่อวิทยากรระบุไว้ในตาราง</div>
@@ -106,83 +290,99 @@
     </div>
 </details>
 
-<details>
+<details id="vid-09">
     <summary>12.50–13.05: Pulseless arrest: non-shockable rhythm</summary>
     <div class="video-content">
         <div class="meta"><strong>วิทยากร:</strong> อ.พญ.นลินาสน์ ขุนคล้าย</div>
-        <video controls **controlslist="download"**>
+        <video controls controlslist="download">
             <source src="https://rerun.onvirtual-meeting.com/2025/011_November_2025/006_TRC_2025_24_11_2025/TCR_2025_24_11_09_Pulseless_arrest_non_shockable_rhythm.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 </details>
 
-<details>
+<details id="vid-10">
     <summary>13.05–13.20: Pulseless arrest: VF, pVT Session: Periarrest condition</summary>
     <div class="video-content">
         <div class="meta"><strong>วิทยากร:</strong> อ.นพ.วิสุทธิ์ เกตุแก้ว</div>
-        <video controls **controlslist="download"**>
+        <video controls controlslist="download">
             <source src="https://rerun.onvirtual-meeting.com/2025/011_November_2025/006_TRC_2025_24_11_2025/TCR_2025_24_11_10_Pulseless_arrest_VF_pVT_Session_Periarrest_condition.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 </details>
 
-<details>
+<details id="vid-11">
     <summary>13.20–13.45: Adult Tachyarrhythmia</summary>
     <div class="video-content">
         <div class="meta"><strong>วิทยากร:</strong> รศ.พ.อ.นพ.ธรณิศ จันทรารัตน์</div>
-        <video controls **controlslist="download"**>
+        <video controls controlslist="download">
             <source src="https://rerun.onvirtual-meeting.com/2025/011_November_2025/006_TRC_2025_24_11_2025/TCR_2025_24_11_012_Adult_Tachyarrhythmia.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 </details>
 
-<details>
+<details id="vid-12">
     <summary>13.45–14.00: Adult Bradyarrhythmia</summary>
     <div class="video-content">
         <div class="meta"><strong>วิทยากร:</strong> พล.ต.ต.นพ.ศุภฤกษ์ พัฒนปรีชากุล</div>
-        <video controls **controlslist="download"**>
+        <video controls controlslist="download">
             <source src="https://rerun.onvirtual-meeting.com/2025/011_November_2025/006_TRC_2025_24_11_2025/TCR_2025_24_11_013_Adult_Bradyarrhythmia.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 </details>
 
-<details>
+<details id="vid-13">
     <summary>14.00–14.25: Special circumstance</summary>
     <div class="video-content">
         <div class="meta"><strong>วิทยากร:</strong> รศ.ดร.นพ.บวร วิทยชำนาญกุล</div>
-        <video controls **controlslist="download"**>
+        <video controls controlslist="download">
             <source src="https://rerun.onvirtual-meeting.com/2025/011_November_2025/006_TRC_2025_24_11_2025/TCR_2025_24_11_014_Special_circumstance.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 </details>
 
-<details>
+<details id="vid-14">
     <summary>14.25–14.45: Post arrest care</summary>
     <div class="video-content">
         <div class="meta"><strong>วิทยากร:</strong> อ.นพ.สรายุทธ วิบูลชุติกุล</div>
-        <video controls **controlslist="download"**>
+        <video controls controlslist="download">
             <source src="https://rerun.onvirtual-meeting.com/2025/011_November_2025/006_TRC_2025_24_11_2025/TCR_2025_24_11_015_Post_arrest_care.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 </details>
 
-<details>
+<details id="vid-15">
     <summary>14.45–15.00: Ethics &amp; Decision: TOR, withhold CPR</summary>
     <div class="video-content">
         <div class="meta"><strong>วิทยากร:</strong> อ.นพ.ปัณณวิชช์ เบญจวลีมาศ</div>
-        <video controls **controlslist="download"**>
+        <video controls controlslist="download">
             <source src="https://rerun.onvirtual-meeting.com/2025/011_November_2025/006_TRC_2025_24_11_2025/TCR_2025_24_11_016_Ethics_Decision.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
 </details>
 
-</div>
+    </div>
+
+    <script>
+        document.getElementById('nav-button').addEventListener('click', function() {
+            var content = document.getElementById('mobile-nav-content');
+            content.classList.toggle('expanded');
+        });
+        
+        // Optional: Close the mobile menu when a link is clicked
+        var links = document.querySelectorAll('#mobile-nav-content a');
+        links.forEach(function(link) {
+            link.addEventListener('click', function() {
+                var content = document.getElementById('mobile-nav-content');
+                content.classList.remove('expanded');
+            });
+        });
+    </script>
 </body>
 </html>
