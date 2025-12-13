@@ -1,67 +1,67 @@
 /* styles.css */
 
-/* Base Styles */
-body { 
-    font-family: Tahoma, sans-serif; 
-    line-height: 1.6; 
-    padding: 20px; 
-    background-color: #f4f4f4; 
+/* Base Styles (ส่วนนี้คงเดิม) */
+body {
+    font-family: Tahoma, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f4f4f4;
 }
-.container { 
-    max-width: 900px; 
-    margin: auto; 
-    background: #fff; 
-    padding: 30px; 
-    border-radius: 8px; 
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-h1 { 
-    color: #098dcf; 
-    border-bottom: 2px solid #ccc; 
-    padding-bottom: 10px; 
-    margin-bottom: 20px; 
-    font-size: 2rem; 
+h1 {
+    color: #098dcf;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 2rem;
 }
-details { 
-    border: 1px solid #ddd; 
-    border-radius: 4px; 
-    margin-bottom: 15px; 
-    background-color: #f9f9f9; 
-    scroll-margin-top: 60px; /* Offset for anchor links */ 
+details {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    scroll-margin-top: 60px; /* Offset for anchor links */
 }
-summary { 
-    padding: 15px; 
-    cursor: pointer; 
-    background-color: #e9e9e9; 
-    font-weight: bold; 
-    outline: none; 
-    transition: background-color 0.3s; 
+summary {
+    padding: 15px;
+    cursor: pointer;
+    background-color: #e9e9e9;
+    font-weight: bold;
+    outline: none;
+    transition: background-color 0.3s;
 }
-summary:hover { 
-    background-color: #ddd; 
+summary:hover {
+    background-color: #ddd;
 }
-.video-content { 
-    padding: 15px; 
+.video-content {
+    padding: 15px;
 }
-.meta { 
-    font-size: 0.9em; 
-    color: #555; 
-    margin-top: 5px; 
+.meta {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
 }
-video { 
-    display: block; 
-    max-width: 100%; 
-    height: auto; 
-    margin-top: 10px; 
+video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
 }
 
-/* --- DESKTOP Floating Navigation Styles --- */
+/* --- DESKTOP Floating Navigation Styles (ปรับให้ Compact ขึ้น) --- */
 #desktop-nav {
     position: fixed;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    width: 250px;
+    width: 220px; /* ลดความกว้างลงเล็กน้อย */
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-right: none;
@@ -70,12 +70,12 @@ video {
     z-index: 1000;
     max-height: 80vh;
     overflow-y: auto;
-    padding: 10px 0;
+    padding: 5px 0; /* ลด padding โดยรวม */
 }
 #desktop-nav h3 {
-    font-size: 1rem;
+    font-size: 0.9rem; /* ลดขนาดฟอนต์ */
     color: #098dcf;
-    padding: 0 15px 5px;
+    padding: 5px 10px; /* ลด padding */
     margin: 0;
     border-bottom: 1px solid #eee;
 }
@@ -86,11 +86,11 @@ video {
 }
 #desktop-nav li a {
     display: block;
-    padding: 8px 15px;
+    padding: 5px 10px; /* ลด padding เพื่อให้กะทัดรัด */
     text-decoration: none;
     color: #415b78;
-    font-size: 0.9rem;
-    border-left: 5px solid transparent;
+    font-size: 0.85rem; /* ลดขนาดฟอนต์ของรายการเมนู */
+    border-left: 3px solid transparent; /* ลดขนาด border-left */
     transition: background-color 0.2s, border-left-color 0.2s;
 }
 #desktop-nav li a:hover {
@@ -98,7 +98,7 @@ video {
     border-left-color: #098dcf;
 }
 
-/* --- MOBILE Floating Navigation Styles (Collapsible) --- */
+/* --- MOBILE Floating Navigation Styles (Collapsible) (ปรับให้ Compact ขึ้น) --- */
 #mobile-nav-toggle {
     position: fixed;
     bottom: 20px;
@@ -109,18 +109,19 @@ video {
     background-color: #098dcf;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px; /* ลด padding ปุ่ม */
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     font-weight: bold;
+    font-size: 0.9rem; /* ลดขนาดฟอนต์ปุ่ม */
     display: block; /* Make sure the button is always visible on mobile */
 }
 #mobile-nav-content {
     position: absolute;
     bottom: 100%; /* Position above the button */
     right: 0;
-    width: 250px;
+    width: 220px; /* ลดความกว้างลงเล็กน้อย */
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -133,7 +134,7 @@ video {
 }
 #mobile-nav-content.expanded {
     max-height: 80vh; /* Expanded state */
-    padding: 10px 0;
+    padding: 5px 0; /* ลด padding โดยรวม */
     overflow-y: auto;
 }
 #mobile-nav-content ul {
@@ -143,16 +144,16 @@ video {
 }
 #mobile-nav-content li a {
     display: block;
-    padding: 8px 15px;
+    padding: 5px 10px; /* ลด padding เพื่อให้กะทัดรัด */
     text-decoration: none;
     color: #415b78;
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* ลดขนาดฟอนต์ของรายการเมนู */
 }
 #mobile-nav-content li a:hover {
     background-color: #f0f8ff;
 }
 
-/* Responsive Adjustments */
+/* Responsive Adjustments (มีการปรับค่า margin-right ของ .container) */
 @media (max-width: 992px) {
     /* HIDE Desktop Nav */
     #desktop-nav {
@@ -172,7 +173,7 @@ video {
         padding: 10px;
     }
 }
- 
+
 @media (min-width: 993px) {
     /* SHOW Desktop Nav */
     #desktop-nav {
@@ -182,9 +183,9 @@ video {
     #mobile-nav-toggle {
         display: none;
     }
-    /* Adjust container margin on desktop to make space for the floating nav */
+    /* Adjust container margin on desktop to make space for the floating nav (220px nav + 20px margin) */
     .container {
-        margin-right: 280px; /* Space for the 250px nav + margin */
+        margin-right: 240px; 
     }
 }
 
