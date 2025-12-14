@@ -1,6 +1,12 @@
 [
   {
     "date": "14 Dec",
+    "title": "Fluid resuscitation with balanced electrolyte solutions results in faster resolution of diabetic ketoacidosis than with 0.9% saline in adults - A systematic review and meta-analysis.",
+    "comment": "การใช้สารน้ำ balanced crystalloids อาจช่วยให้ภาวะ DKA คลี่คลายเร็วกว่า normal saline ในผู้ใหญ่ ซึ่งมีนัยยะต่อแนวทางการให้สารน้ำใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/38925619/"
+  },
+  {
+    "date": "14 Dec",
     "title": "Awake Prone Positioning in Patients With COVID-19 Respiratory Failure: A Randomized Clinical Trial.",
     "comment": "การศึกษาแบบ RCT นี้ยืนยันประโยชน์ของการจัดท่าคว่ำในผู้ป่วย COVID-19 ที่มีภาวะหายใจล้มเหลวขณะตื่น ซึ่งอาจขยายแนวทางการจัดการผู้ป่วย ARI ใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41370078/"
@@ -412,11 +418,5 @@
     "title": "A randomised controlled trial of high-flow nasal oxygen compared with standard oxygen delivery in obese patients undergoing gastroscopy.",
     "comment": "การดูแลทางเดินหายใจในผู้ป่วยอ้วนระหว่างการทำหัตถการเป็นเรื่องท้าทาย การใช้ HFNC เป็นนวัตกรรมที่อาจช่วยปรับปรุงความปลอดภัยและประสิทธิภาพการให้ออกซิเจนใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41361741/"
-  },
-  {
-    "date": "9 Dec",
-    "title": "Optical coherence tomography in the emergency department setting: a case series.",
-    "comment": "OCT เป็นเทคโนโลยีการถ่ายภาพขั้นสูงที่ปกติใช้ในเฉพาะทาง การนำมาใช้ใน ER เป็นนวัตกรรมใหม่ที่อาจช่วยในการวินิจฉัยภาวะฉุกเฉินได้อย่างรวดเร็ว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41362907/"
   }
 ]
