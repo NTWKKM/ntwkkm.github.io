@@ -7,21 +7,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* --- Professional Navy Theme --- */
             --bg: #ffffff;
-            --text: #24292f;
-            --text-secondary: #57606a;
-            --accent: #0969da;
-            --accent-bg: #f0f6fc; /* Light blue for active state */
-            --border: #d0d7de;
+            --bg-sidebar: #f8fafc; /* Slate-50 */
+            --text: #334155;       /* Slate-700 */
+            --text-title: #0f172a; /* Slate-900 */
+            --text-secondary: #64748b; /* Slate-500 */
             
-            /* Section Colors */
-            --sec-obj-bg: #e6f7ff; 
-            --sec-obj-text: #0050b3;
-            --sec-method-bg: #f6ffed; 
-            --sec-method-text: #389e0d;
-            --sec-result-bg: #fff7e6; 
-            --sec-result-text: #d46b08;
-            --sec-default-bg: #f6f8fa;
+            --accent: #1e3a8a;     /* Blue-900 (Navy) */
+            --accent-hover: #172554; /* Blue-950 */
+            --accent-light: #eff6ff; /* Blue-50 */
+            
+            --border: #e2e8f0;     /* Slate-200 */
+            
+            /* Section Colors (Muted/Professional) */
+            --sec-obj-bg: #f0f9ff;   /* Sky-50 */
+            --sec-obj-border: #0ea5e9; /* Sky-500 */
+            --sec-obj-text: #0c4a6e;   /* Sky-900 */
+
+            --sec-method-bg: #f0fdf4; /* Green-50 */
+            --sec-method-border: #22c55e; /* Green-500 */
+            --sec-method-text: #14532d;   /* Green-900 */
+
+            --sec-result-bg: #fff7ed; /* Orange-50 */
+            --sec-result-border: #f97316; /* Orange-500 */
+            --sec-result-text: #7c2d12;   /* Orange-900 */
+            
+            --sec-default-bg: #f1f5f9; /* Slate-100 */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,11 +43,12 @@
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* --- Layout 1:4 Ratio --- */
         .container {
-            max-width: 1400px; /* เพิ่มความกว้างรวมเพื่อให้ 20% ของ Sidebar ไม่เล็กเกินไป */
+            max-width: 1400px; 
             margin: 0 auto;
             display: flex;
             min-height: 100vh;
@@ -44,190 +57,204 @@
         /* Sidebar (20%) */
         .sidebar {
             width: 20%;
-            min-width: 250px; /* กันไม่ให้เล็กเกินไปจนอ่านไม่ออก */
-            padding: 40px 20px;
+            min-width: 260px;
+            padding: 40px 24px;
             border-right: 1px solid var(--border);
             position: sticky;
             top: 0;
             height: 100vh;
             overflow-y: auto;
-            background-color: #fafbfc;
+            background-color: var(--bg-sidebar);
         }
 
         /* Content (80%) */
         .main-content {
-            flex: 1; /* กินพื้นที่ที่เหลือทั้งหมด (ประมาณ 80%) */
-            padding: 60px 80px; /* เพิ่ม Padding ให้ดูโปร่ง */
+            flex: 1; 
+            padding: 60px 80px; 
             overflow-y: auto;
+            background: white;
         }
 
         /* --- Components --- */
         .brand { 
             font-weight: 800; 
-            font-size: 1.2rem; 
+            font-size: 1.1rem; 
             margin-bottom: 30px; 
-            display: block; 
+            display: flex;
+            align-items: center;
+            gap: 8px;
             text-decoration: none; 
-            color: var(--text); 
+            color: var(--accent);
+            letter-spacing: -0.02em;
         }
         
         .nav-header { 
-            font-size: 0.75rem; 
+            font-size: 0.7rem; 
             text-transform: uppercase; 
-            letter-spacing: 1px; 
+            letter-spacing: 1.2px; 
             color: var(--text-secondary); 
-            margin-top: 20px; 
-            margin-bottom: 10px; 
+            margin-top: 25px; 
+            margin-bottom: 15px; 
             font-weight: 700; 
         }
 
         .article-list-item {
             display: block;
-            padding: 12px 16px;
-            margin-bottom: 8px;
-            border-radius: 6px;
+            padding: 14px 16px;
+            margin-bottom: 6px;
+            border-radius: 8px;
             text-decoration: none;
             color: var(--text);
-            transition: all 0.2s;
+            transition: all 0.2s ease;
             cursor: pointer;
             border: 1px solid transparent;
         }
 
         .article-list-item:hover { 
-            background: rgba(208, 215, 222, 0.3); 
+            background: #ffffff;
+            border-color: var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
         
         .article-list-item.active { 
             background: #ffffff; 
             color: var(--accent); 
             border: 1px solid var(--border);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            font-weight: 500;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            font-weight: 600;
             border-left: 4px solid var(--accent);
         }
 
-        .list-title { font-size: 0.95rem; line-height: 1.4; }
-        .list-date { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; }
+        .list-title { font-size: 0.95rem; line-height: 1.45; }
+        .list-date { font-size: 0.75rem; color: var(--text-secondary); margin-top: 6px; }
 
         /* Article View */
         .article-view { max-width: 850px; margin: 0 auto; display: none; }
-        .article-view.visible { display: block; animation: fadeIn 0.4s ease; }
+        .article-view.visible { display: block; animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
 
         .article-meta { 
             color: var(--text-secondary); 
             font-size: 0.9rem; 
-            margin-bottom: 15px; 
+            margin-bottom: 20px; 
             display: flex; 
             align-items: center; 
             gap: 12px; 
+            font-weight: 500;
         }
         
         .article-title { 
             font-family: 'Inter', 'Sarabun', sans-serif; 
-            font-size: 2.2rem; 
-            font-weight: 700; 
-            line-height: 1.3; 
-            margin-bottom: 20px; 
-            color: #1a1f24;
+            font-size: 2.25rem; 
+            font-weight: 800; 
+            line-height: 1.25; 
+            margin-bottom: 24px; 
+            color: var(--text-title);
+            letter-spacing: -0.03em;
         }
 
         /* Tags */
-        .tags-container { margin-bottom: 40px; }
+        .tags-container { margin-bottom: 40px; display: flex; gap: 8px; flex-wrap: wrap; }
         .tag-badge {
             display: inline-block;
-            background: #eff1f3;
-            color: var(--text-secondary);
+            background: var(--accent-light);
+            color: var(--accent);
             font-size: 0.75rem;
             padding: 4px 12px;
-            border-radius: 20px;
+            border-radius: 6px;
             font-weight: 600;
-            margin-right: 6px;
+            border: 1px solid rgba(30, 58, 138, 0.1);
         }
 
-        /* --- Research Sections Styling --- */
+        /* --- Research Sections Styling (Professional Cards) --- */
         .research-section {
-            margin-bottom: 25px;
-            padding: 24px;
-            border-radius: 12px;
-            border-left: 5px solid transparent;
+            margin-bottom: 24px;
+            padding: 24px 28px;
+            border-radius: 8px;
             background: #ffffff;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-            border: 1px solid var(--border);
+            /* box-shadow: 0 1px 3px rgba(0,0,0,0.05); */
+            border-left: 4px solid #ccc; /* Default fallback */
         }
 
         .sec-header {
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             margin-bottom: 12px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .sec-content {
-            font-size: 1rem;
-            color: #333;
-            line-height: 1.7;
+            font-size: 1.05rem;
+            color: #334155;
+            line-height: 1.75;
         }
 
         /* Color Themes for Sections */
         .section-objective {
             background-color: var(--sec-obj-bg);
-            border: 1px solid #bae7ff;
+            border-left-color: var(--sec-obj-border);
         }
         .section-objective .sec-header { color: var(--sec-obj-text); }
 
         .section-methods {
             background-color: var(--sec-method-bg);
-            border: 1px solid #d9f7be;
+            border-left-color: var(--sec-method-border);
         }
         .section-methods .sec-header { color: var(--sec-method-text); }
 
         .section-results {
             background-color: var(--sec-result-bg);
-            border: 1px solid #ffe7ba;
+            border-left-color: var(--sec-result-border);
         }
         .section-results .sec-header { color: var(--sec-result-text); }
 
         .section-default {
             background-color: var(--sec-default-bg);
+            border-left-color: var(--text-secondary);
         }
 
-        /* Link Button */
+        /* Link Button (Navy) */
         .pubmed-btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            margin-top: 40px;
-            padding: 12px 24px;
-            background: #0969da;
+            gap: 10px;
+            margin-top: 50px;
+            padding: 14px 28px;
+            background: var(--accent);
             color: white;
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: 600;
-            transition: all 0.2s;
-            box-shadow: 0 2px 5px rgba(9, 105, 218, 0.2);
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.2);
         }
-        .pubmed-btn:hover { background: #085bbd; transform: translateY(-2px); }
+        .pubmed-btn:hover { 
+            background: var(--accent-hover); 
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.2);
+        }
 
         /* Empty State */
         .empty-state { 
             text-align: center; 
             color: var(--text-secondary); 
-            margin-top: 15vh;
+            margin-top: 20vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
         }
-        .empty-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.3; }
+        .empty-icon { font-size: 4rem; margin-bottom: 20px; opacity: 0.2; filter: grayscale(100%); }
 
         /* Mobile Responsive */
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
             .container { flex-direction: column; }
             .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 20px; }
-            .main-content { padding: 30px 20px; }
-            .article-title { font-size: 1.6rem; }
+            .main-content { padding: 40px 20px; }
+            .article-title { font-size: 1.75rem; }
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -237,25 +264,28 @@
 
     <div class="container">
         <aside class="sidebar">
-            <a href="index.html" class="brand">← Back to Home</a>
+            <a href="index.html" class="brand">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                BACK TO HOME
+            </a>
             
             <div class="nav-header">Research Archive</div>
             <div id="sidebar-list">
-                <div style="padding:10px; color:var(--text-secondary);">Loading...</div>
+                <div style="padding:10px; color:var(--text-secondary); font-size: 0.9rem;">Loading research data...</div>
             </div>
         </aside>
 
         <main class="main-content">
             <div id="empty-state" class="empty-state">
                 <div class="empty-icon">📑</div>
-                <h3>Select a research paper to view details</h3>
+                <h3 style="font-weight: 500;">Select a research paper from the sidebar</h3>
             </div>
 
             <article id="article-view" class="article-view">
                 <div class="article-meta">
                     <span id="post-date">...</span> 
-                    <span>•</span>
-                    <span style="font-family: monospace; background: #eee; padding: 2px 6px; border-radius: 4px;">ID: <span id="post-id"></span></span>
+                    <span style="color: var(--border);">|</span>
+                    <span style="font-family: monospace; background: var(--bg-sidebar); padding: 2px 8px; border-radius: 4px; color: var(--text-title);">ID: <span id="post-id"></span></span>
                 </div>
 
                 <h1 class="article-title" id="post-title">...</h1>
@@ -265,7 +295,8 @@
                 <div id="formatted-summary-container"></div>
 
                 <a href="#" target="_blank" id="post-link" class="pubmed-btn">
-                    Read Original Paper <span style="font-size: 1.2em;">↗</span>
+                    View on PubMed 
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
                 </a>
             </article>
         </main>
@@ -327,25 +358,30 @@
                 });
             }
 
-            // 4. SMART SUMMARY FORMATTING (หัวใจสำคัญของการจัดหน้า)
+            // 4. SMART SUMMARY FORMATTING
             const summaryContainer = document.getElementById('formatted-summary-container');
             summaryContainer.innerHTML = parseSummaryToSections(post.summary);
 
-            // 5. Link Logic (Prioritize PubMed via PMID, fallback to Notion Link)
+            // 5. Link Logic (Strictly PMID to PubMed)
             const linkBtn = document.getElementById('post-link');
             
             if (post.pmid) {
-                // ถ้ามี PMID ให้ไป PubMed
+                // Link to PubMed using PMID
                 linkBtn.href = `https://pubmed.ncbi.nlm.nih.gov/${post.pmid}/`;
-                linkBtn.innerHTML = `View on PubMed ↗`;
+                linkBtn.innerHTML = `
+                    View on PubMed 
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                `;
                 linkBtn.style.display = 'inline-flex';
             } else if (post.link) {
-                // ถ้าไม่มี PMID ให้ใช้ Link เดิม (Notion)
+                // Fallback to original link if PMID is missing
                 linkBtn.href = post.link;
-                linkBtn.innerHTML = `Read Original Paper ↗`;
+                linkBtn.innerHTML = `
+                    Read Original Source 
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                `;
                 linkBtn.style.display = 'inline-flex';
             } else {
-                // ถ้าไม่มีอะไรเลย ซ่อนปุ่ม
                 linkBtn.style.display = 'none';
             }
 
@@ -364,9 +400,8 @@
 
         // --- ฟังก์ชันแปลง Text ก้อนใหญ่ ให้เป็น HTML Section สวยๆ ---
         function parseSummaryToSections(text) {
-            if (!text) return '<p>No summary available.</p>';
+            if (!text) return '<p style="color:#999;">No summary available.</p>';
 
-            // แยกบรรทัดตาม \n หรือ - (hyphen) ที่ขึ้นต้นบรรทัด
             const lines = text.split(/\n/); 
             let html = '';
 
@@ -402,7 +437,6 @@
                         </div>`;
                 } 
                 else {
-                    // ข้อความทั่วไป ที่จับ Pattern ไม่ได้
                      html += `
                         <div class="research-section section-default">
                             <div class="sec-content">${cleanLine}</div>
