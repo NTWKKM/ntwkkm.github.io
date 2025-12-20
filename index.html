@@ -132,6 +132,29 @@
             gap: 15px;
         }
 
+        /* --- NEW: Hotlink Button --- */
+        .nav-highlight {
+            background-color: var(--primary);
+            color: #ffffff !important; /* Force white text */
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border: 1px solid var(--primary);
+        }
+
+        .nav-highlight:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
         .theme-btn {
             background: var(--toggle-bg);
             border: none;
@@ -460,14 +483,24 @@
         @media (max-width: 640px) {
             .brand h1 { font-size: 1.3rem; }
             .header-content { flex-direction: row; justify-content: space-between; align-items: center; }
-            .brand-group { max-width: 70%; }
-            .controls { gap: 10px; }
+            .brand-group { max-width: 50%; } /* Adjusted to fit new button */
+            .controls { gap: 8px; }
             .social-link span { display: none; }
             .social-link { padding: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px;}
             .social-link::after { content: 'GH'; font-size: 0.8rem; }
             
             .paper-card { flex: 0 0 280px; }
             .slider-nav-btn { display: none; } 
+
+            /* Mobile adjustment for the new hotlink button */
+            .nav-highlight span { display: none; }
+            .nav-highlight { 
+                padding: 0; 
+                width: 36px; 
+                height: 36px; 
+                justify-content: center;
+            }
+            .nav-highlight::after { content: '📝'; font-size: 1rem; }
         }
     </style>
 </head>
@@ -481,8 +514,12 @@
             </div>
             
             <div class="controls">
+                <a href="https://ntwkkm.github.io/blog.html" class="nav-highlight">
+                    <span>📝 Research Blog</span>
+                </a>
+
                 <button class="theme-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
-                    </button>
+                </button>
 
                 <a href="https://github.com/NTWKKM" target="_blank" class="social-link" aria-label="GitHub Profile">
                     <span>GitHub Profile</span>
