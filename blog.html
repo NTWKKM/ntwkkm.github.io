@@ -4,144 +4,230 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Research Blog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #ffffff;
             --text: #24292f;
-            --gray: #6e7781;
+            --text-secondary: #57606a;
             --accent: #0969da;
+            --accent-bg: #f0f6fc; /* Light blue for active state */
             --border: #d0d7de;
-            --bg-secondary: #f6f8fa;
-            --tag-bg: #ddf4ff;
-            --tag-text: #0969da;
+            
+            /* Section Colors */
+            --sec-obj-bg: #e6f7ff; 
+            --sec-obj-text: #0050b3;
+            --sec-method-bg: #f6ffed; 
+            --sec-method-text: #389e0d;
+            --sec-result-bg: #fff7e6; 
+            --sec-result-text: #d46b08;
+            --sec-default-bg: #f6f8fa;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Inter', 'Sarabun', sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
         }
 
-        /* Layout */
+        /* --- Layout 1:4 Ratio --- */
         .container {
-            max-width: 1000px;
+            max-width: 1400px; /* เพิ่มความกว้างรวมเพื่อให้ 20% ของ Sidebar ไม่เล็กเกินไป */
             margin: 0 auto;
-            padding: 0 20px;
             display: flex;
             min-height: 100vh;
         }
 
-        /* Sidebar (Left) */
+        /* Sidebar (20%) */
         .sidebar {
-            width: 300px;
-            padding: 40px 20px 40px 0;
+            width: 20%;
+            min-width: 250px; /* กันไม่ให้เล็กเกินไปจนอ่านไม่ออก */
+            padding: 40px 20px;
             border-right: 1px solid var(--border);
             position: sticky;
             top: 0;
             height: 100vh;
             overflow-y: auto;
+            background-color: #fafbfc;
         }
 
-        .brand { font-weight: 800; font-size: 1.2rem; margin-bottom: 30px; display: block; text-decoration: none; color: var(--text); }
+        /* Content (80%) */
+        .main-content {
+            flex: 1; /* กินพื้นที่ที่เหลือทั้งหมด (ประมาณ 80%) */
+            padding: 60px 80px; /* เพิ่ม Padding ให้ดูโปร่ง */
+            overflow-y: auto;
+        }
+
+        /* --- Components --- */
+        .brand { 
+            font-weight: 800; 
+            font-size: 1.2rem; 
+            margin-bottom: 30px; 
+            display: block; 
+            text-decoration: none; 
+            color: var(--text); 
+        }
         
-        .nav-header { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); margin-top: 20px; margin-bottom: 10px; font-weight: 700; }
+        .nav-header { 
+            font-size: 0.75rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            color: var(--text-secondary); 
+            margin-top: 20px; 
+            margin-bottom: 10px; 
+            font-weight: 700; 
+        }
 
         .article-list-item {
             display: block;
-            padding: 12px;
+            padding: 12px 16px;
             margin-bottom: 8px;
             border-radius: 6px;
             text-decoration: none;
             color: var(--text);
-            transition: background 0.2s;
+            transition: all 0.2s;
             cursor: pointer;
+            border: 1px solid transparent;
         }
 
-        .article-list-item:hover { background: var(--bg-secondary); }
-        .article-list-item.active { background: #eef3f8; color: var(--accent); border-left: 3px solid var(--accent); }
-
-        .list-title { font-weight: 600; font-size: 0.95rem; line-height: 1.4; }
-        .list-date { font-size: 0.8rem; color: var(--gray); margin-top: 4px; }
-
-        /* Main Content (Right) */
-        .main-content {
-            flex: 1;
-            padding: 60px 60px;
-            overflow-y: auto;
+        .article-list-item:hover { 
+            background: rgba(208, 215, 222, 0.3); 
         }
-
-        /* Typography for Article */
-        .article-view { max-width: 680px; margin: 0 auto; display: none; /* Hidden initially */ }
-        .article-view.visible { display: block; animation: fadeIn 0.5s ease; }
-
-        .article-meta { font-family: 'Inter', sans-serif; color: var(--gray); font-size: 0.9rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;}
-        .article-title { font-family: 'Inter', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.5px; }
         
+        .article-list-item.active { 
+            background: #ffffff; 
+            color: var(--accent); 
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            font-weight: 500;
+            border-left: 4px solid var(--accent);
+        }
+
+        .list-title { font-size: 0.95rem; line-height: 1.4; }
+        .list-date { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; }
+
+        /* Article View */
+        .article-view { max-width: 850px; margin: 0 auto; display: none; }
+        .article-view.visible { display: block; animation: fadeIn 0.4s ease; }
+
+        .article-meta { 
+            color: var(--text-secondary); 
+            font-size: 0.9rem; 
+            margin-bottom: 15px; 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+        }
+        
+        .article-title { 
+            font-family: 'Inter', 'Sarabun', sans-serif; 
+            font-size: 2.2rem; 
+            font-weight: 700; 
+            line-height: 1.3; 
+            margin-bottom: 20px; 
+            color: #1a1f24;
+        }
+
         /* Tags */
-        .tags-container { margin-bottom: 30px; }
+        .tags-container { margin-bottom: 40px; }
         .tag-badge {
             display: inline-block;
-            background: var(--tag-bg);
-            color: var(--tag-text);
+            background: #eff1f3;
+            color: var(--text-secondary);
             font-size: 0.75rem;
-            padding: 4px 10px;
+            padding: 4px 12px;
             border-radius: 20px;
             font-weight: 600;
-            margin-right: 5px;
-            margin-bottom: 5px;
+            margin-right: 6px;
         }
 
-        /* Summary Box */
-        .summary-box {
-            background: #f1f8ff;
-            border: 1px solid #cce3ff;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 40px;
+        /* --- Research Sections Styling --- */
+        .research-section {
+            margin-bottom: 25px;
+            padding: 24px;
+            border-radius: 12px;
+            border-left: 5px solid transparent;
+            background: #ffffff;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .sec-header {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sec-content {
             font-size: 1rem;
-            color: #24292f;
-            /* สำคัญ: ทำให้ \n ใน JSON แสดงผลเป็นบรรทัดใหม่ */
-            white-space: pre-line; 
-        }
-        
-        /* ทำให้หัวข้อใน Summary (เช่น - วัตถุประสงค์:) ดูหนาขึ้นเล็กน้อย (Optional JS logic handled below) */
-
-        .content-body {
-            font-family: 'Merriweather', serif;
-            font-size: 1.125rem;
-            color: #24292f;
+            color: #333;
+            line-height: 1.7;
         }
 
-        .content-body h3 { font-family: 'Inter', sans-serif; margin-top: 40px; margin-bottom: 15px; font-size: 1.5rem; }
-        .content-body p { margin-bottom: 24px; }
-        
-        .original-link-btn {
-            display: inline-block;
+        /* Color Themes for Sections */
+        .section-objective {
+            background-color: var(--sec-obj-bg);
+            border: 1px solid #bae7ff;
+        }
+        .section-objective .sec-header { color: var(--sec-obj-text); }
+
+        .section-methods {
+            background-color: var(--sec-method-bg);
+            border: 1px solid #d9f7be;
+        }
+        .section-methods .sec-header { color: var(--sec-method-text); }
+
+        .section-results {
+            background-color: var(--sec-result-bg);
+            border: 1px solid #ffe7ba;
+        }
+        .section-results .sec-header { color: var(--sec-result-text); }
+
+        .section-default {
+            background-color: var(--sec-default-bg);
+        }
+
+        /* Link Button */
+        .pubmed-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             margin-top: 40px;
-            padding: 10px 20px;
-            background: var(--text);
+            padding: 12px 24px;
+            background: #0969da;
             color: white;
             text-decoration: none;
-            border-radius: 50px;
-            font-size: 0.9rem;
+            border-radius: 6px;
             font-weight: 600;
-            transition: opacity 0.2s;
+            transition: all 0.2s;
+            box-shadow: 0 2px 5px rgba(9, 105, 218, 0.2);
         }
-        .original-link-btn:hover { opacity: 0.8; }
+        .pubmed-btn:hover { background: #085bbd; transform: translateY(-2px); }
 
         /* Empty State */
-        .empty-state { text-align: center; color: var(--gray); margin-top: 100px; }
+        .empty-state { 
+            text-align: center; 
+            color: var(--text-secondary); 
+            margin-top: 15vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .empty-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.3; }
 
-        /* Mobile */
-        @media (max-width: 768px) {
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
             .container { flex-direction: column; }
             .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 20px; }
             .main-content { padding: 30px 20px; }
-            .article-title { font-size: 1.8rem; }
+            .article-title { font-size: 1.6rem; }
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -151,40 +237,36 @@
 
     <div class="container">
         <aside class="sidebar">
-            <a href="index.html" class="brand">← NTWKKM Blog</a>
+            <a href="index.html" class="brand">← Back to Home</a>
             
-            <div class="nav-header">Latest Research</div>
+            <div class="nav-header">Research Archive</div>
             <div id="sidebar-list">
-                <div style="padding:10px; color:var(--gray);">Loading...</div>
+                <div style="padding:10px; color:var(--text-secondary);">Loading...</div>
             </div>
         </aside>
 
         <main class="main-content">
             <div id="empty-state" class="empty-state">
-                <h3>Select an article to start reading</h3>
+                <div class="empty-icon">📑</div>
+                <h3>Select a research paper to view details</h3>
             </div>
 
             <article id="article-view" class="article-view">
                 <div class="article-meta">
-                    <span id="post-date">Dec 20, 2025</span> 
-                    <span style="color: #ddd;">|</span>
-                    <span style="font-size: 0.8rem; opacity: 0.7;">ID: <span id="post-id"></span></span>
+                    <span id="post-date">...</span> 
+                    <span>•</span>
+                    <span style="font-family: monospace; background: #eee; padding: 2px 6px; border-radius: 4px;">ID: <span id="post-id"></span></span>
                 </div>
 
-                <h1 class="article-title" id="post-title">Loading Title...</h1>
+                <h1 class="article-title" id="post-title">...</h1>
                 
-                <div id="post-tags" class="tags-container">
-                    </div>
+                <div id="post-tags" class="tags-container"></div>
                 
-                <div class="summary-box">
-                    <div style="font-weight: 700; margin-bottom: 10px; color: #0969da;">⚡ Key Takeaway:</div>
-                    <span id="post-summary">...</span>
-                </div>
+                <div id="formatted-summary-container"></div>
 
-                <div class="content-body" id="post-body">
-                </div>
-
-                <a href="#" target="_blank" id="post-link" class="original-link-btn">Read Original Paper ↗</a>
+                <a href="#" target="_blank" id="post-link" class="pubmed-btn">
+                    Read Original Paper <span style="font-size: 1.2em;">↗</span>
+                </a>
             </article>
         </main>
     </div>
@@ -192,7 +274,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
             try {
-                // Fetch JSON database
                 const response = await fetch('./research_blog.json'); 
                 const posts = await response.json();
                 
@@ -224,22 +305,19 @@
         }
 
         function loadArticle(post) {
-            // UI Toggle
+            // 1. UI Toggle
             document.getElementById('empty-state').style.display = 'none';
             const articleView = document.getElementById('article-view');
             articleView.classList.remove('visible');
             
-            // Set Text Content
+            // 2. Set Basic Info
             document.getElementById('post-date').textContent = post.date;
-            document.getElementById('post-id').textContent = post.id.substring(0, 8) + "..."; // Show short ID
+            document.getElementById('post-id').textContent = post.id.substring(0, 8);
             document.getElementById('post-title').textContent = post.title;
-            document.getElementById('post-summary').textContent = post.summary;
-            document.getElementById('post-body').innerHTML = post.content || "<p><em>No full content available. Please view the original paper.</em></p>";
-            document.getElementById('post-link').href = post.link;
 
-            // Render Tags
+            // 3. Render Tags
             const tagsContainer = document.getElementById('post-tags');
-            tagsContainer.innerHTML = ''; // Clear old tags
+            tagsContainer.innerHTML = ''; 
             if (post.tags && Array.isArray(post.tags)) {
                 post.tags.forEach(tag => {
                     const tagEl = document.createElement('span');
@@ -249,19 +327,90 @@
                 });
             }
 
-            // Highlight Sidebar
+            // 4. SMART SUMMARY FORMATTING (หัวใจสำคัญของการจัดหน้า)
+            const summaryContainer = document.getElementById('formatted-summary-container');
+            summaryContainer.innerHTML = parseSummaryToSections(post.summary);
+
+            // 5. Link Logic (Prioritize PubMed via PMID, fallback to Notion Link)
+            const linkBtn = document.getElementById('post-link');
+            
+            if (post.pmid) {
+                // ถ้ามี PMID ให้ไป PubMed
+                linkBtn.href = `https://pubmed.ncbi.nlm.nih.gov/${post.pmid}/`;
+                linkBtn.innerHTML = `View on PubMed ↗`;
+                linkBtn.style.display = 'inline-flex';
+            } else if (post.link) {
+                // ถ้าไม่มี PMID ให้ใช้ Link เดิม (Notion)
+                linkBtn.href = post.link;
+                linkBtn.innerHTML = `Read Original Paper ↗`;
+                linkBtn.style.display = 'inline-flex';
+            } else {
+                // ถ้าไม่มีอะไรเลย ซ่อนปุ่ม
+                linkBtn.style.display = 'none';
+            }
+
+            // 6. Highlight Sidebar
             document.querySelectorAll('.article-list-item').forEach(el => el.classList.remove('active'));
             const activeEl = document.querySelector(`.article-list-item[data-id="${post.id}"]`);
             if(activeEl) activeEl.classList.add('active');
 
-            // URL Update
+            // 7. URL Update
             history.pushState(null, '', `?id=${post.id}`);
 
-            // Animation
+            // 8. Animation & Scroll
             setTimeout(() => articleView.classList.add('visible'), 50);
-            
-            // Scroll top
             document.querySelector('.main-content').scrollTop = 0;
+        }
+
+        // --- ฟังก์ชันแปลง Text ก้อนใหญ่ ให้เป็น HTML Section สวยๆ ---
+        function parseSummaryToSections(text) {
+            if (!text) return '<p>No summary available.</p>';
+
+            // แยกบรรทัดตาม \n หรือ - (hyphen) ที่ขึ้นต้นบรรทัด
+            const lines = text.split(/\n/); 
+            let html = '';
+
+            lines.forEach(line => {
+                let cleanLine = line.trim();
+                // ลบตัว - หรือ * ที่อยู่หน้าประโยคออก
+                cleanLine = cleanLine.replace(/^-\s*/, '').replace(/^\*\*/, '').replace(/\*\*$/, ''); 
+
+                if (!cleanLine) return;
+
+                if (cleanLine.includes('วัตถุประสงค์') || cleanLine.toLowerCase().includes('objective')) {
+                    const content = cleanLine.replace(/.*วัตถุประสงค์[:：]?\s*|.*Objective[:：]?\s*/i, '');
+                    html += `
+                        <div class="research-section section-objective">
+                            <div class="sec-header">🎯 วัตถุประสงค์ (Objective)</div>
+                            <div class="sec-content">${content}</div>
+                        </div>`;
+                } 
+                else if (cleanLine.includes('วิธีการ') || cleanLine.toLowerCase().includes('method')) {
+                    const content = cleanLine.replace(/.*วิธีการ[:：]?\s*|.*Method[:：]?\s*/i, '');
+                    html += `
+                        <div class="research-section section-methods">
+                            <div class="sec-header">⚙️ วิธีการ (Methods)</div>
+                            <div class="sec-content">${content}</div>
+                        </div>`;
+                } 
+                else if (cleanLine.includes('ผลลัพธ์') || cleanLine.toLowerCase().includes('result') || cleanLine.includes('สรุป')) {
+                    const content = cleanLine.replace(/.*ผลลัพธ์.*[:：]?\s*|.*Result.*[:：]?\s*|.*สรุป[:：]?\s*/i, '');
+                    html += `
+                        <div class="research-section section-results">
+                            <div class="sec-header">📊 ผลลัพธ์ (Results & Conclusion)</div>
+                            <div class="sec-content">${content}</div>
+                        </div>`;
+                } 
+                else {
+                    // ข้อความทั่วไป ที่จับ Pattern ไม่ได้
+                     html += `
+                        <div class="research-section section-default">
+                            <div class="sec-content">${cleanLine}</div>
+                        </div>`;
+                }
+            });
+
+            return html;
         }
 
         function handleRouting(posts) {
