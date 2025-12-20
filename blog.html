@@ -7,46 +7,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* --- Professional Navy Theme --- */
+            /* --- Clean Academic Theme --- */
             --bg: #ffffff;
-            --bg-sidebar: #f8fafc; /* Slate-50 */
-            --text: #334155;       /* Slate-700 */
-            --text-title: #0f172a; /* Slate-900 */
-            --text-secondary: #64748b; /* Slate-500 */
+            --bg-sidebar: #f9fafb; /* Very light grey */
+            --text: #1a202c;       /* Near Black for readability */
+            --text-secondary: #555; 
             
-            --accent: #1e3a8a;     /* Blue-900 (Navy) */
-            --accent-hover: #172554; /* Blue-950 */
-            --accent-light: #eff6ff; /* Blue-50 */
+            --accent: #0f172a;     /* Dark Navy/Black for headers */
+            --link-color: #2563eb; /* Standard Academic Blue Link */
             
-            --border: #e2e8f0;     /* Slate-200 */
-            
-            /* Section Colors (Muted/Professional) */
-            --sec-obj-bg: #f0f9ff;   /* Sky-50 */
-            --sec-obj-border: #0ea5e9; /* Sky-500 */
-            --sec-obj-text: #0c4a6e;   /* Sky-900 */
-
-            --sec-method-bg: #f0fdf4; /* Green-50 */
-            --sec-method-border: #22c55e; /* Green-500 */
-            --sec-method-text: #14532d;   /* Green-900 */
-
-            --sec-result-bg: #fff7ed; /* Orange-50 */
-            --sec-result-border: #f97316; /* Orange-500 */
-            --sec-result-text: #7c2d12;   /* Orange-900 */
-            
-            --sec-default-bg: #f1f5f9; /* Slate-100 */
+            --border: #e2e8f0;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Inter', 'Sarabun', sans-serif;
+            font-family: 'Sarabun', 'Inter', sans-serif; /* Sarabun first for better Thai support */
             background: var(--bg);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.8; /* เพิ่ม Line-height ให้อ่านง่ายแบบ Paper */
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Layout 1:4 Ratio --- */
+        /* --- Layout --- */
         .container {
             max-width: 1400px; 
             margin: 0 auto;
@@ -54,11 +37,11 @@
             min-height: 100vh;
         }
 
-        /* Sidebar (20%) */
+        /* Sidebar */
         .sidebar {
             width: 20%;
             min-width: 260px;
-            padding: 40px 24px;
+            padding: 50px 30px;
             border-right: 1px solid var(--border);
             position: sticky;
             top: 0;
@@ -67,194 +50,159 @@
             background-color: var(--bg-sidebar);
         }
 
-        /* Content (80%) */
+        /* Main Content */
         .main-content {
             flex: 1; 
-            padding: 60px 80px; 
+            padding: 60px 100px; /* พื้นที่อ่านกว้างๆ */
             overflow-y: auto;
             background: white;
         }
 
-        /* --- Components --- */
+        /* --- Sidebar Elements --- */
         .brand { 
-            font-weight: 800; 
-            font-size: 1.1rem; 
-            margin-bottom: 30px; 
+            font-family: 'Inter', sans-serif;
+            font-weight: 700; 
+            font-size: 1rem; 
+            margin-bottom: 40px; 
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             text-decoration: none; 
-            color: var(--accent);
-            letter-spacing: -0.02em;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .nav-header { 
-            font-size: 0.7rem; 
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem; 
             text-transform: uppercase; 
-            letter-spacing: 1.2px; 
-            color: var(--text-secondary); 
-            margin-top: 25px; 
-            margin-bottom: 15px; 
-            font-weight: 700; 
+            letter-spacing: 1.5px; 
+            color: #888; 
+            margin-bottom: 20px; 
+            font-weight: 600; 
         }
 
         .article-list-item {
             display: block;
-            padding: 14px 16px;
-            margin-bottom: 6px;
-            border-radius: 8px;
+            padding: 10px 0;
+            margin-bottom: 5px;
             text-decoration: none;
-            color: var(--text);
+            color: #444;
             transition: all 0.2s ease;
             cursor: pointer;
-            border: 1px solid transparent;
+            border-bottom: 1px solid transparent;
         }
 
         .article-list-item:hover { 
-            background: #ffffff;
-            border-color: var(--border);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            color: #000;
         }
         
         .article-list-item.active { 
-            background: #ffffff; 
-            color: var(--accent); 
-            border: 1px solid var(--border);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            font-weight: 600;
-            border-left: 4px solid var(--accent);
+            color: #000; 
+            font-weight: 700;
+            border-left: 3px solid #000;
+            padding-left: 15px;
         }
 
-        .list-title { font-size: 0.95rem; line-height: 1.45; }
-        .list-date { font-size: 0.75rem; color: var(--text-secondary); margin-top: 6px; }
+        .list-title { font-size: 0.95rem; line-height: 1.5; }
+        .list-date { font-size: 0.75rem; color: #888; margin-top: 4px; font-family: 'Inter', sans-serif; }
 
-        /* Article View */
-        .article-view { max-width: 850px; margin: 0 auto; display: none; }
-        .article-view.visible { display: block; animation: fadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        /* --- Article View (Academic Style) --- */
+        .article-view { max-width: 800px; margin: 0 auto; display: none; }
+        .article-view.visible { display: block; animation: fadeIn 0.5s ease; }
 
         .article-meta { 
-            color: var(--text-secondary); 
+            font-family: 'Inter', sans-serif;
+            color: #666; 
             font-size: 0.9rem; 
-            margin-bottom: 20px; 
+            margin-bottom: 10px; 
             display: flex; 
             align-items: center; 
-            gap: 12px; 
-            font-weight: 500;
+            gap: 15px; 
         }
         
         .article-title { 
             font-family: 'Inter', 'Sarabun', sans-serif; 
-            font-size: 2.25rem; 
-            font-weight: 800; 
-            line-height: 1.25; 
-            margin-bottom: 24px; 
-            color: var(--text-title);
-            letter-spacing: -0.03em;
+            font-size: 2.5rem; 
+            font-weight: 700; 
+            line-height: 1.3; 
+            margin-bottom: 30px; 
+            color: #000;
+            letter-spacing: -0.5px;
         }
 
         /* Tags */
-        .tags-container { margin-bottom: 40px; display: flex; gap: 8px; flex-wrap: wrap; }
+        .tags-container { 
+            margin-bottom: 50px; 
+            display: flex; 
+            gap: 10px; 
+            border-bottom: 1px solid #eee;
+            padding-bottom: 30px;
+        }
         .tag-badge {
             display: inline-block;
-            background: var(--accent-light);
-            color: var(--accent);
+            background: #f1f1f1;
+            color: #333;
             font-size: 0.75rem;
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-weight: 600;
-            border: 1px solid rgba(30, 58, 138, 0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 500;
         }
 
-        /* --- Research Sections Styling (Professional Cards) --- */
+        /* --- Research Sections (Clean Academic) --- */
         .research-section {
-            margin-bottom: 24px;
-            padding: 24px 28px;
-            border-radius: 8px;
-            background: #ffffff;
-            /* box-shadow: 0 1px 3px rgba(0,0,0,0.05); */
-            border-left: 4px solid #ccc; /* Default fallback */
+            margin-bottom: 40px;
+            /* ไม่มีพื้นหลัง ไม่มีกรอบ */
         }
 
         .sec-header {
+            font-family: 'Inter', 'Sarabun', sans-serif;
             font-weight: 700;
-            font-size: 1.05rem;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #000;
+            border-bottom: 2px solid #000; /* เส้นใต้หนาๆ แบบหัวข้อวิจัย */
+            display: inline-block;
+            padding-bottom: 5px;
         }
 
         .sec-content {
-            font-size: 1.05rem;
-            color: #334155;
-            line-height: 1.75;
+            font-size: 1.1rem;
+            color: #222;
+            text-align: justify; /* จัดชิดขอบซ้ายขวา */
         }
 
-        /* Color Themes for Sections */
-        .section-objective {
-            background-color: var(--sec-obj-bg);
-            border-left-color: var(--sec-obj-border);
-        }
-        .section-objective .sec-header { color: var(--sec-obj-text); }
-
-        .section-methods {
-            background-color: var(--sec-method-bg);
-            border-left-color: var(--sec-method-border);
-        }
-        .section-methods .sec-header { color: var(--sec-method-text); }
-
-        .section-results {
-            background-color: var(--sec-result-bg);
-            border-left-color: var(--sec-result-border);
-        }
-        .section-results .sec-header { color: var(--sec-result-text); }
-
-        .section-default {
-            background-color: var(--sec-default-bg);
-            border-left-color: var(--text-secondary);
-        }
-
-        /* Link Button (Navy) */
-        .pubmed-btn {
+        /* Link (Simple Text Link) */
+        .pubmed-link {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
-            margin-top: 50px;
-            padding: 14px 28px;
-            background: var(--accent);
-            color: white;
+            gap: 6px;
+            margin-top: 60px;
+            color: var(--link-color);
             text-decoration: none;
-            border-radius: 8px;
             font-weight: 600;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 6px -1px rgba(30, 58, 138, 0.2);
+            font-family: 'Inter', sans-serif;
+            border-bottom: 1px solid transparent;
         }
-        .pubmed-btn:hover { 
-            background: var(--accent-hover); 
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(30, 58, 138, 0.2);
+        .pubmed-link:hover { 
+            border-bottom: 1px solid var(--link-color);
         }
 
         /* Empty State */
         .empty-state { 
             text-align: center; 
-            color: var(--text-secondary); 
+            color: #999; 
             margin-top: 20vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
-        .empty-icon { font-size: 4rem; margin-bottom: 20px; opacity: 0.2; filter: grayscale(100%); }
+        .empty-icon { font-size: 3rem; margin-bottom: 20px; opacity: 0.3; filter: grayscale(100%); }
 
-        /* Mobile Responsive */
+        /* Mobile */
         @media (max-width: 1024px) {
             .container { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 20px; }
+            .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 30px; }
             .main-content { padding: 40px 20px; }
-            .article-title { font-size: 1.75rem; }
+            .article-title { font-size: 1.8rem; }
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -264,28 +212,25 @@
 
     <div class="container">
         <aside class="sidebar">
-            <a href="index.html" class="brand">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-                BACK TO HOME
-            </a>
+            <a href="index.html" class="brand">← Back to Home</a>
             
-            <div class="nav-header">Research Archive</div>
+            <div class="nav-header">Research Index</div>
             <div id="sidebar-list">
-                <div style="padding:10px; color:var(--text-secondary); font-size: 0.9rem;">Loading research data...</div>
+                <div style="padding:10px; color:#888;">Loading...</div>
             </div>
         </aside>
 
         <main class="main-content">
             <div id="empty-state" class="empty-state">
-                <div class="empty-icon">📑</div>
-                <h3 style="font-weight: 500;">Select a research paper from the sidebar</h3>
+                <div class="empty-icon">📄</div>
+                <h3 style="font-weight: 500;">Select a paper to read</h3>
             </div>
 
             <article id="article-view" class="article-view">
                 <div class="article-meta">
                     <span id="post-date">...</span> 
-                    <span style="color: var(--border);">|</span>
-                    <span style="font-family: monospace; background: var(--bg-sidebar); padding: 2px 8px; border-radius: 4px; color: var(--text-title);">ID: <span id="post-id"></span></span>
+                    <span style="color: #ccc;">|</span>
+                    <span style="font-family: monospace;">ID: <span id="post-id"></span></span>
                 </div>
 
                 <h1 class="article-title" id="post-title">...</h1>
@@ -294,9 +239,8 @@
                 
                 <div id="formatted-summary-container"></div>
 
-                <a href="#" target="_blank" id="post-link" class="pubmed-btn">
-                    View on PubMed 
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                <a href="#" target="_blank" id="post-link" class="pubmed-link">
+                    View Original Paper on PubMed ↗
                 </a>
             </article>
         </main>
@@ -336,17 +280,17 @@
         }
 
         function loadArticle(post) {
-            // 1. UI Toggle
+            // UI Toggle
             document.getElementById('empty-state').style.display = 'none';
             const articleView = document.getElementById('article-view');
             articleView.classList.remove('visible');
             
-            // 2. Set Basic Info
+            // Set Info
             document.getElementById('post-date').textContent = post.date;
             document.getElementById('post-id').textContent = post.id.substring(0, 8);
             document.getElementById('post-title').textContent = post.title;
 
-            // 3. Render Tags
+            // Render Tags
             const tagsContainer = document.getElementById('post-tags');
             tagsContainer.innerHTML = ''; 
             if (post.tags && Array.isArray(post.tags)) {
@@ -358,87 +302,82 @@
                 });
             }
 
-            // 4. SMART SUMMARY FORMATTING
+            // --- SMART PARSING (Fixed for Missing Results) ---
             const summaryContainer = document.getElementById('formatted-summary-container');
             summaryContainer.innerHTML = parseSummaryToSections(post.summary);
 
-            // 5. Link Logic (Strictly PMID to PubMed)
+            // Link Logic
             const linkBtn = document.getElementById('post-link');
-            
             if (post.pmid) {
-                // Link to PubMed using PMID
                 linkBtn.href = `https://pubmed.ncbi.nlm.nih.gov/${post.pmid}/`;
-                linkBtn.innerHTML = `
-                    View on PubMed 
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                `;
+                linkBtn.innerHTML = `View Original Paper on PubMed ↗`;
                 linkBtn.style.display = 'inline-flex';
             } else if (post.link) {
-                // Fallback to original link if PMID is missing
                 linkBtn.href = post.link;
-                linkBtn.innerHTML = `
-                    Read Original Source 
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left:6px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                `;
+                linkBtn.innerHTML = `Read Original Source ↗`;
                 linkBtn.style.display = 'inline-flex';
             } else {
                 linkBtn.style.display = 'none';
             }
 
-            // 6. Highlight Sidebar
+            // Sidebar Active State
             document.querySelectorAll('.article-list-item').forEach(el => el.classList.remove('active'));
             const activeEl = document.querySelector(`.article-list-item[data-id="${post.id}"]`);
             if(activeEl) activeEl.classList.add('active');
 
-            // 7. URL Update
+            // Routing
             history.pushState(null, '', `?id=${post.id}`);
 
-            // 8. Animation & Scroll
+            // Animation
             setTimeout(() => articleView.classList.add('visible'), 50);
             document.querySelector('.main-content').scrollTop = 0;
         }
 
-        // --- ฟังก์ชันแปลง Text ก้อนใหญ่ ให้เป็น HTML Section สวยๆ ---
+        // --- Logic การแปลงข้อความที่ปรับปรุงแล้ว ---
         function parseSummaryToSections(text) {
-            if (!text) return '<p style="color:#999;">No summary available.</p>';
+            if (!text) return '<p style="color:#999; font-style:italic;">No summary content available.</p>';
 
             const lines = text.split(/\n/); 
             let html = '';
 
             lines.forEach(line => {
                 let cleanLine = line.trim();
-                // ลบตัว - หรือ * ที่อยู่หน้าประโยคออก
-                cleanLine = cleanLine.replace(/^-\s*/, '').replace(/^\*\*/, '').replace(/\*\*$/, ''); 
+                // เอาตัวอักษรนำหน้าออก (-, *, etc.)
+                cleanLine = cleanLine.replace(/^[-•*]\s*/, '').replace(/^\*\*/, '').replace(/\*\*$/, ''); 
 
                 if (!cleanLine) return;
 
-                if (cleanLine.includes('วัตถุประสงค์') || cleanLine.toLowerCase().includes('objective')) {
-                    const content = cleanLine.replace(/.*วัตถุประสงค์[:：]?\s*|.*Objective[:：]?\s*/i, '');
+                // ตรวจสอบ Keyword (ปรับ Regex ให้ยืดหยุ่นขึ้น เพื่อไม่ให้ลบเนื้อหาทิ้ง)
+                if (cleanLine.match(/วัตถุประสงค์|Objective/i)) {
+                    // ลบคำว่า "วัตถุประสงค์:" ออกจากเนื้อหาที่จะแสดง
+                    const content = cleanLine.replace(/^(วัตถุประสงค์|Objective).*?[:：]\s*/i, '');
                     html += `
-                        <div class="research-section section-objective">
-                            <div class="sec-header">🎯 วัตถุประสงค์ (Objective)</div>
-                            <div class="sec-content">${content}</div>
+                        <div class="research-section">
+                            <div class="sec-header">Objective</div>
+                            <div class="sec-content">${content || cleanLine}</div>
                         </div>`;
                 } 
-                else if (cleanLine.includes('วิธีการ') || cleanLine.toLowerCase().includes('method')) {
-                    const content = cleanLine.replace(/.*วิธีการ[:：]?\s*|.*Method[:：]?\s*/i, '');
+                else if (cleanLine.match(/วิธีการ|Method/i)) {
+                    const content = cleanLine.replace(/^(วิธีการ|Method|Methods).*?[:：]\s*/i, '');
                     html += `
-                        <div class="research-section section-methods">
-                            <div class="sec-header">⚙️ วิธีการ (Methods)</div>
-                            <div class="sec-content">${content}</div>
+                        <div class="research-section">
+                            <div class="sec-header">Methods</div>
+                            <div class="sec-content">${content || cleanLine}</div>
                         </div>`;
                 } 
-                else if (cleanLine.includes('ผลลัพธ์') || cleanLine.toLowerCase().includes('result') || cleanLine.includes('สรุป')) {
-                    const content = cleanLine.replace(/.*ผลลัพธ์.*[:：]?\s*|.*Result.*[:：]?\s*|.*สรุป[:：]?\s*/i, '');
+                else if (cleanLine.match(/ผลลัพธ์|Result|Conclusion|สรุป/i)) {
+                    // Logic นี้ช่วยให้แสดงผลลัพธ์ได้แม้จะมีข้อความยาวๆ ต่อท้าย
+                    const content = cleanLine.replace(/^(ผลลัพธ์|ผลวิเคราะห์|Results|Result|Conclusion|สรุป).*?[:：]\s*/i, '');
                     html += `
-                        <div class="research-section section-results">
-                            <div class="sec-header">📊 ผลลัพธ์ (Results & Conclusion)</div>
-                            <div class="sec-content">${content}</div>
+                        <div class="research-section">
+                            <div class="sec-header">Results & Conclusion</div>
+                            <div class="sec-content">${content || cleanLine}</div>
                         </div>`;
                 } 
                 else {
+                    // กรณีเป็นข้อความบรรทัดอื่นๆ หรือย่อหน้าถัดมา
                      html += `
-                        <div class="research-section section-default">
+                        <div class="research-section">
                             <div class="sec-content">${cleanLine}</div>
                         </div>`;
                 }
