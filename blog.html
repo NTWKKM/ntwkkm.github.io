@@ -4,32 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Research Blog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* --- Clean Academic Theme --- */
-            --bg: #ffffff;
-            --bg-sidebar: #f9fafb; /* Very light grey */
-            --text: #1a202c;       /* Near Black for readability */
-            --text-secondary: #555; 
+            /* --- Professional Navy Palette --- */
+            --bg-body: #ffffff;
+            --bg-sidebar: #f8fafc; /* Very Light Slate */
             
-            --accent: #0f172a;     /* Dark Navy/Black for headers */
-            --link-color: #2563eb; /* Standard Academic Blue Link */
+            --text-main: #1e293b;  /* Slate 800 - เนื้อหาหลักอ่านง่าย */
+            --text-muted: #64748b; /* Slate 500 - วันที่/Meta */
             
-            --border: #e2e8f0;
+            --navy-primary: #0f172a; /* Slate 900 - หัวข้อหลัก */
+            --navy-accent: #1e40af;  /* Blue 800 - จุดเน้น/Links */
+            
+            --border-color: #e2e8f0;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Sarabun', 'Inter', sans-serif; /* Sarabun first for better Thai support */
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.8; /* เพิ่ม Line-height ให้อ่านง่ายแบบ Paper */
+            font-family: 'Sarabun', 'Inter', sans-serif;
+            background: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7; /* ระยะบรรทัดกว้างขึ้นให้อ่านสบายแบบ Paper */
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- Layout --- */
+        /* --- Layout (20% Sidebar | 80% Content) --- */
         .container {
             max-width: 1400px; 
             margin: 0 auto;
@@ -40,9 +41,9 @@
         /* Sidebar */
         .sidebar {
             width: 20%;
-            min-width: 260px;
-            padding: 50px 30px;
-            border-right: 1px solid var(--border);
+            min-width: 280px;
+            padding: 60px 30px;
+            border-right: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             height: 100vh;
@@ -53,7 +54,7 @@
         /* Main Content */
         .main-content {
             flex: 1; 
-            padding: 60px 100px; /* พื้นที่อ่านกว้างๆ */
+            padding: 80px 100px; 
             overflow-y: auto;
             background: white;
         }
@@ -61,75 +62,79 @@
         /* --- Sidebar Elements --- */
         .brand { 
             font-family: 'Inter', sans-serif;
-            font-weight: 700; 
-            font-size: 1rem; 
+            font-weight: 800; 
+            font-size: 0.9rem; 
             margin-bottom: 40px; 
             display: flex;
             align-items: center;
             gap: 10px;
             text-decoration: none; 
-            color: var(--text);
+            color: var(--navy-primary);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.05em;
         }
         
         .nav-header { 
             font-family: 'Inter', sans-serif;
-            font-size: 0.75rem; 
+            font-size: 0.7rem; 
             text-transform: uppercase; 
             letter-spacing: 1.5px; 
-            color: #888; 
+            color: var(--text-muted); 
             margin-bottom: 20px; 
-            font-weight: 600; 
+            font-weight: 700; 
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
         }
 
         .article-list-item {
             display: block;
-            padding: 10px 0;
-            margin-bottom: 5px;
+            padding: 12px 0;
             text-decoration: none;
-            color: #444;
+            color: var(--text-muted);
             transition: all 0.2s ease;
             cursor: pointer;
-            border-bottom: 1px solid transparent;
+            border-left: 3px solid transparent;
+            padding-left: 10px;
+            margin-left: -13px; /* Align visual text */
         }
 
         .article-list-item:hover { 
-            color: #000;
+            color: var(--navy-accent);
         }
         
         .article-list-item.active { 
-            color: #000; 
-            font-weight: 700;
-            border-left: 3px solid #000;
-            padding-left: 15px;
+            color: var(--navy-primary); 
+            font-weight: 600;
+            border-left-color: var(--navy-accent);
         }
 
-        .list-title { font-size: 0.95rem; line-height: 1.5; }
-        .list-date { font-size: 0.75rem; color: #888; margin-top: 4px; font-family: 'Inter', sans-serif; }
+        .list-title { font-size: 0.95rem; line-height: 1.5; font-family: 'Inter', 'Sarabun', sans-serif;}
+        .list-date { font-size: 0.75rem; opacity: 0.7; margin-top: 4px; font-family: 'Inter', sans-serif; }
 
-        /* --- Article View (Academic Style) --- */
+        /* --- Article View (Clean Academic Style) --- */
         .article-view { max-width: 800px; margin: 0 auto; display: none; }
-        .article-view.visible { display: block; animation: fadeIn 0.5s ease; }
+        .article-view.visible { display: block; animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
 
         .article-meta { 
             font-family: 'Inter', sans-serif;
-            color: #666; 
-            font-size: 0.9rem; 
-            margin-bottom: 10px; 
+            color: var(--text-muted); 
+            font-size: 0.85rem; 
+            margin-bottom: 20px; 
             display: flex; 
             align-items: center; 
             gap: 15px; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .article-title { 
             font-family: 'Inter', 'Sarabun', sans-serif; 
             font-size: 2.5rem; 
-            font-weight: 700; 
+            font-weight: 800; 
             line-height: 1.3; 
             margin-bottom: 30px; 
-            color: #000;
-            letter-spacing: -0.5px;
+            color: var(--navy-primary);
+            letter-spacing: -0.02em;
         }
 
         /* Tags */
@@ -137,70 +142,76 @@
             margin-bottom: 50px; 
             display: flex; 
             gap: 10px; 
-            border-bottom: 1px solid #eee;
             padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
         }
         .tag-badge {
             display: inline-block;
-            background: #f1f1f1;
-            color: #333;
+            background: #f1f5f9;
+            color: var(--navy-primary);
             font-size: 0.75rem;
-            padding: 4px 10px;
+            padding: 4px 12px;
             border-radius: 4px;
-            font-weight: 500;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
         }
 
-        /* --- Research Sections (Clean Academic) --- */
+        /* --- Research Content Sections --- */
         .research-section {
             margin-bottom: 40px;
-            /* ไม่มีพื้นหลัง ไม่มีกรอบ */
         }
 
         .sec-header {
-            font-family: 'Inter', 'Sarabun', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #000;
-            border-bottom: 2px solid #000; /* เส้นใต้หนาๆ แบบหัวข้อวิจัย */
+            font-size: 1rem;
+            margin-bottom: 12px;
+            color: var(--navy-accent); /* Navy Blue Heading */
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            /* ขีดเส้นใต้บางๆ แบบเรียบหรู */
+            border-bottom: 2px solid #e2e8f0; 
             display: inline-block;
-            padding-bottom: 5px;
+            padding-bottom: 4px;
         }
 
         .sec-content {
             font-size: 1.1rem;
-            color: #222;
-            text-align: justify; /* จัดชิดขอบซ้ายขวา */
+            color: var(--text-main);
+            text-align: justify;
         }
 
-        /* Link (Simple Text Link) */
+        /* PubMed Link Button */
         .pubmed-link {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             margin-top: 60px;
-            color: var(--link-color);
+            color: var(--navy-accent);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-family: 'Inter', sans-serif;
-            border-bottom: 1px solid transparent;
+            font-size: 1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
         }
         .pubmed-link:hover { 
-            border-bottom: 1px solid var(--link-color);
+            border-bottom-color: var(--navy-accent);
+            transform: translateY(-1px);
         }
 
         /* Empty State */
         .empty-state { 
             text-align: center; 
-            color: #999; 
-            margin-top: 20vh;
+            color: var(--text-muted); 
+            margin-top: 30vh;
         }
-        .empty-icon { font-size: 3rem; margin-bottom: 20px; opacity: 0.3; filter: grayscale(100%); }
+        .empty-icon { font-size: 3rem; margin-bottom: 20px; opacity: 0.2; filter: grayscale(100%); }
 
-        /* Mobile */
+        /* Responsive */
         @media (max-width: 1024px) {
             .container { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 30px; }
+            .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border-color); padding: 30px; }
             .main-content { padding: 40px 20px; }
             .article-title { font-size: 1.8rem; }
         }
@@ -223,14 +234,14 @@
         <main class="main-content">
             <div id="empty-state" class="empty-state">
                 <div class="empty-icon">📄</div>
-                <h3 style="font-weight: 500;">Select a paper to read</h3>
+                <h3 style="font-weight: 500;">Select a research paper from the sidebar</h3>
             </div>
 
             <article id="article-view" class="article-view">
                 <div class="article-meta">
                     <span id="post-date">...</span> 
                     <span style="color: #ccc;">|</span>
-                    <span style="font-family: monospace;">ID: <span id="post-id"></span></span>
+                    <span>ID: <span id="post-id" style="font-family: monospace;"></span></span>
                 </div>
 
                 <h1 class="article-title" id="post-title">...</h1>
@@ -240,7 +251,7 @@
                 <div id="formatted-summary-container"></div>
 
                 <a href="#" target="_blank" id="post-link" class="pubmed-link">
-                    View Original Paper on PubMed ↗
+                    View on PubMed ↗
                 </a>
             </article>
         </main>
@@ -249,6 +260,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
             try {
+                // Load JSON Data
                 const response = await fetch('./research_blog.json'); 
                 const posts = await response.json();
                 
@@ -280,12 +292,12 @@
         }
 
         function loadArticle(post) {
-            // UI Toggle
+            // UI Reset
             document.getElementById('empty-state').style.display = 'none';
             const articleView = document.getElementById('article-view');
             articleView.classList.remove('visible');
             
-            // Set Info
+            // Set Data
             document.getElementById('post-date').textContent = post.date;
             document.getElementById('post-id').textContent = post.id.substring(0, 8);
             document.getElementById('post-title').textContent = post.title;
@@ -302,11 +314,11 @@
                 });
             }
 
-            // --- SMART PARSING (Fixed for Missing Results) ---
+            // --- SMART PARSING LOGIC (Fixed for Robustness) ---
             const summaryContainer = document.getElementById('formatted-summary-container');
             summaryContainer.innerHTML = parseSummaryToSections(post.summary);
 
-            // Link Logic
+            // Link Logic (PMID Priority)
             const linkBtn = document.getElementById('post-link');
             if (post.pmid) {
                 linkBtn.href = `https://pubmed.ncbi.nlm.nih.gov/${post.pmid}/`;
@@ -320,20 +332,18 @@
                 linkBtn.style.display = 'none';
             }
 
-            // Sidebar Active State
+            // Sidebar Highlight
             document.querySelectorAll('.article-list-item').forEach(el => el.classList.remove('active'));
             const activeEl = document.querySelector(`.article-list-item[data-id="${post.id}"]`);
             if(activeEl) activeEl.classList.add('active');
 
-            // Routing
+            // URL & Scroll
             history.pushState(null, '', `?id=${post.id}`);
-
-            // Animation
             setTimeout(() => articleView.classList.add('visible'), 50);
             document.querySelector('.main-content').scrollTop = 0;
         }
 
-        // --- Logic การแปลงข้อความที่ปรับปรุงแล้ว ---
+        // --- Improved Parsing Logic ---
         function parseSummaryToSections(text) {
             if (!text) return '<p style="color:#999; font-style:italic;">No summary content available.</p>';
 
@@ -342,40 +352,42 @@
 
             lines.forEach(line => {
                 let cleanLine = line.trim();
-                // เอาตัวอักษรนำหน้าออก (-, *, etc.)
+                // ลบตัวอักษรนำหน้า (-, *, bullets)
                 cleanLine = cleanLine.replace(/^[-•*]\s*/, '').replace(/^\*\*/, '').replace(/\*\*$/, ''); 
 
                 if (!cleanLine) return;
 
-                // ตรวจสอบ Keyword (ปรับ Regex ให้ยืดหยุ่นขึ้น เพื่อไม่ให้ลบเนื้อหาทิ้ง)
+                // ตรวจสอบ Keyword เพื่อกำหนด Header
+                let sectionTitle = "";
+                let sectionContent = cleanLine;
+
+                // Robust regex check
                 if (cleanLine.match(/วัตถุประสงค์|Objective/i)) {
-                    // ลบคำว่า "วัตถุประสงค์:" ออกจากเนื้อหาที่จะแสดง
-                    const content = cleanLine.replace(/^(วัตถุประสงค์|Objective).*?[:：]\s*/i, '');
+                    sectionTitle = "Objective";
+                } else if (cleanLine.match(/วิธีการ|Method/i)) {
+                    sectionTitle = "Methods";
+                } else if (cleanLine.match(/ผลลัพธ์|Result|Conclusion|สรุป/i)) {
+                    sectionTitle = "Results & Conclusion";
+                }
+
+                if (sectionTitle) {
+                    // พยายามตัด Header ภาษาไทย/อังกฤษ ออกจาก Content
+                    // หาเครื่องหมาย : ตัวแรก
+                    const colonIndex = cleanLine.search(/[:：]/);
+                    if (colonIndex !== -1) {
+                        sectionContent = cleanLine.substring(colonIndex + 1).trim();
+                    } else {
+                        // ถ้าไม่มี : ให้ลบคำนำหน้าออกด้วย Regex
+                        sectionContent = cleanLine.replace(/^(วัตถุประสงค์|Objective|วิธีการ|Method|Methods|Results|Result|Conclusion|สรุป|ผลลัพธ์|ผลวิเคราะห์).*?(\s+)/i, '').trim();
+                    }
+
                     html += `
                         <div class="research-section">
-                            <div class="sec-header">Objective</div>
-                            <div class="sec-content">${content || cleanLine}</div>
+                            <div class="sec-header">${sectionTitle}</div>
+                            <div class="sec-content">${sectionContent}</div>
                         </div>`;
-                } 
-                else if (cleanLine.match(/วิธีการ|Method/i)) {
-                    const content = cleanLine.replace(/^(วิธีการ|Method|Methods).*?[:：]\s*/i, '');
-                    html += `
-                        <div class="research-section">
-                            <div class="sec-header">Methods</div>
-                            <div class="sec-content">${content || cleanLine}</div>
-                        </div>`;
-                } 
-                else if (cleanLine.match(/ผลลัพธ์|Result|Conclusion|สรุป/i)) {
-                    // Logic นี้ช่วยให้แสดงผลลัพธ์ได้แม้จะมีข้อความยาวๆ ต่อท้าย
-                    const content = cleanLine.replace(/^(ผลลัพธ์|ผลวิเคราะห์|Results|Result|Conclusion|สรุป).*?[:：]\s*/i, '');
-                    html += `
-                        <div class="research-section">
-                            <div class="sec-header">Results & Conclusion</div>
-                            <div class="sec-content">${content || cleanLine}</div>
-                        </div>`;
-                } 
-                else {
-                    // กรณีเป็นข้อความบรรทัดอื่นๆ หรือย่อหน้าถัดมา
+                } else {
+                    // กรณีเป็นเนื้อหาทั่วไปที่ไม่มีหัวข้อ
                      html += `
                         <div class="research-section">
                             <div class="sec-content">${cleanLine}</div>
