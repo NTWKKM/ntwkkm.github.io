@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Research Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #24292f;
+            --gray: #6e7781;
+            --accent: #0969da;
+            --border: #d0d7de;
+            --bg-secondary: #f6f8fa;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar (Left) */
+        .sidebar {
+            width: 300px;
+            padding: 40px 20px 40px 0;
+            border-right: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .brand { font-weight: 800; font-size: 1.2rem; margin-bottom: 30px; display: block; text-decoration: none; color: var(--text); }
+        
+        .nav-header { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--gray); margin-top: 20px; margin-bottom: 10px; font-weight: 700; }
+
+        .article-list-item {
+            display: block;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text);
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .article-list-item:hover { background: var(--bg-secondary); }
+        .article-list-item.active { background: #eef3f8; color: var(--accent); border-left: 3px solid var(--accent); }
+
+        .list-title { font-weight: 600; font-size: 0.95rem; line-height: 1.4; }
+        .list-date { font-size: 0.8rem; color: var(--gray); margin-top: 4px; }
+
+        /* Main Content (Right) */
+        .main-content {
+            flex: 1;
+            padding: 60px 60px;
+            overflow-y: auto;
+        }
+
+        /* Typography for Article */
+        .article-view { max-width: 680px; margin: 0 auto; display: none; /* Hidden initially */ }
+        .article-view.visible { display: block; animation: fadeIn 0.5s ease; }
+
+        .article-meta { font-family: 'Inter', sans-serif; color: var(--gray); font-size: 0.9rem; margin-bottom: 15px; }
+        .article-title { font-family: 'Inter', sans-serif; font-size: 2.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 30px; letter-spacing: -0.5px; }
+        
+        /* Summary Box */
+        .summary-box {
+            background: #f1f8ff;
+            border: 1px solid #cce3ff; /* Blue border */
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            font-size: 1.05rem;
+            color: #24292f;
+        }
+
+        .content-body {
+            font-family: 'Merriweather', serif; /* Serif for reading */
+            font-size: 1.125rem;
+            color: #24292f;
+        }
+
+        .content-body h3 { font-family: 'Inter', sans-serif; margin-top: 40px; margin-bottom: 15px; font-size: 1.5rem; }
+        .content-body p { margin-bottom: 24px; }
+        .content-body ul { margin-bottom: 24px; padding-left: 20px; }
+        .content-body li { margin-bottom: 10px; }
+        
+        .original-link-btn {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 10px 20px;
+            background: var(--text);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+        .original-link-btn:hover { opacity: 0.8; }
+
+        /* Empty State */
+        .empty-state { text-align: center; color: var(--gray); margin-top: 100px; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 20px; }
+            .main-content { padding: 30px 20px; }
+            .article-title { font-size: 1.8rem; }
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+            <a href="index.html" class="brand">← NTWKKM Blog</a>
+            
+            <div class="nav-header">Latest Research</div>
+            <div id="sidebar-list">
+                <div style="padding:10px; color:var(--gray);">Loading...</div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div id="empty-state" class="empty-state">
+                <h3>Select an article to start reading</h3>
+            </div>
+
+            <article id="article-view" class="article-view">
+                <div class="article-meta">
+                    <span id="post-date">Dec 20, 2025</span> • PMID: <span id="post-id"></span>
+                </div>
+                <h1 class="article-title" id="post-title">Loading Title...</h1>
+                
+                <div class="summary-box">
+                    <strong>⚡ Key Takeaway:</strong><br>
+                    <span id="post-summary">...</span>
+                </div>
+
+                <div class="content-body" id="post-body">
+                    </div>
+
+                <a href="#" target="_blank" id="post-link" class="original-link-btn">Read Original Paper ↗</a>
+            </article>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Fetch JSON database
+                const response = await fetch('./research_blog.json'); 
+                const posts = await response.json();
+                
+                renderSidebar(posts);
+                handleRouting(posts);
+
+            } catch (error) {
+                console.error("Error:", error);
+                document.getElementById('sidebar-list').innerHTML = "Failed to load articles.";
+            }
+        });
+
+        function renderSidebar(posts) {
+            const listContainer = document.getElementById('sidebar-list');
+            listContainer.innerHTML = '';
+
+            posts.forEach(post => {
+                const item = document.createElement('a');
+                item.className = 'article-list-item';
+                item.dataset.id = post.id;
+                item.innerHTML = `
+                    <div class="list-title">${post.title}</div>
+                    <div class="list-date">${post.date}</div>
+                `;
+                
+                item.onclick = () => loadArticle(post);
+                listContainer.appendChild(item);
+            });
+        }
+
+        function loadArticle(post) {
+            // UI Toggle
+            document.getElementById('empty-state').style.display = 'none';
+            const articleView = document.getElementById('article-view');
+            articleView.classList.remove('visible');
+            
+            // Set Content
+            document.getElementById('post-date').textContent = post.date;
+            document.getElementById('post-id').textContent = post.id;
+            document.getElementById('post-title').textContent = post.title;
+            document.getElementById('post-summary').textContent = post.summary;
+            document.getElementById('post-body').innerHTML = post.content || "<p>No deep content available.</p>"; // Allow HTML
+            document.getElementById('post-link').href = post.link;
+
+            // Highlight Sidebar
+            document.querySelectorAll('.article-list-item').forEach(el => el.classList.remove('active'));
+            const activeEl = document.querySelector(`.article-list-item[data-id="${post.id}"]`);
+            if(activeEl) activeEl.classList.add('active');
+
+            // URL Update
+            history.pushState(null, '', `?id=${post.id}`);
+
+            // Animation
+            setTimeout(() => articleView.classList.add('visible'), 50);
+            
+            // Scroll top
+            document.querySelector('.main-content').scrollTop = 0;
+        }
+
+        function handleRouting(posts) {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            if (id) {
+                const post = posts.find(p => p.id === id);
+                if (post) loadArticle(post);
+            }
+        }
+    </script>
+</body>
+</html>
