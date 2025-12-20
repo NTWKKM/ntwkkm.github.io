@@ -13,6 +13,8 @@
             --accent: #0969da;
             --border: #d0d7de;
             --bg-secondary: #f6f8fa;
+            --tag-bg: #ddf4ff;
+            --tag-text: #0969da;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -76,30 +78,46 @@
         .article-view { max-width: 680px; margin: 0 auto; display: none; /* Hidden initially */ }
         .article-view.visible { display: block; animation: fadeIn 0.5s ease; }
 
-        .article-meta { font-family: 'Inter', sans-serif; color: var(--gray); font-size: 0.9rem; margin-bottom: 15px; }
-        .article-title { font-family: 'Inter', sans-serif; font-size: 2.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 30px; letter-spacing: -0.5px; }
+        .article-meta { font-family: 'Inter', sans-serif; color: var(--gray); font-size: 0.9rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;}
+        .article-title { font-family: 'Inter', sans-serif; font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.5px; }
         
+        /* Tags */
+        .tags-container { margin-bottom: 30px; }
+        .tag-badge {
+            display: inline-block;
+            background: var(--tag-bg);
+            color: var(--tag-text);
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
         /* Summary Box */
         .summary-box {
             background: #f1f8ff;
-            border: 1px solid #cce3ff; /* Blue border */
-            padding: 20px;
+            border: 1px solid #cce3ff;
+            padding: 25px;
             border-radius: 8px;
             margin-bottom: 40px;
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: #24292f;
+            /* สำคัญ: ทำให้ \n ใน JSON แสดงผลเป็นบรรทัดใหม่ */
+            white-space: pre-line; 
         }
+        
+        /* ทำให้หัวข้อใน Summary (เช่น - วัตถุประสงค์:) ดูหนาขึ้นเล็กน้อย (Optional JS logic handled below) */
 
         .content-body {
-            font-family: 'Merriweather', serif; /* Serif for reading */
+            font-family: 'Merriweather', serif;
             font-size: 1.125rem;
             color: #24292f;
         }
 
         .content-body h3 { font-family: 'Inter', sans-serif; margin-top: 40px; margin-bottom: 15px; font-size: 1.5rem; }
         .content-body p { margin-bottom: 24px; }
-        .content-body ul { margin-bottom: 24px; padding-left: 20px; }
-        .content-body li { margin-bottom: 10px; }
         
         .original-link-btn {
             display: inline-block;
@@ -148,17 +166,23 @@
 
             <article id="article-view" class="article-view">
                 <div class="article-meta">
-                    <span id="post-date">Dec 20, 2025</span> • PMID: <span id="post-id"></span>
+                    <span id="post-date">Dec 20, 2025</span> 
+                    <span style="color: #ddd;">|</span>
+                    <span style="font-size: 0.8rem; opacity: 0.7;">ID: <span id="post-id"></span></span>
                 </div>
+
                 <h1 class="article-title" id="post-title">Loading Title...</h1>
                 
+                <div id="post-tags" class="tags-container">
+                    </div>
+                
                 <div class="summary-box">
-                    <strong>⚡ Key Takeaway:</strong><br>
+                    <div style="font-weight: 700; margin-bottom: 10px; color: #0969da;">⚡ Key Takeaway:</div>
                     <span id="post-summary">...</span>
                 </div>
 
                 <div class="content-body" id="post-body">
-                    </div>
+                </div>
 
                 <a href="#" target="_blank" id="post-link" class="original-link-btn">Read Original Paper ↗</a>
             </article>
@@ -205,13 +229,25 @@
             const articleView = document.getElementById('article-view');
             articleView.classList.remove('visible');
             
-            // Set Content
+            // Set Text Content
             document.getElementById('post-date').textContent = post.date;
-            document.getElementById('post-id').textContent = post.id;
+            document.getElementById('post-id').textContent = post.id.substring(0, 8) + "..."; // Show short ID
             document.getElementById('post-title').textContent = post.title;
             document.getElementById('post-summary').textContent = post.summary;
-            document.getElementById('post-body').innerHTML = post.content || "<p>No deep content available.</p>"; // Allow HTML
+            document.getElementById('post-body').innerHTML = post.content || "<p><em>No full content available. Please view the original paper.</em></p>";
             document.getElementById('post-link').href = post.link;
+
+            // Render Tags
+            const tagsContainer = document.getElementById('post-tags');
+            tagsContainer.innerHTML = ''; // Clear old tags
+            if (post.tags && Array.isArray(post.tags)) {
+                post.tags.forEach(tag => {
+                    const tagEl = document.createElement('span');
+                    tagEl.className = 'tag-badge';
+                    tagEl.textContent = tag;
+                    tagsContainer.appendChild(tagEl);
+                });
+            }
 
             // Highlight Sidebar
             document.querySelectorAll('.article-list-item').forEach(el => el.classList.remove('active'));
