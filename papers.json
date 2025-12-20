@@ -1,5 +1,11 @@
 [
   {
+    "date": "20 Dec",
+    "title": "Beyond diagnosis: deep-learning-based analysis of hospitalization using abdominal radiographs in the emergency department.",
+    "comment": "AI ช่วยให้เราใช้ภาพ X-ray ช่องท้องธรรมดาทำนายการนอนโรงพยาบาลได้ ซึ่งอาจช่วยปรับปรุงการไหลเวียนผู้ป่วยใน ER ได้อย่างมาก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41420745/"
+  },
+  {
     "date": "19 Dec",
     "title": "Training of Emergency Medicine Residents to Initiate Extracorporeal Membrane Oxygenation Cardiopulmonary Resuscitation (ECPR).",
     "comment": "การฝึก resident ให้สามารถเริ่ม ECPR ได้เอง เป็นการขยายขีดความสามารถของ ER ในการช่วยชีวิตผู้ป่วยภาวะวิกฤตที่ต้องได้รับการพิจารณาเร่งด่วน.",
@@ -412,11 +418,5 @@
     "title": "Emergency Department Pediatric Mental Health Care Bundle and Family Quality of Life.",
     "comment": "ผู้ป่วยเด็กและวัยรุ่นที่มีปัญหาสุขภาพจิตมา ER เพิ่มขึ้น การใช้ care bundle เป็นแนวทางใหม่ที่ช่วยยกระดับการดูแลและคุณภาพชีวิตครอบครัวในภาวะฉุกเฉิน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41364438/"
-  },
-  {
-    "date": "9 Dec",
-    "title": "[Tranexamic acid for prevention of bleeding complications-a rational approach? : Results of a systematic literature review and evidence synthesis].",
-    "comment": "ยา TXA ถูกใช้แพร่หลายใน ER แต่ยังมีข้อถกเถียงในหลายภาวะ การทบทวนนี้จะช่วยให้แพทย์ใช้ยาได้อย่างเหมาะสมและมีหลักฐานรองรับมากขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41364110/"
   }
 ]
