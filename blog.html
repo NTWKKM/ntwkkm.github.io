@@ -43,7 +43,7 @@
 
         /* Sidebar Structure */
         .sidebar {
-            width: 25%; /* Increased slightly for better readability */
+            width: 25%;
             min-width: 320px;
             max-width: 400px;
             border-right: 1px solid var(--border-color);
@@ -276,6 +276,12 @@
             color: var(--text-main);
             text-align: justify;
         }
+        
+        /* Highlighting Bold Text from Markdown */
+        .sec-content strong {
+            color: var(--navy-primary);
+            font-weight: 600;
+        }
 
         .pubmed-link {
             display: inline-flex;
@@ -387,8 +393,38 @@
                 const response = await fetch('./research_blog.json'); 
                 const rawData = await response.json();
                 
-                // Ensure data is array
-                allPosts = Array.isArray(rawData) ? rawData : (rawData.data || []);
+                // --- DATA MAPPING SECTION ---
+                // Map the new JSON format to the structure used by this app
+                const rawList = Array.isArray(rawData) ? rawData : (rawData.data || []);
+                
+                allPosts = rawList.map(item => {
+                    // Combine tags
+                    const tags = [
+                        item.property_tag_1, 
+                        item.property_tag_2, 
+                        item.property_tag_3
+                    ].filter(t => t && t.trim() !== ""); // Remove empty tags
+
+                    // Format Date
+                    let dateStr = "";
+                    if (item.property_last_edited_time) {
+                        const d = new Date(item.property_last_edited_time);
+                        dateStr = d.toLocaleDateString('en-GB', { 
+                            day: 'numeric', month: 'short', year: 'numeric' 
+                        });
+                    }
+
+                    return {
+                        id: item.id,
+                        title: item.name,           // Map 'name' to 'title'
+                        summary: item.property_comment, // Map 'property_comment' to 'summary'
+                        date: dateStr,
+                        tags: tags,
+                        link: item.url,
+                        pmid: item.property_pmid
+                    };
+                });
+
                 filteredPosts = [...allPosts];
                 
                 initTags(allPosts);
@@ -398,7 +434,7 @@
 
             } catch (error) {
                 console.error("Error:", error);
-                document.getElementById('sidebar-list').innerHTML = `<div style="text-align:center; color:red; margin-top:20px;">Failed to load data.<br>${error.message}</div>`;
+                document.getElementById('sidebar-list').innerHTML = `<div style="text-align:center; color:red; margin-top:20px;">Failed to load data.<br>Make sure 'research_blog.json' is in the same folder.<br>${error.message}</div>`;
             }
         });
 
@@ -422,6 +458,9 @@
             });
 
             const container = document.getElementById('filter-tags-container');
+            // Clear existing tags except "All"
+            container.innerHTML = '<span class="filter-tag active" data-tag="all">All</span>';
+
             tagsSet.forEach(tag => {
                 const span = document.createElement('span');
                 span.className = 'filter-tag';
@@ -457,7 +496,7 @@
                 
                 // 2. Check Search Query
                 const matchesSearch = 
-                    post.title.toLowerCase().includes(lowerQuery) || 
+                    (post.title && post.title.toLowerCase().includes(lowerQuery)) || 
                     (post.id && post.id.includes(lowerQuery)) ||
                     (post.summary && post.summary.toLowerCase().includes(lowerQuery));
 
@@ -491,7 +530,7 @@
                     <div class="list-title">${post.title}</div>
                     <div class="list-meta">
                         <span>${post.date}</span>
-                        <span style="opacity:0.6;">#${post.id.substring(0, 5)}</span>
+                        <span style="opacity:0.6;">#${post.id.substring(0, 5)}...</span>
                     </div>
                 `;
                 
@@ -539,13 +578,15 @@
             // Render Tags
             const tagsContainer = document.getElementById('post-tags');
             tagsContainer.innerHTML = ''; 
-            if (post.tags && Array.isArray(post.tags)) {
+            if (post.tags && Array.isArray(post.tags) && post.tags.length > 0) {
                 post.tags.forEach(tag => {
                     const tagEl = document.createElement('span');
                     tagEl.className = 'tag-badge';
                     tagEl.textContent = tag;
                     tagsContainer.appendChild(tagEl);
                 });
+            } else {
+                tagsContainer.innerHTML = '<span style="color:#ccc; font-size:0.8rem;">No tags</span>';
             }
 
             // Summary Formatting
@@ -555,6 +596,7 @@
             // Link Logic
             const linkBtn = document.getElementById('post-link');
             if (post.pmid) {
+                // If PMID exists, prefer PubMed link
                 linkBtn.href = `https://pubmed.ncbi.nlm.nih.gov/${post.pmid}/`;
                 linkBtn.innerHTML = `View on PubMed ↗`;
                 linkBtn.style.display = 'inline-flex';
@@ -580,46 +622,56 @@
             document.querySelector('.main-content').scrollTop = 0;
         }
 
-        // --- Parsing Logic (Preserved) ---
+        // --- Parsing Logic Updated for Markdown style ---
         function parseSummaryToSections(text) {
             if (!text) return '<p style="color:#999; font-style:italic;">No summary content available.</p>';
+            
             const lines = text.split(/\n/); 
             let html = '';
 
             lines.forEach(line => {
                 let cleanLine = line.trim();
+                
+                // Remove leading dash/bullet
                 cleanLine = cleanLine.replace(/^[-•*]\s*/, '');
+                
+                // Remove Markdown bold characters (**) for cleaner title extraction
+                // but keep them in content for now or handle them
+                
                 if (!cleanLine) return;
 
                 let sectionTitle = "";
                 let sectionContent = cleanLine;
 
-                if (cleanLine.match(/วัตถุประสงค์|Objective/i)) {
+                // Detect Section Headers (Robust against markdown **Title:**)
+                // Looks for: Objective, Method, Result, Conclusion in Thai or English
+                if (cleanLine.match(/(วัตถุประสงค์|Objective)/i)) {
                     sectionTitle = "Objective";
-                } else if (cleanLine.match(/วิธีการ|Method/i)) {
+                } else if (cleanLine.match(/(วิธีการ|Method)/i)) {
                     sectionTitle = "Methods";
-                } else if (cleanLine.match(/ผลลัพธ์|Result|Conclusion|สรุป/i)) {
+                } else if (cleanLine.match(/(ผลลัพธ์|Result|Conclusion|สรุป|ผลวิเคราะห์)/i)) {
                     sectionTitle = "Results & Conclusion";
                 }
 
                 if (sectionTitle) {
-                    const colonIndex = cleanLine.search(/[:：]/);
-                    if (colonIndex !== -1) {
-                        sectionContent = cleanLine.substring(colonIndex + 1).trim();
-                    } else {
-                        sectionContent = cleanLine.replace(/^(วัตถุประสงค์|Objective|วิธีการ|Method|Methods|Results|Result|Conclusion|สรุป|ผลลัพธ์|ผลวิเคราะห์).*?(\s+)/i, '').trim();
-                    }
-                    sectionContent = sectionContent.replace(/^\*\*\s?/, '').replace(/\*\*$/, '').trim();
-
+                    // Clean the content part: Remove the Title and the colon
+                    // Regex removes: **Title:** or Title: 
+                    sectionContent = cleanLine.replace(/^(\*\*)?(วัตถุประสงค์|Objective|วิธีการ|Method|Methods|Results|Result|Conclusion|สรุป|ผลลัพธ์|ผลวิเคราะห์).*?[:：]?(\*\*)?[:：]?\s*/i, '').trim();
+                    
                     html += `
                         <div class="research-section">
                             <div class="sec-header">${sectionTitle}</div>
                             <div class="sec-content">${sectionContent}</div>
                         </div>`;
                 } else {
+                    // Regular paragraph (clean up remaining markdown bold if any)
+                    // If you want to support bold text in description, keep the **
+                    // Here I am converting **text** to <strong>text</strong> for HTML
+                    const formattedContent = cleanLine.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    
                      html += `
                         <div class="research-section">
-                            <div class="sec-content">${cleanLine}</div>
+                            <div class="sec-content">${formattedContent}</div>
                         </div>`;
                 }
             });
@@ -629,7 +681,7 @@
         function handleRouting() {
             const params = new URLSearchParams(window.location.search);
             const id = params.get('id');
-            if (id) {
+            if (id && allPosts.length > 0) {
                 const post = allPosts.find(p => p.id === id);
                 if (post) loadArticle(post);
             }
@@ -640,6 +692,10 @@
             if (event.state && event.state.id) {
                 const post = allPosts.find(p => p.id === event.state.id);
                 if (post) loadArticle(post);
+            } else {
+                // If back to root, clear view or reset?
+                // document.getElementById('article-view').classList.remove('visible');
+                // document.getElementById('empty-state').style.display = 'block';
             }
         };
 
