@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Research Blog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             /* --- Professional Navy Palette --- */
             --bg-body: #ffffff;
             --bg-sidebar: #f8fafc; 
             
-            --text-main: #1e293b;  
+            --text-main: #1e293b;   
             --text-muted: #64748b; 
             
             --navy-primary: #0f172a; 
             --navy-accent: #1e40af; 
+            --navy-light: #eff6ff;
             
             --border-color: #e2e8f0;
         }
@@ -28,92 +29,190 @@
             color: var(--text-main);
             line-height: 1.7; 
             -webkit-font-smoothing: antialiased;
+            overflow: hidden; /* Fix body scroll to allow inner scrolling */
+            height: 100vh;
         }
 
         /* --- Layout --- */
         .container {
-            max-width: 1400px; 
+            max-width: 100%; 
             margin: 0 auto;
             display: flex;
-            min-height: 100vh;
+            height: 100vh;
         }
 
-        /* Sidebar */
+        /* Sidebar Structure */
         .sidebar {
-            width: 20%;
-            min-width: 280px;
-            padding: 60px 30px;
+            width: 25%; /* Increased slightly for better readability */
+            min-width: 320px;
+            max-width: 400px;
             border-right: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            overflow-y: auto;
             background-color: var(--bg-sidebar);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .sidebar-header {
+            padding: 30px 25px 20px 25px;
+            background: var(--bg-sidebar);
+            border-bottom: 1px solid var(--border-color);
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .sidebar-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px 15px;
+        }
+
+        .sidebar-footer {
+            padding: 15px;
+            border-top: 1px solid var(--border-color);
+            background: white;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
 
         /* Main Content */
         .main-content {
             flex: 1; 
-            padding: 80px 100px; 
+            padding: 60px 80px; 
             overflow-y: auto;
             background: white;
+            height: 100%;
         }
 
-        /* --- Sidebar Elements --- */
+        /* --- Components --- */
         .brand { 
             font-family: 'Inter', sans-serif;
             font-weight: 800; 
             font-size: 0.9rem; 
-            margin-bottom: 40px; 
+            margin-bottom: 25px; 
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             text-decoration: none; 
             color: var(--navy-primary);
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
-        
-        .nav-header { 
+
+        /* Search Box */
+        .search-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .search-input {
+            width: 100%;
+            padding: 10px 15px 10px 35px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
             font-family: 'Inter', sans-serif;
-            font-size: 0.7rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1.5px; 
-            color: var(--text-muted); 
-            margin-bottom: 20px; 
-            font-weight: 700; 
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-input:focus { border-color: var(--navy-accent); }
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: var(--text-muted);
         }
 
+        /* Filter Tags in Sidebar */
+        .filter-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        .filter-tag {
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: #e2e8f0;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .filter-tag:hover { background: #cbd5e1; }
+        .filter-tag.active {
+            background: var(--navy-accent);
+            color: white;
+        }
+
+        /* Article List Items */
         .article-list-item {
             display: block;
-            padding: 12px 0;
+            padding: 15px 15px;
+            margin-bottom: 5px;
             text-decoration: none;
             color: var(--text-muted);
             transition: all 0.2s ease;
             cursor: pointer;
-            border-left: 3px solid transparent;
-            padding-left: 10px;
-            margin-left: -13px; 
+            border-radius: 8px;
+            border: 1px solid transparent;
         }
 
         .article-list-item:hover { 
+            background: white;
+            border-color: var(--border-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
             color: var(--navy-accent);
         }
         
         .article-list-item.active { 
+            background: white;
+            border-color: var(--navy-accent);
             color: var(--navy-primary); 
-            font-weight: 600;
-            border-left-color: var(--navy-accent);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
         }
 
-        .list-title { font-size: 0.95rem; line-height: 1.5; font-family: 'Inter', 'Sarabun', sans-serif;}
-        .list-date { font-size: 0.75rem; opacity: 0.7; margin-top: 4px; font-family: 'Inter', sans-serif; }
+        .list-title { 
+            font-size: 0.9rem; 
+            line-height: 1.4; 
+            font-family: 'Inter', 'Sarabun', sans-serif; 
+            font-weight: 600;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .list-meta { 
+            font-size: 0.75rem; 
+            opacity: 0.8; 
+            margin-top: 6px; 
+            font-family: 'Inter', sans-serif; 
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Pagination Controls */
+        .pagination-btn {
+            background: none;
+            border: 1px solid var(--border-color);
+            padding: 5px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            color: var(--text-main);
+        }
+        .pagination-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+        .pagination-btn:hover:not(:disabled) { border-color: var(--navy-accent); color: var(--navy-accent); }
+        .page-info { font-size: 0.8rem; font-family: 'Inter', sans-serif; color: var(--text-muted); }
 
         /* --- Article View --- */
-        .article-view { max-width: 800px; margin: 0 auto; display: none; }
-        .article-view.visible { display: block; animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .article-view { max-width: 800px; margin: 0 auto; display: none; padding-bottom: 50px;}
+        .article-view.visible { display: block; animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
 
         .article-meta { 
             font-family: 'Inter', sans-serif;
@@ -129,7 +228,7 @@
         
         .article-title { 
             font-family: 'Inter', 'Sarabun', sans-serif; 
-            font-size: 2.5rem; 
+            font-size: 2.2rem; 
             font-weight: 800; 
             line-height: 1.3; 
             margin-bottom: 30px; 
@@ -137,7 +236,7 @@
             letter-spacing: -0.02em;
         }
 
-        /* Tags */
+        /* Tags in Content */
         .tags-container { 
             margin-bottom: 50px; 
             display: flex; 
@@ -147,8 +246,8 @@
         }
         .tag-badge {
             display: inline-block;
-            background: #f1f5f9;
-            color: var(--navy-primary);
+            background: var(--navy-light);
+            color: var(--navy-accent);
             font-size: 0.75rem;
             padding: 4px 12px;
             border-radius: 4px;
@@ -156,10 +255,8 @@
             font-family: 'Inter', sans-serif;
         }
 
-        /* --- Content Sections --- */
-        .research-section {
-            margin-bottom: 40px;
-        }
+        /* Research Sections */
+        .research-section { margin-bottom: 40px; }
 
         .sec-header {
             font-family: 'Inter', sans-serif;
@@ -180,38 +277,41 @@
             text-align: justify;
         }
 
-        /* PubMed Link */
         .pubmed-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-top: 60px;
-            color: var(--navy-accent);
+            margin-top: 40px;
+            color: white;
+            background-color: var(--navy-accent);
+            padding: 12px 24px;
+            border-radius: 6px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            border-bottom: 2px solid transparent;
+            font-size: 0.95rem;
             transition: all 0.2s;
         }
         .pubmed-link:hover { 
-            border-bottom-color: var(--navy-accent);
-            transform: translateY(-1px);
+            background-color: var(--navy-primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2);
         }
 
         /* Empty State */
         .empty-state { 
             text-align: center; 
             color: var(--text-muted); 
-            margin-top: 30vh;
+            margin-top: 35vh;
         }
-        .empty-icon { font-size: 3rem; margin-bottom: 20px; opacity: 0.2; filter: grayscale(100%); }
+        .empty-icon { font-size: 3rem; margin-bottom: 20px; opacity: 0.3; }
 
-        /* Responsive */
+        /* Mobile */
         @media (max-width: 1024px) {
-            .container { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border-color); padding: 30px; }
-            .main-content { padding: 40px 20px; }
+            .container { flex-direction: column; overflow-y: auto; height: auto;}
+            .sidebar { width: 100%; max-width: none; height: auto; max-height: 500px; border-right: none; border-bottom: 1px solid var(--border-color); }
+            .sidebar-content { max-height: 400px; }
+            .main-content { padding: 40px 20px; height: auto; }
             .article-title { font-size: 1.8rem; }
         }
 
@@ -222,18 +322,35 @@
 
     <div class="container">
         <aside class="sidebar">
-            <a href="index.html" class="brand">← Back to Home</a>
-            
-            <div class="nav-header">Research Index</div>
-            <div id="sidebar-list">
-                <div style="padding:10px; color:#888;">Loading...</div>
+            <div class="sidebar-header">
+                <a href="#" class="brand">← Research Hub</a>
+                
+                <div class="search-container">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="search-input" class="search-input" placeholder="Search title, ID...">
+                </div>
+
+                <div class="filter-tags" id="filter-tags-container">
+                    <span class="filter-tag active" data-tag="all">All</span>
+                    </div>
+            </div>
+
+            <div class="sidebar-content" id="sidebar-list">
+                <div style="padding:10px; color:#888; text-align:center;">Loading...</div>
+            </div>
+
+            <div class="sidebar-footer">
+                <button id="prev-btn" class="pagination-btn">Previous</button>
+                <span id="page-info" class="page-info">1 / 1</span>
+                <button id="next-btn" class="pagination-btn">Next</button>
             </div>
         </aside>
 
         <main class="main-content">
             <div id="empty-state" class="empty-state">
-                <div class="empty-icon">📄</div>
-                <h3 style="font-weight: 500;">Select a research paper from the sidebar</h3>
+                <div class="empty-icon">📑</div>
+                <h3 style="font-weight: 500;">Select a research paper to view details</h3>
+                <p style="font-size: 0.9rem; margin-top: 10px;">Use the search bar to find specific papers.</p>
             </div>
 
             <article id="article-view" class="article-view">
@@ -250,44 +367,162 @@
                 <div id="formatted-summary-container"></div>
 
                 <a href="#" target="_blank" id="post-link" class="pubmed-link">
-                    View Original Paper on PubMed ↗
+                    View Original Paper ↗
                 </a>
             </article>
         </main>
     </div>
 
     <script>
+        // --- Global State ---
+        let allPosts = [];
+        let filteredPosts = [];
+        let currentPage = 1;
+        const itemsPerPage = 10;
+        let activeTag = 'all';
+
         document.addEventListener('DOMContentLoaded', async () => {
             try {
                 // Load JSON Data
                 const response = await fetch('./research_blog.json'); 
-                const posts = await response.json();
+                const rawData = await response.json();
                 
-                renderSidebar(posts);
-                handleRouting(posts);
+                // Ensure data is array
+                allPosts = Array.isArray(rawData) ? rawData : (rawData.data || []);
+                filteredPosts = [...allPosts];
+                
+                initTags(allPosts);
+                renderSidebar();
+                setupEventListeners();
+                handleRouting();
 
             } catch (error) {
                 console.error("Error:", error);
-                document.getElementById('sidebar-list').innerHTML = "Failed to load articles.";
+                document.getElementById('sidebar-list').innerHTML = `<div style="text-align:center; color:red; margin-top:20px;">Failed to load data.<br>${error.message}</div>`;
             }
         });
 
-        function renderSidebar(posts) {
+        // --- Core Functions ---
+
+        function setupEventListeners() {
+            // Search Input
+            document.getElementById('search-input').addEventListener('input', (e) => {
+                handleFilter(e.target.value);
+            });
+
+            // Pagination Buttons
+            document.getElementById('prev-btn').addEventListener('click', () => changePage(-1));
+            document.getElementById('next-btn').addEventListener('click', () => changePage(1));
+        }
+
+        function initTags(posts) {
+            const tagsSet = new Set();
+            posts.forEach(p => {
+                if(p.tags) p.tags.forEach(t => tagsSet.add(t));
+            });
+
+            const container = document.getElementById('filter-tags-container');
+            tagsSet.forEach(tag => {
+                const span = document.createElement('span');
+                span.className = 'filter-tag';
+                span.textContent = tag;
+                span.onclick = () => {
+                    // Toggle Active Tag
+                    document.querySelectorAll('.filter-tag').forEach(el => el.classList.remove('active'));
+                    span.classList.add('active');
+                    activeTag = tag;
+                    
+                    // Reset Search and Filter
+                    document.getElementById('search-input').value = '';
+                    handleFilter('');
+                };
+                container.appendChild(span);
+            });
+
+            // 'All' Tag Logic
+            container.querySelector('[data-tag="all"]').onclick = (e) => {
+                document.querySelectorAll('.filter-tag').forEach(el => el.classList.remove('active'));
+                e.target.classList.add('active');
+                activeTag = 'all';
+                handleFilter('');
+            };
+        }
+
+        function handleFilter(query) {
+            const lowerQuery = query.toLowerCase();
+            
+            filteredPosts = allPosts.filter(post => {
+                // 1. Check Tag
+                const matchesTag = activeTag === 'all' || (post.tags && post.tags.includes(activeTag));
+                
+                // 2. Check Search Query
+                const matchesSearch = 
+                    post.title.toLowerCase().includes(lowerQuery) || 
+                    (post.id && post.id.includes(lowerQuery)) ||
+                    (post.summary && post.summary.toLowerCase().includes(lowerQuery));
+
+                return matchesTag && matchesSearch;
+            });
+
+            currentPage = 1; // Reset to page 1 on search
+            renderSidebar();
+        }
+
+        function renderSidebar() {
             const listContainer = document.getElementById('sidebar-list');
             listContainer.innerHTML = '';
 
-            posts.forEach(post => {
-                const item = document.createElement('a');
+            if (filteredPosts.length === 0) {
+                listContainer.innerHTML = '<div style="text-align:center; margin-top:20px; color:#999;">No results found.</div>';
+                updatePaginationControls();
+                return;
+            }
+
+            // Pagination Logic
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageItems = filteredPosts.slice(startIndex, endIndex);
+
+            pageItems.forEach(post => {
+                const item = document.createElement('div');
                 item.className = 'article-list-item';
                 item.dataset.id = post.id;
                 item.innerHTML = `
                     <div class="list-title">${post.title}</div>
-                    <div class="list-date">${post.date}</div>
+                    <div class="list-meta">
+                        <span>${post.date}</span>
+                        <span style="opacity:0.6;">#${post.id.substring(0, 5)}</span>
+                    </div>
                 `;
                 
                 item.onclick = () => loadArticle(post);
                 listContainer.appendChild(item);
             });
+
+            updatePaginationControls();
+            
+            // Re-highlight if current article is in view
+            const params = new URLSearchParams(window.location.search);
+            const currentId = params.get('id');
+            if(currentId) {
+                const activeEl = document.querySelector(`.article-list-item[data-id="${currentId}"]`);
+                if(activeEl) activeEl.classList.add('active');
+            }
+        }
+
+        function updatePaginationControls() {
+            const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
+            document.getElementById('page-info').textContent = `${currentPage} / ${totalPages || 1}`;
+            
+            document.getElementById('prev-btn').disabled = currentPage === 1;
+            document.getElementById('next-btn').disabled = currentPage >= totalPages || totalPages === 0;
+        }
+
+        function changePage(delta) {
+            currentPage += delta;
+            renderSidebar();
+            // Scroll to top of sidebar list
+            document.querySelector('.sidebar-content').scrollTop = 0;
         }
 
         function loadArticle(post) {
@@ -298,7 +533,7 @@
             
             // Set Data
             document.getElementById('post-date').textContent = post.date;
-            document.getElementById('post-id').textContent = post.id.substring(0, 8);
+            document.getElementById('post-id').textContent = post.id;
             document.getElementById('post-title').textContent = post.title;
 
             // Render Tags
@@ -313,7 +548,7 @@
                 });
             }
 
-            // --- FIXED: Parsing Logic to remove ** ---
+            // Summary Formatting
             const summaryContainer = document.getElementById('formatted-summary-container');
             summaryContainer.innerHTML = parseSummaryToSections(post.summary);
 
@@ -321,46 +556,44 @@
             const linkBtn = document.getElementById('post-link');
             if (post.pmid) {
                 linkBtn.href = `https://pubmed.ncbi.nlm.nih.gov/${post.pmid}/`;
-                linkBtn.innerHTML = `View Original Paper on PubMed ↗`;
+                linkBtn.innerHTML = `View on PubMed ↗`;
                 linkBtn.style.display = 'inline-flex';
             } else if (post.link) {
                 linkBtn.href = post.link;
-                linkBtn.innerHTML = `Read Original Source ↗`;
+                linkBtn.innerHTML = `Read Source ↗`;
                 linkBtn.style.display = 'inline-flex';
             } else {
                 linkBtn.style.display = 'none';
             }
 
-            // Sidebar Highlight
+            // Sidebar Highlight Logic (Refresh classes)
             document.querySelectorAll('.article-list-item').forEach(el => el.classList.remove('active'));
             const activeEl = document.querySelector(`.article-list-item[data-id="${post.id}"]`);
             if(activeEl) activeEl.classList.add('active');
 
             // Routing
-            history.pushState(null, '', `?id=${post.id}`);
+            const newUrl = `${window.location.pathname}?id=${post.id}`;
+            history.pushState({ id: post.id }, '', newUrl);
+
+            // Animation
             setTimeout(() => articleView.classList.add('visible'), 50);
             document.querySelector('.main-content').scrollTop = 0;
         }
 
-        // --- IMPROVED CLEANING LOGIC ---
+        // --- Parsing Logic (Preserved) ---
         function parseSummaryToSections(text) {
             if (!text) return '<p style="color:#999; font-style:italic;">No summary content available.</p>';
-
             const lines = text.split(/\n/); 
             let html = '';
 
             lines.forEach(line => {
                 let cleanLine = line.trim();
-                
-                // 1. Remove Bullet points (- , •, *)
                 cleanLine = cleanLine.replace(/^[-•*]\s*/, '');
-
                 if (!cleanLine) return;
 
                 let sectionTitle = "";
                 let sectionContent = cleanLine;
 
-                // 2. Identify Section
                 if (cleanLine.match(/วัตถุประสงค์|Objective/i)) {
                     sectionTitle = "Objective";
                 } else if (cleanLine.match(/วิธีการ|Method/i)) {
@@ -370,17 +603,12 @@
                 }
 
                 if (sectionTitle) {
-                    // 3. Extract Content after colon
                     const colonIndex = cleanLine.search(/[:：]/);
                     if (colonIndex !== -1) {
                         sectionContent = cleanLine.substring(colonIndex + 1).trim();
                     } else {
-                         // Fallback Regex remove header name
                         sectionContent = cleanLine.replace(/^(วัตถุประสงค์|Objective|วิธีการ|Method|Methods|Results|Result|Conclusion|สรุป|ผลลัพธ์|ผลวิเคราะห์).*?(\s+)/i, '').trim();
                     }
-                    
-                    // 4. *** CRITICAL FIX: CLEAN ** FROM CONTENT ***
-                    // ลบ ** ที่อาจติดมาด้านหน้า หรือด้านหลังเนื้อหา
                     sectionContent = sectionContent.replace(/^\*\*\s?/, '').replace(/\*\*$/, '').trim();
 
                     html += `
@@ -389,25 +617,32 @@
                             <div class="sec-content">${sectionContent}</div>
                         </div>`;
                 } else {
-                    // เนื้อหาทั่วไป
                      html += `
                         <div class="research-section">
                             <div class="sec-content">${cleanLine}</div>
                         </div>`;
                 }
             });
-
             return html;
         }
 
-        function handleRouting(posts) {
+        function handleRouting() {
             const params = new URLSearchParams(window.location.search);
             const id = params.get('id');
             if (id) {
-                const post = posts.find(p => p.id === id);
+                const post = allPosts.find(p => p.id === id);
                 if (post) loadArticle(post);
             }
         }
+        
+        // Handle Back Button
+        window.onpopstate = function(event) {
+            if (event.state && event.state.id) {
+                const post = allPosts.find(p => p.id === event.state.id);
+                if (post) loadArticle(post);
+            }
+        };
+
     </script>
 </body>
 </html>
