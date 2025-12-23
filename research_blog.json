@@ -418,5 +418,65 @@
     "property_last_edited_time": "2025-12-22T19:11:00.000Z",
     "property_pmid": "41387552",
     "property_name": "Early prediction of antibiotic need and bacteremia risk in non-immunocompromised pediatric emergency patients using machine learning"
+  },
+  {
+    "id": "2d2ba464-60a7-818a-b390-d561c8779db8",
+    "name": "Soft-tissue and half-value windows outperform bone window in ureteral stone size measurements in non-enhanced computed tomography",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41432615/",
+    "property_tag_2": "Radiology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาความแปรปรวนระหว่างผู้อ่านผล (interreader variability) ในการวัดขนาดนิ่วในท่อไตผ่านการตั้งค่าหน้าต่างภาพ CT scan 4 รูปแบบที่แตกต่างกัน\n- **วิธีการ:** การศึกษาย้อนหลังในผู้ป่วย 124 รายที่มีนิ่วในท่อไตส่วนต้นขนาด ≥2.0 มม. ที่ตรวจพบจากการทำ CT ฉุกเฉิน โดยให้ผู้สังเกตการณ์ 5 คนทำการวัดขนาดนิ่วผ่านหน้าต่าง soft-tissue, bone, half-value MEAN และ half-value MAX\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบว่าการวัดด้วย Bone window มีความคลาดเคลื่อนสูงที่สุด (LOAM ±1.6 มม.) ในขณะที่ Soft-tissue (±0.4 มม.) และ Half-value windows (±0.2-0.3 มม.) มีความแม่นยำสูงกว่าในระดับ sub-mm โดย Half-value MAX window มีความแปรปรวนระหว่างผู้อ่านผลน้อยที่สุด",
+    "property_tag_3": "Diagnostic Imaging",
+    "property_tag_1": "Urology",
+    "property_last_edited_time": "2025-12-23T19:12:00.000Z",
+    "property_pmid": "41432615",
+    "property_name": "Soft-tissue and half-value windows outperform bone window in ureteral stone size measurements in non-enhanced computed tomography"
+  },
+  {
+    "id": "2d2ba464-60a7-81b7-a946-de8c2819ec5b",
+    "name": "Obstructive Sleep Apnea and Postoperative Cognitive Decline in Non-Cardiac Surgery: A Prospective Cohort Study",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41432658/",
+    "property_tag_2": "Sleep Medicine",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาว่าความรุนแรงของภาวะหยุดหายใจขณะหลับจากการอุดกั้น (OSA) มีความสัมพันธ์กับภาวะถดถอยทางสมรรถภาพสมองหลังการผ่าตัด (Postoperative Cognitive Decline) ในผู้ป่วยที่เข้ารับการผ่าตัดที่ไม่ใช่หัวใจหรือไม่\n- **วิธีการ:** เป็นการศึกษาแบบ Prospective observational ในผู้ป่วยผู้ใหญ่จำนวน 65 รายที่เข้ารับการผ่าตัดแบบ Elective non-cardiac surgery โดยประเมินสมรรถภาพสมองก่อนและหลังผ่าตัดด้วยแบบทดสอบมาตรฐาน และติดตามผลระยะยาวที่ 30 และ 90 วันทางโทรศัพท์\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบอุบัติการณ์ภาวะถดถอยทางสมอง 18.5% ภายใน 2 วันแรกหลังผ่าตัด โดยผู้ป่วยที่มี OSA ระดับปานกลางถึงรุนแรงไม่มีความเสี่ยงสูงกว่ากลุ่มที่เป็นน้อยหรือปกติอย่างมีนัยสำคัญ (p = 0.339) แต่พบว่าประวัติโรคซึมเศร้าเป็นปัจจัยเสี่ยงอิสระอย่างมีนัยสำคัญ (p = 0.045) และไม่พบความแตกต่างของสมรรถภาพสมองระหว่างกลุ่มเมื่อติดตามผลที่ 30 และ 90 วัน",
+    "property_tag_3": "Neurology",
+    "property_tag_1": "Surgery",
+    "property_last_edited_time": "2025-12-23T19:12:00.000Z",
+    "property_pmid": "41432658",
+    "property_name": "Obstructive Sleep Apnea and Postoperative Cognitive Decline in Non-Cardiac Surgery: A Prospective Cohort Study"
+  },
+  {
+    "id": "2d2ba464-60a7-81a6-aadd-c08f9549d623",
+    "name": "Advanced Machine-Assisted Liver Reconditioning in Critical Care",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41432619/",
+    "property_tag_2": "Surgery",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินสถานการณ์ปัจจุบันและประสิทธิภาพของเทคโนโลยีการไหลเวียนเลือดผ่านเครื่องจักร (Machine Perfusion - MP) รูปแบบต่างๆ (อุณหภูมิต่ำ, กึ่งปกติ, และอุณหภูมิร่างกาย) ในการช่วยรักษาคุณภาพและการทำงานของตับสำหรับปลูกถ่าย เพื่อแก้ปัญหาการขาดแคลนอวัยวะและการบาดเจ็บจากการขาดเลือดและเลือดไหลกลับ (IRI)\n- **วิธีการ:** เป็นการทบทวนวรรณกรรมที่เปรียบเทียบประสิทธิภาพระหว่างการใช้ MP กับการแช่เย็นแบบดั้งเดิม (Static Cold Storage) โดยเน้นการประยุกต์ใช้กับตับจากผู้บริจาคที่มีเกณฑ์ขยาย (ECD) และผู้บริจาคที่เสียชีวิตจากภาวะหัวใจหยุดเต้น (DCD) ซึ่งมีความเสี่ยงสูงต่อความเสียหาย\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การใช้ Hypothermic MP โดยเฉพาะแบบเติมออกซิเจน (HOPE) ช่วยปกป้องระบบท่อน้ำดีและลดการบาดเจ็บจากการขาดเลือด ส่วน Normothermic MP (NMP) ช่วยให้สามารถประเมินการทำงานของตับได้แบบเรียลไทม์และลดอุบัติการณ์ของภาวะตับทำงานผิดปกติในระยะแรก (Early Allograft Dysfunction) แม้ MP จะยังไม่สามารถทดแทนวิธีดั้งเดิมได้ทั้งหมด แต่มีหลักฐานสนับสนุนว่าช่วยขยายโอกาสในการใช้อวัยวะที่มีคุณภาพรองลงมาได้สำเร็จ",
+    "property_tag_3": "Critical Care",
+    "property_tag_1": "Transplantation",
+    "property_last_edited_time": "2025-12-23T19:11:00.000Z",
+    "property_pmid": "41432619",
+    "property_name": "Advanced Machine-Assisted Liver Reconditioning in Critical Care"
+  },
+  {
+    "id": "2d2ba464-60a7-81cd-bb1a-c6d5f55062d5",
+    "name": "Emergency Nursing Assessment in a Patient With a Hand Arteriovenous Fistula Caused by a Fishbone: A Case Report.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41432648/",
+    "property_tag_2": "Vascular Surgery",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อรายงานกรณีศึกษาที่พบได้ยากของผู้ป่วยที่มีรูรั่วระหว่างหลอดเลือดแดงและหลอดเลือดดำ (Arteriovenous Fistula) บริเวณมือซึ่งเกิดจากการถูกก้างปลาตำ และเน้นย้ำบทบาทสำคัญของพยาบาลฉุกเฉินในการประเมินทางคลินิกเพื่อแยกแยะอาการและส่งต่อผู้ป่วยได้อย่างรวดเร็ว\n- **วิธีการ:** ศึกษาในผู้ป่วยหญิงอายุ 55 ปี ที่มาด้วยก้อนนูนปวดและเต้นตุบๆ บริเวณฝ่ามือหลังได้รับบาดเจ็บ การวินิจฉัยแยกโรคทำผ่านการซักประวัติ การตรวจร่างกาย และยืนยันผลด้วยการทำอัลตราซาวนด์หลอดเลือด (Duplex ultrasound) ร่วมกับการฉีดสีหลอดเลือด (Angiography)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ผลการตรวจยืนยันการมีอยู่ของรูรั่วระหว่างหลอดเลือดแดงและหลอดเลือดดำ ผู้ป่วยได้รับการรักษาสำเร็จด้วยวิธีการอุดหลอดเลือด (Embolization) กรณีศึกษานี้แสดงให้เห็นว่าการประเมินระบบประสาทและหลอดเลือดอย่างละเอียดในผู้ป่วยที่มีแผลเจาะทะลุเป็นสิ่งสำคัญในการป้องกันภาวะแทรกซ้อนรุนแรง เช่น ภาวะหัวใจวายหรือการขาดเลือด",
+    "property_tag_3": "Trauma",
+    "property_tag_1": "Emergency Nursing",
+    "property_last_edited_time": "2025-12-23T19:11:00.000Z",
+    "property_pmid": "41432648",
+    "property_name": "Emergency Nursing Assessment in a Patient With a Hand Arteriovenous Fistula Caused by a Fishbone: A Case Report."
+  },
+  {
+    "id": "2d2ba464-60a7-818e-8fd3-e07e60e6afc0",
+    "name": "Field Triage Errors: A Cross-Sectional Study of Emergency Responders in a Virtual Reality Mass Casualty Simulation",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41431934/",
+    "property_tag_2": "Virtual Reality",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาความชุกและลักษณะของข้อผิดพลาดในการคัดแยกผู้ป่วย (triage) ที่เกิดขึ้นโดยผู้ปฏิบัติงานฉุกเฉินระหว่างการจำลองเหตุการณ์อุบัติภัยหมู่ในรูปแบบความจริงเสมือน (VR)\n- **วิธีการ:** วิเคราะห์การทำงานของผู้ปฏิบัติงานฉุกเฉินจำนวน 99 ราย ที่ใช้โปรโตคอล SALT ในสถานการณ์จำลองเหตุระเบิดในสถานีรถไฟใต้ดินผ่าน VR โดยติดตามความแม่นยำ ประสิทธิภาพ และการรักษา พร้อมทั้งวิเคราะห์ข้อผิดพลาดโดยจำแนกตามปัจจัยมนุษย์ ได้แก่ ด้านการรับรู้ ความชำนาญ และขั้นตอนการปฏิบัติ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ผู้ปฏิบัติงานคัดแยกผู้ป่วยถูกต้องร้อยละ 70 และมีประสิทธิภาพร้อยละ 78 โดยใช้เวลาปฏิสัมพันธ์เฉลี่ย 20 วินาทีต่อผู้ป่วย และใช้เวลาเฉลี่ย 6 นาทีในการจัดการภาวะเลือดออกที่คุกคามชีวิตทั่วทั้งฉาก ข้อผิดพลาดส่วนใหญ่เกิดจากด้านความชำนาญ (เช่น ประสบการณ์) รองลงมาคือข้อผิดพลาดด้านขั้นตอนและการรับรู้ โดยข้อผิดพลาดมักเกิดกับผู้ป่วยที่มีปัญหาทางเดินหายใจหรือมีการบาดเจ็บหลายตำแหน่ง",
+    "property_tag_3": "Triage",
+    "property_tag_1": "Emergency Medicine",
+    "property_last_edited_time": "2025-12-23T19:10:00.000Z",
+    "property_pmid": "41431934",
+    "property_name": "Field Triage Errors: A Cross-Sectional Study of Emergency Responders in a Virtual Reality Mass Casualty Simulation"
   }
 ]
