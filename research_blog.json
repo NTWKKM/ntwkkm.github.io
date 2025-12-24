@@ -478,5 +478,65 @@
     "property_last_edited_time": "2025-12-23T19:10:00.000Z",
     "property_pmid": "41431934",
     "property_name": "Field Triage Errors: A Cross-Sectional Study of Emergency Responders in a Virtual Reality Mass Casualty Simulation"
+  },
+  {
+    "id": "2d3ba464-60a7-8186-aeb7-e539f1ceaa79",
+    "name": "AI-powered in silico twins: redefining precision medicine through simulation, personalization, and predictive healthcare.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41441931/",
+    "property_tag_2": "Precision Medicine",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อสำรวจและนิยามแนวคิดของ In Silico Twins (ISTs) ที่ขับเคลื่อนด้วย AI ซึ่งเป็นการจำลองระบบชีวภาพของผู้ป่วยเพื่อการแพทย์แม่นยำ รวมถึงแยกแยะความแตกต่างจากโมเดลคอมพิวเตอร์แบบดั้งเดิมและ Digital Twins ทั่วไป\n- **วิธีการ:** เป็นการทบทวนรากฐานทางเทคโนโลยีที่เกี่ยวข้อง เช่น Machine learning, การสร้างแบบจำลองทางสรีรวิทยา และการบูรณาการข้อมูล พร้อมทั้งนำเสนอระบบการจัดหมวดหมู่ (Taxonomy) และรายการตรวจสอบ (Checklist) เพื่อยืนยันความถูกต้องของโมเดล\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** บทความชี้ให้เห็นว่า ISTs สามารถเปลี่ยนรูปแบบการรักษาจากเชิงรับเป็นเชิงรุกผ่านการจำลองผลลัพธ์แบบเรียลไทม์ โดยได้นำเสนอแผนแม่บท (Deployment blueprint) สำหรับการนำไปประยุกต์ใช้ทางคลินิกเพื่อช่วยตัดสินใจและเพิ่มประสิทธิภาพการรักษาเฉพาะบุคคล",
+    "property_tag_3": "Simulation",
+    "property_tag_1": "AI",
+    "property_last_edited_time": "2025-12-24T19:14:00.000Z",
+    "property_pmid": "41441931",
+    "property_name": "AI-powered in silico twins: redefining precision medicine through simulation, personalization, and predictive healthcare."
+  },
+  {
+    "id": "2d3ba464-60a7-81d7-87b5-d8ae3c7a4d2f",
+    "name": "Advances in biosensors for bacterial detection and identification.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41441922/",
+    "property_tag_2": "Infectious Disease",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนความก้าวหน้าและบทบาทสำคัญของไบโอเซนเซอร์ในการตรวจจับและระบุเชื้อแบคทีเรีย ซึ่งเป็นปัจจัยหลักในการดูแลสุขภาพของมนุษย์และความปลอดภัยทางอาหาร รวมถึงนำเสนอแนวโน้มเทคโนโลยีในอนาคต\n- **วิธีการ:** บทความนำเสนอการบูรณาการเทคโนโลยีต่างๆ เข้ากับไบโอเซนเซอร์ ได้แก่ การใช้อนุภาคนาโน (Nanoparticles) เพื่อเพิ่มความไวและความจำเพาะ, การใช้ปัญญาประดิษฐ์ (AI) และไมโครฟลูอิดิกส์ในการแปลผลสัญญาณและตรวจวัดแบบเรียลไทม์, การใช้อุปกรณ์สวมใส่ (Wearables) สำหรับตรวจแผลติดเชื้อ และการใช้ระบบ CRISPR/Cas เพื่อการวินิจฉัยระดับโมเลกุล\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** เทคโนโลยีเหล่านี้ช่วยยกระดับขีดความสามารถในการตรวจจับเชื้อแบคทีเรียได้อย่างรวดเร็วและแม่นยำ อย่างไรก็ตาม การศึกษาในปัจจุบันส่วนใหญ่ยังเน้นการตรวจจับเชื้อเพียงชนิดเดียว บทความจึงสรุปว่างานวิจัยในอนาคตควรเน้นพัฒนาไบโอเซนเซอร์ที่สามารถตรวจจับเชื้อได้หลายชนิดพร้อมกัน (Multiplexed biosensors) โดยไม่ลดทอนความถูกต้องแม่นยำ",
+    "property_tag_3": "AI",
+    "property_tag_1": "Biotechnology",
+    "property_last_edited_time": "2025-12-24T19:13:00.000Z",
+    "property_pmid": "41441922",
+    "property_name": "Advances in biosensors for bacterial detection and identification."
+  },
+  {
+    "id": "2d3ba464-60a7-81fd-aa7c-c2e21d17bb7c",
+    "name": "The emerging role of oral nicotine pouches in tobacco harm reduction.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41441963/",
+    "property_tag_2": "Toxicology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อนำเสนอความสำคัญของถุงนิโคตินสำหรับช่องปาก (Oral Nicotine Pouches หรือ ONPs) ในฐานะเครื่องมือสำหรับการลดอันตรายจากการใช้ยาสูบ (Tobacco Harm Reduction) และเป็นทางเลือกทดแทนการสูบบุหรี่แบบมวนที่มีความอันตรายน้อยกว่า\n- **วิธีการ:** เป็นการทบทวนวรรณกรรมโดยวิเคราะห์ข้อมูลเทียบเคียงจากระบาดวิทยาของการใช้สนูส (snus) ร่วมกับการศึกษาทางพรีคลินิก ข้อมูลทางพิษวิทยา และการศึกษาเกี่ยวกับสารบ่งชี้ทางชีวภาพ (biomarkers) เพื่อประเมินความปลอดภัยและผลกระทบต่อสุขภาพของ ONPs\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ผลการศึกษาชี้ว่า ONPs ซึ่งใช้นิโคตินเกรดเภสัชกรรมและปราศจากการเผาไหม้ ช่วยลดการสัมผัสสารพิษและสารก่อมะเร็ง (เช่น tobacco-specific nitrosamines) ลงจนแทบตรวจไม่พบ มีความเป็นพิษต่อเซลล์และการอักเสบในระดับต่ำ แม้จะมีความกังวลเรื่องการใช้ในเยาวชน แต่ข้อมูลปัจจุบันพบว่าผู้ใช้หลักคือผู้ใหญ่ที่ต้องการลดความเสี่ยง ทั้งนี้การตอบสนองทางกฎหมายในแต่ละประเทศยังคงมีความแตกต่างกัน",
+    "property_tag_3": "Addiction Medicine",
+    "property_tag_1": "Public Health",
+    "property_last_edited_time": "2025-12-24T19:13:00.000Z",
+    "property_pmid": "41441963",
+    "property_name": "The emerging role of oral nicotine pouches in tobacco harm reduction."
+  },
+  {
+    "id": "2d3ba464-60a7-81d0-8163-cad1b584ad99",
+    "name": "Personalized Cancer Vaccines: Current Advances and Emerging Horizons",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41441697/",
+    "property_tag_2": "Immunology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อนำเสนอภาพรวมที่ครอบคลุมเกี่ยวกับสถานการณ์ปัจจุบันและแนวโน้มในอนาคตของวัคซีนรักษามะเร็งแบบเฉพาะบุคคลที่ใช้นีโอแอนติเจน (Neoantigen-based) ในการกระตุ้นภูมิคุ้มกันแบบจำเพาะเจาะจง\n- **วิธีการ:** เป็นการทบทวนวรรณกรรมและข้อมูลจากการศึกษาทั้งในระดับพรีคลินิกและทางคลินิก โดยครอบคลุมแพลตฟอร์มต่างๆ เช่น เปปไทด์, mRNA, DNA, เซลล์เดนไดรติก และเวกเตอร์ไวรัส/แบคทีเรีย รวมถึงการใช้สารเสริมฤทธิ์และกลยุทธ์การรักษาแบบผสมผสานร่วมกับยาต้านจุดตรวจสอบภูมิคุ้มกัน (Immune Checkpoint Inhibitors)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** บทความระบุถึงความก้าวหน้าทางคลินิกที่สำคัญในช่วงทศวรรษที่ผ่านมา แต่ยังพบความท้าทายหลักในการทำนายความสามารถในการกระตุ้นภูมิคุ้มกันของนีโอแอนติเจนและการผลิตวัคซีนรายบุคคล โดยสรุปว่าจำเป็นต้องมีการทดลองทางคลินิกที่อาศัยตัวบ่งชี้ทางชีวภาพ (Biomarker) เพื่อเอาชนะข้อจำกัดและเพิ่มประสิทธิภาพการรักษาในยุคการแพทย์แม่นยำ",
+    "property_tag_3": "Vaccines",
+    "property_tag_1": "Oncology",
+    "property_last_edited_time": "2025-12-24T19:12:00.000Z",
+    "property_pmid": "41441697",
+    "property_name": "Personalized Cancer Vaccines: Current Advances and Emerging Horizons"
+  },
+  {
+    "id": "2d3ba464-60a7-81c9-b68c-ee1993a390e9",
+    "name": "Coronary Computed Tomography Angiography to Exclude Acute Coronary Syndrome in Low-Risk Chest Pain Patients",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41440872/",
+    "property_tag_2": "Emergency",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อสรุปหลักฐานที่มีอยู่เกี่ยวกับบทบาทของ Coronary Computed Tomography Angiography (CCTA) ในการคัดกรองเพื่อแยกภาวะกล้ามเนื้อหัวใจขาดเลือดเฉียบพลัน (ACS) ออกในผู้ป่วยที่มีอาการเจ็บหน้าอกความเสี่ยงต่ำ โดยเน้นที่ความแม่นยำในการวินิจฉัย ความปลอดภัย และการประยุกต์ใช้ร่วมกับ high sensitivity cardiac troponin assays (hs-cTn)\n- **วิธีการ:** ทำการทบทวนวรรณกรรมแบบ Scoping review โดยสืบค้นบทความที่ตีพิมพ์ระหว่างเดือนมกราคม 2015 ถึงมีนาคม 2025 ที่ศึกษาการใช้ CCTA ในผู้ป่วยเจ็บหน้าอกเฉียบพลันความเสี่ยงต่ำ จากฐานข้อมูล Medline, Embase, Emcare และ Web of Science\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** จากการศึกษา 22 บทความ (ผู้ป่วย 13,617 ราย) พบว่า CCTA มีประสิทธิภาพในการวินิจฉัยสูงมาก โดยมีค่าทำนายผลลบ (NPV) ที่ 99.8-100% และความไว (Sensitivity) ที่ 94-100% ในการวินิจฉัย ACS และการทำนายเหตุการณ์ไม่พึงประสงค์ทางหัวใจ การใช้ CCTA ร่วมกับ hs-cTn ช่วยเพิ่มความแม่นยำอย่างมีนัยสำคัญ และพบอัตราการเกิด ACS ในช่วงติดตามผลต่ำ (0-3.5%) ซึ่งเทียบเท่าหรือดีกว่าการดูแลรักษาแบบมาตรฐาน",
+    "property_tag_3": "Radiology",
+    "property_tag_1": "Cardiology",
+    "property_last_edited_time": "2025-12-24T19:11:00.000Z",
+    "property_pmid": "41440872",
+    "property_name": "Coronary Computed Tomography Angiography to Exclude Acute Coronary Syndrome in Low-Risk Chest Pain Patients"
   }
 ]
