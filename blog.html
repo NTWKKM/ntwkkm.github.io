@@ -407,8 +407,10 @@
 
                     // Format Date
                     let dateStr = "";
+                    let timestamp = 0; // [แก้ไข] เพิ่มตัวแปรสำหรับเก็บค่าเวลาเพื่อใช้ในการเรียงลำดับ
                     if (item.property_last_edited_time) {
                         const d = new Date(item.property_last_edited_time);
+                        timestamp = d.getTime(); // [แก้ไข] แปลงวันที่เป็นตัวเลขเพื่อใช้เปรียบเทียบ
                         dateStr = d.toLocaleDateString('en-GB', { 
                             day: 'numeric', month: 'short', year: 'numeric' 
                         });
@@ -419,11 +421,15 @@
                         title: item.name,           // Map 'name' to 'title'
                         summary: item.property_comment, // Map 'property_comment' to 'summary'
                         date: dateStr,
+                        timestamp: timestamp, // [แก้ไข] เก็บ timestamp ไว้ใน object
                         tags: tags,
                         link: item.url,
                         pmid: item.property_pmid
                     };
                 });
+
+                // [แก้ไข] เรียงลำดับข้อมูลจากใหม่ไปเก่า (Descending Order)
+                allPosts.sort((a, b) => b.timestamp - a.timestamp);
 
                 filteredPosts = [...allPosts];
                 
@@ -439,7 +445,8 @@
         });
 
         // --- Core Functions ---
-
+        // (ส่วนที่เหลือเหมือนเดิม ไม่มีการเปลี่ยนแปลง)
+        
         function setupEventListeners() {
             // Search Input
             document.getElementById('search-input').addEventListener('input', (e) => {
