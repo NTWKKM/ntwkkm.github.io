@@ -538,5 +538,65 @@
     "property_last_edited_time": "2025-12-24T19:11:00.000Z",
     "property_pmid": "41440872",
     "property_name": "Coronary Computed Tomography Angiography to Exclude Acute Coronary Syndrome in Low-Risk Chest Pain Patients"
+  },
+  {
+    "id": "2d4ba464-60a7-814b-b3d0-d92b7d91ec49",
+    "name": "Trend of emergency department attendances for alcohol and substances intoxication in adolescents across the COVID-19 pandemic: a multicenter international study",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41441985/",
+    "property_tag_2": "Emergency",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาผลกระทบของการระบาดใหญ่ COVID-19 ต่อจำนวนการเข้ารับบริการในแผนกฉุกเฉินจากภาวะเป็นพิษจากแอลกอฮอล์และสารเสพติดในกลุ่มวัยรุ่น\n- **วิธีการ:** การศึกษาย้อนหลังแบบหลายศูนย์ (Retrospective multicenter study) ในโรงพยาบาลเด็ก 4 แห่ง (อิตาลีและสหราชอาณาจักร) โดยทบทวนเวชระเบียนวัยรุ่นอายุ 10-17 ปี ที่เข้ารักษาด้วยภาวะเป็นพิษจากสารดังกล่าวระหว่างปี 2016 ถึง 2024 เพื่อเปรียบเทียบข้อมูลก่อนและระหว่างการระบาด\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบผู้ป่วยวัยรุ่นรวม 1,818 ราย โดยความชุกของการเข้ารับบริการเพิ่มขึ้นอย่างมีนัยสำคัญทางสถิติจาก 4.6 ต่อ 1,000 รายในช่วงก่อนระบาด เป็น 6.7 ต่อ 1,000 รายในช่วงระบาด (p ≤ .0001) นอกจากนี้ยังพบแนวโน้มการใช้สารพิษเพื่อเจตนาฆ่าตัวตายสูงขึ้นในช่วงการระบาด โดยเฉพาะการใช้สารอื่นที่ไม่ใช่แอลกอฮอล์",
+    "property_tag_3": "Substance Abuse",
+    "property_tag_1": "Pediatrics",
+    "property_last_edited_time": "2025-12-25T19:14:00.000Z",
+    "property_pmid": "41441985",
+    "property_name": "Trend of emergency department attendances for alcohol and substances intoxication in adolescents across the COVID-19 pandemic: a multicenter international study"
+  },
+  {
+    "id": "2d4ba464-60a7-81b4-9c93-e862ef8addb1",
+    "name": "UDFSSF Model is Superior to SOFA Score in Predicting 30-day Mortality of Septic Patients With Acute Kidney Injury",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41441886/",
+    "property_tag_2": "Critical Care",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อระบุปัจจัยเสี่ยงของการเสียชีวิตภายใน 30 วันในผู้ป่วยภาวะไตวายเฉียบพลันจากการติดเชื้อในกระแสเลือด (SA-AKI) และพัฒนาโมเดลพยากรณ์โรคใหม่เพื่อเปรียบเทียบประสิทธิภาพกับคะแนน SOFA เดิม\n- **วิธีการ:** ศึกษาในผู้ป่วย SA-AKI จำนวน 389 ราย แบ่งเป็นกลุ่มผู้รอดชีวิตและผู้เสียชีวิต วิเคราะห์ข้อมูลโดยใช้เทคนิค LASSO และ Logistic regression เพื่อหาปัจจัยเสี่ยงอิสระ และประเมินความแม่นยำของโมเดลด้วยกราฟ Calibration และ DCA\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบปัจจัยเสี่ยงอิสระประกอบด้วย uAlb/Cr, D-dimer, Fibrinogen, SIRI, SII และ Ferritin โดยโมเดลใหม่ (UDFSSF) มีค่าพื้นที่ใต้กราฟ (AUC) เท่ากับ 0.975 (95% CI: 0.959-0.992) ซึ่งสูงกว่าคะแนน SOFA (AUC: 0.716) อย่างมีนัยสำคัญในการทำนายอัตราการเสียชีวิต",
+    "property_tag_3": "Surgery",
+    "property_tag_1": "Nephrology",
+    "property_last_edited_time": "2025-12-25T19:13:00.000Z",
+    "property_pmid": "41441886",
+    "property_name": "UDFSSF Model is Superior to SOFA Score in Predicting 30-day Mortality of Septic Patients With Acute Kidney Injury"
+  },
+  {
+    "id": "2d4ba464-60a7-81ba-8562-fc6534d8ca63",
+    "name": "Early palliative care decision in patients with primary brain tumor reduces emergency department visits and hospitalization at the end of life.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41442055/",
+    "property_tag_2": "Neuro-oncology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาความสัมพันธ์ระหว่างช่วงเวลาในการตัดสินใจยุติการรักษาโรคมะเร็งเพื่อเข้าสู่การดูแลแบบประคับประคอง (Palliative Care) กับอัตราการเข้ารับบริการที่แผนกฉุกเฉินและการนอนโรงพยาบาลในช่วงวาระสุดท้ายของชีวิตในผู้ป่วยเนื้องอกสมองชนิดปฐมภูมิ\n- **วิธีการ:** เป็นการศึกษาแบบย้อนหลัง (Retrospective cohort study) จากเวชระเบียนของผู้ป่วยผู้ใหญ่จำนวน 162 ราย โดยเปรียบเทียบระหว่างกลุ่มที่ตัดสินใจรับการดูแลแบบประคับประคองเร็ว (>30 วันก่อนเสียชีวิต) กับกลุ่มที่ตัดสินใจช้าหรือไม่มีการบันทึกการตัดสินใจ (≤30 วัน)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ผู้ป่วยกลุ่มที่มีการตัดสินใจรับการดูแลแบบประคับประคองเร็วมีการเข้าใช้บริการแผนกฉุกเฉินน้อยกว่าอย่างมีนัยสำคัญ (10% เทียบกับ 25%; p=0.015) และมีอัตราการนอนโรงพยาบาลต่ำกว่า (4% เทียบกับ 29%; p<0.001) ในช่วงเดือนสุดท้ายของชีวิตเมื่อเทียบกับกลุ่มที่ตัดสินใจช้า",
+    "property_tag_3": "Emergency",
+    "property_tag_1": "Palliative Care",
+    "property_last_edited_time": "2025-12-25T19:12:00.000Z",
+    "property_pmid": "41442055",
+    "property_name": "Early palliative care decision in patients with primary brain tumor reduces emergency department visits and hospitalization at the end of life."
+  },
+  {
+    "id": "2d4ba464-60a7-8128-9db6-c9bdc75c06fd",
+    "name": "Evaluating implementation of a geriatrician-led emergency department model of care: a qualitative study using the consolidated framework for implementation research",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41442099/",
+    "property_tag_2": "Emergency Medicine",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อตรวจสอบปัจจัยกำหนดการยอมรับ การบูรณาการขั้นตอนการทำงาน และความยั่งยืนของรูปแบบการดูแลโดยอายุรแพทย์ในแผนกฉุกเฉิน (GEDI) ซึ่งให้บริการประเมินผู้ป่วยสูงอายุโดยผู้เชี่ยวชาญอย่างทันท่วงที\n- **วิธีการ:** การศึกษาเชิงคุณภาพผ่านการสัมภาษณ์ 16 ครั้งและการสนทนากลุ่ม 5 ครั้ง กับผู้เข้าร่วม 31 คน (ประกอบด้วยแพทย์ฉุกเฉิน พยาบาล อายุรแพทย์ เภสัชกร และผู้ประสานงาน) โดยวิเคราะห์เนื้อหาแบบนิรนัยตามกรอบแนวคิด CFIR\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** รูปแบบ GEDI ช่วยให้ผู้ป่วยได้รับความเชี่ยวชาญเฉพาะทางที่ข้างเตียงและการประเมินแบบองค์รวมที่รวดเร็ว แต่การนำไปใช้จริงพบอุปสรรคจากความไม่ต่อเนื่องของความตระหนักรู้ในกลุ่มแพทย์จบใหม่ เกณฑ์การส่งต่อที่ไม่สอดคล้องกับหน้างานจริง และขีดความสามารถที่จำกัดของอายุรแพทย์เพียงคนเดียวในการรองรับภาระงาน",
+    "property_tag_3": "Implementation Science",
+    "property_tag_1": "Geriatrics",
+    "property_last_edited_time": "2025-12-25T19:11:00.000Z",
+    "property_pmid": "41442099",
+    "property_name": "Evaluating implementation of a geriatrician-led emergency department model of care: a qualitative study using the consolidated framework for implementation research"
+  },
+  {
+    "id": "2d4ba464-60a7-819d-bc41-ea5b51275a2b",
+    "name": "Association Between Mixed Exposure to Endocrine-Disrupting Chemicals and Cardiovascular Health: Results from the 2003-2016 NHANES.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41442004/",
+    "property_tag_2": "Toxicology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อตรวจสอบความสัมพันธ์ระหว่างการได้รับสารรบกวนการทำงานของต่อมไร้ท่อ (EDCs) ทั้งแบบสารเดี่ยวและสารผสม กับระดับสุขภาพหัวใจและหลอดเลือด (CVH) ที่ประเมินโดยเกณฑ์ Life's Essential 8 (LE8) ในผู้ใหญ่ที่ยังไม่ป่วยเป็นโรคหัวใจและหลอดเลือด\n- **วิธีการ:** ศึกษาข้อมูลจากกลุ่มตัวอย่าง 9,940 รายในการสำรวจ NHANES ช่วงปี 2003-2016 โดยตรวจวัดสาร EDCs 22 ชนิดในปัสสาวะ (รวมถึงฟีนอล ยาฆ่าแมลง พทาเลท และ PAHs) และวิเคราะห์ความสัมพันธ์ทางสถิติด้วยวิธี Weighted GLM และ Weighted Quantile Sum (WQS) regression\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบว่าการสัมผัสสาร EDCs สัมพันธ์ผกผันกับคะแนนสุขภาพหัวใจ (LE8) อย่างมีนัยสำคัญ โดยดัชนีรวมของสาร EDCs มีความสัมพันธ์กับสุขภาพหัวใจโดยมีค่า Adjusted Odds Ratio (OR) เท่ากับ 3.00 (95% CI: 2.30-3.90; P < 0.001) และพบว่าสาร 2-Fluorenone (2-FLU) เป็นตัวแปรที่มีน้ำหนักผลกระทบต่อสุขภาพหัวใจมากที่สุด",
+    "property_tag_3": "Environmental Health",
+    "property_tag_1": "Cardiology",
+    "property_last_edited_time": "2025-12-25T19:11:00.000Z",
+    "property_pmid": "41442004",
+    "property_name": "Association Between Mixed Exposure to Endocrine-Disrupting Chemicals and Cardiovascular Health: Results from the 2003-2016 NHANES."
   }
 ]
