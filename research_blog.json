@@ -598,5 +598,65 @@
     "property_last_edited_time": "2025-12-25T19:11:00.000Z",
     "property_pmid": "41442004",
     "property_name": "Association Between Mixed Exposure to Endocrine-Disrupting Chemicals and Cardiovascular Health: Results from the 2003-2016 NHANES."
+  },
+  {
+    "id": "2d5ba464-60a7-816b-ab25-d2876f625a27",
+    "name": "Is tranexamic acid effective for all traumatic brain injury patients? a severity based systematic review and meta-analysis.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41446790/",
+    "property_tag_2": "Neurology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาประสิทธิผลของยา Tranexamic acid (TXA) ต่ออัตราการเสียชีวิตในผู้ป่วยบาดเจ็บที่ศีรษะ (TBI) โดยเปรียบเทียบระหว่างกลุ่มที่มีอาการบาดเจ็บระดับเล็กน้อยถึงปานกลางและระดับรุนแรง\n- **วิธีการ:** ทำการทบทวนวรรณกรรมอย่างเป็นระบบและวิเคราะห์อภิมาน (Meta-analysis) จากฐานข้อมูลหลักจนถึงวันที่ 1 พฤษภาคม 2024 โดยคัดเลือกงานวิจัยที่เปรียบเทียบการใช้ยา TXA กับยาหลอก รวมทั้งหมด 16 การศึกษา (ผู้ป่วย 15,015 ราย)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การใช้ยา TXA สามารถลดอัตราการเสียชีวิตภายใน 28 วันได้อย่างมีนัยสำคัญในผู้ป่วย TBI ระดับเล็กน้อยถึงปานกลาง (Risk Ratio 0.71; 95% CI 0.60-0.85) แต่ไม่พบประโยชน์ที่ชัดเจนในผู้ป่วย TBI ระดับรุนแรง (GCS 3-8)",
+    "property_tag_3": "Trauma",
+    "property_tag_1": "Emergency Medicine",
+    "property_last_edited_time": "2025-12-26T19:12:00.000Z",
+    "property_pmid": "41446790",
+    "property_name": "Is tranexamic acid effective for all traumatic brain injury patients? a severity based systematic review and meta-analysis."
+  },
+  {
+    "id": "2d5ba464-60a7-819a-a86d-d420b5b67286",
+    "name": "Effectiveness of rapid rule-out strategy for acute coronary syndrome in the emergency department: a real-world retrospective study in Asia",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41445857/",
+    "property_tag_2": "Cardiology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินประสิทธิภาพการใช้งานจริงของอัลกอริธึม ESC 0/1 h hs-cTnT ในการคัดกรองและแยกโรคผู้ป่วยที่สงสัยว่าเป็นภาวะกล้ามเนื้อหัวใจขาดเลือดเฉียบพลัน (ACS) ในประชากรชาวเอเชีย\n- **วิธีการ:** เป็นการศึกษาย้อนหลังในโรงพยาบาลระดับตติยภูมิในประเทศจีน (ปี 2023-2025) ในผู้ป่วย 508 ราย โดยจำแนกผู้ป่วยตามเกณฑ์ ESC 2020 ออกเป็นกลุ่ม rule-out, observe และ rule-in เพื่อวิเคราะห์ความแม่นยำในการวินิจฉัย (Specificity และ PPV) และเปรียบเทียบผลกับเกณฑ์ปี 2015\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** จากผู้ป่วยทั้งหมด พบว่าเป็นกลุ่ม rule-out 40%, observe 50% และ rule-in 10% โดยกลุ่ม rule-in มีค่าทำนายผลบวก (PPV) ต่อการเกิดกล้ามเนื้อหัวใจตายที่ 82% ส่วนกลุ่ม rule-out มีความปลอดภัยสูงโดยไม่พบการวินิจฉัย MI เลย อย่างไรก็ตาม กลุ่ม observe มีสัดส่วนถึงครึ่งหนึ่งของผู้ป่วยทั้งหมดและใช้เวลาในห้องฉุกเฉินนานที่สุด (มัธยฐาน 7.4 ชั่วโมง) ซึ่งอาจจำกัดประสิทธิภาพในการบริหารจัดการ",
+    "property_tag_3": "Acute Coronary Syndrome",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2025-12-26T19:12:00.000Z",
+    "property_pmid": "41445857",
+    "property_name": "Effectiveness of rapid rule-out strategy for acute coronary syndrome in the emergency department: a real-world retrospective study in Asia"
+  },
+  {
+    "id": "2d5ba464-60a7-81bc-a629-cfc76e5c2aac",
+    "name": "Clinical Experience With Nasogastric Tube Placement Using a Biologically Transparent Illumination System in Critically Ill Patients",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41446499/",
+    "property_tag_2": "Gastroenterology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาความเป็นไปได้ทางคลินิกและความสามารถในการตรวจจับของระบบ Biologically Transparent Illumination (BTI) ซึ่งใช้แสงส่องสว่างช่วยในการใส่สายยางให้อาหารทางจมูก (NGT) ในผู้ป่วยวิกฤต\n- **วิธีการ:** เป็นการศึกษาแบบสังเกตการณ์ไปข้างหน้า (Prospective observational study) ในผู้ป่วยวิกฤตจำนวน 10 รายในหอผู้ป่วยหนัก (ICU) โดยทำการใส่สาย NGT ด้วยระบบ BTI และสังเกตแสงที่บริเวณลิ้นปี่ จากนั้นยืนยันตำแหน่งปลายสายด้วยการถ่ายภาพรังสี (X-ray)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** สามารถมองเห็นแสงจาก BTI ได้ในผู้ป่วย 5 ราย ในขณะที่ X-ray ยืนยันว่าสายอยู่ในกระเพาะอาหารถูกต้องทั้ง 10 ราย โดยข้อจำกัดในการมองเห็นแสงสัมพันธ์กับปัจจัยทางกายวิภาค เช่น ภาวะอ้วน ท้องมาน (Ascites) หรือระยะห่างจากปลายสายถึงผิวหนัง และไม่พบภาวะแทรกซ้อนจากการทำหัตถการ",
+    "property_tag_3": "Medical Device",
+    "property_tag_1": "Critical Care",
+    "property_last_edited_time": "2025-12-26T19:11:00.000Z",
+    "property_pmid": "41446499",
+    "property_name": "Clinical Experience With Nasogastric Tube Placement Using a Biologically Transparent Illumination System in Critically Ill Patients"
+  },
+  {
+    "id": "2d5ba464-60a7-8112-a70f-c3615a425df0",
+    "name": "We Need to Stay Flexible: Making a Case for Fiberoptic Intubation Skills.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41446497/",
+    "property_tag_2": "Surgery",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อเน้นย้ำความสำคัญของการรักษาทักษะการใส่ท่อช่วยหายใจด้วยกล้องส่องตรวจหลอดลม (fiberoptic intubation) สำหรับการจัดการทางเดินหายใจที่ยาก (difficult airway) โดยเฉพาะในผู้ป่วยที่มีโครงสร้างกายวิภาคซับซ้อน ท่ามกลางยุคที่การใช้วิดีโอ ลาริงโกสโคป (video laryngoscopy) ได้รับความนิยมสูง\n- **วิธีการ:** นำเสนอกรณีศึกษาของผู้ป่วยชายอายุ 61 ปี ที่มีประวัติมะเร็งลำคอและผ่านการผ่าตัดบริเวณศีรษะและลำคอมาอย่างมาก ซึ่งต้องเข้ารับการผ่าตัดลำไส้ใหญ่ฉุกเฉิน ทีมสหสาขาวิชาชีพได้วางแผนการใส่ท่อช่วยหายใจแบบตื่น (Awake Fiberoptic Intubation - AFOI) โดยใช้กล้องส่องตรวจหลอดลมชนิดงอได้ภายใต้การให้ยาคลายกังวลและยาชาเฉพาะที่\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การใส่ท่อช่วยหายใจประสบความสำเร็จตามแผนโดยไม่มีเหตุแทรกซ้อน ผู้ป่วยสามารถถอดท่อช่วยหายใจได้เมื่อจบการผ่าตัดและออกจาก ICU ในวันที่ 2 กรณีศึกษานี้สรุปได้ว่าแม้ความถี่ในการใช้งานจะลดลง แต่ทักษะ AFOI ยังคงเป็นสมรรถนะหลักที่จำเป็นอย่างยิ่งสำหรับวิสัญญีแพทย์ในการช่วยชีวิตผู้ป่วยที่ไม่สามารถใส่ท่อช่วยหายใจด้วยวิธีอื่นได้",
+    "property_tag_3": "Airway Management",
+    "property_tag_1": "Anesthesiology",
+    "property_last_edited_time": "2025-12-26T19:11:00.000Z",
+    "property_pmid": "41446497",
+    "property_name": "We Need to Stay Flexible: Making a Case for Fiberoptic Intubation Skills."
+  },
+  {
+    "id": "2d5ba464-60a7-8127-8056-c4ce8aa1b459",
+    "name": "The Unique Impacts of Implicit Bias on Emergency Medicine.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41446753/",
+    "property_tag_2": "Medical Education",
+    "property_comment": "- **วัตถุประสงค์:** เพื่ออธิบายผลกระทบของอคติแฝง (Implicit Bias) ที่มีต่อการดูแลผู้ป่วยและสุขภาวะของบุคลากรในบริบทของเวชศาสตร์ฉุกเฉิน พร้อมทั้งเสนอแนวทางแก้ไขปัญหา\n- **วิธีการ:** เป็นบทความวิชาการที่ทบทวนและวิเคราะห์สภาพแวดล้อมของแผนกฉุกเฉินที่มีความไม่แน่นอน ความแออัด และความเครียดสูง ซึ่งเป็นปัจจัยกระตุ้นให้เกิดอคติแฝงในการตัดสินใจทางคลินิก\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** บทความชี้ให้เห็นว่าภาระทางปัญญาที่สูงในห้องฉุกเฉินเพิ่มความเสี่ยงต่อการเกิดอคติแฝง ซึ่งส่งผลเสียต่อผลลัพธ์การรักษา โดยได้นำเสนอมาตรการแก้ไขในระดับบุคคล สถาบัน และวิชาชีพเพื่อส่งเสริมความเสมอภาค (บทความนี้เป็นบทความเชิงทัศนะและข้อเสนอแนะ จึงไม่มีการรายงานผลวิเคราะห์ทางสถิติเชิงตัวเลข)",
+    "property_tag_3": "Healthcare Quality",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2025-12-26T19:11:00.000Z",
+    "property_pmid": "41446753",
+    "property_name": "The Unique Impacts of Implicit Bias on Emergency Medicine."
   }
 ]
