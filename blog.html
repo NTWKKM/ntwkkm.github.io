@@ -45,6 +45,7 @@
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
+            overflow: hidden; /* Prevent body scroll, handle in containers */
         }
 
         /* ===== LAYOUT ===== */
@@ -52,11 +53,12 @@
             display: flex;
             height: 100vh;
             max-width: 100%;
+            position: relative;
         }
 
         /* SIDEBAR */
         .sidebar {
-            width: 30%; /* ขยายความกว้างขึ้นเล็กน้อยเพื่อให้อ่านง่าย */
+            width: 30%;
             min-width: 320px;
             max-width: 400px;
             background: var(--bg-sidebar);
@@ -64,8 +66,20 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            box-shadow: var(--shadow-sm); /* เพิ่มเงาเล็กน้อย */
-            z-index: 10;
+            box-shadow: var(--shadow-sm);
+            z-index: 20;
+            /* Transition for Collapsing */
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+        }
+
+        /* COLLAPSED STATE */
+        .sidebar.collapsed {
+            width: 0;
+            min-width: 0;
+            opacity: 0;
+            border: none;
+            transform: translateX(-100%);
         }
 
         .sidebar-header {
@@ -73,6 +87,66 @@
             border-bottom: 1px solid var(--border-light);
             flex-shrink: 0;
             background: var(--bg-sidebar);
+            position: relative;
+        }
+
+        /* Toggle Button inside Sidebar */
+        .sidebar-close-btn {
+            position: absolute;
+            top: 24px;
+            right: 16px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .sidebar-close-btn:hover {
+            background: var(--bg-paper-list);
+            color: var(--text-main);
+        }
+
+        /* Toggle Button outside (Main Content) */
+        .sidebar-open-btn {
+            position: absolute;
+            top: 24px;
+            left: 24px;
+            z-index: 30;
+            background: white;
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateX(-20px);
+        }
+
+        /* Show open button when sidebar is collapsed */
+        .container.sidebar-hidden .sidebar-open-btn {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(0);
+        }
+        
+        /* Adjust main content padding when sidebar is hidden */
+        .container.sidebar-hidden .main-content {
+            padding-top: 80px; /* Make space for the open button if needed, or keep clean */
         }
 
         .sidebar-content {
@@ -98,6 +172,8 @@
             padding: 48px 64px;
             overflow-y: auto;
             background: var(--bg-body);
+            position: relative;
+            transition: padding 0.3s ease;
         }
 
         /* ===== COMPONENTS ===== */
@@ -105,7 +181,7 @@
         /* BRAND */
         .brand {
             font-family: 'Inter', sans-serif;
-            font-weight: 800; /* หนากว่าเดิม */
+            font-weight: 800;
             font-size: 0.9rem;
             display: flex;
             align-items: center;
@@ -116,6 +192,7 @@
             letter-spacing: 0.05em;
             margin-bottom: 20px;
             transition: color 0.2s;
+            max-width: 85%; /* Prevent overlap with close button */
         }
 
         .brand:hover {
@@ -147,7 +224,7 @@
 
         .search-input:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); /* ปรับสีเงา */
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
             background: white;
         }
 
@@ -160,7 +237,7 @@
             color: var(--text-muted);
         }
 
-        /* FILTER TAGS - COMPACT DESIGN */
+        /* FILTER TAGS */
         .filter-tags-label {
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -176,15 +253,15 @@
             gap: 8px;
             flex-wrap: wrap;
             margin-bottom: 0;
-            max-height: 80px; /* เพิ่มความสูงเล็กน้อย */
+            max-height: 80px;
             overflow-y: auto;
             padding-right: 4px;
         }
 
         .filter-tag {
-            font-size: 0.75rem; /* ตัวใหญ่ขึ้น */
+            font-size: 0.75rem;
             padding: 5px 12px;
-            border-radius: 99px; /* Pill shape */
+            border-radius: 99px;
             background: var(--bg-paper-list);
             color: var(--text-secondary);
             cursor: pointer;
@@ -223,20 +300,20 @@
 
         .article-list-item {
             display: block;
-            padding: 14px 24px; /* เพิ่ม Padding */
-            margin: 0; /* เอา margin ออกเพื่อให้เต็มขอบ */
+            padding: 14px 24px;
+            margin: 0;
             text-decoration: none;
             color: var(--text-secondary);
             transition: all 0.2s ease;
             cursor: pointer;
             border-bottom: 1px solid var(--border-light);
-            border-left: 3px solid transparent; /* เตรียมไว้สำหรับ Active state */
+            border-left: 3px solid transparent;
         }
 
         .article-list-item:hover {
             background: var(--bg-paper-list);
             color: var(--text-main);
-            padding-left: 28px; /* ขยับเล็กน้อยเมื่อ Hover */
+            padding-left: 28px;
         }
 
         .article-list-item.active {
@@ -246,7 +323,7 @@
         }
 
         .list-title {
-            font-size: 0.9rem; /* ตัวใหญ่ขึ้น */
+            font-size: 0.9rem;
             line-height: 1.4;
             font-weight: 600;
             display: -webkit-box;
@@ -337,13 +414,56 @@
 
         .article-view {
             max-width: 800px;
-            margin: 0 auto; /* Center content */
+            margin: 0 auto;
             display: none;
             animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; /* Context for Nav Buttons */
         }
 
         .article-view.visible {
             display: block;
+        }
+
+        /* ARTICLE NAVIGATION (PREV/NEXT BUTTONS) */
+        .article-navigation {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .nav-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: white;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.1rem;
+            user-select: none;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
+        
+        .nav-btn:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            background: #f8fafc;
+            border-color: #f1f5f9;
         }
 
         .article-meta {
@@ -365,7 +485,7 @@
 
         .article-title {
             font-family: 'Inter', 'Sarabun', sans-serif;
-            font-size: 2.25rem; /* ใหญ่ขึ้นเพื่อความชัดเจน */
+            font-size: 2.25rem;
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 24px;
@@ -373,7 +493,7 @@
             letter-spacing: -0.025em;
         }
 
-        /* TAGS CONTAINER */
+        /* TAGS */
         .tags-container {
             display: flex;
             gap: 8px;
@@ -393,20 +513,20 @@
             font-family: 'Inter', sans-serif;
             border: 1px solid transparent;
             transition: all 0.2s;
-            cursor: pointer; /* เพิ่ม cursor pointer ให้รู้ว่ากดได้ */
+            cursor: pointer;
         }
         
         .tag-badge:hover {
             border-color: var(--primary);
             background: white;
-            transform: scale(1.05); /* เพิ่ม effect เล็กน้อยเมื่อ hover */
+            transform: scale(1.05);
         }
 
-        /* RESEARCH SECTIONS */
+        /* SECTIONS */
         .research-section {
             margin-bottom: 40px;
             background: white;
-            padding: 0; /* Remove padding/card style for cleaner text look, or keep if preferred */
+            padding: 0;
         }
 
         .research-section:last-child {
@@ -435,9 +555,9 @@
         }
 
         .sec-content {
-            font-size: 1rem; /* อ่านง่ายขึ้น */
+            font-size: 1rem;
             color: var(--text-secondary);
-            line-height: 1.8; /* ระยะห่างบรรทัดเพิ่มขึ้น */
+            line-height: 1.8;
             text-align: justify;
         }
 
@@ -476,13 +596,12 @@
             transform: translateY(0);
         }
         
-        /* Loading Indicator */
         .loading-indicator {
             text-align: center;
             padding: 20px;
             color: var(--text-muted);
             font-size: 0.85rem;
-            display: none; /* Hidden by default */
+            display: none;
         }
 
         /* ANIMATIONS */
@@ -491,7 +610,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* SCROLLBAR STYLING */
+        /* SCROLLBAR */
         .sidebar-content::-webkit-scrollbar,
         .filter-tags::-webkit-scrollbar {
             width: 5px;
@@ -514,7 +633,7 @@
             background: #94a3b8;
         }
 
-        /* ===== TABLET (1024px and below) ===== */
+        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .container {
                 flex-direction: column;
@@ -526,7 +645,22 @@
                 max-width: none;
                 border-right: none;
                 border-bottom: 1px solid var(--border-color);
-                max-height: 400px; /* เพิ่มความสูงในโหมด Tablet */
+                max-height: 400px;
+                transition: max-height 0.3s ease; /* Adjust transition for vertical */
+            }
+
+            /* Disable collapsing width on tablet/mobile, use height instead if needed, 
+               but for now let's disable the side-collapse feature on mobile/tablet to keep it simple UX */
+            .sidebar.collapsed {
+                width: 100%;
+                opacity: 1;
+                border-bottom: 1px solid var(--border-color);
+                transform: none;
+                /* Maybe hide content? For now, let's just hide the toggle button on mobile */
+            }
+            
+            .sidebar-close-btn, .sidebar-open-btn {
+                display: none !important;
             }
 
             .sidebar-content {
@@ -543,46 +677,27 @@
             .article-title {
                 font-size: 1.8rem;
             }
+            
+            .container.sidebar-hidden .main-content {
+                padding-top: 40px;
+            }
         }
 
-        /* ===== MOBILE (640px and below) ===== */
         @media (max-width: 640px) {
             .sidebar-header {
                 padding: 16px;
             }
-
             .sidebar-content {
                 max-height: 250px;
             }
-            
             .article-list-item {
                 padding: 12px 16px;
             }
-
             .main-content {
                 padding: 24px 20px;
             }
-
             .article-title {
                 font-size: 1.5rem;
-                line-height: 1.3;
-                margin-bottom: 16px;
-            }
-
-            .article-meta {
-                font-size: 0.75rem;
-                margin-bottom: 20px;
-                flex-wrap: wrap;
-                gap: 12px;
-            }
-            
-            .sec-content {
-                font-size: 0.95rem;
-            }
-
-            .pubmed-link {
-                width: 100%;
-                justify-content: center;
             }
         }
 
@@ -590,12 +705,21 @@
 </head>
 <body>
 
-    <div class="container">
-        <aside class="sidebar">
+    <div class="container" id="app-container">
+        
+        <button id="sidebar-open-btn" class="sidebar-open-btn">
+            <span>☰ Show Menu</span>
+        </button>
+
+        <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <a href="https://ntwkkm.github.io/" class="brand">
                     <span>←</span> Research Hub
                 </a>
+                
+                <button id="sidebar-close-btn" class="sidebar-close-btn" aria-label="Collapse sidebar">
+                    <span style="font-size: 1.2rem; line-height: 1;">«</span>
+                </button>
                 
                 <div class="search-container">
                     <span class="search-icon">🔍</span>
@@ -631,6 +755,11 @@
             </div>
 
             <article id="article-view" class="article-view">
+                <div class="article-navigation">
+                    <button id="nav-prev-article" class="nav-btn" aria-label="Previous Article">‹</button>
+                    <button id="nav-next-article" class="nav-btn" aria-label="Next Article">›</button>
+                </div>
+
                 <div class="article-meta">
                     <span>📅 <span id="post-date">...</span></span>
                     <span>|</span>
@@ -657,6 +786,7 @@
         let currentPage = 1;
         const itemsPerPage = 10;
         let activeTag = 'all';
+        let currentPostId = null; // Track currently viewed post for navigation
         
         // Cache Configuration
         const CACHE_KEY = 'research_blog_data';
@@ -720,8 +850,7 @@
                         id: item.id,
                         title: item.name,
                         summary: item.property_comment,
-                        // Content Parsing Preparation: 
-                        // Mapped new fields here so if JSON is updated in the future, it works automatically.
+                        // Content Parsing Preparation
                         objective: item.property_objective || null,
                         method: item.property_method || null, 
                         result: item.property_result || item.property_conclusion || null,
@@ -752,12 +881,54 @@
         });
 
         function setupEventListeners() {
+            // Search Input
             document.getElementById('search-input').addEventListener('input', (e) => {
                 handleFilter(e.target.value);
             });
 
+            // Pagination Buttons
             document.getElementById('prev-btn').addEventListener('click', () => changePage(-1));
             document.getElementById('next-btn').addEventListener('click', () => changePage(1));
+
+            // Sidebar Toggle Logic
+            const sidebar = document.getElementById('sidebar');
+            const container = document.getElementById('app-container');
+            const closeBtn = document.getElementById('sidebar-close-btn');
+            const openBtn = document.getElementById('sidebar-open-btn');
+
+            closeBtn.addEventListener('click', () => {
+                sidebar.classList.add('collapsed');
+                container.classList.add('sidebar-hidden');
+            });
+
+            openBtn.addEventListener('click', () => {
+                sidebar.classList.remove('collapsed');
+                container.classList.remove('sidebar-hidden');
+            });
+
+            // Article Navigation Buttons
+            document.getElementById('nav-prev-article').addEventListener('click', () => navigateArticle(-1));
+            document.getElementById('nav-next-article').addEventListener('click', () => navigateArticle(1));
+
+            // Keyboard Shortcuts
+            document.addEventListener('keydown', (e) => {
+                // Only trigger if sidebar is not focused (optional) and not typing in search
+                if (document.activeElement === document.getElementById('search-input')) return;
+
+                if (e.key === 'ArrowLeft') {
+                    navigateArticle(1); // Next in list (newer) or Prev? Typically Left is Back/Prev. 
+                    // Wait, logic: List is sorted Newest to Oldest. 
+                    // Usually "Left" means "Previous Item in Sequence". 
+                    // If visual list is Top to Bottom: Up/Down arrow keys are intuitive. 
+                    // Left/Right: Left usually means "Back" (Newer/Previous in list?) 
+                    // Let's stick to standard: Left = Previous Post (Index - 1), Right = Next Post (Index + 1).
+                    // In array index: 0 is newest. 
+                    // So "Next" usually means Older (Index + 1). "Prev" means Newer (Index - 1).
+                    navigateArticle(-1); 
+                } else if (e.key === 'ArrowRight') {
+                    navigateArticle(1);
+                }
+            });
         }
 
         function initTags(posts) {
@@ -774,7 +945,7 @@
             sortedTags.forEach(tag => {
                 const span = document.createElement('span');
                 span.className = 'filter-tag';
-                span.dataset.tag = tag; // Add data attribute for easier selection
+                span.dataset.tag = tag;
                 span.textContent = tag;
                 span.onclick = () => {
                    selectTag(tag);
@@ -787,11 +958,9 @@
             };
         }
         
-        // Helper function to handle tag selection from Sidebar or Article
         function selectTag(tag) {
             activeTag = tag;
             
-            // Update Visuals
             document.querySelectorAll('.filter-tag').forEach(el => {
                 if (tag === 'all') {
                     if (el.dataset.tag === 'all') el.classList.add('active');
@@ -841,25 +1010,20 @@
                 const item = document.createElement('div');
                 item.className = 'article-list-item';
                 item.dataset.id = post.id;
+                // Highlight active post if sidebar re-renders
+                if (post.id === currentPostId) item.classList.add('active');
+
                 item.innerHTML = `
                     <div class="list-title">${post.title}</div>
                     <div class="list-meta">
                         <span>${post.date}</span>
                     </div>
                 `;
-                // Note: Removed ID from list view to make it cleaner, only date shown
                 item.onclick = () => loadArticle(post);
                 listContainer.appendChild(item);
             });
 
             updatePaginationControls();
-
-            const params = new URLSearchParams(window.location.search);
-            const currentId = params.get('id');
-            if (currentId) {
-                const activeEl = document.querySelector(`.article-list-item[data-id="${currentId}"]`);
-                if (activeEl) activeEl.classList.add('active');
-            }
         }
 
         function updatePaginationControls() {
@@ -877,6 +1041,8 @@
         }
 
         function loadArticle(post) {
+            currentPostId = post.id; // Update current ID
+
             // SEO: Update Document Title
             document.title = `${post.title} | Medical Research Blog`;
 
@@ -884,6 +1050,7 @@
             const articleView = document.getElementById('article-view');
             articleView.classList.remove('visible');
 
+            // Render Content
             document.getElementById('post-date').textContent = post.date;
             document.getElementById('post-id').textContent = post.id;
             document.getElementById('post-title').textContent = post.title;
@@ -895,14 +1062,10 @@
                     const tagEl = document.createElement('span');
                     tagEl.className = 'tag-badge';
                     tagEl.textContent = tag;
-                    
-                    // Feature: Filter when clicking a tag in article
                     tagEl.onclick = (e) => {
                         e.stopPropagation();
                         selectTag(tag);
-                        // Optional: Scroll to sidebar top or provide feedback
                     };
-                    
                     tagsContainer.appendChild(tagEl);
                 });
             } else {
@@ -910,9 +1073,9 @@
             }
 
             const summaryContainer = document.getElementById('formatted-summary-container');
-            // Use new structured parsing if fields exist, otherwise fallback to Regex
             summaryContainer.innerHTML = parseContent(post);
 
+            // Links
             const linkBtn = document.getElementById('post-link');
             if (post.pmid) {
                 linkBtn.href = `https://pubmed.ncbi.nlm.nih.gov/${post.pmid}/`;
@@ -926,20 +1089,63 @@
                 linkBtn.style.display = 'none';
             }
 
+            // Update Sidebar Active State
             document.querySelectorAll('.article-list-item').forEach(el => el.classList.remove('active'));
             const activeEl = document.querySelector(`.article-list-item[data-id="${post.id}"]`);
             if (activeEl) activeEl.classList.add('active');
 
+            // URL Update
             const newUrl = `${window.location.pathname}?id=${post.id}`;
             history.pushState({ id: post.id }, '', newUrl);
 
+            // Update Nav Buttons State
+            updateNavButtonsState();
+
+            // Reveal
             setTimeout(() => articleView.classList.add('visible'), 50);
             document.querySelector('.main-content').scrollTop = 0;
         }
 
-        // New function to handle both Structured JSON and Legacy Text
+        // Logic to navigate between filtered posts
+        function navigateArticle(direction) {
+            if (!currentPostId || filteredPosts.length === 0) return;
+
+            const currentIndex = filteredPosts.findIndex(p => p.id === currentPostId);
+            if (currentIndex === -1) return;
+
+            const newIndex = currentIndex + direction;
+
+            // Bounds check
+            if (newIndex >= 0 && newIndex < filteredPosts.length) {
+                loadArticle(filteredPosts[newIndex]);
+                
+                // If the new article is on a different page in sidebar, switch page?
+                // Optional: For now, we just load the article. 
+                // Advanced: if (Math.floor(newIndex / itemsPerPage) + 1 !== currentPage) { ... }
+            }
+        }
+
+        function updateNavButtonsState() {
+            const prevBtn = document.getElementById('nav-prev-article');
+            const nextBtn = document.getElementById('nav-next-article');
+            
+            if (!currentPostId || filteredPosts.length === 0) {
+                prevBtn.disabled = true;
+                nextBtn.disabled = true;
+                return;
+            }
+
+            const currentIndex = filteredPosts.findIndex(p => p.id === currentPostId);
+            
+            // "Prev" button (Arrow Left) -> Goes to Index - 1 (Newer Post in sorted list)
+            // "Next" button (Arrow Right) -> Goes to Index + 1 (Older Post in sorted list)
+            // Note: UI Icons correspond to direction. < (Left) and > (Right).
+            
+            prevBtn.disabled = (currentIndex <= 0);
+            nextBtn.disabled = (currentIndex >= filteredPosts.length - 1);
+        }
+
         function parseContent(post) {
-            // Priority 1: Check if new structured fields exist (Future Proofing)
             if (post.objective || post.method || post.result) {
                 let html = '';
                 if (post.objective) {
@@ -953,8 +1159,6 @@
                 }
                 return html;
             }
-
-            // Priority 2: Fallback to existing Regex Parser
             return parseSummaryToSections(post.summary);
         }
 
@@ -973,7 +1177,6 @@
                 let sectionTitle = "";
                 let sectionContent = cleanLine;
 
-                // Improved Regex to be more flexible
                 if (cleanLine.match(/^(วัตถุประสงค์|Objective)/i)) {
                     sectionTitle = "Objective";
                 } else if (cleanLine.match(/^(วิธีการ|Method)/i)) {
