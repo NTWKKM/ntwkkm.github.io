@@ -7,363 +7,635 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* --- Professional Navy Palette --- */
-            --bg-body: #ffffff;
-            --bg-sidebar: #f8fafc; 
+            --bg-body: #fafbfc;
+            --bg-sidebar: #ffffff;
+            --bg-paper-list: #f5f7fa;
             
-            --text-main: #1e293b;   
-            --text-muted: #64748b; 
+            --text-main: #1a202c;
+            --text-secondary: #4a5568;
+            --text-muted: #718096;
             
-            --navy-primary: #0f172a; 
-            --navy-accent: #1e40af; 
-            --navy-light: #eff6ff;
+            --primary: #1e40af;
+            --primary-dark: #1e3a8a;
+            --primary-light: #eff6ff;
+            --primary-50: #f0f9ff;
             
             --border-color: #e2e8f0;
+            --border-light: #f0f4f8;
+            
+            --success: #059669;
+            --warning: #d97706;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
 
         body {
             font-family: 'Sarabun', 'Inter', sans-serif;
             background: var(--bg-body);
             color: var(--text-main);
-            line-height: 1.7; 
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            overflow: hidden; /* Fix body scroll to allow inner scrolling */
-            height: 100vh;
+            text-rendering: optimizeLegibility;
         }
 
-        /* --- Layout --- */
+        /* ===== LAYOUT ===== */
         .container {
-            max-width: 100%; 
-            margin: 0 auto;
             display: flex;
             height: 100vh;
+            max-width: 100%;
         }
 
-        /* Sidebar Structure */
+        /* SIDEBAR */
         .sidebar {
-            width: 25%;
-            min-width: 320px;
-            max-width: 400px;
+            width: 28%;
+            min-width: 300px;
+            max-width: 380px;
+            background: var(--bg-sidebar);
             border-right: 1px solid var(--border-color);
-            background-color: var(--bg-sidebar);
             display: flex;
             flex-direction: column;
-            height: 100%;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .sidebar-header {
-            padding: 30px 25px 20px 25px;
-            background: var(--bg-sidebar);
-            border-bottom: 1px solid var(--border-color);
+            padding: 24px 20px 16px;
+            border-bottom: 1px solid var(--border-light);
             flex-shrink: 0;
-            z-index: 10;
+            background: var(--bg-sidebar);
         }
 
         .sidebar-content {
             flex: 1;
             overflow-y: auto;
-            padding: 10px 15px;
+            padding: 0;
         }
 
         .sidebar-footer {
-            padding: 15px;
+            padding: 12px 16px;
             border-top: 1px solid var(--border-color);
-            background: white;
+            background: var(--bg-sidebar);
             flex-shrink: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
-        /* Main Content */
+        /* MAIN CONTENT */
         .main-content {
-            flex: 1; 
-            padding: 60px 80px; 
+            flex: 1;
+            padding: 48px 56px;
             overflow-y: auto;
-            background: white;
-            height: 100%;
+            background: var(--bg-body);
         }
 
-        /* --- Components --- */
-        .brand { 
+        /* ===== COMPONENTS ===== */
+        
+        /* BRAND */
+        .brand {
             font-family: 'Inter', sans-serif;
-            font-weight: 800; 
-            font-size: 0.9rem; 
-            margin-bottom: 25px; 
+            font-weight: 700;
+            font-size: 0.8rem;
             display: flex;
             align-items: center;
             gap: 8px;
-            text-decoration: none; 
-            color: var(--navy-primary);
+            text-decoration: none;
+            color: var(--text-main);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
         }
 
-        /* Search Box */
+        .brand:hover {
+            color: var(--primary);
+        }
+
+        /* SEARCH */
         .search-container {
             position: relative;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
+
         .search-input {
             width: 100%;
-            padding: 10px 15px 10px 35px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
+            padding: 9px 12px 9px 32px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            background: white;
+            color: var(--text-main);
             outline: none;
-            transition: border-color 0.2s;
+            transition: all 0.2s ease;
         }
-        .search-input:focus { border-color: var(--navy-accent); }
+
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+            background: white;
+        }
+
         .search-icon {
             position: absolute;
             left: 10px;
             top: 50%;
             transform: translateY(-50%);
             font-size: 14px;
-            color: var(--text-muted);
+            opacity: 0.5;
         }
 
-        /* Filter Tags in Sidebar */
+        /* FILTER TAGS - COMPACT DESIGN */
+        .filter-tags-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 600;
+        }
+
         .filter-tags {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
-            margin-bottom: 10px;
-        }
-        .filter-tag {
-            font-size: 0.7rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-            background: #e2e8f0;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: all 0.2s;
-            border: 1px solid transparent;
-        }
-        .filter-tag:hover { background: #cbd5e1; }
-        .filter-tag.active {
-            background: var(--navy-accent);
-            color: white;
+            margin-bottom: 0;
+            max-height: 72px;
+            overflow-y: auto;
+            padding-right: 4px;
         }
 
-        /* Article List Items */
+        .filter-tag {
+            font-size: 0.65rem;
+            padding: 4px 9px;
+            border-radius: 20px;
+            background: #f0f4f8;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border: 1px solid transparent;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .filter-tag:hover {
+            background: var(--border-color);
+            color: var(--text-main);
+        }
+
+        .filter-tag.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* ARTICLE LIST */
+        .article-list-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .articles-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            padding: 12px 16px 8px;
+            font-weight: 600;
+        }
+
         .article-list-item {
             display: block;
-            padding: 15px 15px;
-            margin-bottom: 5px;
+            padding: 10px 12px;
+            margin: 2px 8px;
             text-decoration: none;
-            color: var(--text-muted);
-            transition: all 0.2s ease;
+            color: var(--text-secondary);
+            transition: all 0.15s ease;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 6px;
             border: 1px solid transparent;
+            background: transparent;
         }
 
-        .article-list-item:hover { 
-            background: white;
-            border-color: var(--border-color);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            color: var(--navy-accent);
-        }
-        
-        .article-list-item.active { 
-            background: white;
-            border-color: var(--navy-accent);
-            color: var(--navy-primary); 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+        .article-list-item:hover {
+            background: var(--primary-50);
+            color: var(--primary);
+            border-color: var(--primary-light);
         }
 
-        .list-title { 
-            font-size: 0.9rem; 
-            line-height: 1.4; 
-            font-family: 'Inter', 'Sarabun', sans-serif; 
+        .article-list-item.active {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            color: var(--primary);
+            box-shadow: inset 0 1px 3px rgba(30, 64, 175, 0.1);
+        }
+
+        .list-title {
+            font-size: 0.8rem;
+            line-height: 1.35;
             font-weight: 600;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            margin-bottom: 4px;
         }
-        .list-meta { 
-            font-size: 0.75rem; 
-            opacity: 0.8; 
-            margin-top: 6px; 
-            font-family: 'Inter', sans-serif; 
+
+        .list-meta {
+            font-size: 0.65rem;
+            opacity: 0.7;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
 
-        /* Pagination Controls */
+        /* PAGINATION */
         .pagination-btn {
-            background: none;
+            background: white;
             border: 1px solid var(--border-color);
-            padding: 5px 12px;
+            padding: 6px 10px;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 0.8rem;
-            color: var(--text-main);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.15s ease;
         }
-        .pagination-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-        .pagination-btn:hover:not(:disabled) { border-color: var(--navy-accent); color: var(--navy-accent); }
-        .page-info { font-size: 0.8rem; font-family: 'Inter', sans-serif; color: var(--text-muted); }
 
-        /* --- Article View --- */
-        .article-view { max-width: 800px; margin: 0 auto; display: none; padding-bottom: 50px;}
-        .article-view.visible { display: block; animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-
-        .article-meta { 
-            font-family: 'Inter', sans-serif;
-            color: var(--text-muted); 
-            font-size: 0.85rem; 
-            margin-bottom: 20px; 
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .pagination-btn:hover:not(:disabled) {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
         }
+
+        .pagination-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .page-info {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        /* ===== ARTICLE VIEW ===== */
         
-        .article-title { 
-            font-family: 'Inter', 'Sarabun', sans-serif; 
-            font-size: 2.2rem; 
-            font-weight: 800; 
-            line-height: 1.3; 
-            margin-bottom: 30px; 
-            color: var(--navy-primary);
+        .empty-state {
+            text-align: center;
+            color: var(--text-muted);
+            padding-top: 100px;
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .empty-state h3 {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state p {
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        .article-view {
+            max-width: 850px;
+            display: none;
+            animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .article-view.visible {
+            display: block;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .article-title {
+            font-family: 'Inter', 'Sarabun', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 24px;
+            color: var(--text-main);
             letter-spacing: -0.02em;
         }
 
-        /* Tags in Content */
-        .tags-container { 
-            margin-bottom: 50px; 
-            display: flex; 
-            gap: 10px; 
-            padding-bottom: 30px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .tag-badge {
-            display: inline-block;
-            background: var(--navy-light);
-            color: var(--navy-accent);
-            font-size: 0.75rem;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
+        /* TAGS CONTAINER */
+        .tags-container {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-light);
         }
 
-        /* Research Sections */
-        .research-section { margin-bottom: 40px; }
+        .tag-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+            color: var(--primary);
+            font-size: 0.7rem;
+            padding: 5px 11px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            border: 1px solid var(--primary-light);
+        }
+
+        /* RESEARCH SECTIONS */
+        .research-section {
+            margin-bottom: 32px;
+        }
+
+        .research-section:last-child {
+            margin-bottom: 0;
+        }
 
         .sec-header {
             font-family: 'Inter', sans-serif;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.85rem;
             margin-bottom: 12px;
-            color: var(--navy-accent); 
+            color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            border-bottom: 2px solid #e2e8f0; 
+            letter-spacing: 0.06em;
             display: inline-block;
-            padding-bottom: 4px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--primary);
         }
 
         .sec-content {
-            font-size: 1.1rem;
-            color: var(--text-main);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
             text-align: justify;
         }
-        
-        /* Highlighting Bold Text from Markdown */
+
         .sec-content strong {
-            color: var(--navy-primary);
+            color: var(--text-main);
             font-weight: 600;
         }
 
+        /* ACTION BUTTON */
         .pubmed-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-top: 40px;
+            margin-top: 32px;
             color: white;
-            background-color: var(--navy-accent);
-            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 11px 20px;
             border-radius: 6px;
             text-decoration: none;
             font-weight: 600;
             font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            transition: all 0.2s;
+            font-size: 0.85rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(30, 64, 175, 0.2);
         }
-        .pubmed-link:hover { 
-            background-color: var(--navy-primary);
+
+        .pubmed-link:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.2);
+            box-shadow: 0 4px 16px rgba(30, 64, 175, 0.3);
         }
 
-        /* Empty State */
-        .empty-state { 
-            text-align: center; 
-            color: var(--text-muted); 
-            margin-top: 35vh;
+        .pubmed-link:active {
+            transform: translateY(0);
         }
-        .empty-icon { font-size: 3rem; margin-bottom: 20px; opacity: 0.3; }
 
-        /* Mobile */
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* SCROLLBAR STYLING */
+        .sidebar-content::-webkit-scrollbar,
+        .filter-tags::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar-content::-webkit-scrollbar-track,
+        .filter-tags::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .sidebar-content::-webkit-scrollbar-thumb,
+        .filter-tags::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .sidebar-content::-webkit-scrollbar-thumb:hover,
+        .filter-tags::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+
+        /* ===== TABLET (1024px and below) ===== */
         @media (max-width: 1024px) {
-            .container { flex-direction: column; overflow-y: auto; height: auto;}
-            .sidebar { width: 100%; max-width: none; height: auto; max-height: 500px; border-right: none; border-bottom: 1px solid var(--border-color); }
-            .sidebar-content { max-height: 400px; }
-            .main-content { padding: 40px 20px; height: auto; }
-            .article-title { font-size: 1.8rem; }
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .sidebar {
+                width: 100%;
+                max-width: none;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                max-height: 320px;
+            }
+
+            .sidebar-content {
+                max-height: 240px;
+            }
+
+            .main-content {
+                padding: 36px 32px;
+                flex: 1;
+            }
+
+            .article-title {
+                font-size: 1.6rem;
+            }
+
+            .sec-content {
+                font-size: 0.9rem;
+            }
         }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* ===== MOBILE (640px and below) ===== */
+        @media (max-width: 640px) {
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .sidebar {
+                width: 100%;
+                max-width: none;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                max-height: 280px;
+            }
+
+            .sidebar-header {
+                padding: 16px 16px 12px;
+            }
+
+            .sidebar-content {
+                max-height: 200px;
+            }
+
+            .main-content {
+                padding: 24px 16px;
+            }
+
+            .article-title {
+                font-size: 1.4rem;
+                line-height: 1.3;
+                margin-bottom: 16px;
+            }
+
+            .article-meta {
+                font-size: 0.7rem;
+                margin-bottom: 16px;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .tags-container {
+                margin-bottom: 24px;
+                padding-bottom: 16px;
+            }
+
+            .sec-header {
+                font-size: 0.75rem;
+                margin-bottom: 10px;
+            }
+
+            .sec-content {
+                font-size: 0.85rem;
+                text-align: left;
+            }
+
+            .research-section {
+                margin-bottom: 24px;
+            }
+
+            .filter-tags-label {
+                padding: 8px 16px 6px;
+            }
+
+            .articles-label {
+                padding: 8px 16px 6px;
+            }
+
+            .list-title {
+                font-size: 0.75rem;
+            }
+
+            .list-meta {
+                font-size: 0.6rem;
+            }
+
+            .pubmed-link {
+                width: 100%;
+                justify-content: center;
+                font-size: 0.8rem;
+            }
+        }
+
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- SIDEBAR -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <a href="https://ntwkkm.github.io/" class="brand">← Research Hub</a>
                 
                 <div class="search-container">
                     <span class="search-icon">🔍</span>
-                    <input type="text" id="search-input" class="search-input" placeholder="Search title, ID...">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search papers...">
                 </div>
-
-                <div class="filter-tags" id="filter-tags-container">
-                    <span class="filter-tag active" data-tag="all">All</span>
-                    </div>
             </div>
 
-            <div class="sidebar-content" id="sidebar-list">
-                <div style="padding:10px; color:#888; text-align:center;">Loading...</div>
+            <div class="sidebar-content">
+                <label class="filter-tags-label">Topics</label>
+                <div class="filter-tags" id="filter-tags-container">
+                    <span class="filter-tag active" data-tag="all">All Papers</span>
+                </div>
+
+                <div class="article-list-section">
+                    <label class="articles-label">Papers</label>
+                    <div id="sidebar-list"></div>
+                </div>
             </div>
 
             <div class="sidebar-footer">
-                <button id="prev-btn" class="pagination-btn">Previous</button>
+                <button id="prev-btn" class="pagination-btn">← Prev</button>
                 <span id="page-info" class="page-info">1 / 1</span>
-                <button id="next-btn" class="pagination-btn">Next</button>
+                <button id="next-btn" class="pagination-btn">Next →</button>
             </div>
         </aside>
 
+        <!-- MAIN CONTENT -->
         <main class="main-content">
             <div id="empty-state" class="empty-state">
                 <div class="empty-icon">📑</div>
-                <h3 style="font-weight: 500;">Select a research paper to view details</h3>
-                <p style="font-size: 0.9rem; margin-top: 10px;">Use the search bar to find specific papers.</p>
+                <h3>Select a research paper</h3>
+                <p>Choose from the list on the left to view paper details</p>
             </div>
 
             <article id="article-view" class="article-view">
                 <div class="article-meta">
-                    <span id="post-date">...</span> 
-                    <span style="color: #ccc;">|</span>
-                    <span>ID: <span id="post-id" style="font-family: monospace;"></span></span>
+                    <span>📅 <span id="post-date">...</span></span>
+                    <span>•</span>
+                    <span>🔖 <span id="post-id" style="font-family: monospace;"></span></span>
                 </div>
 
                 <h1 class="article-title" id="post-title">...</h1>
@@ -373,14 +645,14 @@
                 <div id="formatted-summary-container"></div>
 
                 <a href="#" target="_blank" id="post-link" class="pubmed-link">
-                    View Original Paper ↗
+                    📖 View Full Paper
                 </a>
             </article>
         </main>
     </div>
 
     <script>
-        // --- Global State ---
+        // Global State
         let allPosts = [];
         let filteredPosts = [];
         let currentPage = 1;
@@ -389,46 +661,42 @@
 
         document.addEventListener('DOMContentLoaded', async () => {
             try {
-                // Load JSON Data
-                const response = await fetch('./research_blog.json'); 
+                const response = await fetch('./research_blog.json');
                 const rawData = await response.json();
                 
-                // --- DATA MAPPING SECTION ---
-                // Map the new JSON format to the structure used by this app
                 const rawList = Array.isArray(rawData) ? rawData : (rawData.data || []);
                 
                 allPosts = rawList.map(item => {
-                    // Combine tags
                     const tags = [
-                        item.property_tag_1, 
-                        item.property_tag_2, 
+                        item.property_tag_1,
+                        item.property_tag_2,
                         item.property_tag_3
-                    ].filter(t => t && t.trim() !== ""); // Remove empty tags
+                    ].filter(t => t && t.trim() !== "");
 
-                    // Format Date
                     let dateStr = "";
-                    let timestamp = 0; // [แก้ไข] เพิ่มตัวแปรสำหรับเก็บค่าเวลาเพื่อใช้ในการเรียงลำดับ
+                    let timestamp = 0;
                     if (item.property_last_edited_time) {
                         const d = new Date(item.property_last_edited_time);
-                        timestamp = d.getTime(); // [แก้ไข] แปลงวันที่เป็นตัวเลขเพื่อใช้เปรียบเทียบ
-                        dateStr = d.toLocaleDateString('en-GB', { 
-                            day: 'numeric', month: 'short', year: 'numeric' 
+                        timestamp = d.getTime();
+                        dateStr = d.toLocaleDateString('en-GB', {
+                            day: 'numeric',
+                            month: 'short',
+                            year: 'numeric'
                         });
                     }
 
                     return {
                         id: item.id,
-                        title: item.name,           // Map 'name' to 'title'
-                        summary: item.property_comment, // Map 'property_comment' to 'summary'
+                        title: item.name,
+                        summary: item.property_comment,
                         date: dateStr,
-                        timestamp: timestamp, // [แก้ไข] เก็บ timestamp ไว้ใน object
+                        timestamp: timestamp,
                         tags: tags,
                         link: item.url,
                         pmid: item.property_pmid
                     };
                 });
 
-                // [แก้ไข] เรียงลำดับข้อมูลจากใหม่ไปเก่า (Descending Order)
                 allPosts.sort((a, b) => b.timestamp - a.timestamp);
 
                 filteredPosts = [...allPosts];
@@ -440,20 +708,15 @@
 
             } catch (error) {
                 console.error("Error:", error);
-                document.getElementById('sidebar-list').innerHTML = `<div style="text-align:center; color:red; margin-top:20px;">Failed to load data.<br>Make sure 'research_blog.json' is in the same folder.<br>${error.message}</div>`;
+                document.getElementById('sidebar-list').innerHTML = `<div style="text-align:center; color:#e74c3c; margin-top:20px; font-size:0.8rem;">Failed to load data.<br>Make sure 'research_blog.json' exists.</div>`;
             }
         });
 
-        // --- Core Functions ---
-        // (ส่วนที่เหลือเหมือนเดิม ไม่มีการเปลี่ยนแปลง)
-        
         function setupEventListeners() {
-            // Search Input
             document.getElementById('search-input').addEventListener('input', (e) => {
                 handleFilter(e.target.value);
             });
 
-            // Pagination Buttons
             document.getElementById('prev-btn').addEventListener('click', () => changePage(-1));
             document.getElementById('next-btn').addEventListener('click', () => changePage(1));
         }
@@ -461,31 +724,28 @@
         function initTags(posts) {
             const tagsSet = new Set();
             posts.forEach(p => {
-                if(p.tags) p.tags.forEach(t => tagsSet.add(t));
+                if (p.tags) p.tags.forEach(t => tagsSet.add(t));
             });
 
             const container = document.getElementById('filter-tags-container');
-            // Clear existing tags except "All"
-            container.innerHTML = '<span class="filter-tag active" data-tag="all">All</span>';
+            container.innerHTML = '<span class="filter-tag active" data-tag="all">All Papers</span>';
 
-            tagsSet.forEach(tag => {
+            const sortedTags = Array.from(tagsSet).sort();
+            
+            sortedTags.forEach(tag => {
                 const span = document.createElement('span');
                 span.className = 'filter-tag';
                 span.textContent = tag;
                 span.onclick = () => {
-                    // Toggle Active Tag
                     document.querySelectorAll('.filter-tag').forEach(el => el.classList.remove('active'));
                     span.classList.add('active');
                     activeTag = tag;
-                    
-                    // Reset Search and Filter
                     document.getElementById('search-input').value = '';
                     handleFilter('');
                 };
                 container.appendChild(span);
             });
 
-            // 'All' Tag Logic
             container.querySelector('[data-tag="all"]').onclick = (e) => {
                 document.querySelectorAll('.filter-tag').forEach(el => el.classList.remove('active'));
                 e.target.classList.add('active');
@@ -498,19 +758,16 @@
             const lowerQuery = query.toLowerCase();
             
             filteredPosts = allPosts.filter(post => {
-                // 1. Check Tag
                 const matchesTag = activeTag === 'all' || (post.tags && post.tags.includes(activeTag));
-                
-                // 2. Check Search Query
-                const matchesSearch = 
-                    (post.title && post.title.toLowerCase().includes(lowerQuery)) || 
+                const matchesSearch =
+                    (post.title && post.title.toLowerCase().includes(lowerQuery)) ||
                     (post.id && post.id.includes(lowerQuery)) ||
                     (post.summary && post.summary.toLowerCase().includes(lowerQuery));
 
                 return matchesTag && matchesSearch;
             });
 
-            currentPage = 1; // Reset to page 1 on search
+            currentPage = 1;
             renderSidebar();
         }
 
@@ -519,12 +776,11 @@
             listContainer.innerHTML = '';
 
             if (filteredPosts.length === 0) {
-                listContainer.innerHTML = '<div style="text-align:center; margin-top:20px; color:#999;">No results found.</div>';
+                listContainer.innerHTML = '<div style="text-align:center; margin-top:20px; color:#999; font-size:0.8rem;">No results found.</div>';
                 updatePaginationControls();
                 return;
             }
 
-            // Pagination Logic
             const startIndex = (currentPage - 1) * itemsPerPage;
             const endIndex = startIndex + itemsPerPage;
             const pageItems = filteredPosts.slice(startIndex, endIndex);
@@ -537,29 +793,27 @@
                     <div class="list-title">${post.title}</div>
                     <div class="list-meta">
                         <span>${post.date}</span>
-                        <span style="opacity:0.6;">#${post.id.substring(0, 5)}...</span>
+                        <span>#${post.id.substring(0, 5)}...</span>
                     </div>
                 `;
-                
                 item.onclick = () => loadArticle(post);
                 listContainer.appendChild(item);
             });
 
             updatePaginationControls();
-            
-            // Re-highlight if current article is in view
+
             const params = new URLSearchParams(window.location.search);
             const currentId = params.get('id');
-            if(currentId) {
+            if (currentId) {
                 const activeEl = document.querySelector(`.article-list-item[data-id="${currentId}"]`);
-                if(activeEl) activeEl.classList.add('active');
+                if (activeEl) activeEl.classList.add('active');
             }
         }
 
         function updatePaginationControls() {
             const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
             document.getElementById('page-info').textContent = `${currentPage} / ${totalPages || 1}`;
-            
+
             document.getElementById('prev-btn').disabled = currentPage === 1;
             document.getElementById('next-btn').disabled = currentPage >= totalPages || totalPages === 0;
         }
@@ -567,24 +821,20 @@
         function changePage(delta) {
             currentPage += delta;
             renderSidebar();
-            // Scroll to top of sidebar list
             document.querySelector('.sidebar-content').scrollTop = 0;
         }
 
         function loadArticle(post) {
-            // UI Reset
             document.getElementById('empty-state').style.display = 'none';
             const articleView = document.getElementById('article-view');
             articleView.classList.remove('visible');
-            
-            // Set Data
+
             document.getElementById('post-date').textContent = post.date;
             document.getElementById('post-id').textContent = post.id;
             document.getElementById('post-title').textContent = post.title;
 
-            // Render Tags
             const tagsContainer = document.getElementById('post-tags');
-            tagsContainer.innerHTML = ''; 
+            tagsContainer.innerHTML = '';
             if (post.tags && Array.isArray(post.tags) && post.tags.length > 0) {
                 post.tags.forEach(tag => {
                     const tagEl = document.createElement('span');
@@ -596,62 +846,48 @@
                 tagsContainer.innerHTML = '<span style="color:#ccc; font-size:0.8rem;">No tags</span>';
             }
 
-            // Summary Formatting
             const summaryContainer = document.getElementById('formatted-summary-container');
             summaryContainer.innerHTML = parseSummaryToSections(post.summary);
 
-            // Link Logic
             const linkBtn = document.getElementById('post-link');
             if (post.pmid) {
-                // If PMID exists, prefer PubMed link
                 linkBtn.href = `https://pubmed.ncbi.nlm.nih.gov/${post.pmid}/`;
-                linkBtn.innerHTML = `View on PubMed ↗`;
+                linkBtn.innerHTML = `📖 View on PubMed`;
                 linkBtn.style.display = 'inline-flex';
             } else if (post.link) {
                 linkBtn.href = post.link;
-                linkBtn.innerHTML = `Read Source ↗`;
+                linkBtn.innerHTML = `📖 Read Source`;
                 linkBtn.style.display = 'inline-flex';
             } else {
                 linkBtn.style.display = 'none';
             }
 
-            // Sidebar Highlight Logic (Refresh classes)
             document.querySelectorAll('.article-list-item').forEach(el => el.classList.remove('active'));
             const activeEl = document.querySelector(`.article-list-item[data-id="${post.id}"]`);
-            if(activeEl) activeEl.classList.add('active');
+            if (activeEl) activeEl.classList.add('active');
 
-            // Routing
             const newUrl = `${window.location.pathname}?id=${post.id}`;
             history.pushState({ id: post.id }, '', newUrl);
 
-            // Animation
             setTimeout(() => articleView.classList.add('visible'), 50);
             document.querySelector('.main-content').scrollTop = 0;
         }
 
-        // --- Parsing Logic Updated for Markdown style ---
         function parseSummaryToSections(text) {
             if (!text) return '<p style="color:#999; font-style:italic;">No summary content available.</p>';
-            
-            const lines = text.split(/\n/); 
+
+            const lines = text.split(/\n/);
             let html = '';
 
             lines.forEach(line => {
                 let cleanLine = line.trim();
-                
-                // Remove leading dash/bullet
                 cleanLine = cleanLine.replace(/^[-•*]\s*/, '');
-                
-                // Remove Markdown bold characters (**) for cleaner title extraction
-                // but keep them in content for now or handle them
-                
+
                 if (!cleanLine) return;
 
                 let sectionTitle = "";
                 let sectionContent = cleanLine;
 
-                // Detect Section Headers (Robust against markdown **Title:**)
-                // Looks for: Objective, Method, Result, Conclusion in Thai or English
                 if (cleanLine.match(/(วัตถุประสงค์|Objective)/i)) {
                     sectionTitle = "Objective";
                 } else if (cleanLine.match(/(วิธีการ|Method)/i)) {
@@ -661,22 +897,17 @@
                 }
 
                 if (sectionTitle) {
-                    // Clean the content part: Remove the Title and the colon
-                    // Regex removes: **Title:** or Title: 
                     sectionContent = cleanLine.replace(/^(\*\*)?(วัตถุประสงค์|Objective|วิธีการ|Method|Methods|Results|Result|Conclusion|สรุป|ผลลัพธ์|ผลวิเคราะห์).*?[:：]?(\*\*)?[:：]?\s*/i, '').trim();
-                    
+
                     html += `
                         <div class="research-section">
                             <div class="sec-header">${sectionTitle}</div>
                             <div class="sec-content">${sectionContent}</div>
                         </div>`;
                 } else {
-                    // Regular paragraph (clean up remaining markdown bold if any)
-                    // If you want to support bold text in description, keep the **
-                    // Here I am converting **text** to <strong>text</strong> for HTML
                     const formattedContent = cleanLine.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                    
-                     html += `
+
+                    html += `
                         <div class="research-section">
                             <div class="sec-content">${formattedContent}</div>
                         </div>`;
@@ -693,16 +924,11 @@
                 if (post) loadArticle(post);
             }
         }
-        
-        // Handle Back Button
+
         window.onpopstate = function(event) {
             if (event.state && event.state.id) {
                 const post = allPosts.find(p => p.id === event.state.id);
                 if (post) loadArticle(post);
-            } else {
-                // If back to root, clear view or reset?
-                // document.getElementById('article-view').classList.remove('visible');
-                // document.getElementById('empty-state').style.display = 'block';
             }
         };
 
