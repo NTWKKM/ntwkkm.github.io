@@ -393,11 +393,13 @@
             font-family: 'Inter', sans-serif;
             border: 1px solid transparent;
             transition: all 0.2s;
+            cursor: pointer; /* เพิ่ม cursor pointer ให้รู้ว่ากดได้ */
         }
         
         .tag-badge:hover {
             border-color: var(--primary);
             background: white;
+            transform: scale(1.05); /* เพิ่ม effect เล็กน้อยเมื่อ hover */
         }
 
         /* RESEARCH SECTIONS */
@@ -597,7 +599,7 @@
                 
                 <div class="search-container">
                     <span class="search-icon">🔍</span>
-                    <input type="text" id="search-input" class="search-input" placeholder="Search papers, topics...">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search papers, topics..." aria-label="Search articles">
                 </div>
                 
                 <label class="filter-tags-label">Topics</label>
@@ -615,9 +617,9 @@
             </div>
 
             <div class="sidebar-footer">
-                <button id="prev-btn" class="pagination-btn">← Prev</button>
+                <button id="prev-btn" class="pagination-btn" aria-label="Previous page">← Prev</button>
                 <span id="page-info" class="page-info">1 / 1</span>
-                <button id="next-btn" class="pagination-btn">Next →</button>
+                <button id="next-btn" class="pagination-btn" aria-label="Next page">Next →</button>
             </div>
         </aside>
 
@@ -655,14 +657,43 @@
         let currentPage = 1;
         const itemsPerPage = 10;
         let activeTag = 'all';
+        
+        // Cache Configuration
+        const CACHE_KEY = 'research_blog_data';
+        const CACHE_DURATION = 1000 * 60 * 60; // 1 hour
 
         document.addEventListener('DOMContentLoaded', async () => {
             const loadingEl = document.getElementById('loading-indicator');
             loadingEl.style.display = 'block'; // Show loading
             
             try {
-                const response = await fetch('./research_blog.json');
-                const rawData = await response.json();
+                // Local Caching Strategy
+                let rawData = null;
+                const cached = localStorage.getItem(CACHE_KEY);
+                
+                if (cached) {
+                    try {
+                        const parsedCache = JSON.parse(cached);
+                        if (Date.now() - parsedCache.timestamp < CACHE_DURATION) {
+                            console.log("Using cached data");
+                            rawData = parsedCache.data;
+                        }
+                    } catch (e) {
+                        console.warn("Cache parse error, fetching new data.");
+                    }
+                }
+
+                if (!rawData) {
+                    console.log("Fetching new data from server");
+                    const response = await fetch('./research_blog.json');
+                    rawData = await response.json();
+                    
+                    // Save to cache
+                    localStorage.setItem(CACHE_KEY, JSON.stringify({
+                        timestamp: Date.now(),
+                        data: rawData
+                    }));
+                }
                 
                 const rawList = Array.isArray(rawData) ? rawData : (rawData.data || []);
                 
@@ -689,6 +720,12 @@
                         id: item.id,
                         title: item.name,
                         summary: item.property_comment,
+                        // Content Parsing Preparation: 
+                        // Mapped new fields here so if JSON is updated in the future, it works automatically.
+                        objective: item.property_objective || null,
+                        method: item.property_method || null, 
+                        result: item.property_result || item.property_conclusion || null,
+                        
                         date: dateStr,
                         timestamp: timestamp,
                         tags: tags,
@@ -737,23 +774,36 @@
             sortedTags.forEach(tag => {
                 const span = document.createElement('span');
                 span.className = 'filter-tag';
+                span.dataset.tag = tag; // Add data attribute for easier selection
                 span.textContent = tag;
                 span.onclick = () => {
-                    document.querySelectorAll('.filter-tag').forEach(el => el.classList.remove('active'));
-                    span.classList.add('active');
-                    activeTag = tag;
-                    document.getElementById('search-input').value = '';
-                    handleFilter('');
+                   selectTag(tag);
                 };
                 container.appendChild(span);
             });
 
             container.querySelector('[data-tag="all"]').onclick = (e) => {
-                document.querySelectorAll('.filter-tag').forEach(el => el.classList.remove('active'));
-                e.target.classList.add('active');
-                activeTag = 'all';
-                handleFilter('');
+                selectTag('all');
             };
+        }
+        
+        // Helper function to handle tag selection from Sidebar or Article
+        function selectTag(tag) {
+            activeTag = tag;
+            
+            // Update Visuals
+            document.querySelectorAll('.filter-tag').forEach(el => {
+                if (tag === 'all') {
+                    if (el.dataset.tag === 'all') el.classList.add('active');
+                    else el.classList.remove('active');
+                } else {
+                    if (el.dataset.tag === tag) el.classList.add('active');
+                    else el.classList.remove('active');
+                }
+            });
+
+            document.getElementById('search-input').value = '';
+            handleFilter('');
         }
 
         function handleFilter(query) {
@@ -827,6 +877,9 @@
         }
 
         function loadArticle(post) {
+            // SEO: Update Document Title
+            document.title = `${post.title} | Medical Research Blog`;
+
             document.getElementById('empty-state').style.display = 'none';
             const articleView = document.getElementById('article-view');
             articleView.classList.remove('visible');
@@ -842,6 +895,14 @@
                     const tagEl = document.createElement('span');
                     tagEl.className = 'tag-badge';
                     tagEl.textContent = tag;
+                    
+                    // Feature: Filter when clicking a tag in article
+                    tagEl.onclick = (e) => {
+                        e.stopPropagation();
+                        selectTag(tag);
+                        // Optional: Scroll to sidebar top or provide feedback
+                    };
+                    
                     tagsContainer.appendChild(tagEl);
                 });
             } else {
@@ -849,7 +910,8 @@
             }
 
             const summaryContainer = document.getElementById('formatted-summary-container');
-            summaryContainer.innerHTML = parseSummaryToSections(post.summary);
+            // Use new structured parsing if fields exist, otherwise fallback to Regex
+            summaryContainer.innerHTML = parseContent(post);
 
             const linkBtn = document.getElementById('post-link');
             if (post.pmid) {
@@ -873,6 +935,27 @@
 
             setTimeout(() => articleView.classList.add('visible'), 50);
             document.querySelector('.main-content').scrollTop = 0;
+        }
+
+        // New function to handle both Structured JSON and Legacy Text
+        function parseContent(post) {
+            // Priority 1: Check if new structured fields exist (Future Proofing)
+            if (post.objective || post.method || post.result) {
+                let html = '';
+                if (post.objective) {
+                    html += `<div class="research-section"><div class="sec-header">Objective</div><div class="sec-content">${post.objective}</div></div>`;
+                }
+                if (post.method) {
+                    html += `<div class="research-section"><div class="sec-header">Methods</div><div class="sec-content">${post.method}</div></div>`;
+                }
+                if (post.result) {
+                    html += `<div class="research-section"><div class="sec-header">Results & Conclusion</div><div class="sec-content">${post.result}</div></div>`;
+                }
+                return html;
+            }
+
+            // Priority 2: Fallback to existing Regex Parser
+            return parseSummaryToSections(post.summary);
         }
 
         function parseSummaryToSections(text) {
