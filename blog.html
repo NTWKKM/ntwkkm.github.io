@@ -7,24 +7,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-body: #fafbfc;
+            /* Refined Color Palette for Modern Look */
+            --bg-body: #f8fafc; /* Cool gray background */
             --bg-sidebar: #ffffff;
-            --bg-paper-list: #f5f7fa;
+            --bg-paper-list: #f1f5f9;
             
-            --text-main: #1a202c;
-            --text-secondary: #4a5568;
-            --text-muted: #718096;
+            --text-main: #0f172a; /* Slate 900 */
+            --text-secondary: #475569; /* Slate 600 */
+            --text-muted: #94a3b8; /* Slate 400 */
             
-            --primary: #1e40af;
-            --primary-dark: #1e3a8a;
+            --primary: #2563eb; /* Blue 600 - สว่างขึ้นเล็กน้อย */
+            --primary-dark: #1e40af;
             --primary-light: #eff6ff;
-            --primary-50: #f0f9ff;
+            --primary-50: #f8fafc;
             
             --border-color: #e2e8f0;
-            --border-light: #f0f4f8;
+            --border-light: #f1f5f9;
             
-            --success: #059669;
-            --warning: #d97706;
+            --success: #10b981;
+            --warning: #f59e0b;
+            
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -52,19 +56,20 @@
 
         /* SIDEBAR */
         .sidebar {
-            width: 28%;
-            min-width: 300px;
-            max-width: 380px;
+            width: 30%; /* ขยายความกว้างขึ้นเล็กน้อยเพื่อให้อ่านง่าย */
+            min-width: 320px;
+            max-width: 400px;
             background: var(--bg-sidebar);
             border-right: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-sm); /* เพิ่มเงาเล็กน้อย */
+            z-index: 10;
         }
 
         .sidebar-header {
-            padding: 24px 20px 16px;
+            padding: 24px 24px 16px;
             border-bottom: 1px solid var(--border-light);
             flex-shrink: 0;
             background: var(--bg-sidebar);
@@ -77,20 +82,20 @@
         }
 
         .sidebar-footer {
-            padding: 12px 16px;
+            padding: 16px 24px;
             border-top: 1px solid var(--border-color);
             background: var(--bg-sidebar);
             flex-shrink: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
         }
 
         /* MAIN CONTENT */
         .main-content {
             flex: 1;
-            padding: 48px 56px;
+            padding: 48px 64px;
             overflow-y: auto;
             background: var(--bg-body);
         }
@@ -100,16 +105,17 @@
         /* BRAND */
         .brand {
             font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 0.8rem;
+            font-weight: 800; /* หนากว่าเดิม */
+            font-size: 0.9rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             text-decoration: none;
             color: var(--text-main);
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+            transition: color 0.2s;
         }
 
         .brand:hover {
@@ -119,17 +125,17 @@
         /* SEARCH */
         .search-container {
             position: relative;
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
         .search-input {
             width: 100%;
-            padding: 9px 12px 9px 32px;
+            padding: 10px 12px 10px 36px;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            background: white;
+            font-size: 0.9rem;
+            background: var(--bg-body);
             color: var(--text-main);
             outline: none;
             transition: all 0.2s ease;
@@ -141,55 +147,55 @@
 
         .search-input:focus {
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); /* ปรับสีเงา */
             background: white;
         }
 
         .search-icon {
             position: absolute;
-            left: 10px;
+            left: 12px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 14px;
-            opacity: 0.5;
+            font-size: 16px;
+            color: var(--text-muted);
         }
 
         /* FILTER TAGS - COMPACT DESIGN */
         .filter-tags-label {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--text-muted);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: block;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .filter-tags {
             display: flex;
-            gap: 6px;
+            gap: 8px;
             flex-wrap: wrap;
             margin-bottom: 0;
-            max-height: 72px;
+            max-height: 80px; /* เพิ่มความสูงเล็กน้อย */
             overflow-y: auto;
             padding-right: 4px;
         }
 
         .filter-tag {
-            font-size: 0.65rem;
-            padding: 4px 9px;
-            border-radius: 20px;
-            background: #f0f4f8;
+            font-size: 0.75rem; /* ตัวใหญ่ขึ้น */
+            padding: 5px 12px;
+            border-radius: 99px; /* Pill shape */
+            background: var(--bg-paper-list);
             color: var(--text-secondary);
             cursor: pointer;
-            transition: all 0.15s ease;
+            transition: all 0.2s ease;
             border: 1px solid transparent;
             font-weight: 500;
             white-space: nowrap;
         }
 
         .filter-tag:hover {
-            background: var(--border-color);
+            background: #e2e8f0;
             color: var(--text-main);
         }
 
@@ -197,6 +203,7 @@
             background: var(--primary);
             color: white;
             border-color: var(--primary);
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
         }
 
         /* ARTICLE LIST */
@@ -206,54 +213,52 @@
         }
 
         .articles-label {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: var(--text-muted);
-            padding: 12px 16px 8px;
-            font-weight: 600;
+            padding: 20px 24px 10px;
+            font-weight: 700;
         }
 
         .article-list-item {
             display: block;
-            padding: 10px 12px;
-            margin: 2px 8px;
+            padding: 14px 24px; /* เพิ่ม Padding */
+            margin: 0; /* เอา margin ออกเพื่อให้เต็มขอบ */
             text-decoration: none;
             color: var(--text-secondary);
-            transition: all 0.15s ease;
+            transition: all 0.2s ease;
             cursor: pointer;
-            border-radius: 6px;
-            border: 1px solid transparent;
-            background: transparent;
+            border-bottom: 1px solid var(--border-light);
+            border-left: 3px solid transparent; /* เตรียมไว้สำหรับ Active state */
         }
 
         .article-list-item:hover {
-            background: var(--primary-50);
-            color: var(--primary);
-            border-color: var(--primary-light);
+            background: var(--bg-paper-list);
+            color: var(--text-main);
+            padding-left: 28px; /* ขยับเล็กน้อยเมื่อ Hover */
         }
 
         .article-list-item.active {
             background: var(--primary-light);
-            border-color: var(--primary);
-            color: var(--primary);
-            box-shadow: inset 0 1px 3px rgba(30, 64, 175, 0.1);
+            border-left-color: var(--primary);
+            color: var(--primary-dark);
         }
 
         .list-title {
-            font-size: 0.8rem;
-            line-height: 1.35;
+            font-size: 0.9rem; /* ตัวใหญ่ขึ้น */
+            line-height: 1.4;
             font-weight: 600;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
         .list-meta {
-            font-size: 0.65rem;
-            opacity: 0.7;
+            font-size: 0.75rem;
+            opacity: 0.8;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -263,13 +268,13 @@
         .pagination-btn {
             background: white;
             border: 1px solid var(--border-color);
-            padding: 6px 10px;
-            border-radius: 4px;
+            padding: 8px 14px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--text-secondary);
-            font-weight: 500;
-            transition: all 0.15s ease;
+            font-weight: 600;
+            transition: all 0.2s ease;
         }
 
         .pagination-btn:hover:not(:disabled) {
@@ -281,46 +286,60 @@
         .pagination-btn:disabled {
             opacity: 0.4;
             cursor: not-allowed;
+            background: #f1f5f9;
         }
 
         .page-info {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            min-width: 40px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            min-width: 50px;
             text-align: center;
         }
 
         /* ===== ARTICLE VIEW ===== */
         
         .empty-state {
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
             color: var(--text-muted);
-            padding-top: 100px;
+            text-align: center;
         }
 
         .empty-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            opacity: 0.3;
+            font-size: 3rem;
+            margin-bottom: 16px;
+            opacity: 0.5;
+            background: var(--bg-sidebar);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: var(--shadow-sm);
         }
 
         .empty-state h3 {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: var(--text-secondary);
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: var(--text-main);
         }
 
         .empty-state p {
-            font-size: 0.85rem;
-            margin: 0;
+            font-size: 0.95rem;
+            max-width: 300px;
         }
 
         .article-view {
-            max-width: 850px;
+            max-width: 800px;
+            margin: 0 auto; /* Center content */
             display: none;
-            animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .article-view.visible {
@@ -330,28 +349,28 @@
         .article-meta {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 0.8rem;
+            gap: 16px;
+            font-size: 0.85rem;
             color: var(--text-muted);
             margin-bottom: 24px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .article-meta span {
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 6px;
         }
 
         .article-title {
             font-family: 'Inter', 'Sarabun', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            line-height: 1.25;
+            font-size: 2.25rem; /* ใหญ่ขึ้นเพื่อความชัดเจน */
+            font-weight: 800;
+            line-height: 1.2;
             margin-bottom: 24px;
             color: var(--text-main);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.025em;
         }
 
         /* TAGS CONTAINER */
@@ -359,26 +378,33 @@
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
-            margin-bottom: 32px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid var(--border-light);
+            margin-bottom: 40px;
+            padding-bottom: 0;
         }
 
         .tag-badge {
             display: inline-block;
-            background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 100%);
+            background: var(--primary-light);
             color: var(--primary);
-            font-size: 0.7rem;
-            padding: 5px 11px;
-            border-radius: 5px;
+            font-size: 0.75rem;
+            padding: 6px 14px;
+            border-radius: 99px;
             font-weight: 600;
             font-family: 'Inter', sans-serif;
-            border: 1px solid var(--primary-light);
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .tag-badge:hover {
+            border-color: var(--primary);
+            background: white;
         }
 
         /* RESEARCH SECTIONS */
         .research-section {
-            margin-bottom: 32px;
+            margin-bottom: 40px;
+            background: white;
+            padding: 0; /* Remove padding/card style for cleaner text look, or keep if preferred */
         }
 
         .research-section:last-child {
@@ -388,73 +414,86 @@
         .sec-header {
             font-family: 'Inter', sans-serif;
             font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 16px;
             color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            display: inline-block;
-            padding-bottom: 6px;
-            border-bottom: 2px solid var(--primary);
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .sec-header::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border-color);
+            opacity: 0.5;
         }
 
         .sec-content {
-            font-size: 0.95rem;
+            font-size: 1rem; /* อ่านง่ายขึ้น */
             color: var(--text-secondary);
-            line-height: 1.7;
+            line-height: 1.8; /* ระยะห่างบรรทัดเพิ่มขึ้น */
             text-align: justify;
         }
 
         .sec-content strong {
             color: var(--text-main);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* ACTION BUTTON */
         .pubmed-link {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            margin-top: 32px;
+            gap: 10px;
+            margin-top: 48px;
             color: white;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            padding: 11px 20px;
-            border-radius: 6px;
+            background: var(--primary);
+            padding: 12px 24px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             border: none;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(30, 64, 175, 0.2);
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.3);
         }
 
         .pubmed-link:hover {
+            background: var(--primary-dark);
             transform: translateY(-2px);
-            box-shadow: 0 4px 16px rgba(30, 64, 175, 0.3);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
         }
 
         .pubmed-link:active {
             transform: translateY(0);
         }
+        
+        /* Loading Indicator */
+        .loading-indicator {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            display: none; /* Hidden by default */
+        }
 
         /* ANIMATIONS */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* SCROLLBAR STYLING */
         .sidebar-content::-webkit-scrollbar,
         .filter-tags::-webkit-scrollbar {
-            width: 6px;
+            width: 5px;
+            height: 5px;
         }
 
         .sidebar-content::-webkit-scrollbar-track,
@@ -464,13 +503,13 @@
 
         .sidebar-content::-webkit-scrollbar-thumb,
         .filter-tags::-webkit-scrollbar-thumb {
-            background: var(--border-color);
-            border-radius: 3px;
+            background: #cbd5e1;
+            border-radius: 10px;
         }
 
         .sidebar-content::-webkit-scrollbar-thumb:hover,
         .filter-tags::-webkit-scrollbar-thumb:hover {
-            background: var(--text-muted);
+            background: #94a3b8;
         }
 
         /* ===== TABLET (1024px and below) ===== */
@@ -485,106 +524,63 @@
                 max-width: none;
                 border-right: none;
                 border-bottom: 1px solid var(--border-color);
-                max-height: 320px;
+                max-height: 400px; /* เพิ่มความสูงในโหมด Tablet */
             }
 
             .sidebar-content {
-                max-height: 240px;
+                max-height: 280px;
             }
 
             .main-content {
-                padding: 36px 32px;
+                padding: 40px 32px;
                 flex: 1;
+                height: auto;
+                min-height: 500px;
             }
 
             .article-title {
-                font-size: 1.6rem;
-            }
-
-            .sec-content {
-                font-size: 0.9rem;
+                font-size: 1.8rem;
             }
         }
 
         /* ===== MOBILE (640px and below) ===== */
         @media (max-width: 640px) {
-            .container {
-                flex-direction: column;
-                height: auto;
-            }
-
-            .sidebar {
-                width: 100%;
-                max-width: none;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                max-height: 280px;
-            }
-
             .sidebar-header {
-                padding: 16px 16px 12px;
+                padding: 16px;
             }
 
             .sidebar-content {
-                max-height: 200px;
+                max-height: 250px;
+            }
+            
+            .article-list-item {
+                padding: 12px 16px;
             }
 
             .main-content {
-                padding: 24px 16px;
+                padding: 24px 20px;
             }
 
             .article-title {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
                 line-height: 1.3;
                 margin-bottom: 16px;
             }
 
             .article-meta {
-                font-size: 0.7rem;
-                margin-bottom: 16px;
+                font-size: 0.75rem;
+                margin-bottom: 20px;
                 flex-wrap: wrap;
-                gap: 8px;
+                gap: 12px;
             }
-
-            .tags-container {
-                margin-bottom: 24px;
-                padding-bottom: 16px;
-            }
-
-            .sec-header {
-                font-size: 0.75rem;
-                margin-bottom: 10px;
-            }
-
+            
             .sec-content {
-                font-size: 0.85rem;
-                text-align: left;
-            }
-
-            .research-section {
-                margin-bottom: 24px;
-            }
-
-            .filter-tags-label {
-                padding: 8px 16px 6px;
-            }
-
-            .articles-label {
-                padding: 8px 16px 6px;
-            }
-
-            .list-title {
-                font-size: 0.75rem;
-            }
-
-            .list-meta {
-                font-size: 0.6rem;
+                font-size: 0.95rem;
             }
 
             .pubmed-link {
                 width: 100%;
                 justify-content: center;
-                font-size: 0.8rem;
             }
         }
 
@@ -593,25 +589,27 @@
 <body>
 
     <div class="container">
-        <!-- SIDEBAR -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <a href="https://ntwkkm.github.io/" class="brand">← Research Hub</a>
+                <a href="https://ntwkkm.github.io/" class="brand">
+                    <span>←</span> Research Hub
+                </a>
                 
                 <div class="search-container">
                     <span class="search-icon">🔍</span>
-                    <input type="text" id="search-input" class="search-input" placeholder="Search papers...">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search papers, topics...">
+                </div>
+                
+                <label class="filter-tags-label">Topics</label>
+                <div class="filter-tags" id="filter-tags-container">
+                    <span class="filter-tag active" data-tag="all">All</span>
                 </div>
             </div>
 
             <div class="sidebar-content">
-                <label class="filter-tags-label">Topics</label>
-                <div class="filter-tags" id="filter-tags-container">
-                    <span class="filter-tag active" data-tag="all">All Papers</span>
-                </div>
-
                 <div class="article-list-section">
-                    <label class="articles-label">Papers</label>
+                    <label class="articles-label">Papers List</label>
+                    <div id="loading-indicator" class="loading-indicator">Loading papers...</div>
                     <div id="sidebar-list"></div>
                 </div>
             </div>
@@ -623,18 +621,17 @@
             </div>
         </aside>
 
-        <!-- MAIN CONTENT -->
         <main class="main-content">
             <div id="empty-state" class="empty-state">
                 <div class="empty-icon">📑</div>
                 <h3>Select a research paper</h3>
-                <p>Choose from the list on the left to view paper details</p>
+                <p>Choose from the list on the left to view full details and summary.</p>
             </div>
 
             <article id="article-view" class="article-view">
                 <div class="article-meta">
                     <span>📅 <span id="post-date">...</span></span>
-                    <span>•</span>
+                    <span>|</span>
                     <span>🔖 <span id="post-id" style="font-family: monospace;"></span></span>
                 </div>
 
@@ -660,6 +657,9 @@
         let activeTag = 'all';
 
         document.addEventListener('DOMContentLoaded', async () => {
+            const loadingEl = document.getElementById('loading-indicator');
+            loadingEl.style.display = 'block'; // Show loading
+            
             try {
                 const response = await fetch('./research_blog.json');
                 const rawData = await response.json();
@@ -708,7 +708,9 @@
 
             } catch (error) {
                 console.error("Error:", error);
-                document.getElementById('sidebar-list').innerHTML = `<div style="text-align:center; color:#e74c3c; margin-top:20px; font-size:0.8rem;">Failed to load data.<br>Make sure 'research_blog.json' exists.</div>`;
+                document.getElementById('sidebar-list').innerHTML = `<div style="text-align:center; color:#ef4444; margin-top:20px; font-size:0.9rem; padding: 20px;">Failed to load data.<br>Make sure 'research_blog.json' exists.</div>`;
+            } finally {
+                loadingEl.style.display = 'none'; // Hide loading
             }
         });
 
@@ -728,7 +730,7 @@
             });
 
             const container = document.getElementById('filter-tags-container');
-            container.innerHTML = '<span class="filter-tag active" data-tag="all">All Papers</span>';
+            container.innerHTML = '<span class="filter-tag active" data-tag="all">All</span>';
 
             const sortedTags = Array.from(tagsSet).sort();
             
@@ -776,7 +778,7 @@
             listContainer.innerHTML = '';
 
             if (filteredPosts.length === 0) {
-                listContainer.innerHTML = '<div style="text-align:center; margin-top:20px; color:#999; font-size:0.8rem;">No results found.</div>';
+                listContainer.innerHTML = '<div style="text-align:center; margin-top:30px; color:#94a3b8; font-size:0.9rem;">No results found.</div>';
                 updatePaginationControls();
                 return;
             }
@@ -793,9 +795,9 @@
                     <div class="list-title">${post.title}</div>
                     <div class="list-meta">
                         <span>${post.date}</span>
-                        <span>#${post.id.substring(0, 5)}...</span>
                     </div>
                 `;
+                // Note: Removed ID from list view to make it cleaner, only date shown
                 item.onclick = () => loadArticle(post);
                 listContainer.appendChild(item);
             });
@@ -843,7 +845,7 @@
                     tagsContainer.appendChild(tagEl);
                 });
             } else {
-                tagsContainer.innerHTML = '<span style="color:#ccc; font-size:0.8rem;">No tags</span>';
+                tagsContainer.innerHTML = '<span style="color:#cbd5e1; font-size:0.8rem;">No tags</span>';
             }
 
             const summaryContainer = document.getElementById('formatted-summary-container');
@@ -874,7 +876,7 @@
         }
 
         function parseSummaryToSections(text) {
-            if (!text) return '<p style="color:#999; font-style:italic;">No summary content available.</p>';
+            if (!text) return '<p style="color:#94a3b8; font-style:italic;">No summary content available.</p>';
 
             const lines = text.split(/\n/);
             let html = '';
@@ -888,11 +890,12 @@
                 let sectionTitle = "";
                 let sectionContent = cleanLine;
 
-                if (cleanLine.match(/(วัตถุประสงค์|Objective)/i)) {
+                // Improved Regex to be more flexible
+                if (cleanLine.match(/^(วัตถุประสงค์|Objective)/i)) {
                     sectionTitle = "Objective";
-                } else if (cleanLine.match(/(วิธีการ|Method)/i)) {
+                } else if (cleanLine.match(/^(วิธีการ|Method)/i)) {
                     sectionTitle = "Methods";
-                } else if (cleanLine.match(/(ผลลัพธ์|Result|Conclusion|สรุป|ผลวิเคราะห์)/i)) {
+                } else if (cleanLine.match(/^(ผลลัพธ์|Result|Conclusion|สรุป|ผลวิเคราะห์)/i)) {
                     sectionTitle = "Results & Conclusion";
                 }
 
