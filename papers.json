@@ -1,5 +1,11 @@
 [
   {
+    "date": "27 Dec",
+    "title": "New electrocardiographic changes as predictors of acute coronary interventions in the emergency department: a retrospective observational study",
+    "comment": "ECG patterns ที่อาจบ่งบอกความจำเป็นของการทำ PCI ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/4145274/"
+  },
+  {
     "date": "26 Dec",
     "title": "Enhanced Trauma Video Review With Computer Vision: Trauma Resuscitation Phase Segmentation and Procedure Detection",
     "comment": "AI ช่วยวิเคราะห์วิดีโอการช่วยชีวิตผู้ป่วยอุบัติเหตุ ระบุช่วงเวลาและขั้นตอนได้ ช่วยในการเรียนรู้และประเมินผล",
@@ -412,11 +418,5 @@
     "title": "Rapid testing with molecular syndromic panels of patients presenting at the emergency department with pneumonia at risk for multidrug-resistant pathogens.",
     "comment": "การตรวจหาเชื้อดื้อยาอย่างรวดเร็วในผู้ป่วยปอดอักเสบใน ER จะช่วยให้เลือกยาปฏิชีวนะได้เหมาะสมขึ้นและลดการแพร่เชื้อ.",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41369712/"
-  },
-  {
-    "date": "10 Dec",
-    "title": "Other people's money: why healthcare systems fail to reinvest in POCUS.",
-    "comment": "บทความนี้ชี้ให้เห็นถึงปัญหาเชิงระบบของการลงทุนใน POCUS ซึ่งเป็นเครื่องมือสำคัญสำหรับแพทย์ ER แต่ยังขาดการสนับสนุน.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41369888/"
   }
 ]
