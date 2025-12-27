@@ -1,6 +1,12 @@
 [
   {
     "date": "27 Dec",
+    "title": "Prolonged Versus Intermittent Beta-Lactam Antibiotic Infusions in Paediatric Critical Care: A Systematic Review and Meta-Analysis",
+    "comment": "การให้ยา Beta-lactam แบบต่อเนื่องในผู้ป่วยวิกฤตเด็กอาจมีประโยชน์มากกว่าแบบเป็นครั้งคราว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41454710/"
+  },
+  {
+    "date": "27 Dec",
     "title": "New electrocardiographic changes as predictors of acute coronary interventions in the emergency department: a retrospective observational study",
     "comment": "ECG patterns ที่อาจบ่งบอกความจำเป็นของการทำ PCI ใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/4145274/"
@@ -412,11 +418,5 @@
     "title": "Improving Emergency Response: A Comparative Analysis of Traditional vs Artificial Intelligence-assisted Triage Systems in Health Care and Their Impact.",
     "comment": "AI ในการคัดกรองผู้ป่วยฉุกเฉินเป็นการนำนวัตกรรมมาใช้เพื่อเพิ่มประสิทธิภาพและลดความผิดพลาดใน ER.",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41368447/"
-  },
-  {
-    "date": "10 Dec",
-    "title": "Rapid testing with molecular syndromic panels of patients presenting at the emergency department with pneumonia at risk for multidrug-resistant pathogens.",
-    "comment": "การตรวจหาเชื้อดื้อยาอย่างรวดเร็วในผู้ป่วยปอดอักเสบใน ER จะช่วยให้เลือกยาปฏิชีวนะได้เหมาะสมขึ้นและลดการแพร่เชื้อ.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41369712/"
   }
 ]
