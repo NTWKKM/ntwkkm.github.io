@@ -718,5 +718,65 @@
     "property_last_edited_time": "2025-12-27T19:13:00.000Z",
     "property_pmid": "41453111",
     "property_name": "Mycobacteria & Trauma, an Emerging Threat?"
+  },
+  {
+    "id": "2d7ba464-60a7-8189-9126-df60cee6b7eb",
+    "name": "Cortical Mechanisms Contributing to Ketamine-Induced Dissociation",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41453872/",
+    "property_tag_2": "Anesthesiology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนและอธิบายกลไกการทำงานของยาคีตามีนที่มีต่อวงจรประสาทในเปลือกสมอง (cortical circuits) ซึ่งนำไปสู่ภาวะการแยกตัว (dissociation) รวมถึงสำรวจสมมติฐานเกี่ยวกับการสะสมของยาภายในเซลล์ที่ส่งผลต่อการส่งสัญญาณและสถานะทางพันธุศาสตร์เหนือยีน (epigenetics)\n- **วิธีการ:** เป็นบทความปริทัศน์ (Review Article) ที่รวบรวมข้อมูลและองค์ความรู้ใหม่จากการศึกษาเภสัชวิทยาของคีตามีน เทคนิคการถ่ายภาพในสิ่งมีชีวิต (in vivo imaging) ที่จำเพาะต่อชนิดเซลล์และพื้นที่สมอง และข้อมูลจากประสาทวิทยาระบบ (systems neuroscience)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** คีตามีนออกฤทธิ์หลักผ่านการยับยั้งตัวรับ NMDA และช่อง HCN1 ส่งผลให้เกิดการลดการยับยั้ง (disinhibition) ของเซลล์ประสาท pyramidal และเปลี่ยนแปลงการเชื่อมต่อระหว่างทาลามัสและเปลือกสมอง นอกจากนี้ยังพบกลไกที่ยาอาจแพร่เข้าสู่ภายในเซลล์เพื่อปรับเปลี่ยนความตื่นตัวของเซลล์ประสาทและกระบวนการส่งสัญญาณภายในเซลล์ ซึ่งความรู้ใหม่นี้อาจนำไปสู่กลยุทธ์การรักษาโรคซึมเศร้าที่ดื้อยาและการศึกษาเกี่ยวกับระดับความรู้สติ",
+    "property_tag_3": "Pharmacology",
+    "property_tag_1": "Neuroscience",
+    "property_last_edited_time": "2025-12-28T19:18:00.000Z",
+    "property_pmid": "41453872",
+    "property_name": "Cortical Mechanisms Contributing to Ketamine-Induced Dissociation"
+  },
+  {
+    "id": "2d7ba464-60a7-81fa-a327-d8209b79f16d",
+    "name": "SREBP1-mediated lipogenesis promotes dedifferentiation and senescence of vascular smooth muscle cells through epigenetic remodeling",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41453868/",
+    "property_tag_2": "Geriatrics",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาบทบาทของกระบวนการสร้างไขมันที่ควบคุมโดยโปรตีน SREBP1 ต่อการเปลี่ยนแปลงสภาพเซลล์ที่คล้ายความชรา (senescence-like) และการสูญเสียคุณลักษณะเฉพาะ (dedifferentiation) ของเซลล์กล้ามเนื้อเรียบหลอดเลือด (VSMC) ซึ่งมักพบในสภาวะแรงโน้มถ่วงต่ำ\n- **วิธีการ:** ทำการศึกษาโดยกระตุ้นและยับยั้งการทำงานของ SREBP1 ด้วยสารเภสัชวิทยาและการตัดแต่งพันธุกรรม (Knockdown) ยีน Srebf1 โดยใช้ Lentivirus และ AAV เพื่อส่งถ่ายเข้าสู่เซลล์ VSMC โดยเฉพาะ ทั้งในระดับหลอดทดลอง (in vitro) และสัตว์ทดลอง (in vivo) รวมถึงวิเคราะห์กลไกทาง Epigenetic ที่เกี่ยวข้อง\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การกระตุ้น SREBP1 เร่งกระบวนการชราของเซลล์ผ่านการเพิ่มระดับ Acetyl-CoA และ Histone acetylation ซึ่งปรับเปลี่ยนโครงสร้างโครมาตินให้ยับยั้งยีนที่เกี่ยวกับการหดตัวและกระตุ้นยีนความชรา ในขณะที่การยับยั้ง SREBP1 ทั้งในหลอดทดลองและสัตว์ทดลองช่วยลดการเปลี่ยนแปลงสภาพคล้ายความชราของ VSMC ได้อย่างมีนัยสำคัญ",
+    "property_tag_3": "Genetics",
+    "property_tag_1": "Cardiology",
+    "property_last_edited_time": "2025-12-28T19:17:00.000Z",
+    "property_pmid": "41453868",
+    "property_name": "SREBP1-mediated lipogenesis promotes dedifferentiation and senescence of vascular smooth muscle cells through epigenetic remodeling"
+  },
+  {
+    "id": "2d7ba464-60a7-8116-8ba1-f96931d6359a",
+    "name": "Classification of 36 paediatric skin diseases using self-supervised learning",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41453805/",
+    "property_tag_2": "Dermatology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาและพัฒนาการจำแนกโรคผิวหนังในผู้ป่วยเด็กจำนวน 36 โรค โดยอาศัยเทคนิคการเรียนรู้แบบ Self-supervised learning (สรุปข้อมูลจากชื่อเรื่องเนื่องจากไม่มีบทคัดย่อ)\n- **วิธีการ:** ใช้โมเดลปัญญาประดิษฐ์ (AI) ด้วยวิธีการเรียนรู้ด้วยตนเอง (Self-supervised learning) ในการวิเคราะห์โรคผิวหนังทางกุมารเวชศาสตร์\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่สามารถระบุผลการศึกษาหรือค่าทางสถิติที่แน่ชัดได้ เนื่องจากข้อมูลนำเข้าระบุว่าไม่มีบทคัดย่อ (No Abstract available)",
+    "property_tag_3": "AI",
+    "property_tag_1": "Pediatrics",
+    "property_last_edited_time": "2025-12-28T19:16:00.000Z",
+    "property_pmid": "41453805",
+    "property_name": "Classification of 36 paediatric skin diseases using self-supervised learning"
+  },
+  {
+    "id": "2d7ba464-60a7-818a-b7c6-e3d1bfc3d1b8",
+    "name": "Ketamine's Brain Spatial Distribution and Metabolic Effects in a Mouse Model of Anxiety: Insight into In Situ Mass Spectrometry Imaging and Metabolomics Methods",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41453569/",
+    "property_tag_2": "Neuroscience",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาผลกระทบทางเคมีประสาทและการกระจายตัวเชิงพื้นที่ของคีตามีนในสมองของหนูทดลองจากการได้รับยาเรื้อรัง และเพื่อเข้าใจกลไกการเกิดโรควิตกกังวลที่ชักนำโดยคีตามีนผ่านการวิเคราะห์การเปลี่ยนแปลงของเมแทบอไลต์ในสมองเฉพาะส่วน\n- **วิธีการ:** ศึกษาในหนูสายพันธุ์ C57BL/6 ที่ได้รับคีตามีนขนาด 30 มก./กก. ทุกวันเป็นเวลา 15 วัน โดยใช้การประเมินพฤติกรรมร่วมกับเทคนิค in situ mass spectrometry imaging (MSI) เพื่อดูการกระจายตัว และใช้เมแทบอโลมิกส์ (metabolomics) วิเคราะห์ในสมองส่วน prefrontal cortex และ cerebellum\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** หนูทดลองแสดงพฤติกรรมวิตกกังวลเพิ่มขึ้นแต่ไม่มีความบกพร่องทางปัญญา ผลจาก MSI พบการสะสมของคีตามีนใน cerebral cortex, midbrain และ cerebellum ในขณะที่สารสื่อประสาท GABA มีการกระจายตัวเปลี่ยนไปทางบริเวณ thalamus และ striatum ผลการวิเคราะห์เมแทบอโลมิกส์พบเมแทบอไลต์ที่แตกต่างกันอย่างมีนัยสำคัญจำนวน 73 ชนิดใน prefrontal cortex และ 134 ชนิดใน cerebellum ซึ่งส่วนใหญ่เกี่ยวข้องกับวิถีเมแทบอลิซึมของ Alanine, Aspartate, Glutamate และวิถี GABAergic synapse",
+    "property_tag_3": "Psychiatry",
+    "property_tag_1": "Toxicology",
+    "property_last_edited_time": "2025-12-28T19:15:00.000Z",
+    "property_pmid": "41453569",
+    "property_name": "Ketamine's Brain Spatial Distribution and Metabolic Effects in a Mouse Model of Anxiety: Insight into In Situ Mass Spectrometry Imaging and Metabolomics Methods"
+  },
+  {
+    "id": "2d7ba464-60a7-81af-bea1-d401bcce4bb2",
+    "name": "Letter to the Editor On \"Economic Impact of Digital Musculoskeletal Care Versus In-person Physical Therapy: A US Claims Analysis of Health Care Utilization and Outcomes\"",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41453553/",
+    "property_tag_2": "Digital Health",
+    "property_comment": "- **วัตถุประสงค์:** ไม่สามารถระบุได้เนื่องจากบทความนี้เป็นจดหมายถึงบรรณาธิการและไม่มีบทคัดย่อ (No Abstract available)\n- **วิธีการ:** ไม่สามารถระบุได้เนื่องจากบทความนี้เป็นจดหมายถึงบรรณาธิการและไม่มีบทคัดย่อ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่สามารถระบุได้เนื่องจากบทความนี้เป็นจดหมายถึงบรรณาธิการและไม่มีบทคัดย่อ",
+    "property_tag_3": "Physical Therapy",
+    "property_tag_1": "Rehabilitation",
+    "property_last_edited_time": "2025-12-28T19:13:00.000Z",
+    "property_pmid": "41453553",
+    "property_name": "Letter to the Editor On \"Economic Impact of Digital Musculoskeletal Care Versus In-person Physical Therapy: A US Claims Analysis of Health Care Utilization and Outcomes\""
   }
 ]
