@@ -778,5 +778,65 @@
     "property_last_edited_time": "2025-12-28T19:13:00.000Z",
     "property_pmid": "41453553",
     "property_name": "Letter to the Editor On \"Economic Impact of Digital Musculoskeletal Care Versus In-person Physical Therapy: A US Claims Analysis of Health Care Utilization and Outcomes\""
+  },
+  {
+    "id": "2d8ba464-60a7-8152-9131-f918def6ded1",
+    "name": "Femoral Vein Diameter as a Predictor for Intravascular Volume Status",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41458735/",
+    "property_tag_2": "Cardiology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาความสัมพันธ์ระหว่างขนาดเส้นผ่านศูนย์กลางหลอดเลือดดำที่ขา (Femoral Vein Diameter - FVD) และความดันหลอดเลือดดำส่วนกลาง (CVP) ในการประเมินสถานะสารน้ำในร่างกายสำหรับผู้ป่วยที่มีภาวะความดันโลหิตต่ำ เพื่อใช้เป็นทางเลือกแทนการตรวจ IVC ที่อาจทำได้ยากในบางกรณี\n- **วิธีการ:** การศึกษาเชิงสังเกตแบบไปข้างหน้า (Prospective observational study) ในผู้ป่วยฉุกเฉินที่มีภาวะความดันโลหิตต่ำจำนวน 27 ราย โดยทำการวัด FVD ด้วยอัลตราซาวด์และวัด CVP ด้วยทรานสดิวเซอร์ และวิเคราะห์ความสัมพันธ์ทางสถิติด้วย Pearson's correlation coefficient\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบความสัมพันธ์เชิงบวกระดับสูงระหว่าง FVD และ CVP (r=0.919, p<0.001) โดยค่า FVD ที่ 1.2 ซม. มีความไว 90% และความจำเพาะ 94.4% ในการทำนายภาวะ CVP สูง (>12 mmHg) ส่วนค่า FVD ที่น้อยกว่า 0.8 ซม. มีความจำเพาะ 100% ในการทำนายภาวะ CVP ต่ำ (<8 mmHg)",
+    "property_tag_3": "Ultrasound",
+    "property_tag_1": "Emergency Medicine",
+    "property_last_edited_time": "2025-12-29T19:24:00.000Z",
+    "property_pmid": "41458735",
+    "property_name": "Femoral Vein Diameter as a Predictor for Intravascular Volume Status"
+  },
+  {
+    "id": "2d8ba464-60a7-813d-9d51-ca4b42fb3b51",
+    "name": "Artificial intelligence for posterior capsule opacification.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41458487/",
+    "property_tag_2": "Ophthalmology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อนำเสนอการประยุกต์ใช้ปัญญาประดิษฐ์ (AI) ในการตรวจจับ จัดระดับความรุนแรง และประเมินความเสี่ยงของภาวะถุงหุ้มเลนส์ขุ่น (PCO) หลังการผ่าตัดต้อกระจก เพื่อช่วยสนับสนุนการตัดสินใจทางคลินิกในการรักษาด้วยเลเซอร์ Nd:YAG ให้มีความแม่นยำและปลอดภัยยิ่งขึ้น\n- **วิธีการ:** ใช้เทคโนโลยี AI รวมถึง Machine Learning และ Deep Convolutional Neural Networks ในการวิเคราะห์ข้อมูลภาพถ่ายทางการแพทย์ (เช่น ภาพถ่าย Retro-illumination, OCT และ Scheimpflug tomography) เพื่อสร้างแบบจำลองในการวินิจฉัยและพยากรณ์ความเสี่ยง\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** โมเดล AI แสดงประสิทธิภาพเทียบเท่าผู้เชี่ยวชาญ โดยมีค่าพื้นที่ใต้กราฟ (AUC) สูงถึง 0.97 สำหรับการตรวจจับ PCO ที่มีผลต่อการมองเห็น, ค่าความสัมพันธ์ (Correlation) ประมาณ 0.83 สำหรับการให้คะแนนความรุนแรง และค่า C-index ประมาณ 0.87 สำหรับการประเมินความเสี่ยงในการทำเลเซอร์ ซึ่งช่วยลดอคติในการวินิจฉัยและทำให้การดูแลรักษามีมาตรฐานเดียวกัน",
+    "property_tag_3": "Cataract Surgery",
+    "property_tag_1": "AI",
+    "property_last_edited_time": "2025-12-29T19:22:00.000Z",
+    "property_pmid": "41458487",
+    "property_name": "Artificial intelligence for posterior capsule opacification."
+  },
+  {
+    "id": "2d8ba464-60a7-818d-8125-eace29a565ba",
+    "name": "The 'F' in ABCDE: why frailty assessment matters in geriatric trauma.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41459607/",
+    "property_tag_2": "Geriatrics",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อเน้นย้ำความสำคัญของการประเมินภาวะเปราะบาง (Frailty) ในผู้ป่วยสูงอายุที่ได้รับบาดเจ็บ และเสนอแนวคิดการผนวกการประเมินนี้เข้ากับหลักการดูแลผู้ป่วยฉุกเฉิน (ABCDE)\n- **วิธีการ:** ไม่ระบุรายละเอียดวิธีการศึกษา เนื่องจากข้อมูลระบุว่าไม่มีบทคัดย่อ (No Abstract available)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่ปรากฏข้อมูลผลลัพธ์หรือการวิเคราะห์ทางสถิติเนื่องจากไม่มีเนื้อหาบทคัดย่อ",
+    "property_tag_3": "Trauma",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2025-12-29T19:21:00.000Z",
+    "property_pmid": "41459607",
+    "property_name": "The 'F' in ABCDE: why frailty assessment matters in geriatric trauma."
+  },
+  {
+    "id": "2d8ba464-60a7-8172-b85b-ecef2f5f62a6",
+    "name": "Response to 'The 'F' in ABCDE: why frailty assessment matters in geriatric trauma'.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41459608/",
+    "property_tag_2": "Trauma",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อตอบสนองและให้ความเห็นเพิ่มเติมต่อบทความเรื่อง 'The 'F' in ABCDE' ซึ่งเน้นย้ำความสำคัญของการประเมินภาวะเปราะบาง (Frailty) ในการดูแลผู้ป่วยสูงอายุที่ได้รับบาดเจ็บ\n- **วิธีการ:** ไม่มีการระบุระเบียบวิธีวิจัยเนื่องจากบทความนี้เป็นบทตอบรับหรือจดหมายถึงบรรณาธิการและไม่มีบทคัดย่อ (No abstract available)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่มีการระบุผลลัพธ์หรือการวิเคราะห์ทางสถิติเนื่องจากไม่มีบทคัดย่อ",
+    "property_tag_3": "Emergency Medicine",
+    "property_tag_1": "Geriatrics",
+    "property_last_edited_time": "2025-12-29T19:20:00.000Z",
+    "property_pmid": "41459608",
+    "property_name": "Response to 'The 'F' in ABCDE: why frailty assessment matters in geriatric trauma'."
+  },
+  {
+    "id": "2d8ba464-60a7-815b-b2ce-f8429693e5d5",
+    "name": "Analysis of blasting characteristics in interbedded rock masses based on particle expansion method.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41454031/",
+    "property_tag_2": "Blasting Engineering",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาอิทธิพลของโครงสร้างชั้นหินสลับ (interbedded rock masses) ที่มีต่อผลลัพธ์การระเบิด ซึ่งเป็นประเด็นที่ยังได้รับความสนใจน้อยเมื่อเทียบกับการศึกษาในชั้นหินที่มีคุณสมบัติสม่ำเสมอ\n- **วิธีการ:** ใช้วิธี Particle Expansion Method ในการวิเคราะห์ผลกระทบของการระเบิด โดยพิจารณาตัวแปรด้านวิวัฒนาการของความเค้นสะท้อน (reflected stress), รูปแบบการขยายตัวของรอยแตก และพลวัตของแรงสัมผัส ในสภาพแวดล้อมและความหนาของชั้นหินที่แตกต่างกัน\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบว่าสภาพแวดล้อมการระเบิดและความหนาของชั้นหินมีอิทธิพลอย่างมีนัยสำคัญต่อประสิทธิภาพการระเบิด ในขณะที่มุมระหว่างชั้นหินมีผลเพียงเล็กน้อย โดยในหินแข็งความเค้นสะท้อนจะเพิ่มและลดลงตามความหนา ส่วนในหินอ่อนรูปแบบรอยแตกจะเปลี่ยนแปลงอย่างชัดเจนแม้ความหนาของชั้นหินจะน้อย",
+    "property_tag_3": "Geology",
+    "property_tag_1": "Rock Mechanics",
+    "property_last_edited_time": "2025-12-29T00:25:00.000Z",
+    "property_pmid": "41454031",
+    "property_name": "Analysis of blasting characteristics in interbedded rock masses based on particle expansion method."
   }
 ]
