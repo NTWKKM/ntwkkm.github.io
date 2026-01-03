@@ -958,5 +958,65 @@
     "property_last_edited_time": "2025-12-31T19:17:00.000Z",
     "property_pmid": "414397",
     "property_name": "The extent and importance of sensitization by opportunist mycobacteria in Lagos, Nigeria."
+  },
+  {
+    "id": "2ddba464-60a7-8148-baaa-fa21c9c0832d",
+    "name": "Presepsin for sepsis diagnosis in emergency departments: a multicentre study.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41482452/",
+    "property_tag_2": "Infectious Disease",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินความถูกต้องแม่นยำในการวินิจฉัยของระดับ presepsin และ procalcitonin (PCT) สำหรับภาวะติดเชื้อในกระแสเลือด (sepsis) และภาวะช็อกจากการติดเชื้อ (septic shock) ตามเกณฑ์ Sepsis-3 ในผู้ป่วยแผนกฉุกเฉิน\n- **วิธีการ:** การศึกษาแบบ Multicentre prospective cohort ในผู้ป่วยผู้ใหญ่ 668 ราย จากแผนกฉุกเฉิน 8 แห่งในประเทศไทย (ต.ค. 2020 - มิ.ย. 2022) ที่สงสัยว่ามีการติดเชื้อ โดยทำการตรวจเลือดและเพาะเชื้อเพื่อเปรียบเทียบค่า AUROC ของ presepsin และ PCT รวมถึงติดตามอัตราการเสียชีวิตใน 30 วัน\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** Presepsin มีค่า AUROC สูงกว่า PCT เล็กน้อยในการวินิจฉัย sepsis (0.63 vs 0.62) และ septic shock (0.73 vs 0.72) นอกจากนี้ระดับ presepsin และ PCT ที่สูงขึ้นยังสัมพันธ์กับความเสี่ยงการเสียชีวิตใน 30 วันที่เพิ่มขึ้น (OR 2.61 และ 1.62 ตามลำดับ) แสดงให้เห็นว่า presepsin อาจช่วยในการประเมินความเสี่ยงได้แต่ความแม่นยำในการวินิจฉัยโดยรวมยังอยู่ในระดับปานกลาง",
+    "property_tag_3": "Diagnostics",
+    "property_tag_1": "Emergency Medicine",
+    "property_last_edited_time": "2026-01-03T19:24:00.000Z",
+    "property_pmid": "41482452",
+    "property_name": "Presepsin for sepsis diagnosis in emergency departments: a multicentre study."
+  },
+  {
+    "id": "2ddba464-60a7-8146-ada9-d26e65f37d37",
+    "name": "Sodium-Glucose Cotransporter 2 Inhibitors and Reduced Fibromyalgia Risk in Patients With Diabetes: A Target Trial Emulation Study",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41482395/",
+    "property_tag_2": "Rheumatology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาเปรียบเทียบความเสี่ยงของการเกิดโรคไฟโบรมัยอัลเจีย (fibromyalgia) รายใหม่ ระหว่างผู้ป่วยเบาหวานชนิดที่ 2 ที่เริ่มใช้ยา SGLT2i เทียบกับผู้ที่เริ่มใช้ยา GLP-1RA\n- **วิธีการ:** เป็นการศึกษาแบบ Target trial emulation โดยใช้ฐานข้อมูล TriNetX ในผู้ป่วยผู้ใหญ่ที่เป็นเบาหวานชนิดที่ 2 ทำการจับคู่คะแนนความโน้มเอียง (propensity score-matching) แบบ 1:1 จำนวน 297,937 รายต่อกลุ่ม เพื่อติดตามอุบัติการณ์ของโรคไฟโบรมัยอัลเจีย\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** กลุ่มที่ใช้ยา SGLT2i พบอุบัติการณ์ของโรคไฟโบรมัยอัลเจีย (2.3%) น้อยกว่ากลุ่มที่ใช้ GLP-1RA (2.6%) อย่างมีนัยสำคัญ โดยมี Hazard Ratio (HR) อยู่ที่ 0.896 (95% CI 0.867-0.925) และผลลัพธ์ยังคงสอดคล้องกันในการวิเคราะห์ความไวที่ระยะเวลาติดตาม 1, 3 และ 5 ปี",
+    "property_tag_3": "Pharmacology",
+    "property_tag_1": "Endocrinology",
+    "property_last_edited_time": "2026-01-03T19:23:00.000Z",
+    "property_pmid": "41482395",
+    "property_name": "Sodium-Glucose Cotransporter 2 Inhibitors and Reduced Fibromyalgia Risk in Patients With Diabetes: A Target Trial Emulation Study"
+  },
+  {
+    "id": "2ddba464-60a7-812a-86ca-dd8befdc3b14",
+    "name": "Hyperglycemia in Critically Ill Patients: Current Approaches and Management Strategies.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41482394/",
+    "property_tag_2": "Endocrinology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อสร้างความตระหนักรู้แก่บุคลากรทางการแพทย์เกี่ยวกับผลกระทบของภาวะน้ำตาลในเลือดสูงในผู้ป่วยวิกฤต รวมถึงพยาธิสรีรวิทยา เทคนิคการตรวจติดตาม และแนวทางการรักษาในปัจจุบัน\n- **วิธีการ:** ทบทวนและวิเคราะห์หลักฐานจากวรรณกรรมระดับนานาชาติ โดยเน้นเรื่องผลกระทบของความผันผวนของระดับน้ำตาล (Glycemic variability) การจัดการผู้ป่วยแบบเฉพาะบุคคล และการใช้เทคโนโลยีใหม่อย่าง AI biosensors ในการตรวจวัด\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การรักษาหลักคือการให้อินซูลินทางหลอดเลือดดำ โดยแนะนำให้ควบคุมระดับน้ำตาลให้อยู่ระหว่าง 6.1 ถึง 10.0 mmol/l (110-180 mg/dl) เพื่อลดอัตราการเสียชีวิตและภาวะแทรกซ้อน พร้อมทั้งป้องกันความเสี่ยงจากภาวะน้ำตาลในเลือดต่ำ",
+    "property_tag_3": "AI",
+    "property_tag_1": "Critical Care",
+    "property_last_edited_time": "2026-01-03T19:22:00.000Z",
+    "property_pmid": "41482394",
+    "property_name": "Hyperglycemia in Critically Ill Patients: Current Approaches and Management Strategies."
+  },
+  {
+    "id": "2ddba464-60a7-8108-be83-c2e3979947c7",
+    "name": "Scoping review of the emerging definition of long COVID: implications for future research and clinical practice.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41480252/",
+    "property_tag_2": "Public Health",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อรวบรวมและอธิบายคำจำกัดความของคำว่า \"long COVID\" ที่ได้รับการตีพิมพ์เผยแพร่แล้วในวรรณกรรมทางการแพทย์\n- **วิธีการ:** การทบทวนขอบเขต (Scoping review) โดยใช้เกณฑ์ PRISMA ScR สืบค้นฐานข้อมูล Medline (PubMed), Embase, SciELO และ The Cochrane Library เพื่อสังเคราะห์ข้อมูล\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** จาก 896 บทความ พบ 91 บทความที่เข้าเกณฑ์และ 51 บทความที่มีคำจำกัดความ โดยระบุลักษณะร่วม 4 ด้าน คือ ระยะเวลา อวัยวะที่ได้รับผลกระทบ อาการ และลักษณะทางคลินิก ซึ่งชี้ให้เห็นว่าปัจจุบันยังไม่มีฉันทามติ (Consensus) ที่ชัดเจนในการนิยามภาวะนี้",
+    "property_tag_3": "Epidemiology",
+    "property_tag_1": "Infectious Diseases",
+    "property_last_edited_time": "2026-01-03T19:20:00.000Z",
+    "property_pmid": "41480252",
+    "property_name": "Scoping review of the emerging definition of long COVID: implications for future research and clinical practice."
+  },
+  {
+    "id": "2ddba464-60a7-81c1-9cb0-c9a9749ffbec",
+    "name": "Rapid diagnosis of different cardiovascular disease events from early released cardiac biomarkers, cTnI, BNP, and CRP, by biosensor technology",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41480420/",
+    "property_tag_2": "Emergency",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อพัฒนาและประเมินประสิทธิภาพของชุดตรวจแบบ Point-of-Care (POC) โดยใช้เทคโนโลยีออปติคัลนาโนไบโอเซนเซอร์ (Optical nano biosensor) สำหรับตรวจหาตัวบ่งชี้ทางชีวภาพของโรคหัวใจและหลอดเลือด (CVD) ได้แก่ cTnI, BNP และ CRP ให้มีความรวดเร็ว แม่นยำ และราคาประหยัด เหมาะสำหรับการใช้งานในแผนกฉุกเฉินและพื้นที่ที่มีทรัพยากรจำกัด\n- **วิธีการ:** ทำการทดสอบชุดตรวจ POC กับกลุ่มตัวอย่างผู้ป่วยแบบสุ่ม เพื่อตรวจวัดระดับ Cardiac troponins (cTnI), B-type natriuretic peptide (BNP) และ C-reactive protein (CRP) ซึ่งบ่งบอกถึงการบาดเจ็บของกล้ามเนื้อหัวใจ ความเครียดของหัวใจ และการอักเสบ โดยเปรียบเทียบผลลัพธ์ที่ได้กับวิธีมาตรฐานทางห้องปฏิบัติการ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ชุดตรวจสามารถรายงานผลได้ภายใน 15 นาที โดยมีความสัมพันธ์สอดคล้องกับผลทางห้องปฏิบัติการอย่างมาก พบค่าความไว (Sensitivity) ที่ 95.2% สำหรับ cTnI, 91.8% สำหรับ BNP และ 89% สำหรับ CRP พร้อมทั้งมีความจำเพาะ (Specificity) สูง ช่วยให้แพทย์สามารถวินิจฉัยและคัดกรองผู้ป่วยกลุ่มเสี่ยงได้ทันท่วงที",
+    "property_tag_3": "Diagnostics",
+    "property_tag_1": "Cardiology",
+    "property_last_edited_time": "2026-01-03T19:19:00.000Z",
+    "property_pmid": "41480420",
+    "property_name": "Rapid diagnosis of different cardiovascular disease events from early released cardiac biomarkers, cTnI, BNP, and CRP, by biosensor technology"
   }
 ]
