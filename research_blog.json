@@ -1018,5 +1018,65 @@
     "property_last_edited_time": "2026-01-03T19:19:00.000Z",
     "property_pmid": "41480420",
     "property_name": "Rapid diagnosis of different cardiovascular disease events from early released cardiac biomarkers, cTnI, BNP, and CRP, by biosensor technology"
+  },
+  {
+    "id": "2deba464-60a7-81aa-a932-e644e5bb92d6",
+    "name": "Temperature- and humidity-modified associations between ambient air pollution and syncope outpatient visits: a time series analysis in Beijing, China.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41484358/",
+    "property_tag_2": "Cardiology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาความสัมพันธ์ระหว่างมลพิษทางอากาศกับการมารับบริการผู้ป่วยนอกด้วยอาการวูบ (Syncope) รวมถึงการดัดแปรผล (Effect modification) ของอุณหภูมิและความชื้นที่มีต่อความสัมพันธ์ดังกล่าว\n- **วิธีการ:** เป็นการวิเคราะห์อนุกรมเวลา (Time series analysis) โดยใช้ข้อมูลที่รวบรวมในพื้นที่กรุงปักกิ่ง ประเทศจีน\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่สามารถระบุผลลัพธ์ที่แน่ชัดได้ เนื่องจากข้อมูลนำเข้าที่ให้มาระบุว่าไม่มีบทคัดย่อ (No Abstract available)",
+    "property_tag_3": "Epidemiology",
+    "property_tag_1": "Environmental Health",
+    "property_last_edited_time": "2026-01-04T19:20:00.000Z",
+    "property_pmid": "41484358",
+    "property_name": "Temperature- and humidity-modified associations between ambient air pollution and syncope outpatient visits: a time series analysis in Beijing, China."
+  },
+  {
+    "id": "2deba464-60a7-8111-8653-f55588e7c534",
+    "name": "From hyperinflammation to recovery: serum immune biomarkers predict severity and track rapid inflammatory resolution in MIS-C.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41484355/",
+    "property_tag_2": "Immunology",
+    "property_comment": "- **วัตถุประสงค์:** ไม่สามารถระบุรายละเอียดได้เนื่องจากข้อมูลนำเข้าระบุว่าไม่มีบทคัดย่อ (No Abstract available)\n- **วิธีการ:** ไม่สามารถระบุรายละเอียดได้เนื่องจากไม่มีข้อมูลบทคัดย่อ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่สามารถระบุรายละเอียดได้เนื่องจากไม่มีข้อมูลบทคัดย่อ",
+    "property_tag_3": "Biomarkers",
+    "property_tag_1": "Pediatrics",
+    "property_last_edited_time": "2026-01-04T19:19:00.000Z",
+    "property_pmid": "41484355",
+    "property_name": "From hyperinflammation to recovery: serum immune biomarkers predict severity and track rapid inflammatory resolution in MIS-C."
+  },
+  {
+    "id": "2deba464-60a7-813b-83da-c5ee9b1ad4fb",
+    "name": "Artificial intelligence in diagnostic, prognostic, and predictive genomic biomarkers for prostate cancer: Ready for prime time?",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41483979/",
+    "property_tag_2": "Genomics",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อทำการทบทวนวรรณกรรมอย่างเป็นระบบเกี่ยวกับการประยุกต์ใช้ปัญญาประดิษฐ์ (AI) ในการวิเคราะห์ข้อมูลพันธุกรรมเพื่อการวินิจฉัย การพยากรณ์โรค และการทำนายผลการรักษาในผู้ป่วยมะเร็งต่อมลูกหมาก\n- **วิธีการ:** ทำการสืบค้นข้อมูลผ่านฐานข้อมูล Medline และ Google Scholar โดยคัดเลือกงานวิจัยที่ใช้ AI ในการระบุตัวบ่งชี้ทางพันธุกรรม (Genetic markers) และความสัมพันธ์กับข้อมูลทางคลินิกในผู้ป่วยมะเร็งต่อมลูกหมาก มีบทความที่ผ่านเกณฑ์คัดเข้าจำนวน 15 บทความ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การใช้ Machine Learning (ML) มีประสิทธิภาพในการระบุยีนใหม่ที่เกี่ยวข้องกับมะเร็งและสามารถพยากรณ์ความเสี่ยงทางคลินิก เช่น การลุกลามระยะแพร่กระจาย การกลับมาเป็นซ้ำทางชีวเคมีหลังผ่าตัด และการรอดชีวิต โดยวิเคราะห์ผ่านรูปแบบของ miRNA, mRNA และ lncRNA นอกจากนี้ AI ยังช่วยทำนายภาวะแทรกซ้อนจากการฉายรังสีและการดื้อยาต้านฮอร์โมนเพศชายได้ แม้ผลลัพธ์จะมีแนวโน้มที่ดีแต่ยังขาดการตรวจสอบความถูกต้องทางคลินิก (Clinical validation) อย่างกว้างขวาง",
+    "property_tag_3": "Artificial Intelligence",
+    "property_tag_1": "Prostate Cancer",
+    "property_last_edited_time": "2026-01-04T10:18:00.000Z",
+    "property_pmid": "41483979",
+    "property_name": "Artificial intelligence in diagnostic, prognostic, and predictive genomic biomarkers for prostate cancer: Ready for prime time?"
+  },
+  {
+    "id": "2deba464-60a7-81c3-b4ba-fbeb671fa36f",
+    "name": "Epidemiology, diagnosis and treatment of Mayaro and Oropouche virus infections: implication for clinical practice and public health.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41483970/",
+    "property_tag_2": "Public Health",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อรวบรวมและนำเสนอข้อมูลที่เป็นปัจจุบันเกี่ยวกับระบาดวิทยา การวินิจฉัย และการจัดการการติดเชื้อไวรัส Mayaro (MAYV) และ Oropouche (OROV) เพื่อเป็นแนวทางสำหรับบุคลากรทางการแพทย์และสาธารณสุขในการรับมือกับโรคอุบัติใหม่เหล่านี้\n- **วิธีการ:** เป็นการทบทวนวรรณกรรมและสังเคราะห์ข้อมูลโดยกลุ่มผู้เชี่ยวชาญจากละตินอเมริกาและสเปน โดยครอบคลุมหัวข้อระบาดวิทยา พยาธิสรีรวิทยา อาการทางคลินิก การวินิจฉัย และแนวทางการรักษาโรคติดเชื้อทั้งสองชนิด\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การศึกษาระบุถึงความท้าทายสำคัญในการวินิจฉัยโรค เนื่องจากอาการทางคลินิกที่คล้ายคลึงกับโรคอาร์โบไวรัสอื่นๆ และการขาดแคลนเครื่องมือตรวจวินิจฉัยทางการค้า คณะผู้จัดทำเน้นย้ำความจำเป็นเร่งด่วนในการเฝ้าระวังทางระบาดวิทยาเชิงรุก และเสนอแนะให้รวมไวรัสเหล่านี้ในขั้นตอนวิธีการวินิจฉัย โดยเฉพาะอย่างยิ่งในผู้ที่อาศัยหรือเดินทางไปยังพื้นที่ระบาด และในหญิงตั้งครรภ์ที่สงสัยว่ามีการติดเชื้อไวรัส OROV",
+    "property_tag_3": "Tropical Medicine",
+    "property_tag_1": "Infectious Diseases",
+    "property_last_edited_time": "2026-01-04T10:17:00.000Z",
+    "property_pmid": "41483970",
+    "property_name": "Epidemiology, diagnosis and treatment of Mayaro and Oropouche virus infections: implication for clinical practice and public health."
+  },
+  {
+    "id": "2deba464-60a7-8113-9e4e-c9508226afab",
+    "name": "Amebic liver abscess following DANA-related flooding in Valencia, Spain, October 2024: A sentinel case of emerging parasitic risk in non-endemic settings.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41483966/",
+    "property_tag_2": "Environmental Health",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อรายงานกรณีศึกษาผู้ป่วยโรคฝีในตับจากเชื้ออะมีบา (Amebic liver abscess) ที่เกิดขึ้นภายหลังเหตุน้ำท่วม (DANA) ในเมืองบาเลนเซีย ประเทศสเปน เมื่อเดือนตุลาคม 2024 เพื่อชี้ให้เห็นถึงความเสี่ยงของโรคปรสิตอุบัติใหม่ในพื้นที่ที่ไม่ใช่ถิ่นระบาด\n- **วิธีการ:** เป็นการนำเสนอรายงานกรณีศึกษา (Case Report) ของผู้ป่วยที่ได้รับผลกระทบทางสุขภาพภายหลังภัยพิบัติน้ำท่วม (สรุปข้อมูลจากชื่อเรื่องเนื่องจากไม่มีบทคัดย่อ)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่ปรากฏข้อมูลทางสถิติเนื่องจากเป็นรายงานกรณีศึกษาและไม่มีบทคัดย่อ แต่ข้อสรุปหลักคือการระบุว่าเป็นกรณีตัวอย่าง (sentinel case) ที่แสดงถึงความเชื่อมโยงระหว่างปัญหาสิ่งแวดล้อม (น้ำท่วม) กับการอุบัติของโรคติดเชื้อ",
+    "property_tag_3": "Public Health",
+    "property_tag_1": "Infectious Diseases",
+    "property_last_edited_time": "2026-01-04T10:16:00.000Z",
+    "property_pmid": "41483966",
+    "property_name": "Amebic liver abscess following DANA-related flooding in Valencia, Spain, October 2024: A sentinel case of emerging parasitic risk in non-endemic settings."
   }
 ]
