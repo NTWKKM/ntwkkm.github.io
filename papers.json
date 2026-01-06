@@ -1,5 +1,11 @@
 [
   {
+    "date": "6 Jan",
+    "title": "Inferential performance and temporal stability of large language models in suicide method prediction: A forensic psychiatric analysis.",
+    "comment": "LLM มีศักยภาพในการคาดการณ์วิธีการฆ่าตัวตาย ชี้ถึงนวัตกรรมใหม่ในการประเมินความเสี่ยง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41492705/"
+  },
+  {
     "date": "5 Jan",
     "title": "Machine Learning-Based Model to Classify Emergency Severity Index Levels 1-3 in Febrile Patients With Tachycardia: Thailand Triage Prediction System",
     "comment": "AI ที่แม่นยำในการประเมินความเร่งด่วนผู้ป่วยไข้มีไข้หัวใจเต้นเร็วใน ER",
@@ -412,11 +418,5 @@
     "title": "💊 Diagnostic utility of the paracetamol concentration aminotransferase activity multiplication product in identifying patients exceeding the 150 mg/L treatment line on the Rumack-Matthew nomogram.",
     "comment": "เสนอการใช้ค่าคูณของระดับพาราเซตามอลกับ ALT เพื่อช่วยประเมินความเสี่ยงต่อตับในผู้ป่วยพาราเซตามอลเกินขนาดได้ดีขึ้นกว่า Rumack-Matthew nomogram.",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41378892/"
-  },
-  {
-    "date": "11 Dec",
-    "title": "⚡ Should Sedative Administration Be Recommended as an Antiarrhythmic Therapy to Suppress Ventricular Fibrillation and Ventricular Tachycardia in Patients With Electrical Storm? - A Scoping Review.",
-    "comment": "ทบทวนบทบาทของการให้ยาคลายกังวลเพื่อลดภาวะ Electrical Storm ซึ่งเป็นประเด็นถกเถียงและอาจมีผลต่อการจัดการผู้ป่วยวิกฤต.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41377628/"
   }
 ]
