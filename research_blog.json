@@ -1582,5 +1582,65 @@
     "property_last_edited_time": "2026-01-12T22:21:00.000Z",
     "property_pmid": "41523257",
     "property_name": "The role of EGFR mutations in sensitivity of PD-1/PD-L1 blockade in non-small cell lung cancer."
+  },
+  {
+    "id": "2e8ba464-60a7-8139-8bed-c99e4f2bc53e",
+    "name": "What's the Rush? Challenging the Early Surgery Paradigm for Older Adults in Emergency General Surgery",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41532654/",
+    "property_tag_2": "Geriatrics",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อเปรียบเทียบผลกระทบของระยะเวลาการรอคอยก่อนผ่าตัด (Preoperative wait times) ต่อผลลัพธ์ทางคลินิกระหว่างผู้ป่วยสูงอายุและผู้ป่วยอายุน้อยในศัลยกรรมทั่วไปฉุกเฉิน (EGS) โดยทดสอบสมมติฐานที่ว่าผู้สูงอายุจะได้รับผลกระทบเชิงลบมากกว่าเนื่องจากความเปราะบาง\n- **วิธีการ:** เป็นการศึกษาแบบ Retrospective cohort study โดยใช้ข้อมูลผู้ป่วยในรัฐ Virginia ระหว่างปี 2016-2020 จำนวน 40,502 ราย เปรียบเทียบกลุ่มผู้สูงอายุ (≥65 ปี) กับผู้ใหญ่อายุน้อย (16-64 ปี) ที่ต้องผ่าตัดฉุกเฉิน โดยใช้ Propensity score matching วิเคราะห์ความสัมพันธ์ระหว่างการผ่าตัดล่าช้า (≥2 วัน) กับระยะเวลาพักฟื้น (POLOS) การกลับมานอนโรงพยาบาลซ้ำ และอัตราการเสียชีวิต\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การผ่าตัดล่าช้าส่งผลเสียต่อผู้ป่วยอายุน้อยโดยเพิ่มอัตราการกลับมานอนโรงพยาบาลซ้ำ (ATE=3.5%) และระยะเวลาพักฟื้นนานขึ้น (ATE=0.26 วัน) ในทางตรงกันข้าม ในผู้ป่วยสูงอายุพบว่าการผ่าตัดล่าช้าสัมพันธ์กับระยะเวลาพักฟื้นที่สั้นลง (ATE=-0.45 วัน) และไม่ส่งผลต่อการกลับมานอนโรงพยาบาลซ้ำ โดยไม่พบความสัมพันธ์กับอัตราการเสียชีวิตในทั้งสองกลุ่ม",
+    "property_tag_3": "Preoperative Care",
+    "property_tag_1": "Emergency General Surgery",
+    "property_last_edited_time": "2026-01-14T19:26:00.000Z",
+    "property_pmid": "41532654",
+    "property_name": "What's the Rush? Challenging the Early Surgery Paradigm for Older Adults in Emergency General Surgery"
+  },
+  {
+    "id": "2e8ba464-60a7-812a-8a86-d7f22527cb63",
+    "name": "The impact of premature birth and low birth weight on motor, visual, and cognitive skills and mental health in adolescence: a systematic review and meta-analysis",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41533077/",
+    "property_tag_2": "Psychiatry",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาความสัมพันธ์ระหว่างการเกิดก่อนกำหนดและน้ำหนักแรกเกิดต่ำ (PTB) กับทักษะด้านสติปัญญา การมองเห็น และการเคลื่อนไหว รวมถึงวิเคราะห์ว่าปัจจัยเหล่านี้ส่งผลต่อสุขภาพจิตในช่วงวัยรุ่นอย่างไร\n- **วิธีการ:** ดำเนินการทบทวนวรรณกรรมอย่างเป็นระบบ (Systematic review) ตามแนวทาง PRISMA โดยสืบค้นจากฐานข้อมูลหลักและคัดเลือกงานวิจัย 17 เรื่องมาวิเคราะห์ ซึ่งครอบคลุมกลุ่มตัวอย่างวัยรุ่นอายุ 11-20 ปี จำนวนรวม 10,842 คน (แบ่งเป็นกลุ่ม PTB 8,813 คน และกลุ่มควบคุม 4,029 คน)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** วัยรุ่นที่เกิดก่อนกำหนดมีความบกพร่องด้านสติปัญญา (IQ), สมาธิ, การทำงานบริหารจัดการของสมอง (Executive function) และการควบคุมการเคลื่อนไหวมากกว่ากลุ่มที่เกิดครบกำหนดอย่างมีนัยสำคัญ อีกทั้งยังมีอัตราการได้รับการวินิจฉัยโรคทางจิตเวชที่สูงกว่าและซับซ้อนกว่า แต่ยังพบหลักฐานน้อยมากเกี่ยวกับความผิดปกติทางสายตาและความเชื่อมโยงโดยตรงระหว่างทักษะเหล่านี้กับปัญหาสุขภาพจิต",
+    "property_tag_3": "Adolescent Medicine",
+    "property_tag_1": "Pediatrics",
+    "property_last_edited_time": "2026-01-14T19:24:00.000Z",
+    "property_pmid": "41533077",
+    "property_name": "The impact of premature birth and low birth weight on motor, visual, and cognitive skills and mental health in adolescence: a systematic review and meta-analysis"
+  },
+  {
+    "id": "2e8ba464-60a7-811b-aa72-eeb2b86a90ff",
+    "name": "Advancing Diagnosis of Liver Cirrhosis: Why Non-invasive Methods Are the Future?",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41531589/",
+    "property_tag_2": "Liver Cirrhosis",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนความก้าวหน้าล่าสุดของวิธีการตรวจวินิจฉัยแบบไม่รุกล้ำ (Non-invasive methods หรือ NIMs) สำหรับการวินิจฉัยและติดตามโรคตับแข็ง เพื่อทดแทนวิธีมาตรฐานเดิมที่มีความเสี่ยงและสร้างความเจ็บปวดแก่ผู้ป่วย\n- **วิธีการ:** เป็นการรวบรวมและวิเคราะห์ข้อมูลเกี่ยวกับเทคโนโลยี NIMs ต่างๆ ได้แก่ การใช้สารบ่งชี้ทางชีวภาพในเลือด (เช่น ELF test, FIB-4), เทคนิค Elastography (เช่น VCTE, MRE) รวมถึงเทคโนโลยีอุบัติใหม่ เช่น Radiomics ที่ขับเคลื่อนด้วย AI และการใช้เทคนิคแบบพหุรูปแบบ (Multimodal)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** NIMs แสดงความแม่นยำสูงในการตรวจหาภาวะพังผืดระยะลุกลาม มีความปลอดภัย คุ้มค่า และทำซ้ำได้ง่ายกว่าการเจาะตับ ปัจจุบันถูกแนะนำให้เป็นเครื่องมือด่านหน้าในแนวทางการรักษา โดยเฉพาะในโรคไขมันพอกตับ (MASLD) และมีแนวโน้มที่จะเข้ามาแทนที่หัตถการแบบรุกล้ำในอนาคต",
+    "property_tag_3": "Artificial Intelligence",
+    "property_tag_1": "Gastroenterology",
+    "property_last_edited_time": "2026-01-14T19:23:00.000Z",
+    "property_pmid": "41531589",
+    "property_name": "Advancing Diagnosis of Liver Cirrhosis: Why Non-invasive Methods Are the Future?"
+  },
+  {
+    "id": "2e8ba464-60a7-81a5-a946-c2a1bc8c2028",
+    "name": "Advancing Diagnosis of Liver Cirrhosis: Why Non-invasive Methods Are the Future?",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41531589/",
+    "property_tag_2": "Liver Cirrhosis",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนความก้าวหน้าล่าสุดของวิธีการตรวจวินิจฉัยแบบไม่รุกล้ำ (Non-invasive methods หรือ NIMs) สำหรับการวินิจฉัยและติดตามโรคตับแข็ง เพื่อทดแทนวิธีมาตรฐานเดิมที่มีความเสี่ยงและสร้างความเจ็บปวดแก่ผู้ป่วย\n- **วิธีการ:** เป็นการรวบรวมและวิเคราะห์ข้อมูลเกี่ยวกับเทคโนโลยี NIMs ต่างๆ ได้แก่ การใช้สารบ่งชี้ทางชีวภาพในเลือด (เช่น ELF test, FIB-4), เทคนิค Elastography (เช่น VCTE, MRE) รวมถึงเทคโนโลยีอุบัติใหม่ เช่น Radiomics ที่ขับเคลื่อนด้วย AI และการใช้เทคนิคแบบพหุรูปแบบ (Multimodal)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** NIMs แสดงความแม่นยำสูงในการตรวจหาภาวะพังผืดระยะลุกลาม มีความปลอดภัย คุ้มค่า และทำซ้ำได้ง่ายกว่าการเจาะตับ ปัจจุบันถูกแนะนำให้เป็นเครื่องมือด่านหน้าในแนวทางการรักษา โดยเฉพาะในโรคไขมันพอกตับ (MASLD) และมีแนวโน้มที่จะเข้ามาแทนที่หัตถการแบบรุกล้ำในอนาคต",
+    "property_tag_3": "Artificial Intelligence",
+    "property_tag_1": "Gastroenterology",
+    "property_last_edited_time": "2026-01-14T19:21:00.000Z",
+    "property_pmid": "41531589",
+    "property_name": "Advancing Diagnosis of Liver Cirrhosis: Why Non-invasive Methods Are the Future?"
+  },
+  {
+    "id": "2e7ba464-60a7-81f9-af7e-e8e89049eda1",
+    "name": "A case for monitoring fungi of clinical relevance at beaches: enterococci measures do not correlate with all disease risks",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41528418/",
+    "property_tag_2": "Infectious Diseases",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาและตรวจสอบระดับของเชื้อราที่มีความสำคัญทางคลินิกในสิ่งแวดล้อมบริเวณชายหาด และชี้ให้เห็นถึงความจำเป็นในการรวมการตรวจวัดเชื้อราเข้าสู่โปรแกรมการเฝ้าระวังทางจุลชีววิทยา เนื่องจากดัชนีชี้วัด enterococci ในปัจจุบันไม่สัมพันธ์กับความเสี่ยงจากโรคเชื้อรา\n- **วิธีการ:** ทำการเก็บตัวอย่างทรายและน้ำจากชายหาด 2 แห่งในเมืองไมอามี รัฐฟลอริดา และวิเคราะห์ด้วยวิธีการเพาะเลี้ยงเชื้อที่อุณหภูมิสูง (37°C และ 40°C) เพื่อแยกเชื้อรากลุ่ม mesophilic ที่สามารถก่อโรคได้ จากนั้นทำการยืนยันสายพันธุ์ด้วยเทคนิค PCR และการหาลำดับเบส (sequencing)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ผลการศึกษาพบว่าระดับเชื้อราขึ้นอยู่กับชนิดของตัวอย่าง (ทรายหรือน้ำ) อย่างมีนัยสำคัญ โดยพบเชื้อราในสกุล Aspergillus และ Candida มากที่สุด ทั้งนี้สามารถแยกเชื้อราได้ 25 ชนิดที่มีรายงานการก่อโรค และพบว่า 20 ชนิดในจำนวนนี้มีประวัติการดื้อยาต้านเชื้อรา ซึ่งแสดงให้เห็นว่ามีความเสี่ยงทางสุขภาพที่มาตรการตรวจวัดในปัจจุบันยังครอบคลุมไม่ถึง",
+    "property_tag_3": "Microbiology",
+    "property_tag_1": "Environmental Health",
+    "property_last_edited_time": "2026-01-13T22:23:00.000Z",
+    "property_pmid": "41528418",
+    "property_name": "A case for monitoring fungi of clinical relevance at beaches: enterococci measures do not correlate with all disease risks"
   }
 ]
