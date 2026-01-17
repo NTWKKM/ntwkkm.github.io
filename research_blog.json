@@ -1762,5 +1762,65 @@
     "property_last_edited_time": "2026-01-15T22:21:00.000Z",
     "property_pmid": "41535939",
     "property_name": "Artificial intelligence-driven clustering for phenotyping life-threatening prehospital trauma."
+  },
+  {
+    "id": "2ebba464-60a7-81f7-9ede-d814fc15e73c",
+    "name": "Autotransfusion in traumatic haemothorax using the Sinapi chest drain system.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41545088/",
+    "property_tag_2": "Emergency",
+    "property_comment": "- **วัตถุประสงค์:** ไม่สามารถระบุได้เนื่องจากข้อมูลนำเข้าระบุว่าไม่มีบทคัดย่อ (No Abstract available)\n- **วิธีการ:** ไม่สามารถระบุได้เนื่องจากไม่มีข้อมูลในบทคัดย่อ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่สามารถระบุได้เนื่องจากไม่มีข้อมูลในบทคัดย่อ",
+    "property_tag_3": "Surgery",
+    "property_tag_1": "Trauma",
+    "property_last_edited_time": "2026-01-17T19:23:00.000Z",
+    "property_pmid": "41545088",
+    "property_name": "Autotransfusion in traumatic haemothorax using the Sinapi chest drain system."
+  },
+  {
+    "id": "2ebba464-60a7-8159-8314-e565bae47146",
+    "name": "The Red Blood Cell Distribution Width-Albumin Ratio Predicts Postoperative Delirium in the Elderly With Gastrointestinal Tumors: A Retrospective Cohort Study",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41545025/",
+    "property_tag_2": "Geriatrics",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาปัจจัยเสี่ยงอิสระของการเกิดภาวะสับสนเฉียบพลันหลังผ่าตัด (Postoperative Delirium - POD) และประเมินประสิทธิภาพของอัตราส่วนความกว้างการกระจายเม็ดเลือดแดงต่ออัลบูมิน (RAR) ในการพยากรณ์โรคสำหรับผู้ป่วยสูงอายุที่เข้ารับการผ่าตัดเนื้องอกในระบบทางเดินอาหาร\n- **วิธีการ:** ดำเนินการศึกษาแบบย้อนหลัง (Retrospective analysis) ในผู้ป่วยจำนวน 203 ราย ที่มีอายุ 65 ปีขึ้นไป ระหว่างเดือนพฤศจิกายน 2023 ถึงสิงหาคม 2024 โดยใช้วิธีการวิเคราะห์การถดถอยโลจิสติก (Logistic regression) และใช้เทคนิค Propensity Score Matching (PSM) เพื่อลดความคลาดเคลื่อนของข้อมูลทางคลินิก\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบผู้ป่วยเกิดภาวะ POD จำนวน 30 ราย (14.8%) ผลการวิเคราะห์บ่งชี้ว่า ความดันโลหิตสูง, ระดับครีอะตินีน, ค่า MCH และค่า RAR เป็นปัจจัยเสี่ยงอิสระที่มีนัยสำคัญ โดยเฉพาะอย่างยิ่งค่า RAR ก่อนการผ่าตัดได้รับการยืนยันว่าเป็นตัวบ่งชี้ที่มีประสิทธิภาพสูงในการทำนายการเกิด POD ทั้งในกลุ่มข้อมูลดิบและกลุ่มที่ผ่านการทำ PSM แล้ว",
+    "property_tag_3": "Gastroenterology",
+    "property_tag_1": "Surgery",
+    "property_last_edited_time": "2026-01-17T19:22:00.000Z",
+    "property_pmid": "41545025",
+    "property_name": "The Red Blood Cell Distribution Width-Albumin Ratio Predicts Postoperative Delirium in the Elderly With Gastrointestinal Tumors: A Retrospective Cohort Study"
+  },
+  {
+    "id": "2ebba464-60a7-810d-977f-dfd3514928ab",
+    "name": "Lessons from Rwanda's response to the Marburg virus outbreak",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41545591/",
+    "property_tag_2": "Public Health",
+    "property_comment": "- **วัตถุประสงค์:** ไม่สามารถระบุวัตถุประสงค์ที่แน่ชัดได้ เนื่องจากบทความนี้เป็นประเภทจดหมาย (Letter) และไม่มีบทคัดย่อ (No Abstract available) ในข้อมูลที่ให้มา\n- **วิธีการ:** ไม่สามารถระบุระเบียบวิธีวิจัยได้เนื่องจากไม่มีข้อมูลบทคัดย่อ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่สามารถระบุผลการศึกษาหรือค่าทางสถิติได้เนื่องจากไม่มีข้อมูลบทคัดย่อ",
+    "property_tag_3": "Epidemiology",
+    "property_tag_1": "Infectious Disease",
+    "property_last_edited_time": "2026-01-17T19:21:00.000Z",
+    "property_pmid": "41545591",
+    "property_name": "Lessons from Rwanda's response to the Marburg virus outbreak"
+  },
+  {
+    "id": "2eaba464-60a7-81d5-bc9f-d1f9693a64c6",
+    "name": "Diagnostic Applications of Point‑of‑Care Ultrasound in Emergency Medicine: A Narrative Review",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41542289/",
+    "property_tag_2": "POCUS",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนและตรวจสอบการประยุกต์ใช้การอัลตราซาวนด์ ณ จุดดูแลผู้ป่วย (POCUS) สำหรับการวินิจฉัยโรคในแผนกฉุกเฉิน โดยเน้นไปที่การประเมินผู้ป่วยอุบัติเหตุ, ปอด, หัวใจ, หลอดเลือดแดงใหญ่ในช่องท้องโป่งพอง และภาวะแทรกซ้อนในการตั้งครรภ์ระยะแรก\n- **วิธีการ:** เป็นการทบทวนวรรณกรรม (Narrative review) โดยการสืบค้นข้อมูลผ่านฐานข้อมูล PubMed เพื่อคัดเลือกงานวิจัยที่ผ่านการตรวจสอบโดยผู้เชี่ยวชาญ (peer-reviewed) ที่เกี่ยวข้องกับการใช้ POCUS เพื่อการวินิจฉัยในเวชศาสตร์ฉุกเฉิน\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ผลการทบทวนพบว่า POCUS ช่วยเพิ่มความแม่นยำในการวินิจฉัยและลดระยะเวลาในการให้การรักษาที่สำคัญ รวมถึงช่วยในการคัดกรองผู้ป่วยได้ดีขึ้น การใช้งานหลักครอบคลุมการตรวจ FAST ในผู้ป่วยอุบัติเหตุ, การประเมินภาวะเฉุกเฉินทางเดินหายใจและหัวใจ, การตรวจหาหลอดเลือดแดงใหญ่ในช่องท้องโป่งพอง และการตั้งครรภ์นอกมดลูก",
+    "property_tag_3": "Diagnostics",
+    "property_tag_1": "Emergency Medicine",
+    "property_last_edited_time": "2026-01-16T22:23:00.000Z",
+    "property_pmid": "41542289",
+    "property_name": "Diagnostic Applications of Point‑of‑Care Ultrasound in Emergency Medicine: A Narrative Review"
+  },
+  {
+    "id": "2eaba464-60a7-8132-a8ed-c003d33431aa",
+    "name": "Molecular Landscape and Predictive Significance of Programmed Cell Death-Related Genes in Sepsis",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41542228/",
+    "property_tag_2": "Genetics",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาการเปลี่ยนแปลงระดับโมเลกุล (Transcriptomic) ที่เกี่ยวข้องกับการตายของเซลล์แบบมีการโปรแกรมไว้ (Programmed Cell Death - PCD) ในผู้ป่วยภาวะติดเชื้อในกระแสเลือด (Sepsis) และค้นหาตัวบ่งชี้ทางชีวภาพเพื่อใช้ในการวินิจฉัยโรค\n- **วิธีการ:** วิเคราะห์ข้อมูลจากฐานข้อมูล GEO โดยใช้การวิเคราะห์เครือข่าย (WGCNA) เพื่อหายีนที่ทำงานร่วมกัน และใช้อัลกอริทึมการเรียนรู้ของเครื่อง (Machine Learning) 8 รูปแบบในการสร้างแบบจำลองการวินิจฉัย พร้อมทั้งตรวจสอบความถูกต้องด้วยข้อมูลระดับเซลล์เดียว (scRNA-seq)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การวิเคราะห์พบยีนศูนย์กลาง 262 ยีนที่เกี่ยวข้องกับวิถีสัญญาณการตายของเซลล์ (Apoptotic signaling) และคัดกรองเหลือยีนสำคัญ 7 ยีน (PRGs) โดยแบบจำลองการวินิจฉัยที่สร้างขึ้นมีประสิทธิภาพสูงในการแยกผู้ป่วย Sepsis ออกจากกลุ่มควบคุม นอกจากนี้ยังพบความสัมพันธ์ระหว่างยีน S100A9 และ KLHL3 กับเซลล์เม็ดเลือดขาวชนิดนิวโทรฟิล",
+    "property_tag_3": "AI",
+    "property_tag_1": "Sepsis",
+    "property_last_edited_time": "2026-01-16T22:21:00.000Z",
+    "property_pmid": "41542228",
+    "property_name": "Molecular Landscape and Predictive Significance of Programmed Cell Death-Related Genes in Sepsis"
   }
 ]
