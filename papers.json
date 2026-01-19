@@ -1,6 +1,66 @@
 [
   {
     "date": "19 Jan",
+    "title": "Radiation dose of computed tomography in pediatric head trauma imaging.",
+    "comment": "ชี้ให้เห็นถึงปริมาณรังสี CT ในเด็กเล็กที่บาดเจ็บที่ศีรษะ ซึ่งอาจเป็นประโยชน์ในการพิจารณาการใช้และปรับพารามิเตอร์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41553469/"
+  },
+  {
+    "date": "19 Jan",
+    "title": "Vascular permeability and loss of glycocalix in sepsis: the role of fluid resuscitation.",
+    "comment": "เผยกลไกสำคัญที่ทำให้เกิดภาวะอวัยวะล้มเหลวในภาวะ Sepsis และบทบาทของสารน้ำในการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41553456/"
+  },
+  {
+    "date": "19 Jan",
+    "title": "Adrenal tumor bleeding versus ruptured abdominal aortic aneurysm: a diagnostic dilemma in retroperitoneal hemorrhage.",
+    "comment": "นำเสนอกรณีที่ต้องแยกภาวะเลือดออกในเนื้องอกต่อมหมวกไตออกจากภาวะเส้นเลือดแดงใหญ่ในช่องท้องแตก ซึ่งเป็นภาวะฉุกเฉินที่สำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41553348/"
+  },
+  {
+    "date": "19 Jan",
+    "title": "Screen time and young people: A systematic review and meta-analysis of the evidence on self-harm and suicidality.",
+    "comment": "รวบรวมหลักฐานที่เชื่อมโยงการใช้หน้าจอและความเสี่ยงต่อการทำร้ายตนเองและการฆ่าตัวตายในกลุ่มวัยรุ่น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41553330/"
+  },
+  {
+    "date": "19 Jan",
+    "title": "No Place to Rest: Housing Instability and Pain Experiences in the Emergency Department.",
+    "comment": "ชี้ให้เห็นถึงผลกระทบของความไม่มั่นคงทางที่อยู่อาศัยต่อประสบการณ์ความเจ็บปวดของผู้ป่วยใน ER ซึ่งเป็นปัจจัยทางสังคมที่สำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41553306/"
+  },
+  {
+    "date": "19 Jan",
+    "title": "Cardiovascular Risk Across Myocardial Injury and Infarction Categories Using the Universal Definition: An Individual Patient-Level Data Meta-Analysis.",
+    "comment": "วิเคราะห์ความเสี่ยงโรคหัวใจในผู้ป่วยที่มีภาวะกล้ามเนื้อหัวใจบาดเจ็บและกล้ามเนื้อหัวใจตายอย่างละเอียด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41553312/"
+  },
+  {
+    "date": "19 Jan",
+    "title": "CT Brain Utilization After Low-Risk Head Injury in Adults: A Retrospective Cohort Study and Literature Review.",
+    "comment": "ประเมินการใช้ CT สมองในผู้ป่วยศีรษะบาดเจ็บระดับความเสี่ยงต่ำ เพื่อหาแนวทางการใช้ที่เหมาะสม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41552745/"
+  },
+  {
+    "date": "19 Jan",
+    "title": "Overcoming Normalcy Bias in Acute Myocardial Infarction: A Case Report of Generative AI as a Behavioral Catalyst for Emergency Care Seeking.",
+    "comment": "นำเสนอแนวคิดการใช้ AI มาช่วยแก้ไขภาวะ \"Normalcy Bias\" หรือการมองข้ามความรุนแรงในภาวะกล้ามเนื้อหัวใจขาดเลือดเฉียบพลัน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41552743/"
+  },
+  {
+    "date": "19 Jan",
+    "title": "Knowledge and Awareness of Compartment Syndrome Among Orthopedic and Emergency Department Nurses: A Multicenter Cross-Sectional Study in Saudi Arabia.",
+    "comment": "ประเมินความรู้และความตระหนักเรื่อง Compartment Syndrome ในพยาบาล ER และออร์โธปิดิกส์ เพื่อวางแผนการฝึกอบรม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41552736/"
+  },
+  {
+    "date": "19 Jan",
+    "title": "The blood purification therapy-based strategy effectively rescued the severe falciparum malaria patient experiencing cytokine storm-driven MODS.",
+    "comment": "แสดงให้เห็นถึงประสิทธิภาพของการบำบัดด้วยการกรองเลือดในการรักษาผู้ป่วยมาลาเรียชนิดฟัลซิปารัมที่มีภาวะ MODS จาก Cytokine Storm",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41552719/"
+  },
+  {
+    "date": "19 Jan",
     "title": "Early Cessation of Acetylcysteine Treatment After Paracetamol Overdose (NACSTOP 2): A Non-Inferiority Randomised Controlled Trial",
     "comment": "งานวิจัยนี้ท้าทายแนวทางการให้ NAC ในการ Overdose Paracetamol ซึ่งอาจเปลี่ยนแนวทางการรักษาปัจจุบัน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41549406/"
@@ -358,65 +418,5 @@
     "title": "Evaluation of cut-off values in acute paracetamol poisoning for safe termination of N-acetylcysteine.",
     "comment": "ประเมินค่า Cut-off สำหรับหยุด N-acetylcysteine ในผู้ป่วย Paracetamol overdose อย่างปลอดภัย",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41454031/"
-  },
-  {
-    "date": "27 Dec",
-    "title": "Prolonged Versus Intermittent Beta-Lactam Antibiotic Infusions in Paediatric Critical Care: A Systematic Review and Meta-Analysis",
-    "comment": "การให้ยา Beta-lactam แบบต่อเนื่องในผู้ป่วยวิกฤตเด็กอาจมีประโยชน์มากกว่าแบบเป็นครั้งคราว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41454710/"
-  },
-  {
-    "date": "27 Dec",
-    "title": "New electrocardiographic changes as predictors of acute coronary interventions in the emergency department: a retrospective observational study",
-    "comment": "ECG patterns ที่อาจบ่งบอกความจำเป็นของการทำ PCI ใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/4145274/"
-  },
-  {
-    "date": "26 Dec",
-    "title": "Enhanced Trauma Video Review With Computer Vision: Trauma Resuscitation Phase Segmentation and Procedure Detection",
-    "comment": "AI ช่วยวิเคราะห์วิดีโอการช่วยชีวิตผู้ป่วยอุบัติเหตุ ระบุช่วงเวลาและขั้นตอนได้ ช่วยในการเรียนรู้และประเมินผล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41451193/"
-  },
-  {
-    "date": "25 Dec",
-    "title": "Status epilepticus: the score question.",
-    "comment": "การมีเครื่องมือช่วยประเมินและทำนายผลลัพธ์ของ Status epilepticus เป็นสิ่งจำเป็นใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41446885/"
-  },
-  {
-    "date": "24 Dec",
-    "title": "Trend of emergency department attendances for alcohol and substances intoxication in adolescents across the COVID-19 pandemic: a multicenter international study.",
-    "comment": "ชี้ให้เห็นแนวโน้มการมา ER ของวัยรุ่นจากพิษสุรา/ยา ในช่วงโควิด-19 ที่อาจเปลี่ยนแปลงไป",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41441985/"
-  },
-  {
-    "date": "23 Dec",
-    "title": "Intra-arterial tenecteplase in acute ischemic stroke after successful endovascular thrombectomy: a meta-analysis of randomized controlled trials.",
-    "comment": "การใช้ Tenecteplase ในผู้ป่วย stroke ที่ได้รับการ thrombectomy สำเร็จ มีแนวโน้มที่จะดีขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41432798/"
-  },
-  {
-    "date": "22 Dec",
-    "title": "Nirsevimab Against Hospitalizations and Emergency Department Visits for Lower Respiratory Tract Infection in Infants: A Meta-Analysis",
-    "comment": "ยาตัวใหม่ช่วยลดผู้ป่วยเด็กเล็ก RSV ที่ต้องแอดมิทและเข้า ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41428293/"
-  },
-  {
-    "date": "22 Dec",
-    "title": "Association of Advanced Airway Management Strategies with 72-Hour Survival in Out-of-Hospital Cardiac Arrest: Video Laryngoscopy vs. Direct Laryngoscopy vs. Supraglottic Airways",
-    "comment": "การศึกษาเปรียบเทียบเทคนิคการจัดการทางเดินหายใจขั้นสูงในผู้ป่วยหัวใจหยุดเต้นนอกโรงพยาบาล เพื่อหาแนวทางการรักษาที่ดีที่สุด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41423331/"
-  },
-  {
-    "date": "21 Dec",
-    "title": "Introduction to the Donovan Memorial Lecture: 'Fentanyl Plus', A New Era of Fentanyl Polydrug Combinations in the North American Overdose Crisis.",
-    "comment": "บทความนี้ชี้ให้เห็นถึงวิกฤตยาเสพติด Fentanyl ที่ซับซ้อนขึ้นจากการผสมยาอื่น ๆ ซึ่งแพทย์ ER ต้องตระหนักถึงการเปลี่ยนแปลงรูปแบบการใช้ยาและการจัดการผู้ป่วย overdose",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41422367/"
-  },
-  {
-    "date": "20 Dec",
-    "title": "Beyond diagnosis: deep-learning-based analysis of hospitalization using abdominal radiographs in the emergency department.",
-    "comment": "AI ช่วยให้เราใช้ภาพ X-ray ช่องท้องธรรมดาทำนายการนอนโรงพยาบาลได้ ซึ่งอาจช่วยปรับปรุงการไหลเวียนผู้ป่วยใน ER ได้อย่างมาก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41420745/"
   }
 ]
