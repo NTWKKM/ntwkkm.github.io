@@ -1942,5 +1942,53 @@
     "property_last_edited_time": "2026-01-18T22:22:00.000Z",
     "property_pmid": "415457777",
     "property_name": "No Title Available"
+  },
+  {
+    "id": "2eeba464-60a7-8128-8074-f0f8ad14fdd3",
+    "name": "Mapping Algorithmic Bias in AI-Powered Electrocardiogram Interpretation Across the AI Life Cycle: Protocol for a Scoping Review",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41556569/",
+    "property_tag_2": "Artificial Intelligence",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อวางโครงสร้างและแผนงานสำหรับการทบทวนขอบเขต (scoping review) ในการรวบรวมหลักฐานเกี่ยวกับความเอนเอียงของอัลกอริทึม (algorithmic bias) ที่เกิดจากการแปลผลคลื่นไฟฟ้าหัวใจ (ECG) ด้วย AI โดยมุ่งเน้นการระบุแหล่งที่มาของความเอนเอียง ผลกระทบต่อกลุ่มประชากรย่อย และกลยุทธ์ในการแก้ไขปัญหาตลอดวงจรชีวิตของ AI\n- **วิธีการ:** ดำเนินการสืบค้นวรรณกรรมจาก 5 ฐานข้อมูลอิเล็กทรอนิกส์และแหล่งข้อมูลอื่น ๆ ครอบคลุมงานวิจัยต้นฉบับระหว่างปี 2015-2025 ที่ศึกษาประสิทธิภาพของโมเดล AI สำหรับ ECG ในกลุ่มประชากรต่าง ๆ หรือรายงานวิธีลดความเอนเอียง โดยมีผู้ทบทวนสองท่านคัดกรองและสกัดข้อมูลตามมาตรฐาน PRISMA-ScR\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** จากการสืบค้นข้อมูลทั้งหมดพบ 448 รายการ หลังจากการคัดกรองซ้ำและตรวจสอบความเกี่ยวข้อง พบว่ามี 38 การศึกษาที่เข้าเกณฑ์และถูกนำมาสังเคราะห์เชิงคุณภาพ บทความนี้เป็นการนำเสนอโปรโตคอลและสถานะการคัดเลือกเอกสารเบื้องต้น จึงยังไม่มีผลสรุปการวิเคราะห์ข้อมูลเชิงลึกในขั้นตอนนี้",
+    "property_tag_3": "Electrocardiogram",
+    "property_tag_1": "Cardiology",
+    "property_last_edited_time": "2026-01-20T19:24:00.000Z",
+    "property_pmid": "41556569",
+    "property_name": "Mapping Algorithmic Bias in AI-Powered Electrocardiogram Interpretation Across the AI Life Cycle: Protocol for a Scoping Review"
+  },
+  {
+    "id": "2eeba464-60a7-815f-a7a6-e29307cc9418",
+    "name": "Conflation of Contraception and Abortion - Implications for Access to Contraceptives",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41556539/",
+    "property_tag_2": "Abortion",
+    "property_comment": "- **วัตถุประสงค์:** ไม่สามารถระบุวัตถุประสงค์ที่แน่ชัดได้เนื่องจากไม่มีบทคัดย่อ (จากหัวข้อเรื่อง คาดว่าเป็นบทความอภิปรายเกี่ยวกับผลกระทบของการนำเรื่องการคุมกำเนิดไปปะปนกับประเด็นการทำแท้งที่มีต่อการเข้าถึงบริการคุมกำเนิด)\n- **วิธีการ:** ไม่ระบุข้อมูลเนื่องจากไม่มีบทคัดย่อ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่ระบุข้อมูลเนื่องจากไม่มีบทคัดย่อ",
+    "property_tag_3": "Health Policy",
+    "property_tag_1": "Contraception",
+    "property_last_edited_time": "2026-01-20T19:23:00.000Z",
+    "property_pmid": "41556539",
+    "property_name": "Conflation of Contraception and Abortion - Implications for Access to Contraceptives"
+  },
+  {
+    "id": "2eeba464-60a7-811b-a1ea-e0aabde00942",
+    "name": "Optimal timing of antibiotics administration for sepsis or septic shock in the emergency department.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41555264/",
+    "property_tag_2": "Sepsis",
+    "property_comment": "- **วัตถุประสงค์:** ไม่สามารถระบุได้เนื่องจากข้อมูลนำเข้าไม่มีบทคัดย่อ (No Abstract available)\n- **วิธีการ:** ไม่สามารถระบุได้เนื่องจากข้อมูลนำเข้าไม่มีบทคัดย่อ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่สามารถระบุได้เนื่องจากข้อมูลนำเข้าไม่มีบทคัดย่อ",
+    "property_tag_3": "Infectious Diseases",
+    "property_tag_1": "Emergency Medicine",
+    "property_last_edited_time": "2026-01-20T19:21:00.000Z",
+    "property_pmid": "41555264",
+    "property_name": "Optimal timing of antibiotics administration for sepsis or septic shock in the emergency department."
+  },
+  {
+    "id": "2edba464-60a7-81e9-9b44-db6ca314f7e6",
+    "name": "Vascular permeability and loss of glycocalix in sepsis: the role of fluid resuscitation",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41553456/",
+    "property_tag_2": "Intensive Care",
+    "property_comment": "- **วัตถุประสงค์:** ไม่สามารถระบุได้เนื่องจากบทความนี้ไม่มีบทคัดย่อ (No Abstract available)\n- **วิธีการ:** ไม่สามารถระบุได้เนื่องจากบทความนี้ไม่มีบทคัดย่อ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่สามารถระบุได้เนื่องจากบทความนี้ไม่มีบทคัดย่อ",
+    "property_tag_3": "Fluid Resuscitation",
+    "property_tag_1": "Sepsis",
+    "property_last_edited_time": "2026-01-19T22:21:00.000Z",
+    "property_pmid": "41553456",
+    "property_name": "Vascular permeability and loss of glycocalix in sepsis: the role of fluid resuscitation"
   }
 ]
