@@ -1,5 +1,95 @@
 [
   {
+    "date": "20 Jan",
+    "title": "Impact of point-of-care ultrasound in right upper quadrant abdominal pain in an emergency department: cost analysis.",
+    "comment": "POCUS ลดค่าใช้จ่ายใน ER ได้จริงหรือไม่?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557443/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Candidozyma auris Reported in Scotland: a Call for Vigilance Amid Global Rise.",
+    "comment": "เชื้อราอุบัติใหม่ที่ต้องจับตาใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557176/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Impact of a home-based digital triage tool on low-acuity emergency department visits: a pilot study in Spain.",
+    "comment": "Triage ออนไลน์ ช่วยลดคนไข้ ER ได้แค่ไหน?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557175/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "A comparative evaluation of salivary and serum procalcitonin to identify infants with serious bacterial infections.",
+    "comment": "Procalcitonin ในน้ำลายใช้แทนเลือดได้ไหมในเด็กเล็ก?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557164/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Closing the sex and gender gap in clinical practice: recommendations from the Catalan Society of Health with a Sex and Gender Perspective. The GENDERCARE decalogue.",
+    "comment": "การแพทย์แบบแยกเพศ/เพศสภาพ สำคัญต่อการรักษาอย่างไร?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557155/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Reduced Fascial Dehiscence with Combined Small-and-Large Technique Compared to Small-Bite Technique in Emergency Midline Laparotomy: A Retrospective Study.",
+    "comment": "เทคนิคการเย็บแผลผ่าตัดช่องท้องแบบเร่งด่วน แบบไหนดีกว่ากัน?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557154/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Artificial intelligence in lung scintigraphy.",
+    "comment": "AI จะมาช่วยอ่านผล LUNG SCINTIGRAPHY แล้ว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557147/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Advances in MicroRNA-Based Therapies for Cardiac Repair: Emerging Strategies for Treating Myocardial Infarction.",
+    "comment": "MicroRNA ตัวเล็กๆ อาจเป็นยาใหม่รักษาหัวใจขาดเลือด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557128/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "eBIMIC: development of a web platform for real-time access to cumulative antimicrobial susceptibility reports and its potential impact on evidence-based antibiotic prescribing in bacteremia.",
+    "comment": "แพลตฟอร์ม AI ช่วยการใช้ยาปฏิชีวนะในภาวะติดเชื้อในกระแสเลือด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557113/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Fatal tracheostomy-site hemorrhage in blue rubber bleb nevus syndrome: case report and literature review.",
+    "comment": "ภาวะเลือดออกรุนแรงจากหลอดลมเทียมในโรคหายาก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557089/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Use of ambulance services for patients with suspected stroke.",
+    "comment": "การใช้บริการรถพยาบาลในผู้ป่วยสงสัยโรคหลอดเลือดสมอง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41556686/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Pediatric Readiness in the Emergency Department: Policy Statement.",
+    "comment": "มาตรฐาน ER สำหรับเด็กที่ทุก ER ต้องรู้ (มีหลายฉบับ)",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41556937/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Mapping Algorithmic Bias in AI-Powered Electrocardiogram Interpretation Across the AI Life Cycle: Protocol for a Scoping Review.",
+    "comment": "AI อ่าน ECG มีอคติทางอัลกอริทึมหรือไม่?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41556569/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Conflation of Contraception and Abortion - Implications for Access to Contraceptives.",
+    "comment": "ความสับสนระหว่างการคุมกำเนิดและการทำแท้ง ส่งผลต่อการเข้าถึงอย่างไร",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41556539/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Optimal timing of antibiotics administration for sepsis or septic shock in the emergency department.",
+    "comment": "ให้ยาปฏิชีวนะในผู้ป่วย Sepsis/Septic Shock ตอนไหนดีที่สุดใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41555264/"
+  },
+  {
     "date": "19 Jan",
     "title": "Radiation dose of computed tomography in pediatric head trauma imaging.",
     "comment": "ชี้ให้เห็นถึงปริมาณรังสี CT ในเด็กเล็กที่บาดเจ็บที่ศีรษะ ซึ่งอาจเป็นประโยชน์ในการพิจารณาการใช้และปรับพารามิเตอร์",
@@ -328,95 +418,5 @@
     "title": "Association of lactate to albumin ratio with the severity and prognosis of patients with sepsis admitted to the emergency intensive care unit: A prospective cohort study",
     "comment": "การศึกษาชี้ให้เห็นถึงความสำคัญของ L/A ratio ในการประเมินความรุนแรงและพยากรณ์โรคในผู้ป่วย sepsis ใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41517778/"
-  },
-  {
-    "date": "9 Jan",
-    "title": "[Prehospital treatment of severely injured children in Germany : Epidemiology, interventions and structural perspectives]",
-    "comment": "การจัดการเด็กบาดเจ็บวิกฤตใน ER ก่อนถึงโรงพยาบาลเป็นอย่างไร?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41511536/"
-  },
-  {
-    "date": "9 Jan",
-    "title": "[Clinical Signs of Circulatory Impairment/Shock in Children: A Prospective Observational Study]",
-    "comment": "ระบุสัญญาณเตือนภาวะช็อกในเด็กที่สำคัญ แม่นยำ และใช้ได้จริงใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41511618/"
-  },
-  {
-    "date": "8 Jan",
-    "title": "Electrocardiogram sonification accelerates detection of ST elevation myocardial infarction compared to analysis based solely on visual display: a randomized controlled simulation study with medical students.",
-    "comment": "เทคโนโลยีใหม่ช่วยแพทย์ ER วินิจฉัย STEMI ได้เร็วขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41501644/"
-  },
-  {
-    "date": "7 Jan",
-    "title": "Direct RNA sequencing identified solute carrier family 2 member 1 to improve neurological outcome prediction after cardiac arrest.",
-    "comment": "การตรวจ RNA แบบ Direct sequencing ช่วยในการทำนายผลลัพธ์ทางระบบประสาทหลังภาวะหัวใจหยุดเต้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41499047/"
-  },
-  {
-    "date": "6 Jan",
-    "title": "Inferential performance and temporal stability of large language models in suicide method prediction: A forensic psychiatric analysis.",
-    "comment": "LLM มีศักยภาพในการคาดการณ์วิธีการฆ่าตัวตาย ชี้ถึงนวัตกรรมใหม่ในการประเมินความเสี่ยง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41492705/"
-  },
-  {
-    "date": "5 Jan",
-    "title": "Machine Learning-Based Model to Classify Emergency Severity Index Levels 1-3 in Febrile Patients With Tachycardia: Thailand Triage Prediction System",
-    "comment": "AI ที่แม่นยำในการประเมินความเร่งด่วนผู้ป่วยไข้มีไข้หัวใจเต้นเร็วใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41488730/"
-  },
-  {
-    "date": "4 Jan",
-    "title": "Extracorporeal membrane oxygenation support for tropical infections: a scoping review",
-    "comment": "ECMO อาจมีบทบาทสำคัญในการช่วยชีวิตผู้ป่วยภาวะวิกฤตจากโรคติดเชื้อเขตร้อนที่รักษาด้วยวิธีอื่นยาก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41485007/"
-  },
-  {
-    "date": "4 Jan",
-    "title": "Machine learning models predict long COVID outcomes based on baseline clinical and immunologic factors.",
-    "comment": "AI สามารถช่วยพยากรณ์ผลลัพธ์ของ Long COVID ได้จากปัจจัยพื้นฐานของผู้ป่วย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41484172/"
-  },
-  {
-    "date": "3 Jan",
-    "title": "Four Distinct Dynamic Intracranial Pressure Trajectories and Their Prognostic Implications in Acute Brain Injury: A Multicenter Cohort Study",
-    "comment": "งานวิจัยนี้เสนอการจำแนกแบบแผนความดันในกะโหลกศีรษะในผู้ป่วยบาดเจ็บทางสมองเฉียบพลัน ซึ่งอาจนำไปสู่การปรับแนวทางการรักษาและการพยากรณ์โรค",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41482820/"
-  },
-  {
-    "date": "3 Jan",
-    "title": "Rapid Radiation Dose Estimation Techniques for Initial Patient Triage",
-    "comment": "เทคนิคประเมินปริมาณรังสีอย่างรวดเร็วเพื่อช่วย triage ผู้ป่วยฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41481184/"
-  },
-  {
-    "date": "1 Jan",
-    "title": "Emergency department-initiated buprenorphine vs brief intervention for opioid use disorder: a systematic review and meta-analysis of clinical trials.",
-    "comment": "เริ่มต้นรักษา OUD ใน ER ช่วยลดการใช้ยาและเพิ่มการเข้ารับการรักษาในระยะยาว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41477698/"
-  },
-  {
-    "date": "31 Dec",
-    "title": "Emergency embolization of acute hemorrhage: cone-beam computed tomography with advanced planning and guidance software-a systematic review and case series.",
-    "comment": "นวัตกรรมเทคนิคการสวนหลอดเลือดเพื่อหยุดเลือดฉุกเฉินด้วย CT แบบ 3 มิติช่วยให้วางแผนและนำทางได้แม่นยำขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/414466/"
-  },
-  {
-    "date": "30 Dec",
-    "title": "Oral Medications for Treating Agitation in a Safety Net Emergency Department",
-    "comment": "ยาทางปากมีประสิทธิภาพและปลอดภัยในการจัดการความกระวนกระวายใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41468014/"
-  },
-  {
-    "date": "29 Dec",
-    "title": "Syncope and Ventricular Tachycardia: Revisiting the Evidence Base.",
-    "comment": "งานวิจัยนี้ทบทวนหลักฐานล่าสุดเกี่ยวกับภาวะหัวใจเต้นผิดจังหวะที่สัมพันธ์กับภาวะหมดสติ ซึ่งเป็นเรื่องที่ต้องพิจารณาใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41460491/"
-  },
-  {
-    "date": "28 Dec",
-    "title": "Evaluation of cut-off values in acute paracetamol poisoning for safe termination of N-acetylcysteine.",
-    "comment": "ประเมินค่า Cut-off สำหรับหยุด N-acetylcysteine ในผู้ป่วย Paracetamol overdose อย่างปลอดภัย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41454031/"
   }
 ]
