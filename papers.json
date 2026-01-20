@@ -1,6 +1,66 @@
 [
   {
     "date": "20 Jan",
+    "title": "Impact of home-based digital triage tool on low-acuity emergency department visits: a pilot study in Spain.",
+    "comment": "การใช้เครื่องมือ Digital Triage ที่บ้านช่วยลดผู้ป่วยฉุกเฉินที่ไม่เร่งด่วนได้จริง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557175/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "A comparative evaluation of salivary and serum procalcitonin to identify infants with serious bacterial infections.",
+    "comment": "ตรวจ Procalcitonin ในน้ำลายเทียบกับเลือดเพื่อหาการติดเชื้อแบคทีเรียในทารก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557164/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Reduced Fascial Dehiscence with Combined Small-and-Large Technique Compared to Small-Bite Technique in Emergency Midline Laparotomy: A Retrospective Study.",
+    "comment": "เทคนิคเย็บแผลผ่าตัดช่องท้องแบบผสมผสานช่วยลดการแยกของแผลได้ดีกว่า",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557154/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Artificial intelligence in lung scintigraphy.",
+    "comment": "AI ช่วยแปลผล Lung Scintigraphy ได้อย่างไร",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557147/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Advances in MicroRNA-Based Therapies for Cardiac Repair: Emerging Strategies for Treating Myocardial Infarction.",
+    "comment": "การใช้ MicroRNA ในการรักษาโรคหัวใจขาดเลือด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557128/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "eBIMIC: development of a web platform for real-time access to cumulative antimicrobial susceptibility reports and its potential impact on evidence-based antibiotic prescribing in bacteremia.",
+    "comment": "แพลตฟอร์มออนไลน์ช่วยการสั่งยาปฏิชีวนะอย่างเหมาะสมสำหรับผู้ป่วยที่มีเชื้อในกระแสเลือด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557113/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Liposomes in tumor treatment: a double-edged sword.",
+    "comment": "ลิโปโซมในการรักษามะเร็ง มีทั้งข้อดีและข้อควรระวัง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557109/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Fatal tracheostomy-site hemorrhage in blue rubber bleb nevus syndrome: case report and literature review.",
+    "comment": "กรณีเลือดออกรุนแรงที่ตำแหน่ง Tracheostomy ในผู้ป่วย Blue Rubber Bleb Nevus Syndrome",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41557089/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "Disaster Report - Petroleum Depot (HAZMAT) Fire and Mass-Casualty Event in Guinea-December 18, 2023.",
+    "comment": "บทเรียนจากเหตุการณ์ไฟไหม้คลังน้ำมันและการบาดเจ็บหมู่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41556248/"
+  },
+  {
+    "date": "20 Jan",
+    "title": "AI in Patient Care: Evaluating Large Language Model Performance Against Evidence-Based Guidelines for Pulmonary Embolism.",
+    "comment": "LLM มีประสิทธิภาพแค่ไหนในการช่วยวินิจฉัยภาวะลิ่มเลือดอุดกั้นในปอดตามแนวทางปฏิบัติ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41555635/"
+  },
+  {
+    "date": "20 Jan",
     "title": "Impact of point-of-care ultrasound in right upper quadrant abdominal pain in an emergency department: cost analysis.",
     "comment": "POCUS ลดค่าใช้จ่ายใน ER ได้จริงหรือไม่?",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41557443/"
@@ -13,51 +73,9 @@
   },
   {
     "date": "20 Jan",
-    "title": "Impact of a home-based digital triage tool on low-acuity emergency department visits: a pilot study in Spain.",
-    "comment": "Triage ออนไลน์ ช่วยลดคนไข้ ER ได้แค่ไหน?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41557175/"
-  },
-  {
-    "date": "20 Jan",
-    "title": "A comparative evaluation of salivary and serum procalcitonin to identify infants with serious bacterial infections.",
-    "comment": "Procalcitonin ในน้ำลายใช้แทนเลือดได้ไหมในเด็กเล็ก?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41557164/"
-  },
-  {
-    "date": "20 Jan",
     "title": "Closing the sex and gender gap in clinical practice: recommendations from the Catalan Society of Health with a Sex and Gender Perspective. The GENDERCARE decalogue.",
     "comment": "การแพทย์แบบแยกเพศ/เพศสภาพ สำคัญต่อการรักษาอย่างไร?",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41557155/"
-  },
-  {
-    "date": "20 Jan",
-    "title": "Reduced Fascial Dehiscence with Combined Small-and-Large Technique Compared to Small-Bite Technique in Emergency Midline Laparotomy: A Retrospective Study.",
-    "comment": "เทคนิคการเย็บแผลผ่าตัดช่องท้องแบบเร่งด่วน แบบไหนดีกว่ากัน?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41557154/"
-  },
-  {
-    "date": "20 Jan",
-    "title": "Artificial intelligence in lung scintigraphy.",
-    "comment": "AI จะมาช่วยอ่านผล LUNG SCINTIGRAPHY แล้ว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41557147/"
-  },
-  {
-    "date": "20 Jan",
-    "title": "Advances in MicroRNA-Based Therapies for Cardiac Repair: Emerging Strategies for Treating Myocardial Infarction.",
-    "comment": "MicroRNA ตัวเล็กๆ อาจเป็นยาใหม่รักษาหัวใจขาดเลือด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41557128/"
-  },
-  {
-    "date": "20 Jan",
-    "title": "eBIMIC: development of a web platform for real-time access to cumulative antimicrobial susceptibility reports and its potential impact on evidence-based antibiotic prescribing in bacteremia.",
-    "comment": "แพลตฟอร์ม AI ช่วยการใช้ยาปฏิชีวนะในภาวะติดเชื้อในกระแสเลือด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41557113/"
-  },
-  {
-    "date": "20 Jan",
-    "title": "Fatal tracheostomy-site hemorrhage in blue rubber bleb nevus syndrome: case report and literature review.",
-    "comment": "ภาวะเลือดออกรุนแรงจากหลอดลมเทียมในโรคหายาก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41557089/"
   },
   {
     "date": "20 Jan",
@@ -400,23 +418,5 @@
     "title": "Advanced Airway Device Use Order During Out-of-Hospital Cardiac Arrest",
     "comment": "การศึกษาลำดับการใช้อุปกรณ์ทางเดินหายใจขั้นสูงในภาวะหัวใจหยุดเต้นนอกโรงพยาบาล อาจส่งผลต่ออัตราการรอดชีวิต",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41525070/"
-  },
-  {
-    "date": "11 Jan",
-    "title": "When Troponin Results Lie: A Narrative Review and Practical Approach to Spurious Hypertroponinemia",
-    "comment": "การวินิจฉัยภาวะกล้ามเนื้อหัวใจตายเท็จจาก troponin ที่ผิดปกติ จำเป็นต้องอาศัยความเข้าใจกลไกและแนวทางปฏิบัติที่ถูกต้อง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41519456/"
-  },
-  {
-    "date": "10 Jan",
-    "title": "Concurrent Use of Contact Aspiration and a Stent Retriever Is Associated With Successful Recanalization in Patients With Cancer-Associated Stroke.",
-    "comment": "การใช้เทคนิค Aspiration ร่วมกับ Stent Retriever อาจช่วยเพิ่มโอกาสในการรักษา Stroke จากมะเร็งได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41517812/"
-  },
-  {
-    "date": "10 Jan",
-    "title": "Association of lactate to albumin ratio with the severity and prognosis of patients with sepsis admitted to the emergency intensive care unit: A prospective cohort study",
-    "comment": "การศึกษาชี้ให้เห็นถึงความสำคัญของ L/A ratio ในการประเมินความรุนแรงและพยากรณ์โรคในผู้ป่วย sepsis ใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41517778/"
   }
 ]
