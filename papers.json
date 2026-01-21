@@ -2,26 +2,62 @@
   {
     "date": "21 Jan",
     "title": "AI in the Hot Seat: Head-to-Head Comparison of Large Language Models and Cardiologists in Emergency Scenarios",
-    "comment": "AI สามารถช่วยแพทย์ ER ประเมินและให้คำแนะนำในสถานการณ์ฉุกเฉินทางการแพทย์ได้เทียบเท่าหรือดีกว่าแพทย์จริง",
+    "comment": "AI เริ่มเข้ามามีบทบาทในการช่วยตัดสินใจทางการแพทย์ในภาวะฉุกเฉิน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41562923/"
   },
   {
     "date": "21 Jan",
-    "title": "Reevaluating Nonoperative Management for Pediatric Uncomplicated Acute Appendicitis: A Systematic Review and Meta-Analysis",
-    "comment": "การรักษาแบบไม่ผ่าตัดในเด็กไส้ติ่งอักเสบที่ไม่มีภาวะแทรกซ้อนอาจเป็นทางเลือกที่ปลอดภัยและมีประสิทธิภาพ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41563152/"
-  },
-  {
-    "date": "21 Jan",
     "title": "Shock: Pathophysiology, Classification, and the Role of Lactate in Diagnosis and Prognosis",
-    "comment": "ความเข้าใจเชิงลึกเกี่ยวกับกลไกของภาวะช็อกและบทบาทของแลคเตทสำคัญต่อการวินิจฉัยและการพยากรณ์โรค",
+    "comment": "ความเข้าใจเรื่องภาวะช็อกและการใช้ Lactate เป็นเครื่องมือวินิจฉัย/พยากรณ์โรคที่สำคัญใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41563115/"
   },
   {
     "date": "21 Jan",
+    "title": "The ability of statewide prehospital pediatric blood transfusion protocols to predict early in-hospital blood product administration: A National Trauma Data Bank analysis",
+    "comment": "การศึกษาประสิทธิภาพของ Protocol การให้เลือดในผู้ป่วยเด็กก่อนถึงโรงพยาบาล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41563125/"
+  },
+  {
+    "date": "21 Jan",
+    "title": "Reevaluating Nonoperative Management for Pediatric Uncomplicated Acute Appendicitis: A Systematic Review and Meta-Analysis",
+    "comment": "พิจารณาแนวทางการรักษาแบบไม่ผ่าตัดในเด็กที่มีภาวะไส้ติ่งอักเสบที่ไม่ซับซ้อน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41563152/"
+  },
+  {
+    "date": "21 Jan",
+    "title": "Emergency medical service transports during the COVID-19 pandemic : A retrospective population-based study in an Austrian state",
+    "comment": "ผลกระทบของ COVID-19 ต่อการขนส่งผู้ป่วยฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41563684/"
+  },
+  {
+    "date": "21 Jan",
+    "title": "Contrast-enhanced ultrasound (CEUS) in urgent and emergent pediatric conditions: a comprehensive review",
+    "comment": "การประยุกต์ใช้ CEUS ในการประเมินภาวะฉุกเฉินในเด็ก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41563558/"
+  },
+  {
+    "date": "21 Jan",
+    "title": "The incidence and complication rate of pediatric battery ingestion in the Netherlands",
+    "comment": "อุบัติการณ์และภาวะแทรกซ้อนจากการกลืนแบตเตอรี่ในเด็ก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41563491/"
+  },
+  {
+    "date": "21 Jan",
     "title": "Monkey pox (Mpox): pathogenesis, genetic shifts, vaccination strategies and clinical insights",
-    "comment": "การทำความเข้าใจ Mpox อย่างรอบด้านเป็นสิ่งจำเป็นสำหรับการรับมือกับการระบาดในอนาคต",
+    "comment": "อัปเดตความรู้เกี่ยวกับ Mpox ที่อาจกลับมาเป็นประเด็นสำคัญ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41563478/"
+  },
+  {
+    "date": "21 Jan",
+    "title": "Metabolomics in Infectious Diseases and Vaccine Response: Insights into Neglected Tropical and Non-Neglected Pathogens",
+    "comment": "การใช้ Metabolomics ในการทำความเข้าใจโรคติดเชื้อและตอบสนองต่อวัคซีน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41562665/"
+  },
+  {
+    "date": "21 Jan",
+    "title": "Severity Scores in SARS-CoV-2 Infection-A Comprehensive Bibliometric Review and Visualization Analysis",
+    "comment": "การวิเคราะห์คะแนนความรุนแรงของ COVID-19 ด้วยวิธี Bibliometric",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41562685/"
   },
   {
     "date": "21 Jan",
@@ -31,33 +67,9 @@
   },
   {
     "date": "21 Jan",
-    "title": "Contrast-enhanced ultrasound (CEUS) in urgent and emergent pediatric conditions: a comprehensive review",
-    "comment": "CEUS เป็นเครื่องมือที่มีประโยชน์มากในการประเมินภาวะฉุกเฉินในเด็ก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41563558/"
-  },
-  {
-    "date": "21 Jan",
     "title": "Precision in Emergency Surgery",
     "comment": "การผ่าตัดฉุกเฉินแบบเฉพาะบุคคลจะช่วยเพิ่มผลลัพธ์ที่ดีขึ้นให้กับผู้ป่วย",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41563751/"
-  },
-  {
-    "date": "21 Jan",
-    "title": "Emergency medical service transports during the COVID-19 pandemic : A retrospective population-based study in an Austrian state",
-    "comment": "การศึกษาผลกระทบของ COVID-19 ต่อระบบบริการการแพทย์ฉุกเฉินนอกโรงพยาบาล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41563684/"
-  },
-  {
-    "date": "21 Jan",
-    "title": "The incidence and complication rate of pediatric battery ingestion in the Netherlands",
-    "comment": "อุบัติการณ์และภาวะแทรกซ้อนของการกลืนแบตเตอรี่ในเด็กเป็นข้อมูลสำคัญในการวางแผนป้องกันและรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41563491/"
-  },
-  {
-    "date": "21 Jan",
-    "title": "The ability of statewide prehospital pediatric blood transfusion protocols to predict early in-hospital blood product administration: A National Trauma Data Bank analysis",
-    "comment": "การศึกษาประสิทธิภาพของโปรโตคอลการให้เลือดก่อนถึงโรงพยาบาลในเด็ก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41563125/"
   },
   {
     "date": "20 Jan",
@@ -406,17 +418,5 @@
     "title": "Rural emergency hospitals: Emerging patterns of adaptation and community perception.",
     "comment": "การปรับตัวของโรงพยาบาล ER ชนบทที่น่าสนใจท่ามกลางความท้าทาย",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41546444/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "Penetrating thoracic stab wounds and the cardiac box: a single-center experience of in-hospital treatment and outcome in Germany.",
-    "comment": "แนวทางการรักษาบาดแผลทรวงอกแบบแทงทะลุ เน้นบริเวณ \"cardiac box\"",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41546052/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "Effect of time to surgical intervention on mortality in patients with abdominal gunshot wounds presenting to the emergency department.",
-    "comment": "เวลาในการผ่าตัดส่งผลโดยตรงต่ออัตราการตายในผู้ป่วยบาดแผลกระสุนปืนในช่องท้อง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41546051/"
   }
 ]
