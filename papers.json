@@ -2,26 +2,62 @@
   {
     "date": "22 Jan",
     "title": "Rethinking the hemorrhagic shock chain of survival: The role, importance, and impact of prehospital blood administration.",
-    "comment": "การให้เลือดก่อนถึงโรงพยาบาล (Prehospital Blood Administration) อาจเปลี่ยนแนวทางการรักษาภาวะ hemorrhagic shock อย่างมีนัยสำคัญ",
+    "comment": "การบริหารเลือดในเวชระเบียนก่อนถึงโรงพยาบาลอาจเปลี่ยนชีวิตผู้ป่วยภาวะเลือดออกในภาวะช็อก",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41568435/"
   },
   {
     "date": "22 Jan",
-    "title": "Midazolam or propofol added to ketamine: Which combination is better for the reduction of shoulder dislocation in the emergency department?",
-    "comment": "การศึกษาเปรียบเทียบยาชาสำหรับการใส่ไหล่หลุดใน ER เพื่อหาแนวทางรักษาที่ดีที่สุด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41567482/"
-  },
-  {
-    "date": "22 Jan",
     "title": "Hyperferritinemia Drives Risk: Unravelling the Association Between Ferritin Levels and Multi-Organ Dysfunction in Acute Febrile Illness: An Emergency Medicine Perspective.",
-    "comment": "ระดับ Ferritin ที่สูงอาจเป็นสัญญาณบ่งชี้ความเสี่ยงของภาวะ multi-organ dysfunction ในผู้ป่วยไข้เฉียบพลันใน ER",
+    "comment": "ระดับเฟอร์ริตินสูงอาจสัมพันธ์กับความผิดปกติของหลายอวัยวะในภาวะไข้เฉียบพลัน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41567885/"
   },
   {
     "date": "22 Jan",
+    "title": "Midazolam or propofol added to ketamine: Which combination is better for the reduction of shoulder dislocation in the emergency department?",
+    "comment": "เปรียบเทียบประสิทธิภาพของยาชาเมื่อใช้ร่วมกับ Ketamine ในการลดข้อไหล่หลุดใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41567482/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "Artificial intelligence in emergency department triage: perspective of human professionals.",
+    "comment": "การนำ AI มาใช้ช่วยคัดกรองผู้ป่วยใน ER: มุมมองจากบุคลากรทางการแพทย์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41567347/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "Evaluation of STONE, modified STONE, and CHOKAI scores for predicting ureteric stone disease in Indian emergency patients: A prospective observational study.",
+    "comment": "การประเมินคะแนนต่างๆ เพื่อทำนายโรคก้อนนิ่วในท่อไตในผู้ป่วย ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41567484/"
+  },
+  {
+    "date": "22 Jan",
     "title": "Association Between Receipt of Ketamine vs Etomidate for Emergency Tracheal Intubation and Symptoms of Posttraumatic Stress Disorder at 12 Months.",
-    "comment": "การใช้ Ketamine เทียบกับ Etomidate ในการใส่ท่อช่วยหายใจฉุกเฉิน อาจส่งผลต่อ PTSD ในระยะยาว",
+    "comment": "ยา Ketamine หรือ Etomidate ที่ใช้ใส่ท่อช่วยหายใจฉุกเฉิน ส่งผลต่อ PTSD หรือไม่",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41568063/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "Wetland restoration.",
+    "comment": "การฟื้นฟูพื้นที่ชุ่มน้ำโดยอาศัยความร่วมมือจากประชาชน (Citizen science)",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41567749/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "The spectrum of neurodevelopmental disorders: comorbidities as clues to pathogenesis.",
+    "comment": "กลุ่มอาการผิดปกติทางการพัฒนาการทางระบบประสาท: ความสัมพันธ์ของโรคร่วมที่บ่งชี้กลไกการเกิดโรค",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41568586/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "Microplastics and nanoplastics: Emerging drivers of liver damage and metabolic dysfunction.",
+    "comment": "อนุภาคขนาดเล็ก (Microplastics/nanoplastics) ตัวการใหม่ที่อาจก่อให้เกิดความเสียหายต่อตับและการทำงานผิดปกติของระบบเผาผลาญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41567293/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "Increasing Trend in Pediatric Brazilian Jiu Jitsu Injuries Presenting to US Emergency Departments and an Injury Profile - A 10-Year Analysis.",
+    "comment": "แนวโน้มการบาดเจ็บในเด็กจากกีฬา Brazilian Jiu Jitsu ที่มา ER ในสหรัฐฯ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41567655/"
   },
   {
     "date": "22 Jan",
@@ -31,27 +67,9 @@
   },
   {
     "date": "22 Jan",
-    "title": "Artificial intelligence in emergency department triage: perspective of human professionals.",
-    "comment": "มุมมองของผู้เชี่ยวชาญทางการแพทย์ต่อการใช้ AI ในการคัดกรองผู้ป่วย ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41567347/"
-  },
-  {
-    "date": "22 Jan",
     "title": "Pilot ED Wastewater Surveillance During the 2024-2025 Respiratory Virus Season.",
     "comment": "การเฝ้าระวังเชื้อไวรัสระบบทางเดินหายใจในน้ำเสียจาก ER อาจเป็นเครื่องมือใหม่ในการคาดการณ์การระบาด",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41567566/"
-  },
-  {
-    "date": "22 Jan",
-    "title": "Increasing Trend in Pediatric Brazilian Jiu Jitsu Injuries Presenting to US Emergency Departments and an Injury Profile - A 10-Year Analysis.",
-    "comment": "พบแนวโน้มการบาดเจ็บในเด็กจากการเล่น BJJ ที่ ER เพิ่มขึ้นในสหรัฐฯ ควรมีการเฝ้าระวัง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41567655/"
-  },
-  {
-    "date": "22 Jan",
-    "title": "Evaluation of STONE, modified STONE, and CHOKAI scores for predicting ureteric stone disease in Indian emergency patients: A prospective observational study.",
-    "comment": "การประเมินความแม่นยำของคะแนนต่างๆ ในการทำนายโรคหินนิ่วในท่อไตของผู้ป่วย ER ในอินเดีย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41567484/"
   },
   {
     "date": "22 Jan",
@@ -400,23 +418,5 @@
     "title": "Response to Early Ultrasound-Guided Nerve Blocks for Sickle Cell Pain Crisis: A Novel Approach to Pain Management.",
     "comment": "การใช้ Ultrasound-guided nerve blocks ตั้งแต่เนิ่นๆ ในภาวะวิกฤตปวดจาก Sickle Cell",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41545139/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "The Triple-Agonist Revolution: Retatrutide and the Paradigm Shift in Multi-Hormonal Pharmacotherapy for Obesity and Cardiometabolic Comorbidities.",
-    "comment": "Retatrutide ยาตัวใหม่สำหรับการรักษาโรคอ้วนและภาวะแทรกซ้อนทางหัวใจและหลอดเลือด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41545327/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "Emergency department-based testing for xylazine and other novel psychoactive substances in Central Alabama: a feasibility study.",
-    "comment": "การตรวจสารเสพติดชนิดใหม่ในห้องฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/415457777/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "Comment on \"Evaluating the Accuracy of Artificial Intelligence Chatbots in Triaging Emergency Cases\".",
-    "comment": "การประเมินความแม่นยำของ AI Chatbot ในการคัดแยกผู้ป่วยฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41545135/"
   }
 ]
