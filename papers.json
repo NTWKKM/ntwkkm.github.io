@@ -1,5 +1,65 @@
 [
   {
+    "date": "22 Jan",
+    "title": "Rethinking the hemorrhagic shock chain of survival: The role, importance, and impact of prehospital blood administration.",
+    "comment": "การให้เลือดก่อนถึงโรงพยาบาล (Prehospital Blood Administration) อาจเปลี่ยนแนวทางการรักษาภาวะ hemorrhagic shock อย่างมีนัยสำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41568435/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "Midazolam or propofol added to ketamine: Which combination is better for the reduction of shoulder dislocation in the emergency department?",
+    "comment": "การศึกษาเปรียบเทียบยาชาสำหรับการใส่ไหล่หลุดใน ER เพื่อหาแนวทางรักษาที่ดีที่สุด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41567482/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "Hyperferritinemia Drives Risk: Unravelling the Association Between Ferritin Levels and Multi-Organ Dysfunction in Acute Febrile Illness: An Emergency Medicine Perspective.",
+    "comment": "ระดับ Ferritin ที่สูงอาจเป็นสัญญาณบ่งชี้ความเสี่ยงของภาวะ multi-organ dysfunction ในผู้ป่วยไข้เฉียบพลันใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41567885/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "Association Between Receipt of Ketamine vs Etomidate for Emergency Tracheal Intubation and Symptoms of Posttraumatic Stress Disorder at 12 Months.",
+    "comment": "การใช้ Ketamine เทียบกับ Etomidate ในการใส่ท่อช่วยหายใจฉุกเฉิน อาจส่งผลต่อ PTSD ในระยะยาว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41568063/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "The impact of the framing effect on performance in a simulated emergency anaesthetic scenario in medical officers: A prospective, randomised, double-blinded study.",
+    "comment": "ปรากฏการณ์ Framing effect ส่งผลต่อการตัดสินใจของแพทย์เวชปฏิบัติในสถานการณ์ฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41568252/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "Artificial intelligence in emergency department triage: perspective of human professionals.",
+    "comment": "มุมมองของผู้เชี่ยวชาญทางการแพทย์ต่อการใช้ AI ในการคัดกรองผู้ป่วย ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41567347/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "Pilot ED Wastewater Surveillance During the 2024-2025 Respiratory Virus Season.",
+    "comment": "การเฝ้าระวังเชื้อไวรัสระบบทางเดินหายใจในน้ำเสียจาก ER อาจเป็นเครื่องมือใหม่ในการคาดการณ์การระบาด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41567566/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "Increasing Trend in Pediatric Brazilian Jiu Jitsu Injuries Presenting to US Emergency Departments and an Injury Profile - A 10-Year Analysis.",
+    "comment": "พบแนวโน้มการบาดเจ็บในเด็กจากการเล่น BJJ ที่ ER เพิ่มขึ้นในสหรัฐฯ ควรมีการเฝ้าระวัง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41567655/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "Evaluation of STONE, modified STONE, and CHOKAI scores for predicting ureteric stone disease in Indian emergency patients: A prospective observational study.",
+    "comment": "การประเมินความแม่นยำของคะแนนต่างๆ ในการทำนายโรคหินนิ่วในท่อไตของผู้ป่วย ER ในอินเดีย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41567484/"
+  },
+  {
+    "date": "22 Jan",
+    "title": "Erratum: Musculoskeletal, airway, and vascular injuries in the patient with nonjudicial hanging: A narrative review for the emergency clinician.",
+    "comment": "การทบทวนภาพรวมการบาดเจ็บที่สำคัญในผู้ป่วยที่แขวนคอ (nonjudicial hanging) สำหรับแพทย์ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41567483/"
+  },
+  {
     "date": "21 Jan",
     "title": "AI in the Hot Seat: Head-to-Head Comparison of Large Language Models and Cardiologists in Emergency Scenarios",
     "comment": "AI เริ่มเข้ามามีบทบาทในการช่วยตัดสินใจทางการแพทย์ในภาวะฉุกเฉิน",
@@ -358,65 +418,5 @@
     "title": "Comment on \"Evaluating the Accuracy of Artificial Intelligence Chatbots in Triaging Emergency Cases\".",
     "comment": "การประเมินความแม่นยำของ AI Chatbot ในการคัดแยกผู้ป่วยฉุกเฉิน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41545135/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "Comment on \"Is ChatGPT-40 Truly Ineffective at Trauma X-Ray Interpretation, or Does Machine Learning Simply Need More Practice?\".",
-    "comment": "ประเด็นถกเถียงเกี่ยวกับการใช้ AI ในการแปลผลภาพรังสีอุบัติเหตุ การพัฒนาของเทคโนโลยี AI ยังคงเป็นที่น่าจับตา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41545136/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "Structural Concerns Regarding Scientific Neutrality and Methodology in: \"Emergency Department Preparedness in a Mega Mass Casualty Incident While Under Missile Fire: Lessons Learned from Israel on October 7, 2023\".",
-    "comment": "การทบทวนหลักการทางวิทยาศาสตร์และระเบียบวิธีวิจัยในรายงานเหตุการณ์ความไม่สงบ อาจส่งผลต่อการเตรียมความพร้อมรับมือภัยพิบัติใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41545134/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "Unexplained Back Pain in the Emergency Department May Require Referral to a Neurologist or Orthopedist.",
-    "comment": "อาการปวดหลังที่หาสาเหตุไม่ได้ใน ER อาจเป็นสัญญาณที่ต้องส่งต่อผู้ป่วยไปพบผู้เชี่ยวชาญเฉพาะทาง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41545133/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "Author's Response to Letter to the Editor \"Critical insights on Safety of Diltiazem for Acute Management of Atrial Fibrillation (AF) in Patients with Heart Failure and Reduced Ejection Fraction in the Emergency Department\".",
-    "comment": "การใช้ Diltiazem ในผู้ป่วย AF ร่วมกับภาวะหัวใจล้มเหลวใน ER ยังคงเป็นที่ถกเถียง ควรพิจารณาข้อบ่งชี้และผลข้างเคียงอย่างรอบคอบ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41545132/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "Vacuum-assisted headspace solid-phase microextraction in food analysis: basics and applications.",
-    "comment": "เทคนิคการวิเคราะห์สารตกค้างในอาหาร อาจมีส่วนช่วยในการประเมินความปลอดภัยของสิ่งที่ผู้ป่วยได้รับ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41545131/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "Autotransfusion in traumatic haemothorax using the Sinapi chest drain system.",
-    "comment": "การใช้ระบบ Sinapi chest drain ในการทำ Autotransfusion ในผู้ป่วยบาดเจ็บอก อาจเป็นทางเลือกที่น่าสนใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41545088/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "The Red Blood Cell Distribution Width-Albumin Ratio Predicts Postoperative Delirium in the Elderly With Gastrointestinal Tumors: A Retrospective Cohort Study.",
-    "comment": "RDW-Albumin ratio อาจเป็น biomarker ใหม่ในการทำนายภาวะ Delirium ในผู้สูงอายุหลังผ่าตัดมะเร็งทางเดินอาหาร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41545025/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "Alteplase versus tenecteplase in acute ischemic stroke with large vessel occlusion: a systematic review and meta-analysis.",
-    "comment": "กำลังจะเปลี่ยนแนวทางการให้ยาละลายลิ่มเลือดในผู้ป่วย stroke จาก alteplase เป็น tenecteplase",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41544719/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "Short Delays in Time to First Contact With Community Health Services and Risk of Emergency Hospital Attendance: Retrospective Observational Study.",
-    "comment": "ความล่าช้าในการเข้าถึงบริการสาธารณสุขปฐมภูมิส่งผลให้ผู้ป่วยต้องมา ER บ่อยขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41546141/"
-  },
-  {
-    "date": "18 Jan",
-    "title": "Rural emergency hospitals: Emerging patterns of adaptation and community perception.",
-    "comment": "การปรับตัวของโรงพยาบาล ER ชนบทที่น่าสนใจท่ามกลางความท้าทาย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41546444/"
   }
 ]
