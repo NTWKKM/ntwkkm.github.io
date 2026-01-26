@@ -1,5 +1,65 @@
 [
   {
+    "date": "26 Jan",
+    "title": "ECG-Based Prediction of Shock-Refractory Ventricular Fibrillation During Resuscitation Without Interrupting CPR.",
+    "comment": "ทายภาวะหัวใจหยุดเต้นโดยใช้ ECG ระหว่าง CPR ได้โดยไม่ต้องหยุดปั๊มหัวใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41582806/"
+  },
+  {
+    "date": "26 Jan",
+    "title": "Guidelines in Action: Extending the Treatment Window for Thrombolysis in Acute Ischemic Stroke.",
+    "comment": "ขยายระยะเวลาให้ยาละลายลิ่มเลือดในผู้ป่วยหลอดเลือดสมองตีบเฉียบพลัน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41582826/"
+  },
+  {
+    "date": "26 Jan",
+    "title": "Guidelines in Action: Flight of the Mobile Stroke Unit.",
+    "comment": "รถพยาบาลเคลื่อนที่สำหรับผู้ป่วยหลอดเลือดสมองช่วยชีวิตได้เร็วขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41582819/"
+  },
+  {
+    "date": "26 Jan",
+    "title": "Guideline for the Early Management of Patients With Acute Ischemic Stroke: A Guideline From the American Heart Association/American Stroke Association.",
+    "comment": "แนวทางการดูแลผู้ป่วยหลอดเลือดสมองตีบเฉียบพลันฉบับล่าสุดที่ควรทราบ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41582814/"
+  },
+  {
+    "date": "26 Jan",
+    "title": "d-Dimer With the Aortic Dissection Detection Risk Score May Improve Patient Selection for Acute Aortic Syndrome Diagnostic Imaging.",
+    "comment": "การใช้ D-dimer ร่วมกับ Aortic Dissection Detection Risk Score ช่วยเลือกผู้ป่วยที่ควรทำ CT scan สำหรับภาวะ Aortic Syndrome ได้ดีขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41582603/"
+  },
+  {
+    "date": "26 Jan",
+    "title": "Association of Geriatric Consult Services With Geriatric Processes of Care and Clinical Outcomes in US Trauma Centers.",
+    "comment": "การปรึกษาแพทย์ผู้เชี่ยวชาญด้านผู้สูงอายุใน ER ช่วยให้ผลลัพธ์ผู้ป่วยบาดเจ็บดีขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41582694/"
+  },
+  {
+    "date": "26 Jan",
+    "title": "Commentary: An impressive state-of-the-science account and an exciting springboard for new paths: the present and future of research on early conduct problems - a commentary on Hyde et al. (2025).",
+    "comment": "ความเข้าใจใหม่เกี่ยวกับปัญหาพฤติกรรมในเด็กและแนวทางการวิจัยในอนาคต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41582613/"
+  },
+  {
+    "date": "26 Jan",
+    "title": "Clinical Ethicists and Medical Assistance in Dying (MAiD): Possible Roles and Challenges.",
+    "comment": "บทบาทและความท้าทายของนักจริยธรรมทางการแพทย์ในการช่วยเหลือผู้ป่วยให้เสียชีวิตอย่างสงบ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41582610/"
+  },
+  {
+    "date": "26 Jan",
+    "title": "Innovations in Biosensing Technologies for Cancer Diagnosis and Theranostics.",
+    "comment": "เทคโนโลยี biosensing ใหม่ๆ สำหรับการวินิจฉัยและรักษาโรคมะเร็ง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41582576/"
+  },
+  {
+    "date": "26 Jan",
+    "title": "Beyond the Usual: Novel Therapeutic Roles for Established Antidotes.",
+    "comment": "ยาแก้พิษที่เราคุ้นเคย อาจมีบทบาทใหม่ในการรักษาโรคอื่นๆ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41582326/"
+  },
+  {
     "date": "25 Jan",
     "title": "Point-of-care ultrasound in the modern era of emergency medicine: a narrative review of the recent literature.",
     "comment": "US ใน ER มีบทบาทมากขึ้นเรื่อยๆ ควรทราบถึงการพัฒนาและเทคนิคใหม่ๆ",
@@ -358,65 +418,5 @@
     "title": "The ability of statewide prehospital pediatric blood transfusion protocols to predict early in-hospital blood product administration: A National Trauma Data Bank analysis",
     "comment": "การศึกษาประสิทธิภาพของ Protocol การให้เลือดในผู้ป่วยเด็กก่อนถึงโรงพยาบาล",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41563125/"
-  },
-  {
-    "date": "21 Jan",
-    "title": "Reevaluating Nonoperative Management for Pediatric Uncomplicated Acute Appendicitis: A Systematic Review and Meta-Analysis",
-    "comment": "พิจารณาแนวทางการรักษาแบบไม่ผ่าตัดในเด็กที่มีภาวะไส้ติ่งอักเสบที่ไม่ซับซ้อน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41563152/"
-  },
-  {
-    "date": "21 Jan",
-    "title": "Emergency medical service transports during the COVID-19 pandemic : A retrospective population-based study in an Austrian state",
-    "comment": "ผลกระทบของ COVID-19 ต่อการขนส่งผู้ป่วยฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41563684/"
-  },
-  {
-    "date": "21 Jan",
-    "title": "Contrast-enhanced ultrasound (CEUS) in urgent and emergent pediatric conditions: a comprehensive review",
-    "comment": "การประยุกต์ใช้ CEUS ในการประเมินภาวะฉุกเฉินในเด็ก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41563558/"
-  },
-  {
-    "date": "21 Jan",
-    "title": "The incidence and complication rate of pediatric battery ingestion in the Netherlands",
-    "comment": "อุบัติการณ์และภาวะแทรกซ้อนจากการกลืนแบตเตอรี่ในเด็ก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41563491/"
-  },
-  {
-    "date": "21 Jan",
-    "title": "Monkey pox (Mpox): pathogenesis, genetic shifts, vaccination strategies and clinical insights",
-    "comment": "อัปเดตความรู้เกี่ยวกับ Mpox ที่อาจกลับมาเป็นประเด็นสำคัญ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41563478/"
-  },
-  {
-    "date": "21 Jan",
-    "title": "Metabolomics in Infectious Diseases and Vaccine Response: Insights into Neglected Tropical and Non-Neglected Pathogens",
-    "comment": "การใช้ Metabolomics ในการทำความเข้าใจโรคติดเชื้อและตอบสนองต่อวัคซีน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41562665/"
-  },
-  {
-    "date": "21 Jan",
-    "title": "Severity Scores in SARS-CoV-2 Infection-A Comprehensive Bibliometric Review and Visualization Analysis",
-    "comment": "การวิเคราะห์คะแนนความรุนแรงของ COVID-19 ด้วยวิธี Bibliometric",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41562685/"
-  },
-  {
-    "date": "21 Jan",
-    "title": "The global, regional, and national burden of venomous animal contact from 1990 to 2021 and projection to 2050: a cross-sectional study based on the Global Burden of Disease Study 2021",
-    "comment": "เหตุการณ์สัตว์มีพิษกัดเป็นปัญหาสาธารณสุขที่สำคัญทั่วโลกที่ต้องเฝ้าระวังและวางแผนรับมือ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41563276/"
-  },
-  {
-    "date": "21 Jan",
-    "title": "Precision in Emergency Surgery",
-    "comment": "การผ่าตัดฉุกเฉินแบบเฉพาะบุคคลจะช่วยเพิ่มผลลัพธ์ที่ดีขึ้นให้กับผู้ป่วย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41563751/"
-  },
-  {
-    "date": "20 Jan",
-    "title": "Impact of home-based digital triage tool on low-acuity emergency department visits: a pilot study in Spain.",
-    "comment": "การใช้เครื่องมือ Digital Triage ที่บ้านช่วยลดผู้ป่วยฉุกเฉินที่ไม่เร่งด่วนได้จริง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41557175/"
   }
 ]
