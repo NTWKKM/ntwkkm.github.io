@@ -1,15 +1,63 @@
 [
   {
     "date": "27 Jan",
-    "title": "🔹 ECG-Based Prediction of Shock-Refractory Ventricular Fibrillation During Resuscitation Without Interrupting CPR.",
-    "comment": "สามารถทำนายภาวะหัวใจเต้นผิดจังหวะชนิด ventricular fibrillation ที่ไม่ตอบสนองต่อการช็อกไฟฟ้าได้โดยไม่ต้องหยุด CPR",
+    "title": "Guidelines in Action: Extending the Treatment Window for Thrombolysis in Acute Ischemic Stroke",
+    "comment": "การขยายเวลาให้ยาละลายลิ่มเลือดในผู้ป่วยหลอดเลือดสมองตีบเฉียบพลัน เป็นประเด็นสำคัญที่อาจเปลี่ยนแนวทางการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41582826/"
+  },
+  {
+    "date": "27 Jan",
+    "title": "ECG-Based Prediction of Shock-Refractory Ventricular Fibrillation During Resuscitation Without Interrupting CPR",
+    "comment": "การพยากรณ์ภาวะหัวใจหยุดเต้นที่รักษาด้วยยาไม่ได้ผลโดยใช้คลื่นไฟฟ้าหัวใจโดยไม่ต้องหยุดปั๊มหัวใจ เป็นเทคนิคใหม่ที่น่าสนใจ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41582806/"
   },
   {
     "date": "27 Jan",
-    "title": "🔹 Guidelines in Action: Extending the Treatment Window for Thrombolysis in Acute Ischemic Stroke.",
-    "comment": "ขยายกรอบเวลาในการให้ยาละลายลิ่มเลือดในผู้ป่วยโรคหลอดเลือดสมองตีบเฉียบพลัน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582826/"
+    "title": "d-Dimer With the Aortic Dissection Detection Risk Score May Improve Patient Selection for Acute Aortic Syndrome Diagnostic Imaging",
+    "comment": "การใช้ D-dimer ร่วมกับ Aortic Dissection Detection Risk Score ช่วยคัดเลือกผู้ป่วย Acute Aortic Syndrome ที่ต้องทำ imaging ได้ดีขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41582603/"
+  },
+  {
+    "date": "27 Jan",
+    "title": "Beyond the Usual: Novel Therapeutic Roles for Established Antidotes",
+    "comment": "การค้นพบและนำเสนอแนวทางการรักษาใหม่ๆ จากยาแก้พิษที่มีอยู่เดิม เป็นนวัตกรรมที่น่าจับตามอง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41582326/"
+  },
+  {
+    "date": "27 Jan",
+    "title": "Point-of-care ultrasound in the modern era of emergency medicine: a narrative review of the recent literature",
+    "comment": "การทบทวนวรรณกรรมล่าสุดเกี่ยวกับ Point-of-care ultrasound ที่มีบทบาทสำคัญในเวชศาสตร์ฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41581010/"
+  },
+  {
+    "date": "27 Jan",
+    "title": "Diagnosis of occlusion myocardial infarction",
+    "comment": "การวินิจฉัยภาวะกล้ามเนื้อหัวใจขาดเลือดจากการอุดตัน เป็นประเด็นสำคัญที่ต้องทำความเข้าใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41581009/"
+  },
+  {
+    "date": "27 Jan",
+    "title": "Early Methylene Blue for Mortality Reduction in High-Dose VasoPREssor-Dependent Septic Shock (EMPRESS): protocol for a multicenter randomized controlled trial",
+    "comment": "การศึกษาการใช้ Methylene Blue ในภาวะ septic shock ที่ต้องใช้ยา Vasopressor ในขนาดสูง มีศักยภาพในการลดอัตราการเสียชีวิต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41580807/"
+  },
+  {
+    "date": "27 Jan",
+    "title": "Biomarkers and clinical rules for the management of mild traumatic brain injury: a narrative review",
+    "comment": "การรวบรวม biomarkers และ clinical rules สำหรับการจัดการภาวะบาดเจ็บทางสมองเล็กน้อย (mild TBI)",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41580617/"
+  },
+  {
+    "date": "27 Jan",
+    "title": "Older people and frailty in the emergency department",
+    "comment": "การจัดการผู้สูงอายุและภาวะเปราะบาง (frailty) ในห้องฉุกเฉิน เป็นประเด็นที่กำลังได้รับความสนใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41581021/"
+  },
+  {
+    "date": "27 Jan",
+    "title": "Occult Scalp Necrotizing Fasciitis After Blunt Head Trauma",
+    "comment": "การวินิจฉัยภาวะเนื้อเยื่อตายจากการติดเชื้อ (necrotizing fasciitis) ที่ซ่อนเร้นบนหนังศีรษะหลังการบาดเจ็บที่ศีรษะ เป็นกรณีศึกษาที่น่าสนใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41581297/"
   },
   {
     "date": "27 Jan",
@@ -22,12 +70,6 @@
     "title": "🔹 2026 Guideline for the Early Management of Patients With Acute Ischemic Stroke: A Guideline From the American Heart Association/American Stroke Association.",
     "comment": "แนวทางการจัดการผู้ป่วยโรคหลอดเลือดสมองตีบเฉียบพลันฉบับล่าสุด",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41582814/"
-  },
-  {
-    "date": "27 Jan",
-    "title": "🔹 d-Dimer With the Aortic Dissection Detection Risk Score May Improve Patient Selection for Acute Aortic Syndrome Diagnostic Imaging.",
-    "comment": "การใช้ d-dimer ร่วมกับ Aortic Dissection Detection Risk Score ช่วยคัดกรองผู้ป่วยที่ต้องทำ imaging สำหรับ Acute Aortic Syndrome ได้ดีขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582603/"
   },
   {
     "date": "27 Jan",
@@ -46,12 +88,6 @@
     "title": "🔹 Targeting Factor XI for Safer Anticoagulation: Emerging Data and Future Directions.",
     "comment": "ยาต้านการแข็งตัวของเลือดชนิดใหม่ที่มุ่งเป้าไปที่ Factor XI เพื่อความปลอดภัยที่เพิ่มขึ้น",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41581095/"
-  },
-  {
-    "date": "27 Jan",
-    "title": "🔹 Beyond the Usual: Novel Therapeutic Roles for Established Antidotes.",
-    "comment": "การค้นพบการใช้งานใหม่ๆ ของยาถอนพิษที่ใช้กันอยู่แล้ว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582326/"
   },
   {
     "date": "27 Jan",
@@ -76,18 +112,6 @@
     "title": "Emerging Risks of Nitazene-Adulterated Vapes in Australia: Balancing Regulation, Access and Harm Reduction",
     "comment": "ความเสี่ยงใหม่จากบุหรี่ไฟฟ้าที่ผสม Nitazene ในออสเตรเลีย ชี้ประเด็นถกเถียงด้านสาธารณสุข",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41582012/"
-  },
-  {
-    "date": "26 Jan",
-    "title": "Point-of-care ultrasound in the modern era of emergency medicine: a narrative review of the recent literature",
-    "comment": "POCUS เทคโนโลยีสำคัญใน ER ยุคใหม่ ที่ต้องอัปเดต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41581010/"
-  },
-  {
-    "date": "26 Jan",
-    "title": "Older people and frailty in the emergency department",
-    "comment": "ผู้สูงอายุและภาวะเปราะบาง (Frailty) ใน ER: การประเมินและจัดการที่สำคัญ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41581021/"
   },
   {
     "date": "26 Jan",
@@ -145,21 +169,9 @@
   },
   {
     "date": "25 Jan",
-    "title": "🔹 Biomarkers and clinical rules for the management of mild traumatic brain injury: a narrative review.",
-    "comment": "การทบทวนแนวทางการใช้ Biomarkers และ Rules เพื่อช่วยตัดสินใจในการดูแล TBI เล็กน้อย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41580617/"
-  },
-  {
-    "date": "25 Jan",
     "title": "🔹 Geographic distribution of EMS missions and patient conditions in suburban and rural Sweden: a retrospective observational study.",
     "comment": "ข้อมูลเชิงพื้นที่ของ EMS และสภาวะผู้ป่วย ที่อาจนำไปสู่การปรับปรุงการจัดสรรทรัพยากร",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41580812/"
-  },
-  {
-    "date": "25 Jan",
-    "title": "🔹 Early Methylene Blue for Mortality Reduction in High-Dose VasoPREssor-Dependent Septic Shock (EMPRESS): protocol for a multicenter randomized controlled trial.",
-    "comment": "การศึกษา Randomized Trial ที่น่าจับตามองในการใช้ Methylene Blue ลดการตายใน Septic Shock",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41580807/"
   },
   {
     "date": "25 Jan",
@@ -406,17 +418,5 @@
     "title": "Increasing Trend in Pediatric Brazilian Jiu Jitsu Injuries Presenting to US Emergency Departments and an Injury Profile - A 10-Year Analysis.",
     "comment": "แนวโน้มการบาดเจ็บในเด็กจากกีฬา Brazilian Jiu Jitsu ที่มา ER ในสหรัฐฯ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41567655/"
-  },
-  {
-    "date": "22 Jan",
-    "title": "The impact of the framing effect on performance in a simulated emergency anaesthetic scenario in medical officers: A prospective, randomised, double-blinded study.",
-    "comment": "ปรากฏการณ์ Framing effect ส่งผลต่อการตัดสินใจของแพทย์เวชปฏิบัติในสถานการณ์ฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41568252/"
-  },
-  {
-    "date": "22 Jan",
-    "title": "Pilot ED Wastewater Surveillance During the 2024-2025 Respiratory Virus Season.",
-    "comment": "การเฝ้าระวังเชื้อไวรัสระบบทางเดินหายใจในน้ำเสียจาก ER อาจเป็นเครื่องมือใหม่ในการคาดการณ์การระบาด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41567566/"
   }
 ]
