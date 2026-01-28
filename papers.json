@@ -1,6 +1,66 @@
 [
   {
     "date": "28 Jan",
+    "title": "Diagnosis and Treatment of Acute Appendicitis: 2025 Edition of the World Society of Emergency Surgery Jerusalem Guidelines",
+    "comment": "แนวทางการวินิจฉัยและรักษาไส้ติ่งอักเสบฉบับล่าสุดจาก WSES ที่สำคัญต่อการปฏิบัติงานใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41604201/"
+  },
+  {
+    "date": "28 Jan",
+    "title": "P2X7 Receptor Inhibition Mitigates Microglial Activation, Neuroinflammation, and Secondary Thalamic Damage After Ischemic Stroke",
+    "comment": "การยับยั้ง P2X7 Receptor อาจช่วยลดความเสียหายของสมองหลังภาวะหลอดเลือดสมองตีบ ทำให้เกิดแนวทางการรักษาใหม่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41604093/"
+  },
+  {
+    "date": "28 Jan",
+    "title": "Optimizing care for patients who have ascites: shifting paracentesis from the emergency department to outpatient medicine",
+    "comment": "การเปลี่ยนการทำ Paracentesis จาก ER ไปยังคลินิกนอกเวลานอก อาจเป็นแนวทางที่เหมาะสมสำหรับผู้ป่วยบางราย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41604086/"
+  },
+  {
+    "date": "28 Jan",
+    "title": "AI-assisted computed tomography analysis for pre-procedural planning prior to TAVI",
+    "comment": "AI ช่วยในการวางแผนก่อนทำหัตถการ TAVI แสดงถึงเทคโนโลยีใหม่ที่อาจส่งผลต่อการดูแลผู้ป่วยโรคหัวใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41603941/"
+  },
+  {
+    "date": "28 Jan",
+    "title": "The Evolving Role of Corticosteroids in Kawasaki Disease: Evidence, Mechanisms, and Clinical Implications",
+    "comment": "ทบทวนบทบาทของ Corticosteroids ในโรค Kawasaki ที่อาจเปลี่ยนแปลงแนวทางการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41603901/"
+  },
+  {
+    "date": "28 Jan",
+    "title": "Discussion of What's the Rush? Challenging The Early Surgery Paradigm for Older Adults in Emergency General Surgery",
+    "comment": "ข้อถกเถียงที่ท้าทายแนวคิดการผ่าตัดเร่งด่วนในผู้สูงอายุสำหรับภาวะฉุกเฉินทางศัลยกรรมทั่วไป",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41603798/"
+  },
+  {
+    "date": "28 Jan",
+    "title": "A Randomized, Dose-Finding Study of Sphenopalatine Ganglion Block With Bupivacaine for Emergency Department Patients With Headache",
+    "comment": "การศึกษาทดลองการใช้ Sphenopalatine Ganglion Block ในผู้ป่วยปวดศีรษะใน ER อาจเป็นทางเลือกการรักษาใหม่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41603837/"
+  },
+  {
+    "date": "28 Jan",
+    "title": "Comparing Guidelines for Atrial Fibrillation: Focus on Emergency Medicine",
+    "comment": "การเปรียบเทียบแนวปฏิบัติสำหรับ Atrial Fibrillation โดยเน้นที่มุมมองของเวชศาสตร์ฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41603838/"
+  },
+  {
+    "date": "28 Jan",
+    "title": "Kounis Syndrome: An Entity One Should Not Forget",
+    "comment": "เตือนให้ระลึกถึง Kounis Syndrome ซึ่งเป็นภาวะฉุกเฉินที่สำคัญแต่บางครั้งอาจถูกมองข้าม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41602259/"
+  },
+  {
+    "date": "28 Jan",
+    "title": "Minutes to Save a Life in Acute GI Bleeding: A Systematic Review of Early vs. Delayed Endoscopy",
+    "comment": "การทบทวนอย่างเป็นระบบเกี่ยวกับเวลาที่เหมาะสมในการส่องกล้องในภาวะเลือดออกทางเดินอาหารเฉียบพลัน ซึ่งมีผลต่อการตัดสินใจใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41602247/"
+  },
+  {
+    "date": "28 Jan",
     "title": "ECG-Based Prediction of Shock-Refractory Ventricular Fibrillation During Resuscitation Without Interrupting CPR",
     "comment": "ทำนายภาวะหัวใจเต้นผิดจังหวะชนิด ventricular fibrillation ที่ไม่ตอบสนองต่อการช็อกไฟฟ้าโดยไม่ต้องหยุด CPR",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41582806/"
@@ -358,65 +418,5 @@
     "title": "The role of artificial intelligence in interpreting radiological images in emergency departments.",
     "comment": "AI กับการแปลผลภาพรังสีใน ER: แนวโน้มอนาคต",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41574505/"
-  },
-  {
-    "date": "23 Jan",
-    "title": "Home hospitalization from the emergency department: benefitis and remaining challenges.",
-    "comment": "การส่งผู้ป่วยกลับบ้านจาก ER: ประโยชน์และความท้าทายที่ยังคงอยู่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41574504/"
-  },
-  {
-    "date": "23 Jan",
-    "title": "Drug intoxications in the emergency department: Our 1-year experience.",
-    "comment": "การประเมินผู้ป่วยพิษจากยาเกินขนาดที่ ER: ประสบการณ์ 1 ปี",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41574134/"
-  },
-  {
-    "date": "22 Jan",
-    "title": "Rethinking the hemorrhagic shock chain of survival: The role, importance, and impact of prehospital blood administration.",
-    "comment": "การบริหารเลือดในเวชระเบียนก่อนถึงโรงพยาบาลอาจเปลี่ยนชีวิตผู้ป่วยภาวะเลือดออกในภาวะช็อก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41568435/"
-  },
-  {
-    "date": "22 Jan",
-    "title": "Hyperferritinemia Drives Risk: Unravelling the Association Between Ferritin Levels and Multi-Organ Dysfunction in Acute Febrile Illness: An Emergency Medicine Perspective.",
-    "comment": "ระดับเฟอร์ริตินสูงอาจสัมพันธ์กับความผิดปกติของหลายอวัยวะในภาวะไข้เฉียบพลัน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41567885/"
-  },
-  {
-    "date": "22 Jan",
-    "title": "Midazolam or propofol added to ketamine: Which combination is better for the reduction of shoulder dislocation in the emergency department?",
-    "comment": "เปรียบเทียบประสิทธิภาพของยาชาเมื่อใช้ร่วมกับ Ketamine ในการลดข้อไหล่หลุดใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41567482/"
-  },
-  {
-    "date": "22 Jan",
-    "title": "Artificial intelligence in emergency department triage: perspective of human professionals.",
-    "comment": "การนำ AI มาใช้ช่วยคัดกรองผู้ป่วยใน ER: มุมมองจากบุคลากรทางการแพทย์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41567347/"
-  },
-  {
-    "date": "22 Jan",
-    "title": "Evaluation of STONE, modified STONE, and CHOKAI scores for predicting ureteric stone disease in Indian emergency patients: A prospective observational study.",
-    "comment": "การประเมินคะแนนต่างๆ เพื่อทำนายโรคก้อนนิ่วในท่อไตในผู้ป่วย ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41567484/"
-  },
-  {
-    "date": "22 Jan",
-    "title": "Association Between Receipt of Ketamine vs Etomidate for Emergency Tracheal Intubation and Symptoms of Posttraumatic Stress Disorder at 12 Months.",
-    "comment": "ยา Ketamine หรือ Etomidate ที่ใช้ใส่ท่อช่วยหายใจฉุกเฉิน ส่งผลต่อ PTSD หรือไม่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41568063/"
-  },
-  {
-    "date": "22 Jan",
-    "title": "Wetland restoration.",
-    "comment": "การฟื้นฟูพื้นที่ชุ่มน้ำโดยอาศัยความร่วมมือจากประชาชน (Citizen science)",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41567749/"
-  },
-  {
-    "date": "22 Jan",
-    "title": "The spectrum of neurodevelopmental disorders: comorbidities as clues to pathogenesis.",
-    "comment": "กลุ่มอาการผิดปกติทางการพัฒนาการทางระบบประสาท: ความสัมพันธ์ของโรคร่วมที่บ่งชี้กลไกการเกิดโรค",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41568586/"
   }
 ]
