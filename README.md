@@ -12,6 +12,7 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- logit_report_kt.html
 |-- papers.json
 |-- research-KT-11.html
+|-- research-KT-12.html
 |-- research-KT-bl-newrvbad.html
 |-- research-KT-bl-newrvgood.html
 |-- research-KT-bl-sumoutcome.html
