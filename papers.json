@@ -1,6 +1,66 @@
 [
   {
     "date": "29 Jan",
+    "title": "The Changing Landscape for Hyper-Acute Ischaemic Stroke Care",
+    "comment": "อัปเดตแนวทางการดูแลผู้ป่วยโรคหลอดเลือดสมองตีบเฉียบพลันระยะวิกฤต ซึ่งสำคัญต่อ ER อย่างยิ่ง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41609164/"
+  },
+  {
+    "date": "29 Jan",
+    "title": "Potential Missed Opportunities to Administer Intravenous Thrombolysis to Patients With Acute Ischemic Stroke",
+    "comment": "ชี้โอกาสในการให้ยาละลายลิ่มเลือดในผู้ป่วยโรคหลอดเลือดสมองตีบเฉียบพลันที่อาจถูกมองข้าม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41608799/"
+  },
+  {
+    "date": "29 Jan",
+    "title": "Intravenous thrombolysis in central retinal artery occlusion as an effective and safe treatment",
+    "comment": "การให้ยาละลายลิ่มเลือดทางหลอดเลือดดำสำหรับภาวะหลอดเลือดแดงจอประสาทตาอุดตันเป็นทางเลือกที่ปลอดภัยและมีประสิทธิภาพ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41609243/"
+  },
+  {
+    "date": "29 Jan",
+    "title": "Rescue versus First-Line Intracranial Stenting during Thrombectomy for Acute Ischemic Stroke: A Propensity-Weighted Analysis of the RESISTANT Registry",
+    "comment": "การเปรียบเทียบการใส่ Stent เป็นทางเลือกรองหรือทางเลือกแรกในผู้ป่วย Stroke ที่รับการ Thrombectomy",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41608810/"
+  },
+  {
+    "date": "29 Jan",
+    "title": "Cerebral Amyloid Angiopathy Imaging Markers, Radiological Boston Criteria, and Thrombolysis Outcomes in Ischemic Stroke",
+    "comment": "ความสัมพันธ์ของ Amyloid Angiopathy กับผลการรักษา Stroke ด้วย Thrombolysis",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41608814/"
+  },
+  {
+    "date": "29 Jan",
+    "title": "Management of Direct Oral Anticoagulants in Adult Patients Undergoing Cardiac Surgery: A Joint Consensus Statement by the Society of Cardiovascular Anesthesiologists and the Society of Thoracic Surgeons",
+    "comment": "แนวทางการจัดการยาละลายลิ่มเลือดกลุ่ม DOACs ในผู้ป่วยผ่าตัดหัวใจที่สำคัญต่อการตัดสินใจใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41609362/"
+  },
+  {
+    "date": "29 Jan",
+    "title": "Drug-induced hyponatremia associated with sodium-glucose cotransporter 2 inhibitors, immune checkpoint inhibitors, and targeted anticancer agents",
+    "comment": "ยาใหม่ๆ ที่ใช้ในปัจจุบันอาจก่อให้เกิดภาวะโซเดียมในเลือดต่ำได้ ต้องระวัง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41609353/"
+  },
+  {
+    "date": "29 Jan",
+    "title": "Unmanned aerial vehicles in prehospital emergency care: current evidence, technological advances, and future perspectives",
+    "comment": "โดรนทางการแพทย์จะเข้ามามีบทบาทในการดูแลผู้ป่วยนอกโรงพยาบาลอย่างไรบ้าง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41607887/"
+  },
+  {
+    "date": "29 Jan",
+    "title": "Minimally Invasive Surgery: Minimally Invasive Surgery - A Paradigm Shift in Surgical Approaches",
+    "comment": "แนวทางการผ่าตัดแบบแผลเล็กที่กำลังเปลี่ยนแปลง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41608216/"
+  },
+  {
+    "date": "29 Jan",
+    "title": "Artificial intelligence in hospitals: Legal uncertainties and emerging risks for patient safety",
+    "comment": "AI ในโรงพยาบาลมีความเสี่ยงและประเด็นทางกฎหมายอะไรบ้างที่ต้องคำนึงถึง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41607486/"
+  },
+  {
+    "date": "29 Jan",
     "title": "Cerebral Amyloid Angiopathy Imaging Markers, Radiological Boston Criteria, and Thrombolysis Outcomes in Ischemic Stroke.",
     "comment": "การใช้ Imaging Markers ของ Cerebral Amyloid Angiopathy อาจช่วยให้ตัดสินใจให้ Thrombolysis ในผู้ป่วย Ischemic Stroke ได้แม่นยำขึ้น",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41605880/"
@@ -358,65 +418,5 @@
     "title": "The escalating threat of multidrug-resistant organisms: COVID-19 impact, global burden, and the Taiwanese experience.",
     "comment": "การระบาดของเชื้อดื้อยาหลายขนานที่เพิ่มสูงขึ้นจากผลกระทบของ COVID-19",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41579048/"
-  },
-  {
-    "date": "24 Jan",
-    "title": "Long forms of cardiac troponin T for myocardial infarction diagnosis: the SuperTROPO study.",
-    "comment": "การศึกษาความแม่นยำของการตรวจ Troponin T รูปแบบยาวในการวินิจฉัยภาวะกล้ามเนื้อหัวใจขาดเลือด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41579023/"
-  },
-  {
-    "date": "24 Jan",
-    "title": "Dysautonomia after COVID-19 infection: A case report.",
-    "comment": "รายงานผู้ป่วยที่มีภาวะระบบประสาทอัตโนมัติผิดปกติหลังติดเชื้อ COVID-19",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41579008/"
-  },
-  {
-    "date": "24 Jan",
-    "title": "Emergency Department Presentations for Mental Health Crisis: Comparing ED-Only Care With Transfer to a Crisis Stabilisation Unit.",
-    "comment": "การเปรียบเทียบผลลัพธ์ของการดูแลผู้ป่วยวิกฤตสุขภาพจิตใน ER เทียบกับการส่งต่อหน่วยดูแลวิกฤต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41578448/"
-  },
-  {
-    "date": "24 Jan",
-    "title": "Management of Opioid Withdrawal Syndrome and Commencement of Opioid Dependence Treatment Following Chronic Use of a Vaping Product Containing Protonitazene: Case Report.",
-    "comment": "การจัดการภาวะถอนยาโอปิโอตจากการใช้ผลิตภัณฑ์ที่ผิดกฎหมาย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41578432/"
-  },
-  {
-    "date": "24 Jan",
-    "title": "Salvicging sepsis-associated atypical hemolytic uremic syndrome with terminal complement blockade: A case report.",
-    "comment": "การรักษาภาวะ HUS ที่เกี่ยวข้องกับ Sepsis ด้วยยาปิดกั้นระบบคอมพลีเมนต์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41578542/"
-  },
-  {
-    "date": "24 Jan",
-    "title": "Ambulance patients with altered level of consciousness: a registry-based cohort study from the North Denmark Region in 2017-2021.",
-    "comment": "การศึกษาผู้ป่วยฉุกเฉินที่มีระดับความรู้สึกตัวเปลี่ยนแปลงจากการเรียกรถพยาบาล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41578346/"
-  },
-  {
-    "date": "23 Jan",
-    "title": "Can We Pioneer a Traumatic Brain Injury Blood Test in Trauma Patients Being Considered for Computed Tomography Scanning of the Head?",
-    "comment": "โอกาสในการลดการใช้ CT scan ในผู้ป่วยบาดเจ็บศีรษะ ด้วยการตรวจเลือดที่แม่นยำ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41575404/"
-  },
-  {
-    "date": "23 Jan",
-    "title": "Recommendations of the GT-LATINFURG for the identification and initial management of patients with severe infection and sepsis in emergency departments.",
-    "comment": "แนวทางปฏิบัติสำหรับผู้ป่วยติดเชื้อรุนแรงและภาวะ sepsis ใน ER เพื่อลด mortality",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41575427/"
-  },
-  {
-    "date": "23 Jan",
-    "title": "Emergency medicine as a driver of hospital efficiency.",
-    "comment": "ER มีบทบาทสำคัญในการเพิ่มประสิทธิภาพของโรงพยาบาลโดยรวม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41574870/"
-  },
-  {
-    "date": "23 Jan",
-    "title": "Naloxone: sixty years of an essential antidote in emergency and prehospital care.",
-    "comment": "การทบทวนบทบาทและความสำคัญของ Naloxone ในการช่วยชีวิตผู้ป่วย overdose",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41575428/"
   }
 ]
