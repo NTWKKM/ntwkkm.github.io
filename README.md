@@ -12,6 +12,7 @@ This content reflects the repository structure (updated by GitHub Actions):
 |   `-- stat_manual.html
 |-- logit_report_kt.html
 |-- papers.json
+|-- research-KT-10.html
 |-- research-KT-11.html
 |-- research-KT-12.html
 |-- research-KT-SG.html
