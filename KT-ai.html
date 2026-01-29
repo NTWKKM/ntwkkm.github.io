@@ -9,7 +9,8 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
+            /* CHANGED: Reduced padding from 20px to 10px for compactness */
+            padding: 10px;
         }
         .container {
             max-width: 1600px;
@@ -22,29 +23,33 @@
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px;
+            /* CHANGED: Reduced padding from 40px to 25px */
+            padding: 25px;
             text-align: center;
         }
         .header h1 {
-            font-size: 2.2em;
-            margin-bottom: 10px;
+            /* CHANGED: Reduced font size slightly */
+            font-size: 1.8em;
+            margin-bottom: 5px;
             font-weight: 700;
         }
         .header p {
-            font-size: 1.05em;
+            font-size: 1em;
             opacity: 0.95;
-            margin: 5px 0;
+            margin: 2px 0;
         }
         .metadata {
             background: #f8f9fa;
-            padding: 20px 40px;
+            /* CHANGED: Reduced padding and gap for compactness */
+            padding: 15px 25px;
             border-bottom: 2px solid #e0e0e0;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
         }
         .meta-item {
-            padding: 10px;
+            /* CHANGED: Reduced padding */
+            padding: 8px;
             background: white;
             border-radius: 6px;
             border-left: 4px solid #667eea;
@@ -52,81 +57,99 @@
         .meta-label {
             font-weight: 600;
             color: #667eea;
-            font-size: 0.85em;
+            font-size: 0.8em;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
         .meta-value {
-            font-size: 1.3em;
+            /* CHANGED: Reduced font size */
+            font-size: 1.1em;
             color: #333;
-            margin-top: 5px;
+            margin-top: 2px;
             font-weight: bold;
         }
         .content {
-            padding: 40px;
+            /* CHANGED: Reduced padding from 40px to 20px */
+            padding: 20px;
         }
         .subgroup-section {
-            margin-bottom: 40px;
+            /* CHANGED: Reduced margin */
+            margin-bottom: 25px;
         }
         .subgroup-title {
-            font-size: 1.6em;
+            /* CHANGED: Adjusted font size and padding */
+            font-size: 1.3em;
             color: white;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 15px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
             font-weight: 700;
         }
         .subgroup-info {
             background: #f0f4ff;
-            padding: 15px;
+            /* CHANGED: Reduced padding */
+            padding: 10px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border-left: 4px solid #667eea;
         }
         .info-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
         }
         .info-item {
-            padding: 10px;
+            /* CHANGED: Reduced padding */
+            padding: 5px;
         }
         .info-label {
-            font-size: 0.85em;
+            font-size: 0.8em;
             color: #667eea;
             font-weight: 600;
             text-transform: uppercase;
         }
         .info-value {
-            font-size: 1.1em;
+            font-size: 1em;
             color: #333;
-            margin-top: 3px;
+            margin-top: 2px;
             font-weight: bold;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 40px;
+            margin-bottom: 25px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             border-radius: 8px;
             overflow: hidden;
+            /* CHANGED: Fixed table layout to prevent cells from expanding too much */
+            table-layout: fixed; 
         }
         thead {
             background: #667eea;
             color: white;
         }
         th {
-            padding: 14px;
+            /* CHANGED: Reduced padding significantly */
+            padding: 10px 8px;
             text-align: left;
             font-weight: 600;
-            font-size: 0.9em;
+            font-size: 0.85em;
             letter-spacing: 0.5px;
+            /* CHANGED: Width distribution */
+            width: 20%; 
         }
+        /* CHANGED: Specific width for variable name column */
+        th:first-child { width: 25%; }
+        
         td {
-            padding: 11px 14px;
+            /* CHANGED: Reduced padding and font size for compactness */
+            padding: 8px 10px;
             border-bottom: 1px solid #e0e0e0;
-            font-size: 0.92em;
+            font-size: 0.85em;
+            white-space: nowrap; /* Prevent wrapping for cleaner look */
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         tbody tr {
             transition: background-color 0.15s ease;
@@ -140,7 +163,7 @@
         .var-name {
             font-weight: 500;
             color: #333;
-            width: 140px;
+            /* width: 140px; REMOVED - Controlled by table-layout now */
         }
         .or-value {
             text-align: center;
@@ -160,32 +183,45 @@
         }
         .footer {
             background: #f8f9fa;
-            padding: 30px 40px;
+            /* CHANGED: Reduced padding */
+            padding: 20px;
             border-top: 2px solid #e0e0e0;
             text-align: center;
             color: #666;
-            font-size: 0.92em;
-            line-height: 1.6;
+            font-size: 0.85em;
+            line-height: 1.5;
         }
         .note {
             background: #fff3cd;
             border-left: 4px solid #ffc107;
-            padding: 12px;
-            margin-bottom: 20px;
+            /* CHANGED: Reduced padding */
+            padding: 10px;
+            margin-bottom: 15px;
             border-radius: 4px;
             color: #856404;
-            font-size: 0.92em;
+            font-size: 0.85em;
         }
         .legend {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 8px;
+            margin-bottom: 15px;
         }
         .legend-item {
-            padding: 8px;
+            padding: 6px;
             background: #f0f4ff;
             border-radius: 4px;
+            font-size: 0.8em;
+            text-align: center;
+        }
+        .warning-box {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            /* CHANGED: Reduced padding */
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            color: #6a1b9a;
             font-size: 0.85em;
         }
         @media print {
@@ -203,6 +239,7 @@
         </div>
 
         <div class="metadata">
+
             <div class="meta-item">
                 <div class="meta-label">Total Patients</div>
                 <div class="meta-value">550</div>
@@ -220,8 +257,8 @@
                 <div class="meta-value">83 (15.1%)</div>
             </div>
             <div class="meta-item">
-                <div class="meta-label">Variables Analyzed</div>
-                <div class="meta-value">88</div>
+                <div class="meta-label">Variables (After VIF)</div>
+                <div class="meta-value">62</div>
             </div>
             <div class="meta-item">
                 <div class="meta-label">Analysis Date</div>
@@ -230,6 +267,12 @@
         </div>
 
         <div class="content">
+            <div class="warning-box">
+                <strong>⚠️  Multicollinearity Adjustment:</strong> 26 variables with VIF &gt; 10 were excluded 
+                (including: mortality_all, mortality_pe, rvfunction, tapse, ph, pao2, sat, pf, and others). 
+                Final model uses 62 independent predictors to avoid numerical instability.
+            </div>
+
             <div class="note">
                 <strong>📋 Legend:</strong> OR = Odds Ratio | CrudeOR = Unadjusted | aOR = Adjusted | 
                 95% CI = 95% Confidence Interval | * = p &lt; 0.05 | – = Not Applicable
@@ -281,704 +324,496 @@
                             <td class="var-name">arrest</td>
                             <td class="or-value">3.00 (1.92-4.69)</td>
                             <td class="p-value"><span class="p-sig"><0.001*</span></td>
-                            <td class="or-value">523.62 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">2.11 (1.53-2.90)</td>
+                            <td class="p-value"><span class="p-sig"><0.001*</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">rvdilate_outcome</td>
                             <td class="or-value">0.72 (0.61-0.84)</td>
                             <td class="p-value"><span class="p-sig"><0.001*</span></td>
-                            <td class="or-value">0.01 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">tapse</td>
-                            <td class="or-value">1.47 (1.21-1.79)</td>
+                            <td class="or-value">0.53 (0.40-0.70)</td>
                             <td class="p-value"><span class="p-sig"><0.001*</span></td>
-                            <td class="or-value">8.74 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">rvfunction</td>
-                            <td class="or-value">1.47 (1.21-1.79)</td>
-                            <td class="p-value"><span class="p-sig"><0.001*</span></td>
-                            <td class="or-value">8.74 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">bnp</td>
                             <td class="or-value">1.00 (1.00-1.00)</td>
                             <td class="p-value"><span class="p-sig">0.0022*</span></td>
-                            <td class="or-value">0.47 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.23 (0.90-1.69)</td>
+                            <td class="p-value"><span class="p-notsig">0.1936</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">vent</td>
                             <td class="or-value">1.26 (1.09-1.47)</td>
                             <td class="p-value"><span class="p-sig">0.0025*</span></td>
-                            <td class="or-value">0.04 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.12 (0.78-1.62)</td>
+                            <td class="p-value"><span class="p-notsig">0.5284</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">pulmonaryht_outcome</td>
                             <td class="or-value">0.65 (0.48-0.88)</td>
                             <td class="p-value"><span class="p-sig">0.0057*</span></td>
-                            <td class="or-value">4.04 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.78 (0.60-1.02)</td>
+                            <td class="p-value"><span class="p-notsig">0.0691</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">reperfusion</td>
                             <td class="or-value">1.27 (1.05-1.53)</td>
                             <td class="p-value"><span class="p-sig">0.0128*</span></td>
-                            <td class="or-value">180.83 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.25 (0.98-1.58)</td>
+                            <td class="p-value"><span class="p-notsig">0.0723</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">resp</td>
                             <td class="or-value">1.59 (1.09-2.33)</td>
                             <td class="p-value"><span class="p-sig">0.0167*</span></td>
-                            <td class="or-value">0.03 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.96 (0.67-1.37)</td>
+                            <td class="p-value"><span class="p-notsig">0.8268</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">effusion</td>
                             <td class="or-value">1.66 (1.07-2.58)</td>
                             <td class="p-value"><span class="p-sig">0.0234*</span></td>
-                            <td class="or-value">32.76 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.26 (0.99-1.61)</td>
+                            <td class="p-value"><span class="p-notsig">0.0569</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">stroke</td>
                             <td class="or-value">0.54 (0.30-0.97)</td>
                             <td class="p-value"><span class="p-sig">0.0400*</span></td>
-                            <td class="or-value">0.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">bt</td>
-                            <td class="or-value">0.79 (0.64-0.99)</td>
-                            <td class="p-value"><span class="p-sig">0.0426*</span></td>
-                            <td class="or-value">2.34 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.83 (0.65-1.07)</td>
+                            <td class="p-value"><span class="p-notsig">0.1471</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">ckd</td>
                             <td class="or-value">0.60 (0.37-1.00)</td>
                             <td class="p-value"><span class="p-sig">0.0483*</span></td>
-                            <td class="or-value">0.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.77 (0.60-0.98)</td>
+                            <td class="p-value"><span class="p-sig">0.0340*</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">edema</td>
                             <td class="or-value">0.67 (0.44-1.01)</td>
                             <td class="p-value"><span class="p-notsig">0.0536</span></td>
-                            <td class="or-value">0.88 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.95 (0.76-1.19)</td>
+                            <td class="p-value"><span class="p-notsig">0.6619</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">immobilize</td>
                             <td class="or-value">1.46 (0.96-2.24)</td>
                             <td class="p-value"><span class="p-notsig">0.0803</span></td>
-                            <td class="or-value">0.22 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.06 (0.84-1.35)</td>
+                            <td class="p-value"><span class="p-notsig">0.6204</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">tvr</td>
                             <td class="or-value">1.18 (0.98-1.43)</td>
                             <td class="p-value"><span class="p-notsig">0.0827</span></td>
-                            <td class="or-value">23.26 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">comorbid</td>
-                            <td class="or-value">1.70 (0.92-3.14)</td>
-                            <td class="p-value"><span class="p-notsig">0.0891</span></td>
-                            <td class="or-value">1502.79 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.17 (0.91-1.51)</td>
+                            <td class="p-value"><span class="p-notsig">0.2103</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">trop</td>
-                            <td class="or-value">51.93 (0.54-5037.06)</td>
+                            <td class="or-value">51.93 (0.54-5037)</td>
                             <td class="p-value"><span class="p-notsig">0.0906</span></td>
-                            <td class="or-value">0.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.88 (0.67-1.15)</td>
+                            <td class="p-value"><span class="p-notsig">0.3527</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">cnt</td>
                             <td class="or-value">0.56 (0.27-1.16)</td>
                             <td class="p-value"><span class="p-notsig">0.1184</span></td>
-                            <td class="or-value">0.62 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.95 (0.75-1.21)</td>
+                            <td class="p-value"><span class="p-notsig">0.6861</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">lung_cxr</td>
                             <td class="or-value">1.15 (0.96-1.38)</td>
                             <td class="p-value"><span class="p-notsig">0.1216</span></td>
-                            <td class="or-value">0.35 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.03 (0.81-1.31)</td>
+                            <td class="p-value"><span class="p-notsig">0.7878</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">rvdilate</td>
                             <td class="or-value">0.86 (0.71-1.04)</td>
                             <td class="p-value"><span class="p-notsig">0.1257</span></td>
-                            <td class="or-value">0.69 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.12 (0.80-1.57)</td>
+                            <td class="p-value"><span class="p-notsig">0.5129</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">chestpain</td>
                             <td class="or-value">0.78 (0.55-1.09)</td>
                             <td class="p-value"><span class="p-notsig">0.1441</span></td>
-                            <td class="or-value">0.12 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.93 (0.73-1.18)</td>
+                            <td class="p-value"><span class="p-notsig">0.5433</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">jvd</td>
                             <td class="or-value">0.76 (0.52-1.12)</td>
                             <td class="p-value"><span class="p-notsig">0.1687</span></td>
-                            <td class="or-value">0.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">bp</td>
-                            <td class="or-value">0.99 (0.98-1.00)</td>
-                            <td class="p-value"><span class="p-notsig">0.1746</span></td>
-                            <td class="or-value">0.01 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.73 (0.57-0.94)</td>
+                            <td class="p-value"><span class="p-sig">0.0131*</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">trauma</td>
                             <td class="or-value">1.50 (0.82-2.75)</td>
                             <td class="p-value"><span class="p-notsig">0.1889</span></td>
-                            <td class="or-value">54.48 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.25 (1.00-1.57)</td>
+                            <td class="p-value"><span class="p-notsig">0.0510</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">clot_location</td>
                             <td class="or-value">1.16 (0.92-1.45)</td>
                             <td class="p-value"><span class="p-notsig">0.2004</span></td>
-                            <td class="or-value">5.70 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.03 (0.81-1.31)</td>
+                            <td class="p-value"><span class="p-notsig">0.7901</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">ddimer</td>
                             <td class="or-value">0.96 (0.89-1.03)</td>
                             <td class="p-value"><span class="p-notsig">0.2143</span></td>
-                            <td class="or-value">0.52 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.97 (0.76-1.24)</td>
+                            <td class="p-value"><span class="p-notsig">0.8247</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">ocp</td>
                             <td class="or-value">1.39 (0.79-2.42)</td>
                             <td class="p-value"><span class="p-notsig">0.2505</span></td>
-                            <td class="or-value">21.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">ptt</td>
-                            <td class="or-value">0.97 (0.93-1.02)</td>
-                            <td class="p-value"><span class="p-notsig">0.2612</span></td>
-                            <td class="or-value">0.17 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.24 (0.97-1.57)</td>
+                            <td class="p-value"><span class="p-notsig">0.0804</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">cough</td>
                             <td class="or-value">1.18 (0.88-1.59)</td>
                             <td class="p-value"><span class="p-notsig">0.2627</span></td>
-                            <td class="or-value">0.58 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">age</td>
-                            <td class="or-value">1.01 (0.99-1.02)</td>
-                            <td class="p-value"><span class="p-notsig">0.2720</span></td>
-                            <td class="or-value">0.08 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">sat</td>
-                            <td class="or-value">0.98 (0.95-1.02)</td>
-                            <td class="p-value"><span class="p-notsig">0.2976</span></td>
-                            <td class="or-value">13.51 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">pt</td>
-                            <td class="or-value">1.06 (0.95-1.19)</td>
-                            <td class="p-value"><span class="p-notsig">0.3085</span></td>
-                            <td class="or-value">4.11 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">alb</td>
-                            <td class="or-value">1.16 (0.86-1.57)</td>
-                            <td class="p-value"><span class="p-notsig">0.3290</span></td>
-                            <td class="or-value">0.63 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.99 (0.78-1.25)</td>
+                            <td class="p-value"><span class="p-notsig">0.9233</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">lvfunction_outcome</td>
                             <td class="or-value">1.78 (0.55-5.75)</td>
                             <td class="p-value"><span class="p-notsig">0.3343</span></td>
-                            <td class="or-value">7.15 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.06 (0.83-1.36)</td>
+                            <td class="p-value"><span class="p-notsig">0.6411</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">dyspnea_exertion</td>
                             <td class="or-value">0.83 (0.57-1.21)</td>
                             <td class="p-value"><span class="p-notsig">0.3370</span></td>
-                            <td class="or-value">0.93 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.85 (0.67-1.07)</td>
+                            <td class="p-value"><span class="p-notsig">0.1644</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">cirrhosis</td>
                             <td class="or-value">1.90 (0.50-7.23)</td>
                             <td class="p-value"><span class="p-notsig">0.3485</span></td>
-                            <td class="or-value">5.09 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">hb</td>
-                            <td class="or-value">1.05 (0.94-1.18)</td>
-                            <td class="p-value"><span class="p-notsig">0.3542</span></td>
-                            <td class="or-value">1.58 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.07 (0.82-1.39)</td>
+                            <td class="p-value"><span class="p-notsig">0.6110</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">dlp</td>
                             <td class="or-value">1.17 (0.83-1.66)</td>
                             <td class="p-value"><span class="p-notsig">0.3607</span></td>
-                            <td class="or-value">21.43 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.23 (0.97-1.55)</td>
+                            <td class="p-value"><span class="p-notsig">0.0892</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">leg_edema</td>
                             <td class="or-value">0.82 (0.54-1.25)</td>
                             <td class="p-value"><span class="p-notsig">0.3665</span></td>
-                            <td class="or-value">0.15 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.93 (0.74-1.18)</td>
+                            <td class="p-value"><span class="p-notsig">0.5691</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">pulmonaryht</td>
                             <td class="or-value">1.08 (0.91-1.30)</td>
                             <td class="p-value"><span class="p-notsig">0.3722</span></td>
-                            <td class="or-value">45.41 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">hct</td>
-                            <td class="or-value">1.02 (0.98-1.05)</td>
-                            <td class="p-value"><span class="p-notsig">0.3752</span></td>
-                            <td class="or-value">0.56 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.25 (0.98-1.60)</td>
+                            <td class="p-value"><span class="p-notsig">0.0780</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">dyspnea_rest</td>
                             <td class="or-value">0.87 (0.61-1.22)</td>
                             <td class="p-value"><span class="p-notsig">0.4062</span></td>
-                            <td class="or-value">0.37 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.91 (0.71-1.15)</td>
+                            <td class="p-value"><span class="p-notsig">0.4186</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">rbbb</td>
                             <td class="or-value">0.80 (0.45-1.40)</td>
                             <td class="p-value"><span class="p-notsig">0.4299</span></td>
-                            <td class="or-value">0.46 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.87 (0.68-1.12)</td>
+                            <td class="p-value"><span class="p-notsig">0.2941</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">rate</td>
                             <td class="or-value">1.11 (0.86-1.43)</td>
                             <td class="p-value"><span class="p-notsig">0.4333</span></td>
-                            <td class="or-value">2.81 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.06 (0.84-1.33)</td>
+                            <td class="p-value"><span class="p-notsig">0.6475</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">anticoag</td>
                             <td class="or-value">1.13 (0.83-1.54)</td>
                             <td class="p-value"><span class="p-notsig">0.4437</span></td>
-                            <td class="or-value">342.75 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.09 (0.86-1.37)</td>
+                            <td class="p-value"><span class="p-notsig">0.4744</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">ht</td>
                             <td class="or-value">1.13 (0.81-1.59)</td>
                             <td class="p-value"><span class="p-notsig">0.4656</span></td>
-                            <td class="or-value">0.47 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">hr</td>
-                            <td class="or-value">1.00 (0.99-1.01)</td>
-                            <td class="p-value"><span class="p-notsig">0.4850</span></td>
-                            <td class="or-value">1.69 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.05 (0.83-1.33)</td>
+                            <td class="p-value"><span class="p-notsig">0.6983</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">dm</td>
                             <td class="or-value">1.13 (0.78-1.64)</td>
                             <td class="p-value"><span class="p-notsig">0.5072</span></td>
-                            <td class="or-value">0.09 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.05 (0.83-1.34)</td>
+                            <td class="p-value"><span class="p-notsig">0.6626</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">lung</td>
                             <td class="or-value">1.05 (0.90-1.23)</td>
                             <td class="p-value"><span class="p-notsig">0.5188</span></td>
-                            <td class="or-value">1.41 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.07 (0.85-1.36)</td>
+                            <td class="p-value"><span class="p-notsig">0.5507</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">newrvgood</td>
                             <td class="or-value">0.85 (0.51-1.42)</td>
                             <td class="p-value"><span class="p-notsig">0.5344</span></td>
-                            <td class="or-value">0.10 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.81 (0.58-1.14)</td>
+                            <td class="p-value"><span class="p-notsig">0.2289</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">sx</td>
                             <td class="or-value">0.89 (0.61-1.31)</td>
                             <td class="p-value"><span class="p-notsig">0.5561</span></td>
-                            <td class="or-value">0.05 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.91 (0.72-1.15)</td>
+                            <td class="p-value"><span class="p-notsig">0.4282</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">palpitation</td>
                             <td class="or-value">1.13 (0.75-1.69)</td>
                             <td class="p-value"><span class="p-notsig">0.5618</span></td>
-                            <td class="or-value">55.70 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">ph</td>
-                            <td class="or-value">0.54 (0.07-4.40)</td>
-                            <td class="p-value"><span class="p-notsig">0.5654</span></td>
-                            <td class="or-value">0.01 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">pf</td>
-                            <td class="or-value">1.00 (0.99-1.01)</td>
-                            <td class="p-value"><span class="p-notsig">0.5948</span></td>
-                            <td class="or-value">0.48 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.24 (0.98-1.56)</td>
+                            <td class="p-value"><span class="p-notsig">0.0686</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">sinus</td>
                             <td class="or-value">1.13 (0.70-1.82)</td>
                             <td class="p-value"><span class="p-notsig">0.6269</span></td>
-                            <td class="or-value">5.23 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">inr</td>
-                            <td class="or-value">0.87 (0.50-1.52)</td>
-                            <td class="p-value"><span class="p-notsig">0.6316</span></td>
-                            <td class="or-value">0.04 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">bicarb</td>
-                            <td class="or-value">0.99 (0.93-1.05)</td>
-                            <td class="p-value"><span class="p-notsig">0.6650</span></td>
-                            <td class="or-value">0.11 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.08 (0.85-1.37)</td>
+                            <td class="p-value"><span class="p-notsig">0.5392</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">sex</td>
                             <td class="or-value">0.93 (0.66-1.30)</td>
                             <td class="p-value"><span class="p-notsig">0.6664</span></td>
-                            <td class="or-value">0.35 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">pco2</td>
-                            <td class="or-value">1.00 (0.98-1.02)</td>
-                            <td class="p-value"><span class="p-notsig">0.6912</span></td>
-                            <td class="or-value">4.94 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.95 (0.75-1.20)</td>
+                            <td class="p-value"><span class="p-notsig">0.6762</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">syncope</td>
                             <td class="or-value">1.10 (0.68-1.80)</td>
                             <td class="p-value"><span class="p-notsig">0.6917</span></td>
-                            <td class="or-value">16.13 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.06 (0.84-1.33)</td>
+                            <td class="p-value"><span class="p-notsig">0.6141</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">s1q3t3</td>
                             <td class="or-value">1.11 (0.66-1.86)</td>
                             <td class="p-value"><span class="p-notsig">0.6991</span></td>
-                            <td class="or-value">3.92 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.00 (0.79-1.26)</td>
+                            <td class="p-value"><span class="p-notsig">0.9905</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">lactate</td>
                             <td class="or-value">0.98 (0.88-1.10)</td>
                             <td class="p-value"><span class="p-notsig">0.7210</span></td>
-                            <td class="or-value">0.47 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">plt</td>
-                            <td class="or-value">1.00 (1.00-1.00)</td>
-                            <td class="p-value"><span class="p-notsig">0.7325</span></td>
-                            <td class="or-value">3.05 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.94 (0.75-1.18)</td>
+                            <td class="p-value"><span class="p-notsig">0.5890</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">smoking</td>
                             <td class="or-value">1.08 (0.70-1.67)</td>
                             <td class="p-value"><span class="p-notsig">0.7383</span></td>
-                            <td class="or-value">1.11 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.04 (0.83-1.30)</td>
+                            <td class="p-value"><span class="p-notsig">0.7378</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">dvt_us</td>
                             <td class="or-value">1.07 (0.71-1.61)</td>
                             <td class="p-value"><span class="p-notsig">0.7428</span></td>
-                            <td class="or-value">1.42 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.04 (0.82-1.32)</td>
+                            <td class="p-value"><span class="p-notsig">0.7351</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">rvstrain_EKG</td>
                             <td class="or-value">0.93 (0.60-1.45)</td>
                             <td class="p-value"><span class="p-notsig">0.7525</span></td>
-                            <td class="or-value">0.39 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.01 (0.80-1.29)</td>
+                            <td class="p-value"><span class="p-notsig">0.9083</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">lvfunction</td>
                             <td class="or-value">1.15 (0.47-2.82)</td>
                             <td class="p-value"><span class="p-notsig">0.7618</span></td>
-                            <td class="or-value">0.47 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.98 (0.75-1.27)</td>
+                            <td class="p-value"><span class="p-notsig">0.8710</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">rvstrain_CT</td>
                             <td class="or-value">1.05 (0.73-1.51)</td>
                             <td class="p-value"><span class="p-notsig">0.7787</span></td>
-                            <td class="or-value">10.92 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">pao2</td>
-                            <td class="or-value">1.00 (0.99-1.01)</td>
-                            <td class="p-value"><span class="p-notsig">0.7857</span></td>
-                            <td class="or-value">1.45 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.10 (0.87-1.39)</td>
+                            <td class="p-value"><span class="p-notsig">0.4405</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">heart</td>
                             <td class="or-value">0.96 (0.68-1.36)</td>
                             <td class="p-value"><span class="p-notsig">0.8316</span></td>
-                            <td class="or-value">0.17 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.96 (0.76-1.22)</td>
+                            <td class="p-value"><span class="p-notsig">0.7507</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">af</td>
                             <td class="or-value">1.05 (0.62-1.76)</td>
                             <td class="p-value"><span class="p-notsig">0.8627</span></td>
-                            <td class="or-value">0.10 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.84 (0.66-1.07)</td>
+                            <td class="p-value"><span class="p-notsig">0.1614</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">race</td>
                             <td class="or-value">1.02 (0.79-1.33)</td>
                             <td class="p-value"><span class="p-notsig">0.8670</span></td>
-                            <td class="or-value">8.93 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.03 (0.82-1.29)</td>
+                            <td class="p-value"><span class="p-notsig">0.8025</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">cad</td>
                             <td class="or-value">1.03 (0.70-1.52)</td>
                             <td class="p-value"><span class="p-notsig">0.8765</span></td>
-                            <td class="or-value">21.79 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.04 (0.83-1.32)</td>
+                            <td class="p-value"><span class="p-notsig">0.7248</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">cr</td>
                             <td class="or-value">0.98 (0.76-1.27)</td>
                             <td class="p-value"><span class="p-notsig">0.8893</span></td>
-                            <td class="or-value">11.76 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.02 (0.81-1.28)</td>
+                            <td class="p-value"><span class="p-notsig">0.8739</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">fever</td>
                             <td class="or-value">1.03 (0.62-1.73)</td>
                             <td class="p-value"><span class="p-notsig">0.9006</span></td>
-                            <td class="or-value">6.27 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">rvfunction_outcome</td>
-                            <td class="or-value">2386657.46 (0.00-748150611313471125173850319585897242071713114720127172599980784178492992949095729024754537889103826193771134976.00)</td>
-                            <td class="p-value"><span class="p-notsig">0.9048</span></td>
-                            <td class="or-value">415627319345142767398275994615808.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">rr</td>
-                            <td class="or-value">1.00 (0.96-1.04)</td>
-                            <td class="p-value"><span class="p-notsig">0.9051</span></td>
-                            <td class="or-value">0.84 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.11 (0.88-1.38)</td>
+                            <td class="p-value"><span class="p-notsig">0.3792</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">newrvbad</td>
-                            <td class="or-value">1974881.15 (0.00-32346349070196902657051833206911280471546798737189801790298392494298144988858952979849498376182423115061326130860397690880.00)</td>
+                            <td class="or-value">1.97e+06 (0.00-3.23e+134)</td>
                             <td class="p-value"><span class="p-notsig">0.9147</span></td>
-                            <td class="or-value">20993055191.21 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.39e+03 (0.00-9.85e+192)</td>
+                            <td class="p-value"><span class="p-notsig">0.9743</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">tvr_outcome</td>
                             <td class="or-value">1.01 (0.83-1.22)</td>
                             <td class="p-value"><span class="p-notsig">0.9409</span></td>
-                            <td class="or-value">0.02 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.89 (0.70-1.13)</td>
+                            <td class="p-value"><span class="p-notsig">0.3527</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">cardiomegaly</td>
                             <td class="or-value">1.01 (0.70-1.48)</td>
                             <td class="p-value"><span class="p-notsig">0.9413</span></td>
-                            <td class="or-value">0.53 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">mortality_nonpe</td>
-                            <td class="or-value">1374919.95 (0.00-223098533871599453271033139176751536653183603146223055490481395938937403564793492484257145596680016955032442381115547255942251929152324144440803303937646089250340318661326175096274944.00)</td>
-                            <td class="p-value"><span class="p-notsig">0.9456</span></td>
-                            <td class="or-value">760580351.72 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">sumrv</td>
-                            <td class="or-value">1.01 (0.71-1.42)</td>
-                            <td class="p-value"><span class="p-notsig">0.9723</span></td>
-                            <td class="or-value">51957565837.13 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">mortality_pe</td>
-                            <td class="or-value">21069650.53 (0.00-inf)</td>
-                            <td class="p-value"><span class="p-notsig">0.9728</span></td>
-                            <td class="or-value">1683969380241.45 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">mortality_all</td>
-                            <td class="or-value">44353966.24 (0.00-inf)</td>
-                            <td class="p-value"><span class="p-notsig">0.9741</span></td>
-                            <td class="or-value">11749088427574060.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.08 (0.85-1.36)</td>
+                            <td class="p-value"><span class="p-notsig">0.5337</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">trunk</td>
                             <td class="or-value">0.99 (0.68-1.46)</td>
                             <td class="p-value"><span class="p-notsig">0.9755</span></td>
-                            <td class="or-value">1.40 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.07 (0.84-1.35)</td>
+                            <td class="p-value"><span class="p-notsig">0.6046</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">desat</td>
                             <td class="or-value">1.00 (0.70-1.43)</td>
                             <td class="p-value"><span class="p-notsig">0.9853</span></td>
-                            <td class="or-value">1.65 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.98 (0.78-1.24)</td>
+                            <td class="p-value"><span class="p-notsig">0.8628</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">dvt</td>
                             <td class="or-value">1.00 (0.62-1.62)</td>
                             <td class="p-value"><span class="p-notsig">0.9968</span></td>
-                            <td class="or-value">22.38 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.23 (0.97-1.56)</td>
+                            <td class="p-value"><span class="p-notsig">0.0804</span></td>
                         </tr>
 
                     </tbody>
@@ -1024,704 +859,496 @@
                             <td class="var-name">arrest</td>
                             <td class="or-value">2.94 (1.80-4.82)</td>
                             <td class="p-value"><span class="p-sig"><0.001*</span></td>
-                            <td class="or-value">3756.48 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">rvfunction</td>
-                            <td class="or-value">1.49 (1.20-1.84)</td>
+                            <td class="or-value">2.20 (1.56-3.11)</td>
                             <td class="p-value"><span class="p-sig"><0.001*</span></td>
-                            <td class="or-value">82.46 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">tapse</td>
-                            <td class="or-value">1.49 (1.20-1.84)</td>
-                            <td class="p-value"><span class="p-sig"><0.001*</span></td>
-                            <td class="or-value">82.46 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">rvdilate_outcome</td>
                             <td class="or-value">0.72 (0.61-0.86)</td>
                             <td class="p-value"><span class="p-sig"><0.001*</span></td>
-                            <td class="or-value">0.01 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.55 (0.40-0.74)</td>
+                            <td class="p-value"><span class="p-sig"><0.001*</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">vent</td>
                             <td class="or-value">1.29 (1.09-1.52)</td>
                             <td class="p-value"><span class="p-sig">0.0025*</span></td>
-                            <td class="or-value">0.05 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.09 (0.74-1.61)</td>
+                            <td class="p-value"><span class="p-notsig">0.6659</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">resp</td>
                             <td class="or-value">1.77 (1.17-2.69)</td>
                             <td class="p-value"><span class="p-sig">0.0072*</span></td>
-                            <td class="or-value">0.11 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.06 (0.72-1.56)</td>
+                            <td class="p-value"><span class="p-notsig">0.7824</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">bnp</td>
                             <td class="or-value">1.00 (1.00-1.00)</td>
                             <td class="p-value"><span class="p-sig">0.0140*</span></td>
-                            <td class="or-value">0.04 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.19 (0.86-1.64)</td>
+                            <td class="p-value"><span class="p-notsig">0.2880</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">pulmonaryht_outcome</td>
                             <td class="or-value">0.70 (0.51-0.97)</td>
                             <td class="p-value"><span class="p-sig">0.0293*</span></td>
-                            <td class="or-value">2.87 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.81 (0.60-1.08)</td>
+                            <td class="p-value"><span class="p-notsig">0.1481</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">edema</td>
                             <td class="or-value">0.61 (0.39-0.96)</td>
                             <td class="p-value"><span class="p-sig">0.0326*</span></td>
-                            <td class="or-value">0.02 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.90 (0.70-1.15)</td>
+                            <td class="p-value"><span class="p-notsig">0.4111</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">stroke</td>
                             <td class="or-value">0.52 (0.28-0.96)</td>
                             <td class="p-value"><span class="p-sig">0.0382*</span></td>
-                            <td class="or-value">0.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.84 (0.64-1.09)</td>
+                            <td class="p-value"><span class="p-notsig">0.1877</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">effusion</td>
                             <td class="or-value">1.61 (1.00-2.58)</td>
                             <td class="p-value"><span class="p-sig">0.0498*</span></td>
-                            <td class="or-value">385.20 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">bt</td>
-                            <td class="or-value">0.79 (0.62-1.00)</td>
-                            <td class="p-value"><span class="p-notsig">0.0501</span></td>
-                            <td class="or-value">0.49 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.32 (1.01-1.73)</td>
+                            <td class="p-value"><span class="p-sig">0.0420*</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">reperfusion</td>
                             <td class="or-value">1.21 (0.99-1.48)</td>
                             <td class="p-value"><span class="p-notsig">0.0618</span></td>
-                            <td class="or-value">502.52 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.18 (0.90-1.54)</td>
+                            <td class="p-value"><span class="p-notsig">0.2275</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">rvdilate</td>
                             <td class="or-value">0.86 (0.70-1.05)</td>
                             <td class="p-value"><span class="p-notsig">0.1381</span></td>
-                            <td class="or-value">0.14 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.09 (0.75-1.58)</td>
+                            <td class="p-value"><span class="p-notsig">0.6451</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">ckd</td>
                             <td class="or-value">0.67 (0.40-1.14)</td>
                             <td class="p-value"><span class="p-notsig">0.1398</span></td>
-                            <td class="or-value">0.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.75 (0.57-0.97)</td>
+                            <td class="p-value"><span class="p-sig">0.0316*</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">trop</td>
-                            <td class="or-value">51.58 (0.27-9896.12)</td>
+                            <td class="or-value">51.58 (0.27-9896)</td>
                             <td class="p-value"><span class="p-notsig">0.1415</span></td>
-                            <td class="or-value">0.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.81 (0.59-1.12)</td>
+                            <td class="p-value"><span class="p-notsig">0.2048</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">pulmonaryht</td>
                             <td class="or-value">1.16 (0.95-1.41)</td>
                             <td class="p-value"><span class="p-notsig">0.1446</span></td>
-                            <td class="or-value">322.32 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">comorbid</td>
-                            <td class="or-value">1.58 (0.85-2.93)</td>
-                            <td class="p-value"><span class="p-notsig">0.1447</span></td>
-                            <td class="or-value">1581.50 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.32 (1.00-1.73)</td>
+                            <td class="p-value"><span class="p-sig">0.0476*</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">tvr</td>
                             <td class="or-value">1.16 (0.95-1.42)</td>
                             <td class="p-value"><span class="p-notsig">0.1451</span></td>
-                            <td class="or-value">47.77 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.19 (0.90-1.57)</td>
+                            <td class="p-value"><span class="p-notsig">0.2270</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">sx</td>
                             <td class="or-value">0.74 (0.49-1.12)</td>
                             <td class="p-value"><span class="p-notsig">0.1612</span></td>
-                            <td class="or-value">0.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.78 (0.60-1.02)</td>
+                            <td class="p-value"><span class="p-notsig">0.0674</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">immobilize</td>
                             <td class="or-value">1.38 (0.87-2.20)</td>
                             <td class="p-value"><span class="p-notsig">0.1725</span></td>
-                            <td class="or-value">0.09 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.99 (0.76-1.29)</td>
+                            <td class="p-value"><span class="p-notsig">0.9587</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">cirrhosis</td>
                             <td class="or-value">2.69 (0.55-13.09)</td>
                             <td class="p-value"><span class="p-notsig">0.2204</span></td>
-                            <td class="or-value">15.03 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">hb</td>
-                            <td class="or-value">1.08 (0.95-1.21)</td>
-                            <td class="p-value"><span class="p-notsig">0.2276</span></td>
-                            <td class="or-value">0.89 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.14 (0.83-1.58)</td>
+                            <td class="p-value"><span class="p-notsig">0.4106</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">dyspnea_rest</td>
                             <td class="or-value">0.80 (0.55-1.15)</td>
                             <td class="p-value"><span class="p-notsig">0.2305</span></td>
-                            <td class="or-value">0.32 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.83 (0.63-1.08)</td>
+                            <td class="p-value"><span class="p-notsig">0.1678</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">leg_edema</td>
                             <td class="or-value">0.76 (0.48-1.20)</td>
                             <td class="p-value"><span class="p-notsig">0.2358</span></td>
-                            <td class="or-value">0.60 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">hct</td>
-                            <td class="or-value">1.02 (0.98-1.06)</td>
-                            <td class="p-value"><span class="p-notsig">0.2383</span></td>
-                            <td class="or-value">0.60 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.93 (0.73-1.20)</td>
+                            <td class="p-value"><span class="p-notsig">0.5934</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">clot_location</td>
                             <td class="or-value">1.15 (0.90-1.47)</td>
                             <td class="p-value"><span class="p-notsig">0.2473</span></td>
-                            <td class="or-value">1.93 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.99 (0.76-1.29)</td>
+                            <td class="p-value"><span class="p-notsig">0.9505</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">ddimer</td>
                             <td class="or-value">0.96 (0.89-1.03)</td>
                             <td class="p-value"><span class="p-notsig">0.2611</span></td>
-                            <td class="or-value">0.43 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.94 (0.72-1.23)</td>
+                            <td class="p-value"><span class="p-notsig">0.6630</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">ocp</td>
                             <td class="or-value">1.40 (0.78-2.54)</td>
                             <td class="p-value"><span class="p-notsig">0.2630</span></td>
-                            <td class="or-value">213.65 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.29 (0.99-1.68)</td>
+                            <td class="p-value"><span class="p-notsig">0.0592</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">jvd</td>
                             <td class="or-value">0.79 (0.53-1.20)</td>
                             <td class="p-value"><span class="p-notsig">0.2725</span></td>
-                            <td class="or-value">0.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">alb</td>
-                            <td class="or-value">1.19 (0.86-1.65)</td>
-                            <td class="p-value"><span class="p-notsig">0.2813</span></td>
-                            <td class="or-value">0.25 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.72 (0.54-0.94)</td>
+                            <td class="p-value"><span class="p-sig">0.0161*</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">trauma</td>
                             <td class="or-value">1.42 (0.75-2.68)</td>
                             <td class="p-value"><span class="p-notsig">0.2873</span></td>
-                            <td class="or-value">613.38 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">bicarb</td>
-                            <td class="or-value">0.97 (0.91-1.03)</td>
-                            <td class="p-value"><span class="p-notsig">0.2965</span></td>
-                            <td class="or-value">0.07 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.30 (1.01-1.67)</td>
+                            <td class="p-value"><span class="p-sig">0.0416*</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">ht</td>
                             <td class="or-value">1.20 (0.83-1.74)</td>
                             <td class="p-value"><span class="p-notsig">0.3219</span></td>
-                            <td class="or-value">2.01 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.09 (0.84-1.41)</td>
+                            <td class="p-value"><span class="p-notsig">0.5112</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">rvstrain_CT</td>
                             <td class="or-value">1.22 (0.82-1.80)</td>
                             <td class="p-value"><span class="p-notsig">0.3231</span></td>
-                            <td class="or-value">44.16 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">ptt</td>
-                            <td class="or-value">0.98 (0.93-1.02)</td>
-                            <td class="p-value"><span class="p-notsig">0.3246</span></td>
-                            <td class="or-value">0.07 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.13 (0.87-1.47)</td>
+                            <td class="p-value"><span class="p-notsig">0.3572</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">dyspnea_exertion</td>
                             <td class="or-value">0.82 (0.54-1.23)</td>
                             <td class="p-value"><span class="p-notsig">0.3344</span></td>
-                            <td class="or-value">2.33 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.84 (0.65-1.08)</td>
+                            <td class="p-value"><span class="p-notsig">0.1796</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">cnt</td>
                             <td class="or-value">0.68 (0.30-1.53)</td>
                             <td class="p-value"><span class="p-notsig">0.3547</span></td>
-                            <td class="or-value">12.17 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.06 (0.82-1.37)</td>
+                            <td class="p-value"><span class="p-notsig">0.6614</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">anticoag</td>
                             <td class="or-value">1.16 (0.83-1.61)</td>
                             <td class="p-value"><span class="p-notsig">0.3867</span></td>
-                            <td class="or-value">21265.38 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">bp</td>
-                            <td class="or-value">1.00 (0.99-1.01)</td>
-                            <td class="p-value"><span class="p-notsig">0.4164</span></td>
-                            <td class="or-value">0.02 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">hr</td>
-                            <td class="or-value">1.00 (0.99-1.01)</td>
-                            <td class="p-value"><span class="p-notsig">0.4494</span></td>
-                            <td class="or-value">2.88 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.20 (0.92-1.57)</td>
+                            <td class="p-value"><span class="p-notsig">0.1687</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">sinus</td>
                             <td class="or-value">0.82 (0.48-1.38)</td>
                             <td class="p-value"><span class="p-notsig">0.4498</span></td>
-                            <td class="or-value">0.09 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">pt</td>
-                            <td class="or-value">1.05 (0.93-1.18)</td>
-                            <td class="p-value"><span class="p-notsig">0.4572</span></td>
-                            <td class="or-value">4.51 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">age</td>
-                            <td class="or-value">1.00 (0.99-1.02)</td>
-                            <td class="p-value"><span class="p-notsig">0.4616</span></td>
-                            <td class="or-value">0.01 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.90 (0.69-1.17)</td>
+                            <td class="p-value"><span class="p-notsig">0.4214</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">dm</td>
                             <td class="or-value">1.16 (0.77-1.74)</td>
                             <td class="p-value"><span class="p-notsig">0.4672</span></td>
-                            <td class="or-value">0.02 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.05 (0.81-1.36)</td>
+                            <td class="p-value"><span class="p-notsig">0.7259</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">lung_cxr</td>
                             <td class="or-value">1.07 (0.89-1.30)</td>
                             <td class="p-value"><span class="p-notsig">0.4676</span></td>
-                            <td class="or-value">0.02 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.93 (0.71-1.20)</td>
+                            <td class="p-value"><span class="p-notsig">0.5592</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">chestpain</td>
                             <td class="or-value">0.87 (0.61-1.26)</td>
                             <td class="p-value"><span class="p-notsig">0.4711</span></td>
-                            <td class="or-value">1.49 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.03 (0.79-1.34)</td>
+                            <td class="p-value"><span class="p-notsig">0.8306</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">dlp</td>
                             <td class="or-value">1.14 (0.79-1.65)</td>
                             <td class="p-value"><span class="p-notsig">0.4737</span></td>
-                            <td class="or-value">340.46 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.27 (0.98-1.65)</td>
+                            <td class="p-value"><span class="p-notsig">0.0742</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">rbbb</td>
                             <td class="or-value">0.81 (0.44-1.51)</td>
                             <td class="p-value"><span class="p-notsig">0.5094</span></td>
-                            <td class="or-value">0.08 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">plt</td>
-                            <td class="or-value">1.00 (1.00-1.00)</td>
-                            <td class="p-value"><span class="p-notsig">0.5273</span></td>
-                            <td class="or-value">2.64 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">sat</td>
-                            <td class="or-value">0.99 (0.95-1.02)</td>
-                            <td class="p-value"><span class="p-notsig">0.5325</span></td>
-                            <td class="or-value">5.58 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.79 (0.60-1.05)</td>
+                            <td class="p-value"><span class="p-notsig">0.1038</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">lung</td>
                             <td class="or-value">1.06 (0.89-1.25)</td>
                             <td class="p-value"><span class="p-notsig">0.5336</span></td>
-                            <td class="or-value">2.27 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.10 (0.85-1.43)</td>
+                            <td class="p-value"><span class="p-notsig">0.4474</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">s1q3t3</td>
                             <td class="or-value">1.17 (0.67-2.06)</td>
                             <td class="p-value"><span class="p-notsig">0.5781</span></td>
-                            <td class="or-value">0.31 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.90 (0.69-1.17)</td>
+                            <td class="p-value"><span class="p-notsig">0.4360</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">rate</td>
                             <td class="or-value">1.08 (0.82-1.42)</td>
                             <td class="p-value"><span class="p-notsig">0.5833</span></td>
-                            <td class="or-value">0.91 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.01 (0.78-1.31)</td>
+                            <td class="p-value"><span class="p-notsig">0.9256</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">newrvgood</td>
                             <td class="or-value">0.86 (0.49-1.50)</td>
                             <td class="p-value"><span class="p-notsig">0.5853</span></td>
-                            <td class="or-value">0.05 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.82 (0.56-1.18)</td>
+                            <td class="p-value"><span class="p-notsig">0.2779</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">syncope</td>
                             <td class="or-value">1.16 (0.68-1.97)</td>
                             <td class="p-value"><span class="p-notsig">0.5933</span></td>
-                            <td class="or-value">0.77 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.04 (0.81-1.33)</td>
+                            <td class="p-value"><span class="p-notsig">0.7613</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">heart</td>
                             <td class="or-value">0.91 (0.62-1.32)</td>
                             <td class="p-value"><span class="p-notsig">0.6092</span></td>
-                            <td class="or-value">0.27 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.92 (0.71-1.19)</td>
+                            <td class="p-value"><span class="p-notsig">0.5221</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">smoking</td>
                             <td class="or-value">0.89 (0.56-1.41)</td>
                             <td class="p-value"><span class="p-notsig">0.6115</span></td>
-                            <td class="or-value">0.78 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.03 (0.81-1.32)</td>
+                            <td class="p-value"><span class="p-notsig">0.7926</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">cardiomegaly</td>
                             <td class="or-value">0.91 (0.60-1.36)</td>
                             <td class="p-value"><span class="p-notsig">0.6306</span></td>
-                            <td class="or-value">0.02 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.97 (0.75-1.25)</td>
+                            <td class="p-value"><span class="p-notsig">0.7905</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">lvfunction_outcome</td>
                             <td class="or-value">1.33 (0.38-4.61)</td>
                             <td class="p-value"><span class="p-notsig">0.6510</span></td>
-                            <td class="or-value">0.33 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.95 (0.73-1.23)</td>
+                            <td class="p-value"><span class="p-notsig">0.6890</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">desat</td>
                             <td class="or-value">0.93 (0.63-1.36)</td>
                             <td class="p-value"><span class="p-notsig">0.6936</span></td>
-                            <td class="or-value">0.26 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.95 (0.73-1.22)</td>
+                            <td class="p-value"><span class="p-notsig">0.6674</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">cad</td>
                             <td class="or-value">1.09 (0.71-1.66)</td>
                             <td class="p-value"><span class="p-notsig">0.7005</span></td>
-                            <td class="or-value">956.94 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">pco2</td>
-                            <td class="or-value">1.00 (0.97-1.02)</td>
-                            <td class="p-value"><span class="p-notsig">0.7163</span></td>
-                            <td class="or-value">28.36 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.13 (0.88-1.46)</td>
+                            <td class="p-value"><span class="p-notsig">0.3495</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">cr</td>
                             <td class="or-value">0.95 (0.72-1.26)</td>
                             <td class="p-value"><span class="p-notsig">0.7224</span></td>
-                            <td class="or-value">21.04 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.98 (0.76-1.27)</td>
+                            <td class="p-value"><span class="p-notsig">0.8916</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">trunk</td>
                             <td class="or-value">0.93 (0.61-1.41)</td>
                             <td class="p-value"><span class="p-notsig">0.7301</span></td>
-                            <td class="or-value">0.20 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.01 (0.77-1.32)</td>
+                            <td class="p-value"><span class="p-notsig">0.9549</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">cough</td>
                             <td class="or-value">1.06 (0.77-1.46)</td>
                             <td class="p-value"><span class="p-notsig">0.7358</span></td>
-                            <td class="or-value">0.17 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.88 (0.67-1.15)</td>
+                            <td class="p-value"><span class="p-notsig">0.3427</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">dvt_us</td>
                             <td class="or-value">1.08 (0.70-1.66)</td>
                             <td class="p-value"><span class="p-notsig">0.7429</span></td>
-                            <td class="or-value">8.39 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">inr</td>
-                            <td class="or-value">0.91 (0.50-1.64)</td>
-                            <td class="p-value"><span class="p-notsig">0.7481</span></td>
-                            <td class="or-value">0.01 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.03 (0.80-1.33)</td>
+                            <td class="p-value"><span class="p-notsig">0.8231</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">lvfunction</td>
                             <td class="or-value">0.86 (0.31-2.41)</td>
                             <td class="p-value"><span class="p-notsig">0.7732</span></td>
-                            <td class="or-value">0.12 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.91 (0.68-1.21)</td>
+                            <td class="p-value"><span class="p-notsig">0.5202</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">fever</td>
                             <td class="or-value">1.07 (0.63-1.83)</td>
                             <td class="p-value"><span class="p-notsig">0.7919</span></td>
-                            <td class="or-value">10.37 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">sumrv</td>
-                            <td class="or-value">1.05 (0.72-1.53)</td>
-                            <td class="p-value"><span class="p-notsig">0.7929</span></td>
-                            <td class="or-value">2111391432450.61 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.15 (0.90-1.48)</td>
+                            <td class="p-value"><span class="p-notsig">0.2657</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">lactate</td>
                             <td class="or-value">0.99 (0.87-1.12)</td>
                             <td class="p-value"><span class="p-notsig">0.8175</span></td>
-                            <td class="or-value">0.15 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.88 (0.68-1.13)</td>
+                            <td class="p-value"><span class="p-notsig">0.3200</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">rvstrain_EKG</td>
                             <td class="or-value">1.05 (0.65-1.71)</td>
                             <td class="p-value"><span class="p-notsig">0.8314</span></td>
-                            <td class="or-value">2.63 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.12 (0.87-1.46)</td>
+                            <td class="p-value"><span class="p-notsig">0.3769</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">af</td>
                             <td class="or-value">1.05 (0.61-1.81)</td>
                             <td class="p-value"><span class="p-notsig">0.8499</span></td>
-                            <td class="or-value">0.01 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">pf</td>
-                            <td class="or-value">1.00 (0.99-1.01)</td>
-                            <td class="p-value"><span class="p-notsig">0.8504</span></td>
-                            <td class="or-value">0.78 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.80 (0.61-1.05)</td>
+                            <td class="p-value"><span class="p-notsig">0.1029</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">race</td>
                             <td class="or-value">0.98 (0.74-1.29)</td>
                             <td class="p-value"><span class="p-notsig">0.8924</span></td>
-                            <td class="or-value">3.35 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.00 (0.78-1.29)</td>
+                            <td class="p-value"><span class="p-notsig">0.9930</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">sex</td>
                             <td class="or-value">0.98 (0.68-1.41)</td>
                             <td class="p-value"><span class="p-notsig">0.8987</span></td>
-                            <td class="or-value">0.06 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">rr</td>
-                            <td class="or-value">1.00 (0.96-1.05)</td>
-                            <td class="p-value"><span class="p-notsig">0.8990</span></td>
-                            <td class="or-value">5.06 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">rvfunction_outcome</td>
-                            <td class="or-value">2492421.76 (0.00-58056807355745013617697821821354032751079616656960247038346296235218776561501840516591434677529944088227160235341512704.00)</td>
-                            <td class="p-value"><span class="p-notsig">0.9112</span></td>
-                            <td class="or-value">21601598403504861779090842897075929088.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">mortality_pe</td>
-                            <td class="or-value">1729767.23 (0.00-7193796393064136907774938001682207891693812121410951355017825018136658150152257710677123776360334107103173783188478255341556447443943424.00)</td>
-                            <td class="p-value"><span class="p-notsig">0.9249</span></td>
-                            <td class="or-value">135676408298956.73 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.96 (0.74-1.25)</td>
+                            <td class="p-value"><span class="p-notsig">0.7722</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">newrvbad</td>
-                            <td class="or-value">2524073.59 (0.00-11604521251404330251596229199048457461553850000871930086147314784994753242914711547960879817759433539936041198966009602715076127627853434978304.00)</td>
+                            <td class="or-value">2.52e+06 (0.00-1.16e+153)</td>
                             <td class="p-value"><span class="p-notsig">0.9263</span></td>
-                            <td class="or-value">1595200790549.77 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">mortality_all</td>
-                            <td class="or-value">6156576.58 (0.00-5166799739253522720713999338536210411112540960138245000085905581035230218558256615713253392059492172830154853445309246002836740740660090901967802072715578164794982230973354177677874690703491072.00)</td>
-                            <td class="p-value"><span class="p-notsig">0.9429</span></td>
-                            <td class="or-value">4531392430965024256.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">mortality_nonpe</td>
-                            <td class="or-value">1486457.42 (0.00-1317134519420992433267503855883377068294128993659225192819000162498159917459514107151647272999303055367490604630399936604372800480396431279342047453426615708593687007617407596373713508306952604460574048256.00)</td>
-                            <td class="p-value"><span class="p-notsig">0.9513</span></td>
-                            <td class="or-value">33354398502.67 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.46e+03 (0.00-2.27e+192)</td>
+                            <td class="p-value"><span class="p-notsig">0.9725</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">tvr_outcome</td>
                             <td class="or-value">1.00 (0.81-1.23)</td>
                             <td class="p-value"><span class="p-notsig">0.9890</span></td>
-                            <td class="or-value">0.14 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">0.95 (0.73-1.23)</td>
+                            <td class="p-value"><span class="p-notsig">0.6893</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">palpitation</td>
                             <td class="or-value">1.00 (0.65-1.55)</td>
                             <td class="p-value"><span class="p-notsig">0.9907</span></td>
-                            <td class="or-value">17.18 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">pao2</td>
-                            <td class="or-value">1.00 (0.99-1.01)</td>
-                            <td class="p-value"><span class="p-notsig">0.9962</span></td>
-                            <td class="or-value">2.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">ph</td>
-                            <td class="or-value">1.00 (0.11-9.41)</td>
-                            <td class="p-value"><span class="p-notsig">0.9967</span></td>
-                            <td class="or-value">0.01 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.14 (0.89-1.47)</td>
+                            <td class="p-value"><span class="p-notsig">0.3027</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">dvt</td>
                             <td class="or-value">1.00 (0.60-1.66)</td>
                             <td class="p-value"><span class="p-notsig">0.9975</span></td>
-                            <td class="or-value">18.19 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
+                            <td class="or-value">1.21 (0.93-1.57)</td>
+                            <td class="p-value"><span class="p-notsig">0.1590</span></td>
                         </tr>
 
                     </tbody>
@@ -1764,18 +1391,10 @@
                     <tbody>
 
                         <tr>
-                            <td class="var-name">comorbid</td>
-                            <td class="or-value">2.19 (1.38-3.49)</td>
-                            <td class="p-value"><span class="p-sig"><0.001*</span></td>
-                            <td class="or-value">1.00 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
                             <td class="var-name">sinus</td>
                             <td class="or-value">7.01 (1.91-25.70)</td>
                             <td class="p-value"><span class="p-sig">0.0033*</span></td>
-                            <td class="or-value">17.92 (nan-nan)</td>
+                            <td class="or-value">3255.18 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1783,7 +1402,7 @@
                             <td class="var-name">chestpain</td>
                             <td class="or-value">0.31 (0.11-0.85)</td>
                             <td class="p-value"><span class="p-sig">0.0228*</span></td>
-                            <td class="or-value">0.21 (nan-nan)</td>
+                            <td class="or-value">0.01 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1791,7 +1410,7 @@
                             <td class="var-name">lung_cxr</td>
                             <td class="or-value">1.99 (1.09-3.63)</td>
                             <td class="p-value"><span class="p-sig">0.0257*</span></td>
-                            <td class="or-value">10.49 (nan-nan)</td>
+                            <td class="or-value">1316.32 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1799,7 +1418,7 @@
                             <td class="var-name">pulmonaryht_outcome</td>
                             <td class="or-value">0.35 (0.14-0.91)</td>
                             <td class="p-value"><span class="p-sig">0.0316*</span></td>
-                            <td class="or-value">0.36 (nan-nan)</td>
+                            <td class="or-value">0.01 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1807,7 +1426,7 @@
                             <td class="var-name">sx</td>
                             <td class="or-value">5.10 (1.08-24.03)</td>
                             <td class="p-value"><span class="p-sig">0.0394*</span></td>
-                            <td class="or-value">4.98 (nan-nan)</td>
+                            <td class="or-value">80.48 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1815,7 +1434,7 @@
                             <td class="var-name">rvdilate_outcome</td>
                             <td class="or-value">0.67 (0.45-0.99)</td>
                             <td class="p-value"><span class="p-sig">0.0438*</span></td>
-                            <td class="or-value">0.15 (nan-nan)</td>
+                            <td class="or-value">0.00 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1823,7 +1442,7 @@
                             <td class="var-name">arrest</td>
                             <td class="or-value">2.94 (1.02-8.46)</td>
                             <td class="p-value"><span class="p-sig">0.0458*</span></td>
-                            <td class="or-value">3.69 (nan-nan)</td>
+                            <td class="or-value">202.35 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1831,7 +1450,7 @@
                             <td class="var-name">reperfusion</td>
                             <td class="or-value">1.73 (1.01-2.98)</td>
                             <td class="p-value"><span class="p-sig">0.0476*</span></td>
-                            <td class="or-value">13.03 (nan-nan)</td>
+                            <td class="or-value">10695.80 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1839,7 +1458,7 @@
                             <td class="var-name">smoking</td>
                             <td class="or-value">8.14 (1.01-65.66)</td>
                             <td class="p-value"><span class="p-sig">0.0490*</span></td>
-                            <td class="or-value">2.99 (nan-nan)</td>
+                            <td class="or-value">203.34 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1847,7 +1466,7 @@
                             <td class="var-name">cnt</td>
                             <td class="or-value">0.20 (0.03-1.17)</td>
                             <td class="p-value"><span class="p-notsig">0.0744</span></td>
-                            <td class="or-value">0.12 (nan-nan)</td>
+                            <td class="or-value">0.00 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1855,15 +1474,7 @@
                             <td class="var-name">cough</td>
                             <td class="or-value">2.09 (0.91-4.80)</td>
                             <td class="p-value"><span class="p-notsig">0.0835</span></td>
-                            <td class="or-value">1.64 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">bp</td>
-                            <td class="or-value">0.98 (0.95-1.00)</td>
-                            <td class="p-value"><span class="p-notsig">0.0934</span></td>
-                            <td class="or-value">0.10 (nan-nan)</td>
+                            <td class="or-value">12.18 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1871,7 +1482,7 @@
                             <td class="var-name">rvstrain_CT</td>
                             <td class="or-value">0.44 (0.17-1.19)</td>
                             <td class="p-value"><span class="p-notsig">0.1059</span></td>
-                            <td class="or-value">0.32 (nan-nan)</td>
+                            <td class="or-value">0.06 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1879,7 +1490,7 @@
                             <td class="var-name">cardiomegaly</td>
                             <td class="or-value">2.54 (0.76-8.45)</td>
                             <td class="p-value"><span class="p-notsig">0.1290</span></td>
-                            <td class="or-value">5.66 (nan-nan)</td>
+                            <td class="or-value">443.17 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1887,15 +1498,7 @@
                             <td class="var-name">ckd</td>
                             <td class="or-value">0.31 (0.06-1.48)</td>
                             <td class="p-value"><span class="p-notsig">0.1406</span></td>
-                            <td class="or-value">0.15 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">age</td>
-                            <td class="or-value">1.03 (0.99-1.06)</td>
-                            <td class="p-value"><span class="p-notsig">0.1419</span></td>
-                            <td class="or-value">4.14 (nan-nan)</td>
+                            <td class="or-value">0.00 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1903,15 +1506,7 @@
                             <td class="var-name">pulmonaryht</td>
                             <td class="or-value">0.72 (0.45-1.14)</td>
                             <td class="p-value"><span class="p-notsig">0.1557</span></td>
-                            <td class="or-value">0.93 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">ph</td>
-                            <td class="or-value">0.01 (0.00-5.67)</td>
-                            <td class="p-value"><span class="p-notsig">0.1603</span></td>
-                            <td class="or-value">0.32 (nan-nan)</td>
+                            <td class="or-value">4.98 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1919,7 +1514,7 @@
                             <td class="var-name">rvstrain_EKG</td>
                             <td class="or-value">0.44 (0.14-1.39)</td>
                             <td class="p-value"><span class="p-notsig">0.1633</span></td>
-                            <td class="or-value">0.14 (nan-nan)</td>
+                            <td class="or-value">0.00 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1927,7 +1522,7 @@
                             <td class="var-name">palpitation</td>
                             <td class="or-value">2.34 (0.70-7.82)</td>
                             <td class="p-value"><span class="p-notsig">0.1680</span></td>
-                            <td class="or-value">6.28 (nan-nan)</td>
+                            <td class="or-value">1114.95 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1935,15 +1530,7 @@
                             <td class="var-name">tvr</td>
                             <td class="or-value">1.56 (0.82-2.97)</td>
                             <td class="p-value"><span class="p-notsig">0.1796</span></td>
-                            <td class="or-value">0.92 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">sat</td>
-                            <td class="or-value">0.94 (0.86-1.04)</td>
-                            <td class="p-value"><span class="p-notsig">0.2164</span></td>
-                            <td class="or-value">0.56 (nan-nan)</td>
+                            <td class="or-value">1.17 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1951,15 +1538,7 @@
                             <td class="var-name">dlp</td>
                             <td class="or-value">1.94 (0.67-5.61)</td>
                             <td class="p-value"><span class="p-notsig">0.2185</span></td>
-                            <td class="or-value">2.30 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">bicarb</td>
-                            <td class="or-value">1.10 (0.94-1.28)</td>
-                            <td class="p-value"><span class="p-notsig">0.2308</span></td>
-                            <td class="or-value">1.89 (nan-nan)</td>
+                            <td class="or-value">39.54 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1967,7 +1546,7 @@
                             <td class="var-name">bnp</td>
                             <td class="or-value">1.00 (1.00-1.00)</td>
                             <td class="p-value"><span class="p-notsig">0.2445</span></td>
-                            <td class="or-value">1.72 (nan-nan)</td>
+                            <td class="or-value">12.71 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1975,15 +1554,7 @@
                             <td class="var-name">effusion</td>
                             <td class="or-value">1.96 (0.58-6.64)</td>
                             <td class="p-value"><span class="p-notsig">0.2771</span></td>
-                            <td class="or-value">1.87 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">pt</td>
-                            <td class="or-value">1.22 (0.85-1.76)</td>
-                            <td class="p-value"><span class="p-notsig">0.2849</span></td>
-                            <td class="or-value">3.82 (nan-nan)</td>
+                            <td class="or-value">93.34 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1991,7 +1562,7 @@
                             <td class="var-name">immobilize</td>
                             <td class="or-value">1.79 (0.58-5.52)</td>
                             <td class="p-value"><span class="p-notsig">0.3142</span></td>
-                            <td class="or-value">1.23 (nan-nan)</td>
+                            <td class="or-value">2.90 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -1999,7 +1570,7 @@
                             <td class="var-name">trauma</td>
                             <td class="or-value">2.94 (0.34-25.77)</td>
                             <td class="p-value"><span class="p-notsig">0.3299</span></td>
-                            <td class="or-value">2.52 (nan-nan)</td>
+                            <td class="or-value">26.58 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2007,7 +1578,7 @@
                             <td class="var-name">race</td>
                             <td class="or-value">1.51 (0.64-3.56)</td>
                             <td class="p-value"><span class="p-notsig">0.3428</span></td>
-                            <td class="or-value">3.65 (nan-nan)</td>
+                            <td class="or-value">213.54 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2015,23 +1586,7 @@
                             <td class="var-name">trunk</td>
                             <td class="or-value">1.64 (0.53-5.09)</td>
                             <td class="p-value"><span class="p-notsig">0.3929</span></td>
-                            <td class="or-value">5.97 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">tapse</td>
-                            <td class="or-value">1.26 (0.73-2.17)</td>
-                            <td class="p-value"><span class="p-notsig">0.4006</span></td>
-                            <td class="or-value">0.78 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">rvfunction</td>
-                            <td class="or-value">1.26 (0.73-2.17)</td>
-                            <td class="p-value"><span class="p-notsig">0.4006</span></td>
-                            <td class="or-value">0.78 (nan-nan)</td>
+                            <td class="or-value">961.77 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2039,7 +1594,7 @@
                             <td class="var-name">lvfunction</td>
                             <td class="or-value">2.40 (0.27-21.68)</td>
                             <td class="p-value"><span class="p-notsig">0.4344</span></td>
-                            <td class="or-value">1.75 (nan-nan)</td>
+                            <td class="or-value">5.08 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2047,7 +1602,7 @@
                             <td class="var-name">jvd</td>
                             <td class="or-value">0.65 (0.22-1.93)</td>
                             <td class="p-value"><span class="p-notsig">0.4362</span></td>
-                            <td class="or-value">0.53 (nan-nan)</td>
+                            <td class="or-value">0.15 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2055,15 +1610,7 @@
                             <td class="var-name">desat</td>
                             <td class="or-value">1.48 (0.55-4.03)</td>
                             <td class="p-value"><span class="p-notsig">0.4405</span></td>
-                            <td class="or-value">1.21 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">rr</td>
-                            <td class="or-value">0.96 (0.86-1.07)</td>
-                            <td class="p-value"><span class="p-notsig">0.4436</span></td>
-                            <td class="or-value">0.61 (nan-nan)</td>
+                            <td class="or-value">3.90 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2071,7 +1618,7 @@
                             <td class="var-name">cr</td>
                             <td class="or-value">1.34 (0.59-3.02)</td>
                             <td class="p-value"><span class="p-notsig">0.4859</span></td>
-                            <td class="or-value">1.43 (nan-nan)</td>
+                            <td class="or-value">22.45 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2079,7 +1626,7 @@
                             <td class="var-name">rate</td>
                             <td class="or-value">1.31 (0.61-2.84)</td>
                             <td class="p-value"><span class="p-notsig">0.4918</span></td>
-                            <td class="or-value">0.84 (nan-nan)</td>
+                            <td class="or-value">0.15 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2087,7 +1634,7 @@
                             <td class="var-name">rvdilate</td>
                             <td class="or-value">0.84 (0.49-1.42)</td>
                             <td class="p-value"><span class="p-notsig">0.5135</span></td>
-                            <td class="or-value">0.65 (nan-nan)</td>
+                            <td class="or-value">0.73 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2095,7 +1642,7 @@
                             <td class="var-name">rbbb</td>
                             <td class="or-value">0.65 (0.17-2.52)</td>
                             <td class="p-value"><span class="p-notsig">0.5305</span></td>
-                            <td class="or-value">0.87 (nan-nan)</td>
+                            <td class="or-value">0.54 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2103,7 +1650,7 @@
                             <td class="var-name">ddimer</td>
                             <td class="or-value">0.94 (0.76-1.15)</td>
                             <td class="p-value"><span class="p-notsig">0.5391</span></td>
-                            <td class="or-value">0.37 (nan-nan)</td>
+                            <td class="or-value">0.02 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2111,7 +1658,7 @@
                             <td class="var-name">clot_location</td>
                             <td class="or-value">1.21 (0.65-2.25)</td>
                             <td class="p-value"><span class="p-notsig">0.5421</span></td>
-                            <td class="or-value">0.98 (nan-nan)</td>
+                            <td class="or-value">1.20 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2119,15 +1666,7 @@
                             <td class="var-name">leg_edema</td>
                             <td class="or-value">1.47 (0.42-5.08)</td>
                             <td class="p-value"><span class="p-notsig">0.5451</span></td>
-                            <td class="or-value">0.92 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">plt</td>
-                            <td class="or-value">1.00 (0.99-1.01)</td>
-                            <td class="p-value"><span class="p-notsig">0.5525</span></td>
-                            <td class="or-value">0.85 (nan-nan)</td>
+                            <td class="or-value">5.02 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2135,7 +1674,7 @@
                             <td class="var-name">cad</td>
                             <td class="or-value">0.73 (0.26-2.05)</td>
                             <td class="p-value"><span class="p-notsig">0.5530</span></td>
-                            <td class="or-value">0.35 (nan-nan)</td>
+                            <td class="or-value">0.06 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2143,15 +1682,7 @@
                             <td class="var-name">ht</td>
                             <td class="or-value">0.76 (0.30-1.94)</td>
                             <td class="p-value"><span class="p-notsig">0.5644</span></td>
-                            <td class="or-value">0.57 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">hct</td>
-                            <td class="or-value">0.97 (0.88-1.07)</td>
-                            <td class="p-value"><span class="p-notsig">0.5716</span></td>
-                            <td class="or-value">0.45 (nan-nan)</td>
+                            <td class="or-value">0.91 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2159,15 +1690,7 @@
                             <td class="var-name">cirrhosis</td>
                             <td class="or-value">0.45 (0.03-7.43)</td>
                             <td class="p-value"><span class="p-notsig">0.5739</span></td>
-                            <td class="or-value">0.95 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">bt</td>
-                            <td class="or-value">0.84 (0.47-1.53)</td>
-                            <td class="p-value"><span class="p-notsig">0.5753</span></td>
-                            <td class="or-value">2.07 (nan-nan)</td>
+                            <td class="or-value">4.57 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2175,23 +1698,15 @@
                             <td class="var-name">af</td>
                             <td class="or-value">1.89 (0.20-17.76)</td>
                             <td class="p-value"><span class="p-notsig">0.5789</span></td>
-                            <td class="or-value">1.27 (nan-nan)</td>
+                            <td class="or-value">0.44 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">trop</td>
-                            <td class="or-value">0.04 (0.00-4328.09)</td>
+                            <td class="or-value">0.04 (0.00-4328)</td>
                             <td class="p-value"><span class="p-notsig">0.5815</span></td>
-                            <td class="or-value">0.42 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">pf</td>
-                            <td class="or-value">1.01 (0.98-1.03)</td>
-                            <td class="p-value"><span class="p-notsig">0.5978</span></td>
-                            <td class="or-value">1.35 (nan-nan)</td>
+                            <td class="or-value">0.21 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2199,15 +1714,7 @@
                             <td class="var-name">sex</td>
                             <td class="or-value">0.78 (0.31-1.98)</td>
                             <td class="p-value"><span class="p-notsig">0.6027</span></td>
-                            <td class="or-value">2.74 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">ptt</td>
-                            <td class="or-value">0.97 (0.85-1.10)</td>
-                            <td class="p-value"><span class="p-notsig">0.6134</span></td>
-                            <td class="or-value">0.52 (nan-nan)</td>
+                            <td class="or-value">3.42 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2215,15 +1722,7 @@
                             <td class="var-name">dyspnea_rest</td>
                             <td class="or-value">1.26 (0.49-3.24)</td>
                             <td class="p-value"><span class="p-notsig">0.6355</span></td>
-                            <td class="or-value">0.48 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">sumrv</td>
-                            <td class="or-value">0.80 (0.31-2.06)</td>
-                            <td class="p-value"><span class="p-notsig">0.6444</span></td>
-                            <td class="or-value">2.21 (nan-nan)</td>
+                            <td class="or-value">0.18 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2231,15 +1730,7 @@
                             <td class="var-name">resp</td>
                             <td class="or-value">0.80 (0.31-2.10)</td>
                             <td class="p-value"><span class="p-notsig">0.6497</span></td>
-                            <td class="or-value">0.38 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">hb</td>
-                            <td class="or-value">0.93 (0.69-1.26)</td>
-                            <td class="p-value"><span class="p-notsig">0.6567</span></td>
-                            <td class="or-value">0.67 (nan-nan)</td>
+                            <td class="or-value">0.10 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2247,7 +1738,7 @@
                             <td class="var-name">heart</td>
                             <td class="or-value">1.23 (0.48-3.13)</td>
                             <td class="p-value"><span class="p-notsig">0.6680</span></td>
-                            <td class="or-value">0.63 (nan-nan)</td>
+                            <td class="or-value">0.56 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2255,7 +1746,7 @@
                             <td class="var-name">vent</td>
                             <td class="or-value">1.09 (0.74-1.59)</td>
                             <td class="p-value"><span class="p-notsig">0.6725</span></td>
-                            <td class="or-value">0.43 (nan-nan)</td>
+                            <td class="or-value">0.08 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2263,7 +1754,7 @@
                             <td class="var-name">ocp</td>
                             <td class="or-value">1.41 (0.27-7.52)</td>
                             <td class="p-value"><span class="p-notsig">0.6861</span></td>
-                            <td class="or-value">0.97 (nan-nan)</td>
+                            <td class="or-value">1.04 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2271,15 +1762,7 @@
                             <td class="var-name">dvt</td>
                             <td class="or-value">1.41 (0.27-7.52)</td>
                             <td class="p-value"><span class="p-notsig">0.6861</span></td>
-                            <td class="or-value">1.12 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">inr</td>
-                            <td class="or-value">0.70 (0.12-3.99)</td>
-                            <td class="p-value"><span class="p-notsig">0.6889</span></td>
-                            <td class="or-value">1.03 (nan-nan)</td>
+                            <td class="or-value">1.71 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2287,7 +1770,7 @@
                             <td class="var-name">syncope</td>
                             <td class="or-value">0.79 (0.24-2.63)</td>
                             <td class="p-value"><span class="p-notsig">0.6982</span></td>
-                            <td class="or-value">1.04 (nan-nan)</td>
+                            <td class="or-value">1.03 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2295,7 +1778,7 @@
                             <td class="var-name">newrvgood</td>
                             <td class="or-value">0.77 (0.20-2.90)</td>
                             <td class="p-value"><span class="p-notsig">0.6994</span></td>
-                            <td class="or-value">0.66 (nan-nan)</td>
+                            <td class="or-value">0.44 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2303,7 +1786,7 @@
                             <td class="var-name">s1q3t3</td>
                             <td class="or-value">0.77 (0.20-2.90)</td>
                             <td class="p-value"><span class="p-notsig">0.6994</span></td>
-                            <td class="or-value">3.27 (nan-nan)</td>
+                            <td class="or-value">6.69 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2311,15 +1794,7 @@
                             <td class="var-name">lactate</td>
                             <td class="or-value">0.95 (0.73-1.25)</td>
                             <td class="p-value"><span class="p-notsig">0.7245</span></td>
-                            <td class="or-value">0.87 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">hr</td>
-                            <td class="or-value">1.00 (0.97-1.02)</td>
-                            <td class="p-value"><span class="p-notsig">0.7318</span></td>
-                            <td class="or-value">1.08 (nan-nan)</td>
+                            <td class="or-value">0.39 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2327,7 +1802,7 @@
                             <td class="var-name">lung</td>
                             <td class="or-value">1.07 (0.71-1.60)</td>
                             <td class="p-value"><span class="p-notsig">0.7484</span></td>
-                            <td class="or-value">0.79 (nan-nan)</td>
+                            <td class="or-value">0.57 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2335,15 +1810,7 @@
                             <td class="var-name">dm</td>
                             <td class="or-value">0.86 (0.33-2.26)</td>
                             <td class="p-value"><span class="p-notsig">0.7667</span></td>
-                            <td class="or-value">1.32 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">alb</td>
-                            <td class="or-value">1.13 (0.48-2.66)</td>
-                            <td class="p-value"><span class="p-notsig">0.7739</span></td>
-                            <td class="or-value">1.16 (nan-nan)</td>
+                            <td class="or-value">3.01 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2351,15 +1818,7 @@
                             <td class="var-name">fever</td>
                             <td class="or-value">1.39 (0.14-14.03)</td>
                             <td class="p-value"><span class="p-notsig">0.7805</span></td>
-                            <td class="or-value">1.40 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">pao2</td>
-                            <td class="or-value">1.00 (0.97-1.04)</td>
-                            <td class="p-value"><span class="p-notsig">0.7870</span></td>
-                            <td class="or-value">1.25 (nan-nan)</td>
+                            <td class="or-value">0.70 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2367,7 +1826,7 @@
                             <td class="var-name">tvr_outcome</td>
                             <td class="or-value">1.06 (0.64-1.74)</td>
                             <td class="p-value"><span class="p-notsig">0.8302</span></td>
-                            <td class="or-value">0.41 (nan-nan)</td>
+                            <td class="or-value">0.03 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2375,7 +1834,7 @@
                             <td class="var-name">edema</td>
                             <td class="or-value">1.12 (0.35-3.59)</td>
                             <td class="p-value"><span class="p-notsig">0.8490</span></td>
-                            <td class="or-value">1.98 (nan-nan)</td>
+                            <td class="or-value">5.48 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2383,7 +1842,7 @@
                             <td class="var-name">dvt_us</td>
                             <td class="or-value">1.12 (0.35-3.59)</td>
                             <td class="p-value"><span class="p-notsig">0.8490</span></td>
-                            <td class="or-value">0.64 (nan-nan)</td>
+                            <td class="or-value">0.80 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2391,15 +1850,7 @@
                             <td class="var-name">stroke</td>
                             <td class="or-value">0.91 (0.16-5.29)</td>
                             <td class="p-value"><span class="p-notsig">0.9121</span></td>
-                            <td class="or-value">0.76 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">mortality_pe</td>
-                            <td class="or-value">130440.11 (0.00-39465328201196300122732908820230837134835854945055904409832252969018376264706968826115217466327040.00)</td>
-                            <td class="p-value"><span class="p-notsig">0.9137</span></td>
-                            <td class="or-value">20.76 (nan-nan)</td>
+                            <td class="or-value">0.41 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2407,7 +1858,7 @@
                             <td class="var-name">anticoag</td>
                             <td class="or-value">1.04 (0.43-2.54)</td>
                             <td class="p-value"><span class="p-notsig">0.9261</span></td>
-                            <td class="or-value">0.67 (nan-nan)</td>
+                            <td class="or-value">0.61 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2415,55 +1866,23 @@
                             <td class="var-name">dyspnea_exertion</td>
                             <td class="or-value">0.96 (0.35-2.62)</td>
                             <td class="p-value"><span class="p-notsig">0.9412</span></td>
-                            <td class="or-value">1.13 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">pco2</td>
-                            <td class="or-value">1.00 (0.95-1.06)</td>
-                            <td class="p-value"><span class="p-notsig">0.9549</span></td>
-                            <td class="or-value">1.24 (nan-nan)</td>
+                            <td class="or-value">1.05 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">lvfunction_outcome</td>
-                            <td class="or-value">153205.16 (0.00-2525550700642602618013747667486794672865625643306985969805770291892519821721968440714964488307464783246824199329034324008264434905361011096874394742405470504083016462212463158695191874095203407414874913069878846915717470387775999203924987011185834651974367189943833933985097051013120.00)</td>
+                            <td class="or-value">1.53e+05 (0.00-2.52e+159)</td>
                             <td class="p-value"><span class="p-notsig">0.9708</span></td>
-                            <td class="or-value">3.41 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">mortality_all</td>
-                            <td class="or-value">3680852.13 (0.00-inf)</td>
-                            <td class="p-value"><span class="p-notsig">0.9717</span></td>
-                            <td class="or-value">33.00 (nan-nan)</td>
+                            <td class="or-value">335.21 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
                         <tr>
                             <td class="var-name">newrvbad</td>
-                            <td class="or-value">1665725.59 (0.00-inf)</td>
+                            <td class="or-value">1.66e+06 (0.00-inf)</td>
                             <td class="p-value"><span class="p-notsig">0.9718</span></td>
-                            <td class="or-value">19.34 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">rvfunction_outcome</td>
-                            <td class="or-value">6121946.84 (0.00-inf)</td>
-                            <td class="p-value"><span class="p-notsig">0.9794</span></td>
-                            <td class="or-value">337.98 (nan-nan)</td>
-                            <td class="p-value"><span class="p-notsig">-</span></td>
-                        </tr>
-
-                        <tr>
-                            <td class="var-name">mortality_nonpe</td>
-                            <td class="or-value">1995840.64 (0.00-inf)</td>
-                            <td class="p-value"><span class="p-notsig">0.9831</span></td>
-                            <td class="or-value">3.62 (nan-nan)</td>
+                            <td class="or-value">3.46e+06 (nan-nan)</td>
                             <td class="p-value"><span class="p-notsig">-</span></td>
                         </tr>
 
@@ -2474,12 +1893,14 @@
 
         <div class="footer">
             <p>
-                <strong>Binary Logistic Regression Analysis</strong><br>
+                <strong>Binary Logistic Regression Analysis with Multicollinearity Adjustment</strong><br>
                 Outcome: Combined Outcome (Mortality + RV dysfunction)<br>
-                Generated: 29-Jan-2026 06:39:51<br><br>
-                <strong>Method:</strong> Standard Logistic Regression<br>
+                Generated: 29-Jan-2026 06:44:19<br><br>
+                <strong>Method:</strong> Standard Logistic Regression with VIF-based variable selection<br>
                 <strong>Model:</strong> Univariate (Crude) and Multivariate (Adjusted)<br>
                 <strong>Subgroup Variable:</strong> Malignancy (Yes/No)<br>
+                <strong>Multicollinearity:</strong> Excluded 26 variables with VIF &gt; 10<br>
+                <strong>Variables Used:</strong> 62 independent predictors<br>
                 <strong>Note:</strong> Adjusted ORs are from multivariate model with all variables standardized (mean=0, SD=1) for numerical stability
             </p>
         </div>
