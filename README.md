@@ -5,6 +5,7 @@
 This content reflects the repository structure (updated by GitHub Actions):
 
 ```text
+|-- KT-ai.html
 |-- blog.html
 |-- blog_index.json
 |-- infos /
