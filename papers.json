@@ -1,5 +1,65 @@
 [
   {
+    "date": "30 Jan",
+    "title": "Emergence of blaNDM-5",
+    "comment": "การแพร่กระจายของเชื้อดื้อยา MDR ที่อาจกระทบการรักษาผู้ป่วย ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41614306/"
+  },
+  {
+    "date": "30 Jan",
+    "title": "Systemic Pressures and Nurse Decision-Making in ICU Missed Nursing Care: A Meta-Synthesis",
+    "comment": "ผลกระทบต่อการตัดสินใจของพยาบาลใน ICU ที่ส่งผลต่อการดูแลผู้ป่วย ซึ่งอาจสะท้อนถึงปัญหาที่อาจเกิดใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41614330/"
+  },
+  {
+    "date": "30 Jan",
+    "title": "Prognostic Value of Artificial Intelligence-Enabled Electrocardiography-Derived Diastolic Dysfunction Grading and Trajectory in Patients Undergoing Transcatheter Aortic Valve Replacement",
+    "comment": "AI กับการแปลผล ECG ที่อาจนำมาใช้ประเมินผู้ป่วย ER ที่มีภาวะหัวใจผิดปกติ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41614319/"
+  },
+  {
+    "date": "30 Jan",
+    "title": "Heart-Brain Axis: Subclinical Cardiovascular Changes and Brain Health",
+    "comment": "ความเชื่อมโยงที่ซับซ้อนระหว่างหัวใจและสมอง ซึ่งสำคัญในการประเมินผู้ป่วย ER ที่มีอาการทางระบบประสาทและหัวใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41614273/"
+  },
+  {
+    "date": "30 Jan",
+    "title": "Impact of a Tracheostomy Care Bundle on ICU Nurses' Knowledge and Practice",
+    "comment": "แนวทางการดูแลผู้ป่วยที่มี Tracheostomy ที่อาจส่งผลต่อการจัดการใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41614279/"
+  },
+  {
+    "date": "30 Jan",
+    "title": "Pathophysiology of Chronic Pain",
+    "comment": "ความเข้าใจกลไกของอาการปวดเรื้อรังที่อาจนำไปสู่การรักษาใหม่ๆ ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41614224/"
+  },
+  {
+    "date": "30 Jan",
+    "title": "Emerging Role of ctDNA Fragmentomics and Epigenetic Signatures in the Early Detection, Minimal Residual Disease Assessment, and Precision Monitoring of Renal Cell Carcinoma",
+    "comment": "เทคโนโลยีใหม่ในการตรวจจับโรคที่อาจมีผลกับการคัดกรองผู้ป่วย ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41614220/"
+  },
+  {
+    "date": "30 Jan",
+    "title": "Tumor-Associated Macrophages as Therapeutic Targets: Deciphering Interaction Networks and Advancing Clinical Translation",
+    "comment": "แนวทางการรักษามะเร็งที่เกี่ยวข้องกับระบบภูมิคุ้มกัน ที่อาจมีผลต่อการตัดสินใจการรักษาผู้ป่วย ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41614207/"
+  },
+  {
+    "date": "30 Jan",
+    "title": "Effect of prophylactic antibiotics on days of antibiotic spectrum coverage in comatose post-cardiac arrest patients: a secondary analysis of PROTECT",
+    "comment": "การใช้ยาปฏิชีวนะในผู้ป่วยหลังหัวใจหยุดเต้นที่อาจนำมาปรับใช้กับผู้ป่วย ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41614001/"
+  },
+  {
+    "date": "30 Jan",
+    "title": "Can ChatGPT compete with emergency medicine specialists? A two-stage assessment of ECG interpretation supported by clinical information.",
+    "comment": "AI กับการแปลผล ECG ใน ER การนำมาใช้จริงและข้อจำกัด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41612211/"
+  },
+  {
     "date": "29 Jan",
     "title": "The Changing Landscape for Hyper-Acute Ischaemic Stroke Care",
     "comment": "อัปเดตแนวทางการดูแลผู้ป่วยโรคหลอดเลือดสมองตีบเฉียบพลันระยะวิกฤต ซึ่งสำคัญต่อ ER อย่างยิ่ง",
@@ -358,65 +418,5 @@
     "title": "Are antibiotics an effective initial treatment for acute appendicitis compared to appendectomy?",
     "comment": "ประเด็นถกเถียงเรื่องการรักษาไส้ติ่งอักเสบด้วยยาปฏิชีวนะ เทียบกับการผ่าตัด",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41579523/"
-  },
-  {
-    "date": "25 Jan",
-    "title": "🔹 Geographic distribution of EMS missions and patient conditions in suburban and rural Sweden: a retrospective observational study.",
-    "comment": "ข้อมูลเชิงพื้นที่ของ EMS และสภาวะผู้ป่วย ที่อาจนำไปสู่การปรับปรุงการจัดสรรทรัพยากร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41580812/"
-  },
-  {
-    "date": "25 Jan",
-    "title": "🔹 Association of cardiometabolic index with spondyloarthritis and its impact on health-related quality of life: findings from NHANES 2009-2010.",
-    "comment": "ความเชื่อมโยงของดัชนี Cardiometabolic กับโรคข้ออักเสบที่อาจนำไปสู่การประเมินผู้ป่วยที่ครอบคลุมขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41580285/"
-  },
-  {
-    "date": "25 Jan",
-    "title": "🔹 Guidelines 2024: Emergency intubation of an adult outside the operating room and intensive care unit.",
-    "comment": "แนวปฏิบัติล่าสุดสำหรับการ intubate ฉุกเฉินนอก OR/ICU ที่แพทย์ ER ทุกคนต้องรู้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41580229/"
-  },
-  {
-    "date": "25 Jan",
-    "title": "🔹 What is said, meant, heard: Practitioner-patient understanding during delivery of diagnoses in the emergency department.",
-    "comment": "สำคัญมาก! การสื่อสารการวินิจฉัยกับผู้ป่วยใน ER เพื่อลดความเข้าใจผิด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41579702/"
-  },
-  {
-    "date": "25 Jan",
-    "title": "🔹 A global perspective on the accuracy of pediatric weight estimation methods in emergency care: a systematic review.",
-    "comment": "ภาพรวมความแม่นยำของวิธีประเมินน้ำหนักเด็กใน ER ซึ่งส่งผลต่อการให้ยาโดยตรง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41579526/"
-  },
-  {
-    "date": "25 Jan",
-    "title": "🔹 Diagnostic Overshadowing: Delayed Management in Substance Use Disorder Patients With Splenic Injury.",
-    "comment": "การมองข้ามการวินิจฉัยในผู้ป่วย SDU ทำให้การรักษาสะดุด เป็นเคสที่เจอได้บ่อยใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41579520/"
-  },
-  {
-    "date": "24 Jan",
-    "title": "Integration of focused cardiac ultrasound in the HEAR and HEART scores in emergency department patients with chest pain.",
-    "comment": "การใช้ POCUS ใน ED ช่วยประเมินผู้ป่วยเจ็บหน้าอกที่มีความเสี่ยงต่ำ/ปานกลางได้อย่างมีประสิทธิภาพ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41579260/"
-  },
-  {
-    "date": "24 Jan",
-    "title": "Symptom Trajectories of People With Low Back Pain Presenting to the Emergency Department: Insights From the BACK TrAC Digital Care Pathway.",
-    "comment": "การศึกษาการดำเนินของอาการปวดหลังเฉียบพลันใน ER เพื่อพัฒนาระบบดูแลผู้ป่วยแบบดิจิทัล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41579124/"
-  },
-  {
-    "date": "24 Jan",
-    "title": "Evaluating the Feasibility, Acceptability, and Efficacy of an Emergency Department Digital Pain Self-Management Intervention to Improve Acute Low Back Pain Outcomes: A Pilot Randomized Controlled Trial.",
-    "comment": "การประเมินผลการใช้แอปพลิเคชันจัดการอาการปวดหลังเฉียบพลันใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41579122/"
-  },
-  {
-    "date": "24 Jan",
-    "title": "The escalating threat of multidrug-resistant organisms: COVID-19 impact, global burden, and the Taiwanese experience.",
-    "comment": "การระบาดของเชื้อดื้อยาหลายขนานที่เพิ่มสูงขึ้นจากผลกระทบของ COVID-19",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41579048/"
   }
 ]
