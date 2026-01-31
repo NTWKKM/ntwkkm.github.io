@@ -1,5 +1,65 @@
 [
   {
+    "date": "31 Jan",
+    "title": "Automated titration of nasal high flow oxygen in the emergency department: a randomised controlled trial.",
+    "comment": "ประเมินผลการใช้เครื่องช่วยหายใจแบบ High Flow Nasal Cannula อัตโนมัติ เพื่อปรับปรุงการดูแลผู้ป่วย ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41617483/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "CALLY Index as a Prognostic Marker for 30-Day Mortality in Fournier Gangrene: A Multicenter Retrospective Cohort Study.",
+    "comment": "ดัชนี CALLY เป็นตัวชี้วัดการเสียชีวิตใน 30 วันของผู้ป่วย Fournier Gangrene ที่อาจเปลี่ยนแนวทางการประเมินผู้ป่วยวิกฤต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41617665/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "Triage Use of the Dynamic Appraisal of Situational Aggression Score in Pediatric Emergency Care.",
+    "comment": "การนำ Dynamic Appraisal of Situational Aggression Score มาใช้ในการคัดแยกผู้ป่วยเด็กใน ER เพื่อประเมินความก้าวร้าว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41617657/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "Early prediction of colonization by carbapenemase-producing enterobacterales at ICU admission using machine learning.",
+    "comment": "การใช้ Machine Learning ในการทำนายการติดเชื้อดื้อยา Carbapenemase-producing Enterobacterales ตั้งแต่แรกรับผู้ป่วย ICU ซึ่งอาจนำมาสู่การคัดกรองผู้ป่วย ER ที่มีภาวะเสี่ยง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41617965/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "Shifting emergency department utilization patterns among vulnerable populations during the COVID-19 pandemic.",
+    "comment": "การเปลี่ยนแปลงรูปแบบการมา ER ของกลุ่มประชากรเปราะบางช่วง COVID-19 เป็นข้อมูลสำคัญต่อการวางแผนทรัพยากร ER ในอนาคต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41618185/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "Brief mindfulness meditation increases risk-taking behavior.",
+    "comment": "การทำสมาธิแบบสั้นๆ ส่งผลต่อพฤติกรรมเสี่ยง อาจมีนัยสำคัญต่อผู้ป่วย ER ที่มีปัญหาด้านพฤติกรรม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41617931/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "AI-driven virtual screening platform identifies novel NSUN2 inhibitor candidates for targeted cancer therapy: a computational drug discovery approach.",
+    "comment": "AI ช่วยคัดกรองยาใหม่ที่อาจมีประโยชน์ในการรักษามะเร็ง ซึ่งอาจนำไปสู่การพัฒนาการรักษาในอนาคต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41617787/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "Mechanistic and clinical insights into a PmrB mutation driving colistin resistance and virulence in Acinetobacter baumannii.",
+    "comment": "การเข้าใจกลไกการดื้อยา Colistin ของเชื้อ Acinetobacter baumannii เป็นเรื่องสำคัญต่อการรักษาการติดเชื้อใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41617754/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "The First Cadenza Challenge: Perceptual Evaluation of Machine Learning Systems to Improve Audio Quality of Popular Music for Those with Hearing Loss.",
+    "comment": "แม้จะไม่ตรงกับ ER โดยตรง แต่นวัตกรรม AI ในการปรับปรุงคุณภาพเสียงสำหรับผู้มีปัญหาทางการได้ยิน อาจมีแนวทางการประยุกต์ใช้กับเทคโนโลยีใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41618122/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "High prevalence of iron deficiency and predictive value of nutritional risk scores in critically ill geriatric emergency patients: a prospective cross-sectional study.",
+    "comment": "ภาวะขาดธาตุเหล็กในผู้ป่วยสูงอายุวิกฤตใน ER เป็นประเด็นที่ควรให้ความสนใจ และ Nutritional Risk Score อาจช่วยในการประเมิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41618097/"
+  },
+  {
     "date": "30 Jan",
     "title": "Emergence of blaNDM-5",
     "comment": "การระบาดของเชื้อดื้อยา MDR ที่อาจกระทบการรักษาฉุกเฉิน",
@@ -358,65 +418,5 @@
     "title": "Diagnosis of occlusion myocardial infarction",
     "comment": "การวินิจฉัยภาวะกล้ามเนื้อหัวใจขาดเลือดจากการอุดตัน เป็นประเด็นสำคัญที่ต้องทำความเข้าใจ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41581009/"
-  },
-  {
-    "date": "27 Jan",
-    "title": "Early Methylene Blue for Mortality Reduction in High-Dose VasoPREssor-Dependent Septic Shock (EMPRESS): protocol for a multicenter randomized controlled trial",
-    "comment": "การศึกษาการใช้ Methylene Blue ในภาวะ septic shock ที่ต้องใช้ยา Vasopressor ในขนาดสูง มีศักยภาพในการลดอัตราการเสียชีวิต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41580807/"
-  },
-  {
-    "date": "27 Jan",
-    "title": "Biomarkers and clinical rules for the management of mild traumatic brain injury: a narrative review",
-    "comment": "การรวบรวม biomarkers และ clinical rules สำหรับการจัดการภาวะบาดเจ็บทางสมองเล็กน้อย (mild TBI)",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41580617/"
-  },
-  {
-    "date": "27 Jan",
-    "title": "Older people and frailty in the emergency department",
-    "comment": "การจัดการผู้สูงอายุและภาวะเปราะบาง (frailty) ในห้องฉุกเฉิน เป็นประเด็นที่กำลังได้รับความสนใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41581021/"
-  },
-  {
-    "date": "27 Jan",
-    "title": "Occult Scalp Necrotizing Fasciitis After Blunt Head Trauma",
-    "comment": "การวินิจฉัยภาวะเนื้อเยื่อตายจากการติดเชื้อ (necrotizing fasciitis) ที่ซ่อนเร้นบนหนังศีรษะหลังการบาดเจ็บที่ศีรษะ เป็นกรณีศึกษาที่น่าสนใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41581297/"
-  },
-  {
-    "date": "27 Jan",
-    "title": "🔹 Innovations in microsurgery: The role of non-invasive blood perfusion imaging-A review and framework.",
-    "comment": "การใช้เทคโนโลยี non-invasive blood perfusion imaging ในการผ่าตัดจุลภาค",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582823/"
-  },
-  {
-    "date": "27 Jan",
-    "title": "🔹 Innovations in Biosensing Technologies for Cancer Diagnosis and Theranostics.",
-    "comment": "เทคโนโลยี biosensing ใหม่ๆ สำหรับการวินิจฉัยและรักษาโรคมะเร็ง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582576/"
-  },
-  {
-    "date": "27 Jan",
-    "title": "🔹 Newer insights into the mechanisms and therapeutic strategies for treatment-resistant depression.",
-    "comment": "กลไกและกลยุทธ์การรักษาภาวะซึมเศร้าที่รักษาได้ยาก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41581838/"
-  },
-  {
-    "date": "26 Jan",
-    "title": "Biomarkers in Irritable Bowel Syndrome: Rationale and Practical Use",
-    "comment": "การใช้ Biomarkers ในผู้ป่วย IBS เพื่อการวินิจฉัยและการดูแลรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41581955/"
-  },
-  {
-    "date": "26 Jan",
-    "title": "Emerging Risks of Nitazene-Adulterated Vapes in Australia: Balancing Regulation, Access and Harm Reduction",
-    "comment": "ความเสี่ยงใหม่จากบุหรี่ไฟฟ้าที่ผสม Nitazene ในออสเตรเลีย ชี้ประเด็นถกเถียงด้านสาธารณสุข",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582012/"
-  },
-  {
-    "date": "26 Jan",
-    "title": "Commentary: An impressive state-of-the-science account and an exciting springboard for new paths: the present and future of research on early conduct problems - a commentary on Hyde et al. (2025).",
-    "comment": "ความเข้าใจใหม่เกี่ยวกับปัญหาพฤติกรรมในเด็กและแนวทางการวิจัยในอนาคต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582613/"
   }
 ]
