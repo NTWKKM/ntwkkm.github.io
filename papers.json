@@ -1,21 +1,63 @@
 [
   {
     "date": "31 Jan",
-    "title": "Automated titration of nasal high flow oxygen in the emergency department: a randomised controlled trial.",
-    "comment": "ประเมินผลการใช้เครื่องช่วยหายใจแบบ High Flow Nasal Cannula อัตโนมัติ เพื่อปรับปรุงการดูแลผู้ป่วย ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41617483/"
+    "title": "AI-driven analysis of patient safety reports using large language models: an exploratory multiple methods study",
+    "comment": "AI ช่วยวิเคราะห์รายงานความปลอดภัยผู้ป่วยได้ แม่นยำและรวดเร็วขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41617612/"
   },
   {
     "date": "31 Jan",
-    "title": "CALLY Index as a Prognostic Marker for 30-Day Mortality in Fournier Gangrene: A Multicenter Retrospective Cohort Study.",
-    "comment": "ดัชนี CALLY เป็นตัวชี้วัดการเสียชีวิตใน 30 วันของผู้ป่วย Fournier Gangrene ที่อาจเปลี่ยนแนวทางการประเมินผู้ป่วยวิกฤต",
+    "title": "CALLY Index as a Prognostic Marker for 30-Day Mortality in Fournier Gangrene: A Multicenter Retrospective Cohort Study",
+    "comment": "ดัชนี CALLY ใช้ทำนายการเสียชีวิตใน 30 วันในผู้ป่วย Fournier Gangrene ได้",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41617665/"
   },
   {
     "date": "31 Jan",
-    "title": "Triage Use of the Dynamic Appraisal of Situational Aggression Score in Pediatric Emergency Care.",
-    "comment": "การนำ Dynamic Appraisal of Situational Aggression Score มาใช้ในการคัดแยกผู้ป่วยเด็กใน ER เพื่อประเมินความก้าวร้าว",
+    "title": "Triage Use of the Dynamic Appraisal of Situational Aggression Score in Pediatric Emergency Care",
+    "comment": "การใช้ Dynamic Appraisal of Situational Aggression Score ในการคัดแยกผู้ป่วยเด็กใน ER มีประโยชน์",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41617657/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "Automated titration of nasal high flow oxygen in the emergency department: a randomised controlled trial",
+    "comment": "การปรับปริมาณออกซิเจนผ่าน nasal high flow อัตโนมัติใน ER ช่วยเพิ่มความปลอดภัย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41617483/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "Feasibility study of fast T2-weighted imaging with deep-learning reconstruction in volunteers and emergency patients with acute abdomen",
+    "comment": "Deep learning ช่วยให้การทำ T2-weighted imaging รวดเร็วขึ้นสำหรับผู้ป่วย acute abdomen",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616758/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "Prehospital management of convulsive status epilepticus in children: a knowledge, attitude and practice survey of UK ambulance service clinicians",
+    "comment": "การจัดการ Status Epilepticus ในเด็กก่อนถึงโรงพยาบาลใน UK ยังต้องการการพัฒนา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616755/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "Retrospective chart review on psychiatric manifestations of GLP-1 agonist usage",
+    "comment": "GLP-1 agonist อาจมีผลข้างเคียงทางจิตเวชที่ต้องเฝ้าระวัง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616750/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "Antiseizure medication discontinuation in pediatric epilepsy: Real-world insights",
+    "comment": "การหยุดยา Antiepileptic ในเด็กมีปัจจัยหลายอย่างที่ต้องพิจารณา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616747/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "Attempted definitive revision amputations in emergency department vs operating room for traumatic finger injuries are associated with a high rate of revision surgery",
+    "comment": "การตัดสินใจตัดนิ้วบางส่วนใน ER สำหรับการบาดเจ็บมีโอกาสต้องผ่าตัดซ้ำสูง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616723/"
+  },
+  {
+    "date": "31 Jan",
+    "title": "VExUS Point-of-Care Ultrasound Tool to Detect Changes in Volume Status: A Prospective Observational Study",
+    "comment": "VExUS ultrasound สามารถประเมิน Volume Status ที่ข้างเตียงผู้ป่วยได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616585/"
   },
   {
     "date": "31 Jan",
@@ -376,47 +418,5 @@
     "title": "Association of Geriatric Consult Services With Geriatric Processes of Care and Clinical Outcomes in US Trauma Centers",
     "comment": "การปรึกษาผู้เชี่ยวชาญด้านผู้สูงอายุในศูนย์อุบัติเหตุส่งผลดีต่อการดูแลและผลลัพธ์ผู้ป่วย",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41582694/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Anesthetic Strategies for Closed Reduction of Dislocated Total Hip Arthroplasty: A Scoping Review",
-    "comment": "แนวทางการวางยาสลบสำหรับการรักษาข้อสะโพกเทียมเคลื่อนที่หลุด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582655/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Pain Management in Aneurysmatic Subarachnoid Haemorrhage: A Survey of Nordic Physicians",
-    "comment": "การสำรวจแนวทางการจัดการความปวดในผู้ป่วยเลือดออกในสมองจากหลอดเลือดโป่งพองของแพทย์ในกลุ่มประเทศนอร์ดิก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582646/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Clinical Ethicists and Medical Assistance in Dying (MAiD): Possible Roles and Challenges",
-    "comment": "บทบาทและความท้าทายของนักจริยธรรมทางการแพทย์ในการช่วยเหลือผู้ป่วยในการยุติชีวิต (MAiD)",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582610/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Targeting Factor XI for Safer Anticoagulation: Emerging Data and Future Directions",
-    "comment": "ยับยั้ง Factor XI เพื่อการต้านการแข็งตัวของเลือดที่ปลอดภัยขึ้น: ข้อมูลใหม่และทิศทางในอนาคต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41581095/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Point-of-care ultrasound in the modern era of emergency medicine: a narrative review of the recent literature",
-    "comment": "การทบทวนวรรณกรรมล่าสุดเกี่ยวกับประโยชน์ของอัลตราซาวด์ ณ จุดดูแลผู้ป่วย (POCUS) ในเวชศาสตร์ฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41581010/"
-  },
-  {
-    "date": "27 Jan",
-    "title": "Beyond the Usual: Novel Therapeutic Roles for Established Antidotes",
-    "comment": "การค้นพบและนำเสนอแนวทางการรักษาใหม่ๆ จากยาแก้พิษที่มีอยู่เดิม เป็นนวัตกรรมที่น่าจับตามอง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582326/"
-  },
-  {
-    "date": "27 Jan",
-    "title": "Diagnosis of occlusion myocardial infarction",
-    "comment": "การวินิจฉัยภาวะกล้ามเนื้อหัวใจขาดเลือดจากการอุดตัน เป็นประเด็นสำคัญที่ต้องทำความเข้าใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41581009/"
   }
 ]
