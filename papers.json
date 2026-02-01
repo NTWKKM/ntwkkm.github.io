@@ -1,39 +1,75 @@
 [
   {
     "date": "1 Feb",
+    "title": "Early prediction of colonization by carbapenemase-producing enterobacterales at ICU admission using machine learning",
+    "comment": "AI ช่วยทำนายการติดเชื้อดื้อยาใน ICU ได้ตั้งแต่แรกรับ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41617965/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "Automated titration of nasal high flow oxygen in the emergency department: a randomised controlled trial",
+    "comment": "การปรับปริมาณ High Flow Nasal Cannula อัตโนมัติใน ER ช่วยลดภาระงานและเพิ่มความแม่นยำ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41617483/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "The CALLY Index as a Prognostic Marker for 30-Day Mortality in Fournier Gangrene: A Multicenter Retrospective Cohort Study",
+    "comment": "ดัชนี CALLY เป็นตัวชี้วัดใหม่สำหรับพยากรณ์การเสียชีวิตใน 30 วันของผู้ป่วย Fournier Gangrene",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41617665/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "Triage Use of the Dynamic Appraisal of Situational Aggression Score in Pediatric Emergency Care",
+    "comment": "เครื่องมือประเมินความก้าวร้าวฉับพลัน ช่วยคัดกรองผู้ป่วยเด็กใน ER ที่อาจมีพฤติกรรมรุนแรง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41617657/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "Artificial intelligence in emergency medicine: a narrative review",
+    "comment": "AI กำลังเข้ามามีบทบาทสำคัญในการแพทย์ฉุกเฉิน ทั้งการวินิจฉัย การจัดการ และการพัฒนาระบบ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616395/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "Point-of-care ultrasound for hip effusion in children: A systematic review and meta-analysis",
+    "comment": "POCUS เป็นเครื่องมือที่มีประโยชน์ในการวินิจฉัยภาวะข้อสะโพกอักเสบในเด็ก ลดความจำเป็นในการถ่ายภาพรังสี",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616394/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "Diagnostic and prognostic value of the risk factor-weighted clinical likelihood model in acute chest pain and negative troponin",
+    "comment": "โมเดลใหม่ช่วยประเมินความเสี่ยงของโรคหัวใจเฉียบพลันในผู้ป่วยเจ็บหน้าอกที่ผล Troponin เป็นลบ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616393/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "Impact of the coronavirus pandemic on bystander CPR, dispatcher-assisted CPR, EMS response time, and survival outcomes in China",
+    "comment": "COVID-19 กระทบต่อการช่วยเหลือ CPR โดยพลเมือง การตอบสนองของ EMS และอัตราการรอดชีวิต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616392/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "VExUS Point-of-Care Ultrasound Tool to Detect Changes in Volume Status: A Prospective Observational Study",
+    "comment": "VExUS ultrasound ใช้ประเมินภาวะสารน้ำในร่างกายอย่างรวดเร็วและง่ายดาย bedside",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616585/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "Novel 'No-Lo' imaging techniques to minimise intraoperative radiation exposure in vascular and endovascular surgery",
+    "comment": "เทคนิคการถ่ายภาพรังสีแบบใหม่ลดปริมาณรังสีในระหว่างการผ่าตัดหลอดเลือด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616878/"
+  },
+  {
+    "date": "1 Feb",
     "title": "AI-driven analysis of patient safety reports using large language models: an exploratory multiple methods study.",
     "comment": "AI ช่วยวิเคราะห์รายงานความปลอดภัยผู้ป่วยเพื่อหาแนวโน้มที่อาจเป็นอันตราย",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41617612/"
   },
   {
     "date": "1 Feb",
-    "title": "CALLY Index as a Prognostic Marker for 30-Day Mortality in Fournier Gangrene: A Multicenter Retrospective Cohort Study.",
-    "comment": "ดัชนี CALLY ใหม่ช่วยคาดการณ์อัตราการตาย 30 วันในผู้ป่วย Fournier Gangrene",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41617665/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "Triage Use of the Dynamic Appraisal of Situational Aggression Score in Pediatric Emergency Care.",
-    "comment": "การใช้ Dynamic Appraisal of Situational Aggression Score ช่วยในการคัดแยกผู้ป่วยเด็กใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41617657/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "Automated titration of nasal high flow oxygen in the emergency department: a randomised controlled trial.",
-    "comment": "การปรับระดับ High Flow Oxygen อัตโนมัติใน ER ลดภาระงานและอาจเพิ่มประสิทธิภาพ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41617483/"
-  },
-  {
-    "date": "1 Feb",
     "title": "Reimbursement and Policy Considerations of Point-of-Care Ultrasound (POCUS) in Rural Family Medicine.",
     "comment": "ข้อเสนอแนะด้านนโยบายและค่าใช้จ่ายสำหรับการใช้ POCUS ในพื้นที่ชนบท",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41617404/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "VExUS Point-of-Care Ultrasound Tool to Detect Changes in Volume Status: A Prospective Observational Study.",
-    "comment": "เครื่องมือ VExUS ultrasound แบบพกพาช่วยประเมินภาวะปริมาณสารน้ำในร่างกายได้รวดเร็ว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616585/"
   },
   {
     "date": "1 Feb",
@@ -52,30 +88,6 @@
     "title": "Retrospective chart review on psychiatric manifestations of GLP-1 agonist usage.",
     "comment": "ความผิดปกติทางจิตเวชที่อาจเกิดขึ้นจากการใช้ยา GLP-1 agonists",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41616750/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "Impact of the coronavirus pandemic on bystander CPR, dispatcher-assisted CPR, EMS response time, and survival outcomes in China.",
-    "comment": "ผลกระทบของ COVID-19 ต่อการช่วยชีวิตขั้นพื้นฐานและอัตราการรอดชีวิต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616392/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "Artificial intelligence in emergency medicine: a narrative review.",
-    "comment": "ภาพรวมการประยุกต์ใช้ AI ในเวชศาสตร์ฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616395/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "Point-of-care ultrasound for hip effusion in children: A systematic review and meta-analysis.",
-    "comment": "POCUS เป็นเครื่องมือที่แม่นยำในการวินิจฉัยภาวะน้ำในข้อสะโพกในเด็ก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616394/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "Diagnostic and prognostic value of the risk factor-weighted clinical likelihood model in acute chest pain and negative troponin.",
-    "comment": "แบบจำลองความน่าจะเป็นทางคลินิกที่มีน้ำหนักปัจจัยเสี่ยงช่วยวินิจฉัยและพยากรณ์โรคในผู้ป่วยเจ็บหน้าอกเฉียบพลัน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616393/"
   },
   {
     "date": "1 Feb",
@@ -100,12 +112,6 @@
     "title": "Attempted definitive revision amputations in emergency department vs operating room for traumatic finger injuries are associated with a high rate of revision surgery",
     "comment": "การตัดสินใจตัดนิ้วบางส่วนใน ER สำหรับการบาดเจ็บมีโอกาสต้องผ่าตัดซ้ำสูง",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41616723/"
-  },
-  {
-    "date": "31 Jan",
-    "title": "Early prediction of colonization by carbapenemase-producing enterobacterales at ICU admission using machine learning.",
-    "comment": "การใช้ Machine Learning ในการทำนายการติดเชื้อดื้อยา Carbapenemase-producing Enterobacterales ตั้งแต่แรกรับผู้ป่วย ICU ซึ่งอาจนำมาสู่การคัดกรองผู้ป่วย ER ที่มีภาวะเสี่ยง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41617965/"
   },
   {
     "date": "31 Jan",
@@ -412,11 +418,5 @@
     "title": "Comparing Guidelines for Atrial Fibrillation: Focus on Emergency Medicine",
     "comment": "การเปรียบเทียบแนวปฏิบัติสำหรับ Atrial Fibrillation โดยเน้นที่มุมมองของเวชศาสตร์ฉุกเฉิน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41603838/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Kounis Syndrome: An Entity One Should Not Forget",
-    "comment": "เตือนให้ระลึกถึง Kounis Syndrome ซึ่งเป็นภาวะฉุกเฉินที่สำคัญแต่บางครั้งอาจถูกมองข้าม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41602259/"
   }
 ]
