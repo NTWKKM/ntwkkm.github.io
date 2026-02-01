@@ -1,45 +1,93 @@
 [
   {
-    "date": "31 Jan",
-    "title": "AI-driven analysis of patient safety reports using large language models: an exploratory multiple methods study",
-    "comment": "AI ช่วยวิเคราะห์รายงานความปลอดภัยผู้ป่วยได้ แม่นยำและรวดเร็วขึ้น",
+    "date": "1 Feb",
+    "title": "AI-driven analysis of patient safety reports using large language models: an exploratory multiple methods study.",
+    "comment": "AI ช่วยวิเคราะห์รายงานความปลอดภัยผู้ป่วยเพื่อหาแนวโน้มที่อาจเป็นอันตราย",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41617612/"
   },
   {
-    "date": "31 Jan",
-    "title": "CALLY Index as a Prognostic Marker for 30-Day Mortality in Fournier Gangrene: A Multicenter Retrospective Cohort Study",
-    "comment": "ดัชนี CALLY ใช้ทำนายการเสียชีวิตใน 30 วันในผู้ป่วย Fournier Gangrene ได้",
+    "date": "1 Feb",
+    "title": "CALLY Index as a Prognostic Marker for 30-Day Mortality in Fournier Gangrene: A Multicenter Retrospective Cohort Study.",
+    "comment": "ดัชนี CALLY ใหม่ช่วยคาดการณ์อัตราการตาย 30 วันในผู้ป่วย Fournier Gangrene",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41617665/"
   },
   {
-    "date": "31 Jan",
-    "title": "Triage Use of the Dynamic Appraisal of Situational Aggression Score in Pediatric Emergency Care",
-    "comment": "การใช้ Dynamic Appraisal of Situational Aggression Score ในการคัดแยกผู้ป่วยเด็กใน ER มีประโยชน์",
+    "date": "1 Feb",
+    "title": "Triage Use of the Dynamic Appraisal of Situational Aggression Score in Pediatric Emergency Care.",
+    "comment": "การใช้ Dynamic Appraisal of Situational Aggression Score ช่วยในการคัดแยกผู้ป่วยเด็กใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41617657/"
   },
   {
-    "date": "31 Jan",
-    "title": "Automated titration of nasal high flow oxygen in the emergency department: a randomised controlled trial",
-    "comment": "การปรับปริมาณออกซิเจนผ่าน nasal high flow อัตโนมัติใน ER ช่วยเพิ่มความปลอดภัย",
+    "date": "1 Feb",
+    "title": "Automated titration of nasal high flow oxygen in the emergency department: a randomised controlled trial.",
+    "comment": "การปรับระดับ High Flow Oxygen อัตโนมัติใน ER ลดภาระงานและอาจเพิ่มประสิทธิภาพ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41617483/"
   },
   {
-    "date": "31 Jan",
-    "title": "Feasibility study of fast T2-weighted imaging with deep-learning reconstruction in volunteers and emergency patients with acute abdomen",
-    "comment": "Deep learning ช่วยให้การทำ T2-weighted imaging รวดเร็วขึ้นสำหรับผู้ป่วย acute abdomen",
+    "date": "1 Feb",
+    "title": "Reimbursement and Policy Considerations of Point-of-Care Ultrasound (POCUS) in Rural Family Medicine.",
+    "comment": "ข้อเสนอแนะด้านนโยบายและค่าใช้จ่ายสำหรับการใช้ POCUS ในพื้นที่ชนบท",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41617404/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "VExUS Point-of-Care Ultrasound Tool to Detect Changes in Volume Status: A Prospective Observational Study.",
+    "comment": "เครื่องมือ VExUS ultrasound แบบพกพาช่วยประเมินภาวะปริมาณสารน้ำในร่างกายได้รวดเร็ว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616585/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "Feasibility study of fast T2-weighted imaging with deep-learning reconstruction in volunteers and emergency patients with acute abdomen.",
+    "comment": "Deep learning ช่วยให้การทำ MRI ช่องท้องเฉียบพลันเร็วขึ้นในผู้ป่วย ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41616758/"
   },
   {
-    "date": "31 Jan",
-    "title": "Prehospital management of convulsive status epilepticus in children: a knowledge, attitude and practice survey of UK ambulance service clinicians",
-    "comment": "การจัดการ Status Epilepticus ในเด็กก่อนถึงโรงพยาบาลใน UK ยังต้องการการพัฒนา",
+    "date": "1 Feb",
+    "title": "Prehospital management of convulsive status epilepticus in children: a knowledge, attitude and practice survey of UK ambulance service clinicians.",
+    "comment": "สำรวจความรู้ ทัศนคติ และแนวปฏิบัติในการจัดการชักต่อเนื่องในเด็กก่อนถึงโรงพยาบาล",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41616755/"
   },
   {
-    "date": "31 Jan",
-    "title": "Retrospective chart review on psychiatric manifestations of GLP-1 agonist usage",
-    "comment": "GLP-1 agonist อาจมีผลข้างเคียงทางจิตเวชที่ต้องเฝ้าระวัง",
+    "date": "1 Feb",
+    "title": "Retrospective chart review on psychiatric manifestations of GLP-1 agonist usage.",
+    "comment": "ความผิดปกติทางจิตเวชที่อาจเกิดขึ้นจากการใช้ยา GLP-1 agonists",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41616750/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "Impact of the coronavirus pandemic on bystander CPR, dispatcher-assisted CPR, EMS response time, and survival outcomes in China.",
+    "comment": "ผลกระทบของ COVID-19 ต่อการช่วยชีวิตขั้นพื้นฐานและอัตราการรอดชีวิต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616392/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "Artificial intelligence in emergency medicine: a narrative review.",
+    "comment": "ภาพรวมการประยุกต์ใช้ AI ในเวชศาสตร์ฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616395/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "Point-of-care ultrasound for hip effusion in children: A systematic review and meta-analysis.",
+    "comment": "POCUS เป็นเครื่องมือที่แม่นยำในการวินิจฉัยภาวะน้ำในข้อสะโพกในเด็ก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616394/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "Diagnostic and prognostic value of the risk factor-weighted clinical likelihood model in acute chest pain and negative troponin.",
+    "comment": "แบบจำลองความน่าจะเป็นทางคลินิกที่มีน้ำหนักปัจจัยเสี่ยงช่วยวินิจฉัยและพยากรณ์โรคในผู้ป่วยเจ็บหน้าอกเฉียบพลัน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616393/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "Automated Abdominal Aortic Calcification Scores and Atherosclerotic Cardiovascular Disease in the UK Biobank Imaging Study.",
+    "comment": "การคำนวณคะแนนหินปูนในหลอดเลือดแดงใหญ่ช่องท้องอัตโนมัติช่วยทำนายโรคหลอดเลือดหัวใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616586/"
+  },
+  {
+    "date": "1 Feb",
+    "title": "Paracetamol versus ibuprofen as required for fever or pain in the first year of life and the risk of eczema and bronchiolitis at age 1 year in New Zealand (PIPPA Tamariki): a multicentre, open-label, parallel-group, superiority, randomised controlled trial.",
+    "comment": "การเปรียบเทียบพาราเซตามอลและไอบูโพรเฟนในเด็กเล็กกับความเสี่ยงโรคภูมิแพ้และหลอดลมอักเสบ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41616793/"
   },
   {
     "date": "31 Jan",
@@ -52,12 +100,6 @@
     "title": "Attempted definitive revision amputations in emergency department vs operating room for traumatic finger injuries are associated with a high rate of revision surgery",
     "comment": "การตัดสินใจตัดนิ้วบางส่วนใน ER สำหรับการบาดเจ็บมีโอกาสต้องผ่าตัดซ้ำสูง",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41616723/"
-  },
-  {
-    "date": "31 Jan",
-    "title": "VExUS Point-of-Care Ultrasound Tool to Detect Changes in Volume Status: A Prospective Observational Study",
-    "comment": "VExUS ultrasound สามารถประเมิน Volume Status ที่ข้างเตียงผู้ป่วยได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616585/"
   },
   {
     "date": "31 Jan",
@@ -376,47 +418,5 @@
     "title": "Kounis Syndrome: An Entity One Should Not Forget",
     "comment": "เตือนให้ระลึกถึง Kounis Syndrome ซึ่งเป็นภาวะฉุกเฉินที่สำคัญแต่บางครั้งอาจถูกมองข้าม",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41602259/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Minutes to Save a Life in Acute GI Bleeding: A Systematic Review of Early vs. Delayed Endoscopy",
-    "comment": "การทบทวนอย่างเป็นระบบเกี่ยวกับเวลาที่เหมาะสมในการส่องกล้องในภาวะเลือดออกทางเดินอาหารเฉียบพลัน ซึ่งมีผลต่อการตัดสินใจใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41602247/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "ECG-Based Prediction of Shock-Refractory Ventricular Fibrillation During Resuscitation Without Interrupting CPR",
-    "comment": "ทำนายภาวะหัวใจเต้นผิดจังหวะชนิด ventricular fibrillation ที่ไม่ตอบสนองต่อการช็อกไฟฟ้าโดยไม่ต้องหยุด CPR",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582806/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Guidelines in Action: Extending the Treatment Window for Thrombolysis in Acute Ischemic Stroke",
-    "comment": "แนวทางการรักษาใหม่สำหรับผู้ป่วยโรคหลอดเลือดสมองตีบเฉียบพลัน ด้วยการขยายเวลาในการให้ยาละลายลิ่มเลือด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582826/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Guidelines in Action: Flight of the Mobile Stroke Unit",
-    "comment": "รถพยาบาลเคลื่อนที่รักษาโรคหลอดเลือดสมอง (Mobile Stroke Unit) อาจเปลี่ยนแนวทางการดูแลผู้ป่วยในภาวะฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582819/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Guideline for the Early Management of Patients With Acute Ischemic Stroke: A Guideline From the American Heart Association/American Stroke Association",
-    "comment": "คู่มือการดูแลผู้ป่วยโรคหลอดเลือดสมองตีบเฉียบพลันฉบับปี 2026 ที่อาจปรับเปลี่ยนแนวทางการรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582814/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "d-Dimer With the Aortic Dissection Detection Risk Score May Improve Patient Selection for Acute Aortic Syndrome Diagnostic Imaging",
-    "comment": "การใช้ D-dimer ร่วมกับ Aortic Dissection Detection Risk Score ช่วยคัดกรองผู้ป่วยที่ต้องทำ CT scan ได้ดีขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582603/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Association of Geriatric Consult Services With Geriatric Processes of Care and Clinical Outcomes in US Trauma Centers",
-    "comment": "การปรึกษาผู้เชี่ยวชาญด้านผู้สูงอายุในศูนย์อุบัติเหตุส่งผลดีต่อการดูแลและผลลัพธ์ผู้ป่วย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41582694/"
   }
 ]
