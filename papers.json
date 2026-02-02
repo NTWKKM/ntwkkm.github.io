@@ -2,32 +2,104 @@
   {
     "date": "2 Feb",
     "title": "Possible detrimental effects of postponed intubation during interhospital transfer of severely brain injured patients: retrospective analysis of the Traumaregister DGU",
-    "comment": "การเลื่อนการใส่ท่อช่วยหายใจในผู้ป่วยบาดเจ็บทางสมองรุนแรงระหว่างการส่งต่อมีผลเสีย",
+    "comment": "การเลื่อน intubation ผู้ป่วยบาดเจ็บสมองรุนแรงระหว่างการส่งต่อระหว่าง รพ. อาจมีผลเสีย",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41627455/"
   },
   {
     "date": "2 Feb",
-    "title": "Tonicity and colloid osmotic pressure drive microvascular recovery from low volume hypotensive resuscitation from hemorrhagic shock",
-    "comment": "การปรับสมดุลความเข้มข้นของสารละลายและความดันออสโมติกร่วมมีผลต่อการฟื้นตัวของหลอดเลือดฝอยในภาวะเสียเลือดจากภาวะช็อก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41626220/"
+    "title": "Mechanical circulatory support for cardiogenic shock in takotsubo syndrome.",
+    "comment": "การใช้ mechanical circulatory support ในภาวะ cardiogenic shock จาก takotsubo syndrome",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41627440/"
   },
   {
     "date": "2 Feb",
-    "title": "Clinical features and sociodemographic characteristics associated with analytically confirmed exposure to MDMB-4en-PINACA",
-    "comment": "การระบาดของยาเสพติดสังเคราะห์ MDMB-4en-PINACA และลักษณะผู้ป่วยที่ได้รับผลกระทบ",
+    "title": "Correction: Impact of an AI-powered hospital admission prediction dashboard to guide medication reconciliation in the emergency department: a retrospective before-after study.",
+    "comment": "AI ช่วยลดความผิดพลาดในการสั่งยาใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41627662/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Bias and Oversight in Clinical AI: A Review of Decision Support Tools and Equity Frameworks.",
+    "comment": "ความท้าทายเรื่องอคติและการกำกับดูแล AI ในการตัดสินใจทางการแพทย์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41627658/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Integrating AI Scribes into Medical Education: Guardrails for Preserving Clinical Reasoning.",
+    "comment": "การใช้ AI Scribes ในการเรียนการสอนแพทย์ ต้องมีกลไกป้องกันการสูญเสียการคิดวิเคราะห์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41627656/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "How health systems learn to fail : Emergency departments and the normalization of breakdown.",
+    "comment": "ER กับการปรับตัวต่อความผิดพลาดที่เกิดขึ้นซ้ำๆ จนกลายเป็นเรื่องปกติ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41627615/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Comparing conventional versus 3D printed simulators for simulation training of emergency percutaneous cricothyrotomy with two different kits: a randomized controlled trial.",
+    "comment": "การเปรียบเทียบ simulator แบบ 3D print กับแบบเดิมสำหรับการฝึก cricothyrotomy ฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41627605/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Clinical features and sociodemographic characteristics associated with analytically confirmed exposure to MDMB-4en-PINACA.",
+    "comment": "ข้อมูลผู้ป่วยที่ได้รับสาร MDMB-4en-PINACA ซึ่งเป็นยาเสพติดสังเคราะห์",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41627129/"
   },
   {
     "date": "2 Feb",
-    "title": "Role of Perfusion Index as a Predictor of Vasopressor Requirement in Patients With Sepsis",
-    "comment": "Perfusion index อาจเป็นตัวบ่งชี้การใช้ยา vasopressor ในผู้ป่วย sepsis",
+    "title": "Cyanide toxicity from high-dose nitroprusside infusion in a critically ill patient on veno-arterial extracorporeal membrane oxygenation.",
+    "comment": "การเกิดพิษจาก cyanide จาก nitroprusside ในผู้ป่วยวิกฤตที่ใช้ VA-ECMO",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41627127/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Role of Perfusion Index as a Predictor of Vasopressor Requirement in Patients With Sepsis.",
+    "comment": "Perfusion Index อาจช่วยทำนายความจำเป็นในการให้ vasopressor ในผู้ป่วย sepsis",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41625800/"
   },
   {
     "date": "2 Feb",
-    "title": "Mechanical circulatory support for cardiogenic shock in takotsubo syndrome",
-    "comment": "การใช้เครื่องพยุงการไหลเวียนเลือดในภาวะ cardiogenic shock จาก takotsubo syndrome",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41627440/"
+    "title": "Tonicity and colloid osmotic pressure drive microvascular recovery from low volume hypotensive resuscitation from hemorrhagic shock.",
+    "comment": "ความสำคัญของ tonicity และ colloid osmotic pressure ต่อการฟื้นตัวของหลอดเลือดฝอยหลังภาวะ shock เสียเลือด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41626220/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Rationale, development and feasibility of a national prehospital transfusion registry.",
+    "comment": "การพัฒนาระบบ registry สำหรับการให้เลือดนอกโรงพยาบาล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41626219/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Rationale, development and feasibility of a national prehospital transfusion registry.",
+    "comment": "การพัฒนาระบบ registry สำหรับการให้เลือดนอกโรงพยาบาล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41626219/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Performance of Physicians and AI Systems on Pulmonary Thromboembolism Questions.",
+    "comment": "การเปรียบเทียบประสิทธิภาพของแพทย์และ AI ในการตอบคำถามเกี่ยวกับ pulmonary thromboembolism",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41625912/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Intraoperative Detection and Management of Euglycemic Ketonemia During Emergency Surgery Using Point-of-Care Blood Beta-Hydroxybutyrate Testing in a Patient Receiving Sodium-Glucose Cotransporter 2 (SGLT2) Inhibitors: A Case Report.",
+    "comment": "การตรวจพบและจัดการภาวะ euglycemic ketonemia ระหว่างผ่าตัดฉุกเฉินในผู้ป่วยที่ใช้ SGLT2 inhibitors",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41625909/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "The \"4D Approach\"-An Effective Strategy to Improve Emergency Department Boarding and Operational Outcomes.",
+    "comment": "กลยุทธ์ \"4D Approach\" เพื่อลดปัญหา ED boarding",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41625695/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Opioid Prescribing Patterns of Board-Certified Emergency Physicians Compared With Other Physicians Practicing Emergency Medicine Among Medicare Part-D Beneficiaries Between 2018 and 2020 in the United States.",
+    "comment": "รูปแบบการสั่งยา opioid ของแพทย์ ER เทียบกับแพทย์อื่นที่ปฏิบัติงานใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41625694/"
   },
   {
     "date": "2 Feb",
@@ -43,27 +115,9 @@
   },
   {
     "date": "2 Feb",
-    "title": "Impact of an AI-powered hospital admission prediction dashboard to guide medication reconciliation in the emergency department: a retrospective before-after study",
-    "comment": "AI ช่วยในการทำนายการรับผู้ป่วยและปรับปรุงการจัดการยาใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41627662/"
-  },
-  {
-    "date": "2 Feb",
-    "title": "Bias and Oversight in Clinical AI: A Review of Decision Support Tools and Equity Frameworks",
-    "comment": "ประเด็นอคติและการกำกับดูแล AI ด้านการแพทย์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41627658/"
-  },
-  {
-    "date": "2 Feb",
     "title": "Epidemiological Link Between Post-traumatic Stress Disorder and Cardiovascular Disease: Evidence, Mechanisms, and Clinical Implications",
     "comment": "ความเชื่อมโยงระหว่าง PTSD และโรคหัวใจและหลอดเลือด",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41625938/"
-  },
-  {
-    "date": "2 Feb",
-    "title": "Intraoperative Detection and Management of Euglycemic Ketonemia During Emergency Surgery Using Point-of-Care Blood Beta-Hydroxybutyrate Testing in a Patient Receiving Sodium-Glucose Cotransporter 2 (SGLT2) Inhibitors: A Case Report",
-    "comment": "การตรวจและจัดการภาวะ euglycemic ketonemia ในผู้ป่วยที่ใช้ SGLT2 inhibitors ระหว่างผ่าตัดฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41625909/"
   },
   {
     "date": "2 Feb",
@@ -364,59 +418,5 @@
     "title": "Management of Direct Oral Anticoagulants in Adult Patients Undergoing Cardiac Surgery: A Joint Consensus Statement by the Society of Cardiovascular Anesthesiologists and the Society of Thoracic Surgeons",
     "comment": "แนวทางการจัดการยาละลายลิ่มเลือดกลุ่ม DOACs ในผู้ป่วยผ่าตัดหัวใจที่สำคัญต่อการตัดสินใจใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41609362/"
-  },
-  {
-    "date": "29 Jan",
-    "title": "Drug-induced hyponatremia associated with sodium-glucose cotransporter 2 inhibitors, immune checkpoint inhibitors, and targeted anticancer agents",
-    "comment": "ยาใหม่ๆ ที่ใช้ในปัจจุบันอาจก่อให้เกิดภาวะโซเดียมในเลือดต่ำได้ ต้องระวัง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41609353/"
-  },
-  {
-    "date": "29 Jan",
-    "title": "Unmanned aerial vehicles in prehospital emergency care: current evidence, technological advances, and future perspectives",
-    "comment": "โดรนทางการแพทย์จะเข้ามามีบทบาทในการดูแลผู้ป่วยนอกโรงพยาบาลอย่างไรบ้าง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41607887/"
-  },
-  {
-    "date": "29 Jan",
-    "title": "Minimally Invasive Surgery: Minimally Invasive Surgery - A Paradigm Shift in Surgical Approaches",
-    "comment": "แนวทางการผ่าตัดแบบแผลเล็กที่กำลังเปลี่ยนแปลง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41608216/"
-  },
-  {
-    "date": "29 Jan",
-    "title": "Artificial intelligence in hospitals: Legal uncertainties and emerging risks for patient safety",
-    "comment": "AI ในโรงพยาบาลมีความเสี่ยงและประเด็นทางกฎหมายอะไรบ้างที่ต้องคำนึงถึง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41607486/"
-  },
-  {
-    "date": "29 Jan",
-    "title": "Cerebral Amyloid Angiopathy Imaging Markers, Radiological Boston Criteria, and Thrombolysis Outcomes in Ischemic Stroke.",
-    "comment": "การใช้ Imaging Markers ของ Cerebral Amyloid Angiopathy อาจช่วยให้ตัดสินใจให้ Thrombolysis ในผู้ป่วย Ischemic Stroke ได้แม่นยำขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41605880/"
-  },
-  {
-    "date": "29 Jan",
-    "title": "Rescue versus First-Line Intracranial Stenting during Thrombectomy for Acute Ischemic Stroke: A Propensity-Weighted Analysis of the RESISTANT Registry.",
-    "comment": "ประเมินความคุ้มค่าของการทำ Stenting ในขั้นตอนแรกเทียบกับการทำเมื่อ Failed Thrombectomy ในผู้ป่วย Stroke ที่อุดตัน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41605810/"
-  },
-  {
-    "date": "29 Jan",
-    "title": "Potential Missed Opportunities to Administer Intravenous Thrombolysis to Patients With Acute Ischemic Stroke.",
-    "comment": "ชี้ให้เห็นโอกาสที่พลาดในการให้ยาละลายลิ่มเลือดในผู้ป่วย Stroke ที่ควรรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41605799/"
-  },
-  {
-    "date": "29 Jan",
-    "title": "Early Recognition and Intervention for Poststroke Spasticity: A Scientific Statement From the American Heart Association.",
-    "comment": "เน้นความสำคัญของการวินิจฉัยและรักษา Spasticity หลัง Stroke อย่างรวดเร็ว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41605795/"
-  },
-  {
-    "date": "29 Jan",
-    "title": "We need a standardized North American acetylcysteine dosing regimen for the treatment of paracetamol (acetaminophen) poisoning.",
-    "comment": "ความจำเป็นในการกำหนดสูตรยา Acetylcysteine มาตรฐานสำหรับการรักษาภาวะ Paracetamol Overdose ในทวีปอเมริกาเหนือ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41605767/"
   }
 ]
