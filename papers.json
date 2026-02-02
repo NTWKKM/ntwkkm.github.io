@@ -1,5 +1,83 @@
 [
   {
+    "date": "2 Feb",
+    "title": "Possible detrimental effects of postponed intubation during interhospital transfer of severely brain injured patients: retrospective analysis of the Traumaregister DGU",
+    "comment": "การเลื่อนการใส่ท่อช่วยหายใจในผู้ป่วยบาดเจ็บทางสมองรุนแรงระหว่างการส่งต่อมีผลเสีย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41627455/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Tonicity and colloid osmotic pressure drive microvascular recovery from low volume hypotensive resuscitation from hemorrhagic shock",
+    "comment": "การปรับสมดุลความเข้มข้นของสารละลายและความดันออสโมติกร่วมมีผลต่อการฟื้นตัวของหลอดเลือดฝอยในภาวะเสียเลือดจากภาวะช็อก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41626220/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Clinical features and sociodemographic characteristics associated with analytically confirmed exposure to MDMB-4en-PINACA",
+    "comment": "การระบาดของยาเสพติดสังเคราะห์ MDMB-4en-PINACA และลักษณะผู้ป่วยที่ได้รับผลกระทบ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41627129/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Role of Perfusion Index as a Predictor of Vasopressor Requirement in Patients With Sepsis",
+    "comment": "Perfusion index อาจเป็นตัวบ่งชี้การใช้ยา vasopressor ในผู้ป่วย sepsis",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41625800/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Mechanical circulatory support for cardiogenic shock in takotsubo syndrome",
+    "comment": "การใช้เครื่องพยุงการไหลเวียนเลือดในภาวะ cardiogenic shock จาก takotsubo syndrome",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41627440/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "The cardiac rehabilitation needs and preferences of women living in rural communities: a qualitative study of co-designing a women-focused cardiac rehabilitation program",
+    "comment": "การออกแบบโปรแกรมฟื้นฟูหัวใจสำหรับผู้หญิงในพื้นที่ชนบท",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41627871/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "A Case of Duodenal Dieulafoy's Lesion Manifesting as Massive Gastrointestinal Bleeding Following Major Trauma",
+    "comment": "เลือดออกในทางเดินอาหารปริมาณมากจาก Dieulafoy's lesion หลังการบาดเจ็บรุนแรง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41627747/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Impact of an AI-powered hospital admission prediction dashboard to guide medication reconciliation in the emergency department: a retrospective before-after study",
+    "comment": "AI ช่วยในการทำนายการรับผู้ป่วยและปรับปรุงการจัดการยาใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41627662/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Bias and Oversight in Clinical AI: A Review of Decision Support Tools and Equity Frameworks",
+    "comment": "ประเด็นอคติและการกำกับดูแล AI ด้านการแพทย์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41627658/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Epidemiological Link Between Post-traumatic Stress Disorder and Cardiovascular Disease: Evidence, Mechanisms, and Clinical Implications",
+    "comment": "ความเชื่อมโยงระหว่าง PTSD และโรคหัวใจและหลอดเลือด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41625938/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Intraoperative Detection and Management of Euglycemic Ketonemia During Emergency Surgery Using Point-of-Care Blood Beta-Hydroxybutyrate Testing in a Patient Receiving Sodium-Glucose Cotransporter 2 (SGLT2) Inhibitors: A Case Report",
+    "comment": "การตรวจและจัดการภาวะ euglycemic ketonemia ในผู้ป่วยที่ใช้ SGLT2 inhibitors ระหว่างผ่าตัดฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41625909/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Transforming clinical toxicology in Singapore: four decades of progress and beyond",
+    "comment": "ความก้าวหน้าทางพิษวิทยาคลินิกในสิงคโปร์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41626922/"
+  },
+  {
+    "date": "2 Feb",
+    "title": "Health Impact Analysis of Wildfire Smoke-PM",
+    "comment": "การวิเคราะห์ผลกระทบต่อสุขภาพจากควันไฟป่า",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41626278/"
+  },
+  {
     "date": "1 Feb",
     "title": "Early prediction of colonization by carbapenemase-producing enterobacterales at ICU admission using machine learning",
     "comment": "AI ช่วยทำนายการติดเชื้อดื้อยาใน ICU ได้ตั้งแต่แรกรับ",
@@ -340,83 +418,5 @@
     "title": "We need a standardized North American acetylcysteine dosing regimen for the treatment of paracetamol (acetaminophen) poisoning.",
     "comment": "ความจำเป็นในการกำหนดสูตรยา Acetylcysteine มาตรฐานสำหรับการรักษาภาวะ Paracetamol Overdose ในทวีปอเมริกาเหนือ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41605767/"
-  },
-  {
-    "date": "29 Jan",
-    "title": "Effect of a grace period on false alarm rates of smartwatch-based out-of-hospital cardiac arrest detection systems: a pilot study.",
-    "comment": "ประเมินผลของ Grace Period ต่ออัตรา False Alarm ของระบบตรวจจับ Cardiac Arrest จาก Smartwatch",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41605737/"
-  },
-  {
-    "date": "29 Jan",
-    "title": "Revascularization Treatment of Basilar Artery Occlusion in Patients with Mild-to-Moderate Severe Stroke.",
-    "comment": "แนวทางการรักษา Basilar Artery Occlusion ด้วย Revascularization ในผู้ป่วย Stroke ที่อาการไม่รุนแรงถึงปานกลาง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41605710/"
-  },
-  {
-    "date": "29 Jan",
-    "title": "Consensus Statement on Middle Meningeal Artery Embolization in Chronic Subdural Hematoma Treatment: A Guideline from the Society of Vascular and Interventional Neurology Guidelines and Practice Standards Committee.",
-    "comment": "ข้อแนะนำสำหรับการทำ Embolization ของ Middle Meningeal Artery ในการรักษา Chronic Subdural Hematoma",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41605698/"
-  },
-  {
-    "date": "29 Jan",
-    "title": "The Diagnostic Challenge of Sharp Foreign Body Aspiration in Children: A Two-Case Series Highlighting Ingestion vs. Aspiration.",
-    "comment": "ความท้าทายในการวินิจฉัยการสำลักวัตถุปลายแหลมในเด็ก โดยมีรายงาน 2 รายที่ชี้ให้เห็นความแตกต่างระหว่างการกลืนและการสำลัก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41605478/"
-  },
-  {
-    "date": "29 Jan",
-    "title": "Diagnosis and Management of Heat-related Illness: Clinical and Molecular Perspectives.",
-    "comment": "อัพเดทมุมมองทางคลินิกและระดับโมเลกุลในการวินิจฉัยและจัดการภาวะเจ็บป่วยจากความร้อน (Heat-related Illness)",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41605518/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Diagnosis and Treatment of Acute Appendicitis: 2025 Edition of the World Society of Emergency Surgery Jerusalem Guidelines",
-    "comment": "แนวทางการวินิจฉัยและรักษาไส้ติ่งอักเสบฉบับล่าสุดจาก WSES ที่สำคัญต่อการปฏิบัติงานใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41604201/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "P2X7 Receptor Inhibition Mitigates Microglial Activation, Neuroinflammation, and Secondary Thalamic Damage After Ischemic Stroke",
-    "comment": "การยับยั้ง P2X7 Receptor อาจช่วยลดความเสียหายของสมองหลังภาวะหลอดเลือดสมองตีบ ทำให้เกิดแนวทางการรักษาใหม่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41604093/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Optimizing care for patients who have ascites: shifting paracentesis from the emergency department to outpatient medicine",
-    "comment": "การเปลี่ยนการทำ Paracentesis จาก ER ไปยังคลินิกนอกเวลานอก อาจเป็นแนวทางที่เหมาะสมสำหรับผู้ป่วยบางราย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41604086/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "AI-assisted computed tomography analysis for pre-procedural planning prior to TAVI",
-    "comment": "AI ช่วยในการวางแผนก่อนทำหัตถการ TAVI แสดงถึงเทคโนโลยีใหม่ที่อาจส่งผลต่อการดูแลผู้ป่วยโรคหัวใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41603941/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "The Evolving Role of Corticosteroids in Kawasaki Disease: Evidence, Mechanisms, and Clinical Implications",
-    "comment": "ทบทวนบทบาทของ Corticosteroids ในโรค Kawasaki ที่อาจเปลี่ยนแปลงแนวทางการรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41603901/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Discussion of What's the Rush? Challenging The Early Surgery Paradigm for Older Adults in Emergency General Surgery",
-    "comment": "ข้อถกเถียงที่ท้าทายแนวคิดการผ่าตัดเร่งด่วนในผู้สูงอายุสำหรับภาวะฉุกเฉินทางศัลยกรรมทั่วไป",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41603798/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "A Randomized, Dose-Finding Study of Sphenopalatine Ganglion Block With Bupivacaine for Emergency Department Patients With Headache",
-    "comment": "การศึกษาทดลองการใช้ Sphenopalatine Ganglion Block ในผู้ป่วยปวดศีรษะใน ER อาจเป็นทางเลือกการรักษาใหม่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41603837/"
-  },
-  {
-    "date": "28 Jan",
-    "title": "Comparing Guidelines for Atrial Fibrillation: Focus on Emergency Medicine",
-    "comment": "การเปรียบเทียบแนวปฏิบัติสำหรับ Atrial Fibrillation โดยเน้นที่มุมมองของเวชศาสตร์ฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41603838/"
   }
 ]
