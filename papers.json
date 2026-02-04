@@ -1,6 +1,66 @@
 [
   {
     "date": "4 Feb",
+    "title": "Trends and Disparities in Heat-Related Emergency Medical Services Activations",
+    "comment": "💡 งานวิจัยนี้สำคัญมากสำหรับ ER ในการเตรียมรับมือกับสถานการณ์ภัยพิบัติทางธรรมชาติ และผลกระทบต่อผู้ป่วยฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41637063/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "VRR-CPD: adapting free and open-access distance simulation for the continuing interprofessional education of community emergency department providers on caring for children with acute emergencies.",
+    "comment": "💡 นวัตกรรมการฝึกอบรม ER ด้วย Simulation ระยะไกล ช่วยเพิ่มทักษะการดูแลเด็กฉุกเฉินได้ทั่วถึง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41637049/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "Explainable AI reveals temporal risk pathways in fall prediction: Extracting clinical insights from multi-horizon machine learning models.",
+    "comment": "💡 AI ที่อธิบายได้ ช่วยคาดการณ์ความเสี่ยงการหกล้มในผู้ป่วย ER ได้อย่างแม่นยำ เป็นประโยชน์ต่อการประเมินผู้สูงอายุ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41637029/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "Correction: Ketamine versus morphine for musculoskeletal trauma pain: a meta-analysis of randomized controlled trials.",
+    "comment": "💡 การทบทวนวรรณกรรมเชิงระบบเรื่องการใช้ Ketamine เทียบกับ Morphine ในการจัดการความปวดจากอุบัติเหตุกระดูกหัก เป็นข้อมูลสำคัญในการตัดสินใจรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41636898/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "Tailoring POCUS training to local needs: a context-adapted curriculum for pediatric emergency medicine in France.",
+    "comment": "💡 การปรับหลักสูตร POCUS ให้เข้ากับบริบทเฉพาะของ ER กุมารเวชศาสตร์ เป็นแนวทางที่ดีในการพัฒนาบุคลากร",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41636881/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "Non-invasive myocardial work analysis in normal, at-risk for heart failure and heart failure patients during stress testing-a systematic review: a joint session with the Romanian Society of Cardiology (part III).",
+    "comment": "💡 การประเมิน Myocardial Work แบบไม่รุกล้ำ เป็นเทคนิคใหม่ที่อาจมีบทบาทในการวินิจฉัยผู้ป่วยหัวใจ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41636880/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "Critical care management of the patient with pharmaceutical poisoning: author's reply.",
+    "comment": "💡 การจัดการผู้ป่วยพิษจากยาในภาวะวิกฤตเป็นประเด็นสำคัญที่ ER ต้องเจอเสมอ และการตอบกลับนี้อาจให้มุมมองใหม่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41636826/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "Fatal aminopyrine and caffeine poisoning.",
+    "comment": "💡 รายงานผู้ป่วยเสียชีวิตจากการพิษยา เป็น Case Study ที่ช่วยเตือนภัยและเน้นย้ำการวินิจฉัยที่รวดเร็ว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41636778/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "Early versus delayed appendectomy for acute uncomplicated appendicitis in adult and pediatric patients: A systematic review and meta-analysis.",
+    "comment": "💡 Meta-analysis นี้ตอบคำถามสำคัญเรื่องเวลาผ่าตัดไส้ติ่งอักเสบ ว่าควรเร็วหรือช้า ดีต่อผู้ป่วย ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41636758/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "Trauma-specific revision of the Japanese Association for Acute Medicine disseminated intravascular coagulation criteria improves outcome prediction in severely injured patients.",
+    "comment": "💡 การปรับเกณฑ์ DIC สำหรับผู้ป่วยบาดเจ็บรุนแรง ให้แม่นยำขึ้น ช่วยในการพยากรณ์โรคและวางแผนการรักษาใน ER ได้ดีขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41636725/"
+  },
+  {
+    "date": "4 Feb",
     "title": "Pediatric Carbon Monoxide Poisoning in Southern Israel-Causality and Outcome",
     "comment": "การทำความเข้าใจสาเหตุและผลลัพธ์ของภาวะ CO poisoning ในเด็ก อาจนำไปสู่แนวทางการป้องกันและรักษาที่ดีขึ้น",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41636140/"
@@ -358,65 +418,5 @@
     "title": "Impact of the coronavirus pandemic on bystander CPR, dispatcher-assisted CPR, EMS response time, and survival outcomes in China",
     "comment": "COVID-19 กระทบต่อการช่วยเหลือ CPR โดยพลเมือง การตอบสนองของ EMS และอัตราการรอดชีวิต",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41616392/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "VExUS Point-of-Care Ultrasound Tool to Detect Changes in Volume Status: A Prospective Observational Study",
-    "comment": "VExUS ultrasound ใช้ประเมินภาวะสารน้ำในร่างกายอย่างรวดเร็วและง่ายดาย bedside",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616585/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "Novel 'No-Lo' imaging techniques to minimise intraoperative radiation exposure in vascular and endovascular surgery",
-    "comment": "เทคนิคการถ่ายภาพรังสีแบบใหม่ลดปริมาณรังสีในระหว่างการผ่าตัดหลอดเลือด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616878/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "AI-driven analysis of patient safety reports using large language models: an exploratory multiple methods study.",
-    "comment": "AI ช่วยวิเคราะห์รายงานความปลอดภัยผู้ป่วยเพื่อหาแนวโน้มที่อาจเป็นอันตราย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41617612/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "Reimbursement and Policy Considerations of Point-of-Care Ultrasound (POCUS) in Rural Family Medicine.",
-    "comment": "ข้อเสนอแนะด้านนโยบายและค่าใช้จ่ายสำหรับการใช้ POCUS ในพื้นที่ชนบท",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41617404/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "Feasibility study of fast T2-weighted imaging with deep-learning reconstruction in volunteers and emergency patients with acute abdomen.",
-    "comment": "Deep learning ช่วยให้การทำ MRI ช่องท้องเฉียบพลันเร็วขึ้นในผู้ป่วย ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616758/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "Prehospital management of convulsive status epilepticus in children: a knowledge, attitude and practice survey of UK ambulance service clinicians.",
-    "comment": "สำรวจความรู้ ทัศนคติ และแนวปฏิบัติในการจัดการชักต่อเนื่องในเด็กก่อนถึงโรงพยาบาล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616755/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "Retrospective chart review on psychiatric manifestations of GLP-1 agonist usage.",
-    "comment": "ความผิดปกติทางจิตเวชที่อาจเกิดขึ้นจากการใช้ยา GLP-1 agonists",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616750/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "Automated Abdominal Aortic Calcification Scores and Atherosclerotic Cardiovascular Disease in the UK Biobank Imaging Study.",
-    "comment": "การคำนวณคะแนนหินปูนในหลอดเลือดแดงใหญ่ช่องท้องอัตโนมัติช่วยทำนายโรคหลอดเลือดหัวใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616586/"
-  },
-  {
-    "date": "1 Feb",
-    "title": "Paracetamol versus ibuprofen as required for fever or pain in the first year of life and the risk of eczema and bronchiolitis at age 1 year in New Zealand (PIPPA Tamariki): a multicentre, open-label, parallel-group, superiority, randomised controlled trial.",
-    "comment": "การเปรียบเทียบพาราเซตามอลและไอบูโพรเฟนในเด็กเล็กกับความเสี่ยงโรคภูมิแพ้และหลอดลมอักเสบ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616793/"
-  },
-  {
-    "date": "31 Jan",
-    "title": "Antiseizure medication discontinuation in pediatric epilepsy: Real-world insights",
-    "comment": "การหยุดยา Antiepileptic ในเด็กมีปัจจัยหลายอย่างที่ต้องพิจารณา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616747/"
   }
 ]
