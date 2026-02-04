@@ -1,5 +1,65 @@
 [
   {
+    "date": "4 Feb",
+    "title": "Pediatric Carbon Monoxide Poisoning in Southern Israel-Causality and Outcome",
+    "comment": "การทำความเข้าใจสาเหตุและผลลัพธ์ของภาวะ CO poisoning ในเด็ก อาจนำไปสู่แนวทางการป้องกันและรักษาที่ดีขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41636140/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "In-patient management of dislocation after total hip arthroplasty: a multicentre study from UK hospitals",
+    "comment": "แนวทางการจัดการภาวะข้อสะโพกหลุดหลังผ่าตัดในผู้ป่วยในโรงพยาบาล อาจมีผลต่อการดูแลผู้ป่วย ER ที่มาด้วยภาวะนี้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41636051/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "Emergence of Candida (Candidozyma) auris in Minas Gerais, Brazil: Genomic Surveillance to Guide Rapid Public Health Responses",
+    "comment": "การระบาดของเชื้อดื้อยา Candida auris ต้องเฝ้าระวังและตอบสนองอย่างรวดเร็ว ซึ่งส่งผลต่อการจัดการผู้ป่วยใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41636077/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "The role of routine cranial CT imaging in geriatric head trauma: a retrospective analysis from a level I trauma centre in Germany",
+    "comment": "การทบทวนข้อบ่งชี้ในการทำ CT สมองในผู้สูงอายุที่มีอุบัติเหตุศีรษะ อาจช่วยลดการตรวจที่ไม่จำเป็นและเพิ่มประสิทธิภาพการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41635878/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "The gut-lung axis in severe pneumonia-related lung injury: mechanisms and therapeutic strategies",
+    "comment": "ความสัมพันธ์ระหว่างลำไส้และปอดอาจเป็นกุญแจสำคัญในการรักษาภาวะปอดบาดเจ็บรุนแรงจากปอดอักเสบ ซึ่งอาจมีผลต่อแนวทางการรักษาใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41635847/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "Melanoma vaccines: current R&D landscape, translational hurdles, and future outlook-a perspective drawn from 442 clinical trials",
+    "comment": "แม้จะไม่ใช่การรักษาเฉียบพลัน แต่ความเข้าใจในวัคซีนมะเร็งผิวหนังอาจนำไปสู่การจัดการผู้ป่วยที่มา ER ด้วยภาวะแทรกซ้อนหรือการดูแลระยะสุดท้าย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41635845/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "Computer Vision-Guided Automated External Defibrillator System Improves Cardiopulmonary Resuscitation Accuracy: A Randomized Crossover Trial",
+    "comment": "นวัตกรรม AED ที่ใช้ Computer Vision อาจช่วยเพิ่มประสิทธิภาพการทำ CPR ในสถานการณ์ฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41635451/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "Efficacy of primary repair for retroperitoneal rectal injuries among patients with combined military trauma: tertiary single-center experience",
+    "comment": "การผ่าตัดซ่อมแซมลำไส้ตรงที่ผนังช่องท้องส่วนหลังในผู้ป่วยอุบัติเหตุรุนแรง อาจเป็นข้อมูลสำคัญสำหรับการตัดสินใจใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41635549/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "Imminent Rupture of an Infected Aortic Aneurysm Presenting as Lower Back Pain in an Elderly Patient",
+    "comment": "อาการปวดหลังล่างในผู้สูงอายุ อาจเป็นสัญญาณอันตรายของภาวะ Aortic Aneurysm ที่ใกล้แตก ซึ่งต้องรีบวินิจฉัยและรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41635393/"
+  },
+  {
+    "date": "4 Feb",
+    "title": "Survival Following a Tricyclic Antidepressant Overdose Presenting With Serotonin Syndrome-Like Symptoms and Critical Illness Polyneuropathy: A Case Report",
+    "comment": "การได้รับยาเกินขนาดของ TCA อาจมีอาการคล้าย Serotonin Syndrome และภาวะแทรกซ้อนอื่นๆ ที่ต้องเฝ้าระวังใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41635386/"
+  },
+  {
     "date": "3 Feb",
     "title": "Estimated Effectiveness of 2024-2025 COVID-19 Vaccination Against Severe COVID-19",
     "comment": "ประเมินประสิทธิภาพวัคซีน COVID-19 รุ่นใหม่สำหรับฤดูกาล 2024-2025",
@@ -358,65 +418,5 @@
     "title": "Antiseizure medication discontinuation in pediatric epilepsy: Real-world insights",
     "comment": "การหยุดยา Antiepileptic ในเด็กมีปัจจัยหลายอย่างที่ต้องพิจารณา",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41616747/"
-  },
-  {
-    "date": "31 Jan",
-    "title": "Attempted definitive revision amputations in emergency department vs operating room for traumatic finger injuries are associated with a high rate of revision surgery",
-    "comment": "การตัดสินใจตัดนิ้วบางส่วนใน ER สำหรับการบาดเจ็บมีโอกาสต้องผ่าตัดซ้ำสูง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41616723/"
-  },
-  {
-    "date": "31 Jan",
-    "title": "Shifting emergency department utilization patterns among vulnerable populations during the COVID-19 pandemic.",
-    "comment": "การเปลี่ยนแปลงรูปแบบการมา ER ของกลุ่มประชากรเปราะบางช่วง COVID-19 เป็นข้อมูลสำคัญต่อการวางแผนทรัพยากร ER ในอนาคต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41618185/"
-  },
-  {
-    "date": "31 Jan",
-    "title": "Brief mindfulness meditation increases risk-taking behavior.",
-    "comment": "การทำสมาธิแบบสั้นๆ ส่งผลต่อพฤติกรรมเสี่ยง อาจมีนัยสำคัญต่อผู้ป่วย ER ที่มีปัญหาด้านพฤติกรรม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41617931/"
-  },
-  {
-    "date": "31 Jan",
-    "title": "AI-driven virtual screening platform identifies novel NSUN2 inhibitor candidates for targeted cancer therapy: a computational drug discovery approach.",
-    "comment": "AI ช่วยคัดกรองยาใหม่ที่อาจมีประโยชน์ในการรักษามะเร็ง ซึ่งอาจนำไปสู่การพัฒนาการรักษาในอนาคต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41617787/"
-  },
-  {
-    "date": "31 Jan",
-    "title": "Mechanistic and clinical insights into a PmrB mutation driving colistin resistance and virulence in Acinetobacter baumannii.",
-    "comment": "การเข้าใจกลไกการดื้อยา Colistin ของเชื้อ Acinetobacter baumannii เป็นเรื่องสำคัญต่อการรักษาการติดเชื้อใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41617754/"
-  },
-  {
-    "date": "31 Jan",
-    "title": "The First Cadenza Challenge: Perceptual Evaluation of Machine Learning Systems to Improve Audio Quality of Popular Music for Those with Hearing Loss.",
-    "comment": "แม้จะไม่ตรงกับ ER โดยตรง แต่นวัตกรรม AI ในการปรับปรุงคุณภาพเสียงสำหรับผู้มีปัญหาทางการได้ยิน อาจมีแนวทางการประยุกต์ใช้กับเทคโนโลยีใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41618122/"
-  },
-  {
-    "date": "31 Jan",
-    "title": "High prevalence of iron deficiency and predictive value of nutritional risk scores in critically ill geriatric emergency patients: a prospective cross-sectional study.",
-    "comment": "ภาวะขาดธาตุเหล็กในผู้ป่วยสูงอายุวิกฤตใน ER เป็นประเด็นที่ควรให้ความสนใจ และ Nutritional Risk Score อาจช่วยในการประเมิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41618097/"
-  },
-  {
-    "date": "30 Jan",
-    "title": "Emergence of blaNDM-5",
-    "comment": "การระบาดของเชื้อดื้อยา MDR ที่อาจกระทบการรักษาฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41614306/"
-  },
-  {
-    "date": "30 Jan",
-    "title": "Wearable biosensors for disease diagnostics and health monitoring: recent progress and emerging technologies.",
-    "comment": "เทคโนโลยีใหม่ที่อาจช่วยให้ ER ตรวจวินิจฉัยและเฝ้าระวังผู้ป่วยได้ทันท่วงที",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41614335/"
-  },
-  {
-    "date": "30 Jan",
-    "title": "Artificial intelligence in aortic CT angiography: current applications and future perspectives.",
-    "comment": "AI จะเข้ามามีบทบาทในการแปลผล CT scan หลอดเลือดแดงใหญ่ที่ ER อย่างไร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41614027/"
   }
 ]
