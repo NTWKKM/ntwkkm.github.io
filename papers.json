@@ -1,5 +1,65 @@
 [
   {
+    "date": "6 Feb",
+    "title": "Alcohol-Related Emergency Department Visits Increase.",
+    "comment": "แนวโน้มการเพิ่มขึ้นของเคสฉุกเฉินที่เกี่ยวกับแอลกอฮอล์ ซึ่งมีผลต่อการจัดการทรัพยากร ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41649835/"
+  },
+  {
+    "date": "6 Feb",
+    "title": "Linkage of Emergency Department Patients With Public Benefits Navigators via Text Messages: A Randomized Clinical Trial.",
+    "comment": "การใช้ข้อความเพื่อเชื่อมโยงผู้ป่วย ER กับนักสังคมสงเคราะห์ ช่วยแก้ปัญหาผู้ป่วยที่ต้องการความช่วยเหลือด้านสวัสดิการ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41649829/"
+  },
+  {
+    "date": "6 Feb",
+    "title": "The Role of Peer Navigators After Nonfatal Opioid Overdose-Context, Evidence, and Future Directions.",
+    "comment": "บทบาทของ peer navigator หลังผู้ป่วย overdose สัมพันธ์กับการกลับมารับยาและลดความเสี่ยง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41649821/"
+  },
+  {
+    "date": "6 Feb",
+    "title": "Peer Navigator Intervention and Opioid-Related Adverse Events for Emergency Department Patients: A Randomized Clinical Trial.",
+    "comment": "การใช้ peer navigator ช่วยลดเหตุการณ์ไม่พึงประสงค์ที่เกี่ยวกับ Opioid ในผู้ป่วย ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41649817/"
+  },
+  {
+    "date": "6 Feb",
+    "title": "Butterflies in the Field: Introducing Point-of-Care Ultrasound to Paramedics in Rural and Wilderness Emergency Medical Services.",
+    "comment": "การนำ Portable Ultrasound ไปใช้โดยทีมแพทย์ฉุกเฉินนอกโรงพยาบาล ช่วยการวินิจฉัยในพื้นที่ห่างไกล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41649800/"
+  },
+  {
+    "date": "6 Feb",
+    "title": "Disparities and determinants of outcomes in COVID-19 emergency department visits in the united states: a nationwide analysis of mortality and patient disposition.",
+    "comment": "ความเหลื่อมล้ำในผู้ป่วย COVID-19 ที่มา ER ส่งผลต่ออัตราการเสียชีวิตและการจัดการผู้ป่วย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41649678/"
+  },
+  {
+    "date": "6 Feb",
+    "title": "CRISPR-Based Therapy for Ischemic Stroke: A Narrative Review.",
+    "comment": "เทคนิค CRISPR อาจเป็นทางเลือกใหม่ในการรักษาโรคหลอดเลือดสมองตีบ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41649621/"
+  },
+  {
+    "date": "6 Feb",
+    "title": "Case management in emergency care: insights on health-related quality of life from the Case management for At-Risk patients in the Emergency Department (CARED) programme.",
+    "comment": "การจัดการผู้ป่วยกลุ่มเสี่ยงใน ER ส่งผลต่อคุณภาพชีวิตของผู้ป่วยระยะยาว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41649476/"
+  },
+  {
+    "date": "6 Feb",
+    "title": "Head Up Cardiopulmonary Resuscitation: Novel Physiological Discoveries and Latest Clinical Outcomes.",
+    "comment": "เทคนิค CPR แบบ Head Up อาจมีผลดีต่อการไหลเวียนเลือดและผลลัพธ์ของผู้ป่วยหัวใจหยุดเต้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41648073/"
+  },
+  {
+    "date": "6 Feb",
+    "title": "The Critical Importance of Recognizing De Winter's T-wave Pattern: A Case of Acute Proximal LAD Occlusion by In-Stent Restenosis.",
+    "comment": "รูปแบบคลื่นไฟฟ้าหัวใจ De Winter's T-wave บ่งชี้ถึงภาวะหลอดเลือดหัวใจตีบเฉียบพลัน ซึ่งแพทย์ ER ควรให้ความสำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41647928/"
+  },
+  {
     "date": "5 Feb",
     "title": "Sex-stratified early biomarker model identifies lactate as the key predictor of in-hospital deterioration in acute heart failure.",
     "comment": "การระบุผู้ป่วย HF ที่เสี่ยงต่อการทรุดตัวใน รพ. โดยใช้ Lactate เป็นตัวชี้วัดสำคัญ",
@@ -358,65 +418,5 @@
     "title": "Sudden Sensorineural Hearing Loss as the Presenting Symptom of Varicella Zoster Virus Rhombencephalitis: A Case Report.",
     "comment": "อาการหูดับเฉียบพลัน อาจเป็นอาการเริ่มต้นของสมองอักเสบจากงูสวัด",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41631084/"
-  },
-  {
-    "date": "2 Feb",
-    "title": "Possible detrimental effects of postponed intubation during interhospital transfer of severely brain injured patients: retrospective analysis of the Traumaregister DGU",
-    "comment": "การเลื่อน intubation ผู้ป่วยบาดเจ็บสมองรุนแรงระหว่างการส่งต่อระหว่าง รพ. อาจมีผลเสีย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41627455/"
-  },
-  {
-    "date": "2 Feb",
-    "title": "Mechanical circulatory support for cardiogenic shock in takotsubo syndrome.",
-    "comment": "การใช้ mechanical circulatory support ในภาวะ cardiogenic shock จาก takotsubo syndrome",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41627440/"
-  },
-  {
-    "date": "2 Feb",
-    "title": "Correction: Impact of an AI-powered hospital admission prediction dashboard to guide medication reconciliation in the emergency department: a retrospective before-after study.",
-    "comment": "AI ช่วยลดความผิดพลาดในการสั่งยาใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41627662/"
-  },
-  {
-    "date": "2 Feb",
-    "title": "Bias and Oversight in Clinical AI: A Review of Decision Support Tools and Equity Frameworks.",
-    "comment": "ความท้าทายเรื่องอคติและการกำกับดูแล AI ในการตัดสินใจทางการแพทย์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41627658/"
-  },
-  {
-    "date": "2 Feb",
-    "title": "Integrating AI Scribes into Medical Education: Guardrails for Preserving Clinical Reasoning.",
-    "comment": "การใช้ AI Scribes ในการเรียนการสอนแพทย์ ต้องมีกลไกป้องกันการสูญเสียการคิดวิเคราะห์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41627656/"
-  },
-  {
-    "date": "2 Feb",
-    "title": "How health systems learn to fail : Emergency departments and the normalization of breakdown.",
-    "comment": "ER กับการปรับตัวต่อความผิดพลาดที่เกิดขึ้นซ้ำๆ จนกลายเป็นเรื่องปกติ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41627615/"
-  },
-  {
-    "date": "2 Feb",
-    "title": "Comparing conventional versus 3D printed simulators for simulation training of emergency percutaneous cricothyrotomy with two different kits: a randomized controlled trial.",
-    "comment": "การเปรียบเทียบ simulator แบบ 3D print กับแบบเดิมสำหรับการฝึก cricothyrotomy ฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41627605/"
-  },
-  {
-    "date": "2 Feb",
-    "title": "Clinical features and sociodemographic characteristics associated with analytically confirmed exposure to MDMB-4en-PINACA.",
-    "comment": "ข้อมูลผู้ป่วยที่ได้รับสาร MDMB-4en-PINACA ซึ่งเป็นยาเสพติดสังเคราะห์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41627129/"
-  },
-  {
-    "date": "2 Feb",
-    "title": "Cyanide toxicity from high-dose nitroprusside infusion in a critically ill patient on veno-arterial extracorporeal membrane oxygenation.",
-    "comment": "การเกิดพิษจาก cyanide จาก nitroprusside ในผู้ป่วยวิกฤตที่ใช้ VA-ECMO",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41627127/"
-  },
-  {
-    "date": "2 Feb",
-    "title": "Role of Perfusion Index as a Predictor of Vasopressor Requirement in Patients With Sepsis.",
-    "comment": "Perfusion Index อาจช่วยทำนายความจำเป็นในการให้ vasopressor ในผู้ป่วย sepsis",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41625800/"
   }
 ]
