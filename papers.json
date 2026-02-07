@@ -1,32 +1,62 @@
 [
   {
     "date": "7 Feb",
-    "title": "Endovascular reperfusion strategies for pregnancy-related pulmonary embolism: a systematic review.",
-    "comment": "การรักษา PE ในหญิงตั้งครรภ์ด้วยวิธี Endovascular reperfusion อาจเป็นทางเลือกใหม่ที่ต้องพิจารณา",
+    "title": "Endovascular reperfusion strategies for pregnancy-related pulmonary embolism: A systematic review.",
+    "comment": "กลยุทธ์การรักษาภาวะลิ่มเลือดอุดตันในปอดที่เกี่ยวข้องกับการตั้งครรภ์ด้วยการเปิดหลอดเลือดแบบ Endovascular",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41653269/"
   },
   {
     "date": "7 Feb",
     "title": "The Occasional limb tourniquet application and tourniquet conversion.",
-    "comment": "ข้อแนะนำการใช้ Tourniquet ที่น่าสนใจสำหรับ ER โดยเฉพาะในสถานการณ์ที่ไม่คาดคิด",
+    "comment": "การใช้สายรัดห้ามเลือดที่แขนขาและเทคนิคการแปลงสายรัด",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41652988/"
   },
   {
     "date": "7 Feb",
-    "title": "Artificial intelligence in virtual fracture clinics: a systematic review of imaging and clinical-text tools.",
-    "comment": "AI กำลังเข้ามามีบทบาทในการประเมินและจัดการผู้ป่วยกระดูกหักใน ER ซึ่งอาจเปลี่ยนแนวทางการทำงาน",
+    "title": "AI in virtual fracture clinics: A systematic review of imaging and clinical-text tools.",
+    "comment": "การใช้ AI ในคลินิกกระดูกหักเสมือนจริง: ทบทวนเครื่องมือภาพและข้อมูลทางคลินิก",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41652489/"
   },
   {
     "date": "7 Feb",
-    "title": "Phage vB_AbaM_MU1 for biocontrol of carbapenem-resistant Acinetobacter baumannii (CRAB) isolated from wound infection.",
-    "comment": "การใช้ Phage therapy อาจเป็นทางออกในการรักษา CRAB ที่ดื้อยาในแผลติดเชื้อ ซึ่งเป็นปัญหาใหญ่ใน ER",
+    "title": "Artificial intelligence for fracture detection on computed tomography: A systematic review and meta-analysis.",
+    "comment": "การใช้ AI เพื่อตรวจจับกระดูกหักจาก CT Scan: การทบทวนและวิเคราะห์อภิมาน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41652293/"
+  },
+  {
+    "date": "7 Feb",
+    "title": "Microcirculatory Dysfunction in Sepsis.",
+    "comment": "ความผิดปกติของการไหลเวียนโลหิตจุลภาคในภาวะ Sepsis",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41651602/"
+  },
+  {
+    "date": "7 Feb",
+    "title": "Pediatric Sepsis: Evolving Subphenotypes, Overlap Syndromes, and the Path to Precision Therapies.",
+    "comment": "Sepsis ในเด็ก: การจำแนกกลุ่มย่อยใหม่, โรคที่ทับซ้อน และแนวทางการรักษาเฉพาะบุคคล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41651600/"
+  },
+  {
+    "date": "7 Feb",
+    "title": "Phage vB_AbaM_MU1 for biocontrol of carbapenem-resistant Acinetobacter baumannii (CRAB).",
+    "comment": "การใช้ฟาจ (Phage) ในการควบคุมเชื้อ Acinetobacter baumannii ดื้อยา Carbapenem",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41652486/"
   },
   {
     "date": "7 Feb",
+    "title": "Taurine Alleviates Sepsis-Induced Myocardial Injury by Inhibiting NF-κB Pathway-Mediated Inflammation, Mitochondrial Dysfunction, and Apoptosis.",
+    "comment": "ทอรีนช่วยลดความเสียหายต่อกล้ามเนื้อหัวใจจาก Sepsis ด้วยการยับยั้งการอักเสบในวิถี NF-κB",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41652232/"
+  },
+  {
+    "date": "7 Feb",
+    "title": "The double threat: bacterial and fungal co-/superinfection in viral pneumonia.",
+    "comment": "ภัยคุกคามสองเท่า: การติดเชื้อแบคทีเรียและเชื้อรา ร่วม/ซ้ำซ้อน ในภาวะปอดอักเสบจากไวรัส",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41653012/"
+  },
+  {
+    "date": "7 Feb",
     "title": "Real-time public health interventions driven by wastewater and environmental surveillance during Uganda's 2025 martyrs day mass gathering.",
-    "comment": "การใช้ Wastewater surveillance สามารถบ่งชี้การระบาดของโรคติดเชื้อได้แบบ Real-time ซึ่งมีประโยชน์ในการเตรียมรับมือใน ER",
+    "comment": "การเฝ้าระวังทางสาธารณสุขแบบเรียลไทม์จากการตรวจน้ำเสียและสิ่งแวดล้อม ในช่วงการรวมตัวครั้งใหญ่",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41652615/"
   },
   {
@@ -34,12 +64,6 @@
     "title": "Combatting antibiotic resistance: challenges and emerging therapeutic strategies.",
     "comment": "ประเด็นสำคัญที่ ER ต้องเผชิญ การทำความเข้าใจกลยุทธ์ใหม่ๆ ในการต่อสู้กับเชื้อดื้อยา",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41653009/"
-  },
-  {
-    "date": "7 Feb",
-    "title": "The double threat: bacterial and fungal co-/superinfection in viral pneumonia.",
-    "comment": "ความซับซ้อนของการติดเชื้อซ้อนในภาวะปอดอักเสบจากไวรัส ที่ ER ต้องประเมินอย่างรอบคอบ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41653012/"
   },
   {
     "date": "7 Feb",
@@ -394,29 +418,5 @@
     "title": "Estimated Effectiveness of 2024-2025 COVID-19 Vaccination Against Severe COVID-19",
     "comment": "ประเมินประสิทธิภาพวัคซีน COVID-19 รุ่นใหม่สำหรับฤดูกาล 2024-2025",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41632473/"
-  },
-  {
-    "date": "3 Feb",
-    "title": "Practices in clearance of the pediatric cervical spine following blunt trauma: A Western Pediatric Cervical Spine Study analysis.",
-    "comment": "ทบทวนแนวทางการประเมินกระดูกสันหลังส่วนคอในเด็กที่ได้รับบาดเจ็บทื่อ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41632469/"
-  },
-  {
-    "date": "3 Feb",
-    "title": "Tranexamic acid bolus plus drip paradoxically increases complement activation: A PATCH trial secondary study.",
-    "comment": "ผลข้างเคียงที่คาดไม่ถึงของ Tranexamic acid ต่อระบบภูมิคุ้มกัน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41632465/"
-  },
-  {
-    "date": "3 Feb",
-    "title": "Embolic agents in emergency care: a large retrospective cohort study.",
-    "comment": "การใช้สารอุดหลอดเลือดในเวชระเบิด: การศึกษาในผู้ป่วยจำนวนมาก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41632442/"
-  },
-  {
-    "date": "3 Feb",
-    "title": "Continuous Kidney Replacement Therapy in Pediatric Intensive Care: A Practical Guide for Clinicians.",
-    "comment": "แนวทางการรักษาด้วย Continuous RRT ในผู้ป่วยวิกฤตเด็ก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41632430/"
   }
 ]
