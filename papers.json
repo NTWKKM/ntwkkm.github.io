@@ -1,5 +1,65 @@
 [
   {
+    "date": "8 Feb",
+    "title": "qSOFA and Lactate for Nurse-Led Identification of High-Risk Septic Patients: A Prospective Observational Study",
+    "comment": "การใช้ qSOFA และ Lactate ในการคัดกรองผู้ป่วย Sepsis โดยพยาบาล อาจช่วยระบุผู้ป่วยความเสี่ยงสูงได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41654996/"
+  },
+  {
+    "date": "8 Feb",
+    "title": "Artificial intelligence in emergency surgery: a scoping review within the artificial intelligence in emergency and trauma surgery (ARIES) project",
+    "comment": "AI มีบทบาทสำคัญในการผ่าตัดฉุกเฉินและบาดแผล ซึ่งเป็นแนวโน้มที่น่าจับตามอง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41654983/"
+  },
+  {
+    "date": "8 Feb",
+    "title": "Computed tomography in pediatric blunt abdominal trauma: current evidence, challenges, and future directions - a systematic review and meta-analysis",
+    "comment": "CT scan ยังคงเป็นเครื่องมือหลักในการประเมินการบาดเจ็บในช่องท้องทื่อในเด็ก แต่ก็มีความท้าทายและทิศทางอนาคตที่ต้องพิจารณา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41654849/"
+  },
+  {
+    "date": "8 Feb",
+    "title": "Factors associated with missed stroke diagnosis in prehospital triage: a single-center cohort study",
+    "comment": "ปัจจัยที่ทำให้เกิดการวินิจฉัยโรคหลอดเลือดสมองล่าช้าในการคัดกรองก่อนถึงโรงพยาบาลเป็นสิ่งสำคัญที่ต้องทบทวนเพื่อปรับปรุงการดูแล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41654812/"
+  },
+  {
+    "date": "8 Feb",
+    "title": "Application of machine learning for the diagnosis and prognosis of sepsis-induced acute respiratory distress syndrome: a systematic review and meta-analysis",
+    "comment": "Machine learning สามารถช่วยในการวินิจฉัยและพยากรณ์โรค ARDS ที่เกิดจาก Sepsis ได้อย่างมีประสิทธิภาพ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41654807/"
+  },
+  {
+    "date": "8 Feb",
+    "title": "Study on the construction of a predictive model for delayed encephalopathy after acute carbon monoxide poisoning",
+    "comment": "การสร้างโมเดลทำนายภาวะสมองเสื่อมล่าช้าหลังได้รับพิษจากคาร์บอนมอนอกไซด์เฉียบพลันเป็นสิ่งจำเป็นเพื่อการดูแลที่ทันท่วงที",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41654772/"
+  },
+  {
+    "date": "8 Feb",
+    "title": "Global prevalence, mortality, and comorbidities of patients with diabetes mellitus and proven Candida auris emerging infection: a systematic review & meta-analysis",
+    "comment": "การระบาดของ Candida auris ในผู้ป่วยเบาหวานเป็นปัญหาสาธารณสุขที่ต้องเฝ้าระวังและศึกษาเพิ่มเติม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41654747/"
+  },
+  {
+    "date": "8 Feb",
+    "title": "Beyond lactate: prognostic value of metabolic and biochemical parameters in methanol poisoning - a retrospective observational study",
+    "comment": "นอกจาก lactate ยังมีพารามิเตอร์เมตาบอลิกและชีวเคมีอื่นๆ ที่มีค่าในการพยากรณ์โรคในภาวะพิษจากเมทานอล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41654740/"
+  },
+  {
+    "date": "8 Feb",
+    "title": "Emergence of NDM-type metallo-β-lactamase and ArmA 16S rRNA methylase co-producing Morganella morganii in Myanmar",
+    "comment": "การดื้อยาของเชื้อแบคทีเรีย เป็นภัยคุกคามที่ทวีความรุนแรงขึ้น ซึ่งต้องมีการเฝ้าระวังและศึกษาอย่างต่อเนื่อง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41654715/"
+  },
+  {
+    "date": "8 Feb",
+    "title": "Recombinant factor VIIa versus placebo for spontaneous intracerebral haemorrhage within 2 h of symptom onset (FASTEST): a multicentre, double-blind, randomised, placebo-controlled, phase 3 trial",
+    "comment": "การใช้ Recombinant factor VIIa ในผู้ป่วย ICH ระยะเฉียบพลัน มีผลต่อผลลัพธ์ของผู้ป่วย ซึ่งเป็นข้อมูลสำคัญในการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41653933/"
+  },
+  {
     "date": "7 Feb",
     "title": "Endovascular reperfusion strategies for pregnancy-related pulmonary embolism: A systematic review.",
     "comment": "กลยุทธ์การรักษาภาวะลิ่มเลือดอุดตันในปอดที่เกี่ยวข้องกับการตั้งครรภ์ด้วยการเปิดหลอดเลือดแบบ Endovascular",
@@ -358,65 +418,5 @@
     "title": "Pediatric Carbon Monoxide Poisoning in Southern Israel-Causality and Outcome",
     "comment": "การทำความเข้าใจสาเหตุและผลลัพธ์ของภาวะ CO poisoning ในเด็ก อาจนำไปสู่แนวทางการป้องกันและรักษาที่ดีขึ้น",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41636140/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "In-patient management of dislocation after total hip arthroplasty: a multicentre study from UK hospitals",
-    "comment": "แนวทางการจัดการภาวะข้อสะโพกหลุดหลังผ่าตัดในผู้ป่วยในโรงพยาบาล อาจมีผลต่อการดูแลผู้ป่วย ER ที่มาด้วยภาวะนี้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41636051/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Emergence of Candida (Candidozyma) auris in Minas Gerais, Brazil: Genomic Surveillance to Guide Rapid Public Health Responses",
-    "comment": "การระบาดของเชื้อดื้อยา Candida auris ต้องเฝ้าระวังและตอบสนองอย่างรวดเร็ว ซึ่งส่งผลต่อการจัดการผู้ป่วยใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41636077/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "The role of routine cranial CT imaging in geriatric head trauma: a retrospective analysis from a level I trauma centre in Germany",
-    "comment": "การทบทวนข้อบ่งชี้ในการทำ CT สมองในผู้สูงอายุที่มีอุบัติเหตุศีรษะ อาจช่วยลดการตรวจที่ไม่จำเป็นและเพิ่มประสิทธิภาพการรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41635878/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "The gut-lung axis in severe pneumonia-related lung injury: mechanisms and therapeutic strategies",
-    "comment": "ความสัมพันธ์ระหว่างลำไส้และปอดอาจเป็นกุญแจสำคัญในการรักษาภาวะปอดบาดเจ็บรุนแรงจากปอดอักเสบ ซึ่งอาจมีผลต่อแนวทางการรักษาใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41635847/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Melanoma vaccines: current R&D landscape, translational hurdles, and future outlook-a perspective drawn from 442 clinical trials",
-    "comment": "แม้จะไม่ใช่การรักษาเฉียบพลัน แต่ความเข้าใจในวัคซีนมะเร็งผิวหนังอาจนำไปสู่การจัดการผู้ป่วยที่มา ER ด้วยภาวะแทรกซ้อนหรือการดูแลระยะสุดท้าย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41635845/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Computer Vision-Guided Automated External Defibrillator System Improves Cardiopulmonary Resuscitation Accuracy: A Randomized Crossover Trial",
-    "comment": "นวัตกรรม AED ที่ใช้ Computer Vision อาจช่วยเพิ่มประสิทธิภาพการทำ CPR ในสถานการณ์ฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41635451/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Efficacy of primary repair for retroperitoneal rectal injuries among patients with combined military trauma: tertiary single-center experience",
-    "comment": "การผ่าตัดซ่อมแซมลำไส้ตรงที่ผนังช่องท้องส่วนหลังในผู้ป่วยอุบัติเหตุรุนแรง อาจเป็นข้อมูลสำคัญสำหรับการตัดสินใจใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41635549/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Imminent Rupture of an Infected Aortic Aneurysm Presenting as Lower Back Pain in an Elderly Patient",
-    "comment": "อาการปวดหลังล่างในผู้สูงอายุ อาจเป็นสัญญาณอันตรายของภาวะ Aortic Aneurysm ที่ใกล้แตก ซึ่งต้องรีบวินิจฉัยและรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41635393/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Survival Following a Tricyclic Antidepressant Overdose Presenting With Serotonin Syndrome-Like Symptoms and Critical Illness Polyneuropathy: A Case Report",
-    "comment": "การได้รับยาเกินขนาดของ TCA อาจมีอาการคล้าย Serotonin Syndrome และภาวะแทรกซ้อนอื่นๆ ที่ต้องเฝ้าระวังใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41635386/"
-  },
-  {
-    "date": "3 Feb",
-    "title": "Estimated Effectiveness of 2024-2025 COVID-19 Vaccination Against Severe COVID-19",
-    "comment": "ประเมินประสิทธิภาพวัคซีน COVID-19 รุ่นใหม่สำหรับฤดูกาล 2024-2025",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41632473/"
   }
 ]
