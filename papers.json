@@ -1,5 +1,65 @@
 [
   {
+    "date": "9 Feb",
+    "title": "Glucocorticoids for Preventing Migraine Recurrence in the Emergency Department.",
+    "comment": "การใช้สเตียรอยด์เพื่อป้องกันไมเกรนกลับเป็นซ้ำใน ER เป็นแนวทางใหม่ที่น่าสนใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41661582/"
+  },
+  {
+    "date": "9 Feb",
+    "title": "Videolaryngoscopic Intubation and Difficult Airway Classification (VIDIAC) accuracy in the prediction of first-pass nasal intubation using a video laryngoscope.",
+    "comment": "เครื่องมือช่วยคาดการณ์การใส่ท่อช่วยหายใจที่ยากด้วยวิดีโอลาแรงโกสโคป",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41661538/"
+  },
+  {
+    "date": "9 Feb",
+    "title": "Improving Delirium Screening and Detection in the Emergency Department (ED): The Implementation and Evaluation of the ED Delirium Detection Program.",
+    "comment": "โปรแกรมคัดกรองและวินิจฉัยภาวะเพ้อใน ER ที่มีหลักฐานชัดเจน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41660681/"
+  },
+  {
+    "date": "9 Feb",
+    "title": "Use of Machine Learning to Predict Hospital Admission for EMS-Treated Infants After a Suspected BRUE.",
+    "comment": "AI ช่วยทำนายความเสี่ยงที่ทารกจะถูกรับไว้ในโรงพยาบาลหลังได้รับ EMS จาก BRUE",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41661244/"
+  },
+  {
+    "date": "9 Feb",
+    "title": "Orthopaedic emergencies - associations between race, gender, insurance type, and hospital admission.",
+    "comment": "ข้อมูลประเด็นความไม่เท่าเทียมในการเข้าถึงการรักษาออร์โธปิดิกส์ฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41661258/"
+  },
+  {
+    "date": "9 Feb",
+    "title": "Comparative effectiveness of prehospital resuscitation strategies on mortality for patients with major trauma: a network meta-analysis.",
+    "comment": "กลยุทธ์การช่วยชีวิตก่อนถึงโรงพยาบาลที่ได้ผลที่สุดสำหรับผู้ป่วยอุบัติเหตุรุนแรง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41661170/"
+  },
+  {
+    "date": "9 Feb",
+    "title": "Naloxone and Buprenorphine Treatment for Adolescent Opioid Overdose and Opioid Use Disorder: A Review.",
+    "comment": "แนวทางการรักษาการติด opioid และภาวะ overdose ในวัยรุ่นที่ครอบคลุม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41661628/"
+  },
+  {
+    "date": "9 Feb",
+    "title": "Glucagon-like Peptide-1 Receptor Agonists and Risk of Pneumonia and Postprocedure Hospitalization Among Patients Undergoing Gastrointestinal Endoscopy.",
+    "comment": "GLP-1 RA ส่งผลต่อความเสี่ยงปอดอักเสบและแอดมิดหลังส่องกล้องทางเดินอาหาร",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41660373/"
+  },
+  {
+    "date": "9 Feb",
+    "title": "Artificial intelligence-driven predictive analytics for postoperative management and recovery in trauma patients.",
+    "comment": "AI ช่วยทำนายและบริหารจัดการหลังผ่าตัดผู้ป่วยอุบัติเหตุ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41661189/"
+  },
+  {
+    "date": "9 Feb",
+    "title": "Risk Factors for Invasive Infection in Febrile Oncology Patients Related to Cancer Type.",
+    "comment": "ปัจจัยเสี่ยงติดเชื้อในผู้ป่วยมะเร็งที่มีไข้ จำแนกตามชนิดมะเร็ง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41661178/"
+  },
+  {
     "date": "8 Feb",
     "title": "qSOFA and Lactate for Nurse-Led Identification of High-Risk Septic Patients: A Prospective Observational Study",
     "comment": "การใช้ qSOFA และ Lactate ในการคัดกรองผู้ป่วย Sepsis โดยพยาบาล อาจช่วยระบุผู้ป่วยความเสี่ยงสูงได้",
@@ -358,65 +418,5 @@
     "title": "Trends and Disparities in Heat-Related Emergency Medical Services Activations",
     "comment": "💡 งานวิจัยนี้สำคัญมากสำหรับ ER ในการเตรียมรับมือกับสถานการณ์ภัยพิบัติทางธรรมชาติ และผลกระทบต่อผู้ป่วยฉุกเฉิน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41637063/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "VRR-CPD: adapting free and open-access distance simulation for the continuing interprofessional education of community emergency department providers on caring for children with acute emergencies.",
-    "comment": "💡 นวัตกรรมการฝึกอบรม ER ด้วย Simulation ระยะไกล ช่วยเพิ่มทักษะการดูแลเด็กฉุกเฉินได้ทั่วถึง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41637049/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Explainable AI reveals temporal risk pathways in fall prediction: Extracting clinical insights from multi-horizon machine learning models.",
-    "comment": "💡 AI ที่อธิบายได้ ช่วยคาดการณ์ความเสี่ยงการหกล้มในผู้ป่วย ER ได้อย่างแม่นยำ เป็นประโยชน์ต่อการประเมินผู้สูงอายุ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41637029/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Correction: Ketamine versus morphine for musculoskeletal trauma pain: a meta-analysis of randomized controlled trials.",
-    "comment": "💡 การทบทวนวรรณกรรมเชิงระบบเรื่องการใช้ Ketamine เทียบกับ Morphine ในการจัดการความปวดจากอุบัติเหตุกระดูกหัก เป็นข้อมูลสำคัญในการตัดสินใจรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41636898/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Tailoring POCUS training to local needs: a context-adapted curriculum for pediatric emergency medicine in France.",
-    "comment": "💡 การปรับหลักสูตร POCUS ให้เข้ากับบริบทเฉพาะของ ER กุมารเวชศาสตร์ เป็นแนวทางที่ดีในการพัฒนาบุคลากร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41636881/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Non-invasive myocardial work analysis in normal, at-risk for heart failure and heart failure patients during stress testing-a systematic review: a joint session with the Romanian Society of Cardiology (part III).",
-    "comment": "💡 การประเมิน Myocardial Work แบบไม่รุกล้ำ เป็นเทคนิคใหม่ที่อาจมีบทบาทในการวินิจฉัยผู้ป่วยหัวใจ ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41636880/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Critical care management of the patient with pharmaceutical poisoning: author's reply.",
-    "comment": "💡 การจัดการผู้ป่วยพิษจากยาในภาวะวิกฤตเป็นประเด็นสำคัญที่ ER ต้องเจอเสมอ และการตอบกลับนี้อาจให้มุมมองใหม่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41636826/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Fatal aminopyrine and caffeine poisoning.",
-    "comment": "💡 รายงานผู้ป่วยเสียชีวิตจากการพิษยา เป็น Case Study ที่ช่วยเตือนภัยและเน้นย้ำการวินิจฉัยที่รวดเร็ว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41636778/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Early versus delayed appendectomy for acute uncomplicated appendicitis in adult and pediatric patients: A systematic review and meta-analysis.",
-    "comment": "💡 Meta-analysis นี้ตอบคำถามสำคัญเรื่องเวลาผ่าตัดไส้ติ่งอักเสบ ว่าควรเร็วหรือช้า ดีต่อผู้ป่วย ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41636758/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Trauma-specific revision of the Japanese Association for Acute Medicine disseminated intravascular coagulation criteria improves outcome prediction in severely injured patients.",
-    "comment": "💡 การปรับเกณฑ์ DIC สำหรับผู้ป่วยบาดเจ็บรุนแรง ให้แม่นยำขึ้น ช่วยในการพยากรณ์โรคและวางแผนการรักษาใน ER ได้ดีขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41636725/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Pediatric Carbon Monoxide Poisoning in Southern Israel-Causality and Outcome",
-    "comment": "การทำความเข้าใจสาเหตุและผลลัพธ์ของภาวะ CO poisoning ในเด็ก อาจนำไปสู่แนวทางการป้องกันและรักษาที่ดีขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41636140/"
   }
 ]
