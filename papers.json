@@ -1,5 +1,65 @@
 [
   {
+    "date": "10 Feb",
+    "title": "Shaking Up the Cocktail: Integrating Sphenopalatine Ganglion Block Into Emergency Department Headache Care",
+    "comment": "เทคนิคใหม่ที่อาจเปลี่ยนแนวทางการรักษาปวดศีรษะเฉียบพลันใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41665591/"
+  },
+  {
+    "date": "10 Feb",
+    "title": "Ambient Artificial Intelligence Scribe Adoption and Documentation Time in the Emergency Department",
+    "comment": "AI scribe ช่วยลดภาระงานเอกสารใน ER ได้จริงหรือไม่?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41665590/"
+  },
+  {
+    "date": "10 Feb",
+    "title": "Impact of Virtual Reality Technology on Pediatric Patients During Venous Access in the Emergency Department: A Meta-Analysis",
+    "comment": "VR ลดความเจ็บปวดและความวิตกกังวลในเด็กที่ต้องฉีดยาใน ER ได้อย่างมีนัยสำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41665560/"
+  },
+  {
+    "date": "10 Feb",
+    "title": "Dual resistance to carbapenems and colistin in",
+    "comment": "แนวโน้มเชื้อดื้อยาที่น่ากังวลสำหรับผู้ป่วยวิกฤตใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41665622/"
+  },
+  {
+    "date": "10 Feb",
+    "title": "Mechanical versus Manual Chest Compressions for Cardiopulmonary Resuscitation in Emergency Department: A Comparative Study",
+    "comment": "การกดหน้าอกด้วยเครื่อง VS ด้วยมือ แบบไหนดีกว่ากันในผู้ป่วย CPR ใน ER?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41664681/"
+  },
+  {
+    "date": "10 Feb",
+    "title": "Machine Learning Models for Predicting the Need for Early Packed Red Blood Cell Transfusion in Multiple Trauma Patients",
+    "comment": "AI ช่วยคาดการณ์การให้เลือดในผู้ป่วยอุบัติเหตุรุนแรงได้อย่างไร",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41664679/"
+  },
+  {
+    "date": "10 Feb",
+    "title": "Bypassing D-dimer Testing in Suspected High-Risk Pulmonary Embolism in the Emergency Department: A Case Report",
+    "comment": "ทางลัดในการวินิจฉัย PE ใน ER ที่อาจใช้ได้ในบางกรณี",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41664665/"
+  },
+  {
+    "date": "10 Feb",
+    "title": "Lassa virus circumvents macrophage and dendritic cell antiviral defences in its natural reservoir, the Natal multimammate mouse (Mastomys natalensis).",
+    "comment": "กลไกการหลบเลี่ยงภูมิคุ้มกันของไวรัส Lassa ที่อาจนำไปสู่การรักษาใหม่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41663544/"
+  },
+  {
+    "date": "10 Feb",
+    "title": "Hypertensive Havoc: When Malignant Hypertension Mimics Thrombotic Thrombocytopenic Purpura",
+    "comment": "ภาวะความดันโลหิตสูงที่อันตราย สามารถเลียนแบบ TTP ได้ ต้องระวัง!",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41664793/"
+  },
+  {
+    "date": "10 Feb",
+    "title": "Clarithromycin for treating sepsis in adults",
+    "comment": "ยาปฏิชีวนะตัวเก่าอาจมีบทบาทใหม่ในการรักษา Sepsis",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41665068/"
+  },
+  {
     "date": "9 Feb",
     "title": "Glucocorticoids for Preventing Migraine Recurrence in the Emergency Department.",
     "comment": "การใช้สเตียรอยด์เพื่อป้องกันไมเกรนกลับเป็นซ้ำใน ER เป็นแนวทางใหม่ที่น่าสนใจ",
@@ -358,65 +418,5 @@
     "title": "Sex-stratified early biomarker model identifies lactate as the key predictor of in-hospital deterioration in acute heart failure.",
     "comment": "การตรวจวัด lactate สามารถบ่งชี้การทรุดตัวของผู้ป่วย acute heart failure ได้ดี โดยเฉพาะเมื่อพิจารณาแยกตามเพศ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41639130/"
-  },
-  {
-    "date": "5 Feb",
-    "title": "Serum potassium as a predictor of 28-day and in-hospital mortality in patients with sepsis: A U-shaped association.",
-    "comment": "ระดับโพแทสเซียมในซีรั่มมีความสัมพันธ์แบบ U-shaped กับอัตราการเสียชีวิตในผู้ป่วย sepsis ซึ่งต้องระวังทั้งภาวะต่ำและสูง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41639130/"
-  },
-  {
-    "date": "5 Feb",
-    "title": "Rethinking the classification of acute status epilepticus: structural brain vs. systemic etiologies.",
-    "comment": "การจำแนกประเภทของ acute status epilepticus ควรคำนึงถึงทั้งสาเหตุจากสมองและสาเหตุจากระบบอื่นในร่างกาย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41639130/"
-  },
-  {
-    "date": "5 Feb",
-    "title": "Optimizing metagenomic next-generation sequencing in CNS infections: a diagnostic model based on CSF parameters.",
-    "comment": "การใช้ CSF parameters เพื่อช่วยในการวินิจฉัย CNS infections ด้วย metagenomic NGS จะมีประสิทธิภาพมากขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41639130/"
-  },
-  {
-    "date": "5 Feb",
-    "title": "Chapare Virus: A Re-Emerging Zoonotic Arenavirus With Limited Preparedness.",
-    "comment": "Chapare Virus เป็นไวรัส Zoonotic ที่กำลังกลับมาและต้องการการเตรียมพร้อมในการรับมือ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41639130/"
-  },
-  {
-    "date": "5 Feb",
-    "title": "The Hidden Threat of Antacid Overuse: A Case of Severe, Slow-Burning Hypercalcemia (Serum Calcium of 22.8 mg/dl).",
-    "comment": "การใช้ยาลดกรดมากเกินไปอาจนำไปสู่ภาวะ Hypercalcemia ที่รุนแรงและค่อยเป็นค่อยไป",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41639130/"
-  },
-  {
-    "date": "5 Feb",
-    "title": "Sex-stratified early biomarker model identifies lactate as the key predictor of in-hospital deterioration in acute heart failure.",
-    "comment": "การตรวจวัด lactate สามารถบ่งชี้การทรุดตัวของผู้ป่วย acute heart failure ได้ดี โดยเฉพาะเมื่อพิจารณาแยกตามเพศ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41639130/"
-  },
-  {
-    "date": "5 Feb",
-    "title": "Acute compartment syndrome in",
-    "comment": "การวินิจฉัยและจัดการ acute compartment syndrome ยังคงเป็นเรื่องสำคัญใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41639130/"
-  },
-  {
-    "date": "5 Feb",
-    "title": "Serum potassium as a predictor of 28-day and in-hospital mortality in patients with sepsis: A U-shaped association.",
-    "comment": "ระดับโพแทสเซียมในซีรั่มมีความสัมพันธ์แบบ U-shaped กับอัตราการเสียชีวิตในผู้ป่วย sepsis ซึ่งต้องระวังทั้งภาวะต่ำและสูง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41639130/"
-  },
-  {
-    "date": "5 Feb",
-    "title": "Combined lactate, base excess, and MEWS score as predictors of ICU transfer from the emergency department: a retrospective cohort study.",
-    "comment": "การใช้ lactate, base excess และ MEWS score ร่วมกันสามารถทำนายการย้ายผู้ป่วยไป ICU จาก ER ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41639130/"
-  },
-  {
-    "date": "4 Feb",
-    "title": "Trends and Disparities in Heat-Related Emergency Medical Services Activations",
-    "comment": "💡 งานวิจัยนี้สำคัญมากสำหรับ ER ในการเตรียมรับมือกับสถานการณ์ภัยพิบัติทางธรรมชาติ และผลกระทบต่อผู้ป่วยฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41637063/"
   }
 ]
