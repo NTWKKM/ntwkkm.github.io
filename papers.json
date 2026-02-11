@@ -2,32 +2,62 @@
   {
     "date": "11 Feb",
     "title": "Emergency Department-Initiated Buprenorphine for Opioid Use Disorder: A Randomized Clinical Trial",
-    "comment": "การให้ Buprenorphine ใน ER ช่วยผู้ป่วย Opioid Use Disorder ได้จริงและมีความปลอดภัย",
+    "comment": "เป็นแนวทางใหม่ในการรักษา OUD ใน ER ที่พิสูจน์ประสิทธิภาพและผลลัพธ์ที่ดี",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41670966/"
   },
   {
     "date": "11 Feb",
     "title": "Device-Assisted vs Standard Valsalva Maneuver for Terminating Supraventricular Tachycardia: A Randomized Clinical Trial",
-    "comment": "เทคนิค Valsalva แบบใหม่ช่วยให้หยุด SVT ได้ดีกว่าวิธีมาตรฐาน",
+    "comment": "เทคนิคใหม่ในการรักษา SVT ที่อาจมีประสิทธิภาพสูงกว่าวิธีมาตรฐาน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41670992/"
   },
   {
     "date": "11 Feb",
-    "title": "Association between early prehospital photoplethysmography waveform features and subsequent hemodynamic changes in trauma patients.",
-    "comment": "สัญญาณ PPG ในระยะก่อนถึง รพ. บอกแนวโน้มภาวะ hemodynamics ในผู้ป่วย trauma ได้",
+    "title": "Association between early prehospital photoplethysmography waveform features and subsequent hemodynamic changes in trauma patients",
+    "comment": "การตรวจจับสัญญาณชีพเบื้องต้นด้วย PPG waveform ในผู้ป่วย trauma เพื่อคาดการณ์ภาวะแทรกซ้อน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41670951/"
   },
   {
     "date": "11 Feb",
     "title": "Clinical and Immunologic Effects of Extracorporeal Cytokine Removal in Patients with Septic Shock: A Randomized Controlled Trial",
-    "comment": "การกรอง Cytokine ในผู้ป่วย Septic Shock อาจช่วยลดการอักเสบและผลลัพธ์การรักษา",
+    "comment": "แนวทางการรักษา Septic Shock ที่อาจช่วยลดการอักเสบและปรับปรุงผลลัพธ์",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41670614/"
   },
   {
     "date": "11 Feb",
-    "title": "Artificial intelligence and diagnosis and management of tuberculosis disease in children.",
-    "comment": "AI มีศักยภาพในการช่วยวินิจฉัยและจัดการวัณโรคในเด็ก",
+    "title": "Artificial intelligence and diagnosis and management of tuberculosis disease in children",
+    "comment": "AI มีบทบาทสำคัญในการวินิจฉัยและจัดการวัณโรคในเด็ก",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41670428/"
+  },
+  {
+    "date": "11 Feb",
+    "title": "Antibody-Oriented Engineering Enables Rapid and Ultrasensitive SERRS-Based Detection of Cardiac Troponin T for Acute Myocardial Infarction Diagnosis",
+    "comment": "นวัตกรรมเทคนิค SERRS สำหรับตรวจ Troponin T ที่รวดเร็วและแม่นยำสูง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41670331/"
+  },
+  {
+    "date": "11 Feb",
+    "title": "Non-physician delivered intravitreal injection service: A systematic review of safety, implementation, training and patient experience",
+    "comment": "การประเมินความปลอดภัยและประสิทธิภาพของบริการฉีด intravitreal โดยบุคลากรที่ไม่ใช่แพทย์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41670243/"
+  },
+  {
+    "date": "11 Feb",
+    "title": "Silicone Encapsulation of Cardiac Pacemakers to Prevent Mechanical Disruption.",
+    "comment": "นวัตกรรมใหม่ในการป้องกันความเสียหายของเครื่องกระตุ้นหัวใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41669770/"
+  },
+  {
+    "date": "11 Feb",
+    "title": "The RESCUE7 Framework: A Practical Mindset for Junior Physicians in the Emergency Department",
+    "comment": "กรอบการทำงานที่ช่วยให้แพทย์ ER รุ่นใหม่รับมือกับสถานการณ์วิกฤตได้อย่างมีประสิทธิภาพ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41669604/"
+  },
+  {
+    "date": "11 Feb",
+    "title": "Silence of the Electrocardiogram: A Case Series With Occluded Coronaries and Normal Electrocardiograms",
+    "comment": "ประเด็นที่น่าสนใจเกี่ยวกับผู้ป่วย AMI ที่ EKG ปกติ อาจนำไปสู่การวินิจฉัยที่ผิดพลาด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41669643/"
   },
   {
     "date": "11 Feb",
@@ -40,18 +70,6 @@
     "title": "Artificial intelligence in trauma care: applications, ethical challenges, and pathways toward responsible integration.",
     "comment": "AI มีบทบาทมากขึ้นใน trauma care ต้องพิจารณาประเด็นจริยธรรมควบคู่ไปด้วย",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41669936/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "Silence of the Electrocardiogram: A Case Series With Occluded Coronaries and Normal Electrocardiograms.",
-    "comment": "ผู้ป่วยกล้ามเนื้อหัวใจขาดเลือดจากการอุดตันของหลอดเลือดโคโรนารี แต่ EKG ปกติ มีโอกาสเกิดได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41669643/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "The RESCUE7 Framework: A Practical Mindset for Junior Physicians in the Emergency Department.",
-    "comment": "กรอบคิด RESCUE7 เป็นแนวทางช่วยแพทย์ ER มือใหม่รับมือสถานการณ์ฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41669604/"
   },
   {
     "date": "11 Feb",
@@ -400,23 +418,5 @@
     "title": "Trends in utilization of imaging among ophthalmic-related emergency department visits in the United States",
     "comment": "แนวโน้มการใช้ Imaging ในผู้ป่วย ER ทางจักษุวิทยา",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41647930/"
-  },
-  {
-    "date": "6 Feb",
-    "title": "The Critical Importance of Recognizing De Winter's T-wave Pattern: A Case of Acute Proximal LAD Occlusion by In-Stent Restenosis",
-    "comment": "ความสำคัญของการรู้จัก De Winter's T-wave pattern ในภาวะ LAD occlusion",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41647928/"
-  },
-  {
-    "date": "6 Feb",
-    "title": "Head Up Cardiopulmonary Resuscitation: Novel Physiological Discoveries and Latest Clinical Outcomes",
-    "comment": "CPR แบบ Head Up: ค้นพบสรีรวิทยาใหม่และผลลัพธ์ทางคลินิกล่าสุด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41648073/"
-  },
-  {
-    "date": "6 Feb",
-    "title": "Gaps between guidelines and practice in hypertensive urgencies and emergencies: data from a multinational European registry in ESH excellence centres",
-    "comment": "ช่องว่างระหว่างแนวปฏิบัติและ Guideline ในภาวะความดันโลหิตสูงฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41649063/"
   }
 ]
