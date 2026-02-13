@@ -1,15 +1,75 @@
 [
   {
     "date": "13 Feb",
-    "title": "Association of high-risk CT coronary artery plaque features with major adverse cardiovascular events: a prespecified secondary analysis of the DISCHARGE trial.",
-    "comment": "การใช้ CT coronary artery plaque features ช่วยประเมินความเสี่ยงโรคหัวใจได้ดีขึ้นใน ER",
+    "title": "Physician Variation in Early Sepsis Management",
+    "comment": "การให้การรักษา Sepsis ของแพทย์ ER มีความหลากหลายสูง ส่งผลต่อการตัดสินใจและผลลัพธ์ผู้ป่วย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41686440/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Remote ischemic conditioning protects against anthracycline cardiotoxicity without impairing its antitumor activity",
+    "comment": "เทคนิคสร้างภาวะขาดเลือดระยะสั้น อาจช่วยป้องกันอันตรายต่อหัวใจจากยาเคมีบำบัดได้ โดยไม่ลดประสิทธิภาพการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41686252/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Association of high-risk CT coronary artery plaque features with major adverse cardiovascular events: a prespecified secondary analysis of the DISCHARGE trial",
+    "comment": "ลักษณะของ plaque ในหลอดเลือดหัวใจที่ตรวจพบจาก CT scan อาจบ่งชี้ความเสี่ยงต่อโรคหัวใจและหลอดเลือดที่รุนแรงในอนาคต",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41686241/"
   },
   {
     "date": "13 Feb",
-    "title": "Clinical use of coronary computed tomography angiography-derived fractional flow reserve: expert consensus by an International Working Group.",
-    "comment": "เป็นแนวทางปฏิบัติเกี่ยวกับ FFR จาก CT angiography เพื่อการตัดสินใจรักษาผู้ป่วยโรคหลอดเลือดหัวใจ",
+    "title": "Clinical use of coronary computed tomography angiography-derived fractional flow reserve: expert consensus by an International Working Group",
+    "comment": "การใช้ค่า FFR จาก CT coronary angiography มี consensus ใหม่ที่น่าสนใจสำหรับ ER แพทย์",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41686239/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Artificial intelligence-assisted reading of non-contrast prostate MRI: application and concordance with expert interpretation in a screening population within the PROSA trial",
+    "comment": "AI ช่วยแปลผล MRI ต่อมลูกหมาก ลดความผิดพลาด และเพิ่มความแม่นยำ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41686238/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Critical care in hematologic emergencies",
+    "comment": "แนวทางการดูแลผู้ป่วยภาวะฉุกเฉินทางโลหิตวิทยาที่สำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41686208/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "[Role of trauma surgery in the emergency department from the perspective of the occupational accident insurance physician procedure]",
+    "comment": "บทบาทศัลยกรรมอุบัติเหตุใน ER จากมุมมองแพทย์ประกันภัยอุบัติเหตุ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41686203/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Predictors of Readiness to Engage in Advance Care Planning Among Older Adults With Serious Illness: Baseline Findings From the EQUAL ACP Study",
+    "comment": "ปัจจัยที่มีผลต่อความพร้อมของผู้ป่วยสูงอายุที่มีโรคร้ายแรงในการวางแผนดูแลล่วงหน้า",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41686181/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Emerging Cardiovascular Risk Factors in Chronic Kidney Disease in the \"Omics\" Era: Gut and Beyond",
+    "comment": "ปัจจัยเสี่ยงใหม่ๆ ต่อระบบหัวใจและหลอดเลือดในผู้ป่วย CKD ที่สัมพันธ์กับ Gut microbiome",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41686097/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Out-of-Hospital Cardiac Arrest and Compression-Only CPR on Scripted Television",
+    "comment": "การฝึก CPR แบบ Hands-only จากสื่อโทรทัศน์ส่งผลต่อความรู้และความมั่นใจในการช่วยชีวิตแค่ไหน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41686021/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Could the combination of fibrinogen and D-dimer improve risk assessment for acute type A aortic dissection in the emergency department?",
+    "comment": "การใช้ fibrinogen ร่วมกับ D-dimer ช่วยประเมินความเสี่ยงของ Aortic dissection ได้ดีขึ้นใน ER หรือไม่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41685423/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Nationwide pediatric prehospital blood product use after motor vehicle crashes 2020-2023",
+    "comment": "การให้ผลิตภัณฑ์เลือดในผู้ป่วยเด็กอุบัติเหตุทางถนนก่อนถึงโรงพยาบาล จากข้อมูลทั่วประเทศ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41684206/"
   },
   {
     "date": "13 Feb",
@@ -19,33 +79,9 @@
   },
   {
     "date": "13 Feb",
-    "title": "Could the combination of fibrinogen and D-dimer improve risk assessment for acute type A aortic dissection in the emergency department?",
-    "comment": "การรวม fibrinogen และ D-dimer อาจช่วยประเมินความเสี่ยง Aortic dissection ใน ER ได้ดีขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41685423/"
-  },
-  {
-    "date": "13 Feb",
-    "title": "Nationwide pediatric prehospital blood product use after motor vehicle crashes 2020-2023.",
-    "comment": "ข้อมูลการให้ผลิตภัณฑ์เลือดในเด็กก่อนถึง รพ. จากอุบัติเหตุรถยนต์ สะท้อนแนวทางการรักษาที่อาจนำมาปรับใช้ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41684206/"
-  },
-  {
-    "date": "13 Feb",
     "title": "Targeted bronchial artery embolization: a life-saving intervention for recurrent massive hemoptysis in bronchiectasis.",
     "comment": "การทำ embolization เส้นเลือดที่ปอด อาจเป็นทางเลือกในการรักษาภาวะเลือดออกใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41684758/"
-  },
-  {
-    "date": "13 Feb",
-    "title": "Critical care in hematologic emergencies.",
-    "comment": "สรุปภาพรวมการดูแลผู้ป่วยภาวะฉุกเฉินทางโลหิตวิทยาที่สำคัญใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41686208/"
-  },
-  {
-    "date": "13 Feb",
-    "title": "Physician Variation in Early Sepsis Management.",
-    "comment": "ความหลากหลายในการรักษา Sepsis ตั้งแต่ระยะแรก ชี้ให้เห็นความสำคัญของการสร้างมาตรฐาน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41686440/"
   },
   {
     "date": "13 Feb",
@@ -382,41 +418,5 @@
     "title": "Global prevalence, mortality, and comorbidities of patients with diabetes mellitus and proven Candida auris emerging infection: a systematic review & meta-analysis",
     "comment": "การระบาดของ Candida auris ในผู้ป่วยเบาหวานเป็นปัญหาสาธารณสุขที่ต้องเฝ้าระวังและศึกษาเพิ่มเติม",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41654747/"
-  },
-  {
-    "date": "8 Feb",
-    "title": "Beyond lactate: prognostic value of metabolic and biochemical parameters in methanol poisoning - a retrospective observational study",
-    "comment": "นอกจาก lactate ยังมีพารามิเตอร์เมตาบอลิกและชีวเคมีอื่นๆ ที่มีค่าในการพยากรณ์โรคในภาวะพิษจากเมทานอล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41654740/"
-  },
-  {
-    "date": "8 Feb",
-    "title": "Emergence of NDM-type metallo-β-lactamase and ArmA 16S rRNA methylase co-producing Morganella morganii in Myanmar",
-    "comment": "การดื้อยาของเชื้อแบคทีเรีย เป็นภัยคุกคามที่ทวีความรุนแรงขึ้น ซึ่งต้องมีการเฝ้าระวังและศึกษาอย่างต่อเนื่อง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41654715/"
-  },
-  {
-    "date": "8 Feb",
-    "title": "Recombinant factor VIIa versus placebo for spontaneous intracerebral haemorrhage within 2 h of symptom onset (FASTEST): a multicentre, double-blind, randomised, placebo-controlled, phase 3 trial",
-    "comment": "การใช้ Recombinant factor VIIa ในผู้ป่วย ICH ระยะเฉียบพลัน มีผลต่อผลลัพธ์ของผู้ป่วย ซึ่งเป็นข้อมูลสำคัญในการรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41653933/"
-  },
-  {
-    "date": "7 Feb",
-    "title": "Endovascular reperfusion strategies for pregnancy-related pulmonary embolism: A systematic review.",
-    "comment": "กลยุทธ์การรักษาภาวะลิ่มเลือดอุดตันในปอดที่เกี่ยวข้องกับการตั้งครรภ์ด้วยการเปิดหลอดเลือดแบบ Endovascular",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41653269/"
-  },
-  {
-    "date": "7 Feb",
-    "title": "The Occasional limb tourniquet application and tourniquet conversion.",
-    "comment": "การใช้สายรัดห้ามเลือดที่แขนขาและเทคนิคการแปลงสายรัด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41652988/"
-  },
-  {
-    "date": "7 Feb",
-    "title": "AI in virtual fracture clinics: A systematic review of imaging and clinical-text tools.",
-    "comment": "การใช้ AI ในคลินิกกระดูกหักเสมือนจริง: ทบทวนเครื่องมือภาพและข้อมูลทางคลินิก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41652489/"
   }
 ]
