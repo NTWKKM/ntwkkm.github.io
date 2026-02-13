@@ -1,5 +1,65 @@
 [
   {
+    "date": "13 Feb",
+    "title": "Association of high-risk CT coronary artery plaque features with major adverse cardiovascular events: a prespecified secondary analysis of the DISCHARGE trial.",
+    "comment": "การใช้ CT coronary artery plaque features ช่วยประเมินความเสี่ยงโรคหัวใจได้ดีขึ้นใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41686241/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Clinical use of coronary computed tomography angiography-derived fractional flow reserve: expert consensus by an International Working Group.",
+    "comment": "เป็นแนวทางปฏิบัติเกี่ยวกับ FFR จาก CT angiography เพื่อการตัดสินใจรักษาผู้ป่วยโรคหลอดเลือดหัวใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41686239/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Real-time, artificial intelligence-guided intraoperative resuscitation and fluid management in trauma anesthesia.",
+    "comment": "AI ช่วยนำทางการให้สารน้ำและการช่วยชีวิตผู้ป่วย trauma แบบ real-time มีประโยชน์ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41685816/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Could the combination of fibrinogen and D-dimer improve risk assessment for acute type A aortic dissection in the emergency department?",
+    "comment": "การรวม fibrinogen และ D-dimer อาจช่วยประเมินความเสี่ยง Aortic dissection ใน ER ได้ดีขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41685423/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Nationwide pediatric prehospital blood product use after motor vehicle crashes 2020-2023.",
+    "comment": "ข้อมูลการให้ผลิตภัณฑ์เลือดในเด็กก่อนถึง รพ. จากอุบัติเหตุรถยนต์ สะท้อนแนวทางการรักษาที่อาจนำมาปรับใช้ได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41684206/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Targeted bronchial artery embolization: a life-saving intervention for recurrent massive hemoptysis in bronchiectasis.",
+    "comment": "การทำ embolization เส้นเลือดที่ปอด อาจเป็นทางเลือกในการรักษาภาวะเลือดออกใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41684758/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Critical care in hematologic emergencies.",
+    "comment": "สรุปภาพรวมการดูแลผู้ป่วยภาวะฉุกเฉินทางโลหิตวิทยาที่สำคัญใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41686208/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Physician Variation in Early Sepsis Management.",
+    "comment": "ความหลากหลายในการรักษา Sepsis ตั้งแต่ระยะแรก ชี้ให้เห็นความสำคัญของการสร้างมาตรฐาน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41686440/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Updates in Abbreviated MRI-Based HCC Surveillance.",
+    "comment": "การใช้ MRI แบบย่อ อาจมีบทบาทในการเฝ้าระวัง HCC ในอนาคต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41685897/"
+  },
+  {
+    "date": "13 Feb",
+    "title": "Psoas Abscess: A Possible Missed Diagnosis in the Emergency Department.",
+    "comment": "Psoas Abscess ที่อาจถูกมองข้ามได้ใน ER เป็นเคสที่ควรระลึกถึง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41685000/"
+  },
+  {
     "date": "12 Feb",
     "title": "New-Onset Nonarteritic Anterior Ischemic Optic Neuropathy and Initiators of Semaglutide in US Veterans With Type 2 Diabetes",
     "comment": "พบความสัมพันธ์ใหม่ที่ต้องเฝ้าระวังระหว่างยาเบาหวานกลุ่ม GLP-1 RA และภาวะ optic neuropathy",
@@ -358,65 +418,5 @@
     "title": "AI in virtual fracture clinics: A systematic review of imaging and clinical-text tools.",
     "comment": "การใช้ AI ในคลินิกกระดูกหักเสมือนจริง: ทบทวนเครื่องมือภาพและข้อมูลทางคลินิก",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41652489/"
-  },
-  {
-    "date": "7 Feb",
-    "title": "Artificial intelligence for fracture detection on computed tomography: A systematic review and meta-analysis.",
-    "comment": "การใช้ AI เพื่อตรวจจับกระดูกหักจาก CT Scan: การทบทวนและวิเคราะห์อภิมาน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41652293/"
-  },
-  {
-    "date": "7 Feb",
-    "title": "Microcirculatory Dysfunction in Sepsis.",
-    "comment": "ความผิดปกติของการไหลเวียนโลหิตจุลภาคในภาวะ Sepsis",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41651602/"
-  },
-  {
-    "date": "7 Feb",
-    "title": "Pediatric Sepsis: Evolving Subphenotypes, Overlap Syndromes, and the Path to Precision Therapies.",
-    "comment": "Sepsis ในเด็ก: การจำแนกกลุ่มย่อยใหม่, โรคที่ทับซ้อน และแนวทางการรักษาเฉพาะบุคคล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41651600/"
-  },
-  {
-    "date": "7 Feb",
-    "title": "Phage vB_AbaM_MU1 for biocontrol of carbapenem-resistant Acinetobacter baumannii (CRAB).",
-    "comment": "การใช้ฟาจ (Phage) ในการควบคุมเชื้อ Acinetobacter baumannii ดื้อยา Carbapenem",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41652486/"
-  },
-  {
-    "date": "7 Feb",
-    "title": "Taurine Alleviates Sepsis-Induced Myocardial Injury by Inhibiting NF-κB Pathway-Mediated Inflammation, Mitochondrial Dysfunction, and Apoptosis.",
-    "comment": "ทอรีนช่วยลดความเสียหายต่อกล้ามเนื้อหัวใจจาก Sepsis ด้วยการยับยั้งการอักเสบในวิถี NF-κB",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41652232/"
-  },
-  {
-    "date": "7 Feb",
-    "title": "The double threat: bacterial and fungal co-/superinfection in viral pneumonia.",
-    "comment": "ภัยคุกคามสองเท่า: การติดเชื้อแบคทีเรียและเชื้อรา ร่วม/ซ้ำซ้อน ในภาวะปอดอักเสบจากไวรัส",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41653012/"
-  },
-  {
-    "date": "7 Feb",
-    "title": "Real-time public health interventions driven by wastewater and environmental surveillance during Uganda's 2025 martyrs day mass gathering.",
-    "comment": "การเฝ้าระวังทางสาธารณสุขแบบเรียลไทม์จากการตรวจน้ำเสียและสิ่งแวดล้อม ในช่วงการรวมตัวครั้งใหญ่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41652615/"
-  },
-  {
-    "date": "7 Feb",
-    "title": "Combatting antibiotic resistance: challenges and emerging therapeutic strategies.",
-    "comment": "ประเด็นสำคัญที่ ER ต้องเผชิญ การทำความเข้าใจกลยุทธ์ใหม่ๆ ในการต่อสู้กับเชื้อดื้อยา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41653009/"
-  },
-  {
-    "date": "7 Feb",
-    "title": "Risk factors disrupting wholistic wellness among indigenous families during COVID-19.",
-    "comment": "การทำความเข้าใจปัจจัยที่ส่งผลต่อสุขภาพองค์รวมในกลุ่มเปราะบาง อาจนำไปสู่การดูแลผู้ป่วย ER ที่ครอบคลุมมากขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41652902/"
-  },
-  {
-    "date": "7 Feb",
-    "title": "Training level and analgesic outcomes of ultrasound-guided nerve blocks in the emergency department: An analysis from the NURVE block registry.",
-    "comment": "การประเมินประสิทธิภาพและระดับการฝึกฝนการทำ Nerve block ใน ER อาจส่งผลต่อการจัดการความปวด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41650759/"
   }
 ]
