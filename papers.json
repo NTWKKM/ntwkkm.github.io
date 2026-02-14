@@ -1,5 +1,65 @@
 [
   {
+    "date": "14 Feb",
+    "title": "Methylene Blue Rescue Therapy for Vasoplegic Shock After Antihypertensive Drug Overdose",
+    "comment": "ช่วยชีวิตผู้ป่วยภาวะวาสโสเพลจิก ช็อก จากการทานยาแก้ความดันเกินขนาด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41689248/"
+  },
+  {
+    "date": "14 Feb",
+    "title": "Utilizing Cardiopulmonary Bypass in Trauma Patients: A Multi-Institutional Study of the American Association for the Surgery of Trauma",
+    "comment": "การใช้ ECMO ในผู้ป่วยบาดเจ็บรุนแรง อาจเป็นทางเลือกที่ต้องพิจารณาในบางกรณี",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41689481/"
+  },
+  {
+    "date": "14 Feb",
+    "title": "Emergence of xylazine in accidental overdose deaths, impaired drivers, sexual assaults, and public intoxications within San Francisco",
+    "comment": "ยาซายลาซีน (Xylazine) กำลังระบาดและน่ากังวลในกลุ่มผู้เสพยาเกินขนาดและปัญหาอื่นๆ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41687150/"
+  },
+  {
+    "date": "14 Feb",
+    "title": "Early vs. delayed empiric antimicrobial treatment for suspected acute meningitis - a systematic review and meta-analysis",
+    "comment": "กำหนดเวลาเริ่มต้นยาปฏิชีวนะในผู้ป่วยเยื่อหุ้มสมองอักเสบที่สงสัยมีผลต่อผลลัพธ์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41688940/"
+  },
+  {
+    "date": "14 Feb",
+    "title": "Optimal time window for extracorporeal cardiopulmonary resuscitation in patients with in-hospital cardiac arrest",
+    "comment": "หน้าต่างเวลาที่เหมาะสมสำหรับการใช้ ECMR ในผู้ป่วยหัวใจหยุดเต้นในโรงพยาบาล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41689125/"
+  },
+  {
+    "date": "14 Feb",
+    "title": "Hyponatraemic seizure in a healthy adult due to stress-associated non-osmotic vasopressin-mediated antidiuresis on a low-solute background: a case report",
+    "comment": "ภาวะชักจากโซเดียมต่ำในผู้ใหญ่สุขภาพดีที่เกิดจากการควบคุมน้ำผิดปกติจากความเครียด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41688911/"
+  },
+  {
+    "date": "14 Feb",
+    "title": "Vagus nerve stimulation for drug-resistant epilepsy and predictors for seizure freedom: A nationwide multicenter cohort study in Mexico",
+    "comment": "การกระตุ้นเส้นประสาท Vagus อาจช่วยควบคุมโรคลมชักดื้อยาได้ และมีปัจจัยทำนายผลลัพธ์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41689605/"
+  },
+  {
+    "date": "14 Feb",
+    "title": "Functional cognitive screening instruments and their clinical utility with older adults in the emergency department: A systematic review",
+    "comment": "เครื่องมือประเมินความรู้ความเข้าใจที่ใช้งานได้จริงสำหรับผู้สูงอายุใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41687790/"
+  },
+  {
+    "date": "14 Feb",
+    "title": "Prognostication of External Cervical Resorption Based on Heithersay's and Patel et al. Classifications: A Narrative Review",
+    "comment": "การจำแนกความรุนแรงของภาวะสึกกร่อนของคอฟัน อาจช่วยในการพยากรณ์โรค",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41689254/"
+  },
+  {
+    "date": "14 Feb",
+    "title": "Epidemiology of Facial Fractures Encountered in the Emergency Department Setting in the United States: An Update of Nationwide Estimates",
+    "comment": "ข้อมูลระบาดวิทยาของกระดูกใบหน้าหักใน ER ของสหรัฐฯ ที่ควรรู้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41688037/"
+  },
+  {
     "date": "13 Feb",
     "title": "Physician Variation in Early Sepsis Management",
     "comment": "การให้การรักษา Sepsis ของแพทย์ ER มีความหลากหลายสูง ส่งผลต่อการตัดสินใจและผลลัพธ์ผู้ป่วย",
@@ -358,65 +418,5 @@
     "title": "Naloxone and Buprenorphine Treatment for Adolescent Opioid Overdose and Opioid Use Disorder: A Review.",
     "comment": "แนวทางการรักษาการติด opioid และภาวะ overdose ในวัยรุ่นที่ครอบคลุม",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41661628/"
-  },
-  {
-    "date": "9 Feb",
-    "title": "Glucagon-like Peptide-1 Receptor Agonists and Risk of Pneumonia and Postprocedure Hospitalization Among Patients Undergoing Gastrointestinal Endoscopy.",
-    "comment": "GLP-1 RA ส่งผลต่อความเสี่ยงปอดอักเสบและแอดมิดหลังส่องกล้องทางเดินอาหาร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41660373/"
-  },
-  {
-    "date": "9 Feb",
-    "title": "Artificial intelligence-driven predictive analytics for postoperative management and recovery in trauma patients.",
-    "comment": "AI ช่วยทำนายและบริหารจัดการหลังผ่าตัดผู้ป่วยอุบัติเหตุ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41661189/"
-  },
-  {
-    "date": "9 Feb",
-    "title": "Risk Factors for Invasive Infection in Febrile Oncology Patients Related to Cancer Type.",
-    "comment": "ปัจจัยเสี่ยงติดเชื้อในผู้ป่วยมะเร็งที่มีไข้ จำแนกตามชนิดมะเร็ง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41661178/"
-  },
-  {
-    "date": "8 Feb",
-    "title": "qSOFA and Lactate for Nurse-Led Identification of High-Risk Septic Patients: A Prospective Observational Study",
-    "comment": "การใช้ qSOFA และ Lactate ในการคัดกรองผู้ป่วย Sepsis โดยพยาบาล อาจช่วยระบุผู้ป่วยความเสี่ยงสูงได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41654996/"
-  },
-  {
-    "date": "8 Feb",
-    "title": "Artificial intelligence in emergency surgery: a scoping review within the artificial intelligence in emergency and trauma surgery (ARIES) project",
-    "comment": "AI มีบทบาทสำคัญในการผ่าตัดฉุกเฉินและบาดแผล ซึ่งเป็นแนวโน้มที่น่าจับตามอง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41654983/"
-  },
-  {
-    "date": "8 Feb",
-    "title": "Computed tomography in pediatric blunt abdominal trauma: current evidence, challenges, and future directions - a systematic review and meta-analysis",
-    "comment": "CT scan ยังคงเป็นเครื่องมือหลักในการประเมินการบาดเจ็บในช่องท้องทื่อในเด็ก แต่ก็มีความท้าทายและทิศทางอนาคตที่ต้องพิจารณา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41654849/"
-  },
-  {
-    "date": "8 Feb",
-    "title": "Factors associated with missed stroke diagnosis in prehospital triage: a single-center cohort study",
-    "comment": "ปัจจัยที่ทำให้เกิดการวินิจฉัยโรคหลอดเลือดสมองล่าช้าในการคัดกรองก่อนถึงโรงพยาบาลเป็นสิ่งสำคัญที่ต้องทบทวนเพื่อปรับปรุงการดูแล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41654812/"
-  },
-  {
-    "date": "8 Feb",
-    "title": "Application of machine learning for the diagnosis and prognosis of sepsis-induced acute respiratory distress syndrome: a systematic review and meta-analysis",
-    "comment": "Machine learning สามารถช่วยในการวินิจฉัยและพยากรณ์โรค ARDS ที่เกิดจาก Sepsis ได้อย่างมีประสิทธิภาพ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41654807/"
-  },
-  {
-    "date": "8 Feb",
-    "title": "Study on the construction of a predictive model for delayed encephalopathy after acute carbon monoxide poisoning",
-    "comment": "การสร้างโมเดลทำนายภาวะสมองเสื่อมล่าช้าหลังได้รับพิษจากคาร์บอนมอนอกไซด์เฉียบพลันเป็นสิ่งจำเป็นเพื่อการดูแลที่ทันท่วงที",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41654772/"
-  },
-  {
-    "date": "8 Feb",
-    "title": "Global prevalence, mortality, and comorbidities of patients with diabetes mellitus and proven Candida auris emerging infection: a systematic review & meta-analysis",
-    "comment": "การระบาดของ Candida auris ในผู้ป่วยเบาหวานเป็นปัญหาสาธารณสุขที่ต้องเฝ้าระวังและศึกษาเพิ่มเติม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41654747/"
   }
 ]
