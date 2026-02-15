@@ -1,5 +1,65 @@
 [
   {
+    "date": "15 Feb",
+    "title": "Increasing naloxone distribution to opioid overdose patients in the emergency department following best practice advisory enhancement.",
+    "comment": "งานวิจัยนี้แสดงให้เห็นถึงประสิทธิผลของการปรับปรุงแนวปฏิบัติในการแจกจ่าย Naloxone ใน ER ซึ่งเป็นประโยชน์โดยตรงต่อผู้ป่วย ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41690881/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Time to intubate comparing non-channeled video laryngoscope blade (66° v/s 45°) in patients requiring emergency airway management - A randomized study.",
+    "comment": "เปรียบเทียบเทคนิคการใส่ท่อช่วยหายใจที่อาจส่งผลต่อความรวดเร็วและประสิทธิภาพในการจัดการทางเดินหายใจฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41690880/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Emerging radar-based technologies for cuffless blood pressure monitoring-a systematic review.",
+    "comment": "เทคโนโลยีการวัดความดันโลหิตแบบใหม่ที่อาจนำมาใช้ใน ER เพื่อความสะดวกและรวดเร็ว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41690859/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Recommendations on actions to avoid when performing point-of-care ultrasound in pediatric emergency departments.",
+    "comment": "คู่มือสำคัญสำหรับแพทย์ ER ที่ต้องทำ POCUS ในเด็ก เพื่อหลีกเลี่ยงข้อผิดพลาดที่อาจเกิดขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41690845/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Toxicological profile and prognostic factors in phosphide poisoning: insights from a one-year hospital-based study.",
+    "comment": "ให้ข้อมูลเชิงลึกเกี่ยวกับพิษจากฟอสไฟด์ ซึ่งเป็นสาเหตุพิษเฉียบพลันที่อาจพบใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41691190/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Can an Antibiotic Trigger a Heart Attack? Kounis Syndrome Induced by Intraoperative Amoxicillin Allergy: A case report.",
+    "comment": "เป็นกรณีศึกษาที่น่าสนใจเกี่ยวกับภาวะ Kounis Syndrome ซึ่งอาจเกิดจากยาปฏิชีวนะที่ใช้บ่อยใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41690472/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Centralization of post-resuscitation care after out-of-hospital cardiac arrest at cardiac arrest centres: a Danish nationwide follow-up study.",
+    "comment": "ชี้ให้เห็นแนวทางการจัดการผู้ป่วย CA ที่อาจปรับปรุงผลลัพธ์ในระยะยาว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41691322/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Independent risk of death from hemorrhage and traumatic brain injury in polytrauma: findings from a prospective, multi-center study in the Western Cape of South Africa.",
+    "comment": "ระบุปัจจัยเสี่ยงสำคัญที่ต้องพิจารณาในการจัดการผู้ป่วย polytrauma ที่ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41691261/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Methylene Blue Rescue Therapy for Vasoplegic Shock After Antihypertensive Drug Overdose.",
+    "comment": "นำเสนอทางเลือกในการรักษาภาวะ Vasoplegic Shock ที่อาจเกิดจากการใช้ยาเกินขนาด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41691248/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Suspected nitrous oxide toxicity in emergency departments: Royal College of Emergency Medicine best practice guideline review.",
+    "comment": "คู่มือแนวปฏิบัติฉุกเฉินสำหรับภาวะพิษจากไนตรัสออกไซด์ ซึ่งเป็นสิ่งที่ควรตระหนักใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41690706/"
+  },
+  {
     "date": "14 Feb",
     "title": "Methylene Blue Rescue Therapy for Vasoplegic Shock After Antihypertensive Drug Overdose",
     "comment": "Methylene blue อาจมีบทบาทสำคัญในการช่วยชีวิตผู้ป่วยภาวะช็อกจากการใช้ยาต้านความดันเกินขนาด",
@@ -358,65 +418,5 @@
     "title": "The clinical and cost-effectiveness of paravertebral blockade versus thoracic epidural blockade in reducing chronic post-thoracotomy pain: TOPIC2 RCT synopsis",
     "comment": "การเปรียบเทียบ Paravertebral vs. Thoracic Epidural Block เพื่อลดปวดหลังผ่าตัดทรวงอก มีความคุ้มค่าอย่างไร?",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41664616/"
-  },
-  {
-    "date": "10 Feb",
-    "title": "Emerging AI-Involved Research in Transcultural Nursing and Healthcare",
-    "comment": "AI จะเข้ามามีบทบาทในบริบทพยาบาลข้ามวัฒนธรรมและการดูแลสุขภาพอย่างไร?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41664200/"
-  },
-  {
-    "date": "10 Feb",
-    "title": "Long non-coding RNAs as key regulators in sepsis: from immune response to organ dysfunction",
-    "comment": "lncRNAs มีบทบาทสำคัญต่อ Sepsis ตั้งแต่การตอบสนองทางภูมิคุ้มกันจนถึงอวัยวะล้มเหลว น่าจะเป็นเป้าหมายการรักษาใหม่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41664216/"
-  },
-  {
-    "date": "10 Feb",
-    "title": "Longitudinal analysis of pain symptoms and risk factors in patients with incident liver disease: a nationwide cohort study",
-    "comment": "ความสัมพันธ์ระหว่างอาการปวดกับปัจจัยเสี่ยงในผู้ป่วยโรคตับที่เกิดขึ้นใหม่ เป็นข้อมูลสำคัญในการจัดการผู้ป่วย ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41664217/"
-  },
-  {
-    "date": "10 Feb",
-    "title": "Dual resistance to carbapenems and colistin in",
-    "comment": "แนวโน้มเชื้อดื้อยาที่น่ากังวลสำหรับผู้ป่วยวิกฤตใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41665622/"
-  },
-  {
-    "date": "10 Feb",
-    "title": "Lassa virus circumvents macrophage and dendritic cell antiviral defences in its natural reservoir, the Natal multimammate mouse (Mastomys natalensis).",
-    "comment": "กลไกการหลบเลี่ยงภูมิคุ้มกันของไวรัส Lassa ที่อาจนำไปสู่การรักษาใหม่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41663544/"
-  },
-  {
-    "date": "10 Feb",
-    "title": "Hypertensive Havoc: When Malignant Hypertension Mimics Thrombotic Thrombocytopenic Purpura",
-    "comment": "ภาวะความดันโลหิตสูงที่อันตราย สามารถเลียนแบบ TTP ได้ ต้องระวัง!",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41664793/"
-  },
-  {
-    "date": "10 Feb",
-    "title": "Clarithromycin for treating sepsis in adults",
-    "comment": "ยาปฏิชีวนะตัวเก่าอาจมีบทบาทใหม่ในการรักษา Sepsis",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41665068/"
-  },
-  {
-    "date": "9 Feb",
-    "title": "Glucocorticoids for Preventing Migraine Recurrence in the Emergency Department.",
-    "comment": "การใช้สเตียรอยด์เพื่อป้องกันไมเกรนกลับเป็นซ้ำใน ER เป็นแนวทางใหม่ที่น่าสนใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41661582/"
-  },
-  {
-    "date": "9 Feb",
-    "title": "Videolaryngoscopic Intubation and Difficult Airway Classification (VIDIAC) accuracy in the prediction of first-pass nasal intubation using a video laryngoscope.",
-    "comment": "เครื่องมือช่วยคาดการณ์การใส่ท่อช่วยหายใจที่ยากด้วยวิดีโอลาแรงโกสโคป",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41661538/"
-  },
-  {
-    "date": "9 Feb",
-    "title": "Improving Delirium Screening and Detection in the Emergency Department (ED): The Implementation and Evaluation of the ED Delirium Detection Program.",
-    "comment": "โปรแกรมคัดกรองและวินิจฉัยภาวะเพ้อใน ER ที่มีหลักฐานชัดเจน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41660681/"
   }
 ]
