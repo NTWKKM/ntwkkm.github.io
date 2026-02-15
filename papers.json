@@ -2,26 +2,74 @@
   {
     "date": "15 Feb",
     "title": "Increasing naloxone distribution to opioid overdose patients in the emergency department following best practice advisory enhancement.",
-    "comment": "งานวิจัยนี้แสดงให้เห็นถึงประสิทธิผลของการปรับปรุงแนวปฏิบัติในการแจกจ่าย Naloxone ใน ER ซึ่งเป็นประโยชน์โดยตรงต่อผู้ป่วย ER",
+    "comment": "กลยุทธ์ใหม่ในการเพิ่มการกระจายยา Naloxone ใน ER เพื่อลดการเสียชีวิตจาก opioid overdose",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41690881/"
   },
   {
     "date": "15 Feb",
     "title": "Time to intubate comparing non-channeled video laryngoscope blade (66° v/s 45°) in patients requiring emergency airway management - A randomized study.",
-    "comment": "เปรียบเทียบเทคนิคการใส่ท่อช่วยหายใจที่อาจส่งผลต่อความรวดเร็วและประสิทธิภาพในการจัดการทางเดินหายใจฉุกเฉิน",
+    "comment": "การเปรียบเทียบใบมีด Laryngoscope แบบวิดีโอในการใส่ท่อช่วยหายใจฉุกเฉิน เพื่อหาเทคนิคที่ดีที่สุด",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41690880/"
   },
   {
     "date": "15 Feb",
     "title": "Emerging radar-based technologies for cuffless blood pressure monitoring-a systematic review.",
-    "comment": "เทคโนโลยีการวัดความดันโลหิตแบบใหม่ที่อาจนำมาใช้ใน ER เพื่อความสะดวกและรวดเร็ว",
+    "comment": "เทคโนโลยีใหม่ในการวัดความดันโลหิตแบบไร้สาย (cuffless) น่าจับตามองสำหรับ ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41690859/"
   },
   {
     "date": "15 Feb",
     "title": "Recommendations on actions to avoid when performing point-of-care ultrasound in pediatric emergency departments.",
-    "comment": "คู่มือสำคัญสำหรับแพทย์ ER ที่ต้องทำ POCUS ในเด็ก เพื่อหลีกเลี่ยงข้อผิดพลาดที่อาจเกิดขึ้น",
+    "comment": "คำแนะนำที่สำคัญในการหลีกเลี่ยงข้อผิดพลาดจากการทำ POCUS ในเด็ก เพื่อความปลอดภัยสูงสุด",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41690845/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Electroconvulsive Therapy for Aggression and Agitation in Dementia: A Systematic Review With Exploratory Meta-analytic and Ethical Perspectives.",
+    "comment": "ECT อาจเป็นทางเลือกในการจัดการผู้ป่วยสมองเสื่อมที่มีอาการก้าวร้าว/กระวนกระวาย ซึ่งอาจนำไปสู่การพิจารณาใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41690837/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Effectiveness of drug interventions to prevent delirium after surgery for older adults: systematic review and network meta-analysis of randomised controlled trials.",
+    "comment": "ยาตัวไหนได้ผลดีที่สุดในการป้องกัน Delirium หลังผ่าตัดในผู้สูงอายุใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41690769/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Suspected nitrous oxide toxicity in emergency departments: Royal College of Emergency Medicine best practice guideline review.",
+    "comment": "แนวปฏิบัติใหม่ในการวินิจฉัยและรักษาภาวะพิษจากก๊าซหัวเราะ (N2O) ซึ่งอาจเจอใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41690706/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Rising paediatric emergency department use despite demographic decline: a 23-year analysis.",
+    "comment": "การเพิ่มขึ้นของผู้ป่วยเด็กใน ER ทั้งที่จำนวนประชากรลดลง ชี้ให้เห็นถึงปัจจัยที่ซับซ้อนที่ต้องทำความเข้าใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41690694/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Artificial intelligence-assisted training for rib fracture interpretation: a prospective study in undergraduate medical students.",
+    "comment": "AI ช่วยแปลผลภาพเอกซเรย์กระดูกซี่โครง แม่นยำขึ้น ลดภาระแพทย์ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41690241/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Methylene Blue Rescue Therapy for Vasoplegic Shock After Antihypertensive Drug Overdose.",
+    "comment": "Methylene Blue อาจช่วยชีวิตผู้ป่วย Vasoplegic Shock จากการทานยาความดันเกินขนาดใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41689248/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Identifying Adverse Events Associated With High-Risk Opioid Administration Using the Emergency Department Trigger Tool.",
+    "comment": "เครื่องมือใหม่ในการระบุเหตุการณ์ไม่พึงประสงค์จากการให้ยา Opioid ใน ER เพื่อความปลอดภัยผู้ป่วย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41689235/"
+  },
+  {
+    "date": "15 Feb",
+    "title": "Early vs. delayed empiric antimicrobial treatment for suspected acute meningitis - a systematic review and meta-analysis.",
+    "comment": "การให้ยาปฏิชีวนะแบบฉุกเฉินในผู้ป่วยเยื่อหุ้มสมองอักเสบ ควรให้เร็วหรือช้า? งานวิจัยนี้มีคำตอบ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41688940/"
   },
   {
     "date": "15 Feb",
@@ -52,18 +100,6 @@
     "title": "Methylene Blue Rescue Therapy for Vasoplegic Shock After Antihypertensive Drug Overdose.",
     "comment": "นำเสนอทางเลือกในการรักษาภาวะ Vasoplegic Shock ที่อาจเกิดจากการใช้ยาเกินขนาด",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41691248/"
-  },
-  {
-    "date": "15 Feb",
-    "title": "Suspected nitrous oxide toxicity in emergency departments: Royal College of Emergency Medicine best practice guideline review.",
-    "comment": "คู่มือแนวปฏิบัติฉุกเฉินสำหรับภาวะพิษจากไนตรัสออกไซด์ ซึ่งเป็นสิ่งที่ควรตระหนักใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41690706/"
-  },
-  {
-    "date": "14 Feb",
-    "title": "Methylene Blue Rescue Therapy for Vasoplegic Shock After Antihypertensive Drug Overdose",
-    "comment": "Methylene blue อาจมีบทบาทสำคัญในการช่วยชีวิตผู้ป่วยภาวะช็อกจากการใช้ยาต้านความดันเกินขนาด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41689248/"
   },
   {
     "date": "14 Feb",
@@ -118,12 +154,6 @@
     "title": "Functional cognitive screening instruments and their clinical utility with older adults in the emergency department: A systematic review",
     "comment": "เครื่องมือคัดกรองความสามารถทางสมองที่ใช้งานได้จริงใน ER สำหรับผู้สูงอายุ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41687790/"
-  },
-  {
-    "date": "14 Feb",
-    "title": "Early vs. delayed empiric antimicrobial treatment for suspected acute meningitis - a systematic review and meta-analysis",
-    "comment": "กำหนดเวลาเริ่มต้นยาปฏิชีวนะในผู้ป่วยเยื่อหุ้มสมองอักเสบที่สงสัยมีผลต่อผลลัพธ์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41688940/"
   },
   {
     "date": "14 Feb",
@@ -388,35 +418,5 @@
     "title": "Ambient Artificial Intelligence Scribe Adoption and Documentation Time in the Emergency Department",
     "comment": "AI Scribe ช่วยลดเวลาการบันทึกข้อมูลใน ER ได้จริงหรือไม่? น่าสนใจสำหรับ workflow ใหม่",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41665590/"
-  },
-  {
-    "date": "10 Feb",
-    "title": "Impact of Virtual Reality Technology on Pediatric Patients During Venous Access in the Emergency Department: A Meta-Analysis",
-    "comment": "VR ช่วยลดความปวดและความวิตกกังวลในเด็กขณะเจาะเลือดใน ER ได้อย่างมีนัยสำคัญ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41665560/"
-  },
-  {
-    "date": "10 Feb",
-    "title": "Mechanical versus Manual Chest Compressions for Cardiopulmonary Resuscitation in Emergency Department: A Comparative Study",
-    "comment": "การเปรียบเทียบ CPR ด้วยเครื่อง vs. Manual Chest Compressions ใน ER มีผลต่อผลลัพธ์อย่างไร?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41664681/"
-  },
-  {
-    "date": "10 Feb",
-    "title": "Machine Learning Models for Predicting the Need for Early Packed Red Blood Cell Transfusion in Multiple Trauma Patients",
-    "comment": "ML ช่วยทำนายการให้เลือดในผู้ป่วย trauma ได้แม่นยำขึ้น ลดการเสียเลือดและภาวะแทรกซ้อน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41664679/"
-  },
-  {
-    "date": "10 Feb",
-    "title": "Bypassing D-dimer Testing in Suspected High-Risk Pulmonary Embolism in the Emergency Department: A Case Report",
-    "comment": "กรณีศึกษาที่ท้าทายแนวคิดการใช้ D-dimer ใน PE ความเสี่ยงสูงใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41664665/"
-  },
-  {
-    "date": "10 Feb",
-    "title": "The clinical and cost-effectiveness of paravertebral blockade versus thoracic epidural blockade in reducing chronic post-thoracotomy pain: TOPIC2 RCT synopsis",
-    "comment": "การเปรียบเทียบ Paravertebral vs. Thoracic Epidural Block เพื่อลดปวดหลังผ่าตัดทรวงอก มีความคุ้มค่าอย่างไร?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41664616/"
   }
 ]
