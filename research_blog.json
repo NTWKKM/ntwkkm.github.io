@@ -2406,5 +2406,47 @@
     "property_last_edited_time": "2026-02-15T19:22:00.000Z",
     "property_pmid": "41691248",
     "property_name": "Mixed reality combined with surgical navigation versus conventional navigation for resection of oral and maxillofacial tumors: a comparative study"
+  },
+  {
+    "id": "309ba464-60a7-81f1-a100-fb595fcf4c72",
+    "name": "Characterization and targeting of deleterious mutations in Carbapenemase-producing Klebsiella pneumoniae: insights from variant calling, Computer-aided drug design, and DFT analysis.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41697402/",
+    "property_date": null,
+    "property_tag_2": "Infectious Diseases",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อระบุยีนดื้อยาปฏิชีวนะที่มีอยู่ในเชื้อ *Klebsiella pneumoniae* ที่สร้างเอนไซม์ Carbapenemase (CP-KP) ซึ่งแยกได้จากตัวอย่างทางคลินิก\n- **วิธีการ:** ทำการวิเคราะห์ข้อมูลการถอดรหัสพันธุกรรมทั้งจีโนม (Whole-genome sequencing) จากเชื้อ CP-KP จำนวน 17 ตัวอย่างเพื่อหาความแปรปรวนทางพันธุกรรม และใช้เทคนิคคอมพิวเตอร์ช่วยในการออกแบบยา (Computer-aided drug design) เพื่อคัดกรองสารกลุ่มฟลาโวนอยด์จำนวน 222 ชนิดในการยับยั้งโปรตีน GyrB ที่มีการกลายพันธุ์\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบความแปรปรวนทางพันธุกรรมจำนวน 85 ตำแหน่ง โดยพบการกลายพันธุ์แบบ E466D ที่เป็นอันตรายในยีน DNA gyrase B (GyrB) ซึ่งสัมพันธ์กับการดื้อยาฟลูออโรควิโนโลน ผลการจำลองการจับกันของโมเลกุล (Docking) พบว่าสารฟลาโวนอยด์มีค่าสัมพรรคภาพในการจับ (Docking affinity) กับ GyrB อยู่ในช่วง -3.7 ถึง -7.9 kcal/mol",
+    "property_status": "Not started",
+    "property_tag_3": "Drug Resistance",
+    "property_tag_1": "Microbiology",
+    "property_last_edited_time": "2026-02-16T19:23:00.000Z",
+    "property_pmid": "41697402",
+    "property_name": "Characterization and targeting of deleterious mutations in Carbapenemase-producing Klebsiella pneumoniae: insights from variant calling, Computer-aided drug design, and DFT analysis."
+  },
+  {
+    "id": "309ba464-60a7-8154-b9b1-fcb7570e5594",
+    "name": "AI-based quantification of tumor-infiltrating lymphocytes with integrative transcriptomics in ovarian clear cell carcinoma: JGOG3025-TR1/A1 study",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41697393/",
+    "property_date": null,
+    "property_tag_2": "Pathology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาความสำคัญทางคลินิกและความสัมพันธ์ระหว่างวิธีการจำแนกประเภทด้วยทรานสคริปโตมิกส์ (Transcriptomics) และการประเมินเซลล์เม็ดเลือดขาวที่แทรกซึมในก้อนมะเร็ง (TILs) ทางพยาธิวิทยา ในผู้ป่วยมะเร็งรังไข่ชนิดเคลียร์เซลล์\n- **วิธีการ:** ทำการวิเคราะห์ข้อมูล RNA-sequencing จากกลุ่มตัวอย่าง 2 กลุ่ม (189 และ 38 ราย) และใช้โมเดลปัญญาประดิษฐ์ (AI) วิเคราะห์ภาพสไลด์ชิ้นเนื้อดิจิทัลเพื่อจำแนกชนิดเซลล์และวัดปริมาณ TILs จากนั้นเปรียบเทียบความสัมพันธ์กับการพยากรณ์โรค\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การจำแนกทางทรานสคริปโตมิกส์สัมพันธ์กับการพยากรณ์โรคที่แย่แต่ไม่เป็นปัจจัยอิสระเมื่อวิเคราะห์พหุตัวแปร ในทางตรงกันข้าม กลุ่มที่มีการอักเสบทางพยาธิวิทยา (Pathologically defined inflamed group) เป็นปัจจัยพยากรณ์โรคที่ดีที่เป็นอิสระอย่างมีนัยสำคัญ โดยสัมพันธ์กับอัตราการรอดชีวิตโดยรวมที่ดีขึ้น (HR 0.32; 95% CI 0.13-0.78; p=0.013) และระยะเวลาปลอดโรค (HR 0.32; 95% CI 0.15-0.67; p=0.0026)",
+    "property_status": "Not started",
+    "property_tag_3": "AI",
+    "property_tag_1": "Oncology",
+    "property_last_edited_time": "2026-02-16T19:22:00.000Z",
+    "property_pmid": "41697393",
+    "property_name": "AI-based quantification of tumor-infiltrating lymphocytes with integrative transcriptomics in ovarian clear cell carcinoma: JGOG3025-TR1/A1 study"
+  },
+  {
+    "id": "309ba464-60a7-810f-b0a2-cc3f86fbd410",
+    "name": "Understanding steinstrasse: a systematic review of definitions, clinical management, and emerging perspectives in endourology.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41697380/",
+    "property_date": null,
+    "property_tag_2": "Endourology",
+    "property_comment": "- **วัตถุประสงค์:** ไม่สามารถระบุรายละเอียดได้เนื่องจากข้อมูลที่ให้มาไม่มีบทคัดย่อ (จากชื่อเรื่องระบุว่าเป็นการทบทวนวรรณกรรมเกี่ยวกับนิยามและการจัดการภาวะ steinstrasse)\n- **วิธีการ:** ไม่สามารถระบุรายละเอียดได้เนื่องจากไม่มีข้อมูลบทคัดย่อ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่สามารถระบุรายละเอียดได้เนื่องจากไม่มีข้อมูลบทคัดย่อ",
+    "property_status": "Not started",
+    "property_tag_3": "Surgery",
+    "property_tag_1": "Urology",
+    "property_last_edited_time": "2026-02-16T19:21:00.000Z",
+    "property_pmid": "41697380",
+    "property_name": "Understanding steinstrasse: a systematic review of definitions, clinical management, and emerging perspectives in endourology."
   }
 ]
