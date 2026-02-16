@@ -1,6 +1,66 @@
 [
   {
     "date": "16 Feb",
+    "title": "Brain Trauma Foundation Guidelines for the Management of Penetrating Traumatic Brain Injury, Second Edition.",
+    "comment": "แนวทางการรักษา TBI ที่สำคัญสำหรับ ER แพทย์ต้องรู้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697053/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Claudin 4 Deletion Improves Gut Permeability and Survival in a Murine Model of Abdominal Sepsis.",
+    "comment": "การศึกษาที่อาจนำไปสู่แนวทางการรักษา Sepsis ที่ดีขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697223/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Location of In-Hospital Cardiac Arrest: An Updated Analysis of Epidemiology, Emergency Response, and Outcomes.",
+    "comment": "ข้อมูลสำคัญเกี่ยวกับตำแหน่งของ CA ที่ส่งผลต่อการรักษาและผลลัพธ์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697093/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Validation of Lung Ultrasound Score for Disease Severity and Outcomes in Pediatric Acute Respiratory Failure.",
+    "comment": "LUS score ที่ช่วยประเมินความรุนแรงและผลลัพธ์ในเด็ก ARF",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697090/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Association Between Hospital-Level Volume of Extracorporeal Membrane Oxygenation and Complications: A Clustered, Mixed-Effect Analysis of the Extracorporeal Life Support Organization Registry.",
+    "comment": "ปริมาณการใช้ ECMO ใน รพ. ส่งผลต่อ complication อย่างไร",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697085/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Machine Learning Methods to Identify Pediatric Shunt Malfunction in the Acute Care Setting and the Development of ShuntGPT.",
+    "comment": "AI ช่วยวินิจฉัย Shunt malfunction ในเด็ก ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697038/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Identification of prognostic factors and development of a prognostic model in patients with acute diquat (200 g/L) poisoning.",
+    "comment": "โมเดลทำนายผลลัพธ์ผู้ป่วย Diquat poisoning",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697037/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Emergency treatment of distal coronary perforation using gelatin sponge particles delivered via guide extension catheter.",
+    "comment": "เทคนิคใหม่ในการรักษา distal coronary perforation",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697011/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Hypertrophic Cardiomyopathy: A New Era in Targeted Therapy.",
+    "comment": "การรักษา HCM แบบใหม่ที่น่าสนใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41696994/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Major Changes of the 2025 Korean Cardiopulmonary Resuscitation Guidelines.",
+    "comment": "การเปลี่ยนแปลงที่สำคัญในแนวทางการทำ CPR ของเกาหลี",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41696499/"
+  },
+  {
+    "date": "16 Feb",
     "title": "Infant Respiratory Syncytial Virus Immunization Through Maternal Vaccination and Nirsevimab.",
     "comment": "การป้องกัน RSV ในทารกผ่านวัคซีนมารดาและ Nirsevimab เป็นก้าวสำคัญในการลดความรุนแรงของโรค",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41697699/"
@@ -358,65 +418,5 @@
     "title": "Comparative Effectiveness of Venous Sinus Stenting and Ventricular Shunting for Idiopathic Intracranial Hypertension: A Phenotype-Stratified, Propensity-Matched Cohort Study",
     "comment": "เทียบประสิทธิภาพการรักษา IIH ด้วยการใส่ Stent ในหลอดเลือดดำ กับการใส่ Shunt ในโพรงสมอง",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41677349/"
-  },
-  {
-    "date": "12 Feb",
-    "title": "Artificial intelligence in surgical planning and outcome prediction for obstructive sleep apnea: emerging hype or the future standard?",
-    "comment": "AI กำลังจะเข้ามาเปลี่ยนการวางแผนผ่าตัดและการคาดการณ์ผลลัพธ์ใน OSA",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41678069/"
-  },
-  {
-    "date": "12 Feb",
-    "title": "Association Between State Opioid Prescribing Policies and the COVID-19 Pandemic and Hospital and Emergency Department Discharge Opioid Prescription in Injured Patients",
-    "comment": "นโยบายการสั่งจ่าย Opioid และผลกระทบต่อการสั่งจ่ายในผู้ป่วยบาดเจ็บช่วง COVID-19",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41676378/"
-  },
-  {
-    "date": "12 Feb",
-    "title": "TyG Index as a surrogate marker of insulin resistance in Behçet's disease: a case-control study",
-    "comment": "TyG Index อาจใช้เป็นตัวชี้วัดภาวะดื้ออินซูลินในโรค Behçet's ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41678171/"
-  },
-  {
-    "date": "12 Feb",
-    "title": "Bone Adverse Events in Cancer Patients Undergoing Immune Checkpoint Inhibitor Therapy: A Comprehensive Review of the Literature from the Clinical Action Group of the European Calcified Tissue Society",
-    "comment": "ผลข้างเคียงต่อกระดูกจากการรักษาด้วย Immune Checkpoint Inhibitors ในผู้ป่วยมะเร็ง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41677898/"
-  },
-  {
-    "date": "12 Feb",
-    "title": "Neutrophil CD64 index for rapid diagnosis of",
-    "comment": "ดัชนี Neutrophil CD64 อาจช่วยวินิจฉัยภาวะการติดเชื้อเฉียบพลันได้รวดเร็ว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41676059/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "Emergency Department-Initiated Buprenorphine for Opioid Use Disorder: A Randomized Clinical Trial",
-    "comment": "เป็นแนวทางใหม่ในการรักษา OUD ใน ER ที่พิสูจน์ประสิทธิภาพและผลลัพธ์ที่ดี",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41670966/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "Device-Assisted vs Standard Valsalva Maneuver for Terminating Supraventricular Tachycardia: A Randomized Clinical Trial",
-    "comment": "เทคนิคใหม่ในการรักษา SVT ที่อาจมีประสิทธิภาพสูงกว่าวิธีมาตรฐาน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41670992/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "Association between early prehospital photoplethysmography waveform features and subsequent hemodynamic changes in trauma patients",
-    "comment": "การตรวจจับสัญญาณชีพเบื้องต้นด้วย PPG waveform ในผู้ป่วย trauma เพื่อคาดการณ์ภาวะแทรกซ้อน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41670951/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "Clinical and Immunologic Effects of Extracorporeal Cytokine Removal in Patients with Septic Shock: A Randomized Controlled Trial",
-    "comment": "แนวทางการรักษา Septic Shock ที่อาจช่วยลดการอักเสบและปรับปรุงผลลัพธ์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41670614/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "Artificial intelligence and diagnosis and management of tuberculosis disease in children",
-    "comment": "AI มีบทบาทสำคัญในการวินิจฉัยและจัดการวัณโรคในเด็ก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41670428/"
   }
 ]
