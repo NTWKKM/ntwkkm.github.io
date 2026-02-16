@@ -1,5 +1,65 @@
 [
   {
+    "date": "16 Feb",
+    "title": "Infant Respiratory Syncytial Virus Immunization Through Maternal Vaccination and Nirsevimab.",
+    "comment": "การป้องกัน RSV ในทารกผ่านวัคซีนมารดาและ Nirsevimab เป็นก้าวสำคัญในการลดความรุนแรงของโรค",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697699/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Pediatric Psychodermatology: Advancing Therapy through Integrated Care.",
+    "comment": "การดูแลโรคผิวหนังในเด็กแบบบูรณาการระหว่างจิตแพทย์และแพทย์ผิวหนังอาจเปลี่ยนวิธีรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697633/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Prophylactic Treatment of Patent Ductus Arteriosus With Acetaminophen: A Randomized Clinical Trial.",
+    "comment": "การให้ Acetaminophen เพื่อป้องกัน PDA ในทารกคลอดก่อนกำหนด อาจลดการใช้ยาอื่นและผลข้างเคียง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697673/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Head Acceleration Events Measured by Instrumented Mouthguards in Elite Australian Football.",
+    "comment": "การวัดแรงกระแทกศีรษะจาก Mouthguard ในนักกีฬา อาจนำไปสู่การป้องกันการบาดเจ็บสมองที่ดียิ่งขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697571/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Tumor treating fields for newly diagnosed glioblastoma: a retrospective analysis.",
+    "comment": "TTFields เป็นนวัตกรรมใหม่ที่อาจช่วยเพิ่มผลการรักษา Glioblastoma",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697534/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Acute thoracic aortic dissection, A radiological approach from a surgical perspective.",
+    "comment": "การรักษากลุ่มอาการหลอดเลือดแดงใหญ่ฉีกขาดเฉียบพลันด้วยภาพรังสี อาจนำไปสู่การตัดสินใจรักษาที่แม่นยำขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697486/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Checkerboard and Isobologram Analysis of the Interaction between Black Cumin and Clove Essential Oils against Multidrug-Resistant Nosocomial Pathogens.",
+    "comment": "การศึกษาศักยภาพของน้ำมันหอมระเหยในการต้านเชื้อดื้อยา อาจเป็นทางเลือกใหม่ในการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697424/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Characterization and targeting of deleterious mutations in Carbapenemase-producing Klebsiella pneumoniae: insights from variant calling, Computer-aided drug design, and DFT analysis.",
+    "comment": "การเข้าใจกลไกการดื้อยาของเชื้อ K. pneumoniae จะนำไปสู่การพัฒนายาใหม่ที่มีประสิทธิภาพ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697402/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "AI-based quantification of tumor-infiltrating lymphocytes with integrative transcriptomics in ovarian clear cell carcinoma: JGOG3025-TR1/A1 study.",
+    "comment": "AI และ transcriptomics ช่วยประเมิน TILs ในมะเร็งรังไข่ อาจบ่งชี้ถึงแนวทางการรักษาแบบ Precision Medicine",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697393/"
+  },
+  {
+    "date": "16 Feb",
+    "title": "Understanding steinstrasse: a systematic review of definitions, clinical management, and emerging perspectives in endourology.",
+    "comment": "การทำความเข้าใจ \"Steinstrasse\" อย่างลึกซึ้ง อาจนำไปสู่การจัดการผู้ป่วยนิ่วในทางเดินปัสสาวะที่ดีขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697380/"
+  },
+  {
     "date": "15 Feb",
     "title": "Increasing naloxone distribution to opioid overdose patients in the emergency department following best practice advisory enhancement.",
     "comment": "กลยุทธ์ใหม่ในการเพิ่มการกระจายยา Naloxone ใน ER เพื่อลดการเสียชีวิตจาก opioid overdose",
@@ -358,65 +418,5 @@
     "title": "Artificial intelligence and diagnosis and management of tuberculosis disease in children",
     "comment": "AI มีบทบาทสำคัญในการวินิจฉัยและจัดการวัณโรคในเด็ก",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41670428/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "Antibody-Oriented Engineering Enables Rapid and Ultrasensitive SERRS-Based Detection of Cardiac Troponin T for Acute Myocardial Infarction Diagnosis",
-    "comment": "นวัตกรรมเทคนิค SERRS สำหรับตรวจ Troponin T ที่รวดเร็วและแม่นยำสูง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41670331/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "Non-physician delivered intravitreal injection service: A systematic review of safety, implementation, training and patient experience",
-    "comment": "การประเมินความปลอดภัยและประสิทธิภาพของบริการฉีด intravitreal โดยบุคลากรที่ไม่ใช่แพทย์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41670243/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "Silicone Encapsulation of Cardiac Pacemakers to Prevent Mechanical Disruption.",
-    "comment": "นวัตกรรมใหม่ในการป้องกันความเสียหายของเครื่องกระตุ้นหัวใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41669770/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "The RESCUE7 Framework: A Practical Mindset for Junior Physicians in the Emergency Department",
-    "comment": "กรอบการทำงานที่ช่วยให้แพทย์ ER รุ่นใหม่รับมือกับสถานการณ์วิกฤตได้อย่างมีประสิทธิภาพ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41669604/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "Silence of the Electrocardiogram: A Case Series With Occluded Coronaries and Normal Electrocardiograms",
-    "comment": "ประเด็นที่น่าสนใจเกี่ยวกับผู้ป่วย AMI ที่ EKG ปกติ อาจนำไปสู่การวินิจฉัยที่ผิดพลาด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41669643/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "Circulating Markers of Neutrophil Extracellular Traps for Long-Term Prognosis in Patients With Acute Chest Pain.",
-    "comment": "NEtosis markers ในเลือดอาจบอก prognosis ระยะยาวในผู้ป่วยปวดหน้าอกเฉียบพลัน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41669984/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "Artificial intelligence in trauma care: applications, ethical challenges, and pathways toward responsible integration.",
-    "comment": "AI มีบทบาทมากขึ้นใน trauma care ต้องพิจารณาประเด็นจริยธรรมควบคู่ไปด้วย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41669936/"
-  },
-  {
-    "date": "11 Feb",
-    "title": "Assessing Cardiovascular Dysfunction Using Cardiac Strain After Diphenhydramine Overdose.",
-    "comment": "Cardiac strain อาจช่วยประเมินภาวะหัวใจล้มเหลวจากการได้รับ Diphenhydramine เกินขนาด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41669567/"
-  },
-  {
-    "date": "10 Feb",
-    "title": "Shaking Up the Cocktail: Integrating Sphenopalatine Ganglion Block Into Emergency Department Headache Care",
-    "comment": "การใช้ Sphenopalatine Ganglion Block ใน ER เพื่อรักษาอาการปวดศีรษะเฉียบพลัน เป็นทางเลือกใหม่ที่น่าสนใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41665591/"
-  },
-  {
-    "date": "10 Feb",
-    "title": "Ambient Artificial Intelligence Scribe Adoption and Documentation Time in the Emergency Department",
-    "comment": "AI Scribe ช่วยลดเวลาการบันทึกข้อมูลใน ER ได้จริงหรือไม่? น่าสนใจสำหรับ workflow ใหม่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41665590/"
   }
 ]
