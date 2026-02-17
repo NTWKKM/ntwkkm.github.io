@@ -1,5 +1,65 @@
 [
   {
+    "date": "17 Feb",
+    "title": "Pro-Con Debate: Formulaic Approach Using Fixed Ratios of Blood Components Versus Targeted Therapy Approach Guided By Viscoelastic Hemostatic Assays for Resuscitation in Traumatic Major Hemorrhage",
+    "comment": "การถกเถียงเกี่ยวกับแนวทางการให้เลือดในผู้ป่วยเสียเลือดมากที่ส่งผลต่อแนวทางการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41698179/"
+  },
+  {
+    "date": "17 Feb",
+    "title": "Latent Threats Identified During In Situ Simulated Local Anesthetic Systemic Toxicity Crises in the Operating Room: Implications for System Safety",
+    "comment": "การค้นพบความเสี่ยงที่ซ่อนเร้นจากการจำลองสถานการณ์พิษจากยาชาเฉพาะที่ ซึ่งส่งผลต่อความปลอดภัยของระบบ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41698222/"
+  },
+  {
+    "date": "17 Feb",
+    "title": "Reducing Intravenous Opioid Reliance with Subcutaneous Administration in the Emergency Department",
+    "comment": "แนวทางการลดการใช้ยาแก้ปวดกลุ่ม Opioid แบบฉีดเข้าหลอดเลือดดำใน ER โดยใช้ยาฉีดเข้าใต้ผิวหนัง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697972/"
+  },
+  {
+    "date": "17 Feb",
+    "title": "Clinical and Etiological Features of Drug Hypersensitivity Reactions among Patients of the Surgical Department: A Pilot Study",
+    "comment": "การทำความเข้าใจสาเหตุและลักษณะของปฏิกิริยาแพ้ยาในผู้ป่วยศัลยกรรม ซึ่งอาจพบได้ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41697904/"
+  },
+  {
+    "date": "17 Feb",
+    "title": "Emerging Roles of Multiparametric Biodosimetry and Artificial Intelligence in Advancing Radiation Dose Assessment for Triage",
+    "comment": "การใช้ AI และการวัดปริมาณรังสีหลายรูปแบบเพื่อประเมินผู้ป่วยในสถานการณ์ภัยพิบัติ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41698682/"
+  },
+  {
+    "date": "17 Feb",
+    "title": "Low-Value Emergency Care and Racial and Ethnic Differences Across US Children's Hospitals",
+    "comment": "ความไม่เท่าเทียมในการดูแลผู้ป่วยเด็กใน ER และการใช้ทรัพยากรที่ไม่จำเป็น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41698401/"
+  },
+  {
+    "date": "17 Feb",
+    "title": "Luton cauda equina syndrome pathway: a pragmatic approach to achieve a national target of time to scan in UK district general hospitals",
+    "comment": "แนวทางการดูแลผู้ป่วย Cauda Equina Syndrome ที่มีเป้าหมายเรื่องเวลาในการทำ CT scan",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41698391/"
+  },
+  {
+    "date": "17 Feb",
+    "title": "The effect of pneumococcal conjugate vaccine and pneumococcal polysaccharide vaccine on nasopharyngeal colonisation following human infection challenge with serotype 3 and serotype 6B (PREVENTING PNEUMO 2): a double-masked, randomised, controlled, phase 4 trial",
+    "comment": "ผลของวัคซีนป้องกันนิวโมคอคคัสต่อการติดเชื้อในโพรงจมูก ซึ่งอาจเกี่ยวข้องกับการวินิจฉัยแยกโรคใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41698388/"
+  },
+  {
+    "date": "17 Feb",
+    "title": "Racial, ethnic, and regional disparities in HIV testing during the COVID-19 pandemic in the USA: a nationwide, retrospective, observational study using National Clinical Cohort Collaborative data",
+    "comment": "ความเหลื่อมล้ำในการตรวจ HIV ระหว่างช่วง COVID-19 ที่อาจสะท้อนถึงกลุ่มผู้ป่วยที่เข้า ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41698379/"
+  },
+  {
+    "date": "17 Feb",
+    "title": "Hybrid model for influenza forecasting in Xinjiang: adapting to complex seasonality and post-COVID-19 structural breaks",
+    "comment": "แบบจำลองการพยากรณ์ไข้หวัดใหญ่ที่ปรับตัวได้ซึ่งอาจช่วยในการวางแผนทรัพยากร ER ในช่วงการระบาด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41699546/"
+  },
+  {
     "date": "16 Feb",
     "title": "Brain Trauma Foundation Guidelines for the Management of Penetrating Traumatic Brain Injury, Second Edition.",
     "comment": "แนวทางการรักษา TBI ที่สำคัญสำหรับ ER แพทย์ต้องรู้",
@@ -358,65 +418,5 @@
     "title": "Could the combination of fibrinogen and D-dimer improve risk assessment for acute type A aortic dissection in the emergency department?",
     "comment": "การใช้ fibrinogen ร่วมกับ D-dimer ช่วยประเมินความเสี่ยงของ Aortic dissection ได้ดีขึ้นใน ER หรือไม่",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41685423/"
-  },
-  {
-    "date": "13 Feb",
-    "title": "Nationwide pediatric prehospital blood product use after motor vehicle crashes 2020-2023",
-    "comment": "การให้ผลิตภัณฑ์เลือดในผู้ป่วยเด็กอุบัติเหตุทางถนนก่อนถึงโรงพยาบาล จากข้อมูลทั่วประเทศ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41684206/"
-  },
-  {
-    "date": "13 Feb",
-    "title": "Real-time, artificial intelligence-guided intraoperative resuscitation and fluid management in trauma anesthesia.",
-    "comment": "AI ช่วยนำทางการให้สารน้ำและการช่วยชีวิตผู้ป่วย trauma แบบ real-time มีประโยชน์ใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41685816/"
-  },
-  {
-    "date": "13 Feb",
-    "title": "Targeted bronchial artery embolization: a life-saving intervention for recurrent massive hemoptysis in bronchiectasis.",
-    "comment": "การทำ embolization เส้นเลือดที่ปอด อาจเป็นทางเลือกในการรักษาภาวะเลือดออกใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41684758/"
-  },
-  {
-    "date": "13 Feb",
-    "title": "Updates in Abbreviated MRI-Based HCC Surveillance.",
-    "comment": "การใช้ MRI แบบย่อ อาจมีบทบาทในการเฝ้าระวัง HCC ในอนาคต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41685897/"
-  },
-  {
-    "date": "13 Feb",
-    "title": "Psoas Abscess: A Possible Missed Diagnosis in the Emergency Department.",
-    "comment": "Psoas Abscess ที่อาจถูกมองข้ามได้ใน ER เป็นเคสที่ควรระลึกถึง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41685000/"
-  },
-  {
-    "date": "12 Feb",
-    "title": "New-Onset Nonarteritic Anterior Ischemic Optic Neuropathy and Initiators of Semaglutide in US Veterans With Type 2 Diabetes",
-    "comment": "พบความสัมพันธ์ใหม่ที่ต้องเฝ้าระวังระหว่างยาเบาหวานกลุ่ม GLP-1 RA และภาวะ optic neuropathy",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41678180/"
-  },
-  {
-    "date": "12 Feb",
-    "title": "Real-world effectiveness of minimally-guided internet-delivered cognitive behavioural therapy (iCBT) versus therapist-guided CBT: a cohort study using Ontario's linked health-administrative data",
-    "comment": "iCBT แบบมีผู้แนะนำน้อย อาจมีประสิทธิภาพใกล้เคียง CBT แบบมีนักบำบัดเต็มรูปแบบในโลกจริง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41677465/"
-  },
-  {
-    "date": "12 Feb",
-    "title": "Effect of Neostigmine on Attenuation of Proinflammatory Cytokines When Given as an Adjuvant Therapy in Septic Shock: A Randomized Control Trial",
-    "comment": "Neostigmine อาจมีบทบาทช่วยลด Cytokine ในผู้ป่วย Septic Shock",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41677407/"
-  },
-  {
-    "date": "12 Feb",
-    "title": "Use of tromethamine in combination with sodium bicarbonate in the treatment of a wide complex dysrhythmia from presumed cocaine toxicity",
-    "comment": "การใช้ Tromethamine ร่วมกับ Sodium Bicarbonate อาจช่วยจัดการภาวะหัวใจเต้นผิดจังหวะจาก Cocaine toxicity",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41677370/"
-  },
-  {
-    "date": "12 Feb",
-    "title": "Comparative Effectiveness of Venous Sinus Stenting and Ventricular Shunting for Idiopathic Intracranial Hypertension: A Phenotype-Stratified, Propensity-Matched Cohort Study",
-    "comment": "เทียบประสิทธิภาพการรักษา IIH ด้วยการใส่ Stent ในหลอดเลือดดำ กับการใส่ Shunt ในโพรงสมอง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41677349/"
   }
 ]
