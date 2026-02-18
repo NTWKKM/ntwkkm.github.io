@@ -1,5 +1,65 @@
 [
   {
+    "date": "18 Feb",
+    "title": "AI-Based Scribes in Telemedicine: Provider Attitudes and Insights",
+    "comment": "นวัตกรรม AI ช่วยลดภาระงานแพทย์ใน Telemedicine",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41706444/"
+  },
+  {
+    "date": "18 Feb",
+    "title": "Can human-aware agentic artificial intelligence transform emergency care workflows?",
+    "comment": "AI แบบ Agentic จะเปลี่ยน ER อย่างไร?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41706287/"
+  },
+  {
+    "date": "18 Feb",
+    "title": "Using participatory action research to develop an artificial intelligence-augmented, peer-driven, case-based, and simulation-enhanced curriculum for emergency medicine residents.",
+    "comment": "AI + Peer Learning = หลักสูตร ER ที่เหนือกว่า",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41706282/"
+  },
+  {
+    "date": "18 Feb",
+    "title": "Lactated Ringer's solution versus normal saline outcomes in hospital settings: appraisal of a cluster-randomized trial.",
+    "comment": "น้ำเกลือ LR vs NS ใน ER: อะไรดีกว่ากัน?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41706259/"
+  },
+  {
+    "date": "18 Feb",
+    "title": "Predicting chronic subdural hematoma risk in elderly patients with mild traumatic brain injury.",
+    "comment": "ทายความเสี่ยงเลือดออกในสมองในผู้สูงอายุหลังหัวกระทบกระเทือน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41706196/"
+  },
+  {
+    "date": "18 Feb",
+    "title": "Association between neutrophil percentage-to-albumin ratio and all-cause mortality in patients post-cardiac surgery: a retrospective cohort study.",
+    "comment": "ค่า N/A ratio บอกอะไรเกี่ยวกับคนไข้หลังผ่าตัดหัวใจ?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41706276/"
+  },
+  {
+    "date": "18 Feb",
+    "title": "Sacubitril/valsartan as a modulator of pulmonary fibrosis: insights into Lnc-SNHG-16/miR-455 modulation and Notch/Smad-3 pathway inhibition.",
+    "comment": "ยาลดหัวใจล้มเหลวอาจช่วยรักษาพังผืดในปอดได้?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41706147/"
+  },
+  {
+    "date": "18 Feb",
+    "title": "Clinical decision support for antibiotic prescribing duration in children with acute otitis media.",
+    "comment": "AI ช่วยตัดสินใจเรื่องยาปฏิชีวนะในเด็กหูอักเสบ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41706455/"
+  },
+  {
+    "date": "18 Feb",
+    "title": "Venovenous extracorporeal membrane oxygenation and damage-control laparotomy in acute care surgery patients: A safe and successful option for patient rescue.",
+    "comment": "ECMO + Damage-control laparotomy = ทางรอดผู้ป่วยวิกฤต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41705911/"
+  },
+  {
+    "date": "18 Feb",
+    "title": "Risk Stratification for Acute Aortic Syndrome: Premise, Promise and Performance.",
+    "comment": "การแบ่งกลุ่มเสี่ยง Acute Aortic Syndrome: มีอะไรใหม่?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41705467/"
+  },
+  {
     "date": "17 Feb",
     "title": "Pressor use and its impact on outcomes in aneurysmal subarachnoid hemorrhage patients with takotsubo cardiomyopathy: a quantitative analysis.",
     "comment": "งานวิจัยนี้สำคัญต่อการตัดสินใจใช้ยา Vasopressor ในผู้ป่วยวิกฤตที่มีภาวะแทรกซ้อนที่ต้องให้ความสนใจอย่างใกล้ชิด",
@@ -358,65 +418,5 @@
     "title": "Vagus nerve stimulation for drug-resistant epilepsy and predictors for seizure freedom: A nationwide multicenter cohort study in Mexico",
     "comment": "Vagus nerve stimulation (VNS) มีศักยภาพในการควบคุมโรคลมชักดื้อยา และมีปัจจัยที่ช่วยทำนายการตอบสนองที่ดี",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41689605/"
-  },
-  {
-    "date": "14 Feb",
-    "title": "Hypoxemia on Emergence in Neonates and Young Infants: Incidence and Risk Factors in Patients < 2 Months Undergoing Inguinal Herniorrhaphy or Pyloromyotomy",
-    "comment": "การประเมินความเสี่ยงและเฝ้าระวังภาวะ Hypoxemia ในทารกหลังผ่าตัดเป็นสิ่งสำคัญอย่างยิ่ง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41689360/"
-  },
-  {
-    "date": "14 Feb",
-    "title": "Epidemiology of Facial Fractures Encountered in the Emergency Department Setting in the United States: An Update of Nationwide Estimates",
-    "comment": "อุบัติการณ์และลักษณะของกระดูกใบหน้าหักใน ER สหรัฐฯ ที่ควรรู้เพื่อการวางแผนรับมือ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41688037/"
-  },
-  {
-    "date": "14 Feb",
-    "title": "Assessing digital vasculopathy in systemic sclerosis",
-    "comment": "การประเมินความผิดปกติของหลอดเลือดด้วยเทคโนโลยีดิจิทัลอาจช่วยในการดูแลผู้ป่วย Scleroderma ได้ดีขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41689194/"
-  },
-  {
-    "date": "14 Feb",
-    "title": "Optimizing discharge antibiotic prescribing: A multicenter evaluation of pharmacist-led interventions in community hospitals",
-    "comment": "การปรับปรุงการสั่งยาปฏิชีวนะเมื่อออกจากโรงพยาบาลโดยทีมเภสัชกรมีประสิทธิผล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41689279/"
-  },
-  {
-    "date": "14 Feb",
-    "title": "Eosinophilic gastrointestinal disorders, a new epidemic",
-    "comment": "EGIDs กำลังเพิ่มจำนวนขึ้นและอาจเป็นปัญหาทางคลินิกที่สำคัญในอนาคต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41689485/"
-  },
-  {
-    "date": "14 Feb",
-    "title": "Functional cognitive screening instruments and their clinical utility with older adults in the emergency department: A systematic review",
-    "comment": "เครื่องมือคัดกรองความสามารถทางสมองที่ใช้งานได้จริงใน ER สำหรับผู้สูงอายุ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41687790/"
-  },
-  {
-    "date": "14 Feb",
-    "title": "Optimal time window for extracorporeal cardiopulmonary resuscitation in patients with in-hospital cardiac arrest",
-    "comment": "หน้าต่างเวลาที่เหมาะสมสำหรับการใช้ ECMR ในผู้ป่วยหัวใจหยุดเต้นในโรงพยาบาล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41689125/"
-  },
-  {
-    "date": "14 Feb",
-    "title": "Hyponatraemic seizure in a healthy adult due to stress-associated non-osmotic vasopressin-mediated antidiuresis on a low-solute background: a case report",
-    "comment": "ภาวะชักจากโซเดียมต่ำในผู้ใหญ่สุขภาพดีที่เกิดจากการควบคุมน้ำผิดปกติจากความเครียด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41688911/"
-  },
-  {
-    "date": "14 Feb",
-    "title": "Prognostication of External Cervical Resorption Based on Heithersay's and Patel et al. Classifications: A Narrative Review",
-    "comment": "การจำแนกความรุนแรงของภาวะสึกกร่อนของคอฟัน อาจช่วยในการพยากรณ์โรค",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41689254/"
-  },
-  {
-    "date": "13 Feb",
-    "title": "Physician Variation in Early Sepsis Management",
-    "comment": "การให้การรักษา Sepsis ของแพทย์ ER มีความหลากหลายสูง ส่งผลต่อการตัดสินใจและผลลัพธ์ผู้ป่วย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41686440/"
   }
 ]
