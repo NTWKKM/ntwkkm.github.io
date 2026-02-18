@@ -2518,5 +2518,33 @@
     "property_last_edited_time": "2026-02-16T22:22:00.000Z",
     "property_pmid": "41696994",
     "property_name": "Hypertrophic Cardiomyopathy: A New Era in Targeted Therapy"
+  },
+  {
+    "id": "30aba464-60a7-8183-834e-d3d9beac5bc5",
+    "name": "Conservative Management of Perforated Diverticulitis in Adults: An Updated Systematic Review of Outcomes",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41700514/",
+    "property_date": null,
+    "property_tag_2": "Gastroenterology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินประสิทธิภาพ ความปลอดภัย และผลลัพธ์ระยะยาวของการรักษาโรคถุงผนังลำไส้อักเสบแบบทะลุ (PD) ในผู้ใหญ่ด้วยวิธีประคับประคอง (ไม่ผ่าตัด) รวมถึงค้นหาปัจจัยทางรังสีวิทยาที่สามารถทำนายความล้มเหลวของการรักษาได้\n- **วิธีการ:** เป็นการทบทวนวรรณกรรมอย่างเป็นระบบ (Systematic Review) ตามแนวทาง PRISMA 2020 โดยสืบค้นการศึกษาแบบ Cohort ที่ตีพิมพ์ระหว่างปี 2015-2025 ในผู้ป่วยผู้ใหญ่ที่ได้รับการวินิจฉัย PD ระดับ Hinchey I-II ด้วย CT scan และได้รับการรักษาแบบไม่ผ่าตัด\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** จากการศึกษา 12 ฉบับ (ผู้ป่วย 25,064 ราย) พบอัตราความสำเร็จ 76-96% ในกรณีการทะลุแบบจำกัดขอบเขต แต่ความสำเร็จจะลดลงเหลือ 10-37% หากพบภาวะลมรั่วนอกลำไส้ในตำแหน่งไกล (Distant extraluminal air) ปัจจัยเสี่ยงต่อความล้มเหลวอื่นๆ ได้แก่ ฝีขนาด >4 ซม. และอายุ >75 ปี โดยมีอัตราการกลับเป็นซ้ำอยู่ที่ 16.5-37.5%",
+    "property_status": "Not started",
+    "property_tag_3": "Colorectal Surgery",
+    "property_tag_1": "General Surgery",
+    "property_last_edited_time": "2026-02-17T22:22:00.000Z",
+    "property_pmid": "41700514",
+    "property_name": "Conservative Management of Perforated Diverticulitis in Adults: An Updated Systematic Review of Outcomes"
+  },
+  {
+    "id": "30aba464-60a7-81cb-8188-dbbd42829366",
+    "name": "Artificial intelligence meets point-of-care ultrasound: implications for pediatric emergency and critical care",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41700557/",
+    "property_date": null,
+    "property_tag_2": "Artificial Intelligence",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนวรรณกรรมและประเมินข้อดีและข้อจำกัดของการใช้ปัญญาประดิษฐ์ (AI) ร่วมกับการทำอัลตราซาวนด์ ณ จุดดูแลผู้ป่วย (POCUS) โดยมุ่งเน้นผลกระทบต่อเวชศาสตร์ฉุกเฉินและเวชบำบัดวิกฤตในผู้ป่วยเด็ก\n- **วิธีการ:** เป็นบทความทบทวนวรรณกรรม (Review article) ที่รวบรวมและวิเคราะห์ข้อมูลจากงานวิจัยล่าสุดเกี่ยวกับการนำ AI มาประยุกต์ใช้ใน POCUS ทั้งในด้านการช่วยวินิจฉัยและการศึกษาทางการแพทย์\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การใช้ AI ช่วยเพิ่มประสิทธิภาพในการเก็บภาพและความแม่นยำในการวินิจฉัย โดยเฉพาะในบุคลากรที่มีประสบการณ์น้อย แต่มีข้อจำกัดที่ต้องระวังคือโมเดลส่วนใหญ่มักถูกฝึกจากข้อมูลผู้ใหญ่ซึ่งต้องมีการตรวจสอบความถูกต้องก่อนนำมาใช้ในเด็ก และควรใช้ AI เพื่อเสริมการเรียนรู้และต้องมีการกำกับดูแลข้อมูลอย่างเหมาะสม",
+    "property_status": "Not started",
+    "property_tag_3": "POCUS",
+    "property_tag_1": "Pediatrics",
+    "property_last_edited_time": "2026-02-17T22:21:00.000Z",
+    "property_pmid": "41700557",
+    "property_name": "Artificial intelligence meets point-of-care ultrasound: implications for pediatric emergency and critical care"
   }
 ]
