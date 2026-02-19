@@ -1,39 +1,69 @@
 [
   {
     "date": "19 Feb",
-    "title": "Emergency Department-Initiated Buprenorphine for Opioid Use Disorder: A Systematic Review of Treatment Engagement and Emergency Care Utilization",
-    "comment": "การให้ Buprenorphine ใน ER ช่วยให้ผู้ป่วย OUD เข้าสู่การรักษาและลดการกลับมารักษาซ้ำ",
+    "title": "Emergency Department-Initiated Buprenorphine for Opioid Use Disorder: A Systematic Review of Treatment Engagement and Emergency Care Utilization.",
+    "comment": "การรักษา OUD ที่ ER อาจเพิ่มการเข้าถึงการรักษาและลดการใช้ ER ซ้ำ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41710856/"
+  },
+  {
+    "date": "19 Feb",
+    "title": "Oculogyric Crisis During Chronic Aripiprazole Therapy: A Diagnostic Challenge in the Emergency Department.",
+    "comment": "ER ต้องตระหนักถึงภาวะนี้ที่เกิดจากยาจิตเวช อาจวินิจฉัยผิดพลาดเป็นโรคทางระบบประสาทอื่น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41710502/"
+  },
+  {
+    "date": "19 Feb",
+    "title": "Pediatric Crush Syndrome and Injury Profiles in Earthquake Survivors: A Comprehensive Analysis From the 2023 Turkey Earthquake.",
+    "comment": "การทำความเข้าใจรูปแบบการบาดเจ็บในภัยพิบัติเพื่อการวางแผนและรับมือใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41709480/"
+  },
+  {
+    "date": "19 Feb",
+    "title": "Early Prediction of Septic Shock in Severe COVID-19 Patients: Development and Validation of a Nomogram Model.",
+    "comment": "แบบจำลองช่วยคาดการณ์ septic shock ในผู้ป่วย COVID-19 รุนแรง เป็นประโยชน์ในการตัดสินใจรักษาใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41709380/"
+  },
+  {
+    "date": "19 Feb",
+    "title": "Transforming Opioid Poisoning Surveillance Through Novel Technologies: Rationale and Methodological Protocol for Applying Natural Language Processing to Emergency Department Data.",
+    "comment": "ใช้ NLP วิเคราะห์ข้อมูล ER เพื่อเฝ้าระวังและเข้าใจปัญหาการใช้ยาเกินขนาด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41709542/"
+  },
+  {
+    "date": "19 Feb",
+    "title": "Comparison of Prehospital Vascular Access Methods and Their Association with Survival in Out-of-Hospital Cardiac Arrest.",
+    "comment": "ประเมินประสิทธิภาพของ IV/IO ใน prehospital ช่วย ER เตรียมพร้อมรับผู้ป่วย CA",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41709572/"
+  },
+  {
+    "date": "19 Feb",
+    "title": "Has the Number of Pediatric Testicular Torsion Cases Abated After the Height of the COVID-19 Pandemic?",
+    "comment": "ตรวจสอบการเปลี่ยนแปลงของภาวะ Testicular Torsion ในเด็กหลัง COVID-19 เพื่อปรับแนวทางการดูแล ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41710854/"
+  },
+  {
+    "date": "19 Feb",
+    "title": "Metformin-Associated Encephalopathy as a Rare but Serious Adverse Effect: A Case Report.",
+    "comment": "ER ต้องระวังภาวะนี้ที่เกิดจาก Metformin ซึ่งอาจวินิจฉัยยาก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41710849/"
+  },
+  {
+    "date": "19 Feb",
+    "title": "Iatrogenic Nerve Injuries in Head and Neck Surgeries: A Systematic Review of Mechanisms, Outcomes, and Prevention Strategies.",
+    "comment": "การบาดเจ็บเส้นประสาทจากการผ่าตัด ศัลยแพทย์ ER ควรสื่อสารและส่งต่อผู้ป่วยอย่างเหมาะสม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41710859/"
+  },
+  {
+    "date": "19 Feb",
+    "title": "Validation of the PECARN Abdominal Rule and FAST-AST/ALT Criteria in Pediatric Blunt Abdominal Trauma: A Retrospective Cohort Study.",
+    "comment": "ตรวจสอบความแม่นยำของเกณฑ์ PECARN และ FAST-AST/ALT ในการประเมิน trauma ในเด็ก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41710649/"
   },
   {
     "date": "19 Feb",
     "title": "Post-traumatic benign paroxysmal positional vertigo: mechanisms, clinical phenotypes, and a structured clinical pathway for management",
     "comment": "แนวทางการวินิจฉัยและจัดการ BPPV หลังการบาดเจ็บที่อาจนำไปสู่การรักษาที่รวดเร็ว",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41709921/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Has the Number of Pediatric Testicular Torsion Cases Abated After the Height of the COVID-19 Pandemic?",
-    "comment": "การเปลี่ยนแปลงของอุบัติการณ์ Testicular Torsion ในเด็กหลังยุค COVID-19 เป็นข้อมูลสำคัญในการวางแผนการดูแล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41710854/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Metformin-Associated Encephalopathy as a Rare but Serious Adverse Effect: A Case Report",
-    "comment": "การตระหนักถึงภาวะแทรกซ้อนที่หายากแต่รุนแรงจาก Metformin ช่วยให้วินิจฉัยและรักษาได้ทันท่วงที",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41710849/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Early Prediction of Septic Shock in Severe COVID-19 Patients: Development and Validation of a Nomogram Model",
-    "comment": "แบบจำลองพยากรณ์ Septic Shock ในผู้ป่วย COVID-19 รุนแรง อาจช่วยให้วางแผนการรักษาเชิงรุกได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41709380/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Iatrogenic Nerve Injuries in Head and Neck Surgeries: A Systematic Review of Mechanisms, Outcomes, and Prevention Strategies",
-    "comment": "การทบทวนความเสี่ยงและกลไกของ Nerve Injury ในการผ่าตัดศีรษะและคอ เพื่อการป้องกันที่ดีขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41710859/"
   },
   {
     "date": "19 Feb",
@@ -46,12 +76,6 @@
     "title": "Primary contact physiotherapy versus standard emergency physician care in the emergency department: a Time-Driven Activity-Based Costing analysis",
     "comment": "การเปรียบเทียบประสิทธิภาพและต้นทุนของ Physiotherapy แบบ Primary Contact ใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41708955/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Pediatric Crush Syndrome and Injury Profiles in Earthquake Survivors: A Comprehensive Analysis From the 2023 Turkey Earthquake",
-    "comment": "การทำความเข้าใจรูปแบบการบาดเจ็บในเด็กจากภัยพิบัติ เพื่อการวางแผนรับมือภาวะวิกฤต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41709480/"
   },
   {
     "date": "19 Feb",
@@ -394,29 +418,5 @@
     "title": "Effectiveness of drug interventions to prevent delirium after surgery for older adults: systematic review and network meta-analysis of randomised controlled trials.",
     "comment": "ยาตัวไหนได้ผลดีที่สุดในการป้องกัน Delirium หลังผ่าตัดในผู้สูงอายุใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41690769/"
-  },
-  {
-    "date": "15 Feb",
-    "title": "Suspected nitrous oxide toxicity in emergency departments: Royal College of Emergency Medicine best practice guideline review.",
-    "comment": "แนวปฏิบัติใหม่ในการวินิจฉัยและรักษาภาวะพิษจากก๊าซหัวเราะ (N2O) ซึ่งอาจเจอใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41690706/"
-  },
-  {
-    "date": "15 Feb",
-    "title": "Rising paediatric emergency department use despite demographic decline: a 23-year analysis.",
-    "comment": "การเพิ่มขึ้นของผู้ป่วยเด็กใน ER ทั้งที่จำนวนประชากรลดลง ชี้ให้เห็นถึงปัจจัยที่ซับซ้อนที่ต้องทำความเข้าใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41690694/"
-  },
-  {
-    "date": "15 Feb",
-    "title": "Artificial intelligence-assisted training for rib fracture interpretation: a prospective study in undergraduate medical students.",
-    "comment": "AI ช่วยแปลผลภาพเอกซเรย์กระดูกซี่โครง แม่นยำขึ้น ลดภาระแพทย์ ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41690241/"
-  },
-  {
-    "date": "15 Feb",
-    "title": "Methylene Blue Rescue Therapy for Vasoplegic Shock After Antihypertensive Drug Overdose.",
-    "comment": "Methylene Blue อาจช่วยชีวิตผู้ป่วย Vasoplegic Shock จากการทานยาความดันเกินขนาดใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41689248/"
   }
 ]
