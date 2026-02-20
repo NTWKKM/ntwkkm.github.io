@@ -2546,5 +2546,61 @@
     "property_last_edited_time": "2026-02-17T22:21:00.000Z",
     "property_pmid": "41700557",
     "property_name": "Artificial intelligence meets point-of-care ultrasound: implications for pediatric emergency and critical care"
+  },
+  {
+    "id": "30dba464-60a7-8170-a94b-db7ba07331f3",
+    "name": "Mothership Versus Drip-and-Ship Models in Acute Stroke Care: A Time-Sensitive Meta-Analysis.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41717865/",
+    "property_date": null,
+    "property_tag_2": "Emergency Medicine",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อเปรียบเทียบผลลัพธ์ทางคลินิกและความปลอดภัยระหว่างรูปแบบการขนส่งผู้ป่วยแบบ Mothership (ส่งตรงเข้าศูนย์รักษา) และ Drip-and-Ship (ให้ยาละลายลิ่มเลือดก่อนส่งต่อ) ในผู้ป่วยโรคหลอดเลือดสมองอุดตันเฉียบพลัน และประเมินผลกระทบของความล่าช้าในการรักษาต่อผลลัพธ์\n- **วิธีการ:** ทำการทบทวนวรรณกรรมอย่างเป็นระบบและวิเคราะห์อนุมาน (Meta-analysis) ตามแนวทาง PRISMA จากฐานข้อมูลจนถึงเดือนมีนาคม 2025 รวมการศึกษา 19 เรื่อง (ผู้ป่วย 16,485 ราย) ที่เป็นผู้ป่วยหลอดเลือดสมองอุดตันหลอดเลือดใหญ่ที่ได้รับการลากลิ่มเลือด (Mechanical thrombectomy) โดยวัดผลลัพธ์หลักคือระดับความสามารถในการทำกิจวัตรประจำวันที่ 90 วัน (mRS 0-2)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบว่ารูปแบบ Mothership และ Drip-and-Ship ไม่มีความแตกต่างกันอย่างมีนัยสำคัญในด้านโอกาสการกลับมาใช้ชีวิตได้ปกติที่ 90 วัน (Odds Ratio 1.12, 95% CI 0.94-1.32) อย่างไรก็ตาม การวิเคราะห์ Meta-regression แสดงให้เห็นว่าระยะเวลาที่ล่าช้าในการเริ่มลากลิ่มเลือดในรูปแบบ Drip-and-Ship ส่งผลให้โอกาสในการฟื้นตัวลดลงอย่างมีนัยสำคัญ",
+    "property_status": "Not started",
+    "property_tag_3": "Stroke",
+    "property_tag_1": "Neurology",
+    "property_last_edited_time": "2026-02-20T19:23:00.000Z",
+    "property_pmid": "41717865",
+    "property_name": "Mothership Versus Drip-and-Ship Models in Acute Stroke Care: A Time-Sensitive Meta-Analysis."
+  },
+  {
+    "id": "30dba464-60a7-81a6-8342-e86c73539994",
+    "name": "Proteomic Insights into Venous Thromboembolism.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41718141/",
+    "property_date": null,
+    "property_tag_2": "Cardiology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อรวบรวมและสังเคราะห์ความก้าวหน้าล่าสุดของการวิจัยด้านโปรตีโอโอมิกส์ (Proteomics) ที่เกี่ยวข้องกับภาวะลิ่มเลือดอุดตันในหลอดเลือดดำ (VTE) โดยมุ่งเน้นการเข้าใจกลไกทางโมเลกุลและการค้นหาตัวบ่งชี้ชีวภาพใหม่เพื่อช่วยในการวินิจฉัยและการพยากรณ์โรค\n- **วิธีการ:** ทำการสืบค้นข้อมูลจากฐานข้อมูลหลัก 4 แห่ง ได้แก่ PubMed, ScienceDirect, Springer Nature และ Wiley โดยใช้คำสำคัญที่เกี่ยวข้องกับลิ่มเลือดอุดตันในปอดและหลอดเลือดดำร่วมกับคำว่าโปรตีโอโอมิกส์ และได้คัดเลือกงานวิจัยที่เกี่ยวข้องจำนวน 30 เรื่องมาทำการศึกษา\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ผลการศึกษาพบการเปลี่ยนแปลงในวิถีทางชีวภาพที่เกี่ยวกับการแข็งตัวของเลือด การอักเสบ และการทำงานของเกล็ดเลือด โดยค้นพบกลุ่มโปรตีนที่มีศักยภาพในการเพิ่มความแม่นยำในการวินิจฉัยและแยกความแตกต่างทางโมเลกุลระหว่าง PE และ DVT ซึ่งข้อมูลเหล่านี้สนับสนุนการนำไปประยุกต์ใช้ในเวชศาสตร์แม่นยำแม้จะยังมีข้อจำกัดด้านความหลากหลายของข้อมูลในปัจจุบัน",
+    "property_status": "Not started",
+    "property_tag_3": "Pulmonology",
+    "property_tag_1": "Hematology",
+    "property_last_edited_time": "2026-02-20T19:22:00.000Z",
+    "property_pmid": "41718141",
+    "property_name": "Proteomic Insights into Venous Thromboembolism."
+  },
+  {
+    "id": "30dba464-60a7-812a-9f0c-ce547c860ab3",
+    "name": "Robot-assisted multivisceral resections for locally advanced rectal cancer: a case series and systematic review",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41717740/",
+    "property_date": null,
+    "property_tag_2": "Oncology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนวรรณกรรมอย่างเป็นระบบเกี่ยวกับการผ่าตัดมะเร็งลำไส้ตรงระยะลุกลามเฉพาะที่ร่วมกับการตัดอวัยวะข้างเคียงโดยใช้หุ่นยนต์ช่วย และนำเสนอผลลัพธ์จากประสบการณ์ของคณะผู้เขียน\n- **วิธีการ:** คัดเลือกบทความวิจัย 12 เรื่องจากฐานข้อมูลเพื่อทำการวิเคราะห์อภิมาน (Meta-analysis) เกี่ยวกับระยะเวลาผ่าตัดและภาวะแทรกซ้อน เปรียบเทียบกับผลลัพธ์ของผู้ป่วย 5 รายที่ได้รับการผ่าตัดลำไส้ตรงร่วมกับอวัยวะอื่น (เช่น กระเพาะปัสสาวะ) โดยใช้หุ่นยนต์ช่วยในช่วงปลายปี 2024\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** จากข้อมูลผู้ป่วยรวม 891 ราย พบอัตราการผ่าตัดแบบ R0 อยู่ที่ 76.2-100% อัตราการเปลี่ยนวิธีผ่าตัด 11% และอัตราการเกิดภาวะแทรกซ้อนโดยรวม 20.7-78% ส่วนผลลัพธ์ของผู้เขียน 5 รายสามารถผ่าตัด R0 ได้ทั้งหมด ใช้เวลาเฉลี่ย 5 ชั่วโมง และพบภาวะแทรกซ้อนรุนแรงเพียง 1 ราย",
+    "property_status": "Not started",
+    "property_tag_3": "Colorectal Surgery",
+    "property_tag_1": "Robotic Surgery",
+    "property_last_edited_time": "2026-02-20T19:21:00.000Z",
+    "property_pmid": "41717740",
+    "property_name": "Robot-assisted multivisceral resections for locally advanced rectal cancer: a case series and systematic review"
+  },
+  {
+    "id": "30cba464-60a7-8187-9226-fdbad33aa8ca",
+    "name": "Validation of the PECARN Abdominal Rule and FAST-AST/ALT Criteria in Pediatric Blunt Abdominal Trauma: A Retrospective Cohort Study",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41710649/",
+    "property_date": null,
+    "property_tag_2": "Emergency Medicine",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินและเปรียบเทียบประสิทธิภาพของเครื่องมือช่วยตัดสินใจทางคลินิก (CDIs) ได้แก่ กฎ PECARN abdominal rule และเกณฑ์ FAST ร่วมกับระดับเอนไซม์ตับ (AST/ALT) ที่สูงขึ้น ในการระบุผู้ป่วยเด็กที่บาดเจ็บที่ท้องแบบปิดที่มีความเสี่ยงต่ำต่อการบาดเจ็บในช่องท้องที่ต้องได้รับการรักษา (IAI-I)\n- **วิธีการ:** ดำเนินการศึกษาแบบย้อนหลัง (Retrospective cohort study) ตั้งแต่เดือนเมษายน 2021 ถึงมีนาคม 2024 ในผู้ป่วยเด็ก 259 รายที่มีการบาดเจ็บที่ลำตัว โดยใช้ข้อมูลทางคลินิกและภาพถ่ายรังสีเพื่อเปรียบเทียบความแม่นยำของทั้งสองเกณฑ์\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** จากผู้ป่วย 259 ราย พบการบาดเจ็บในช่องท้อง (IAI) 20 ราย (7.7%) และต้องการการรักษา 1 ราย สำหรับการระบุ IAI-I ทั้งสองเกณฑ์มีความไว (Sensitivity) 100% เท่ากัน แต่เกณฑ์ FAST-AST/ALT มีความจำเพาะ (Specificity) สูงกว่า (82.2% เทียบกับ 65.1%) ส่วนในการระบุ IAI ทั่วไป กฎ PECARN มีความไวสูงกว่า (90%) แต่มีความจำเพาะต่ำกว่า (69.5%) เมื่อเทียบกับเกณฑ์ FAST-AST/ALT",
+    "property_status": "Not started",
+    "property_tag_3": "Trauma",
+    "property_tag_1": "Pediatrics",
+    "property_last_edited_time": "2026-02-19T22:21:00.000Z",
+    "property_pmid": "41710649",
+    "property_name": "Validation of the PECARN Abdominal Rule and FAST-AST/ALT Criteria in Pediatric Blunt Abdominal Trauma: A Retrospective Cohort Study"
   }
 ]
