@@ -2,20 +2,62 @@
   {
     "date": "20 Feb",
     "title": "Rapid AI-assisted Poincaré plot analysis for early detection of subclinical left ventricular dysfunction in hypertensive patients admitted to the emergency department: A prospective observational study",
-    "comment": "AI ช่วยวินิจฉัยภาวะหัวใจที่อาจไม่แสดงอาการในผู้ป่วยความดันสูงใน ER",
+    "comment": "AI ช่วยวิเคราะห์ภาวะหัวใจล้มเหลวระยะเริ่มต้นในผู้ป่วยความดันโลหิตสูงที่ ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41718624/"
   },
   {
     "date": "20 Feb",
     "title": "An American College of Surgeons Committee on Trauma Stop the Bleed guideline on the use of improvised tourniquets for trauma patients with life-threatening extremity hemorrhage 2025",
-    "comment": "แนวทางใหม่ในการใช้ tourniquet แบบเฉพาะหน้าในภาวะเลือดออกที่คุกคามชีวิต",
+    "comment": "แนวทางใหม่การใช้ Tourniquet ที่ประยุกต์ใช้ได้ในภาวะฉุกเฉิน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41718598/"
   },
   {
     "date": "20 Feb",
+    "title": "Bolus Epinephrine Dose-Readiness for Cardiac Arrest Prevention in Pediatric Cardiac ICUs: 2024 Survey of Units in the United States",
+    "comment": "การเตรียมพร้อมใช้ Epinephrine ขนาด Bolus ในเด็กหัวใจหยุดเต้น ช่วยชีวิตได้จริงหรือไม่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41718595/"
+  },
+  {
+    "date": "20 Feb",
     "title": "Pediatric lung ultrasound: Tips and tricks for better scanning and interpretation",
-    "comment": "เทคนิคการทำอัลตราซาวด์ปอดในเด็กอย่างมีประสิทธิภาพ",
+    "comment": "Ultrasound ปอดในเด็ก: เทคนิคที่ช่วยเพิ่มความแม่นยำในการวินิจฉัย",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41718590/"
+  },
+  {
+    "date": "20 Feb",
+    "title": "Performance of the ABCD2 Score in a US Emergency Department Observation Unit",
+    "comment": "ประสิทธิภาพของ ABCD2 score ในการประเมินผู้ป่วย TIA ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41718567/"
+  },
+  {
+    "date": "20 Feb",
+    "title": "Rezafungin for Salvage or Consolidation Therapy of Invasive Fungal Disease: Experience in Real-World Clinical Practice",
+    "comment": "Rezafungin ยาต้านเชื้อราตัวใหม่ที่น่าจับตาสำหรับภาวะติดเชื้อรุนแรง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41718446/"
+  },
+  {
+    "date": "20 Feb",
+    "title": "Persistent neutrophil activation despite count normalization suggests immune dysregulation in exertional heat stroke",
+    "comment": "ความสำคัญของการกระตุ้น Neutrophil ในภาวะ Heat Stroke ที่มีผลต่อการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41717443/"
+  },
+  {
+    "date": "20 Feb",
+    "title": "Mothership Versus Drip-and-Ship Models in Acute Stroke Care: A Time-Sensitive Meta-Analysis",
+    "comment": "การเปรียบเทียบโมเดลการดูแลผู้ป่วย Stroke แบบ Drip-and-Ship กับ Mothership",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41717865/"
+  },
+  {
+    "date": "20 Feb",
+    "title": "The Human Factor: Physicians' Unbiased Interpretation of Atrial Fibrillation in the Emergency Department",
+    "comment": "ความลำเอียงของแพทย์ในการวินิจฉัย Atrial Fibrillation ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41717711/"
+  },
+  {
+    "date": "20 Feb",
+    "title": "Comparative complication rates of titanium vs carbon fiber intramedullary nails in pathologic long bone fractures: A systematic review and meta-analysis",
+    "comment": "การเปรียบเทียบวัสดุของ Intramedullary nails ในกระดูกหักพยาธิสภาพ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41717067/"
   },
   {
     "date": "20 Feb",
@@ -40,12 +82,6 @@
     "title": "Barriers and Facilitators for Bystander Cardiopulmonary Resuscitation and Automated External Defibrillator Use in Diverse and Underserved Cities in Los Angeles County, California",
     "comment": "ปัจจัยส่งเสริมและขัดขวางการทำ CPR และการใช้ AED โดยประชาชนทั่วไปในพื้นที่ด้อยโอกาส",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41717913/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "Mothership Versus Drip-and-Ship Models in Acute Stroke Care: A Time-Sensitive Meta-Analysis",
-    "comment": "เปรียบเทียบโมเดลการดูแลผู้ป่วยโรคหลอดเลือดสมองแบบต่างๆ เพื่อการตัดสินใจที่รวดเร็ว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41717865/"
   },
   {
     "date": "20 Feb",
@@ -382,41 +418,5 @@
     "title": "Major Changes of the 2025 Korean Cardiopulmonary Resuscitation Guidelines.",
     "comment": "การเปลี่ยนแปลงที่สำคัญในแนวทางการทำ CPR ของเกาหลี",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41696499/"
-  },
-  {
-    "date": "16 Feb",
-    "title": "Infant Respiratory Syncytial Virus Immunization Through Maternal Vaccination and Nirsevimab.",
-    "comment": "การป้องกัน RSV ในทารกผ่านวัคซีนมารดาและ Nirsevimab เป็นก้าวสำคัญในการลดความรุนแรงของโรค",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41697699/"
-  },
-  {
-    "date": "16 Feb",
-    "title": "Pediatric Psychodermatology: Advancing Therapy through Integrated Care.",
-    "comment": "การดูแลโรคผิวหนังในเด็กแบบบูรณาการระหว่างจิตแพทย์และแพทย์ผิวหนังอาจเปลี่ยนวิธีรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41697633/"
-  },
-  {
-    "date": "16 Feb",
-    "title": "Prophylactic Treatment of Patent Ductus Arteriosus With Acetaminophen: A Randomized Clinical Trial.",
-    "comment": "การให้ Acetaminophen เพื่อป้องกัน PDA ในทารกคลอดก่อนกำหนด อาจลดการใช้ยาอื่นและผลข้างเคียง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41697673/"
-  },
-  {
-    "date": "16 Feb",
-    "title": "Head Acceleration Events Measured by Instrumented Mouthguards in Elite Australian Football.",
-    "comment": "การวัดแรงกระแทกศีรษะจาก Mouthguard ในนักกีฬา อาจนำไปสู่การป้องกันการบาดเจ็บสมองที่ดียิ่งขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41697571/"
-  },
-  {
-    "date": "16 Feb",
-    "title": "Tumor treating fields for newly diagnosed glioblastoma: a retrospective analysis.",
-    "comment": "TTFields เป็นนวัตกรรมใหม่ที่อาจช่วยเพิ่มผลการรักษา Glioblastoma",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41697534/"
-  },
-  {
-    "date": "16 Feb",
-    "title": "Acute thoracic aortic dissection, A radiological approach from a surgical perspective.",
-    "comment": "การรักษากลุ่มอาการหลอดเลือดแดงใหญ่ฉีกขาดเฉียบพลันด้วยภาพรังสี อาจนำไปสู่การตัดสินใจรักษาที่แม่นยำขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41697486/"
   }
 ]
