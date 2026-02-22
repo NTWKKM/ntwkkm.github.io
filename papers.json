@@ -1,15 +1,63 @@
 [
   {
     "date": "22 Feb",
-    "title": "Transesophageal echocardiography during cardiac arrest: integrating emerging prehospital evidence with practical boundaries for clinical application.",
-    "comment": "TEE ในภาวะหัวใจหยุดเต้น ที่ทำได้ตั้งแต่ก่อนถึงโรงพยาบาล อาจเปลี่ยนแนวทางการกู้ชีวิตใน ER",
+    "title": "High-flow nasal therapy vs conventional oxygen therapy in mild COVID-19 hypoxaemia: a Bayesian reanalysis of the COVID-HIGH Trial",
+    "comment": "HNN ยังคงเป็นทางเลือกที่น่าสนใจในผู้ป่วย COVID-19 ที่มีภาวะ Hypoxemia เล็กน้อย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41723547/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "Norepinephrine Should Be the Preferred Vasopressor After Return of Spontaneous Circulation Following Cardiac Arrest",
+    "comment": "Norepinephrine อาจเป็น Vasopressor ที่ดีกว่าในผู้ป่วย ROSC หลัง Cardiac Arrest",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41722912/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "Tranexamic Acid Timing and Mortality Impact After Trauma: March 2026 Annals of Emergency Medicine Journal Club",
+    "comment": "การให้ Tranexamic Acid ในเวลาที่เหมาะสมหลัง Trauma อาจส่งผลต่อ Mortality",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41722921/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "The association of mechanical versus manual chest compressions with neurological outcomes at hospital discharge among out-of-hospital cardiac arrests treated with intra-arrest transport",
+    "comment": "การกดหน้าอกแบบไหนดีกว่ากันในผู้ป่วย OHCA ที่ได้รับ IAT",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41722888/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "Joint effects of triglyceride-glucose-BMI and stress hyperglycemia ratio on all-cause mortality in trauma surgical intensive care patients: a multicenter cohort study",
+    "comment": "การประเมินความเสี่ยงจากปัจจัยหลายอย่างในผู้ป่วย Trauma ICU",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41723444/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "Performance of AI vs radiology residents in the detection of intracranial hemorrhage on emergency CT: a real-world analysis",
+    "comment": "AI กำลังเข้ามามีบทบาทในการวินิจฉัยภาวะเลือดออกในสมอง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41721849/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "Cephalosporins for Outpatient Pyelonephritis in the Emergency Department",
+    "comment": "การใช้ Cephalosporins สำหรับ Pyelonephritis ที่รักษาแบบผู้ป่วยนอกใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41722927/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "Transesophageal echocardiography during cardiac arrest: integrating emerging prehospital evidence with practical boundaries for clinical application",
+    "comment": "TEE ในภาวะ Cardiac Arrest - ประโยชน์และข้อจำกัดทางคลินิก",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41723519/"
   },
   {
     "date": "22 Feb",
-    "title": "High-flow nasal therapy vs conventional oxygen therapy in mild COVID-19 hypoxaemia: a Bayesian reanalysis of the COVID-HIGH Trial.",
-    "comment": "HFN vs conventional O2 ในผู้ป่วย COVID-19 ที่ออกซิเจนต่ำเล็กน้อย เป็นเรื่องที่ยังถกเถียงกันอยู่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41723547/"
+    "title": "Opportunistic Atrial Fibrillation Screening in the Emergency Department: Might the Primary Diagnosis Matter?",
+    "comment": "การคัดกรอง AF แบบฉวยโอกาสใน ER - การวินิจฉัยหลักมีผลหรือไม่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41722922/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "Weak Evidence, Rare Eligibility, and Complex Care Coordination Limit Application of Structured Surveillance for Subsegmental Pulmonary Embolism",
+    "comment": "อุปสรรคในการเฝ้าระวัง Subsegmental PE",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41722924/"
   },
   {
     "date": "22 Feb",
@@ -25,39 +73,9 @@
   },
   {
     "date": "22 Feb",
-    "title": "Norepinephrine Should Be the Preferred Vasopressor After Return of Spontaneous Circulation Following Cardiac Arrest.",
-    "comment": "NE ควรเป็น vasopressor ตัวเลือกแรกหลัง ROSC จาก CA ซึ่งเป็นประเด็นถกเถียงสำคัญ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41722912/"
-  },
-  {
-    "date": "22 Feb",
-    "title": "Opportunistic Atrial Fibrillation Screening in the Emergency Department: Might the Primary Diagnosis Matter?",
-    "comment": "การคัดกรอง AF แบบฉวยโอกาสใน ER อาจต้องพิจารณาโรคที่มาด้วยเป็นหลัก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41722922/"
-  },
-  {
-    "date": "22 Feb",
-    "title": "Tranexamic Acid Timing and Mortality Impact After Trauma: March 2026 Annals of Emergency Medicine Journal Club.",
-    "comment": "การให้ TXA ในผู้ป่วย trauma ที่มีผลต่อ mortality เป็นเรื่องสำคัญที่ต้องทบทวน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41722921/"
-  },
-  {
-    "date": "22 Feb",
-    "title": "Weak Evidence, Rare Eligibility, and Complex Care Coordination Limit Application of Structured Surveillance for Subsegmental Pulmonary Embolism.",
-    "comment": "การเฝ้าระวัง PE ขนาดเล็ก ยังมีข้อจำกัดที่ต้องพิจารณาใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41722924/"
-  },
-  {
-    "date": "22 Feb",
     "title": "Association Between Emergency Department Undertriage or Overtriage With Timeliness of Care and Patient Outcomes.",
     "comment": "การประเมินระดับความเร่งด่วน (triage) ที่ผิดพลาดส่งผลต่อการรักษาและผลลัพธ์ของผู้ป่วย ER อย่างไร",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41721807/"
-  },
-  {
-    "date": "22 Feb",
-    "title": "Performance of AI vs radiology residents in the detection of intracranial hemorrhage on emergency CT: a real-world analysis.",
-    "comment": "AI กำลังเข้ามามีบทบาทในการอ่าน CT สมองใน ER อาจเปลี่ยนวิธีการทำงานของรังสีแพทย์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41721849/"
   },
   {
     "date": "21 Feb",
@@ -400,23 +418,5 @@
     "title": "Therapeutic Role of Neostigmine and Pyridostigmine in Pediatric Chronic Intestinal Pseudo-Obstruction: A Systematic Review.",
     "comment": "ยาเหล่านี้อาจมีบทบาทในการรักษาผู้ป่วยเด็กที่มีปัญหาลำไส้เรื้อรัง ซึ่งเป็นกรณีที่พบได้ยากและท้าทายใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41701472/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "Coronary CT Angiography for Acute Chest Pain in the Emergency Department.",
-    "comment": "การใช้ CT Angiography ใน ER สำหรับอาการเจ็บหน้าอกเฉียบพลัน อาจเป็นเครื่องมือช่วยวินิจฉัยที่มีประสิทธิภาพ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41701024/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "The State of Mobile Crisis Response: a Scoping Review of Construct and Challenges.",
-    "comment": "แนวทางการตอบสนองวิกฤตแบบเคลื่อนที่ (Mobile Crisis Response) อาจเป็นทางเลือกใหม่ในการจัดการกับผู้ป่วยจิตเวชในชุมชน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41701305/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "Worsening Diabetic Retinopathy With GLP-1 Receptor Agonists in Kidney Transplant Recipients: An Emerging Signal Requiring Ophthalmologic Vigilance.",
-    "comment": "ข้อมูลสำคัญสำหรับผู้ป่วยเบาหวานและโรคไตที่อาจต้องพิจารณาการใช้ยา GLP-1 RAs อย่างระมัดระวัง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41700969/"
   }
 ]
