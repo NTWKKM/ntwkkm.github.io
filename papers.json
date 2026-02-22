@@ -1,8 +1,62 @@
 [
   {
-    "date": "21 Feb",
+    "date": "22 Feb",
+    "title": "Transesophageal echocardiography during cardiac arrest: integrating emerging prehospital evidence with practical boundaries for clinical application.",
+    "comment": "TEE ในภาวะหัวใจหยุดเต้น ที่ทำได้ตั้งแต่ก่อนถึงโรงพยาบาล อาจเปลี่ยนแนวทางการกู้ชีวิตใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41723519/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "High-flow nasal therapy vs conventional oxygen therapy in mild COVID-19 hypoxaemia: a Bayesian reanalysis of the COVID-HIGH Trial.",
+    "comment": "HFN vs conventional O2 ในผู้ป่วย COVID-19 ที่ออกซิเจนต่ำเล็กน้อย เป็นเรื่องที่ยังถกเถียงกันอยู่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41723547/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "Perioperative anesthesia management of GLP-1 receptor agonists: a systematic review of potential risks.",
+    "comment": "GLP-1 agonists ใช้แพร่หลายขึ้นเรื่อยๆ การจัดการ perioperative จึงสำคัญมากสำหรับ ER ที่ต้องรับผู้ป่วยผ่าตัด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41723539/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "Gender perspective in medication-related problems resulting in emergency department attendance involving high-alert medications.",
+    "comment": "มองเรื่องปัญหาจากยา อันตรายสูง ที่ส่งผลต่อ ER โดยคำนึงถึงมิติเพศ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41723022/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "Norepinephrine Should Be the Preferred Vasopressor After Return of Spontaneous Circulation Following Cardiac Arrest.",
+    "comment": "NE ควรเป็น vasopressor ตัวเลือกแรกหลัง ROSC จาก CA ซึ่งเป็นประเด็นถกเถียงสำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41722912/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "Opportunistic Atrial Fibrillation Screening in the Emergency Department: Might the Primary Diagnosis Matter?",
+    "comment": "การคัดกรอง AF แบบฉวยโอกาสใน ER อาจต้องพิจารณาโรคที่มาด้วยเป็นหลัก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41722922/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "Tranexamic Acid Timing and Mortality Impact After Trauma: March 2026 Annals of Emergency Medicine Journal Club.",
+    "comment": "การให้ TXA ในผู้ป่วย trauma ที่มีผลต่อ mortality เป็นเรื่องสำคัญที่ต้องทบทวน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41722921/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "Weak Evidence, Rare Eligibility, and Complex Care Coordination Limit Application of Structured Surveillance for Subsegmental Pulmonary Embolism.",
+    "comment": "การเฝ้าระวัง PE ขนาดเล็ก ยังมีข้อจำกัดที่ต้องพิจารณาใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41722924/"
+  },
+  {
+    "date": "22 Feb",
+    "title": "Association Between Emergency Department Undertriage or Overtriage With Timeliness of Care and Patient Outcomes.",
+    "comment": "การประเมินระดับความเร่งด่วน (triage) ที่ผิดพลาดส่งผลต่อการรักษาและผลลัพธ์ของผู้ป่วย ER อย่างไร",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41721807/"
+  },
+  {
+    "date": "22 Feb",
     "title": "Performance of AI vs radiology residents in the detection of intracranial hemorrhage on emergency CT: a real-world analysis.",
-    "comment": "AI มีศักยภาพใกล้เคียงหรือเหนือกว่าเรสซิเดนต์ในการตรวจ CT สมองฉุกเฉิน",
+    "comment": "AI กำลังเข้ามามีบทบาทในการอ่าน CT สมองใน ER อาจเปลี่ยนวิธีการทำงานของรังสีแพทย์",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41721849/"
   },
   {
@@ -28,12 +82,6 @@
     "title": "The National Pediatric Prehospital Readiness Project: First Comprehensive Assessment of United States Emergency Medical Services Agencies.",
     "comment": "ประเมินความพร้อมของ EMS เด็กทั่วสหรัฐฯ ชี้ให้เห็นช่องว่างที่ต้องปรับปรุง",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41721808/"
-  },
-  {
-    "date": "21 Feb",
-    "title": "Association Between Emergency Department Undertriage or Overtriage With Timeliness of Care and Patient Outcomes.",
-    "comment": "การจำแนกผู้ป่วยผิดพลาด (Under/Overtriage) ส่งผลต่อการรักษาและผลลัพธ์ผู้ป่วย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41721807/"
   },
   {
     "date": "21 Feb",
@@ -370,53 +418,5 @@
     "title": "Worsening Diabetic Retinopathy With GLP-1 Receptor Agonists in Kidney Transplant Recipients: An Emerging Signal Requiring Ophthalmologic Vigilance.",
     "comment": "ข้อมูลสำคัญสำหรับผู้ป่วยเบาหวานและโรคไตที่อาจต้องพิจารณาการใช้ยา GLP-1 RAs อย่างระมัดระวัง",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41700969/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "Accidental Botulism Caused by Consumption of Vacuum-Packaged Rabbit-Head Meat.",
-    "comment": "กรณีศึกษา Botulism จากอาหารที่เตรียมไม่ถูกต้อง อาจเป็นอุทาหรณ์สำหรับภาวะเป็นพิษจากอาหารที่ต้องเฝ้าระวัง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41701083/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "Conservative Management of Perforated Diverticulitis in Adults: An Updated Systematic Review of Outcomes.",
-    "comment": "แนวทางการรักษาแบบประคับประคองสำหรับภาวะลำไส้ใหญ่ทะลุ อาจเป็นทางเลือกที่น่าสนใจและมีหลักฐานสนับสนุน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41700514/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "Artificial intelligence meets point-of-care ultrasound: implications for pediatric emergency and critical care.",
-    "comment": "AI กับ Point-of-Care Ultrasound ใน ER กุมารเวช เป็นนวัตกรรมที่อาจเปลี่ยนแปลงการดูแลผู้ป่วยเด็ก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41700557/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "Pro-Con Debate: Formulaic Approach Using Fixed Ratios of Blood Components Versus Targeted Therapy Approach Guided By Viscoelastic Hemostatic Assays for Resuscitation in Traumatic Major Hemorrhage",
-    "comment": "การถกเถียงเกี่ยวกับแนวทางการให้เลือดในผู้ป่วยเสียเลือดมากที่ส่งผลต่อแนวทางการรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41698179/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "Latent Threats Identified During In Situ Simulated Local Anesthetic Systemic Toxicity Crises in the Operating Room: Implications for System Safety",
-    "comment": "การค้นพบความเสี่ยงที่ซ่อนเร้นจากการจำลองสถานการณ์พิษจากยาชาเฉพาะที่ ซึ่งส่งผลต่อความปลอดภัยของระบบ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41698222/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "Reducing Intravenous Opioid Reliance with Subcutaneous Administration in the Emergency Department",
-    "comment": "แนวทางการลดการใช้ยาแก้ปวดกลุ่ม Opioid แบบฉีดเข้าหลอดเลือดดำใน ER โดยใช้ยาฉีดเข้าใต้ผิวหนัง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41697972/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "Clinical and Etiological Features of Drug Hypersensitivity Reactions among Patients of the Surgical Department: A Pilot Study",
-    "comment": "การทำความเข้าใจสาเหตุและลักษณะของปฏิกิริยาแพ้ยาในผู้ป่วยศัลยกรรม ซึ่งอาจพบได้ใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41697904/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "Emerging Roles of Multiparametric Biodosimetry and Artificial Intelligence in Advancing Radiation Dose Assessment for Triage",
-    "comment": "การใช้ AI และการวัดปริมาณรังสีหลายรูปแบบเพื่อประเมินผู้ป่วยในสถานการณ์ภัยพิบัติ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41698682/"
   }
 ]
