@@ -1,5 +1,65 @@
 [
   {
+    "date": "23 Feb",
+    "title": "Valved Holding Chambers in Young Children With Acute Wheezing: A Randomized Clinical Trial",
+    "comment": "การใช้ Valved Holding Chamber ในเด็กเล็กที่มีอาการ Wheezing เฉียบพลัน อาจเป็นทางเลือกที่ช่วยเพิ่มประสิทธิภาพการให้ยาและการดูแลใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41729513/"
+  },
+  {
+    "date": "23 Feb",
+    "title": "Burnout, compassion satisfaction and fatigue: Is professional quality of life linked with resilience in emergency departments?",
+    "comment": "การศึกษาความเชื่อมโยงระหว่างภาวะหมดไฟกับคุณภาพชีวิตของบุคลากร ER ซึ่งส่งผลโดยตรงต่อการดูแลผู้ป่วย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41729510/"
+  },
+  {
+    "date": "23 Feb",
+    "title": "Delirium awareness and care practices among Western European healthcare professionals: a survey",
+    "comment": "การสำรวจความตระหนักและการปฏิบัติในการดูแลผู้ป่วย Delirium ในยุโรปตะวันตก ชี้ถึงช่องว่างที่ต้องปรับปรุง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41729478/"
+  },
+  {
+    "date": "23 Feb",
+    "title": "A clinically feasible model for size-specific estimation of eye lens dose in head CT",
+    "comment": "การประเมินปริมาณรังสีที่ตาใน CT สแกนสมอง ช่วยลดความเสี่ยงในผู้ป่วย ER ที่อาจต้องทำ CT ซ้ำ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41729419/"
+  },
+  {
+    "date": "23 Feb",
+    "title": "Clippings in Pediatric Emergency Medicine",
+    "comment": "รวบรวมข้อมูลสำคัญเกี่ยวกับภาวะต่างๆ ที่พบบ่อยในเวชศาสตร์ฉุกเฉินกุมารเวชกรรม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41729384/"
+  },
+  {
+    "date": "23 Feb",
+    "title": "Response to the letter by Ghannam and Souadka on \"Impact of early FAST ultrasound on severe trauma outcomes: a randomized trial in a low-resource African emergency setting (The ALIFAST Trial)\"",
+    "comment": "เป็นการตอบโต้ประเด็นถกเถียงเกี่ยวกับผลของการใช้ FAST ultrasound ในการบาดเจ็บรุนแรง ซึ่งสำคัญต่อแนวทางการประเมินผู้ป่วย trauma",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41729248/"
+  },
+  {
+    "date": "23 Feb",
+    "title": "Primary septic arthritis in the elderly - a forgotten killer? Five-year survival and risk factors in a retrospective cohort study",
+    "comment": "การชี้ให้เห็นถึงความสำคัญและการมองข้ามภาวะข้ออักเสบติดเชื้อในผู้สูงอายุ ซึ่งอาจนำไปสู่ผลลัพธ์ที่เลวร้าย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41729235/"
+  },
+  {
+    "date": "23 Feb",
+    "title": "[Orthopedics and trauma surgery in German emergency departments : Evaluation from the AKTIN emergency department registry]",
+    "comment": "การประเมินสถานการณ์การผ่าตัดกระดูกและข้อใน ER ของเยอรมนี ซึ่งอาจสะท้อนแนวโน้มและปัญหาที่คล้ายกันในที่อื่น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41729227/"
+  },
+  {
+    "date": "23 Feb",
+    "title": "Association between sustained moderate hyperglycemia within first 48 hours and poor functional outcome after polytrauma: A retrospective cohort study",
+    "comment": "การศึกษาความสัมพันธ์ระหว่างระดับน้ำตาลในเลือดสูงต่อเนื่องกับผลลัพธ์หลังการบาดเจ็บหลายระบบ ซึ่งเป็นประเด็นที่สำคัญใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41729217/"
+  },
+  {
+    "date": "23 Feb",
+    "title": "The Pretransplant EASIX Score Predicts Transplant-Related Mortality in Children Undergoing Hematopoietic Stem Cell Transplantation for Non-Malignant Disorders",
+    "comment": "การคาดการณ์อัตราการเสียชีวิตที่เกี่ยวข้องกับการปลูกถ่ายไขกระดูกในเด็ก ซึ่งอาจเป็นข้อมูลที่น่าสนใจสำหรับ ER ที่ต้องดูแลผู้ป่วยกลุ่มนี้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41729158/"
+  },
+  {
     "date": "22 Feb",
     "title": "High-flow nasal therapy vs conventional oxygen therapy in mild COVID-19 hypoxaemia: a Bayesian reanalysis of the COVID-HIGH Trial",
     "comment": "HNN ยังคงเป็นทางเลือกที่น่าสนใจในผู้ป่วย COVID-19 ที่มีภาวะ Hypoxemia เล็กน้อย",
@@ -358,65 +418,5 @@
     "title": "Lactated Ringer's solution versus normal saline outcomes in hospital settings: appraisal of a cluster-randomized trial.",
     "comment": "น้ำเกลือ LR vs NS ใน ER: อะไรดีกว่ากัน?",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41706259/"
-  },
-  {
-    "date": "18 Feb",
-    "title": "Predicting chronic subdural hematoma risk in elderly patients with mild traumatic brain injury.",
-    "comment": "ทายความเสี่ยงเลือดออกในสมองในผู้สูงอายุหลังหัวกระทบกระเทือน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41706196/"
-  },
-  {
-    "date": "18 Feb",
-    "title": "Association between neutrophil percentage-to-albumin ratio and all-cause mortality in patients post-cardiac surgery: a retrospective cohort study.",
-    "comment": "ค่า N/A ratio บอกอะไรเกี่ยวกับคนไข้หลังผ่าตัดหัวใจ?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41706276/"
-  },
-  {
-    "date": "18 Feb",
-    "title": "Sacubitril/valsartan as a modulator of pulmonary fibrosis: insights into Lnc-SNHG-16/miR-455 modulation and Notch/Smad-3 pathway inhibition.",
-    "comment": "ยาลดหัวใจล้มเหลวอาจช่วยรักษาพังผืดในปอดได้?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41706147/"
-  },
-  {
-    "date": "18 Feb",
-    "title": "Clinical decision support for antibiotic prescribing duration in children with acute otitis media.",
-    "comment": "AI ช่วยตัดสินใจเรื่องยาปฏิชีวนะในเด็กหูอักเสบ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41706455/"
-  },
-  {
-    "date": "18 Feb",
-    "title": "Venovenous extracorporeal membrane oxygenation and damage-control laparotomy in acute care surgery patients: A safe and successful option for patient rescue.",
-    "comment": "ECMO + Damage-control laparotomy = ทางรอดผู้ป่วยวิกฤต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41705911/"
-  },
-  {
-    "date": "18 Feb",
-    "title": "Risk Stratification for Acute Aortic Syndrome: Premise, Promise and Performance.",
-    "comment": "การแบ่งกลุ่มเสี่ยง Acute Aortic Syndrome: มีอะไรใหม่?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41705467/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "Pressor use and its impact on outcomes in aneurysmal subarachnoid hemorrhage patients with takotsubo cardiomyopathy: a quantitative analysis.",
-    "comment": "งานวิจัยนี้สำคัญต่อการตัดสินใจใช้ยา Vasopressor ในผู้ป่วยวิกฤตที่มีภาวะแทรกซ้อนที่ต้องให้ความสนใจอย่างใกล้ชิด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41701379/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "Frailty classification challenges in the emergency department: agreement and variability in clinical frailty scale scoring.",
-    "comment": "การประเมินภาวะเปราะบางใน ER ยังมีความไม่แน่นอน ซึ่งส่งผลต่อการวางแผนการดูแลผู้ป่วย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41701393/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "Advances in antidepressant pharmacotherapy: phase 3 evidence and clinical perspectives.",
-    "comment": "การอัปเดตแนวทางการใช้ยาต้านเศร้าที่ชัดเจน อาจนำไปสู่การเปลี่ยนแปลงการรักษาผู้ป่วยที่มีปัญหาสุขภาพจิตใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41701518/"
-  },
-  {
-    "date": "17 Feb",
-    "title": "Therapeutic Role of Neostigmine and Pyridostigmine in Pediatric Chronic Intestinal Pseudo-Obstruction: A Systematic Review.",
-    "comment": "ยาเหล่านี้อาจมีบทบาทในการรักษาผู้ป่วยเด็กที่มีปัญหาลำไส้เรื้อรัง ซึ่งเป็นกรณีที่พบได้ยากและท้าทายใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41701472/"
   }
 ]
