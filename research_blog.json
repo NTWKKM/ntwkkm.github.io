@@ -2812,5 +2812,47 @@
     "property_last_edited_time": "2026-02-22T22:21:00.000Z",
     "property_pmid": "41722922",
     "property_name": "Opportunistic Atrial Fibrillation Screening in the Emergency Department: Might the Primary Diagnosis Matter?"
+  },
+  {
+    "id": "310ba464-60a7-8181-b1ed-d1b2cea99a72",
+    "name": "Intramedullary Gas Detected on Computed Tomography in Cases of Decompression Sickness: A Case Series",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41728460/",
+    "property_date": null,
+    "property_tag_2": "Radiology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อรายงานและอธิบายกรณีศึกษาของผู้ป่วยโรคน้ำหนีบ (Decompression Sickness) จำนวน 3 ราย ที่มีการตรวจพบฟองอากาศในโพรงไขกระดูก (Intramedullary gas bubbles) โดยบังเอิญจากการตรวจเอกซเรย์คอมพิวเตอร์ (CT)\n- **วิธีการ:** เป็นการศึกษาแบบรายงานชุดกรณีศึกษา (Case series) ของผู้ป่วย 3 ราย (ชาย 2 ราย, หญิง 1 ราย) ที่มีประวัติการดำน้ำลึกและแสดงอาการผิดปกติ เช่น ปวดเมื่อย คลื่นไส้ หรือวิงเวียนศีรษะ โดยผู้ป่วยทุกรายได้รับการตรวจ CT scan ก่อนเริ่มกระบวนการรักษา\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ผลการตรวจ CT scan ในผู้ป่วยทั้ง 3 ราย พบฟองอากาศกระจายอยู่ในหลอดเลือดและเนื้อเยื่อต่างๆ รวมถึงพบฟองอากาศภายในโพรงไขกระดูก (เช่น กระดูกต้นแขนและกระดูกต้นขา) ซึ่งแสดงให้เห็นว่าสามารถตรวจพบก๊าซในไขกระดูกได้จากการตรวจทางรังสีวิทยา แม้ในผู้ป่วยที่มีอาการของโรคน้ำหนีบในระดับไม่รุนแรง",
+    "property_status": "Not started",
+    "property_tag_3": "Decompression Sickness",
+    "property_tag_1": "Emergency Medicine",
+    "property_last_edited_time": "2026-02-23T22:23:00.000Z",
+    "property_pmid": "41728460",
+    "property_name": "Intramedullary Gas Detected on Computed Tomography in Cases of Decompression Sickness: A Case Series"
+  },
+  {
+    "id": "310ba464-60a7-81dd-8b94-df8c8650afa9",
+    "name": "Can a host-response bacterial-viral classifier safely guide antibiotic avoidance in COVID-19? A diagnostic accuracy study in hospitalized adults.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41728024/",
+    "property_date": null,
+    "property_tag_2": "COVID-19",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินประสิทธิภาพของเครื่องมือจำแนกการตอบสนองของโฮสต์ (MeMed BV) ว่าสามารถช่วยในการตัดสินใจหลีกเลี่ยงการใช้ยาปฏิชีวนะในผู้ป่วยโควิด-19 ที่นอนโรงพยาบาลได้อย่างปลอดภัยหรือไม่\n- **วิธีการ:** ศึกษาในผู้ป่วยผู้ใหญ่ที่ยืนยันติดเชื้อ SARS-CoV-2 จำนวน 90 รายในนอร์เวย์ โดยเปรียบเทียบผลกับเกณฑ์มาตรฐานความปลอดภัย (การรอดชีวิตใน 30 วัน, ไม่มีการกลับมานอนโรงพยาบาลซ้ำ และไม่มีการใช้ยาปฏิชีวนะ) เพื่อวัดค่าความไวและความจำเพาะ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบว่าผู้ป่วย 31% เข้าเกณฑ์ความปลอดภัย โดยมีคะแนนมัธยฐาน MeMed BV อยู่ที่ 38 เทียบกับ 96 ในกลุ่มอื่น การทดสอบแสดงความจำเพาะที่ยอมรับได้แต่มีความไวจำกัด และประสิทธิภาพโดยรวมต่ำกว่าข้อมูลการศึกษาก่อนยุคโควิด-19",
+    "property_status": "Not started",
+    "property_tag_3": "Diagnostics",
+    "property_tag_1": "Infectious Diseases",
+    "property_last_edited_time": "2026-02-23T22:22:00.000Z",
+    "property_pmid": "41728024",
+    "property_name": "Can a host-response bacterial-viral classifier safely guide antibiotic avoidance in COVID-19? A diagnostic accuracy study in hospitalized adults."
+  },
+  {
+    "id": "310ba464-60a7-8121-ad8d-db3632d40042",
+    "name": "Emergency Department or Battleground? Confronting Workplace Violence Against Staff in Emergency Departments Through Education and Systems Reform.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41727518/",
+    "property_date": null,
+    "property_tag_2": "Workplace Violence",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อสำรวจความท้าทายและเปลี่ยนมุมมองต่อปัญหาความรุนแรงในสถานที่ทำงาน (WPV) ในแผนกฉุกเฉินให้เป็นลำดับความสำคัญระดับระบบ พร้อมนำเสนอแนวทางแก้ไขผ่านการศึกษาและการปฏิรูปโครงสร้างเพื่อป้องกันและบรรเทาปัญหา\n- **วิธีการ:** คณะทำงานจากหลายสถาบันทำการทบทวนวรรณกรรม ข้อมูลระดับชาติ และรวบรวมประสบการณ์จริงจากบุคลากร เพื่อวิเคราะห์สถานการณ์ปัจจุบันและสร้างกรอบแนวคิดสำหรับชี้นำการปฏิรูปการศึกษาและการพัฒนานโยบาย\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การศึกษาพบปัญหาสำคัญคือการไม่รายงานเหตุการณ์และการยอมรับความรุนแรงเป็นเรื่องปกติในวัฒนธรรมองค์กร คณะผู้ศึกษาจึงเสนอโมเดล \"Pyramid of Intervention\" ที่เน้นความปลอดภัยทางจิตใจ ระบบการรายงานที่ชัดเจน และความรับผิดชอบของสถาบัน ควบคู่ไปกับกลยุทธ์การศึกษา เช่น การฝึกอบรมเพื่อลดระดับความรุนแรง (de-escalation training)",
+    "property_status": "Not started",
+    "property_tag_3": "Medical Education",
+    "property_tag_1": "Emergency Medicine",
+    "property_last_edited_time": "2026-02-23T22:21:00.000Z",
+    "property_pmid": "41727518",
+    "property_name": "Emergency Department or Battleground? Confronting Workplace Violence Against Staff in Emergency Departments Through Education and Systems Reform."
   }
 ]
