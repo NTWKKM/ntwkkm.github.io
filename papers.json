@@ -1,5 +1,131 @@
 [
   {
+    "date": "24 Feb",
+    "title": "Intrauterine balloon tamponade versus uterine gauze packing for postpartum hemorrhage: A systematic review and meta-analysis.",
+    "comment": "เทียบประสิทธิภาพการรักษาตกเลือดหลังคลอดระหว่างบอลลูนกับผ้าก๊อซ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41732918/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "High-amplitude short infraslow activity (SISA) with burst suppression: A potential marker of ictogenicity in critical care patients.",
+    "comment": "คลื่นสมองผิดปกติอาจบ่งชี้ภาวะชักในผู้ป่วยวิกฤต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41732899/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "The interplay between serotonin syndrome and syndrome of inappropriate antidiuresis: a fatal case of acute hyponatremia during treatment with duloxetine, chlorphenamine, amitriptyline, and L-tryptophan.",
+    "comment": "ยาร่วมหลายชนิดอาจทำให้เกิดภาวะ Hyponatremia รุนแรงจาก Serotonin Syndrome",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41732713/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "Emphysematous Pyelonephritis in a Non-diabetic Patient Presenting With Septic Shock: A Report of a Rare Case.",
+    "comment": "การติดเชื้อในไตที่พบได้ยากในผู้ป่วยเบาหวานน้อยที่ทำให้เกิดภาวะ Septic Shock",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41732599/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "Re-emergence of Nipah Virus in Eastern India: Urgent need for enhanced surveillance.",
+    "comment": "การกลับมาระบาดของเชื้อไวรัสนิปาห์ในอินเดียตะวันออก ชี้ถึงความจำเป็นในการเฝ้าระวังที่เข้มข้นขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41732519/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "Predicting complications in emergency department patients with acute coronary syndrome - Existing risk scores versus a new logistic regression model.",
+    "comment": "โมเดลใหม่ช่วยทำนายภาวะแทรกซ้อนในผู้ป่วย ACS ใน ER ได้ดีขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41732505/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "Ventilatory parameters during emergency department-based CPR and exploratory associations with return of spontaneous circulation.",
+    "comment": "การตั้งค่าเครื่องช่วยหายใจในการทำ CPR ใน ER อาจมีผลต่อการกลับมาเต้นของหัวใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41732497/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "Diagnostic yield and spectrum of head CT findings after return of spontaneous circulation in non-traumatic in-hospital cardiac arrest: a retrospective cohort study.",
+    "comment": "CT สมองหลัง CPR ในผู้ป่วยหัวใจหยุดเต้นไม่จากการบาดเจ็บ ช่วยวินิจฉัยอะไรได้บ้าง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41732495/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "The role of insulin resistance in hyperglycemia following cardiopulmonary resuscitation in rats.",
+    "comment": "ภาวะดื้ออินซูลินอาจส่งผลต่อระดับน้ำตาลในเลือดหลัง CPR",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41732494/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "Bystanders effect: does environment affect the way bystanders react in emergencies?",
+    "comment": "สภาพแวดล้อมมีผลต่อการตัดสินใจเข้าช่วยเหลือในสถานการณ์ฉุกเฉินหรือไม่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41732493/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "AI-integrated smartwatch monitoring for early detection of stroke and hemorrhage: A systematic review.",
+    "comment": "นาฬิกาสมาร์ทวอทช์ที่ใช้ AI อาจช่วยตรวจจับ Stroke และเลือดออกในสมองได้เร็ว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41731797/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "Resuscitative endovascular balloon occlusion of the aorta (REBOA) in interhospital trauma care: A case report enabled by real-time information coordination.",
+    "comment": "การใช้ REBOA ในการดูแลผู้ป่วยบาดเจ็บระหว่างโรงพยาบาล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41731766/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "Successful rescue of aconitine poisoning with extended cardiopulmonary resuscitation combined with hemoperfusion: A case report and literature review.",
+    "comment": "การช่วยชีวิตผู้ป่วยพิษจาก Aconitine ด้วย CPR และ Hemoperfusion",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41731763/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "Public Awareness and Knowledge of Sepsis: A National Survey of Adults in Saudi Arabia.",
+    "comment": "การรับรู้และความเข้าใจเรื่อง Sepsis ของประชาชนทั่วไป",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41731729/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "Patiromer utility as an adjunct treatment in patients needing urgent hyperkalaemia management (PLATINUM): a randomised controlled trial in the emergency department.",
+    "comment": "Patiromer อาจช่วยจัดการภาวะ Hyperkalemia เร่งด่วนใน ER ได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41730555/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "Taking assessment to the patient: can we break the emergency department gridlock?",
+    "comment": "แนวคิดการประเมินผู้ป่วยนอกห้องตรวจ ER เพื่อลดความแออัด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41730545/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "The Long Shadow of Frailty: Why One-Year Survival Starts before ICU.",
+    "comment": "ภาวะเปราะบาง (Frailty) ก่อนเข้า ICU ส่งผลต่อการรอดชีวิตระยะยาว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41730495/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "Is short-term exposure to low and high ambient temperatures associated with an increased risk of sudden unexpected death in infancy? A case-crossover study in France (2015-2022).",
+    "comment": "อุณหภูมิแวดล้อมต่ำและสูง อาจเพิ่มความเสี่ยงต่อการเสียชีวิตกะทันหันในทารก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41730490/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "ChatGPT Health performance in a structured test of triage recommendations.",
+    "comment": "ChatGPT กับประสิทธิภาพในการให้คำแนะนำการคัดแยกผู้ป่วย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41731097/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "Cardiotoxicity of T cell immunotherapies.",
+    "comment": "ผลข้างเคียงต่อหัวใจจากการรักษาด้วย T cell immunotherapy",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41730987/"
+  },
+  {
+    "date": "24 Feb",
+    "title": "The preparedness of urologists to manage cardiopulmonary arrest during robot-assisted surgery.",
+    "comment": "ความพร้อมของศัลยแพทย์ระบบทางเดินปัสสาวะในการรับมือภาวะหัวใจหยุดเต้นระหว่างผ่าตัดด้วยหุ่นยนต์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41731247/"
+  },
+  {
     "date": "23 Feb",
     "title": "Valved Holding Chambers in Young Children With Acute Wheezing: A Randomized Clinical Trial",
     "comment": "การใช้ Valved Holding Chambers ช่วยเพิ่มประสิทธิภาพการรักษาโรคหลอดลมหดเกร็งเฉียบพลันในเด็กเล็กได้อย่างมีนัยสำคัญ",
@@ -292,131 +418,5 @@
     "title": "Performance of the ABCD2 Score in a US Emergency Department Observation Unit",
     "comment": "ประสิทธิภาพของ ABCD2 score ในการประเมินผู้ป่วย TIA ใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41718567/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "Rezafungin for Salvage or Consolidation Therapy of Invasive Fungal Disease: Experience in Real-World Clinical Practice",
-    "comment": "Rezafungin ยาต้านเชื้อราตัวใหม่ที่น่าจับตาสำหรับภาวะติดเชื้อรุนแรง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41718446/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "Persistent neutrophil activation despite count normalization suggests immune dysregulation in exertional heat stroke",
-    "comment": "ความสำคัญของการกระตุ้น Neutrophil ในภาวะ Heat Stroke ที่มีผลต่อการรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41717443/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "Mothership Versus Drip-and-Ship Models in Acute Stroke Care: A Time-Sensitive Meta-Analysis",
-    "comment": "การเปรียบเทียบโมเดลการดูแลผู้ป่วย Stroke แบบ Drip-and-Ship กับ Mothership",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41717865/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "The Human Factor: Physicians' Unbiased Interpretation of Atrial Fibrillation in the Emergency Department",
-    "comment": "ความลำเอียงของแพทย์ในการวินิจฉัย Atrial Fibrillation ใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41717711/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "Comparative complication rates of titanium vs carbon fiber intramedullary nails in pathologic long bone fractures: A systematic review and meta-analysis",
-    "comment": "การเปรียบเทียบวัสดุของ Intramedullary nails ในกระดูกหักพยาธิสภาพ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41717067/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "Workplace violence and burnout in the prehospital emergency medical services: a cross-sectional study",
-    "comment": "ชี้ให้เห็นปัญหาความรุนแรงในที่ทำงานและภาวะหมดไฟในบุคลากรการแพทย์ฉุกเฉินนอกโรงพยาบาล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41718861/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "Empagliflozin Attenuates Global Cerebral Ischemic Injury After Cardiac Arrest Through Enhancing Ketone Body Oxidative Metabolism in Rats",
-    "comment": "ยา Empagliflozin อาจช่วยป้องกันสมองขาดเลือดหลังภาวะหัวใจหยุดเต้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41717961/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "Safety and Efficacy of Early Aspirin Administration After Intravenous Thrombolysis for Acute Ischemic Stroke (TREND-IVT): Rationale and Design of a Multicenter, Randomized, Placebo-Controlled Clinical Trial",
-    "comment": "การศึกษาเกี่ยวกับประสิทธิผลและความปลอดภัยของการให้ Aspirin เร็วหลังการให้ยาละลายลิ่มเลือดในผู้ป่วยโรคหลอดเลือดสมอง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41717940/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "Barriers and Facilitators for Bystander Cardiopulmonary Resuscitation and Automated External Defibrillator Use in Diverse and Underserved Cities in Los Angeles County, California",
-    "comment": "ปัจจัยส่งเสริมและขัดขวางการทำ CPR และการใช้ AED โดยประชาชนทั่วไปในพื้นที่ด้อยโอกาส",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41717913/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "Proteomic Insights into Venous Thromboembolism",
-    "comment": "การศึกษาระดับโปรตีนเพื่อทำความเข้าใจภาวะลิ่มเลือดอุดตันในหลอดเลือดดำ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41718141/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "\"Should I stay or should I go\"-a kinase delays escape of",
-    "comment": "กลไกการอยู่รอดของเซลล์มะเร็งที่อาจนำไปสู่แนวทางการรักษาใหม่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41717740/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Emergency Department-Initiated Buprenorphine for Opioid Use Disorder: A Systematic Review of Treatment Engagement and Emergency Care Utilization.",
-    "comment": "การรักษา OUD ที่ ER อาจเพิ่มการเข้าถึงการรักษาและลดการใช้ ER ซ้ำ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41710856/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Oculogyric Crisis During Chronic Aripiprazole Therapy: A Diagnostic Challenge in the Emergency Department.",
-    "comment": "ER ต้องตระหนักถึงภาวะนี้ที่เกิดจากยาจิตเวช อาจวินิจฉัยผิดพลาดเป็นโรคทางระบบประสาทอื่น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41710502/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Pediatric Crush Syndrome and Injury Profiles in Earthquake Survivors: A Comprehensive Analysis From the 2023 Turkey Earthquake.",
-    "comment": "การทำความเข้าใจรูปแบบการบาดเจ็บในภัยพิบัติเพื่อการวางแผนและรับมือใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41709480/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Early Prediction of Septic Shock in Severe COVID-19 Patients: Development and Validation of a Nomogram Model.",
-    "comment": "แบบจำลองช่วยคาดการณ์ septic shock ในผู้ป่วย COVID-19 รุนแรง เป็นประโยชน์ในการตัดสินใจรักษาใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41709380/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Transforming Opioid Poisoning Surveillance Through Novel Technologies: Rationale and Methodological Protocol for Applying Natural Language Processing to Emergency Department Data.",
-    "comment": "ใช้ NLP วิเคราะห์ข้อมูล ER เพื่อเฝ้าระวังและเข้าใจปัญหาการใช้ยาเกินขนาด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41709542/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Comparison of Prehospital Vascular Access Methods and Their Association with Survival in Out-of-Hospital Cardiac Arrest.",
-    "comment": "ประเมินประสิทธิภาพของ IV/IO ใน prehospital ช่วย ER เตรียมพร้อมรับผู้ป่วย CA",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41709572/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Has the Number of Pediatric Testicular Torsion Cases Abated After the Height of the COVID-19 Pandemic?",
-    "comment": "ตรวจสอบการเปลี่ยนแปลงของภาวะ Testicular Torsion ในเด็กหลัง COVID-19 เพื่อปรับแนวทางการดูแล ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41710854/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Metformin-Associated Encephalopathy as a Rare but Serious Adverse Effect: A Case Report.",
-    "comment": "ER ต้องระวังภาวะนี้ที่เกิดจาก Metformin ซึ่งอาจวินิจฉัยยาก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41710849/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Iatrogenic Nerve Injuries in Head and Neck Surgeries: A Systematic Review of Mechanisms, Outcomes, and Prevention Strategies.",
-    "comment": "การบาดเจ็บเส้นประสาทจากการผ่าตัด ศัลยแพทย์ ER ควรสื่อสารและส่งต่อผู้ป่วยอย่างเหมาะสม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41710859/"
-  },
-  {
-    "date": "19 Feb",
-    "title": "Validation of the PECARN Abdominal Rule and FAST-AST/ALT Criteria in Pediatric Blunt Abdominal Trauma: A Retrospective Cohort Study.",
-    "comment": "ตรวจสอบความแม่นยำของเกณฑ์ PECARN และ FAST-AST/ALT ในการประเมิน trauma ในเด็ก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41710649/"
   }
 ]
