@@ -1,5 +1,65 @@
 [
   {
+    "date": "25 Feb",
+    "title": "Prehospital intensive blood pressure management in intracerebral hemorrhage: current evidence, controversies, and future directions.",
+    "comment": "การจัดการความดันโลหิตในผู้ป่วย ICH ก่อนถึง รพ. ยังเป็นประเด็นถกเถียง มีทั้งหลักฐานสนับสนุนและข้อโต้แย้ง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41737398/"
+  },
+  {
+    "date": "25 Feb",
+    "title": "Electrical impedance tomography-guided PEEP and mortality of patients with the acute respiratory distress syndrome: The EITVent randomized clinical trial.",
+    "comment": "เทคโนโลยี EIT ช่วยในการปรับ PEEP ในผู้ป่วย ARDS ซึ่งอาจส่งผลต่อการลดอัตราการตาย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41737148/"
+  },
+  {
+    "date": "25 Feb",
+    "title": "Comparison of Oxygenation Targets in Critically Ill Adults: A Systematic Review and Network Meta-Analysis of Randomized Controlled Trials.",
+    "comment": "การทบทวนและวิเคราะห์ข้อมูล RCT เพื่อหาเป้าหมายออกซิเจนที่เหมาะสมที่สุดในผู้ป่วยวิกฤต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41738214/"
+  },
+  {
+    "date": "25 Feb",
+    "title": "Structured telemonitoring reduces HbA1c and emergency visits in insulin-treated type 2 diabetes: a controlled cohort study in Ecuador's public hospital.",
+    "comment": "การติดตามผู้ป่วยเบาหวานชนิดที่ 2 ด้วย Telemonitoring ช่วยควบคุม HbA1c และลด ER visits ได้จริง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41737571/"
+  },
+  {
+    "date": "25 Feb",
+    "title": "The Utility of Automated, Data-Driven Clinical Support in Telemedicine for Critical Illness: A Survey-Based Study.",
+    "comment": "การใช้ AI ในการช่วยตัดสินใจทางการแพทย์สำหรับผู้ป่วยวิกฤตผ่าน Telemedicine มีความสำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41738600/"
+  },
+  {
+    "date": "25 Feb",
+    "title": "Iopanoic acid rapidly restores euthyroidism in refractory thyrotoxicosis pre-thyroidectomy: a retrospective study.",
+    "comment": "Iopanoic acid อาจเป็นทางเลือกใหม่ในการรักษา thyrotoxicosis ที่ดื้อต่อการรักษาอื่นๆ ก่อนผ่าตัด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41738978/"
+  },
+  {
+    "date": "25 Feb",
+    "title": "Artificial intelligence in pediatric nephrology: current applications and emerging frameworks for evidence generation.",
+    "comment": "AI กำลังเข้ามามีบทบาทสำคัญในการวินิจฉัยและวิจัยโรคไตในเด็ก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/417379204/"
+  },
+  {
+    "date": "25 Feb",
+    "title": "The cTnI/cTnT Ratio in Myocardial Injury: A Multicohort and Experimental Synthesis.",
+    "comment": "สัดส่วน cTnI/cTnT อาจมีบทบาทในการประเมินความรุนแรงของภาวะกล้ามเนื้อหัวใจขาดเลือด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41739020/"
+  },
+  {
+    "date": "25 Feb",
+    "title": "Comparing the Safety and Accuracy for C2 Pedicle Screw Placement Among 3 Guided Technologies in Patients With High-Riding Vertebral Arteries.",
+    "comment": "การเปรียบเทียบเทคโนโลยีนำทางที่หลากหลายสำหรับการใส่สกรูในกระดูกสันหลังส่วนคอ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41738604/"
+  },
+  {
+    "date": "25 Feb",
+    "title": "Re-infection with SARS-CoV-2 is associated with increased antibody breadth and potency against diverse sarbecovirus strains.",
+    "comment": "การติดเชื้อซ้ำด้วย SARS-CoV-2 ทำให้ภูมิคุ้มกันกว้างขึ้นและแรงขึ้นต่อสายพันธุ์อื่น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41738780/"
+  },
+  {
     "date": "24 Feb",
     "title": "Intrauterine balloon tamponade versus uterine gauze packing for postpartum hemorrhage: A systematic review and meta-analysis.",
     "comment": "การเปรียบเทียบสองวิธีมาตรฐานในการจัดการภาวะเลือดออกหลังคลอดที่พบได้บ่อยใน ER",
@@ -358,65 +418,5 @@
     "title": "Are you ready? A cross-sectional survey of education, training and learning activities for peacetime crisis and armed conflict preparedness in Swedish emergency departments.",
     "comment": "ประเมินความพร้อมของ ER ในสวีเดนต่อภาวะวิกฤตและสงคราม",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41721267/"
-  },
-  {
-    "date": "21 Feb",
-    "title": "Fatal Polydrug Intoxication Involving Synthetic Cathinones in Taiwan: A Case Series and Emergency Management Implications.",
-    "comment": "พิษจากยาเสพติดสังเคราะห์ Cathinones เป็นอันตรายถึงชีวิตและต้องได้รับการจัดการใน ER อย่างทันท่วงที",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41719591/"
-  },
-  {
-    "date": "21 Feb",
-    "title": "A Pilot Study Evaluating Erector Spinae Block Versus Saline For Emergency Department Patients With Ureterolithiasis.",
-    "comment": "Erector spinae block อาจเป็นทางเลือกในการระงับปวดสำหรับนิ่วในท่อไต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41719590/"
-  },
-  {
-    "date": "21 Feb",
-    "title": "Advancing Endovascular Solutions for Complex Abdominal Aortic Aneurysms: Patient Selection, Imaging, and Device Innovations.",
-    "comment": "นวัตกรรมและการคัดเลือกผู้ป่วยสำหรับการรักษา Aneurysm ด้วยวิธี Endovascular",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41719570/"
-  },
-  {
-    "date": "21 Feb",
-    "title": "Myocardial injury within 24 hours of Viperidae snake envenomation: a prospective cohort study-a single-center experience from Chongqing, China.",
-    "comment": "การบาดเจ็บของกล้ามเนื้อหัวใจหลังถูกงูพิษ (Viperidae) อาจเกิดขึ้นได้ภายใน 24 ชม.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41721183/"
-  },
-  {
-    "date": "21 Feb",
-    "title": "Legionella Pneumonia in the Modern Era: Clinical Features and Predictors of Mortality.",
-    "comment": "Legionella Pneumonia ยังคงเป็นโรคที่อันตรายและมีปัจจัยทำนายการเสียชีวิตที่สำคัญ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41721519/"
-  },
-  {
-    "date": "21 Feb",
-    "title": "Did the COVID-19 pandemic change the Kawasaki disease phenotype? Observations from the International Kawasaki Disease Registry.",
-    "comment": "COVID-19 อาจมีผลต่อลักษณะอาการของโรคคาวาซากิ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41721872/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "Rapid AI-assisted Poincaré plot analysis for early detection of subclinical left ventricular dysfunction in hypertensive patients admitted to the emergency department: A prospective observational study",
-    "comment": "AI ช่วยวิเคราะห์ภาวะหัวใจล้มเหลวระยะเริ่มต้นในผู้ป่วยความดันโลหิตสูงที่ ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41718624/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "An American College of Surgeons Committee on Trauma Stop the Bleed guideline on the use of improvised tourniquets for trauma patients with life-threatening extremity hemorrhage 2025",
-    "comment": "แนวทางใหม่การใช้ Tourniquet ที่ประยุกต์ใช้ได้ในภาวะฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41718598/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "Bolus Epinephrine Dose-Readiness for Cardiac Arrest Prevention in Pediatric Cardiac ICUs: 2024 Survey of Units in the United States",
-    "comment": "การเตรียมพร้อมใช้ Epinephrine ขนาด Bolus ในเด็กหัวใจหยุดเต้น ช่วยชีวิตได้จริงหรือไม่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41718595/"
-  },
-  {
-    "date": "20 Feb",
-    "title": "Pediatric lung ultrasound: Tips and tricks for better scanning and interpretation",
-    "comment": "Ultrasound ปอดในเด็ก: เทคนิคที่ช่วยเพิ่มความแม่นยำในการวินิจฉัย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41718590/"
   }
 ]
