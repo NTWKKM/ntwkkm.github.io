@@ -1,5 +1,65 @@
 [
   {
+    "date": "28 Feb",
+    "title": "A case of successful resuscitation from hypokalemic cardiac arrest using rapid intravenous potassium.",
+    "comment": "การรักษาภาวะหัวใจหยุดเต้นจากโพแทสเซียมต่ำด้วยโปแทสเซียม IV อย่างรวดเร็ว เป็นแนวทางที่สำคัญมากสำหรับ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41762557/"
+  },
+  {
+    "date": "28 Feb",
+    "title": "A rare case of lung hernia associated with rib fractures and tension pneumothorax post cardiopulmonary resuscitation.",
+    "comment": "เสนอแนวคิดที่ต้องสงสัยภาวะแทรกซ้อนจากการทำ CPR ซึ่งอาจพลาดได้ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41762556/"
+  },
+  {
+    "date": "28 Feb",
+    "title": "Myocarditis and the Role of Cardiac Imaging.",
+    "comment": "อัพเดตการวินิจฉัยกล้ามเนื้อหัวใจอักเสบที่อาจพบได้ใน ER โดยเฉพาะหลังการติดเชื้อ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41762082/"
+  },
+  {
+    "date": "28 Feb",
+    "title": "Practical Acute Kidney Injury Care: Embedding the UK Kidney Association Summit Recommendations Across Hospital Settings.",
+    "comment": "แนวทางการดูแล AKI ที่เน้นปฏิบัติได้จริง เหมาะสำหรับ ER ที่ต้องตัดสินใจอย่างรวดเร็ว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41762080/"
+  },
+  {
+    "date": "28 Feb",
+    "title": "Prehospital management of acute behavioural disturbance: managing severe agitation in the prehospital setting - a systematic literature review.",
+    "comment": "แนวทางการจัดการผู้ป่วยที่มีพฤติกรรมรุนแรงก่อนถึง ER เป็นประเด็นสำคัญที่ต้องอัพเดต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41760406/"
+  },
+  {
+    "date": "28 Feb",
+    "title": "From triage to transformation: tackling inequalities in emergency care through a public health lens.",
+    "comment": "การมองภาพรวมและแก้ปัญหาความเหลื่อมล้ำในการดูแลผู้ป่วย ER เป็นเรื่องสำคัญที่แพทย์ ER ต้องตระหนัก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41760408/"
+  },
+  {
+    "date": "28 Feb",
+    "title": "Venous Excess Ultrasound Score (VExUS) Association with Disease Severity in Acute Pulmonary Embolism.",
+    "comment": "นวัตกรรม US ในการประเมินภาวะ PE ที่อาจนำมาใช้ได้เร็วใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41760465/"
+  },
+  {
+    "date": "28 Feb",
+    "title": "Intraosseous and intravenous vascular access during adult cardiac arrest: a systematic review and meta-analysis.",
+    "comment": "การเปรียบเทียบวิธีเข้าเส้นเลือดดำในภาวะวิกฤต ที่แพทย์ ER ต้องตัดสินใจเลือก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41760477/"
+  },
+  {
+    "date": "28 Feb",
+    "title": "Dexmedetomidine produces more sleep-like brain activity compared with propofol in human participants. Comment on Br J Anaesth 2026; 136: 552-63.",
+    "comment": "การเปรียบเทียบยา Sedation ที่อาจนำมาใช้ใน ER สำหรับหัตถการบางอย่าง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41760537/"
+  },
+  {
+    "date": "28 Feb",
+    "title": "Point-of-Care Ultrasound in the Evaluation of Systolic Heart Failure During Pregnancy and Postpartum.",
+    "comment": "การใช้ POCUS ประเมินภาวะหัวใจล้มเหลวในหญิงตั้งครรภ์/หลังคลอด เป็นเคสที่ซับซ้อนใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41760135/"
+  },
+  {
     "date": "25 Feb",
     "title": "Prehospital intensive blood pressure management in intracerebral hemorrhage: current evidence, controversies, and future directions.",
     "comment": "สรุปแนวทางการรักษาความดันโลหิตในผู้ป่วย ICH ที่มีข้อโต้แย้งและแนวโน้มในอนาคต",
@@ -358,65 +418,5 @@
     "title": "Joint effects of triglyceride-glucose-BMI and stress hyperglycemia ratio on all-cause mortality in trauma surgical intensive care patients: a multicenter cohort study",
     "comment": "การประเมินความเสี่ยงจากปัจจัยหลายอย่างในผู้ป่วย Trauma ICU",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41723444/"
-  },
-  {
-    "date": "22 Feb",
-    "title": "Performance of AI vs radiology residents in the detection of intracranial hemorrhage on emergency CT: a real-world analysis",
-    "comment": "AI กำลังเข้ามามีบทบาทในการวินิจฉัยภาวะเลือดออกในสมอง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41721849/"
-  },
-  {
-    "date": "22 Feb",
-    "title": "Cephalosporins for Outpatient Pyelonephritis in the Emergency Department",
-    "comment": "การใช้ Cephalosporins สำหรับ Pyelonephritis ที่รักษาแบบผู้ป่วยนอกใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41722927/"
-  },
-  {
-    "date": "22 Feb",
-    "title": "Transesophageal echocardiography during cardiac arrest: integrating emerging prehospital evidence with practical boundaries for clinical application",
-    "comment": "TEE ในภาวะ Cardiac Arrest - ประโยชน์และข้อจำกัดทางคลินิก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41723519/"
-  },
-  {
-    "date": "22 Feb",
-    "title": "Opportunistic Atrial Fibrillation Screening in the Emergency Department: Might the Primary Diagnosis Matter?",
-    "comment": "การคัดกรอง AF แบบฉวยโอกาสใน ER - การวินิจฉัยหลักมีผลหรือไม่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41722922/"
-  },
-  {
-    "date": "22 Feb",
-    "title": "Weak Evidence, Rare Eligibility, and Complex Care Coordination Limit Application of Structured Surveillance for Subsegmental Pulmonary Embolism",
-    "comment": "อุปสรรคในการเฝ้าระวัง Subsegmental PE",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41722924/"
-  },
-  {
-    "date": "22 Feb",
-    "title": "Perioperative anesthesia management of GLP-1 receptor agonists: a systematic review of potential risks.",
-    "comment": "GLP-1 agonists ใช้แพร่หลายขึ้นเรื่อยๆ การจัดการ perioperative จึงสำคัญมากสำหรับ ER ที่ต้องรับผู้ป่วยผ่าตัด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41723539/"
-  },
-  {
-    "date": "22 Feb",
-    "title": "Gender perspective in medication-related problems resulting in emergency department attendance involving high-alert medications.",
-    "comment": "มองเรื่องปัญหาจากยา อันตรายสูง ที่ส่งผลต่อ ER โดยคำนึงถึงมิติเพศ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41723022/"
-  },
-  {
-    "date": "22 Feb",
-    "title": "Association Between Emergency Department Undertriage or Overtriage With Timeliness of Care and Patient Outcomes.",
-    "comment": "การประเมินระดับความเร่งด่วน (triage) ที่ผิดพลาดส่งผลต่อการรักษาและผลลัพธ์ของผู้ป่วย ER อย่างไร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41721807/"
-  },
-  {
-    "date": "21 Feb",
-    "title": "Severe Aortic and Mitral Regurgitation After Blunt Chest Trauma.",
-    "comment": "การบาดเจ็บที่หน้าอกแบบทื่ออาจทำให้เกิดลิ้นหัวใจรั่วรุนแรงโดยไม่คาดคิด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41721818/"
-  },
-  {
-    "date": "21 Feb",
-    "title": "Propafenone Overdose Presenting With Brugada Phenocopy, QRS Widening, and Ventricular Fibrillation.",
-    "comment": "ยา Propafenone เกินขนาดสามารถเลียนแบบภาวะ Brugada และนำไปสู่ภาวะหัวใจเต้นผิดจังหวะอันตราย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41721816/"
   }
 ]
