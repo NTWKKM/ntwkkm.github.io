@@ -2,26 +2,62 @@
   {
     "date": "4 Mar",
     "title": "Clinical Note-Extracted Psychosocial Factors for Predicting Suicide Attempt Among ED Patients With Suicidal Ideation",
-    "comment": "การนำข้อมูลจาก Clinical Note มาช่วยทำนายความเสี่ยงต่อการฆ่าตัวตายในผู้ป่วย ER ที่มีความคิดฆ่าตัวตาย",
+    "comment": "การใช้ข้อมูลจากเวชระเบียนอิเล็กทรอนิกส์ (EHR) ช่วยทำนายความเสี่ยงผู้ป่วย ER ที่มีความคิดฆ่าตัวตาย",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41779393/"
   },
   {
     "date": "4 Mar",
     "title": "Pediatric Nicotine Exposures Reported to US Poison Centers",
-    "comment": "ข้อมูลการได้รับสารนิโคตินในเด็กที่แจ้งศูนย์พิษวิทยา น่าจะเป็นประโยชน์ในการวางแผนป้องกันและให้คำแนะนำ",
+    "comment": "การเฝ้าระวังการได้รับนิโคตินในเด็กจากศูนย์พิษวิทยา ชี้ให้เห็นถึงอุบัติการณ์และประเภทสารที่ได้รับ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41779398/"
   },
   {
     "date": "4 Mar",
     "title": "Preventing Hand-Foot Syndrome in Patients With Cancer: A Systematic Review and Network Meta-Analysis",
-    "comment": "กลยุทธ์การป้องกัน Hand-Foot Syndrome ในผู้ป่วยมะเร็ง อาจมีผลต่อคุณภาพชีวิตผู้ป่วยใน ER ที่มีภาวะนี้",
+    "comment": "การทบทวนและวิเคราะห์อภิมานแบบเครือข่ายเพื่อหาแนวทางการป้องกัน Hand-Foot Syndrome ที่มีประสิทธิภาพ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41779386/"
   },
   {
     "date": "4 Mar",
     "title": "Variable Performance Across Radiography Vendors of a Commercial Artificial Intelligence System for Fracture Detection: A Multisite Evaluation",
-    "comment": "AI ช่วยตรวจจับกระดูกหักยังมีความแปรปรวนตาม vendor ต้องระวังการนำไปใช้จริง",
+    "comment": "ประสิทธิภาพของ AI ในการตรวจจับรอยหักที่แตกต่างกันไปตามผู้ผลิตอุปกรณ์ อาจส่งผลต่อการนำไปใช้จริง",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41779370/"
+  },
+  {
+    "date": "4 Mar",
+    "title": "How much trauma surgery occurs in the emergency department and how is the quality of treatment assured?",
+    "comment": "ประเมินปริมาณและคุณภาพของการผ่าตัดผู้ป่วยอุบัติเหตุในห้องฉุกเฉิน ซึ่งเป็นประเด็นสำคัญในการบริหารจัดการทรัพยากร",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41779173/"
+  },
+  {
+    "date": "4 Mar",
+    "title": "Beyond superiority: preserved cardiovascular efficacy and emerging signals in SURPASS-CVOT.",
+    "comment": "ยาเบาหวานกลุ่มใหม่ (SGLT2i) นอกจากจะควบคุมระดับน้ำตาลแล้ว ยังมีผลดีต่อระบบหัวใจและหลอดเลือดที่น่าจับตา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41779170/"
+  },
+  {
+    "date": "4 Mar",
+    "title": "Reasons for performing abdominal computed tomography in pediatric emergency departments providing trauma care: a single-center experience",
+    "comment": "การวิเคราะห์เหตุผลในการทำ CT ช่องท้องในผู้ป่วยเด็กที่มีอุบัติเหตุใน ER เพื่อพัฒนากรอบการวินิจฉัยที่เหมาะสม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41779068/"
+  },
+  {
+    "date": "4 Mar",
+    "title": "Medication Effects on Heart Rate Variability in Critical Illness: The Overlooked Confounder",
+    "comment": "ยาหลายชนิดอาจส่งผลต่อ Heart Rate Variability ในผู้ป่วยวิกฤตโดยที่เราอาจมองข้ามไป",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41778976/"
+  },
+  {
+    "date": "4 Mar",
+    "title": "Emergency Preparedness for Sudden Cardiac Arrest in Young Athletes: Time to Adjust the Goalposts",
+    "comment": "การเตรียมความพร้อมรับมือภาวะหัวใจหยุดเต้นเฉียบพลันในนักกีฬาวัยหนุ่มสาว จำเป็นต้องปรับปรุงแนวทางให้ทันสมัย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41778946/"
+  },
+  {
+    "date": "4 Mar",
+    "title": "Missed appendicitis presenting as necrotising fasciitis of the thigh",
+    "comment": "รายงานผู้ป่วยไส้ติ่งอักเสบที่หายาก เกิดภาวะเนื้อตายจากการติดเชื้อที่ต้นขา ซึ่งอาจเป็นบทเรียนในการวินิจฉัยที่ท้าทาย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41776787/"
   },
   {
     "date": "4 Mar",
@@ -40,12 +76,6 @@
     "title": "Trauma and economic displacement: psychological consequences and interventions among Venezuelan refugees in the Americas",
     "comment": "ผลกระทบทางจิตใจจากวิกฤตการณ์และผู้ลี้ภัย อาจพบได้ใน ER ต้องตระหนักถึงปัจจัยนี้",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41777348/"
-  },
-  {
-    "date": "4 Mar",
-    "title": "Missed appendicitis presenting as necrotising fasciitis of the thigh",
-    "comment": "การวินิจฉัยไส้ติ่งอักเสบที่ผิดพลาด นำไปสู่ภาวะแทรกซ้อนที่รุนแรงใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41776787/"
   },
   {
     "date": "4 Mar",
@@ -388,35 +418,5 @@
     "title": "The Utility of Automated, Data-Driven Clinical Support in Telemedicine for Critical Illness: A Survey-Based Study.",
     "comment": "การใช้ AI ในการช่วยตัดสินใจทางการแพทย์สำหรับผู้ป่วยวิกฤตผ่าน Telemedicine มีความสำคัญ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41738600/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "Iopanoic acid rapidly restores euthyroidism in refractory thyrotoxicosis pre-thyroidectomy: a retrospective study.",
-    "comment": "Iopanoic acid อาจเป็นทางเลือกใหม่ในการรักษา thyrotoxicosis ที่ดื้อต่อการรักษาอื่นๆ ก่อนผ่าตัด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41738978/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "Artificial intelligence in pediatric nephrology: current applications and emerging frameworks for evidence generation.",
-    "comment": "AI กำลังเข้ามามีบทบาทสำคัญในการวินิจฉัยและวิจัยโรคไตในเด็ก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/417379204/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "Comparing the Safety and Accuracy for C2 Pedicle Screw Placement Among 3 Guided Technologies in Patients With High-Riding Vertebral Arteries.",
-    "comment": "การเปรียบเทียบเทคโนโลยีนำทางที่หลากหลายสำหรับการใส่สกรูในกระดูกสันหลังส่วนคอ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41738604/"
-  },
-  {
-    "date": "24 Feb",
-    "title": "Intrauterine balloon tamponade versus uterine gauze packing for postpartum hemorrhage: A systematic review and meta-analysis.",
-    "comment": "การเปรียบเทียบสองวิธีมาตรฐานในการจัดการภาวะเลือดออกหลังคลอดที่พบได้บ่อยใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41732918/"
-  },
-  {
-    "date": "24 Feb",
-    "title": "High-amplitude short infraslow activity (SISA) with burst suppression: A potential marker of ictogenicity in critical care patients.",
-    "comment": "คลื่นไฟฟ้าสมองรูปแบบใหม่ที่อาจบ่งชี้ภาวะชักในผู้ป่วยวิกฤต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41732899/"
   }
 ]
