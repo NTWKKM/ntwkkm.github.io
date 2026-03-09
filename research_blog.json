@@ -3204,5 +3204,47 @@
     "property_last_edited_time": "2026-03-04T22:21:00.000Z",
     "property_pmid": "41778946",
     "property_name": "Emergency Preparedness for Sudden Cardiac Arrest in Young Athletes: Time to Adjust the Goalposts."
+  },
+  {
+    "id": "31eba464-60a7-81e2-bdd6-cb08f7cadf92",
+    "name": "Protocol for a multicentre target trial emulation comparing ketamine and propofol in critically ill adults undergoing emergency intubation.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41800433/",
+    "property_date": null,
+    "property_tag_2": "Critical Care",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินผลเชิงสาเหตุของการใช้ยาคีตามีน (ketamine) เปรียบเทียบกับพรอพโพฟอล (propofol) ในฐานะยานำสลบหลักสำหรับการใส่ท่อช่วยหายใจฉุกเฉินในผู้ป่วยวิกฤตวัยผู้ใหญ่\n- **วิธีการ:** เป็นการศึกษาแบบกลุ่มตามรุ่นย้อนหลังในหลายศูนย์ (retrospective multicentre cohort) ในผู้ป่วยอายุ 18 ปีขึ้นไปที่ได้รับการใส่ท่อช่วยหายใจแบบฉุกเฉินในแผนกฉุกเฉิน หอผู้ป่วย หรือแผนกไอซียู (ICU) โดยใช้รูปแบบการจำลองการทดลอง (target trial emulation)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ผลลัพธ์หลักคืออัตราการเสียชีวิตในโรงพยาบาล (ตั้งแต่เริ่มให้ยาจนถึงเสียชีวิต, ออกจากโรงพยาบาล, หรือครบ 28 วัน) และผลลัพธ์รองคือเหตุการณ์ไม่พึงประสงค์รอบการใส่ท่อช่วยหายใจ โดยวิเคราะห์ด้วยแบบจำลองการรอดชีพแบบมีเหตุการณ์แข่งขัน (competing risks survival analysis)",
+    "property_status": "Not started",
+    "property_tag_3": "Anesthesiology",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2026-03-09T19:24:00.000Z",
+    "property_pmid": "41800433",
+    "property_name": "Protocol for a multicentre target trial emulation comparing ketamine and propofol in critically ill adults undergoing emergency intubation."
+  },
+  {
+    "id": "31eba464-60a7-81e4-b0c8-e00488c25a0a",
+    "name": "Randomized controlled trial of intraosseous access vs. intravenous access in traumatic hemorrhagic shock: Effects on inflammation, hematopoiesis, and coagulation.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41799722/",
+    "property_date": null,
+    "property_tag_2": "Trauma",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินผลกระทบของการให้สารน้ำทางไขกระดูก (IO) เทียบกับทางหลอดเลือดดำ (IV) ต่อสารสื่อการอักเสบ การทำงานของเซลล์ต้นกำเนิดเม็ดเลือด และความผิดปกติของการแข็งตัวของเลือดและเมแทบอลิซึมในผู้ป่วยที่มีภาวะช็อกจากการเสียเลือดเนื่องจากอุบัติเหตุ (THS) ในภาวะฉุกเฉิน\n- **วิธีการ:** เป็นการทดลองแบบสุ่มและมีกลุ่มควบคุมในผู้ป่วย THS จำนวน 84 ราย (กลุ่ม IO 42 ราย และกลุ่ม IV 42 ราย) โดยทำการวัดค่าแบบอนุกรมที่เวลาเริ่มต้น (T0), 24 ชั่วโมง (T1) และ 72 ชั่วโมง (T2) หลังการรักษา เพื่อประเมินตัวชี้วัดการอักเสบ การสร้างเม็ดเลือด การแข็งตัวของเลือด และการไหลเวียนเลือดในเนื้อเยื่อ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** กลุ่ม IO มีระดับสารกระตุ้นการอักเสบเพิ่มขึ้นอย่างมีนัยสำคัญ (P < 0.05) เซลล์ต้นกำเนิดเม็ดเลือดลดลง (P < 0.05) มีค่าการแข็งตัวของเลือด PT/APTT นานขึ้น (P < 0.01) และ D-dimer สูงขึ้น (P < 0.05) รวมถึงอัตราการกำจัดแลคเตทแย่กว่ากลุ่ม IV (P < 0.05) ชี้ให้เห็นว่าแม้ IO จะช่วยเปิดเส้นทางให้สารน้ำได้รวดเร็ว แต่อาจทำให้เกิดภาวะแทรกซ้อนด้านการอักเสบและการแข็งตัวของเลือดที่แย่ลง",
+    "property_status": "Not started",
+    "property_tag_3": "Resuscitation",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2026-03-09T19:22:00.000Z",
+    "property_pmid": "41799722",
+    "property_name": "Randomized controlled trial of intraosseous access vs. intravenous access in traumatic hemorrhagic shock: Effects on inflammation, hematopoiesis, and coagulation."
+  },
+  {
+    "id": "31eba464-60a7-8164-8053-e8dd0c4f210b",
+    "name": "Pragmatic risk-mitigation strategies for aseptic internal jugular vein cannulation in resource-limited emergency settings.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41799239/",
+    "property_date": null,
+    "property_tag_2": "Anaesthesia",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อนำเสนอกลยุทธ์เชิงปฏิบัติในการลดความเสี่ยงสำหรับการใส่สายสวนหลอดเลือดดำที่คอ (internal jugular vein) ด้วยวิธีปลอดเชื้อในสถานการณ์ฉุกเฉินที่มีทรัพยากรจำกัด\n- **วิธีการ:** ไม่มีการระบุวิธีการศึกษาที่ชัดเจน เนื่องจากเอกสารฉบับนี้เป็นจดหมาย (Letter) และไม่มีข้อมูลบทคัดย่อ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่มีรายงานผลลัพธ์และการวิเคราะห์ทางสถิติ เนื่องจากไม่มีบทคัดย่อในเอกสารต้นฉบับ",
+    "property_status": "Not started",
+    "property_tag_3": "Vascular Access",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2026-03-09T19:21:00.000Z",
+    "property_pmid": "41799239",
+    "property_name": "Pragmatic risk-mitigation strategies for aseptic internal jugular vein cannulation in resource-limited emergency settings."
   }
 ]
