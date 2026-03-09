@@ -1,5 +1,65 @@
 [
   {
+    "date": "9 Mar",
+    "title": "🔹 Benchmarking a deep learning model against healthcare practitioners for hip fracture detection in the emergency department.",
+    "comment": "AI เริ่มมีบทบาทช่วยแพทย์ ER ในการวินิจฉัยโรคที่ต้องการความแม่นยำและรวดเร็ว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41801181/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "🔹 Comparative Effectiveness of Buprenorphine-Naloxone and Methadone for Opioid Overdose Among Youths.",
+    "comment": "เทียบประสิทธิภาพยาทางเลือกในการรักษาผู้ป่วย opioid overdose ในกลุ่มวัยรุ่น ซึ่งมีผลต่อแนวทางการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41801220/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "🔹 Wait Time Modifications for Black Transplant Candidates Affected by Race-Based Kidney Function Estimation.",
+    "comment": "ประเด็นความเหลื่อมล้ำในการรักษาที่อาจส่งผลต่อผู้ป่วย ER โดยตรง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41801177/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "🔹 Erector spinae plane block for postoperative analgesia in liver transplantation: a pilot observational study.",
+    "comment": "เทคนิคการระงับปวดใหม่ที่อาจนำมาปรับใช้กับการจัดการความปวดใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41801117/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "🔹 Transplant Center Treatment in Emergency General Surgery Patients with a Solid-Organ Transplant.",
+    "comment": "การดูแลผู้ป่วยกลุ่มพิเศษที่อาจพบเจอใน ER และต้องการความเข้าใจเฉพาะทาง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41801073/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "🔹 Continuous Ketone Monitoring in Diabetic Ketoacidosis: Prospective Multicenter Method-Comparison and Feasibility Study.",
+    "comment": "เทคโนโลยีการตรวจวัดระดับคีโตนแบบต่อเนื่องสำหรับ DKA ซึ่งอาจเปลี่ยนวิธีการติดตามผู้ป่วย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41800718/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "🔹 Effects of Noise Exposure in Emergency Resuscitation Rooms on Cognitive Function and Hyperalgesia in Patients with Trauma: A Retrospective Study.",
+    "comment": "ผลกระทบที่อาจมองข้ามต่อผู้ป่วยในห้องฉุกเฉิน ซึ่งส่งผลต่อการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41800672/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "🔹 Protocol for a multicentre target trial emulation comparing ketamine and propofol in critically ill adults undergoing emergency intubation.",
+    "comment": "การศึกษาเปรียบเทียบยาสำคัญสำหรับการใส่ท่อช่วยหายใจในผู้ป่วยวิกฤต ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41800433/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "🔹 Randomized controlled trial of intraosseous access vs. intravenous access in traumatic hemorrhagic shock: Effects on inflammation, hematopoiesis, and coagulation.",
+    "comment": "การเปรียบเทียบวิธีให้สารน้ำ/ยาที่สำคัญในภาวะ shock เพื่อหาแนวทางปฏิบัติที่ดีที่สุด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41799722/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "🔹 Pragmatic risk-mitigation strategies for aseptic internal jugular vein cannulation in resource-limited emergency settings.",
+    "comment": "กลยุทธ์การลดความเสี่ยงที่ใช้งานได้จริงในสถานการณ์ฉุกเฉินที่มีข้อจำกัด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41799239/"
+  },
+  {
     "date": "4 Mar",
     "title": "Clinical Note-Extracted Psychosocial Factors for Predicting Suicide Attempt Among ED Patients With Suicidal Ideation",
     "comment": "การใช้ข้อมูลจากเวชระเบียนอิเล็กทรอนิกส์ (EHR) ช่วยทำนายความเสี่ยงผู้ป่วย ER ที่มีความคิดฆ่าตัวตาย",
@@ -358,65 +418,5 @@
     "title": "Comparison of Oxygenation Targets in Critically Ill Adults: A Systematic Review and Network Meta-Analysis of Randomized Controlled Trials.",
     "comment": "ชี้ให้เห็นถึงความขัดแย้งและหลักฐานล่าสุดเกี่ยวกับการตั้งค่าเป้าหมายออกซิเจนในผู้ป่วยวิกฤต",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41738214/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "Electrical impedance tomography-guided PEEP and mortality of patients with the acute respiratory distress syndrome: The EITVent randomized clinical trial.",
-    "comment": "นวัตกรรมใหม่ในการช่วยชีวิตผู้ป่วย ARDS ด้วยเทคโนโลยี EIT ที่อาจเปลี่ยนแนวทางการดูแล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41738148/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "Structured telemonitoring reduces HbA1c and emergency visits in insulin-treated type 2 diabetes: a controlled cohort study in Ecuador's public hospital.",
-    "comment": "การใช้ Telemonitoring ช่วยลด HbA1c และการมารพ.ฉุกเฉินในผู้ป่วยเบาหวานชนิดที่ 2 เป็นแนวทางใหม่ในการดูแลผู้ป่วยเบาหวาน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41737571/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "Artificial intelligence in cardiology: the new HAL 9000?",
-    "comment": "AI กำลังเข้ามามีบทบาทสำคัญในการวินิจฉัยและรักษาโรคหัวใจ อาจเป็นเครื่องมือที่สำคัญของแพทย์ ER ในอนาคต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41738417/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "Re-infection with SARS-CoV-2 is associated with increased antibody breadth and potency against diverse sarbecovirus strains.",
-    "comment": "ข้อมูลสำคัญเกี่ยวกับภูมิคุ้มกันต่อ SARS-CoV-2 และสายพันธุ์อื่น ๆ ที่อาจมีผลต่อการรักษาและวัคซีนในอนาคต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41738780/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "The evolving mpox threat (2022-2024): clade dynamics, immune evasion, and escalating global health challenges.",
-    "comment": "อัปเดตสถานการณ์ mpox ที่มีการเปลี่ยนแปลงตลอดเวลาและเป็นประเด็นที่ต้องจับตาสำหรับแพทย์ ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41737841/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "The cTnI/cTnT Ratio in Myocardial Injury: A Multicohort and Experimental Synthesis.",
-    "comment": "การศึกษาอัตราส่วน cTnI/cTnT เพื่อประเมินภาวะกล้ามเนื้อหัวใจขาดเลือด อาจเป็น biomarker ใหม่ที่มีนัยสำคัญ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41739020/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "Defining the need for analgesia in the emergency department: an international consensus statement.",
-    "comment": "ข้อตกลงระดับนานาชาติเกี่ยวกับความจำเป็นในการให้ยาแก้ปวดใน ER สะท้อนความสำคัญของการจัดการความปวด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41739103/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "Successful ECPR in Treating a Case of Chlorine Gas Poisoning Leading to ARDS and Cardiac Arrest.",
-    "comment": "รายงานเคสการใช้ ECPR ในผู้ป่วยพิษจากแก๊สคลอรีน ซึ่งเป็นภาวะฉุกเฉินที่รุนแรงและหายาก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41737974/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "Electrical impedance tomography-guided PEEP and mortality of patients with the acute respiratory distress syndrome: The EITVent randomized clinical trial.",
-    "comment": "เทคโนโลยี EIT ช่วยในการปรับ PEEP ในผู้ป่วย ARDS ซึ่งอาจส่งผลต่อการลดอัตราการตาย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41737148/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "The Utility of Automated, Data-Driven Clinical Support in Telemedicine for Critical Illness: A Survey-Based Study.",
-    "comment": "การใช้ AI ในการช่วยตัดสินใจทางการแพทย์สำหรับผู้ป่วยวิกฤตผ่าน Telemedicine มีความสำคัญ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41738600/"
   }
 ]
