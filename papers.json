@@ -1,9 +1,63 @@
 [
   {
     "date": "9 Mar",
-    "title": "🔹 Benchmarking a deep learning model against healthcare practitioners for hip fracture detection in the emergency department.",
-    "comment": "AI เริ่มมีบทบาทช่วยแพทย์ ER ในการวินิจฉัยโรคที่ต้องการความแม่นยำและรวดเร็ว",
+    "title": "Benchmarking a deep learning model against healthcare practitioners for hip fracture detection in the emergency department.",
+    "comment": "AI ช่วยตรวจจับ hip fracture ได้ดีเทียบเคียงผู้เชี่ยวชาญ ลดความผิดพลาดใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41801181/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "Comparative Effectiveness of Buprenorphine-Naloxone and Methadone for Opioid Overdose Among Youths.",
+    "comment": "ยาบรูพรีนอร์ฟีน-นัลเทรอกโซน ทางเลือกใหม่ในการรักษา Opiate overdose ในเด็กและวัยรุ่น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41801180/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "Protocol for a multicentre target trial emulation comparing ketamine and propofol in critically ill adults undergoing emergency intubation.",
+    "comment": "เปรียบเทียบ ketamine vs propofol ในผู้ป่วยวิกฤตที่ต้องใส่ท่อช่วยหายใจใน ER: การออกแบบการศึกษาแบบจำลอง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41800433/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "QT-related adverse events with ondansetron and olanzapine: a real-world FAERS analysis with implications for oncology anti-emetic practice.",
+    "comment": "การใช้ ondansetron และ olanzapine ร่วมกันอาจมีความเสี่ยงต่อ QT prolongation ในผู้ป่วยมะเร็ง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41800097/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "Continuous Ketone Monitoring in Diabetic Ketoacidosis: Prospective Multicenter Method-Comparison and Feasibility Study.",
+    "comment": "การตรวจวัดคีโตนต่อเนื่องช่วยประเมิน DKA ใน ER ได้แม่นยำและง่ายขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41800718/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "Epidemiological characteristics and risk factors for severity of product-related injuries in children during COVID-19: a non-pharmaceutical intervention study.",
+    "comment": "การบาดเจ็บจากผลิตภัณฑ์ในเด็กช่วง COVID-19 อาจเปลี่ยนแปลงไป พร้อมแนวทางป้องกัน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41799479/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "Pediatric Post-Tonsillectomy Hemorrhage Management: A Cross-Sectional Otolaryngology and Emergency Medicine Survey.",
+    "comment": "การจัดการเลือดออกหลังผ่าตัดต่อมทอนซิลในเด็ก: ความเห็นต่างระหว่างแพทย์ ENT และ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41799735/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "Randomized controlled trial of intraosseous access vs. intravenous access in traumatic hemorrhagic shock: Effects on inflammation, hematopoiesis, and coagulation.",
+    "comment": "Intraosseous access เทียบเท่า IV ในภาวะ shock เสียเลือดมาก: ผลต่อการอักเสบและการแข็งตัวของเลือด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41799722/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "Prognostic Utility of the Preoperative Cachexia Index in Patients Undergoing Emergency Laparotomy.",
+    "comment": "Cachexia index อาจช่วยพยากรณ์ผลลัพธ์ในผู้ป่วยผ่าตัดช่องท้องฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41799593/"
+  },
+  {
+    "date": "9 Mar",
+    "title": "Ethical and humanitarian considerations in allocating healthcare resources during infectious disease emergencies: A scoping review.",
+    "comment": "หลักจริยธรรมและการจัดสรรทรัพยากรในภาวะฉุกเฉินโรคระบาด: ประเด็นที่ต้องพิจารณา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41799765/"
   },
   {
     "date": "9 Mar",
@@ -31,27 +85,9 @@
   },
   {
     "date": "9 Mar",
-    "title": "🔹 Continuous Ketone Monitoring in Diabetic Ketoacidosis: Prospective Multicenter Method-Comparison and Feasibility Study.",
-    "comment": "เทคโนโลยีการตรวจวัดระดับคีโตนแบบต่อเนื่องสำหรับ DKA ซึ่งอาจเปลี่ยนวิธีการติดตามผู้ป่วย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41800718/"
-  },
-  {
-    "date": "9 Mar",
     "title": "🔹 Effects of Noise Exposure in Emergency Resuscitation Rooms on Cognitive Function and Hyperalgesia in Patients with Trauma: A Retrospective Study.",
     "comment": "ผลกระทบที่อาจมองข้ามต่อผู้ป่วยในห้องฉุกเฉิน ซึ่งส่งผลต่อการรักษา",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41800672/"
-  },
-  {
-    "date": "9 Mar",
-    "title": "🔹 Protocol for a multicentre target trial emulation comparing ketamine and propofol in critically ill adults undergoing emergency intubation.",
-    "comment": "การศึกษาเปรียบเทียบยาสำคัญสำหรับการใส่ท่อช่วยหายใจในผู้ป่วยวิกฤต ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41800433/"
-  },
-  {
-    "date": "9 Mar",
-    "title": "🔹 Randomized controlled trial of intraosseous access vs. intravenous access in traumatic hemorrhagic shock: Effects on inflammation, hematopoiesis, and coagulation.",
-    "comment": "การเปรียบเทียบวิธีให้สารน้ำ/ยาที่สำคัญในภาวะ shock เพื่อหาแนวทางปฏิบัติที่ดีที่สุด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41799722/"
   },
   {
     "date": "9 Mar",
@@ -382,41 +418,5 @@
     "title": "From triage to transformation: tackling inequalities in emergency care through a public health lens.",
     "comment": "การมองภาพรวมและแก้ปัญหาความเหลื่อมล้ำในการดูแลผู้ป่วย ER เป็นเรื่องสำคัญที่แพทย์ ER ต้องตระหนัก",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41760408/"
-  },
-  {
-    "date": "28 Feb",
-    "title": "Venous Excess Ultrasound Score (VExUS) Association with Disease Severity in Acute Pulmonary Embolism.",
-    "comment": "นวัตกรรม US ในการประเมินภาวะ PE ที่อาจนำมาใช้ได้เร็วใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41760465/"
-  },
-  {
-    "date": "28 Feb",
-    "title": "Intraosseous and intravenous vascular access during adult cardiac arrest: a systematic review and meta-analysis.",
-    "comment": "การเปรียบเทียบวิธีเข้าเส้นเลือดดำในภาวะวิกฤต ที่แพทย์ ER ต้องตัดสินใจเลือก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41760477/"
-  },
-  {
-    "date": "28 Feb",
-    "title": "Dexmedetomidine produces more sleep-like brain activity compared with propofol in human participants. Comment on Br J Anaesth 2026; 136: 552-63.",
-    "comment": "การเปรียบเทียบยา Sedation ที่อาจนำมาใช้ใน ER สำหรับหัตถการบางอย่าง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41760537/"
-  },
-  {
-    "date": "28 Feb",
-    "title": "Point-of-Care Ultrasound in the Evaluation of Systolic Heart Failure During Pregnancy and Postpartum.",
-    "comment": "การใช้ POCUS ประเมินภาวะหัวใจล้มเหลวในหญิงตั้งครรภ์/หลังคลอด เป็นเคสที่ซับซ้อนใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41760135/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "Prehospital intensive blood pressure management in intracerebral hemorrhage: current evidence, controversies, and future directions.",
-    "comment": "สรุปแนวทางการรักษาความดันโลหิตในผู้ป่วย ICH ที่มีข้อโต้แย้งและแนวโน้มในอนาคต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41737398/"
-  },
-  {
-    "date": "25 Feb",
-    "title": "Comparison of Oxygenation Targets in Critically Ill Adults: A Systematic Review and Network Meta-Analysis of Randomized Controlled Trials.",
-    "comment": "ชี้ให้เห็นถึงความขัดแย้งและหลักฐานล่าสุดเกี่ยวกับการตั้งค่าเป้าหมายออกซิเจนในผู้ป่วยวิกฤต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41738214/"
   }
 ]
