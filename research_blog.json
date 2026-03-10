@@ -3246,5 +3246,47 @@
     "property_last_edited_time": "2026-03-09T19:21:00.000Z",
     "property_pmid": "41799239",
     "property_name": "Pragmatic risk-mitigation strategies for aseptic internal jugular vein cannulation in resource-limited emergency settings."
+  },
+  {
+    "id": "31fba464-60a7-81e5-a6ad-cf0633d9d99b",
+    "name": "Nipah Virus: An Immunological Wake-up Call for Global Health Systems.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41802635/",
+    "property_date": null,
+    "property_tag_2": "Immunology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่ออภิปรายและชี้ให้เห็นถึงปัญหาการขาดความเข้าใจในพยาธิกำเนิดทางภูมิคุ้มกันของไวรัสนิปาห์ (NiV) ซึ่งเป็นอุปสรรคต่อการเตรียมความพร้อมของระบบสาธารณสุขระดับโลก\n- **วิธีการ:** เป็นบทความเชิงอภิปราย (Perspective/Commentary) ที่วิเคราะห์องค์ความรู้ปัจจุบันและข้อจำกัดของระบบสาธารณสุขในการรับมือกับการระบาดของไวรัสนิปาห์จากมุมมองทางภูมิคุ้มกันวิทยา\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** บทความสรุปการวิเคราะห์ว่า อุปสรรคหลักในการเตรียมความพร้อมรับมือไม่ได้อยู่ที่ขีดความสามารถในการเฝ้าระวังโรค แต่เป็นการขาดกรอบแนวคิดและการป้องกันทางภูมิคุ้มกันวิทยาที่ชัดเจน ทำให้การตอบสนองต่อการระบาดของโลกยังคงเป็นแบบตั้งรับมากกว่าเชิงรุก (ไม่มีการวิเคราะห์ทางสถิติเนื่องจากเป็นบทความเชิงอภิปราย)",
+    "property_status": "Not started",
+    "property_tag_3": "Global Health",
+    "property_tag_1": "Infectious Diseases",
+    "property_last_edited_time": "2026-03-10T19:23:00.000Z",
+    "property_pmid": "41802635",
+    "property_name": "Nipah Virus: An Immunological Wake-up Call for Global Health Systems."
+  },
+  {
+    "id": "31fba464-60a7-81b4-a2eb-cb6826043877",
+    "name": "Forecasting diabetes and sepsis mortality trends using advanced time-series models in United States from 1999 to 2030.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41804457/",
+    "property_date": null,
+    "property_tag_2": "Infectious Disease",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาและพยากรณ์แนวโน้มอัตราการเสียชีวิตจากโรคเบาหวานร่วมกับภาวะติดเชื้อในกระแสเลือด (Sepsis) ในสหรัฐอเมริกาตั้งแต่ปี 1999 ถึง 2024 โดยจำแนกตามเพศ เชื้อชาติ และปัจจัยทางภูมิศาสตร์\n- **วิธีการ:** รวบรวมข้อมูลการเสียชีวิตของประชากรอายุ 25 ปีขึ้นไปจากฐานข้อมูล CDC-WONDER เพื่อคำนวณอัตราการเสียชีวิตที่ปรับตามอายุ (AAMRs) โดยวิเคราะห์แนวโน้มด้วย Joinpoint regression (หาค่า APCs) และใช้แบบจำลองอนุกรมเวลา ARIMA ในการพยากรณ์อัตราการเสียชีวิตจนถึงปี 2030\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบผู้เสียชีวิตรวม 509,255 ราย อัตรา AAMR มีแนวโน้มลดลงจนถึงปี 2018 (APC: -1.20) ก่อนพุ่งสูงขึ้นอย่างรวดเร็วในปี 2021 (APC: 17.32) และลดลงอีกครั้งในปี 2024 โดยแบบจำลองพยากรณ์ว่า AAMR จะอยู่ที่ 11.2 ในปี 2030 นอกจากนี้ยังพบอัตราการเสียชีวิตสูงสุดในเพศชาย กลุ่มคนผิวดำ (NH Black) ประชากรในแถบภาคใต้ (South) และในพื้นที่ชนบท",
+    "property_status": "Not started",
+    "property_tag_3": "Epidemiology",
+    "property_tag_1": "Endocrinology",
+    "property_last_edited_time": "2026-03-10T19:22:00.000Z",
+    "property_pmid": "41804457",
+    "property_name": "Forecasting diabetes and sepsis mortality trends using advanced time-series models in United States from 1999 to 2030."
+  },
+  {
+    "id": "31fba464-60a7-810f-9205-e30dd132bb19",
+    "name": "Rethinking Thiamine in the Emergency Department: Why a Hi-Phy-Vi-Based \"Suspect and Treat\" Approach Matters in an Aging Society.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41804443/",
+    "property_date": null,
+    "property_tag_2": "Geriatrics",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อกระตุ้นให้บุคลากรทางการแพทย์ในแผนกฉุกเฉินตระหนักถึงภาวะขาดวิตามินบี 1 (Thiamine deficiency) ที่มักถูกมองข้ามในสังคมผู้สูงอายุและผู้ป่วยกลุ่มเสี่ยง เพื่อป้องกันความผิดพลาดในการวินิจฉัย\n- **วิธีการ:** นำเสนอแนวทาง \"สงสัยแล้วให้การรักษาทันที (suspect and treat)\" โดยอาศัยการประเมินทางคลินิกจากประวัติ การตรวจร่างกาย และสัญญาณชีพ (Hi-Phy-Vi) แทนการรอผลตรวจทางห้องปฏิบัติการที่ล่าช้าและไม่มีพร้อมในทุกสถานพยาบาล\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** บทความบรรณาธิการนี้ไม่มีการวิเคราะห์เชิงสถิติ แต่มีข้อสรุปว่าการให้วิตามินบี 1 ทางหลอดเลือดดำตั้งแต่มีอาการเริ่มแรกนั้นมีความปลอดภัยสูง ต้นทุนต่ำ และสามารถป้องกันความเสียหายที่ถาวรต่อระบบประสาทและหัวใจ (เช่น ภาวะ Wernicke encephalopathy และ Wet beriberi) ได้อย่างมีประสิทธิภาพ",
+    "property_status": "Not started",
+    "property_tag_3": "Nutrition",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2026-03-10T19:21:00.000Z",
+    "property_pmid": "41804443",
+    "property_name": "Rethinking Thiamine in the Emergency Department: Why a Hi-Phy-Vi-Based \"Suspect and Treat\" Approach Matters in an Aging Society."
   }
 ]
