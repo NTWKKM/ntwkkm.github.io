@@ -1,5 +1,65 @@
 [
   {
+    "date": "10 Mar",
+    "title": "Deresuscitation Informed by Ultrasound in Patients with Septic Shock Trial: A Pilot Randomized Controlled Study.",
+    "comment": "การใช้ Ultrasound มาช่วยในการตัดสินใจเรื่อง Deresuscitation ในผู้ป่วย Septic Shock อาจเปลี่ยนแนวทางการรักษาได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41804824/"
+  },
+  {
+    "date": "10 Mar",
+    "title": "Era of Sugammadex: A Paradigm Shift in Airway Management.",
+    "comment": "Sugammadex กำลังจะเข้ามาเปลี่ยนการบริหารจัดการทางเดินหายใจแบบเดิมๆ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41804136/"
+  },
+  {
+    "date": "10 Mar",
+    "title": "THE PATTERN AND INFLUENCING FACTORS OF OPIOID-PRESCRIBING BEHAVIOR AMONG EMERGENCY PHYSICIANS IN THE QASSIM REGION: A CROSS-SECTIONAL STUDY.",
+    "comment": "ปัจจัยที่ส่งผลต่อการสั่งจ่าย Opioid ของแพทย์ ER เป็นประเด็นที่ต้องใส่ใจเพื่อลดปัญหาการใช้ยา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41804133/"
+  },
+  {
+    "date": "10 Mar",
+    "title": "ARTIFICIAL INTELLIGENCE IN CLINICAL DIAGNOSTICS FOR EARLY DETECTION OF CHRONIC DISEASES: A SYSTEMATIC REVIEW.",
+    "comment": "AI กำลังเข้ามามีบทบาทสำคัญในการวินิจฉัยโรคเรื้อรังตั้งแต่ระยะเริ่มต้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41804130/"
+  },
+  {
+    "date": "10 Mar",
+    "title": "CT Imaging Features of Acute Aortic Syndrome: A Case Series.",
+    "comment": "รายงานเคส CT Imaging ใน Acute Aortic Syndrome ช่วยให้วินิจฉัยและรักษาได้เร็วขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41804440/"
+  },
+  {
+    "date": "10 Mar",
+    "title": "Improving early recognition and treatment of sepsis in paramedic services and emergency departments: a pan-Canadian mixed methods application of the Theoretical Domains Framework.",
+    "comment": "การปรับปรุงการวินิจฉัยและรักษา Sepsis ในหน่วยแพทย์ฉุกเฉินและ ER ทั่วแคนาดา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41803377/"
+  },
+  {
+    "date": "10 Mar",
+    "title": "Paediatric diabetic ketoacidosis-associated acute liver failure in the post-COVID era: A case series.",
+    "comment": "เคสที่น่าสนใจของภาวะตับวายเฉียบพลันที่สัมพันธ์กับ DKA ในเด็กยุคหลัง COVID",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41804799/"
+  },
+  {
+    "date": "10 Mar",
+    "title": "Nipah Virus: An Immunological Wake-up Call for Global Health Systems.",
+    "comment": "Nipah Virus เป็นสัญญาณเตือนภัยที่สำคัญต่อระบบสาธารณสุขทั่วโลก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41802635/"
+  },
+  {
+    "date": "10 Mar",
+    "title": "Forecasting diabetes and sepsis mortality trends using advanced time-series models in United States from 1999 to 2030.",
+    "comment": "การพยากรณ์แนวโน้มการตายจากเบาหวานและ sepsis ด้วยโมเดลขั้นสูง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41804457/"
+  },
+  {
+    "date": "10 Mar",
+    "title": "Rethinking Thiamine in the Emergency Department: Why a Hi-Phy-Vi-Based \"Suspect and Treat\" Approach Matters in an Aging Society.",
+    "comment": "การทบทวนแนวทางการให้ Thiamine ใน ER สำหรับสังคมผู้สูงอายุ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41804443/"
+  },
+  {
     "date": "9 Mar",
     "title": "Benchmarking a deep learning model against healthcare practitioners for hip fracture detection in the emergency department.",
     "comment": "AI ช่วยตรวจจับ hip fracture ได้ดีเทียบเคียงผู้เชี่ยวชาญ ลดความผิดพลาดใน ER",
@@ -358,65 +418,5 @@
     "title": "🔹 Ending routine opioid use for acute non-specific back pain.",
     "comment": "แนวทางการจัดการความปวดหลังเฉียบพลันที่ไม่เฉพาะเจาะจงโดยลดการใช้ยาแก้ปวดกลุ่ม Opioid",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41763989/"
-  },
-  {
-    "date": "1 Mar",
-    "title": "🔹 Con: All Cardiac Arrest Patients Should Be Transferred to a Cardiac Arrest Center.",
-    "comment": "ประเด็นถกเถียงสำคัญเกี่ยวกับการบริหารจัดการผู้ป่วยภาวะหัวใจหยุดเต้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41764020/"
-  },
-  {
-    "date": "1 Mar",
-    "title": "🔹 The Suspected Cauda Equina Syndrome Score (SuCESS) : development and validation of a clinical triage tool.",
-    "comment": "เครื่องมือใหม่ในการคัดแยกผู้ป่วยที่สงสัยภาวะ Cauda Equina Syndrome อย่างเป็นระบบ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41763246/"
-  },
-  {
-    "date": "1 Mar",
-    "title": "🔹 Septic shock from urinary tract infection associated with sodium-glucose cotransporter 2 inhibitor in a high-risk patient with heart failure: A case report.",
-    "comment": "รายงานผู้ป่วยที่พบภาวะแทรกซ้อนรุนแรงจากการใช้ยา SGLT2i ในผู้ป่วย UTI และ HF",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41762729/"
-  },
-  {
-    "date": "1 Mar",
-    "title": "🔹 Association between Advance Directives and Invasive Life Support Use at End of Life: A Retrospective Cohort Study.",
-    "comment": "การศึกษาความเชื่อมโยงระหว่างการแสดงเจตนาล่วงหน้ากับการใช้เครื่องมือช่วยชีวิตขั้นสุดท้าย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41763335/"
-  },
-  {
-    "date": "28 Feb",
-    "title": "A case of successful resuscitation from hypokalemic cardiac arrest using rapid intravenous potassium.",
-    "comment": "การรักษาภาวะหัวใจหยุดเต้นจากโพแทสเซียมต่ำด้วยโปแทสเซียม IV อย่างรวดเร็ว เป็นแนวทางที่สำคัญมากสำหรับ ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41762557/"
-  },
-  {
-    "date": "28 Feb",
-    "title": "A rare case of lung hernia associated with rib fractures and tension pneumothorax post cardiopulmonary resuscitation.",
-    "comment": "เสนอแนวคิดที่ต้องสงสัยภาวะแทรกซ้อนจากการทำ CPR ซึ่งอาจพลาดได้ใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41762556/"
-  },
-  {
-    "date": "28 Feb",
-    "title": "Myocarditis and the Role of Cardiac Imaging.",
-    "comment": "อัพเดตการวินิจฉัยกล้ามเนื้อหัวใจอักเสบที่อาจพบได้ใน ER โดยเฉพาะหลังการติดเชื้อ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41762082/"
-  },
-  {
-    "date": "28 Feb",
-    "title": "Practical Acute Kidney Injury Care: Embedding the UK Kidney Association Summit Recommendations Across Hospital Settings.",
-    "comment": "แนวทางการดูแล AKI ที่เน้นปฏิบัติได้จริง เหมาะสำหรับ ER ที่ต้องตัดสินใจอย่างรวดเร็ว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41762080/"
-  },
-  {
-    "date": "28 Feb",
-    "title": "Prehospital management of acute behavioural disturbance: managing severe agitation in the prehospital setting - a systematic literature review.",
-    "comment": "แนวทางการจัดการผู้ป่วยที่มีพฤติกรรมรุนแรงก่อนถึง ER เป็นประเด็นสำคัญที่ต้องอัพเดต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41760406/"
-  },
-  {
-    "date": "28 Feb",
-    "title": "From triage to transformation: tackling inequalities in emergency care through a public health lens.",
-    "comment": "การมองภาพรวมและแก้ปัญหาความเหลื่อมล้ำในการดูแลผู้ป่วย ER เป็นเรื่องสำคัญที่แพทย์ ER ต้องตระหนัก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41760408/"
   }
 ]
