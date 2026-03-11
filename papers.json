@@ -2,32 +2,80 @@
   {
     "date": "11 Mar",
     "title": "Immersive Virtual Reality Training to Improve Novice Physicians' Emergency Response Skills: A Randomized Controlled Trial.",
-    "comment": "VR simulation อาจพลิกโฉมการฝึกอบรมแพทย์ ER เพิ่มทักษะการรับมือเหตุฉุกเฉินอย่างมีนัยสำคัญ",
+    "comment": "VR Training ช่วยพัฒนาทักษะการตอบสนองในภาวะฉุกเฉินของแพทย์ใหม่ได้อย่างมีนัยสำคัญ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41811271/"
   },
   {
     "date": "11 Mar",
     "title": "Whole-Blood vs Component Therapy in Adult Trauma: An Updated Systematic Review and Meta-Analysis.",
-    "comment": "การใช้ whole blood ในผู้ป่วย trauma ผู้ใหญ่ อาจเป็นทางเลือกที่เหนือกว่า blood component therapy ในบางกรณี",
+    "comment": "การให้เลือดทั้งก้อน (Whole Blood) อาจมีข้อดีกว่าการให้ส่วนประกอบของเลือดในการดูแลผู้ป่วยอุบัติเหตุรุนแรง",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41811314/"
   },
   {
     "date": "11 Mar",
+    "title": "Safety and feasibility of cold-stored uncrossmatched whole blood transfusion in civilian non-trauma patients.",
+    "comment": "การใช้เลือดทั้งก้อนที่เก็บรักษาด้วยความเย็นโดยไม่ต้องจับคู่หมู่เลือดสามารถทำได้และปลอดภัยในผู้ป่วยทั่วไปที่ไม่ได้บาดเจ็บรุนแรง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41811107/"
+  },
+  {
+    "date": "11 Mar",
     "title": "The Effects of the COVID-19 Pandemic on Orthopaedic Cases in Emergency Department.",
-    "comment": "เข้าใจผลกระทบระยะยาวของ COVID-19 ต่อ case orthopaedic ใน ER เพื่อปรับแนวทางการรักษา",
+    "comment": "การระบาดของ COVID-19 ส่งผลกระทบต่อลักษณะของเคสออร์โธปิดิกส์ที่มารับบริการใน ER อย่างไร",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41811259/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "Predictors, barriers and facilitators of bystander interventions in out of hospital cardiac arrest: a cross-sectional study from the UAE.",
+    "comment": "ปัจจัยที่ส่งผลต่อการเข้าช่วยเหลือผู้ป่วยหัวใจหยุดเต้นนอกโรงพยาบาลโดยพลเมืองทั่วไป",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41810294/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "Calm in the Chaos: A Mixed-Methods Pilot Study Using a Mobile Mindfulness App to Manage Stress and Burnout Among Emergency Department Nurses.",
+    "comment": "แอปพลิเคชัน Mindfulness ช่วยลดความเครียดและภาวะหมดไฟในพยาบาล ER ได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41810753/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "Prolonged Emergency Department Stay, Specialist-visit Delay, and Disposition-decision Delay as System-level Risks for Preventable Sepsis Mortality.",
+    "comment": "การอยู่ ER นานเกินไป การรอพบผู้เชี่ยวชาญล่าช้า และการตัดสินใจจำหน่ายผู้ป่วยล่าช้า เพิ่มความเสี่ยงเสียชีวิตจาก Sepsis ที่ป้องกันได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41810714/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "Updated European Society for Emergency Medicine Guidelines for acute pain management in emergency departments and prehospital care.",
+    "comment": "แนวปฏิบัติล่าสุดในการจัดการความปวดเฉียบพลันใน ER และการดูแลก่อนถึงโรงพยาบาล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41810980/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "Large language models are comparable with commonly used statistical software: A validation of GPT 5.1 for frequentist meta-analysis in orthopaedics.",
+    "comment": "LLM อย่าง GPT 5.1 สามารถใช้ทำการวิเคราะห์ Meta-analysis ได้ใกล้เคียงซอฟต์แวร์สถิติทั่วไป",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41810841/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "When the Diaphragm Deceives: Subpulmonic Effusion Flagged by AI and Confirmed by Ultrasound.",
+    "comment": "AI ช่วยตรวจจับภาวะน้ำในช่องเยื่อหุ้มปอดใต้กะบังลมที่อาจซ่อนเร้นได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/418109270/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "Orbital tuberculosis mimicking a vascular emergency: A case report of superior ophthalmic vein engorgement.",
+    "comment": "วัณโรคในเบ้าตาที่อาจทำให้เข้าใจผิดว่าเป็นภาวะฉุกเฉินทางหลอดเลือด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41810086/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "Progress in Gastroparesis Management: From Pharmacotherapy to Interventional Treatments.",
+    "comment": "ความก้าวหน้าในการจัดการ Gastroparesis ตั้งแต่ยาไปจนถึงการรักษาแบบหัตถการ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41810573/"
   },
   {
     "date": "11 Mar",
     "title": "Calm in the Chaos: A Mixed-Methods Pilot Study Using a Mobile Mindfulness App to Manage Stress and Burnout Among Emergency Department Nurses.",
     "comment": "นวัตกรรมแอปพลิเคชัน mindfulness ช่วยลดความเครียดและ burnout ในพยาบาล ER ได้จริง",
     "link": "https://pubmed.ncbi.nlm.nih.gov/4180753/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Safety and feasibility of cold-stored uncrossmatched whole blood transfusion in civilian non-trauma patients.",
-    "comment": "การใช้ whole blood ที่เก็บแบบ cold-stored แบบ uncrossmatched ในผู้ป่วย non-trauma มีความปลอดภัยและทำได้จริง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41811107/"
   },
   {
     "date": "11 Mar",
@@ -370,53 +418,5 @@
     "title": "Trauma- and Violence-Informed Care Practices in the Emergency Department for Survivors of Intimate Partner Violence.",
     "comment": "แนวปฏิบัติที่คำนึงถึงผลกระทบจากบาดแผลทางใจและประสบการณ์ความรุนแรงใน ER สำหรับผู้ประสบความรุนแรงในครอบครัว",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41774444/"
-  },
-  {
-    "date": "3 Mar",
-    "title": "High-Dose, Extended Half-Life IL-23 Inhibitors: the Next Big Step in Psoriasis Care?",
-    "comment": "ยา IL-23 inhibitors รุ่นใหม่ที่มีระยะเวลานานขึ้น อาจมีบทบาทในการรักษาโรคสะเก็ดเงิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41774406/"
-  },
-  {
-    "date": "3 Mar",
-    "title": "Australian best practice recommendations for transjugular intrahepatic portosystemic shunt (TIPS) in portal hypertension: a consensus statement.",
-    "comment": "แนวปฏิบัติที่ดีที่สุดสำหรับการทำ TIPS ในภาวะความดันในเส้นเลือดดำพอร์ทัลสูง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41774393/"
-  },
-  {
-    "date": "3 Mar",
-    "title": "Cardioprotective effects of prophylactic ACE inhibitors in anthracycline-induced cardiotoxicity: a systematic review and meta-analysis of randomized trials.",
-    "comment": "ยา ACE inhibitors ป้องกันภาวะหัวใจเป็นพิษจากยาเคมีบำบัด Anthracycline",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41774060/"
-  },
-  {
-    "date": "3 Mar",
-    "title": "Ignore at our Peril: Intersections (Existing, Emerging, and Imagined) Between Artificial Intelligence and Qualitative Health Research.",
-    "comment": "การนำ AI มาใช้กับงานวิจัยเชิงคุณภาพด้านสุขภาพยังเป็นเรื่องใหม่และน่าจับตา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41774053/"
-  },
-  {
-    "date": "2 Mar",
-    "title": "Electrocardiography Unmasking the Cause of Unexplained Coma",
-    "comment": "ECG อาจเป็นกุญแจสำคัญในการวินิจฉัยภาวะโคม่าที่หาสาเหตุไม่ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41770557/"
-  },
-  {
-    "date": "2 Mar",
-    "title": "Western Bush Viper (Atheris chlorechis) Envenomation: A Case Report",
-    "comment": "รายงานผู้ป่วยงูพิษชนิด Atheris chlorechis ที่อาจไม่ค่อยพบเห็น ให้ข้อมูลการดูแลผู้ป่วย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41770516/"
-  },
-  {
-    "date": "2 Mar",
-    "title": "Acute Copper Toxicity: Succimer Makes you Less Blue",
-    "comment": "การใช้ succimer อาจช่วยรักษาภาวะพิษจากทองแดงเฉียบพลันได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41770515/"
-  },
-  {
-    "date": "2 Mar",
-    "title": "Rhabdomyolysis and Acute Kidney Injury after Use of 3-Methyl-PCP: A Case Report",
-    "comment": "สารเสพติด 3-Methyl-PCP อาจก่อให้เกิด Rhabdomyolysis และ AKI ที่ต้องเฝ้าระวังใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41770514/"
   }
 ]
