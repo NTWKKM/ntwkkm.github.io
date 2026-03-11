@@ -1,5 +1,65 @@
 [
   {
+    "date": "11 Mar",
+    "title": "Immersive Virtual Reality Training to Improve Novice Physicians' Emergency Response Skills: A Randomized Controlled Trial.",
+    "comment": "VR simulation อาจพลิกโฉมการฝึกอบรมแพทย์ ER เพิ่มทักษะการรับมือเหตุฉุกเฉินอย่างมีนัยสำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41811271/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "Whole-Blood vs Component Therapy in Adult Trauma: An Updated Systematic Review and Meta-Analysis.",
+    "comment": "การใช้ whole blood ในผู้ป่วย trauma ผู้ใหญ่ อาจเป็นทางเลือกที่เหนือกว่า blood component therapy ในบางกรณี",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41811314/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "The Effects of the COVID-19 Pandemic on Orthopaedic Cases in Emergency Department.",
+    "comment": "เข้าใจผลกระทบระยะยาวของ COVID-19 ต่อ case orthopaedic ใน ER เพื่อปรับแนวทางการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41811259/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "Calm in the Chaos: A Mixed-Methods Pilot Study Using a Mobile Mindfulness App to Manage Stress and Burnout Among Emergency Department Nurses.",
+    "comment": "นวัตกรรมแอปพลิเคชัน mindfulness ช่วยลดความเครียดและ burnout ในพยาบาล ER ได้จริง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/4180753/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "Safety and feasibility of cold-stored uncrossmatched whole blood transfusion in civilian non-trauma patients.",
+    "comment": "การใช้ whole blood ที่เก็บแบบ cold-stored แบบ uncrossmatched ในผู้ป่วย non-trauma มีความปลอดภัยและทำได้จริง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41811107/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "Point of care molecular cancer diagnostics.",
+    "comment": "การตรวจวินิจฉัยมะเร็งแบบ molecular ที่จุดดูแลผู้ป่วย (POC) จะปฏิวัติการดูแลผู้ป่วยมะเร็งใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41811171/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "Anti-Xa Levels With Venous Thromboembolism Prophylaxis in Critical Care: A Systematic Review and Meta-Analysis.",
+    "comment": "การติดตามระดับ Anti-Xa เพื่อประเมินประสิทธิภาพของ VTE prophylaxis ในผู้ป่วยวิกฤตมีความสำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41811030/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "Updated European Society for Emergency Medicine Guidelines for acute pain management in emergency departments and prehospital care.",
+    "comment": "แนวทางใหม่ล่าสุดจาก ESEMP สำหรับการจัดการ acute pain ใน ER และ prehospital จำเป็นต้องทราบ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/4180980/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "CAMEL: An ECG Language Model for Forecasting Cardiac Events.",
+    "comment": "AI (ECG Language Model) อาจช่วยพยากรณ์เหตุการณ์หัวใจขาดเลือดใน ER ได้อย่างแม่นยำ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/4180023/"
+  },
+  {
+    "date": "11 Mar",
+    "title": "Long-Term Olfactory Dysfunction in COVID-19 Patients: A Systematic Review.",
+    "comment": "อาการ anosmia/hyposmia ในผู้ป่วย COVID-19 อาจยาวนานและส่งผลต่อคุณภาพชีวิต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41809272/"
+  },
+  {
     "date": "10 Mar",
     "title": "Deresuscitation Informed by Ultrasound in Patients with Septic Shock Trial: A Pilot Randomized Controlled Study.",
     "comment": "การใช้ Ultrasound เพื่อนำทางการลดปริมาณสารน้ำในผู้ป่วย Septic Shock อาจช่วยปรับแนวทางการรักษาฉุกเฉินให้แม่นยำขึ้น",
@@ -358,65 +418,5 @@
     "title": "Rhabdomyolysis and Acute Kidney Injury after Use of 3-Methyl-PCP: A Case Report",
     "comment": "สารเสพติด 3-Methyl-PCP อาจก่อให้เกิด Rhabdomyolysis และ AKI ที่ต้องเฝ้าระวังใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41770514/"
-  },
-  {
-    "date": "2 Mar",
-    "title": "Just the Facts: How to diagnose and treat complex regional pain syndrome",
-    "comment": "คู่มือที่รวบรวมข้อมูลสำคัญเกี่ยวกับการวินิจฉัยและรักษา CRPS สำหรับแพทย์ ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41770468/"
-  },
-  {
-    "date": "2 Mar",
-    "title": "Ring-augmented Metabolic Bariatric Surgery Procedures GRADE-based International Federation for the Surgery of Obesity and Metabolic Disorders (IFSO) Position Statement",
-    "comment": "แนวทางการผ่าตัดลดความอ้วนแบบใหม่ที่อาจมีผลต่อการดูแลผู้ป่วย ER ที่มีภาวะอ้วน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41770436/"
-  },
-  {
-    "date": "2 Mar",
-    "title": "The epidemiology and clinical presentation of acute vestibular syndromes: a systematic review of the literature",
-    "comment": "สรุปข้อมูลระบาดวิทยาและอาการของภาวะเวียนศีรษะเฉียบพลัน ช่วยในการวินิจฉัยแยกโรคใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41770418/"
-  },
-  {
-    "date": "2 Mar",
-    "title": "A pilot study of the Palliative Care and Rapid Emergency Screening (P-CaRES) tool to screen older emergency department patients for palliative care in Malaysia",
-    "comment": "เครื่องมือคัดกรองผู้ป่วยสูงอายุใน ER เพื่อประเมินความต้องการการดูแลแบบประคับประคอง อาจนำมาปรับใช้ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41770298/"
-  },
-  {
-    "date": "2 Mar",
-    "title": "Multicenter survey on viscoelastic assays access and use in trauma in Swiss emergency departments",
-    "comment": "การเข้าถึงและการใช้ viscoelastic assays ในผู้ป่วยอุบัติเหตุใน ER ต่างประเทศ อาจเป็นแนวทางสำหรับไทย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41770246/"
-  },
-  {
-    "date": "2 Mar",
-    "title": "Burnout and work-life balance: the generational points of view",
-    "comment": "การทำความเข้าใจประเด็น Burnout และ Work-life balance ในบุคลากร ER แต่ละรุ่น เป็นสิ่งสำคัญต่อการดูแลทีม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41770236/"
-  },
-  {
-    "date": "1 Mar",
-    "title": "🔹 Association between lactate-to-calcium ratio and 28-day mortality in patients with sepsis-induced myocardial injury: a retrospective cohort study based on the MIMIC-IV database.",
-    "comment": "ชี้ถึงตัวชี้วัดใหม่ที่อาจช่วยทำนายการเสียชีวิตในผู้ป่วยภาวะหัวใจขาดเลือดจากการติดเชื้อในกระแสเลือด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41764451/"
-  },
-  {
-    "date": "1 Mar",
-    "title": "🔹 Bioactive adrenomedullin as a point-of-care biomarker in emergency department patients with suspected severe infections: an exploratory analysis.",
-    "comment": "การใช้ Biomarker ที่วัดได้รวดเร็วเพื่อช่วยในการวินิจฉัยภาวะติดเชื้อรุนแรงใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41764483/"
-  },
-  {
-    "date": "1 Mar",
-    "title": "🔹 Predictive value of optic nerve sheath diameters on cerebral performance category scale in patients with impaired consciousness in the emergency department: a prospective pilot study.",
-    "comment": "การใช้ค่าเส้นผ่าศูนย์กลางของเส้นประสาทตาเพื่อประเมินสมรรถภาพสมองในผู้ป่วยที่มีความผิดปกติของสติ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41764435/"
-  },
-  {
-    "date": "1 Mar",
-    "title": "🔹 Advancements in predicting clinical factors for hematoma enlargement in primary cerebral hemorrhage patients: a review.",
-    "comment": "การอัปเดตปัจจัยทางคลินิกที่ช่วยคาดการณ์การขยายตัวของเลือดออกในสมอง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41764563/"
   }
 ]
