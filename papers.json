@@ -1,5 +1,65 @@
 [
   {
+    "date": "12 Mar",
+    "title": "Past-Year Emergency Department Utilization Patterns Among Suicide Decedents: Characterizing At-Risk Patient Populations.",
+    "comment": "ระบุกลุ่มผู้ป่วยที่มีความเสี่ยงต่อการกลับมาใช้ ER ซ้ำ และเสียชีวิตจากการฆ่าตัวตาย เพื่อวางแผนการดูแล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41817488/"
+  },
+  {
+    "date": "12 Mar",
+    "title": "Telemedicine Use and Outcomes Following Discharge From the Emergency Department, 2020-2022.",
+    "comment": "ประเมินผลการใช้ Telemedicine หลังออกจาก ER ชี้แนวทางการดูแลต่อเนื่องผู้ป่วย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41817487/"
+  },
+  {
+    "date": "12 Mar",
+    "title": "Context-Dependent Principle Prioritization in Emergency Medicine.",
+    "comment": "การให้ความสำคัญกับหลักการรักษาตามบริบทของ ER เพื่อการตัดสินใจที่เหมาะสม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41817327/"
+  },
+  {
+    "date": "12 Mar",
+    "title": "Critical Care Ultrasonography for Cardiogenic Shock: A Scoping Review.",
+    "comment": "การใช้ Ultrasonography ในการประเมินและดูแลผู้ป่วย Cardiogenic Shock ใน ICU",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41817314/"
+  },
+  {
+    "date": "12 Mar",
+    "title": "Life-Threatening Pulmonary Embolism in Klippel-Trenaunay-Weber Syndrome Presenting With Hemoptysis.",
+    "comment": "รายงานผู้ป่วย PE ที่มีอาการไอเป็นเลือดในโรค Klippel-Trenaunay-Weber syndrome ซึ่งเป็นภาวะอันตราย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41817268/"
+  },
+  {
+    "date": "12 Mar",
+    "title": "Distal Coronary Artery Thrombus After Primary PCI Resolved by Excimer Laser Coronary Angioplasty.",
+    "comment": "ความสำเร็จของการรักษาลิ่มเลือดอุดตันหลอดเลือดหัวใจส่วนปลายด้วย Excimer Laser Angioplasty",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41817260/"
+  },
+  {
+    "date": "12 Mar",
+    "title": "Nonsurgical Management of Postinfarction Left Ventricular Free Wall Rupture With a Percutaneous Ventricular Assist Device.",
+    "comment": "การจัดการภาวะหัวใจห้องล่างซ้ายแตกหลังกล้ามเนื้อหัวใจตายโดยไม่ต้องผ่าตัดด้วยอุปกรณ์ช่วยการไหลเวียนเลือด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41817249/"
+  },
+  {
+    "date": "12 Mar",
+    "title": "Update on total intravenous anesthesia in children.",
+    "comment": "การอัปเดตแนวทางการให้ยาสลบแบบ Total IV ในเด็ก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41817234/"
+  },
+  {
+    "date": "12 Mar",
+    "title": "The Evolving Frontline of Antimicrobial Resistance: Adapting Testing and Treatment for Austere and Combat Settings.",
+    "comment": "การปรับตัวในการตรวจและการรักษาการติดเชื้อดื้อยาในสถานการณ์ขาดแคลนทรัพยากร",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41816933/"
+  },
+  {
+    "date": "12 Mar",
+    "title": "CRISPR-based diagnostics for infectious diseases: mechanisms, advancements and clinical transformation prospects.",
+    "comment": "การใช้ CRISPR ในการวินิจฉัยโรคติดเชื้อ: กลไก ความก้าวหน้า และโอกาสในการนำไปใช้ทางคลินิก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41816357/"
+  },
+  {
     "date": "11 Mar",
     "title": "Immersive Virtual Reality Training to Improve Novice Physicians' Emergency Response Skills: A Randomized Controlled Trial.",
     "comment": "VR Training ช่วยพัฒนาทักษะการตอบสนองในภาวะฉุกเฉินของแพทย์ใหม่ได้อย่างมีนัยสำคัญ",
@@ -358,65 +418,5 @@
     "title": "Sex-Specific Trajectories of Depressive Symptoms among Multicultural Adolescents: Intrapersonal and Interpersonal Protective Factors",
     "comment": "ความเข้าใจเรื่องภาวะซึมเศร้าในวัยรุ่นที่ต่างกันตามเพศ อาจช่วยให้ประเมินและดูแลผู้ป่วย ER ได้ดีขึ้น",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41779252/"
-  },
-  {
-    "date": "4 Mar",
-    "title": "Neonatal bedside laparotomy in the UK: a multidisciplinary survey of practice and perceptions",
-    "comment": "การผ่าตัดช่องท้องฉุกเฉินในทารกแรกเกิดที่ข้างเตียง มีแนวทางและมุมมองหลากหลายจากทีมสหสาขาวิชาชีพ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41779217/"
-  },
-  {
-    "date": "4 Mar",
-    "title": "Trauma and economic displacement: psychological consequences and interventions among Venezuelan refugees in the Americas",
-    "comment": "ผลกระทบทางจิตใจจากวิกฤตการณ์และผู้ลี้ภัย อาจพบได้ใน ER ต้องตระหนักถึงปัจจัยนี้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41777348/"
-  },
-  {
-    "date": "4 Mar",
-    "title": "From Limited Use to Standard Practice: Retrospective Analysis of Droperidol Administration by Emergency Medical Services (2018-2023)",
-    "comment": "การใช้ Droperidol ใน EMS เป็นมาตรฐานมากขึ้น มีข้อมูลย้อนหลังน่าสนใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41777419/"
-  },
-  {
-    "date": "4 Mar",
-    "title": "Predictive value of acute MRI-detected brain lesions for clinical outcome in patients with acute carbon monoxide poisoning",
-    "comment": "MRI ตรวจพบรอยโรคในสมองทันที มีค่าในการทำนายผลลัพธ์ในผู้ป่วยพิษคาร์บอนมอนอกไซด์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41776671/"
-  },
-  {
-    "date": "3 Mar",
-    "title": "Sex differences in the one-year outcomes of emergency department patients with alcohol withdrawal.",
-    "comment": "การเข้าใจความแตกต่างทางเพศในผลลัพธ์ผู้ป่วยภาวะถอนแอลกอฮอล์จะช่วยปรับการดูแลใน ER ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41774352/"
-  },
-  {
-    "date": "3 Mar",
-    "title": "The Critical Role of Oxygen Supplementation in Epithelium-On Corneal Cross-Linking: A Narrative Review.",
-    "comment": "การใช้ออกซิเจนเสริมสำคัญต่อการรักษาตาแบบ Epithelium-On Corneal Cross-Linking ซึ่งอาจพบใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41774369/"
-  },
-  {
-    "date": "3 Mar",
-    "title": "Emergency physicians and emergency pharmacists: a case study in the evolving \"team sport\" of emergency medicine.",
-    "comment": "ความร่วมมือระหว่างแพทย์ ER และเภสัชกร ER สำคัญต่อการดูแลผู้ป่วยวิกฤต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41774353/"
-  },
-  {
-    "date": "3 Mar",
-    "title": "Comparison of non-contrast CT, CT perfusion, and CT angiography for predicting delayed cerebral ischemia after aneurysmal subarachnoid hemorrhage.",
-    "comment": "เทคนิค CT ที่เหมาะสมช่วยพยากรณ์ภาวะสมองขาดเลือดหลังเลือดออกในโพรงสมองจากหลอดเลือดโป่งพอง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41774345/"
-  },
-  {
-    "date": "3 Mar",
-    "title": "Advancing Trauma-Informed Care for Intimate Partner Violence Survivors.",
-    "comment": "แนวทางการดูแลผู้ประสบความรุนแรงในครอบครัวที่คำนึงถึงผลกระทบจากบาดแผลทางใจ (Trauma-informed care)",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41774447/"
-  },
-  {
-    "date": "3 Mar",
-    "title": "Trauma- and Violence-Informed Care Practices in the Emergency Department for Survivors of Intimate Partner Violence.",
-    "comment": "แนวปฏิบัติที่คำนึงถึงผลกระทบจากบาดแผลทางใจและประสบการณ์ความรุนแรงใน ER สำหรับผู้ประสบความรุนแรงในครอบครัว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41774444/"
   }
 ]
