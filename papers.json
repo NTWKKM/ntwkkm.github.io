@@ -1,45 +1,63 @@
 [
   {
     "date": "15 Mar",
-    "title": "Validity and clinical utility of brain injury biomarkers in the assessment and risk stratification of mild traumatic brain injury in emergency departments.",
-    "comment": "ชี้แนวทางใหม่ในการประเมินและจำแนกความรุนแรงของ TBI ใน ER โดยใช้ Biomarker",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41832802/"
-  },
-  {
-    "date": "15 Mar",
     "title": "Post-anaphylaxis observation in the ED: a decade of data challenging the traditional 24-hour rule.",
-    "comment": "ท้าทายแนวทางการสังเกตอาการผู้ป่วยหลัง Anaphylaxis ที่อาจไม่ต้องใช้เวลาถึง 24 ชั่วโมง",
+    "comment": "ท้าทายแนวปฏิบัติเดิมเกี่ยวกับระยะเวลาสังเกตการณ์หลัง Anaphylaxis ใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41832433/"
   },
   {
     "date": "15 Mar",
-    "title": "Management Patterns and Outcomes of Children With Traumatic Occult Pneumothorax.",
-    "comment": "การจัดการภาวะลมรั่วในปอดที่ซ่อนเร้นในเด็กจากการบาดเจ็บ ที่ส่งผลต่อผลลัพธ์การรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41832880/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "Artificial intelligence in the diagnosis and prognosis of ocular trauma: a systematic review.",
-    "comment": "AI จะเข้ามามีบทบาทในการวินิจฉัยและพยากรณ์โรคในผู้ป่วยอุบัติเหตุทางตาท่ามกลางความก้าวหน้า",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41832461/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "Cardiogenic Shock Revisited: From Hemodynamic-Centric to Multimodal Precision Care.",
-    "comment": "แนวคิดใหม่ในการจัดการภาวะช็อกที่หัวใจ โดยเน้นการดูแลแบบเฉพาะบุคคลมากขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41831808/"
+    "title": "Validity and clinical utility of brain injury biomarkers in the assessment and risk stratification of mild traumatic brain injury in emergency departments.",
+    "comment": "การประเมินความสำคัญของ Biomarker ในการประเมินและจัดลำดับความเสี่ยงของภาวะสมองกระทบกระเทือนเล็กน้อย (mTBI) ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41832802/"
   },
   {
     "date": "15 Mar",
     "title": "Can AI safely choose antibiotics over the knife? A STROBE-guided benchmark of GPT-4, GPT-5, and Gemini for non-operative acute appendicitis management.",
-    "comment": "การใช้ AI ช่วยตัดสินใจในการรักษาไส้ติ่งอักเสบที่อาจไม่ต้องผ่าตัด เป็นเทคโนโลยีที่น่าจับตา",
+    "comment": "การใช้ AI ในการตัดสินใจรักษา Appendicitis แบบไม่ผ่าตัด เปรียบเทียบประสิทธิภาพของโมเดล AI ต่างๆ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41831386/"
   },
   {
     "date": "15 Mar",
+    "title": "Clinical Applications and Safety Analysis of Nefopam and Flupirtine as Examples of Non-Opioid Analgesics.",
+    "comment": "ภาพรวมการใช้และข้อควรระวังของยาแก้ปวดกลุ่ม Non-Opioid ที่น่าจะเป็นทางเลือกใหม่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41832716/"
+  },
+  {
+    "date": "15 Mar",
+    "title": "Glucagon-like peptide-1 receptor agonists and the risk of surgical intervention in idiopathic intracranial hypertension: A propensity-matched cohort study.",
+    "comment": "ความสัมพันธ์ของยา GLP-1 agonist กับความเสี่ยงการผ่าตัดในภาวะความดันในกะโหลกศีรษะสูง (IIH)",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41832796/"
+  },
+  {
+    "date": "15 Mar",
     "title": "The JN.1 Variant: Emergence and Global Spread.",
-    "comment": "การระบาดของสายพันธุ์ JN.1 ที่อาจส่งผลกระทบต่อการรับมือโรคทางเดินหายใจใน ER",
+    "comment": "อัปเดตข้อมูลเกี่ยวกับสายพันธุ์ JN.1 ของ SARS-CoV-2 ที่กำลังระบาด",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41832695/"
+  },
+  {
+    "date": "15 Mar",
+    "title": "Artificial intelligence in the diagnosis and prognosis of ocular trauma: a systematic review.",
+    "comment": "บทบาทของ AI ในการวินิจฉัยและพยากรณ์โรคของภาวะบาดเจ็บทางตา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41832461/"
+  },
+  {
+    "date": "15 Mar",
+    "title": "Management Patterns and Outcomes of Children With Traumatic Occult Pneumothorax.",
+    "comment": "แนวทางการจัดการและผลลัพธ์ในเด็กที่มีภาวะปอดรั่วแบบซ่อนเร้นจากการบาดเจ็บ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41832880/"
+  },
+  {
+    "date": "15 Mar",
+    "title": "Cardiogenic Shock Revisited: From Hemodynamic-Centric to Multimodal Precision Care.",
+    "comment": "การปรับแนวทางการดูแลผู้ป่วย Cardiogenic Shock เน้นการดูแลแบบจำเพาะบุคคล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41831808/"
+  },
+  {
+    "date": "15 Mar",
+    "title": "Epidemiological and clinical characteristics of drug-related poisoning presentations to the emergency department: a retrospective analysis.",
+    "comment": "ลักษณะทางระบาดวิทยาและคลินิกของผู้ป่วยพิษจากยาที่มา ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41832431/"
   },
   {
     "date": "15 Mar",
@@ -52,12 +70,6 @@
     "title": "The impact of optimizing the triage process for cardiac patients presenting to the cardiac emergency department on quality of care indicators: a quasi-experimental study in Southern Iran.",
     "comment": "การปรับปรุงกระบวนการคัดแยกผู้ป่วยโรคหัวใจใน ER ส่งผลต่อคุณภาพการดูแลอย่างไร",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41832459/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "Epidemiological and clinical characteristics of drug-related poisoning presentations to the emergency department: a retrospective analysis.",
-    "comment": "ข้อมูลเชิงลึกของพิษจากยาที่มา ER ซึ่งอาจนำไปสู่การปรับแนวทางการรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41832431/"
   },
   {
     "date": "14 Mar",
@@ -406,17 +418,5 @@
     "title": "Deresuscitation Informed by Ultrasound in Patients with Septic Shock Trial: A Pilot Randomized Controlled Study.",
     "comment": "การใช้ Ultrasound เพื่อนำทางการลดปริมาณสารน้ำในผู้ป่วย Septic Shock อาจช่วยปรับแนวทางการรักษาฉุกเฉินให้แม่นยำขึ้น",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41804824/"
-  },
-  {
-    "date": "10 Mar",
-    "title": "Forecasting diabetes and sepsis mortality trends using advanced time-series models in United States from 1999 to 2030.",
-    "comment": "การใช้โมเดลทำนายอนาคตเพื่อคาดการณ์แนวโน้มการตายจากเบาหวานและภาวะติดเชื้อในกระแสเลือด เป็นเครื่องมือสำคัญในการวางแผนทรัพยากร ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41804457/"
-  },
-  {
-    "date": "10 Mar",
-    "title": "Emergency Psychiatric Effects of Nicotine Vaping Cessation: A Narrative Review.",
-    "comment": "ผู้ป่วยที่มีอาการทางจิตเวชฉุกเฉินจากการเลิกบุหรี่ไฟฟ้าเป็นประเด็นที่ ER แพทย์ต้องตระหนักถึง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41804447/"
   }
 ]
