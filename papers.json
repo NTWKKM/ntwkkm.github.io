@@ -1,5 +1,65 @@
 [
   {
+    "date": "20 Mar",
+    "title": "Does the Addition of Subcutaneous Basal Insulin Administration Safely Improve Outcomes of Diabetic Ketoacidosis Compared With Intravenous Insulin Infusion Alone?",
+    "comment": "เปลี่ยนแนวทางการรักษา DKA ที่อาจลดความเสี่ยงภาวะแทรกซ้อน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41859509/"
+  },
+  {
+    "date": "20 Mar",
+    "title": "Extreme Urban Heat and Emergency Department Visits in Older Adults.",
+    "comment": "ชี้ให้เห็นความเสี่ยงที่ซ่อนเร้นของคลื่นความร้อนต่อผู้ป่วย ER ที่สูงอายุ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41859548/"
+  },
+  {
+    "date": "20 Mar",
+    "title": "ACR Appropriateness Criteria® Suspected Physical Abuse-Child: Update 2025.",
+    "comment": "แนวทางวินิจฉัยสำคัญสำหรับเคสเด็กที่สงสัยการถูกทำร้าย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41859516/"
+  },
+  {
+    "date": "20 Mar",
+    "title": "Early Clinical Deterioration Among Emergency Department Boarders: A Retrospective Analysis.",
+    "comment": "การเฝ้าระวังผู้ป่วยที่ต้องนอนรอใน ER เพื่อป้องกันอาการแย่ลง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41859510/"
+  },
+  {
+    "date": "20 Mar",
+    "title": "Extremity hemorrhage control in urban warfare: A retrospective analysis of the Swords of Iron War.",
+    "comment": "เทคนิคการควบคุมเลือดออกที่ปลายแขนขาในสถานการณ์สงคราม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41859429/"
+  },
+  {
+    "date": "20 Mar",
+    "title": "Rising Vibrio vulnificus Infections in Northern Europe Linked to Environmental Reservoirs Sustaining Clinical Pathogenicity.",
+    "comment": "การระบาดของเชื้อ Vibrio ที่น่ากังวล อาจมีผลต่อผู้ป่วย ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41859419/"
+  },
+  {
+    "date": "20 Mar",
+    "title": "The Frame of Survival for Sepsis: A Practical Systems Framework for Time-Sensitive Critical Illness in Low-Resource Settings.",
+    "comment": "กรอบแนวคิดการจัดการ Sepsis ในพื้นที่ขาดแคลนทรัพยากร",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41859329/"
+  },
+  {
+    "date": "20 Mar",
+    "title": "Gaps and Strategies for Management of Sepsis in Low-Resource Settings: Expert Consensus Statements Using a Delphi Method.",
+    "comment": "กลยุทธ์การจัดการ Sepsis ที่เป็นไปได้ในพื้นที่ขาดแคลนทรัพยากร",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41859328/"
+  },
+  {
+    "date": "20 Mar",
+    "title": "Ten Steps to Improve Sepsis Care in Low-Resource Settings.",
+    "comment": "10 ขั้นตอนสำคัญเพื่อปรับปรุงการดูแลผู้ป่วย Sepsis ในที่ที่ขาดแคลน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41859319/"
+  },
+  {
+    "date": "20 Mar",
+    "title": "FDA-Regulated AI-Enabled Medical Devices With Pediatric Indications.",
+    "comment": "นวัตกรรม AI ทางการแพทย์สำหรับเด็กที่ได้รับการรับรองจาก FDA",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41859549/"
+  },
+  {
     "date": "15 Mar",
     "title": "Post-anaphylaxis observation in the ED: a decade of data challenging the traditional 24-hour rule.",
     "comment": "ท้าทายแนวปฏิบัติเดิมเกี่ยวกับระยะเวลาสังเกตการณ์หลัง Anaphylaxis ใน ER",
@@ -358,65 +418,5 @@
     "title": "Large language models are comparable with commonly used statistical software: A validation of GPT 5.1 for frequentist meta-analysis in orthopaedics.",
     "comment": "LLM อย่าง GPT 5.1 สามารถใช้ทำการวิเคราะห์ Meta-analysis ได้ใกล้เคียงซอฟต์แวร์สถิติทั่วไป",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41810841/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "When the Diaphragm Deceives: Subpulmonic Effusion Flagged by AI and Confirmed by Ultrasound.",
-    "comment": "AI ช่วยตรวจจับภาวะน้ำในช่องเยื่อหุ้มปอดใต้กะบังลมที่อาจซ่อนเร้นได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/418109270/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Orbital tuberculosis mimicking a vascular emergency: A case report of superior ophthalmic vein engorgement.",
-    "comment": "วัณโรคในเบ้าตาที่อาจทำให้เข้าใจผิดว่าเป็นภาวะฉุกเฉินทางหลอดเลือด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41810086/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Progress in Gastroparesis Management: From Pharmacotherapy to Interventional Treatments.",
-    "comment": "ความก้าวหน้าในการจัดการ Gastroparesis ตั้งแต่ยาไปจนถึงการรักษาแบบหัตถการ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41810573/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Calm in the Chaos: A Mixed-Methods Pilot Study Using a Mobile Mindfulness App to Manage Stress and Burnout Among Emergency Department Nurses.",
-    "comment": "นวัตกรรมแอปพลิเคชัน mindfulness ช่วยลดความเครียดและ burnout ในพยาบาล ER ได้จริง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/4180753/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Point of care molecular cancer diagnostics.",
-    "comment": "การตรวจวินิจฉัยมะเร็งแบบ molecular ที่จุดดูแลผู้ป่วย (POC) จะปฏิวัติการดูแลผู้ป่วยมะเร็งใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41811171/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Anti-Xa Levels With Venous Thromboembolism Prophylaxis in Critical Care: A Systematic Review and Meta-Analysis.",
-    "comment": "การติดตามระดับ Anti-Xa เพื่อประเมินประสิทธิภาพของ VTE prophylaxis ในผู้ป่วยวิกฤตมีความสำคัญ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41811030/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Updated European Society for Emergency Medicine Guidelines for acute pain management in emergency departments and prehospital care.",
-    "comment": "แนวทางใหม่ล่าสุดจาก ESEMP สำหรับการจัดการ acute pain ใน ER และ prehospital จำเป็นต้องทราบ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/4180980/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "CAMEL: An ECG Language Model for Forecasting Cardiac Events.",
-    "comment": "AI (ECG Language Model) อาจช่วยพยากรณ์เหตุการณ์หัวใจขาดเลือดใน ER ได้อย่างแม่นยำ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/4180023/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Long-Term Olfactory Dysfunction in COVID-19 Patients: A Systematic Review.",
-    "comment": "อาการ anosmia/hyposmia ในผู้ป่วย COVID-19 อาจยาวนานและส่งผลต่อคุณภาพชีวิต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41809272/"
-  },
-  {
-    "date": "10 Mar",
-    "title": "Deresuscitation Informed by Ultrasound in Patients with Septic Shock Trial: A Pilot Randomized Controlled Study.",
-    "comment": "การใช้ Ultrasound เพื่อนำทางการลดปริมาณสารน้ำในผู้ป่วย Septic Shock อาจช่วยปรับแนวทางการรักษาฉุกเฉินให้แม่นยำขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41804824/"
   }
 ]
