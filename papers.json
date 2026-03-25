@@ -1,5 +1,65 @@
 [
   {
+    "date": "25 Mar",
+    "title": "End-tidal carbon dioxide as a predictor of mortality in trauma patients: A systematic review and meta-analysis.",
+    "comment": "ค่า ETCO2 ที่วัดได้จากผู้ป่วย trauma สามารถใช้เป็นตัวชี้วัดการเสียชีวิตได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41879772/"
+  },
+  {
+    "date": "25 Mar",
+    "title": "Consensus-based criteria for actionable hemorrhage in pediatric trauma: A Delphi study.",
+    "comment": "เกณฑ์ที่ตกลงร่วมกันเพื่อระบุภาวะเลือดออกที่ต้องได้รับการรักษาในผู้ป่วยเด็ก trauma",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41879753/"
+  },
+  {
+    "date": "25 Mar",
+    "title": "Association of levonorgestrel-containing emergency contraceptive pills with breast cancer in premenopausal Latin American women: the PRECAMA study.",
+    "comment": "ยาคุมกำเนิดฉุกเฉินที่มียา levonorgestrel เกี่ยวข้องกับมะเร็งเต้านมในหญิงวัยเจริญพันธุ์หรือไม่?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41879672/"
+  },
+  {
+    "date": "25 Mar",
+    "title": "Machine learning-augmented lateral flow assays for point-of-care infectious disease diagnostics.",
+    "comment": "การใช้ AI ช่วยยกระดับชุดตรวจแบบ Lateral flow เพื่อการวินิจฉัยโรคติดเชื้อ ณ จุดดูแล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41879655/"
+  },
+  {
+    "date": "25 Mar",
+    "title": "High-Sensitivity Cardiac Troponin T-gen6 Assay in Suspected Myocardial Infarction: Diagnostic Accuracy, Cutoffs, and Clinical Implications.",
+    "comment": "การใช้ Troponin T ความไวสูงรุ่นใหม่ในการวินิจฉัย MI: ความแม่นยำ, ค่าตัด, และผลกระทบทางคลินิก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41879583/"
+  },
+  {
+    "date": "25 Mar",
+    "title": "Stress hyperglycemia ratio emerges as a novel independent predictor of acute kidney injury among critically ill patients with acute heart failure: A retrospective analysis of the MIMIC-IV database.",
+    "comment": "Stress hyperglycemia ratio เป็นตัวบ่งชี้ใหม่ของ AKI ในผู้ป่วยวิกฤต HF ที่น่าสนใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41879485/"
+  },
+  {
+    "date": "25 Mar",
+    "title": "Managing acute stimulant intoxication in ambulatory settings: a protocol-driven case report.",
+    "comment": "แนวทางการจัดการผู้ป่วย acute stimulant intoxication แบบผู้ป่วยนอก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41879470/"
+  },
+  {
+    "date": "25 Mar",
+    "title": "Lowering of Lipoprotein(a) with Olpasiran.",
+    "comment": "Olpasiran ช่วยลด Lipoprotein(a) ได้จริงหรือไม่?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41879443/"
+  },
+  {
+    "date": "25 Mar",
+    "title": "Diphtheria and pertussis outbreaks in the Americas: a scoping review of epidemiology, vaccination trends and control strategies, 2013-2024.",
+    "comment": "ภาพรวมการระบาดและกลยุทธ์ควบคุมโรคคอตีบและไอกรนในทวีปอเมริกา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41878584/"
+  },
+  {
+    "date": "25 Mar",
+    "title": "Endovascular Thrombectomy or Catheter-Directed Thrombolysis for Acute Limb Ischemia: Insights From a Systematic Review and Meta-Analysis.",
+    "comment": "การรักษา Acute Limb Ischemia ด้วย Endovascular Thrombectomy หรือ Catheter-Directed Thrombolysis ตัวไหนดีกว่ากัน?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41877595/"
+  },
+  {
     "date": "20 Mar",
     "title": "Does the Addition of Subcutaneous Basal Insulin Administration Safely Improve Outcomes of Diabetic Ketoacidosis Compared With Intravenous Insulin Infusion Alone?",
     "comment": "เปลี่ยนแนวทางการรักษา DKA ที่อาจลดความเสี่ยงภาวะแทรกซ้อน",
@@ -358,65 +418,5 @@
     "title": "The Evolving Frontline of Antimicrobial Resistance: Adapting Testing and Treatment for Austere and Combat Settings.",
     "comment": "การปรับตัวในการตรวจและการรักษาการติดเชื้อดื้อยาในสถานการณ์ขาดแคลนทรัพยากร",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41816933/"
-  },
-  {
-    "date": "12 Mar",
-    "title": "CRISPR-based diagnostics for infectious diseases: mechanisms, advancements and clinical transformation prospects.",
-    "comment": "การใช้ CRISPR ในการวินิจฉัยโรคติดเชื้อ: กลไก ความก้าวหน้า และโอกาสในการนำไปใช้ทางคลินิก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41816357/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Immersive Virtual Reality Training to Improve Novice Physicians' Emergency Response Skills: A Randomized Controlled Trial.",
-    "comment": "VR Training ช่วยพัฒนาทักษะการตอบสนองในภาวะฉุกเฉินของแพทย์ใหม่ได้อย่างมีนัยสำคัญ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41811271/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Whole-Blood vs Component Therapy in Adult Trauma: An Updated Systematic Review and Meta-Analysis.",
-    "comment": "การให้เลือดทั้งก้อน (Whole Blood) อาจมีข้อดีกว่าการให้ส่วนประกอบของเลือดในการดูแลผู้ป่วยอุบัติเหตุรุนแรง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41811314/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Safety and feasibility of cold-stored uncrossmatched whole blood transfusion in civilian non-trauma patients.",
-    "comment": "การใช้เลือดทั้งก้อนที่เก็บรักษาด้วยความเย็นโดยไม่ต้องจับคู่หมู่เลือดสามารถทำได้และปลอดภัยในผู้ป่วยทั่วไปที่ไม่ได้บาดเจ็บรุนแรง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41811107/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "The Effects of the COVID-19 Pandemic on Orthopaedic Cases in Emergency Department.",
-    "comment": "การระบาดของ COVID-19 ส่งผลกระทบต่อลักษณะของเคสออร์โธปิดิกส์ที่มารับบริการใน ER อย่างไร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41811259/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Predictors, barriers and facilitators of bystander interventions in out of hospital cardiac arrest: a cross-sectional study from the UAE.",
-    "comment": "ปัจจัยที่ส่งผลต่อการเข้าช่วยเหลือผู้ป่วยหัวใจหยุดเต้นนอกโรงพยาบาลโดยพลเมืองทั่วไป",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41810294/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Calm in the Chaos: A Mixed-Methods Pilot Study Using a Mobile Mindfulness App to Manage Stress and Burnout Among Emergency Department Nurses.",
-    "comment": "แอปพลิเคชัน Mindfulness ช่วยลดความเครียดและภาวะหมดไฟในพยาบาล ER ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41810753/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Prolonged Emergency Department Stay, Specialist-visit Delay, and Disposition-decision Delay as System-level Risks for Preventable Sepsis Mortality.",
-    "comment": "การอยู่ ER นานเกินไป การรอพบผู้เชี่ยวชาญล่าช้า และการตัดสินใจจำหน่ายผู้ป่วยล่าช้า เพิ่มความเสี่ยงเสียชีวิตจาก Sepsis ที่ป้องกันได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41810714/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Updated European Society for Emergency Medicine Guidelines for acute pain management in emergency departments and prehospital care.",
-    "comment": "แนวปฏิบัติล่าสุดในการจัดการความปวดเฉียบพลันใน ER และการดูแลก่อนถึงโรงพยาบาล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41810980/"
-  },
-  {
-    "date": "11 Mar",
-    "title": "Large language models are comparable with commonly used statistical software: A validation of GPT 5.1 for frequentist meta-analysis in orthopaedics.",
-    "comment": "LLM อย่าง GPT 5.1 สามารถใช้ทำการวิเคราะห์ Meta-analysis ได้ใกล้เคียงซอฟต์แวร์สถิติทั่วไป",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41810841/"
   }
 ]
