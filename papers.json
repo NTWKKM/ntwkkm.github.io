@@ -1,5 +1,65 @@
 [
   {
+    "date": "6 Apr",
+    "title": "Neurotoxicity Linked to Nitrous Oxide (Galaxy Gas) Recreation: An Overview of Clinical Evidence.",
+    "comment": "งานวิจัยนี้สำคัญมากสำหรับ ER เพราะก๊าซหัวเราะ (N2O) กำลังเป็นที่นิยมในกลุ่มวัยรุ่น และอาจนำไปสู่อาการทางระบบประสาทที่รุนแรง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41936236/"
+  },
+  {
+    "date": "6 Apr",
+    "title": "Does This Child Have a Concussion?: The Rational Clinical Examination Systematic Review.",
+    "comment": "สรุปแนวทางการซักประวัติและตรวจร่างกายเพื่อวินิจฉัยภาวะสมองกระทบกระเทือนในเด็กได้อย่างมีประสิทธิภาพ เป็นประเด็นที่พบบ่อยใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41936197/"
+  },
+  {
+    "date": "6 Apr",
+    "title": "Emergency Care Outside of the Four Walls of the Emergency Department.",
+    "comment": "เปลี่ยนมุมมองการให้บริการ ER ที่ไม่ได้จำกัดแค่ในห้องฉุกเฉิน สะท้อนถึงแนวโน้มการดูแลผู้ป่วยนอกสถานที่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41936189/"
+  },
+  {
+    "date": "6 Apr",
+    "title": "Acute Care Use and Mortality by Tele-Emergency Care Use, Modality, and Clinician Type.",
+    "comment": "ชี้ให้เห็นถึงผลลัพธ์ของการใช้ Tele-Emergency Care ซึ่งเป็นนวัตกรรมใหม่และอาจมีผลต่อการบริหารจัดการทรัพยากร ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41936183/"
+  },
+  {
+    "date": "6 Apr",
+    "title": "Suspected organophosphate delayed neurotoxicity in sheep associated with widespread lobed needlegrass (Stipa leucedopila).",
+    "comment": "แม้จะเป็นงานวิจัยในสัตว์ แต่ก็ให้ข้อมูลเชิงลึกเกี่ยวกับพิษของสารกำจัดศัตรูพืช ซึ่งอาจพบในผู้ป่วย ER ได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41935786/"
+  },
+  {
+    "date": "6 Apr",
+    "title": "Carnitine Palmitoyltransferase 1A Is Crucial for the Metabolic Fitness of Tumors.",
+    "comment": "แม้จะเน้นที่มะเร็ง แต่กลไกการเผาผลาญระดับเซลล์อาจส่งผลต่อความเข้าใจในภาวะวิกฤตที่เกี่ยวกับเมตาบอลิซึมใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41935680/"
+  },
+  {
+    "date": "6 Apr",
+    "title": "Effect of higher currents on defibrillation success in out-of-hospital cardiac arrest: a multicentre cohort analysis.",
+    "comment": "เป็นข้อมูลสำคัญที่อาจเปลี่ยนแปลงแนวทางการปฏิบัติ (practice changing) ในการทำ CPR โดยเฉพาะการใช้กระแสไฟฟ้าช่วยชีวิต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41935267/"
+  },
+  {
+    "date": "6 Apr",
+    "title": "Thrombotic Microangiopathy And Hypertensive Emergency After Cocaine Use: A Case Report.",
+    "comment": "เคสที่แสดงให้เห็นถึงภาวะแทรกซ้อนที่รุนแรงและอันตรายจากการใช้สารเสพติด ซึ่งเป็นประเด็นที่ ER ต้องเจอ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41935222/"
+  },
+  {
+    "date": "6 Apr",
+    "title": "Massive Pulmonary Embolism Presenting as Recurrent Seizures: Successful Thrombolysis and Thrombectomy Guided by Clinical Suspicion.",
+    "comment": "การวินิจฉัย PE ที่ซับซ้อนและแสดงอาการผิดปกติ เป็นประโยชน์ในการตัดสินใจรักษาผู้ป่วย ER ที่มีอาการคล้ายกัน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41934638/"
+  },
+  {
+    "date": "6 Apr",
+    "title": "Generative Artificial Intelligence in Anesthesiology: Current Evidence, Clinical Applications, and the Emerging Role of Small Models.",
+    "comment": "AI กำลังเข้ามามีบทบาทในทางการแพทย์อย่างมาก งานวิจัยนี้แสดงให้เห็นถึงการประยุกต์ใช้ในวิสัญญีวิทยา ซึ่งอาจส่งผลต่อ ER ในอนาคต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41934575/"
+  },
+  {
     "date": "5 Apr",
     "title": "Lung Ultrasound for Acute Respiratory Distress Syndrome Diagnosis: A Systematic Review and Meta-analysis.",
     "comment": "การใช้ Lung Ultrasound (LUS) เป็นเครื่องมือสำคัญในการวินิจฉัย ARDS ที่รวดเร็วและแม่นยำ",
@@ -358,65 +418,5 @@
     "title": "Echocardiographic Guidance for Percutaneous Left Atrial Appendage Occlusion: A Systematic Review of Outcomes in High-Risk Populations Including Chronic Liver Disease and Prior Gastrointestinal Bleeding.",
     "comment": "การใช้ Echocardiography ช่วยนำทางการปิด Left Atrial Appendage แบบ Percutaneous ในผู้ป่วยกลุ่มเสี่ยงสูง",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41827954/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "The Xkr protein family-From apoptosis executors to diverse physiological functions regulators.",
-    "comment": "การเข้าใจบทบาทของ Xkr protein family อาจนำไปสู่การรักษาโรคต่างๆ ที่เกี่ยวข้องกับการตายของเซลล์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41829132/"
-  },
-  {
-    "date": "13 Mar",
-    "title": "Diagnosing Urinary Tract Infection in Young Febrile Children in the Emergency Department.",
-    "comment": "การวินิจฉัย UTI ในเด็กเล็กเป็นเรื่องท้าทาย งานวิจัยนี้เสนอแนวทางที่อาจช่วยให้ ER แพทย์วินิจฉัยได้แม่นยำขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41823964/"
-  },
-  {
-    "date": "13 Mar",
-    "title": "Hypertensive emergency department patients frequently have no existing hypertension diagnosis or antihypertensive medications.",
-    "comment": "ผู้ป่วย Hypertensive emergency ที่ ER หลายรายไม่เคยได้รับการวินิจฉัย HT หรือไม่ได้รับยารักษามาก่อน ชี้ให้เห็นความสำคัญของการประเมินอย่างละเอียด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41823380/"
-  },
-  {
-    "date": "13 Mar",
-    "title": "Temporal Trends of Emergency Department Acute Ischemic Stroke Care in a Community Without an Academic Medical Center.",
-    "comment": "ชี้ให้เห็นถึงการดูแลผู้ป่วย Stroke ใน ER ต่างๆ และการพัฒนาการรักษาในชุมชนที่ไม่มีศูนย์การแพทย์วิชาการ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41822963/"
-  },
-  {
-    "date": "13 Mar",
-    "title": "Targeting Myeloid-Derived Suppressor Cells in Sepsis: Pathophysiology, Duality, and Therapeutic Frontiers.",
-    "comment": "มุมมองใหม่ในการรักษา Sepsis โดยพุ่งเป้าไปที่ MDSCs ซึ่งอาจเป็นแนวทางการรักษาที่พลิกวงการ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41823710/"
-  },
-  {
-    "date": "13 Mar",
-    "title": "Heat stress and cardiovascular health: a multi-faceted and under-recognized emergency.",
-    "comment": "เตือนถึงภาวะ Heat stress ที่ส่งผลต่อระบบหัวใจและหลอดเลือด ซึ่งเป็นภาวะฉุกเฉินที่ยังถูกมองข้าม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41823479/"
-  },
-  {
-    "date": "13 Mar",
-    "title": "Massive Pulmonary Embolism in Early Pregnancy Presenting as Syncope and Seizure: A Diagnostic Pitfall.",
-    "comment": "แสดงความท้าทายในการวินิจฉัย PE ในหญิงตั้งครรภ์ที่อาจซับซ้อนกว่าปกติ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41822619/"
-  },
-  {
-    "date": "13 Mar",
-    "title": "The Urgent Need for Cardiometabolic Health Training: A Call to Action.",
-    "comment": "เน้นย้ำความจำเป็นเร่งด่วนในการฝึกอบรมด้านสุขภาพหัวใจและหลอดเลือดเมตาบอลิซึมสำหรับบุคลากรทางการแพทย์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41822609/"
-  },
-  {
-    "date": "13 Mar",
-    "title": "Survival After Massive Potassium Cyanide Ingestion Without Antidote in a Tertiary Care Setting.",
-    "comment": "รายงานกรณีที่น่าทึ่งของการรอดชีวิตหลังได้รับพิษไซยาไนด์ปริมาณมากโดยไม่ได้รับยาแก้พิษ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41822598/"
-  },
-  {
-    "date": "13 Mar",
-    "title": "Pan-Immune-Inflammation Value for Mortality Risk Stratification in Critically Ill Patients With Acute Ischemic Stroke: A Cohort Study Based on the MIMIC-IV Database.",
-    "comment": "นำเสนอตัวบ่งชี้ใหม่ (PIV) ที่อาจช่วยประเมินความเสี่ยงเสียชีวิตในผู้ป่วย Stroke รุนแรง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41823048/"
   }
 ]
