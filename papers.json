@@ -1,5 +1,65 @@
 [
   {
+    "date": "7 Apr",
+    "title": "ST-Segment Elevation in Lead aVR and Acute Intracranial Pathologies: Reconsidering the Association",
+    "comment": "เป็นจุดเปลี่ยนในการตีความ ECG ในผู้ป่วยที่มีอาการทางระบบประสาทเฉียบพลัน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41945083/"
+  },
+  {
+    "date": "7 Apr",
+    "title": "Improving Emergency Department Efficiency with Large Language Model-Guided Orthopaedic Triage for Proximal Humerus Fractures",
+    "comment": "AI ช่วยคัดกรองผู้ป่วยกระดูกหัก proximal humerus ใน ER ได้อย่างมีประสิทธิภาพ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41944613/"
+  },
+  {
+    "date": "7 Apr",
+    "title": "Shock and Trauma Risk Index Nomogram (STRIN): A bedside physiology-based tool for early-high-acuity care triage in major trauma",
+    "comment": "เครื่องมือประเมินความรุนแรงผู้ป่วย trauma ที่ bedside ช่วยคัดแยกผู้ป่วยวิกฤตได้เร็ว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41945030/"
+  },
+  {
+    "date": "7 Apr",
+    "title": "Federated Meta-Analysis of HEART Score Performance for Emergency Department Chest Pain",
+    "comment": "การศึกษา meta-analysis แบบ Federated เพื่อประเมินประสิทธิภาพ HEART score ในผู้ป่วยเจ็บหน้าอก ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41943236/"
+  },
+  {
+    "date": "7 Apr",
+    "title": "Acute Suspected Stroke Clinical Pathway Use in Tasmanian Emergency Departments: A Retrospective Study",
+    "comment": "ประสิทธิภาพของ clinical pathway สำหรับผู้ป่วย stroke ที่สงสัยใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41944244/"
+  },
+  {
+    "date": "7 Apr",
+    "title": "The Physiology, Pathophysiology, and Clinical Implications of Fluid Resuscitation in Critically Ill Patients",
+    "comment": "ความรู้เชิงลึกเกี่ยวกับ resuscitation fluid ในผู้ป่วยวิกฤต อาจปรับแนวทางการรักษาได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41943762/"
+  },
+  {
+    "date": "7 Apr",
+    "title": "AI-Assisted Dialysis Decision-Making: Assessing Agreement Between ChatGPT and Nephrologist in Initial Dialysis Indication and Prescription in Emergency and ICU Settings",
+    "comment": "AI (ChatGPT) ช่วยตัดสินใจเรื่อง dialysis ใน ER/ICU ได้แม่นยำเพียงใดเมื่อเทียบกับแพทย์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41943432/"
+  },
+  {
+    "date": "7 Apr",
+    "title": "Telesurgery: from feasibility to reality: emerging technical and governance challenges",
+    "comment": "เทคโนโลยี telesurgery ก้าวหน้าไปแค่ไหน มีความท้าทายอะไรบ้าง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41945101/"
+  },
+  {
+    "date": "7 Apr",
+    "title": "Can video reduce conflict between dispatcher and caller during emergency medical calls? A randomized substudy of the CAM-VISION trial",
+    "comment": "การใช้ VDO ลดความขัดแย้งระหว่าง dispatcher และ caller ในสายฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41944280/"
+  },
+  {
+    "date": "7 Apr",
+    "title": "Infection prevention and control measures for Ebola disease and their outcomes from the perspective of health care workers: a mixed-methods study",
+    "comment": "มาตรการ IPC สำหรับ Ebola จากมุมมองบุคลากรทางการแพทย์ อาจนำมาปรับใช้กับโรคระบาดอื่น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41942932/"
+  },
+  {
     "date": "6 Apr",
     "title": "Neurotoxicity Linked to Nitrous Oxide (Galaxy Gas) Recreation: An Overview of Clinical Evidence.",
     "comment": "งานวิจัยนี้สำคัญมากสำหรับ ER เพราะก๊าซหัวเราะ (N2O) กำลังเป็นที่นิยมในกลุ่มวัยรุ่น และอาจนำไปสู่อาการทางระบบประสาทที่รุนแรง",
@@ -358,65 +418,5 @@
     "title": "Comment on: \"Lung Ultrasound for Diagnosis of Acute Respiratory Failure in Critically Ill Patients: A Systematic Review and Meta-Analysis\".",
     "comment": "บทวิจารณ์นี้เน้นย้ำถึงความสำคัญของ Lung Ultrasound ในการวินิจฉัยภาวะหายใจล้มเหลวเฉียบพลันในผู้ป่วยวิกฤต",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41830066/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Procalcitonin as a Severity-Based Risk Stratification Marker in Pediatric Infectious Diarrhea: A Prospective Study from the Emergency Department.",
-    "comment": "Procalcitonin สามารถใช้เป็นเครื่องมือประเมินความรุนแรงและความเสี่ยงในเด็กที่มีอาการท้องเสียจากการติดเชื้อใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41827938/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "NETosis Markers (ssDNA, dsDNA) as Predictors of Mortality and Hospitalization After Endovascular Aortic Repair.",
-    "comment": "NETosis markers อาจเป็นตัวบ่งชี้ความเสี่ยงต่อการเสียชีวิตและการเข้ารับการรักษาในโรงพยาบาลหลังการผ่าตัดซ่อมหลอดเลือดแดงใหญ่เอออร์ตาด้วยสายสวน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41828643/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Urinary antigen-negative Legionella pneumonia in critically ill patients: value of systematic molecular testing for optimal antimicrobial therapy.",
-    "comment": "การใช้ Molecular testing ช่วยให้วินิจฉัย Legionella pneumonia ในผู้ป่วยวิกฤตได้แม่นยำขึ้น นำไปสู่การรักษาที่เหมาะสม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41829321/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Telemedicine as a Gateway to Early-Phase Oncology Trials: Lessons from 14,000 Patients and Future Directions for Global Access and Equity.",
-    "comment": "Telemedicine เปิดประตูสู่การเข้าถึงการทดลองระยะต้นของมะเร็ง เพิ่มโอกาสการรักษาสำหรับผู้ป่วยจำนวนมาก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41829429/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Artificial Intelligence: A Game Changer in the Diagnosis, Treatment, and Management of Chronic Heart Failure.",
-    "comment": "AI กำลังปฏิวัติการวินิจฉัย การรักษา และการจัดการภาวะหัวใจล้มเหลวเรื้อรัง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41829165/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Microneedles for the treatment of migraine and orofacial pain: A narrative review.",
-    "comment": "Microneedles เป็นนวัตกรรมใหม่ที่มีศักยภาพในการรักษาอาการปวดไมเกรนและอาการปวดบริเวณใบหน้า",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41829072/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Comparative Efficacy and Safety of Zero-Fluoroscopy and Standard Transcatheter VSD Closure: A Systematic Review and Meta-Analysis.",
-    "comment": "การปิด VSD ด้วยเทคนิค Zero-Fluoroscopy อาจเป็นทางเลือกที่ปลอดภัยและมีประสิทธิภาพเทียบเท่าวิธีมาตรฐาน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41829082/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Insights into Accelerated MRI Protocols for Pediatric Brain Assessment in Emergency Cases.",
-    "comment": "MRI ที่รวดเร็วสำหรับเด็กในห้องฉุกเฉิน ช่วยให้การประเมินภาวะทางสมองทำได้เร็วขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41827957/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Free Thyroxine as a Predictor of Mortality in Critically Ill Septic Patients-A Retrospective Study.",
-    "comment": "Free Thyroxine อาจเป็นตัวชี้วัดการเสียชีวิตในผู้ป่วยวิกฤตที่มีภาวะติดเชื้อในกระแสเลือด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41827956/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Echocardiographic Guidance for Percutaneous Left Atrial Appendage Occlusion: A Systematic Review of Outcomes in High-Risk Populations Including Chronic Liver Disease and Prior Gastrointestinal Bleeding.",
-    "comment": "การใช้ Echocardiography ช่วยนำทางการปิด Left Atrial Appendage แบบ Percutaneous ในผู้ป่วยกลุ่มเสี่ยงสูง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41827954/"
   }
 ]
