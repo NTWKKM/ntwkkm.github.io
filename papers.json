@@ -1,5 +1,65 @@
 [
   {
+    "date": "9 Apr",
+    "title": "Performance of Deep Learning Reconstruction for Detection of Early Ischemic Changes in NCCT: Comparison with ASIR-V in Acute Stroke.",
+    "comment": "AI ช่วยตรวจจับ stroke ระยะแรกได้แม่นยำขึ้นบน CT scan",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41954793/"
+  },
+  {
+    "date": "9 Apr",
+    "title": "Advances in Hyperkalemia Management and the Emerging Role of Sodium Zirconium Cyclosilicate.",
+    "comment": "แนวทางการรักษาภาวะโพแทสเซียมสูงที่น่าสนใจสำหรับ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41953780/"
+  },
+  {
+    "date": "9 Apr",
+    "title": "Restrictive Versus Liberal Fluid Strategy for Initial Resuscitation in Sepsis and Septic Shock: A Systematic Review and Meta Analysis.",
+    "comment": "การให้สารน้ำในผู้ป่วย sepsis/septic shock ยังคงเป็นประเด็นถกเถียง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41953594/"
+  },
+  {
+    "date": "9 Apr",
+    "title": "Understanding Cervical Spine Injury Imaging Decision-Making in Pediatric Trauma Patients.",
+    "comment": "ช่วยในการตัดสินใจส่งตรวจภาพรังสีในเด็กบาดเจ็บกระดูกคอ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41953504/"
+  },
+  {
+    "date": "9 Apr",
+    "title": "Impact of a Cellular Host-Response Sepsis Diagnostic on Clinical Decision Making in the Emergency Department: A Vignette-Based Study.",
+    "comment": "Diagnostic tool ใหม่สำหรับ Sepsis อาจช่วยเปลี่ยนการตัดสินใจของแพทย์ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41952794/"
+  },
+  {
+    "date": "9 Apr",
+    "title": "A Simulation-Based Approach to Severe Bronchospasm Complicated by Septic Shock.",
+    "comment": "การจัดการภาวะหลอดลมตีบร่วมกับ septic shock ที่ซับซ้อน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41952910/"
+  },
+  {
+    "date": "9 Apr",
+    "title": "Disaster preparedness knowledge, attitude, and practice among Emergency Department staff in Ethiopian Hospitals.",
+    "comment": "ความพร้อมของ ER ในสถานการณ์ภัยพิบัติ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41952791/"
+  },
+  {
+    "date": "9 Apr",
+    "title": "The effectiveness of selective neutrophil elastase inhibitors (sivelestat) in acute lung injury or acute respiratory distress syndrome: A systematic review and meta-analysis of randomized controlled trials.",
+    "comment": "ยาตัวใหม่สำหรับ ARDS ที่น่าจับตามอง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41953496/"
+  },
+  {
+    "date": "9 Apr",
+    "title": "Emergency Department Visits in the United States for Paroxysmal Supraventricular Tachycardia Are Increasing Among Adults: An Analysis from the Nationwide Emergency Department Sample.",
+    "comment": "สัญญาณเตือนการเพิ่มขึ้นของ PVST ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41953168/"
+  },
+  {
+    "date": "9 Apr",
+    "title": "Long-Term Neurological Outcome of Out-of-Hospital Cardiac Arrest Survivors and Associated Factors: Results of the DESAC Study, a French Multicentric Prospective Cohort.",
+    "comment": "ผลลัพธ์ทางระบบประสาทในระยะยาวของผู้รอดชีวิตจากภาวะหัวใจหยุดเต้นนอก รพ.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41953986/"
+  },
+  {
     "date": "7 Apr",
     "title": "ST-Segment Elevation in Lead aVR and Acute Intracranial Pathologies: Reconsidering the Association",
     "comment": "เป็นจุดเปลี่ยนในการตีความ ECG ในผู้ป่วยที่มีอาการทางระบบประสาทเฉียบพลัน",
@@ -358,65 +418,5 @@
     "title": "Epidemiological and clinical characteristics of drug-related poisoning presentations to the emergency department: a retrospective analysis.",
     "comment": "ลักษณะทางระบาดวิทยาและคลินิกของผู้ป่วยพิษจากยาที่มา ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41832431/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "Relationship between acute nutritional goal achievement and outcomes in critically ill pediatric patients: A single-center retrospective cohort study.",
-    "comment": "ความสำคัญของการบรรลุเป้าหมายด้านโภชนาการในผู้ป่วยเด็กวิกฤต ที่ส่งผลต่อผลลัพธ์การรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41832767/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "The impact of optimizing the triage process for cardiac patients presenting to the cardiac emergency department on quality of care indicators: a quasi-experimental study in Southern Iran.",
-    "comment": "การปรับปรุงกระบวนการคัดแยกผู้ป่วยโรคหัวใจใน ER ส่งผลต่อคุณภาพการดูแลอย่างไร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41832459/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Urinary antigen-negative Legionella pneumonia in critically ill patients: value of systematic molecular testing for optimal antimicrobial therapy.",
-    "comment": "การตรวจหาเชื้อ Legionella ด้วยวิธี molecular testing ในผู้ป่วยวิกฤตที่ผลตรวจ antigen เป็นลบ อาจช่วยให้การรักษาด้วยยาปฏิชีวนะมีประสิทธิภาพมากขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41829994/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Artificial Intelligence: A Game Changer in the Diagnosis, Treatment, and Management of Chronic Heart Failure.",
-    "comment": "AI กำลังเข้ามามีบทบาทสำคัญในการวินิจฉัย รักษา และจัดการภาวะหัวใจล้มเหลวเรื้อรัง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41830165/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Telemedicine as a Gateway to Early-Phase Oncology Trials: Lessons from 14,000 Patients and Future Directions for Global Access and Equity.",
-    "comment": "Telemedicine เป็นประตูสู่การทดลองทางคลินิกระยะแรกในผู้ป่วยมะเร็ง ช่วยเพิ่มการเข้าถึงและความเท่าเทียมทั่วโลก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41830429/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Preemptive EBV-specific T-cell therapy: An emerging prophylactic approach to PTLD reduction and survival benefit in SOT recipients.",
-    "comment": "การให้ T-cell therapy แบบป้องกันก่อน มีแนวโน้มช่วยลด PTLD และเพิ่มการรอดชีวิตในผู้ป่วยปลูกถ่ายอวัยวะ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41830377/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "The effect of lidocaine spray use on patients comfort in undergoing urinary catheterization: A prospective, observational, Randomized Control Trial.",
-    "comment": "การใช้ Lidocaine spray ช่วยเพิ่มความสบายให้ผู้ป่วยระหว่างการใส่สายสวนปัสสาวะ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41830347/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Comparative Efficacy and Safety of Zero-Fluoroscopy and Standard Transcatheter VSD Closure: A Systematic Review and Meta-Analysis.",
-    "comment": "การปิดรูรั่วผนังกั้นหัวใจห้องล่างด้วยสายสวนโดยไม่ใช้ Fluoroscopy มีประสิทธิภาพและความปลอดภัยเทียบเท่าวิธีมาตรฐาน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41830082/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Microneedles for the treatment of migraine and orofacial pain: A narrative review.",
-    "comment": "Microneedles เป็นทางเลือกใหม่ที่น่าสนใจในการรักษาอาการปวดไมเกรนและอาการปวดบริเวณใบหน้า",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41830072/"
-  },
-  {
-    "date": "14 Mar",
-    "title": "Comment on: \"Lung Ultrasound for Diagnosis of Acute Respiratory Failure in Critically Ill Patients: A Systematic Review and Meta-Analysis\".",
-    "comment": "บทวิจารณ์นี้เน้นย้ำถึงความสำคัญของ Lung Ultrasound ในการวินิจฉัยภาวะหายใจล้มเหลวเฉียบพลันในผู้ป่วยวิกฤต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41830066/"
   }
 ]
