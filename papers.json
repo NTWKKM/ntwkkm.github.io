@@ -1,5 +1,65 @@
 [
   {
+    "date": "10 Apr",
+    "title": "Early warning scores and peripheral perfusion index: A Comparative assessment for 30-day mortality in critical patients in emergency departments.",
+    "comment": "ใช้ EWS ร่วมกับ PPI เพื่อประเมินการตายใน 30 วันในผู้ป่วยวิกฤต ER ได้ดีขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41961451/"
+  },
+  {
+    "date": "10 Apr",
+    "title": "CT-based Node-RADS for metastatic lymph node detection in colon cancer and influence of microsatellite instability.",
+    "comment": "การใช้ CT-based Node-RADS อาจช่วยในการตรวจจับต่อมน้ำเหลืองที่แพร่กระจายในมะเร็งลำไส้ใหญ่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41961314/"
+  },
+  {
+    "date": "10 Apr",
+    "title": "Plasma neurofilament light chain and glial fibrillary acidic protein in the differential diagnosis of acute vertigo in the emergency department.",
+    "comment": "สารบ่งชี้ในเลือด (NfL, GFAP) อาจช่วยในการวินิจฉัยแยกโรคของอาการเวียนศีรษะเฉียบพลันใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41961296/"
+  },
+  {
+    "date": "10 Apr",
+    "title": "Disproportionate Use of Security Response Codes on Black Patients in a Quaternary Academic Center.",
+    "comment": "การใช้ Security Response Codes มีความไม่เท่าเทียมกันในผู้ป่วยผิวดำ ซึ่งเป็นประเด็นสำคัญด้านความยุติธรรมในการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41961085/"
+  },
+  {
+    "date": "10 Apr",
+    "title": "Liberal Versus Restrictive Fluid Therapy in the Early Management of Sepsis and Septic Shock: A Systematic Review.",
+    "comment": "ทบทวนแนวทางการให้สารน้ำในการจัดการภาวะ Sepsis/Septic Shock เพื่อหาแนวทางที่เหมาะสมที่สุด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41959961/"
+  },
+  {
+    "date": "10 Apr",
+    "title": "Bedside Renal, Inferior Vena Cava, Pulmonary, Pleural, Epicardial, Diaphragm (BRIPPED) Scan for Evaluating Patients Presenting With Dyspnea in the Emergency Department.",
+    "comment": "bedside ultrasound (BRIPPED) เป็นเครื่องมือที่มีประโยชน์ในการประเมินผู้ป่วยที่มาด้วยอาการหอบเหนื่อยใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41959959/"
+  },
+  {
+    "date": "10 Apr",
+    "title": "Evolving treatment strategies for HER2-altered non-small-cell lung cancer: the rise of TKIs and ADCs.",
+    "comment": "ความก้าวหน้าของยา TKIs และ ADCs ในการรักษามะเร็งปอดชนิด NSCLC ที่มี HER2 alteration",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41959903/"
+  },
+  {
+    "date": "10 Apr",
+    "title": "Geospatial analysis of COVID-19 vaccine access in Kenya: the interplay of travel time, perceived availability, and vaccine uptake.",
+    "comment": "ปัจจัยด้านภูมิศาสตร์และเวลาเดินทางมีผลต่อการเข้าถึงวัคซีน COVID-19 ในเคนยา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41960709/"
+  },
+  {
+    "date": "10 Apr",
+    "title": "Re: How to Do an Emergency Robotic Hartmann's Procedure in a Morbidly Obese Patient.",
+    "comment": "เทคนิคการผ่าตัด Hartmann's แบบหุ่นยนต์ในผู้ป่วยอ้วนมากที่มีภาวะฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41960743/"
+  },
+  {
+    "date": "10 Apr",
+    "title": "Association of baseline serum vitamin C levels with systemic inflammatory response syndrome in critically ill patients ‒ An observational study.",
+    "comment": "ระดับวิตามินซีในเลือดอาจมีความสัมพันธ์กับ SIRS ในผู้ป่วยวิกฤต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41960825/"
+  },
+  {
     "date": "9 Apr",
     "title": "Performance of Deep Learning Reconstruction for Detection of Early Ischemic Changes in NCCT: Comparison with ASIR-V in Acute Stroke.",
     "comment": "AI ช่วยตรวจจับ stroke ระยะแรกได้แม่นยำขึ้นบน CT scan",
@@ -358,65 +418,5 @@
     "title": "FDA-Regulated AI-Enabled Medical Devices With Pediatric Indications.",
     "comment": "นวัตกรรม AI ทางการแพทย์สำหรับเด็กที่ได้รับการรับรองจาก FDA",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41859549/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "Post-anaphylaxis observation in the ED: a decade of data challenging the traditional 24-hour rule.",
-    "comment": "ท้าทายแนวปฏิบัติเดิมเกี่ยวกับระยะเวลาสังเกตการณ์หลัง Anaphylaxis ใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41832433/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "Validity and clinical utility of brain injury biomarkers in the assessment and risk stratification of mild traumatic brain injury in emergency departments.",
-    "comment": "การประเมินความสำคัญของ Biomarker ในการประเมินและจัดลำดับความเสี่ยงของภาวะสมองกระทบกระเทือนเล็กน้อย (mTBI) ใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41832802/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "Can AI safely choose antibiotics over the knife? A STROBE-guided benchmark of GPT-4, GPT-5, and Gemini for non-operative acute appendicitis management.",
-    "comment": "การใช้ AI ในการตัดสินใจรักษา Appendicitis แบบไม่ผ่าตัด เปรียบเทียบประสิทธิภาพของโมเดล AI ต่างๆ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41831386/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "Clinical Applications and Safety Analysis of Nefopam and Flupirtine as Examples of Non-Opioid Analgesics.",
-    "comment": "ภาพรวมการใช้และข้อควรระวังของยาแก้ปวดกลุ่ม Non-Opioid ที่น่าจะเป็นทางเลือกใหม่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41832716/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "Glucagon-like peptide-1 receptor agonists and the risk of surgical intervention in idiopathic intracranial hypertension: A propensity-matched cohort study.",
-    "comment": "ความสัมพันธ์ของยา GLP-1 agonist กับความเสี่ยงการผ่าตัดในภาวะความดันในกะโหลกศีรษะสูง (IIH)",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41832796/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "The JN.1 Variant: Emergence and Global Spread.",
-    "comment": "อัปเดตข้อมูลเกี่ยวกับสายพันธุ์ JN.1 ของ SARS-CoV-2 ที่กำลังระบาด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41832695/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "Artificial intelligence in the diagnosis and prognosis of ocular trauma: a systematic review.",
-    "comment": "บทบาทของ AI ในการวินิจฉัยและพยากรณ์โรคของภาวะบาดเจ็บทางตา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41832461/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "Management Patterns and Outcomes of Children With Traumatic Occult Pneumothorax.",
-    "comment": "แนวทางการจัดการและผลลัพธ์ในเด็กที่มีภาวะปอดรั่วแบบซ่อนเร้นจากการบาดเจ็บ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41832880/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "Cardiogenic Shock Revisited: From Hemodynamic-Centric to Multimodal Precision Care.",
-    "comment": "การปรับแนวทางการดูแลผู้ป่วย Cardiogenic Shock เน้นการดูแลแบบจำเพาะบุคคล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41831808/"
-  },
-  {
-    "date": "15 Mar",
-    "title": "Epidemiological and clinical characteristics of drug-related poisoning presentations to the emergency department: a retrospective analysis.",
-    "comment": "ลักษณะทางระบาดวิทยาและคลินิกของผู้ป่วยพิษจากยาที่มา ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41832431/"
   }
 ]
