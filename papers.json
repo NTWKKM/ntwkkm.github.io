@@ -1,5 +1,119 @@
 [
   {
+    "date": "12 Apr",
+    "title": "🔹 Gaps in knowledge, receipt, and acceptance of measles, mumps, rubella vaccines in a National Sample of emergency department patients.",
+    "comment": "รพ. ER ยังมีความรู้และเจตนาการรับวัคซีน MMR ในผู้ป่วย ED ไม่เต็มที่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41966547/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Shifts in pediatric orthopedic injury patterns in the emergency department before, during, and after the COVID-19 pandemic.",
+    "comment": "โควิด-19 มีผลต่อรูปแบบการบาดเจ็บกระดูกในเด็กที่ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41966546/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Syncope, ST-Elevation Myocardial Infarction (STEMI), or Trauma? Blunt Coronary Bypass Graft Rupture in the Emergency Department.",
+    "comment": "เหตุการณ์ STEMI ที่เลียนแบบการบาดเจ็บ อาจเกิดจาก Blunt Coronary Bypass Graft Rupture",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41965963/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Peripheral venous oxygen saturation as an auxiliary indicator for improving the prediction of early in-hospital mortality in the emergency department.",
+    "comment": "การวัด PvO2 ใน ED อาจช่วยทำนายอัตราการเสียชีวิตใน รพ. ระยะแรกได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41965510/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Time to intubate with an innovative intubation device: a dual-center randomized crossover non-inferiority simulation study.",
+    "comment": "อุปกรณ์ช่วยใส่ท่อช่วยหายใจแบบใหม่ อาจมีประสิทธิภาพไม่ด้อยกว่าแบบเดิม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41965509/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Video consultation in the prehospital stroke chain of care for suspected large vessel occlusion: a mixed-methods feasibility study.",
+    "comment": "Teleconsultation จาก ER ช่วยประเมิน LVO ในการดูแล Stroke ก่อนถึง รพ. ได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41965508/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Authorized surrogate presence and its association with early in-hospital delays and outcomes in acute ischemic stroke.",
+    "comment": "การมีผู้แทนที่ได้รับอนุญาต อยู่ด้วย ส่งผลต่อความล่าช้าและการรักษา Stroke เฉียบพลัน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41965505/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Acute fipronil toxicity in humans following intentional ingestion: a case report with favorable outcome from a resource-limited setting.",
+    "comment": "รายงานผู้ป่วยพิษ Fipronil ที่ได้รับยาเกินขนาด แต่ผลการรักษาน่าพอใจในบริบทที่ทรัพยากรจำกัด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41965502/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 \"Hit or Miss\": Rural Veterans' Experiences Receiving Community Mental Health Care.",
+    "comment": "ประสบการณ์การดูแลสุขภาพจิตในชุมชนของทหารผ่านศึกในชนบท ยังมีปัญหาความไม่แน่นอน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41964331/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Cardiovascular-kidney-metabolic syndrome and atrial fibrillation: Insights from 2 real-world prospective registries across Europe and East Asia.",
+    "comment": "CKM syndrome มีความสัมพันธ์กับ AF ที่พบได้จริงในประชากร",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41966525/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Early resuscitation priorities in two-provider EMS crews: an interpretive commentary.",
+    "comment": "ลำดับความสำคัญของการช่วยชีวิตเบื้องต้นโดยทีม EMS 2 คน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41963814/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Multiphase terminal environmental disinfection targeting Acinetobacter baumannii sustains reduction in multidrug-resistant organism healthcare-associated infections in an ICU.",
+    "comment": "การทำความสะอาดสิ่งแวดล้อมแบบหลายขั้นตอนช่วยลดการติดเชื้อดื้อยาใน ICU ได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41965858/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Non-surgical casting versus surgical reduction for children with severely displaced distal radial fractures (the CRAFFT Study): a multicentre, randomised, controlled non-inferiority trial and economic evaluation.",
+    "comment": "การรักษาด้วยเฝือก vs ผ่าตัด ในเด็กกระดูกปลายแขนร้าวรุนแรง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41965242/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Mpox virus in human breastmilk and tecovirimat pharmacokinetics: implications for postnatal transmission.",
+    "comment": "การตรวจพบเชื้อ Mpox ในนมแม่ และผลต่อการส่งต่อทางพันธุกรรม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41965240/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Burnout among emergency department healthcare workers in Palestine and Türkiye: a cross-sectional comparative study.",
+    "comment": "ภาวะหมดไฟในบุคลากรทางการแพทย์ ED ที่ปาเลสไตน์และตุรกี",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41965539/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Impact of early cardiac arrest recognition by emergency medical service dispatchers on out-of-hospital cardiac arrest: a retrospective population-based observational study.",
+    "comment": "การรับรู้อาการหัวใจหยุดเต้นเร็วโดย Dispatcher EMS ส่งผลต่อผลลัพธ์ OHCA",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41965529/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 PHTLS training increases knowledge but paradoxically decreases self-efficacy in emergency healthcare professionals: a cross-sectional study.",
+    "comment": "การอบรม PHTLS เพิ่มความรู้ แต่กลับลดความมั่นใจในตนเองของบุคลากร ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41963973/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 The effect of tightened compulsory admission laws on length of stay in emergency department for suicide attempters.",
+    "comment": "กฎหมายที่เข้มงวดขึ้นส่งผลต่อระยะเวลาการรักษาผู้ป่วยพยายามฆ่าตัวตายใน ED",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41963954/"
+  },
+  {
+    "date": "12 Apr",
+    "title": "🔹 Efficacy analysis of early incision and drainage on necrotizing fasciitis, a retrospective study.",
+    "comment": "การกรีดระบายหนองเร็วมีผลต่อ Necrotizing fasciitis",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41965554/"
+  },
+  {
     "date": "10 Apr",
     "title": "Early warning scores and peripheral perfusion index: A Comparative assessment for 30-day mortality in critical patients in emergency departments.",
     "comment": "ใช้ EWS ร่วมกับ PPI เพื่อประเมินการตายใน 30 วันในผู้ป่วยวิกฤต ER ได้ดีขึ้น",
@@ -304,119 +418,5 @@
     "title": "End-tidal carbon dioxide as a predictor of mortality in trauma patients: A systematic review and meta-analysis.",
     "comment": "ค่า ETCO2 ที่วัดได้จากผู้ป่วย trauma สามารถใช้เป็นตัวชี้วัดการเสียชีวิตได้",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41879772/"
-  },
-  {
-    "date": "25 Mar",
-    "title": "Consensus-based criteria for actionable hemorrhage in pediatric trauma: A Delphi study.",
-    "comment": "เกณฑ์ที่ตกลงร่วมกันเพื่อระบุภาวะเลือดออกที่ต้องได้รับการรักษาในผู้ป่วยเด็ก trauma",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41879753/"
-  },
-  {
-    "date": "25 Mar",
-    "title": "Association of levonorgestrel-containing emergency contraceptive pills with breast cancer in premenopausal Latin American women: the PRECAMA study.",
-    "comment": "ยาคุมกำเนิดฉุกเฉินที่มียา levonorgestrel เกี่ยวข้องกับมะเร็งเต้านมในหญิงวัยเจริญพันธุ์หรือไม่?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41879672/"
-  },
-  {
-    "date": "25 Mar",
-    "title": "Machine learning-augmented lateral flow assays for point-of-care infectious disease diagnostics.",
-    "comment": "การใช้ AI ช่วยยกระดับชุดตรวจแบบ Lateral flow เพื่อการวินิจฉัยโรคติดเชื้อ ณ จุดดูแล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41879655/"
-  },
-  {
-    "date": "25 Mar",
-    "title": "High-Sensitivity Cardiac Troponin T-gen6 Assay in Suspected Myocardial Infarction: Diagnostic Accuracy, Cutoffs, and Clinical Implications.",
-    "comment": "การใช้ Troponin T ความไวสูงรุ่นใหม่ในการวินิจฉัย MI: ความแม่นยำ, ค่าตัด, และผลกระทบทางคลินิก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41879583/"
-  },
-  {
-    "date": "25 Mar",
-    "title": "Stress hyperglycemia ratio emerges as a novel independent predictor of acute kidney injury among critically ill patients with acute heart failure: A retrospective analysis of the MIMIC-IV database.",
-    "comment": "Stress hyperglycemia ratio เป็นตัวบ่งชี้ใหม่ของ AKI ในผู้ป่วยวิกฤต HF ที่น่าสนใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41879485/"
-  },
-  {
-    "date": "25 Mar",
-    "title": "Managing acute stimulant intoxication in ambulatory settings: a protocol-driven case report.",
-    "comment": "แนวทางการจัดการผู้ป่วย acute stimulant intoxication แบบผู้ป่วยนอก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41879470/"
-  },
-  {
-    "date": "25 Mar",
-    "title": "Lowering of Lipoprotein(a) with Olpasiran.",
-    "comment": "Olpasiran ช่วยลด Lipoprotein(a) ได้จริงหรือไม่?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41879443/"
-  },
-  {
-    "date": "25 Mar",
-    "title": "Diphtheria and pertussis outbreaks in the Americas: a scoping review of epidemiology, vaccination trends and control strategies, 2013-2024.",
-    "comment": "ภาพรวมการระบาดและกลยุทธ์ควบคุมโรคคอตีบและไอกรนในทวีปอเมริกา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41878584/"
-  },
-  {
-    "date": "25 Mar",
-    "title": "Endovascular Thrombectomy or Catheter-Directed Thrombolysis for Acute Limb Ischemia: Insights From a Systematic Review and Meta-Analysis.",
-    "comment": "การรักษา Acute Limb Ischemia ด้วย Endovascular Thrombectomy หรือ Catheter-Directed Thrombolysis ตัวไหนดีกว่ากัน?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41877595/"
-  },
-  {
-    "date": "20 Mar",
-    "title": "Does the Addition of Subcutaneous Basal Insulin Administration Safely Improve Outcomes of Diabetic Ketoacidosis Compared With Intravenous Insulin Infusion Alone?",
-    "comment": "เปลี่ยนแนวทางการรักษา DKA ที่อาจลดความเสี่ยงภาวะแทรกซ้อน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41859509/"
-  },
-  {
-    "date": "20 Mar",
-    "title": "Extreme Urban Heat and Emergency Department Visits in Older Adults.",
-    "comment": "ชี้ให้เห็นความเสี่ยงที่ซ่อนเร้นของคลื่นความร้อนต่อผู้ป่วย ER ที่สูงอายุ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41859548/"
-  },
-  {
-    "date": "20 Mar",
-    "title": "ACR Appropriateness Criteria® Suspected Physical Abuse-Child: Update 2025.",
-    "comment": "แนวทางวินิจฉัยสำคัญสำหรับเคสเด็กที่สงสัยการถูกทำร้าย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41859516/"
-  },
-  {
-    "date": "20 Mar",
-    "title": "Early Clinical Deterioration Among Emergency Department Boarders: A Retrospective Analysis.",
-    "comment": "การเฝ้าระวังผู้ป่วยที่ต้องนอนรอใน ER เพื่อป้องกันอาการแย่ลง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41859510/"
-  },
-  {
-    "date": "20 Mar",
-    "title": "Extremity hemorrhage control in urban warfare: A retrospective analysis of the Swords of Iron War.",
-    "comment": "เทคนิคการควบคุมเลือดออกที่ปลายแขนขาในสถานการณ์สงคราม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41859429/"
-  },
-  {
-    "date": "20 Mar",
-    "title": "Rising Vibrio vulnificus Infections in Northern Europe Linked to Environmental Reservoirs Sustaining Clinical Pathogenicity.",
-    "comment": "การระบาดของเชื้อ Vibrio ที่น่ากังวล อาจมีผลต่อผู้ป่วย ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41859419/"
-  },
-  {
-    "date": "20 Mar",
-    "title": "The Frame of Survival for Sepsis: A Practical Systems Framework for Time-Sensitive Critical Illness in Low-Resource Settings.",
-    "comment": "กรอบแนวคิดการจัดการ Sepsis ในพื้นที่ขาดแคลนทรัพยากร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41859329/"
-  },
-  {
-    "date": "20 Mar",
-    "title": "Gaps and Strategies for Management of Sepsis in Low-Resource Settings: Expert Consensus Statements Using a Delphi Method.",
-    "comment": "กลยุทธ์การจัดการ Sepsis ที่เป็นไปได้ในพื้นที่ขาดแคลนทรัพยากร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41859328/"
-  },
-  {
-    "date": "20 Mar",
-    "title": "Ten Steps to Improve Sepsis Care in Low-Resource Settings.",
-    "comment": "10 ขั้นตอนสำคัญเพื่อปรับปรุงการดูแลผู้ป่วย Sepsis ในที่ที่ขาดแคลน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41859319/"
-  },
-  {
-    "date": "20 Mar",
-    "title": "FDA-Regulated AI-Enabled Medical Devices With Pediatric Indications.",
-    "comment": "นวัตกรรม AI ทางการแพทย์สำหรับเด็กที่ได้รับการรับรองจาก FDA",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41859549/"
   }
 ]
