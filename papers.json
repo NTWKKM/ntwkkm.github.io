@@ -1,5 +1,65 @@
 [
   {
+    "date": "13 Apr",
+    "title": "Nirsevimab Immunization to Prevent Pediatric RSV Hospitalizations",
+    "comment": "การให้ภูมิคุ้มกัน Nirsevimab ช่วยลดการเข้ารักษาตัวในโรงพยาบาลจาก RSV ในเด็กได้อย่างมีนัยสำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41973439/"
+  },
+  {
+    "date": "13 Apr",
+    "title": "Pitfalls to Procalcitonin-Elevation in a Postvaccine Fever",
+    "comment": "ระวังการแปลผล Procalcitonin ที่สูงขึ้นหลังฉีดวัคซีน อาจทำให้วินิจฉัยแยกโรคผิดได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41973412/"
+  },
+  {
+    "date": "13 Apr",
+    "title": "Determining Access for a City-Wide Extracorporeal Cardiopulmonary Resuscitation (ECPR) Initiative Using Geospatial Analysis",
+    "comment": "การวิเคราะห์ทางภูมิสารสนเทศช่วยวางแผนการเข้าถึง ECPR ในระดับเมืองได้อย่างมีประสิทธิภาพ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41973406/"
+  },
+  {
+    "date": "13 Apr",
+    "title": "Death Conceptualizations: How do Youth Presenting to a Pediatric Psychiatric Emergency Department View the End of their Lives?",
+    "comment": "ทำความเข้าใจมุมมองของเด็กต่อความตายที่มา ER จิตเวช ช่วยวางแผนการดูแลที่เหมาะสม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41973372/"
+  },
+  {
+    "date": "13 Apr",
+    "title": "From bench to triage: diagnostic utility of delta-like canonical notch ligand-1 (DLL-1) for early sepsis prediction in the emergency department",
+    "comment": "DLL-1 อาจเป็น biomarker ใหม่สำหรับการวินิจฉัย sepsis ระยะเริ่มต้นใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41973366/"
+  },
+  {
+    "date": "13 Apr",
+    "title": "Evaluating Artificial Intelligence for Sepsis Prediction in Emergency Departments: A Systematic Review and Meta Analysis",
+    "comment": "AI มีศักยภาพสูงในการช่วยทำนายภาวะ Sepsis ใน ER แต่ยังต้องการงานวิจัยเพิ่มเติมเพื่อยืนยัน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41973329/"
+  },
+  {
+    "date": "13 Apr",
+    "title": "Emergence of 2-MMC in the French Alps: description of 13 clinical and toxicology cases",
+    "comment": "การเฝ้าระวังและรายงานเคสสารเสพติดใหม่ (2-MMC) ใน ER เป็นสิ่งสำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41973121/"
+  },
+  {
+    "date": "13 Apr",
+    "title": "Can suPAR guide post-resuscitation management?",
+    "comment": "suPAR อาจช่วยชี้แนวทางการดูแลผู้ป่วยหลัง CPR ได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41972514/"
+  },
+  {
+    "date": "13 Apr",
+    "title": "Crush Syndrome - What Should We Know in the Pre-hospital Setting?",
+    "comment": "ความรู้เกี่ยวกับ Crush Syndrome ตั้งแต่ Pre-hospital ช่วยให้การรักษา ER มีประสิทธิภาพ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41972439/"
+  },
+  {
+    "date": "13 Apr",
+    "title": "Mobile ICU-supported ECMO rapid response team: A paradigm for regional critical care optimization",
+    "comment": "ทีม ECMO ฉุกเฉินสนับสนุนโดย Mobile ICU เป็นโมเดลใหม่ในการเพิ่มประสิทธิภาพการดูแลผู้ป่วยวิกฤต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41972000/"
+  },
+  {
     "date": "12 Apr",
     "title": "🔹 Gaps in knowledge, receipt, and acceptance of measles, mumps, rubella vaccines in a National Sample of emergency department patients.",
     "comment": "รพ. ER ยังมีความรู้และเจตนาการรับวัคซีน MMR ในผู้ป่วย ED ไม่เต็มที่",
@@ -358,65 +418,5 @@
     "title": "Lung Ultrasound for Acute Respiratory Distress Syndrome Diagnosis: A Systematic Review and Meta-analysis.",
     "comment": "การใช้ Lung Ultrasound (LUS) เป็นเครื่องมือสำคัญในการวินิจฉัย ARDS ที่รวดเร็วและแม่นยำ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41935702/"
-  },
-  {
-    "date": "5 Apr",
-    "title": "Vasoplegia After Cardiopulmonary Bypass: One Label, Multiple Phenotypes-A Minimal Reporting Standard for Interpretable Trials.",
-    "comment": "กำหนดมาตรฐานการรายงานภาวะ Vasoplegia หลังการผ่าตัดหัวใจ เพื่อความเข้าใจและการรักษาที่แม่นยำขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41935863/"
-  },
-  {
-    "date": "5 Apr",
-    "title": "Trauma-Informed Care for Behaviorally Dysregulated Youth: Emergency Department, Inpatient and Residential Programs.",
-    "comment": "แนวทางการดูแลผู้ป่วยเด็กที่มีพฤติกรรมซับซ้อนใน ER ที่คำนึงถึงประสบการณ์ trauma",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41934980/"
-  },
-  {
-    "date": "5 Apr",
-    "title": "Best practices for critically ill patients boarding in the emergency department: A Delphi study.",
-    "comment": "แนวทางปฏิบัติที่ดีที่สุดสำหรับผู้ป่วยวิกฤตที่ต้องรอเตียงใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41935431/"
-  },
-  {
-    "date": "5 Apr",
-    "title": "Pain Medicine and the Opioid Crisis: Time to Own Our Responsibility!",
-    "comment": "การทบทวนบทบาทของแพทย์เวชปวดในการแก้ไขวิกฤตยาแก้ปวด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41934367/"
-  },
-  {
-    "date": "5 Apr",
-    "title": "Radial access in IR and the risk of stroke: lessons learned.",
-    "comment": "การประเมินความเสี่ยงต่อภาวะหลอดเลือดสมองจากการใช้สายสวนผ่านทางหลอดเลือดแขน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41935621/"
-  },
-  {
-    "date": "5 Apr",
-    "title": "Point-of-care ultrasound in Ethiopian emergency and critical care medicine: a cross-sectional study of utilization, barriers, and training priorities.",
-    "comment": "การประเมินการใช้ POCUS ใน ER ของเอธิโอเปีย ชี้ให้เห็นอุปสรรคและความต้องการในการฝึกอบรม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41935276/"
-  },
-  {
-    "date": "5 Apr",
-    "title": "The Second Battle: Equipping Austere Surgical Teams for Post-Resuscitation Coagulopathy.",
-    "comment": "การเตรียมความพร้อมทีมผ่าตัดในสถานการณ์ขาดแคลนสำหรับภาวะ Coagulopathy หลังการช่วยชีวิต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41934246/"
-  },
-  {
-    "date": "5 Apr",
-    "title": "Early Extracorporeal Membrane Oxygenation Support in Bupropion-Induced Cardiogenic Shock: A Case Series.",
-    "comment": "การใช้ ECMO ในผู้ป่วยภาวะหัวใจล้มเหลวจากการได้รับยา Bupropion เกินขนาด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41934731/"
-  },
-  {
-    "date": "5 Apr",
-    "title": "Molecular pathways driving clarithromycin benefit in community-acquired pneumonia: analysis of the ACCESS randomised trial.",
-    "comment": "กลไกการออกฤทธิ์ของ Clarithromycin ใน CAP ที่อาจปรับแนวทางการรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41934919/"
-  },
-  {
-    "date": "25 Mar",
-    "title": "End-tidal carbon dioxide as a predictor of mortality in trauma patients: A systematic review and meta-analysis.",
-    "comment": "ค่า ETCO2 ที่วัดได้จากผู้ป่วย trauma สามารถใช้เป็นตัวชี้วัดการเสียชีวิตได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41879772/"
   }
 ]
