@@ -1,5 +1,65 @@
 [
   {
+    "date": "15 Apr",
+    "title": "Early prediction of bowel necrosis in incarcerated groin hernia using parsimonious machine learning models: a retrospective cohort study.",
+    "comment": "พัฒนา AI ช่วย ER ในการประเมินภาวะไส้เลื่อนขาหนีบที่มีภาวะแทรกซ้อน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41984331/"
+  },
+  {
+    "date": "15 Apr",
+    "title": "Sexually Transmitted Infection Treatment Rates Among Pregnant vs Nonpregnant Patients in Emergency Departments.",
+    "comment": "การรักษา STIs ในหญิงตั้งครรภ์ใน ER: มีความแตกต่างและควรให้ความสนใจเป็นพิเศษ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41984481/"
+  },
+  {
+    "date": "15 Apr",
+    "title": "Comparison of CATCH, PECARN and CHALICE rules in children with minor head trauma.",
+    "comment": "เทียบกฎ CATCH, PECARN, CHALICE ในเด็กศีรษะกระทบกระเทือนเบื้องต้นที่ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41984218/"
+  },
+  {
+    "date": "15 Apr",
+    "title": "Hughes-Stovin syndrome (HSS) preliminary diagnostic criteria: a report by the HSS International Study Group (HSSISG).",
+    "comment": "เกณฑ์การวินิจฉัยเบื้องต้นสำหรับ Hughes-Stovin syndrome โรคหายากที่อาจเจอใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41984348/"
+  },
+  {
+    "date": "15 Apr",
+    "title": "Buprenorphine Products for the Treatment of Pain: Relative Risk of Abuse and Related Clinical Outcomes Compared to Full μ-Opioid Agonist Medications.",
+    "comment": "Buprenorphine เทียบกับ Opioid อื่นๆ ในการรักษาปวด: ลดความเสี่ยงการเสพติด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41984416/"
+  },
+  {
+    "date": "15 Apr",
+    "title": "Dexmedetomidine Use and Reduced In-hospital Mortality in ICU Patients with Delirium: A Retrospective Study Based on Two Observational Cohorts.",
+    "comment": "Dexmedetomidine อาจช่วยลดการเสียชีวิตในผู้ป่วย Delirium ที่ ICU",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41984028/"
+  },
+  {
+    "date": "15 Apr",
+    "title": "Serenissima Overboard Triage and Rescue: A Proposal for a Rapid Tool for the Assessment of In-Water Victims of Mass-Casualty Nautical Accidents.",
+    "comment": "เครื่องมือคัดแยกผู้ประสบภัยทางน้ำในอุบัติเหตุหมู่: มีประโยชน์ต่อ ER ที่ต้องรับผู้ป่วยจำนวนมาก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41984146/"
+  },
+  {
+    "date": "15 Apr",
+    "title": "Bridging the gap between physiology and transfusion guidelines: do we treat hemoglobin or patients?",
+    "comment": "การให้เลือด: เน้นที่ผู้ป่วย ไม่ใช่แค่ค่า Hemoglobin",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41984148/"
+  },
+  {
+    "date": "15 Apr",
+    "title": "Commercial AI Model Diagnostic Accuracy for Intracranial Large- and Medium-Vessel Occlusion in Emergency CT Angiography.",
+    "comment": "AI ช่วยวินิจฉัยเส้นเลือดสมองอุดตันใน CT Angiography ที่ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41983922/"
+  },
+  {
+    "date": "15 Apr",
+    "title": "The impact of recreational cannabis legalization on pediatric emergency department visits in British Columbia, Canada.",
+    "comment": "กัญชาเสรีส่งผลต่อผู้ป่วยเด็กใน ER อย่างไร?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41984022/"
+  },
+  {
     "date": "13 Apr",
     "title": "Nirsevimab Immunization to Prevent Pediatric RSV Hospitalizations",
     "comment": "การให้ภูมิคุ้มกัน Nirsevimab ช่วยลดการเข้ารักษาตัวในโรงพยาบาลจาก RSV ในเด็กได้อย่างมีนัยสำคัญ",
@@ -358,65 +418,5 @@
     "title": "Neurotoxicity Linked to Nitrous Oxide (Galaxy Gas) Recreation: An Overview of Clinical Evidence.",
     "comment": "งานวิจัยนี้สำคัญมากสำหรับ ER เพราะก๊าซหัวเราะ (N2O) กำลังเป็นที่นิยมในกลุ่มวัยรุ่น และอาจนำไปสู่อาการทางระบบประสาทที่รุนแรง",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41936236/"
-  },
-  {
-    "date": "6 Apr",
-    "title": "Does This Child Have a Concussion?: The Rational Clinical Examination Systematic Review.",
-    "comment": "สรุปแนวทางการซักประวัติและตรวจร่างกายเพื่อวินิจฉัยภาวะสมองกระทบกระเทือนในเด็กได้อย่างมีประสิทธิภาพ เป็นประเด็นที่พบบ่อยใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41936197/"
-  },
-  {
-    "date": "6 Apr",
-    "title": "Emergency Care Outside of the Four Walls of the Emergency Department.",
-    "comment": "เปลี่ยนมุมมองการให้บริการ ER ที่ไม่ได้จำกัดแค่ในห้องฉุกเฉิน สะท้อนถึงแนวโน้มการดูแลผู้ป่วยนอกสถานที่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41936189/"
-  },
-  {
-    "date": "6 Apr",
-    "title": "Acute Care Use and Mortality by Tele-Emergency Care Use, Modality, and Clinician Type.",
-    "comment": "ชี้ให้เห็นถึงผลลัพธ์ของการใช้ Tele-Emergency Care ซึ่งเป็นนวัตกรรมใหม่และอาจมีผลต่อการบริหารจัดการทรัพยากร ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41936183/"
-  },
-  {
-    "date": "6 Apr",
-    "title": "Suspected organophosphate delayed neurotoxicity in sheep associated with widespread lobed needlegrass (Stipa leucedopila).",
-    "comment": "แม้จะเป็นงานวิจัยในสัตว์ แต่ก็ให้ข้อมูลเชิงลึกเกี่ยวกับพิษของสารกำจัดศัตรูพืช ซึ่งอาจพบในผู้ป่วย ER ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41935786/"
-  },
-  {
-    "date": "6 Apr",
-    "title": "Carnitine Palmitoyltransferase 1A Is Crucial for the Metabolic Fitness of Tumors.",
-    "comment": "แม้จะเน้นที่มะเร็ง แต่กลไกการเผาผลาญระดับเซลล์อาจส่งผลต่อความเข้าใจในภาวะวิกฤตที่เกี่ยวกับเมตาบอลิซึมใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41935680/"
-  },
-  {
-    "date": "6 Apr",
-    "title": "Effect of higher currents on defibrillation success in out-of-hospital cardiac arrest: a multicentre cohort analysis.",
-    "comment": "เป็นข้อมูลสำคัญที่อาจเปลี่ยนแปลงแนวทางการปฏิบัติ (practice changing) ในการทำ CPR โดยเฉพาะการใช้กระแสไฟฟ้าช่วยชีวิต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41935267/"
-  },
-  {
-    "date": "6 Apr",
-    "title": "Thrombotic Microangiopathy And Hypertensive Emergency After Cocaine Use: A Case Report.",
-    "comment": "เคสที่แสดงให้เห็นถึงภาวะแทรกซ้อนที่รุนแรงและอันตรายจากการใช้สารเสพติด ซึ่งเป็นประเด็นที่ ER ต้องเจอ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41935222/"
-  },
-  {
-    "date": "6 Apr",
-    "title": "Massive Pulmonary Embolism Presenting as Recurrent Seizures: Successful Thrombolysis and Thrombectomy Guided by Clinical Suspicion.",
-    "comment": "การวินิจฉัย PE ที่ซับซ้อนและแสดงอาการผิดปกติ เป็นประโยชน์ในการตัดสินใจรักษาผู้ป่วย ER ที่มีอาการคล้ายกัน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41934638/"
-  },
-  {
-    "date": "6 Apr",
-    "title": "Generative Artificial Intelligence in Anesthesiology: Current Evidence, Clinical Applications, and the Emerging Role of Small Models.",
-    "comment": "AI กำลังเข้ามามีบทบาทในทางการแพทย์อย่างมาก งานวิจัยนี้แสดงให้เห็นถึงการประยุกต์ใช้ในวิสัญญีวิทยา ซึ่งอาจส่งผลต่อ ER ในอนาคต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41934575/"
-  },
-  {
-    "date": "5 Apr",
-    "title": "Lung Ultrasound for Acute Respiratory Distress Syndrome Diagnosis: A Systematic Review and Meta-analysis.",
-    "comment": "การใช้ Lung Ultrasound (LUS) เป็นเครื่องมือสำคัญในการวินิจฉัย ARDS ที่รวดเร็วและแม่นยำ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41935702/"
   }
 ]
