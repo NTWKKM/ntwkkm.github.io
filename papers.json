@@ -1,5 +1,65 @@
 [
   {
+    "date": "16 Apr",
+    "title": "The macrophage DAG/PKCα/ROS axis exacerbates sepsis by inducing endothelial dysfunction through activation of the p38 MAPK pathway.",
+    "comment": "ชี้กลไกใหม่ที่อาจนำไปสู่การรักษา Sepsis ที่ดียิ่งขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41989633/"
+  },
+  {
+    "date": "16 Apr",
+    "title": "Visceral technetium-99m-labeled pyrophosphate uptake in patients with wild-type transthyretin cardiac amyloidosis.",
+    "comment": "การใช้เทคนิค Pyrophosphate Scan อาจช่วยวินิจฉัย Cardiac Amyloidosis ที่ไม่ใช่แบบ Hereditary ได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41989649/"
+  },
+  {
+    "date": "16 Apr",
+    "title": "Relevance of blood gas analysis in emergency medical services: an emergency physician's assessment.",
+    "comment": "ทบทวนความสำคัญของการตรวจ Blood Gas ใน EMS ซึ่งอาจถูกมองข้าม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41989559/"
+  },
+  {
+    "date": "16 Apr",
+    "title": "Efficacy and Safety of Topical Anticholinergics in the Treatment of Primary Axillary Hyperhidrosis: A Systematic Review and Meta-analysis.",
+    "comment": "ทางเลือกใหม่ในการรักษาภาวะเหงื่อออกมากผิดปกติที่รักแร้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41989535/"
+  },
+  {
+    "date": "16 Apr",
+    "title": "Diagnostic and clinical associations of serum Isthmin-1 in acute ischemic stroke.",
+    "comment": "Isthmin-1 อาจเป็น Biomarker ใหม่ที่ช่วยในการวินิจฉัยและประเมินผลผู้ป่วย Stroke",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41989508/"
+  },
+  {
+    "date": "16 Apr",
+    "title": "Vancomycin-resistant Enterococcus faecium: a national wide genomic snapshot in Switzerland.",
+    "comment": "ภาพรวมความหลากหลายทางพันธุกรรมของ VRE ในระดับประเทศ ชี้แนวโน้มการดื้อยา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41989484/"
+  },
+  {
+    "date": "16 Apr",
+    "title": "Paroxysmal Pause-Dependent Atrioventricular Block: An Often-Missed Medical Emergency.",
+    "comment": "ชี้ภาวะหัวใจเต้นผิดจังหวะที่อาจนำไปสู่อันตรายและมักถูกวินิจฉัยพลาด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41989375/"
+  },
+  {
+    "date": "16 Apr",
+    "title": "The Effect of Virtual Reality on Pain Management in Children in the Emergency Department: A Systematic Review and Meta-Analysis.",
+    "comment": "VR อาจเป็นเครื่องมือช่วยลดปวดที่มีประสิทธิภาพในเด็ก ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41989362/"
+  },
+  {
+    "date": "16 Apr",
+    "title": "Emergency Department Observation and Computed Tomography Use in Children With Blunt Abdominal Trauma.",
+    "comment": "ข้อแนะนำเกี่ยวกับการใช้ CT Scan ในเด็กบาดเจ็บช่องท้องทื่อ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41989358/"
+  },
+  {
+    "date": "16 Apr",
+    "title": "Noninvasive respiratory support strategies in chest trauma: A systematic review and network meta-analysis.",
+    "comment": "รวบรวมหลักฐานประสิทธิภาพของ Non-invasive Ventilation ในผู้ป่วย Chest Trauma",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41989256/"
+  },
+  {
     "date": "15 Apr",
     "title": "Early prediction of bowel necrosis in incarcerated groin hernia using parsimonious machine learning models: a retrospective cohort study.",
     "comment": "พัฒนา AI ช่วย ER ในการประเมินภาวะไส้เลื่อนขาหนีบที่มีภาวะแทรกซ้อน",
@@ -358,65 +418,5 @@
     "title": "ST-Segment Elevation in Lead aVR and Acute Intracranial Pathologies: Reconsidering the Association",
     "comment": "เป็นจุดเปลี่ยนในการตีความ ECG ในผู้ป่วยที่มีอาการทางระบบประสาทเฉียบพลัน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41945083/"
-  },
-  {
-    "date": "7 Apr",
-    "title": "Improving Emergency Department Efficiency with Large Language Model-Guided Orthopaedic Triage for Proximal Humerus Fractures",
-    "comment": "AI ช่วยคัดกรองผู้ป่วยกระดูกหัก proximal humerus ใน ER ได้อย่างมีประสิทธิภาพ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41944613/"
-  },
-  {
-    "date": "7 Apr",
-    "title": "Shock and Trauma Risk Index Nomogram (STRIN): A bedside physiology-based tool for early-high-acuity care triage in major trauma",
-    "comment": "เครื่องมือประเมินความรุนแรงผู้ป่วย trauma ที่ bedside ช่วยคัดแยกผู้ป่วยวิกฤตได้เร็ว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41945030/"
-  },
-  {
-    "date": "7 Apr",
-    "title": "Federated Meta-Analysis of HEART Score Performance for Emergency Department Chest Pain",
-    "comment": "การศึกษา meta-analysis แบบ Federated เพื่อประเมินประสิทธิภาพ HEART score ในผู้ป่วยเจ็บหน้าอก ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41943236/"
-  },
-  {
-    "date": "7 Apr",
-    "title": "Acute Suspected Stroke Clinical Pathway Use in Tasmanian Emergency Departments: A Retrospective Study",
-    "comment": "ประสิทธิภาพของ clinical pathway สำหรับผู้ป่วย stroke ที่สงสัยใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41944244/"
-  },
-  {
-    "date": "7 Apr",
-    "title": "The Physiology, Pathophysiology, and Clinical Implications of Fluid Resuscitation in Critically Ill Patients",
-    "comment": "ความรู้เชิงลึกเกี่ยวกับ resuscitation fluid ในผู้ป่วยวิกฤต อาจปรับแนวทางการรักษาได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41943762/"
-  },
-  {
-    "date": "7 Apr",
-    "title": "AI-Assisted Dialysis Decision-Making: Assessing Agreement Between ChatGPT and Nephrologist in Initial Dialysis Indication and Prescription in Emergency and ICU Settings",
-    "comment": "AI (ChatGPT) ช่วยตัดสินใจเรื่อง dialysis ใน ER/ICU ได้แม่นยำเพียงใดเมื่อเทียบกับแพทย์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41943432/"
-  },
-  {
-    "date": "7 Apr",
-    "title": "Telesurgery: from feasibility to reality: emerging technical and governance challenges",
-    "comment": "เทคโนโลยี telesurgery ก้าวหน้าไปแค่ไหน มีความท้าทายอะไรบ้าง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41945101/"
-  },
-  {
-    "date": "7 Apr",
-    "title": "Can video reduce conflict between dispatcher and caller during emergency medical calls? A randomized substudy of the CAM-VISION trial",
-    "comment": "การใช้ VDO ลดความขัดแย้งระหว่าง dispatcher และ caller ในสายฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41944280/"
-  },
-  {
-    "date": "7 Apr",
-    "title": "Infection prevention and control measures for Ebola disease and their outcomes from the perspective of health care workers: a mixed-methods study",
-    "comment": "มาตรการ IPC สำหรับ Ebola จากมุมมองบุคลากรทางการแพทย์ อาจนำมาปรับใช้กับโรคระบาดอื่น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41942932/"
-  },
-  {
-    "date": "6 Apr",
-    "title": "Neurotoxicity Linked to Nitrous Oxide (Galaxy Gas) Recreation: An Overview of Clinical Evidence.",
-    "comment": "งานวิจัยนี้สำคัญมากสำหรับ ER เพราะก๊าซหัวเราะ (N2O) กำลังเป็นที่นิยมในกลุ่มวัยรุ่น และอาจนำไปสู่อาการทางระบบประสาทที่รุนแรง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41936236/"
   }
 ]
