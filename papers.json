@@ -1,5 +1,65 @@
 [
   {
+    "date": "17 Apr",
+    "title": "Refractory immune-related adverse events (irAes) associated with immune checkpoint inhibitor therapy: a multiorgan management review",
+    "comment": "คู่มือการจัดการผลข้างเคียงจากภูมิคุ้มกันบำบัดที่รักษาได้ยาก ครอบคลุมหลายระบบอวัยวะ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41995025/"
+  },
+  {
+    "date": "17 Apr",
+    "title": "Paraquat Poisoning from a Tertiary Care Center in Northern India: A Case Series",
+    "comment": "กรณีศึกษาการได้รับสารพาราควอตในอินเดีย ชี้ให้เห็นถึงความรุนแรงและแนวทางการดูแล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41995614/"
+  },
+  {
+    "date": "17 Apr",
+    "title": "Bedside Ultrasound-Driven Emergency Stenting for Spontaneous Carotid Artery Dissection: Clinical and Technical Insights",
+    "comment": "การใช้ U/S ที่ข้างเตียงในการทำ Stenting ฉุกเฉินในภาวะ Spontaneous Carotid Artery Dissection เป็นเทคนิคใหม่ที่น่าสนใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41995664/"
+  },
+  {
+    "date": "17 Apr",
+    "title": "High neutrophil-to-albumin ratio signals severe prognosis in LVO stroke-data from an EICU cohort",
+    "comment": "อัตราส่วน Neutrophil/Albumin ที่สูงบ่งชี้การพยากรณ์โรคที่แย่ในผู้ป่วย LVO Stroke ช่วยในการประเมินผู้ป่วยวิกฤต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41994423/"
+  },
+  {
+    "date": "17 Apr",
+    "title": "Predictors of 30-day mortality in older adults with traffic-related injuries: Classical trauma scores, frailty, and laboratory markers in a retrospective study",
+    "comment": "การประเมินความเสี่ยงเสียชีวิต 30 วันในผู้สูงอายุจากอุบัติเหตุจราจร พิจารณาทั้งคะแนน Traumatic Score, Frailty และ Lab markers",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41995575/"
+  },
+  {
+    "date": "17 Apr",
+    "title": "Non operative management of postpartum Diastasis Recti: a systematic review and metanalysis of randomized controlled trials",
+    "comment": "แนวทางการรักษาแบบไม่ผ่าตัดในภาวะ Diastasis Recti หลังคลอด เป็นทางเลือกที่น่าสนใจสำหรับผู้ป่วยบางกลุ่ม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41995887/"
+  },
+  {
+    "date": "17 Apr",
+    "title": "Correction: Semaglutide Mitigates Ischemic Brain Injury by Inhibiting Ferroptosis via Modulation of FoXO1 and DRP1 Pathways",
+    "comment": "Semaglutide อาจมีบทบาทในการลดการบาดเจ็บของสมองจากภาวะขาดเลือดผ่านกลไก Ferroptosis",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41996021/"
+  },
+  {
+    "date": "17 Apr",
+    "title": "Comparative predictive performance of anticholinergic burden scales for anticholinergic-related hospitalisation and emergency department visits in older adults: a population-based study of model development and temporal validation",
+    "comment": "การเปรียบเทียบประสิทธิภาพของ Anticholinergic Burden Scales ในการทำนายการเข้ารับการรักษาใน รพ. และ ER ในผู้สูงอายุ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41995941/"
+  },
+  {
+    "date": "17 Apr",
+    "title": "Association between high ratio of platelet concentrate to red blood cell and survival among massively transfused patients",
+    "comment": "อัตราส่วน Platelet Concentrate ต่อ Red Blood Cell มีความสัมพันธ์กับการรอดชีวิตในผู้ป่วยที่ได้รับเลือดปริมาณมาก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41995810/"
+  },
+  {
+    "date": "17 Apr",
+    "title": "Independent bone-level diagnostic accuracy study of an AI tool for detecting appendicular skeletal fractures on radiographs",
+    "comment": "AI มีศักยภาพในการช่วยวินิจฉัยกระดูกหักแขนขาจากภาพถ่ายรังสี แม่นยำระดับ Bone-level",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/41995742/"
+  },
+  {
     "date": "16 Apr",
     "title": "The macrophage DAG/PKCα/ROS axis exacerbates sepsis by inducing endothelial dysfunction through activation of the p38 MAPK pathway.",
     "comment": "ชี้กลไกใหม่ที่อาจนำไปสู่การรักษา Sepsis ที่ดียิ่งขึ้น",
@@ -358,65 +418,5 @@
     "title": "Performance of Deep Learning Reconstruction for Detection of Early Ischemic Changes in NCCT: Comparison with ASIR-V in Acute Stroke.",
     "comment": "AI ช่วยตรวจจับ stroke ระยะแรกได้แม่นยำขึ้นบน CT scan",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41954793/"
-  },
-  {
-    "date": "9 Apr",
-    "title": "Advances in Hyperkalemia Management and the Emerging Role of Sodium Zirconium Cyclosilicate.",
-    "comment": "แนวทางการรักษาภาวะโพแทสเซียมสูงที่น่าสนใจสำหรับ ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41953780/"
-  },
-  {
-    "date": "9 Apr",
-    "title": "Restrictive Versus Liberal Fluid Strategy for Initial Resuscitation in Sepsis and Septic Shock: A Systematic Review and Meta Analysis.",
-    "comment": "การให้สารน้ำในผู้ป่วย sepsis/septic shock ยังคงเป็นประเด็นถกเถียง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41953594/"
-  },
-  {
-    "date": "9 Apr",
-    "title": "Understanding Cervical Spine Injury Imaging Decision-Making in Pediatric Trauma Patients.",
-    "comment": "ช่วยในการตัดสินใจส่งตรวจภาพรังสีในเด็กบาดเจ็บกระดูกคอ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41953504/"
-  },
-  {
-    "date": "9 Apr",
-    "title": "Impact of a Cellular Host-Response Sepsis Diagnostic on Clinical Decision Making in the Emergency Department: A Vignette-Based Study.",
-    "comment": "Diagnostic tool ใหม่สำหรับ Sepsis อาจช่วยเปลี่ยนการตัดสินใจของแพทย์ ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41952794/"
-  },
-  {
-    "date": "9 Apr",
-    "title": "A Simulation-Based Approach to Severe Bronchospasm Complicated by Septic Shock.",
-    "comment": "การจัดการภาวะหลอดลมตีบร่วมกับ septic shock ที่ซับซ้อน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41952910/"
-  },
-  {
-    "date": "9 Apr",
-    "title": "Disaster preparedness knowledge, attitude, and practice among Emergency Department staff in Ethiopian Hospitals.",
-    "comment": "ความพร้อมของ ER ในสถานการณ์ภัยพิบัติ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41952791/"
-  },
-  {
-    "date": "9 Apr",
-    "title": "The effectiveness of selective neutrophil elastase inhibitors (sivelestat) in acute lung injury or acute respiratory distress syndrome: A systematic review and meta-analysis of randomized controlled trials.",
-    "comment": "ยาตัวใหม่สำหรับ ARDS ที่น่าจับตามอง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41953496/"
-  },
-  {
-    "date": "9 Apr",
-    "title": "Emergency Department Visits in the United States for Paroxysmal Supraventricular Tachycardia Are Increasing Among Adults: An Analysis from the Nationwide Emergency Department Sample.",
-    "comment": "สัญญาณเตือนการเพิ่มขึ้นของ PVST ใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41953168/"
-  },
-  {
-    "date": "9 Apr",
-    "title": "Long-Term Neurological Outcome of Out-of-Hospital Cardiac Arrest Survivors and Associated Factors: Results of the DESAC Study, a French Multicentric Prospective Cohort.",
-    "comment": "ผลลัพธ์ทางระบบประสาทในระยะยาวของผู้รอดชีวิตจากภาวะหัวใจหยุดเต้นนอก รพ.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41953986/"
-  },
-  {
-    "date": "7 Apr",
-    "title": "ST-Segment Elevation in Lead aVR and Acute Intracranial Pathologies: Reconsidering the Association",
-    "comment": "เป็นจุดเปลี่ยนในการตีความ ECG ในผู้ป่วยที่มีอาการทางระบบประสาทเฉียบพลัน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41945083/"
   }
 ]
