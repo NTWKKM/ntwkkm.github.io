@@ -1,5 +1,65 @@
 [
   {
+    "date": "19 Apr",
+    "title": "Evaluating Large Language Models for AI-Assisted Grading: A Framework and Case Study in Higher Education",
+    "comment": "AI กับการประเมินผลการศึกษา อาจมีผลต่อการนำมาใช้ในทางการแพทย์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42000830/"
+  },
+  {
+    "date": "19 Apr",
+    "title": "Development and Prospective Shadow Evaluation of a Domain-Specific Large Language Model for Emergency Neurological Diagnosis",
+    "comment": "AI ด้านประสาทวิทยาสำหรับ ER อาจเป็นเครื่องมือช่วยวินิจฉัยที่สำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42000879/"
+  },
+  {
+    "date": "19 Apr",
+    "title": "Effect modification by chronic kidney disease on renal outcomes in septic shock patients undergoing high-MAP targeting: a secondary analysis of the OPTPRESS trial",
+    "comment": "CKD ส่งผลต่อการตอบสนองต่อการให้สารน้ำในผู้ป่วย septic shock ที่ต้องเฝ้าระวัง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42001124/"
+  },
+  {
+    "date": "19 Apr",
+    "title": "Regional anesthesia in the emergency department: A review of key pharmacotherapeutic considerations",
+    "comment": "ยาชาเฉพาะที่ในการทำหัตถการ ER มีบทบาทสำคัญที่ต้องทบทวน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42000675/"
+  },
+  {
+    "date": "19 Apr",
+    "title": "Prevalence, risk factors, and prognosis of the need for physical and chemical restraint in older patients attending emergency departments. EDEN-50.",
+    "comment": "การใช้ยา/เครื่องมือยับยั้งในผู้สูงอายุ ER ยังคงเป็นปัญหาที่ต้องศึกษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42000676/"
+  },
+  {
+    "date": "19 Apr",
+    "title": "Initiating advance care planning and DNACPR conversations in the emergency department: A narrative review and reflective case analysis to inform nursing practice",
+    "comment": "การวางแผนดูแลล่วงหน้าและการทำ DNACPR ใน ER สำคัญต่อการตัดสินใจของผู้ป่วยและครอบครัว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42000531/"
+  },
+  {
+    "date": "19 Apr",
+    "title": "The Minnesota Mobile Resuscitation Consortium ECMO Truck: A Feasibility Study for ECPR in Refractory Out-of-Hospital Cardiac Arrest",
+    "comment": "ECMO แบบเคลื่อนที่อาจพลิกโฉมการรักษา OHCA ที่รักษายาก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42000028/"
+  },
+  {
+    "date": "19 Apr",
+    "title": "Burnout, Stress, and Moral Injury Among Emergency Medical Services Clinicians: A Systematic Review",
+    "comment": "ภาวะหมดไฟของบุคลากร EMS เป็นปัญหาที่ต้องใส่ใจเพื่อการดูแลผู้ป่วยที่ดี",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42000301/"
+  },
+  {
+    "date": "19 Apr",
+    "title": "Paralyzing herniated disc: To operate or not to operate, and when is the right time?",
+    "comment": "การผ่าตัดหมอนรองกระดูกกดทับเส้นประสาทที่ทำให้เกิดอัมพาต ยังมีข้อถกเถียงเรื่องเวลาที่เหมาะสม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42000475/"
+  },
+  {
+    "date": "19 Apr",
+    "title": "Evaluating the Impact of Fentanyl Immunoassay Cutoff Concentrations in Emergency Department, Maternal, and Neonatal Populations",
+    "comment": "การตรวจหาสารเสพติดใน ER โดยเฉพาะ fentanyl ต้องพิจารณาค่า cutoff ที่เหมาะสม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42001212/"
+  },
+  {
     "date": "17 Apr",
     "title": "Refractory immune-related adverse events (irAes) associated with immune checkpoint inhibitor therapy: a multiorgan management review",
     "comment": "คู่มือการจัดการผลข้างเคียงจากภูมิคุ้มกันบำบัดที่รักษาได้ยาก ครอบคลุมหลายระบบอวัยวะ",
@@ -358,65 +418,5 @@
     "title": "Early warning scores and peripheral perfusion index: A Comparative assessment for 30-day mortality in critical patients in emergency departments.",
     "comment": "ใช้ EWS ร่วมกับ PPI เพื่อประเมินการตายใน 30 วันในผู้ป่วยวิกฤต ER ได้ดีขึ้น",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41961451/"
-  },
-  {
-    "date": "10 Apr",
-    "title": "CT-based Node-RADS for metastatic lymph node detection in colon cancer and influence of microsatellite instability.",
-    "comment": "การใช้ CT-based Node-RADS อาจช่วยในการตรวจจับต่อมน้ำเหลืองที่แพร่กระจายในมะเร็งลำไส้ใหญ่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41961314/"
-  },
-  {
-    "date": "10 Apr",
-    "title": "Plasma neurofilament light chain and glial fibrillary acidic protein in the differential diagnosis of acute vertigo in the emergency department.",
-    "comment": "สารบ่งชี้ในเลือด (NfL, GFAP) อาจช่วยในการวินิจฉัยแยกโรคของอาการเวียนศีรษะเฉียบพลันใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41961296/"
-  },
-  {
-    "date": "10 Apr",
-    "title": "Disproportionate Use of Security Response Codes on Black Patients in a Quaternary Academic Center.",
-    "comment": "การใช้ Security Response Codes มีความไม่เท่าเทียมกันในผู้ป่วยผิวดำ ซึ่งเป็นประเด็นสำคัญด้านความยุติธรรมในการรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41961085/"
-  },
-  {
-    "date": "10 Apr",
-    "title": "Liberal Versus Restrictive Fluid Therapy in the Early Management of Sepsis and Septic Shock: A Systematic Review.",
-    "comment": "ทบทวนแนวทางการให้สารน้ำในการจัดการภาวะ Sepsis/Septic Shock เพื่อหาแนวทางที่เหมาะสมที่สุด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41959961/"
-  },
-  {
-    "date": "10 Apr",
-    "title": "Bedside Renal, Inferior Vena Cava, Pulmonary, Pleural, Epicardial, Diaphragm (BRIPPED) Scan for Evaluating Patients Presenting With Dyspnea in the Emergency Department.",
-    "comment": "bedside ultrasound (BRIPPED) เป็นเครื่องมือที่มีประโยชน์ในการประเมินผู้ป่วยที่มาด้วยอาการหอบเหนื่อยใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41959959/"
-  },
-  {
-    "date": "10 Apr",
-    "title": "Evolving treatment strategies for HER2-altered non-small-cell lung cancer: the rise of TKIs and ADCs.",
-    "comment": "ความก้าวหน้าของยา TKIs และ ADCs ในการรักษามะเร็งปอดชนิด NSCLC ที่มี HER2 alteration",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41959903/"
-  },
-  {
-    "date": "10 Apr",
-    "title": "Geospatial analysis of COVID-19 vaccine access in Kenya: the interplay of travel time, perceived availability, and vaccine uptake.",
-    "comment": "ปัจจัยด้านภูมิศาสตร์และเวลาเดินทางมีผลต่อการเข้าถึงวัคซีน COVID-19 ในเคนยา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41960709/"
-  },
-  {
-    "date": "10 Apr",
-    "title": "Re: How to Do an Emergency Robotic Hartmann's Procedure in a Morbidly Obese Patient.",
-    "comment": "เทคนิคการผ่าตัด Hartmann's แบบหุ่นยนต์ในผู้ป่วยอ้วนมากที่มีภาวะฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41960743/"
-  },
-  {
-    "date": "10 Apr",
-    "title": "Association of baseline serum vitamin C levels with systemic inflammatory response syndrome in critically ill patients ‒ An observational study.",
-    "comment": "ระดับวิตามินซีในเลือดอาจมีความสัมพันธ์กับ SIRS ในผู้ป่วยวิกฤต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41960825/"
-  },
-  {
-    "date": "9 Apr",
-    "title": "Performance of Deep Learning Reconstruction for Detection of Early Ischemic Changes in NCCT: Comparison with ASIR-V in Acute Stroke.",
-    "comment": "AI ช่วยตรวจจับ stroke ระยะแรกได้แม่นยำขึ้นบน CT scan",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41954793/"
   }
 ]
