@@ -1,5 +1,65 @@
 [
   {
+    "date": "20 Apr",
+    "title": "Evaluation of Large Language Models as Decision Support for the Management of Abdominal Pain in the Emergency Department: A Pilot Study.",
+    "comment": "LLM เริ่มมีบทบาทช่วยตัดสินใจผู้ป่วย ER ที่ปวดท้อง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42007594/"
+  },
+  {
+    "date": "20 Apr",
+    "title": "Management of Gynaecological Chronic Pelvic Pain in the Emergency Setting- A Scoping Review.",
+    "comment": "ทบทวนแนวทางการจัดการอาการปวดอุ้งเชิงกรานเรื้อรังใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42007586/"
+  },
+  {
+    "date": "20 Apr",
+    "title": "National trends in pediatric sepsis hospitalizations, case mix, and mortality, 2016-2022.",
+    "comment": "ข้อมูลเทรนด์ Sepsis ในเด็กที่น่าสนใจสำหรับ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42007515/"
+  },
+  {
+    "date": "20 Apr",
+    "title": "A Randomized Controlled Pilot Trial of Health Coaching to Improve Functioning and Reduce Suicidal Ideation Among Veterans Reintegrating Into Civilian Life.",
+    "comment": "นวัตกรรม Health Coaching ลดความคิดฆ่าตัวตายในกลุ่มทหารผ่านศึก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42007499/"
+  },
+  {
+    "date": "20 Apr",
+    "title": "Targeted metatranscriptomic detection of viruses from floors for simultaneous evaluation of respiratory disease burden and viral variant identification.",
+    "comment": "เทคนิคใหม่ตรวจจับไวรัสจากพื้นผิว เผยแพร่โรคทางเดินหายใจและสายพันธุ์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42007699/"
+  },
+  {
+    "date": "20 Apr",
+    "title": "Resolution of reverse takotsubo cardiomyopathy secondary to presumed pheochromocytoma with intralesional hemorrhage: A case report.",
+    "comment": "รายงานเคส Takotsubo cardiomyopathy จาก Pheochromocytoma หายเองได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42007243/"
+  },
+  {
+    "date": "20 Apr",
+    "title": "Differential survival impact of acetaminophen and non-steroidal anti-inflammatory drugs on NSCLC patients undergoing immune checkpoint inhibitor therapy: a region-wide cohort study in Hong Kong, China.",
+    "comment": "ยาที่ใช้บ่อยใน ER อย่าง Acetaminophen, NSAIDs มีผลต่อการรักษามะเร็งปอดที่ได้รับ immunotherapy",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42007217/"
+  },
+  {
+    "date": "20 Apr",
+    "title": "Hughes-Stovin syndrome as an uncommon cause of cardiac thrombus and pulmonary embolism: A case report.",
+    "comment": "รายงานเคส Hughes-Stovin syndrome ที่ทำให้เกิดลิ่มเลือดในหัวใจและหลอดเลือดปอด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42007204/"
+  },
+  {
+    "date": "20 Apr",
+    "title": "Machine Learning-Based Model for Predicting Acute Kidney Injury in Patients Hospitalized with Heart Failure: Development and Validation Study.",
+    "comment": "โมเดล ML ช่วยคาดการณ์ AKI ในผู้ป่วย Heart Failure ที่แอดมิท",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42007183/"
+  },
+  {
+    "date": "20 Apr",
+    "title": "Serum glucose-to-potassium ratio is associated with delirium and all-cause mortality in intensive care unit patients: insights from the MIMIC database analysis.",
+    "comment": "อัตราส่วนน้ำตาลต่อโพแทสเซียมในเลือดโยงกับ Delirium และการตายใน ICU",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42007163/"
+  },
+  {
     "date": "19 Apr",
     "title": "Evaluating Large Language Models for AI-Assisted Grading: A Framework and Case Study in Higher Education",
     "comment": "AI กับการประเมินผลการศึกษา อาจมีผลต่อการนำมาใช้ในทางการแพทย์",
@@ -358,65 +418,5 @@
     "title": "🔹 Cardiovascular-kidney-metabolic syndrome and atrial fibrillation: Insights from 2 real-world prospective registries across Europe and East Asia.",
     "comment": "CKM syndrome มีความสัมพันธ์กับ AF ที่พบได้จริงในประชากร",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41966525/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Early resuscitation priorities in two-provider EMS crews: an interpretive commentary.",
-    "comment": "ลำดับความสำคัญของการช่วยชีวิตเบื้องต้นโดยทีม EMS 2 คน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41963814/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Multiphase terminal environmental disinfection targeting Acinetobacter baumannii sustains reduction in multidrug-resistant organism healthcare-associated infections in an ICU.",
-    "comment": "การทำความสะอาดสิ่งแวดล้อมแบบหลายขั้นตอนช่วยลดการติดเชื้อดื้อยาใน ICU ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41965858/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Non-surgical casting versus surgical reduction for children with severely displaced distal radial fractures (the CRAFFT Study): a multicentre, randomised, controlled non-inferiority trial and economic evaluation.",
-    "comment": "การรักษาด้วยเฝือก vs ผ่าตัด ในเด็กกระดูกปลายแขนร้าวรุนแรง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41965242/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Mpox virus in human breastmilk and tecovirimat pharmacokinetics: implications for postnatal transmission.",
-    "comment": "การตรวจพบเชื้อ Mpox ในนมแม่ และผลต่อการส่งต่อทางพันธุกรรม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41965240/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Burnout among emergency department healthcare workers in Palestine and Türkiye: a cross-sectional comparative study.",
-    "comment": "ภาวะหมดไฟในบุคลากรทางการแพทย์ ED ที่ปาเลสไตน์และตุรกี",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41965539/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Impact of early cardiac arrest recognition by emergency medical service dispatchers on out-of-hospital cardiac arrest: a retrospective population-based observational study.",
-    "comment": "การรับรู้อาการหัวใจหยุดเต้นเร็วโดย Dispatcher EMS ส่งผลต่อผลลัพธ์ OHCA",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41965529/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 PHTLS training increases knowledge but paradoxically decreases self-efficacy in emergency healthcare professionals: a cross-sectional study.",
-    "comment": "การอบรม PHTLS เพิ่มความรู้ แต่กลับลดความมั่นใจในตนเองของบุคลากร ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41963973/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 The effect of tightened compulsory admission laws on length of stay in emergency department for suicide attempters.",
-    "comment": "กฎหมายที่เข้มงวดขึ้นส่งผลต่อระยะเวลาการรักษาผู้ป่วยพยายามฆ่าตัวตายใน ED",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41963954/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Efficacy analysis of early incision and drainage on necrotizing fasciitis, a retrospective study.",
-    "comment": "การกรีดระบายหนองเร็วมีผลต่อ Necrotizing fasciitis",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41965554/"
-  },
-  {
-    "date": "10 Apr",
-    "title": "Early warning scores and peripheral perfusion index: A Comparative assessment for 30-day mortality in critical patients in emergency departments.",
-    "comment": "ใช้ EWS ร่วมกับ PPI เพื่อประเมินการตายใน 30 วันในผู้ป่วยวิกฤต ER ได้ดีขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41961451/"
   }
 ]
