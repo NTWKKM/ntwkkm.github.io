@@ -1,5 +1,65 @@
 [
   {
+    "date": "21 Apr",
+    "title": "Telemedicine Devices in Prehospital Trauma Care: A Scoping Review of Telemedical Actions, Clinical Utilities and Implementation Barriers.",
+    "comment": "การนำ Telemedicine มาใช้ใน Prehospital Trauma Care เป็นเรื่องใหม่ที่มีผลต่อการปฏิบัติและอาจลดความรุนแรงของการบาดเจ็บได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42012582/"
+  },
+  {
+    "date": "21 Apr",
+    "title": "Ketamine Versus Etomidate for Rapid Sequence Intubation in Critically Ill Adults: A Comprehensive Systematic Review and Meta-Analysis.",
+    "comment": "การเปรียบเทียบ Ketamine และ Etomidate สำหรับ RSI ในผู้ป่วยวิกฤต เป็นประเด็นสำคัญในการตัดสินใจเลือกยา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42011475/"
+  },
+  {
+    "date": "21 Apr",
+    "title": "Widespread Take-Home Naloxone Use Averted the Majority of Potential Opioid Poisoning Deaths in British Columbia, 2019-2024: A Bayesian Modelling Study.",
+    "comment": "การกระจาย Naloxone ให้ผู้ป่วยสามารถช่วยลดการเสียชีวิตจาก Opioid Overdose ได้อย่างมีนัยสำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42012358/"
+  },
+  {
+    "date": "21 Apr",
+    "title": "Artificial Intelligence for Public Health Surveillance: Promise, Inequities, and the Need for Transparent Global Adoption.",
+    "comment": "AI มีศักยภาพสูงในการเฝ้าระวังโรค แต่ต้องคำนึงถึงความเท่าเทียมและความโปร่งใสในการนำไปใช้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42012825/"
+  },
+  {
+    "date": "21 Apr",
+    "title": "Prognostic Value of the Platelet-to-Lymphocyte Ratio in Patients With Acute Coronary Syndrome and Its Correlation With Angiographic Findings.",
+    "comment": "PLR อาจเป็น biomarker ที่มีประโยชน์ในการประเมินความรุนแรงและผลลัพธ์ในผู้ป่วย ACS",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42011438/"
+  },
+  {
+    "date": "21 Apr",
+    "title": "Button battery ingestion in children: Update and practical approach.",
+    "comment": "ข้อมูลอัปเดตและแนวทางปฏิบัติสำหรับการจัดการ Button Battery ingestion ในเด็กมีความสำคัญอย่างยิ่ง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42012373/"
+  },
+  {
+    "date": "21 Apr",
+    "title": "Polypharmacy and anticholinergic burden are common but not independently associated with outcomes after emergency laparotomy in older adults.",
+    "comment": "การใช้ยาหลายชนิดและ Anticholinergic burden ในผู้สูงอายุหลังผ่าตัดฉุกเฉินอาจไม่ส่งผลโดยตรงต่อผลลัพธ์ แต่ก็ยังเป็นปัจจัยที่ต้องเฝ้าระวัง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42012554/"
+  },
+  {
+    "date": "21 Apr",
+    "title": "Age Differences in Acute Chest Pain Care in a Multisite US Cohort.",
+    "comment": "การดูแลผู้ป่วยเจ็บหน้าอกเฉียบพลันมีความแตกต่างตามกลุ่มอายุ ซึ่งอาจส่งผลต่อการวินิจฉัยและการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42012467/"
+  },
+  {
+    "date": "21 Apr",
+    "title": "Advancing Cumulative Impact Assessment in the Global South.",
+    "comment": "การประเมินผลกระทบสะสมที่ครอบคลุมใน Global South เป็นสิ่งสำคัญเพื่อการพัฒนาที่ยั่งยืน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42012532/"
+  },
+  {
+    "date": "21 Apr",
+    "title": "The pulmonary artery catheter-Not a niche tool but often a must.",
+    "comment": "Pulmonary Artery Catheter ยังคงมีความสำคัญในการดูแลผู้ป่วยวิกฤตบางราย แม้จะไม่ใช่เครื่องมือทั่วไป",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42012668/"
+  },
+  {
     "date": "20 Apr",
     "title": "Evaluation of Large Language Models as Decision Support for the Management of Abdominal Pain in the Emergency Department: A Pilot Study.",
     "comment": "LLM เริ่มมีบทบาทช่วยตัดสินใจผู้ป่วย ER ที่ปวดท้อง",
@@ -358,65 +418,5 @@
     "title": "Mobile ICU-supported ECMO rapid response team: A paradigm for regional critical care optimization",
     "comment": "ทีม ECMO ฉุกเฉินสนับสนุนโดย Mobile ICU เป็นโมเดลใหม่ในการเพิ่มประสิทธิภาพการดูแลผู้ป่วยวิกฤต",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41972000/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Gaps in knowledge, receipt, and acceptance of measles, mumps, rubella vaccines in a National Sample of emergency department patients.",
-    "comment": "รพ. ER ยังมีความรู้และเจตนาการรับวัคซีน MMR ในผู้ป่วย ED ไม่เต็มที่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41966547/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Shifts in pediatric orthopedic injury patterns in the emergency department before, during, and after the COVID-19 pandemic.",
-    "comment": "โควิด-19 มีผลต่อรูปแบบการบาดเจ็บกระดูกในเด็กที่ ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41966546/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Syncope, ST-Elevation Myocardial Infarction (STEMI), or Trauma? Blunt Coronary Bypass Graft Rupture in the Emergency Department.",
-    "comment": "เหตุการณ์ STEMI ที่เลียนแบบการบาดเจ็บ อาจเกิดจาก Blunt Coronary Bypass Graft Rupture",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41965963/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Peripheral venous oxygen saturation as an auxiliary indicator for improving the prediction of early in-hospital mortality in the emergency department.",
-    "comment": "การวัด PvO2 ใน ED อาจช่วยทำนายอัตราการเสียชีวิตใน รพ. ระยะแรกได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41965510/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Time to intubate with an innovative intubation device: a dual-center randomized crossover non-inferiority simulation study.",
-    "comment": "อุปกรณ์ช่วยใส่ท่อช่วยหายใจแบบใหม่ อาจมีประสิทธิภาพไม่ด้อยกว่าแบบเดิม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41965509/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Video consultation in the prehospital stroke chain of care for suspected large vessel occlusion: a mixed-methods feasibility study.",
-    "comment": "Teleconsultation จาก ER ช่วยประเมิน LVO ในการดูแล Stroke ก่อนถึง รพ. ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41965508/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Authorized surrogate presence and its association with early in-hospital delays and outcomes in acute ischemic stroke.",
-    "comment": "การมีผู้แทนที่ได้รับอนุญาต อยู่ด้วย ส่งผลต่อความล่าช้าและการรักษา Stroke เฉียบพลัน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41965505/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Acute fipronil toxicity in humans following intentional ingestion: a case report with favorable outcome from a resource-limited setting.",
-    "comment": "รายงานผู้ป่วยพิษ Fipronil ที่ได้รับยาเกินขนาด แต่ผลการรักษาน่าพอใจในบริบทที่ทรัพยากรจำกัด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41965502/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 \"Hit or Miss\": Rural Veterans' Experiences Receiving Community Mental Health Care.",
-    "comment": "ประสบการณ์การดูแลสุขภาพจิตในชุมชนของทหารผ่านศึกในชนบท ยังมีปัญหาความไม่แน่นอน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41964331/"
-  },
-  {
-    "date": "12 Apr",
-    "title": "🔹 Cardiovascular-kidney-metabolic syndrome and atrial fibrillation: Insights from 2 real-world prospective registries across Europe and East Asia.",
-    "comment": "CKM syndrome มีความสัมพันธ์กับ AF ที่พบได้จริงในประชากร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41966525/"
   }
 ]
