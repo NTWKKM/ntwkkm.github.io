@@ -1,5 +1,65 @@
 [
   {
+    "date": "23 Apr",
+    "title": "Resuscitative thoracotomy in modern warfare: Experience from a Military-Civilian trauma system.",
+    "comment": "การทบทวนแนวทางการทำ Resuscitative thoracotomy ในสถานการณ์สงครามที่อาจนำมาปรับใช้ใน ER ทั่วไป",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42023932/"
+  },
+  {
+    "date": "23 Apr",
+    "title": "Association of Early Steroid and Antibiotic Therapy With Airway Outcomes in Adult Epiglottitis: A 10-Year Multicenter Retrospective Cohort Study.",
+    "comment": "ชี้ให้เห็นถึงบทบาทของสเตียรอยด์และยาปฏิชีวนะในการรักษา Epiglottitis ที่อาจเปลี่ยนแนวทางการรักษาฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42023439/"
+  },
+  {
+    "date": "23 Apr",
+    "title": "The Evolving Role of Extracorporeal Carbon Dioxide Removal in Acute Respiratory Failure: A Narrative Review.",
+    "comment": "อัพเดทการใช้งาน ECPR ในภาวะ ARDS ที่อาจเป็นทางเลือกใหม่ในการรักษาผู้ป่วยวิกฤต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42022721/"
+  },
+  {
+    "date": "23 Apr",
+    "title": "Hospital teaching status and COVID-19 outcomes: a multicenter retrospective cohort study in the emergency department.",
+    "comment": "การรักษาผู้ป่วย COVID-19 ใน ED ของโรงพยาบาลที่เป็น Teaching hospital อาจมีผลต่อ Outcome ผู้ป่วย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42023760/"
+  },
+  {
+    "date": "23 Apr",
+    "title": "Impact of early dexmedetomidine administration on short- and long-term outcomes in critically traumatic brain injury patients: A retrospective study using the MIMIC-IV database.",
+    "comment": "Dexmedetomidine อาจมีผลดีต่อผู้ป่วย TBI ใน ED",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42023254/"
+  },
+  {
+    "date": "23 Apr",
+    "title": "Pain assessment and management in the emergency department: A prospective quasi-experimental study.",
+    "comment": "การประเมินและจัดการความปวดใน ED ที่อาจต้องปรับปรุง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42023321/"
+  },
+  {
+    "date": "23 Apr",
+    "title": "Comparison of Alert, Response to Verbal Stimulus, Response to Verbal Stimulus, Response to Pain, Unresponsive (AVPU) Scale with Pediatric Glasgow Coma Scale for Assessing Level of Consciousness in Infants and Children.",
+    "comment": "AVPU scale เทียบกับ P-GCS ในเด็กเล็ก อาจเป็นเครื่องมือประเมิน GCS ที่ใช้ได้ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42023565/"
+  },
+  {
+    "date": "23 Apr",
+    "title": "Gas gangrene of the great toe identified on radiograph.",
+    "comment": "การวินิจฉัย Gas gangrene จาก X-ray ที่อาจมองข้ามใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42023549/"
+  },
+  {
+    "date": "23 Apr",
+    "title": "Synovial fluid Lipocalin-2 as a biomarker for chronic prosthetic joint infection: Prospective validation in hip and knee revision arthroplasty.",
+    "comment": "Lipocalin-2 ในน้ำไขข้อ อาจเป็น biomarker ที่มีประโยชน์ในการวินิจฉัย prosthetic joint infection ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42023543/"
+  },
+  {
+    "date": "23 Apr",
+    "title": "Endovascular treatment for posterior epistaxis: should it still be considered a last-resort option? A literature review.",
+    "comment": "การใช้ Endovascular treatment ในภาวะเลือดกำเดาไหลด้านหลังที่อาจไม่ใช่ทางเลือกสุดท้ายเสมอไป",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42023073/"
+  },
+  {
     "date": "22 Apr",
     "title": "Early Rule Out of Myocardial Infarction With a Novel High-Sensitivity Cardiac Troponin T Assay",
     "comment": "ยกระดับการวินิจฉัย MI ใน ER ด้วย Troponin assay ตัวใหม่ที่ไวขึ้น",
@@ -358,65 +418,5 @@
     "title": "Noninvasive respiratory support strategies in chest trauma: A systematic review and network meta-analysis.",
     "comment": "รวบรวมหลักฐานประสิทธิภาพของ Non-invasive Ventilation ในผู้ป่วย Chest Trauma",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41989256/"
-  },
-  {
-    "date": "15 Apr",
-    "title": "Early prediction of bowel necrosis in incarcerated groin hernia using parsimonious machine learning models: a retrospective cohort study.",
-    "comment": "พัฒนา AI ช่วย ER ในการประเมินภาวะไส้เลื่อนขาหนีบที่มีภาวะแทรกซ้อน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41984331/"
-  },
-  {
-    "date": "15 Apr",
-    "title": "Sexually Transmitted Infection Treatment Rates Among Pregnant vs Nonpregnant Patients in Emergency Departments.",
-    "comment": "การรักษา STIs ในหญิงตั้งครรภ์ใน ER: มีความแตกต่างและควรให้ความสนใจเป็นพิเศษ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41984481/"
-  },
-  {
-    "date": "15 Apr",
-    "title": "Comparison of CATCH, PECARN and CHALICE rules in children with minor head trauma.",
-    "comment": "เทียบกฎ CATCH, PECARN, CHALICE ในเด็กศีรษะกระทบกระเทือนเบื้องต้นที่ ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41984218/"
-  },
-  {
-    "date": "15 Apr",
-    "title": "Hughes-Stovin syndrome (HSS) preliminary diagnostic criteria: a report by the HSS International Study Group (HSSISG).",
-    "comment": "เกณฑ์การวินิจฉัยเบื้องต้นสำหรับ Hughes-Stovin syndrome โรคหายากที่อาจเจอใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41984348/"
-  },
-  {
-    "date": "15 Apr",
-    "title": "Buprenorphine Products for the Treatment of Pain: Relative Risk of Abuse and Related Clinical Outcomes Compared to Full μ-Opioid Agonist Medications.",
-    "comment": "Buprenorphine เทียบกับ Opioid อื่นๆ ในการรักษาปวด: ลดความเสี่ยงการเสพติด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41984416/"
-  },
-  {
-    "date": "15 Apr",
-    "title": "Dexmedetomidine Use and Reduced In-hospital Mortality in ICU Patients with Delirium: A Retrospective Study Based on Two Observational Cohorts.",
-    "comment": "Dexmedetomidine อาจช่วยลดการเสียชีวิตในผู้ป่วย Delirium ที่ ICU",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41984028/"
-  },
-  {
-    "date": "15 Apr",
-    "title": "Serenissima Overboard Triage and Rescue: A Proposal for a Rapid Tool for the Assessment of In-Water Victims of Mass-Casualty Nautical Accidents.",
-    "comment": "เครื่องมือคัดแยกผู้ประสบภัยทางน้ำในอุบัติเหตุหมู่: มีประโยชน์ต่อ ER ที่ต้องรับผู้ป่วยจำนวนมาก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41984146/"
-  },
-  {
-    "date": "15 Apr",
-    "title": "Bridging the gap between physiology and transfusion guidelines: do we treat hemoglobin or patients?",
-    "comment": "การให้เลือด: เน้นที่ผู้ป่วย ไม่ใช่แค่ค่า Hemoglobin",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41984148/"
-  },
-  {
-    "date": "15 Apr",
-    "title": "Commercial AI Model Diagnostic Accuracy for Intracranial Large- and Medium-Vessel Occlusion in Emergency CT Angiography.",
-    "comment": "AI ช่วยวินิจฉัยเส้นเลือดสมองอุดตันใน CT Angiography ที่ ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41983922/"
-  },
-  {
-    "date": "15 Apr",
-    "title": "The impact of recreational cannabis legalization on pediatric emergency department visits in British Columbia, Canada.",
-    "comment": "กัญชาเสรีส่งผลต่อผู้ป่วยเด็กใน ER อย่างไร?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41984022/"
   }
 ]
