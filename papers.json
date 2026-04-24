@@ -1,5 +1,65 @@
 [
   {
+    "date": "24 Apr",
+    "title": "Can extracorporeal cardiopulmonary resuscitation save exsanguinating trauma victims?",
+    "comment": "แสดงให้เห็นถึงความเป็นไปได้ในการใช้ ECPR ในภาวะเสียเลือดขั้นรุนแรง ซึ่งอาจเปลี่ยนแนวทางการรักษาผู้ป่วย trauma",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42029149/"
+  },
+  {
+    "date": "24 Apr",
+    "title": "Early diagnosis of infective endocarditis in a patient without known risk factors using PoCUS.",
+    "comment": "การใช้ PoCUS ในการวินิจฉัย IE ตั้งแต่เนิ่นๆ ในผู้ป่วยที่ไม่มีปัจจัยเสี่ยง อาจช่วยลดความล่าช้าในการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42029011/"
+  },
+  {
+    "date": "24 Apr",
+    "title": "Left Ventricular Unloading in Anterior ST-Segment Elevation Myocardial Infarction Without Shock: The ST-Segment Elevation Myocardial Infarction Door to Unload Randomized Controlled Trial.",
+    "comment": "การใช้ LV unloading ใน STEMI ที่ไม่มีภาวะ shock อาจเป็นแนวทางใหม่ในการรักษาเพื่อลดความเสียหายของกล้ามเนื้อหัวใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42029358/"
+  },
+  {
+    "date": "24 Apr",
+    "title": "Reversing AV Block and Cardiogenic Shock in STEMI Care: A Case Report on Use of Fibrinolysis and Inotrope without PCI in Rural Nepal.",
+    "comment": "รายงานเคสที่น่าสนใจเกี่ยวกับการรักษา STEMI ที่มี AV block และ cardiogenic shock ด้วย fibrinolysis และ inotrope โดยไม่ทำ PCI ในบริบทที่จำกัด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42028780/"
+  },
+  {
+    "date": "24 Apr",
+    "title": "Balanced Fluid or 0.9% Saline in Children Treated for Septic Shock.",
+    "comment": "การศึกษาเปรียบเทียบชนิดสารน้ำที่เหมาะสมในเด็ก septic shock ซึ่งเป็นประเด็นที่ยังมีการถกเถียง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42028918/"
+  },
+  {
+    "date": "24 Apr",
+    "title": "Syncope and Wellens Sign: A Case Report and Review of Precordial ST- and T-Wave Changes in the Emergency Department.",
+    "comment": "เน้นความสำคัญของ Wellens sign ในการวินิจฉัย ACS ซึ่งอาจมองข้ามได้ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42029143/"
+  },
+  {
+    "date": "24 Apr",
+    "title": "Massive Gastrointestinal Bleeding in a 2-year-old child presenting as Meckel's diverticulum: A case report.",
+    "comment": "รายงานเคสที่หายากของการมีเลือดออกในทางเดินอาหารอย่างรุนแรงจาก Meckel's diverticulum ในเด็กเล็ก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42029454/"
+  },
+  {
+    "date": "24 Apr",
+    "title": "Extensive Rectal Ischemia with Perforation: A Rare Case of Whole-Segment Ischemic Injury.",
+    "comment": "แสดงภาพรวมของภาวะลำไส้ใหญ่ขาดเลือดที่รุนแรง ซึ่งเป็นภาวะฉุกเฉินที่ต้องอาศัยการวินิจฉัยและการจัดการที่รวดเร็ว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42029454/"
+  },
+  {
+    "date": "24 Apr",
+    "title": "Granulomatosis with Polyangiitis Presenting as ANCA-Negative Pulmonary Disease with Distributive Shock.",
+    "comment": "รายงานเคส ANCA-negative GPA ที่มีอาการ shock ซึ่งอาจท้าทายการวินิจฉัยใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42029476/"
+  },
+  {
+    "date": "24 Apr",
+    "title": "Management Strategies for Hypertensive Crises: A Systematic Review of Evidence-Based Approaches.",
+    "comment": "สรุปแนวทางการจัดการภาวะความดันโลหิตสูงวิกฤตที่เป็นปัจจุบันและมีหลักฐานทางวิชาการรองรับ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42028502/"
+  },
+  {
     "date": "23 Apr",
     "title": "Resuscitative thoracotomy in modern warfare: Experience from a Military-Civilian trauma system.",
     "comment": "การทบทวนแนวทางการทำ Resuscitative thoracotomy ในสถานการณ์สงครามที่อาจนำมาปรับใช้ใน ER ทั่วไป",
@@ -358,65 +418,5 @@
     "title": "Independent bone-level diagnostic accuracy study of an AI tool for detecting appendicular skeletal fractures on radiographs",
     "comment": "AI มีศักยภาพในการช่วยวินิจฉัยกระดูกหักแขนขาจากภาพถ่ายรังสี แม่นยำระดับ Bone-level",
     "link": "https://pubmed.ncbi.nlm.nih.gov/41995742/"
-  },
-  {
-    "date": "16 Apr",
-    "title": "The macrophage DAG/PKCα/ROS axis exacerbates sepsis by inducing endothelial dysfunction through activation of the p38 MAPK pathway.",
-    "comment": "ชี้กลไกใหม่ที่อาจนำไปสู่การรักษา Sepsis ที่ดียิ่งขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41989633/"
-  },
-  {
-    "date": "16 Apr",
-    "title": "Visceral technetium-99m-labeled pyrophosphate uptake in patients with wild-type transthyretin cardiac amyloidosis.",
-    "comment": "การใช้เทคนิค Pyrophosphate Scan อาจช่วยวินิจฉัย Cardiac Amyloidosis ที่ไม่ใช่แบบ Hereditary ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41989649/"
-  },
-  {
-    "date": "16 Apr",
-    "title": "Relevance of blood gas analysis in emergency medical services: an emergency physician's assessment.",
-    "comment": "ทบทวนความสำคัญของการตรวจ Blood Gas ใน EMS ซึ่งอาจถูกมองข้าม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41989559/"
-  },
-  {
-    "date": "16 Apr",
-    "title": "Efficacy and Safety of Topical Anticholinergics in the Treatment of Primary Axillary Hyperhidrosis: A Systematic Review and Meta-analysis.",
-    "comment": "ทางเลือกใหม่ในการรักษาภาวะเหงื่อออกมากผิดปกติที่รักแร้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41989535/"
-  },
-  {
-    "date": "16 Apr",
-    "title": "Diagnostic and clinical associations of serum Isthmin-1 in acute ischemic stroke.",
-    "comment": "Isthmin-1 อาจเป็น Biomarker ใหม่ที่ช่วยในการวินิจฉัยและประเมินผลผู้ป่วย Stroke",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41989508/"
-  },
-  {
-    "date": "16 Apr",
-    "title": "Vancomycin-resistant Enterococcus faecium: a national wide genomic snapshot in Switzerland.",
-    "comment": "ภาพรวมความหลากหลายทางพันธุกรรมของ VRE ในระดับประเทศ ชี้แนวโน้มการดื้อยา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41989484/"
-  },
-  {
-    "date": "16 Apr",
-    "title": "Paroxysmal Pause-Dependent Atrioventricular Block: An Often-Missed Medical Emergency.",
-    "comment": "ชี้ภาวะหัวใจเต้นผิดจังหวะที่อาจนำไปสู่อันตรายและมักถูกวินิจฉัยพลาด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41989375/"
-  },
-  {
-    "date": "16 Apr",
-    "title": "The Effect of Virtual Reality on Pain Management in Children in the Emergency Department: A Systematic Review and Meta-Analysis.",
-    "comment": "VR อาจเป็นเครื่องมือช่วยลดปวดที่มีประสิทธิภาพในเด็ก ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41989362/"
-  },
-  {
-    "date": "16 Apr",
-    "title": "Emergency Department Observation and Computed Tomography Use in Children With Blunt Abdominal Trauma.",
-    "comment": "ข้อแนะนำเกี่ยวกับการใช้ CT Scan ในเด็กบาดเจ็บช่องท้องทื่อ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41989358/"
-  },
-  {
-    "date": "16 Apr",
-    "title": "Noninvasive respiratory support strategies in chest trauma: A systematic review and network meta-analysis.",
-    "comment": "รวบรวมหลักฐานประสิทธิภาพของ Non-invasive Ventilation ในผู้ป่วย Chest Trauma",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41989256/"
   }
 ]
