@@ -1,5 +1,65 @@
 [
   {
+    "date": "25 Apr",
+    "title": "An Enduring Threat: NPS Benzodiazepines in Forensic and Clinical Toxicology from 2021-2025.",
+    "comment": "การระบาดของสารเสพติดกลุ่มใหม่ (NPS) ที่ออกฤทธิ์คล้ายเบนโซไดอะซีปีน กำลังเป็นปัญหาใหญ่ทางการแพทย์และนิติเวช",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42033028/"
+  },
+  {
+    "date": "25 Apr",
+    "title": "Multi-Factorial and Multi-Component Fall Prevention Interventions Initiated From the Emergency Department: A Systemic Review and Meta-Analysis.",
+    "comment": "การวางแผนป้องกันการหกล้มตั้งแต่ใน ER ช่วยลดความเสี่ยงและผลลัพธ์ที่ไม่ดีในผู้สูงอายุได้อย่างมีนัยสำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42032852/"
+  },
+  {
+    "date": "25 Apr",
+    "title": "Impact of serum ferritin on the efficacy of hydrocortisone in septic patients: a retrospective cohort study.",
+    "comment": "ระดับ Ferritin อาจบ่งชี้ผลการรักษาด้วย Hydrocortisone ในผู้ป่วย Sepsis ซึ่งอาจนำไปสู่การปรับแนวทางการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42032479/"
+  },
+  {
+    "date": "25 Apr",
+    "title": "Fissural pleural effusion mimicking a lung mass: a diagnostic pitfall in the emergency department.",
+    "comment": "ความผิดพลาดในการวินิจฉัยภาวะน้ำในช่องเยื่อหุ้มปอดลักษณะเฉพาะ อาจนำไปสู่การรักษาล่าช้าใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42032466/"
+  },
+  {
+    "date": "25 Apr",
+    "title": "Diagnostic performance of eosinopenia for identifying bacterial infections in the emergency department: a prospective multicenter study.",
+    "comment": "Eosinopenia อาจเป็นสัญญาณบ่งชี้การติดเชื้อแบคทีเรียในผู้ป่วย ER ที่ควรให้ความสนใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42032462/"
+  },
+  {
+    "date": "25 Apr",
+    "title": "Comparative performance of manual triage systems and ML models in predicting clinical outcomes among patients transported to the emergency department by emergency medical services.",
+    "comment": "AI อาจเข้ามาช่วยเพิ่มประสิทธิภาพการคัดกรองผู้ป่วยฉุกเฉินให้แม่นยำและรวดเร็วยิ่งขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42032461/"
+  },
+  {
+    "date": "25 Apr",
+    "title": "Interventions to reduce emergency department overcrowding and their effects on patient outcomes: a mixed-methods systematic review and meta-analysis.",
+    "comment": "กลยุทธ์การลดความแออัดใน ER มีความสำคัญอย่างยิ่งต่อผลลัพธ์ของผู้ป่วย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42032455/"
+  },
+  {
+    "date": "25 Apr",
+    "title": "Beyond the LRINEC Score: A stratified diagnostic algorithm for subacute and atypical necrotizing fasciitis.",
+    "comment": "การพัฒนากลุ่มอาการวินิจฉัย Necrotizing Fasciitis แบบใหม่ อาจช่วยให้การวินิจฉัยแม่นยำขึ้นในกรณีที่ซับซ้อน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42031594/"
+  },
+  {
+    "date": "25 Apr",
+    "title": "Haematoma block versus sedation for manipulating distal radius fractures in the emergency department.",
+    "comment": "การศึกษาเปรียบเทียบเทคนิคการลดกระดูกหักที่ข้อมือใน ER เพื่อหาทางเลือกที่เหมาะสมที่สุด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42031527/"
+  },
+  {
+    "date": "25 Apr",
+    "title": "Clinician interaction with a machine learning algorithm for the assessment of patients with possible acute heart failure: a qualitative study.",
+    "comment": "การทำความเข้าใจมุมมองของแพทย์ต่อการใช้ AI ในการประเมินภาวะหัวใจล้มเหลวเฉียบพลัน เป็นสิ่งสำคัญสำหรับการนำไปใช้จริง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42031525/"
+  },
+  {
     "date": "24 Apr",
     "title": "Can extracorporeal cardiopulmonary resuscitation save exsanguinating trauma victims?",
     "comment": "แสดงให้เห็นถึงความเป็นไปได้ในการใช้ ECPR ในภาวะเสียเลือดขั้นรุนแรง ซึ่งอาจเปลี่ยนแนวทางการรักษาผู้ป่วย trauma",
@@ -358,65 +418,5 @@
     "title": "Evaluating the Impact of Fentanyl Immunoassay Cutoff Concentrations in Emergency Department, Maternal, and Neonatal Populations",
     "comment": "การตรวจหาสารเสพติดใน ER โดยเฉพาะ fentanyl ต้องพิจารณาค่า cutoff ที่เหมาะสม",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42001212/"
-  },
-  {
-    "date": "17 Apr",
-    "title": "Refractory immune-related adverse events (irAes) associated with immune checkpoint inhibitor therapy: a multiorgan management review",
-    "comment": "คู่มือการจัดการผลข้างเคียงจากภูมิคุ้มกันบำบัดที่รักษาได้ยาก ครอบคลุมหลายระบบอวัยวะ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41995025/"
-  },
-  {
-    "date": "17 Apr",
-    "title": "Paraquat Poisoning from a Tertiary Care Center in Northern India: A Case Series",
-    "comment": "กรณีศึกษาการได้รับสารพาราควอตในอินเดีย ชี้ให้เห็นถึงความรุนแรงและแนวทางการดูแล",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41995614/"
-  },
-  {
-    "date": "17 Apr",
-    "title": "Bedside Ultrasound-Driven Emergency Stenting for Spontaneous Carotid Artery Dissection: Clinical and Technical Insights",
-    "comment": "การใช้ U/S ที่ข้างเตียงในการทำ Stenting ฉุกเฉินในภาวะ Spontaneous Carotid Artery Dissection เป็นเทคนิคใหม่ที่น่าสนใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41995664/"
-  },
-  {
-    "date": "17 Apr",
-    "title": "High neutrophil-to-albumin ratio signals severe prognosis in LVO stroke-data from an EICU cohort",
-    "comment": "อัตราส่วน Neutrophil/Albumin ที่สูงบ่งชี้การพยากรณ์โรคที่แย่ในผู้ป่วย LVO Stroke ช่วยในการประเมินผู้ป่วยวิกฤต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41994423/"
-  },
-  {
-    "date": "17 Apr",
-    "title": "Predictors of 30-day mortality in older adults with traffic-related injuries: Classical trauma scores, frailty, and laboratory markers in a retrospective study",
-    "comment": "การประเมินความเสี่ยงเสียชีวิต 30 วันในผู้สูงอายุจากอุบัติเหตุจราจร พิจารณาทั้งคะแนน Traumatic Score, Frailty และ Lab markers",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41995575/"
-  },
-  {
-    "date": "17 Apr",
-    "title": "Non operative management of postpartum Diastasis Recti: a systematic review and metanalysis of randomized controlled trials",
-    "comment": "แนวทางการรักษาแบบไม่ผ่าตัดในภาวะ Diastasis Recti หลังคลอด เป็นทางเลือกที่น่าสนใจสำหรับผู้ป่วยบางกลุ่ม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41995887/"
-  },
-  {
-    "date": "17 Apr",
-    "title": "Correction: Semaglutide Mitigates Ischemic Brain Injury by Inhibiting Ferroptosis via Modulation of FoXO1 and DRP1 Pathways",
-    "comment": "Semaglutide อาจมีบทบาทในการลดการบาดเจ็บของสมองจากภาวะขาดเลือดผ่านกลไก Ferroptosis",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41996021/"
-  },
-  {
-    "date": "17 Apr",
-    "title": "Comparative predictive performance of anticholinergic burden scales for anticholinergic-related hospitalisation and emergency department visits in older adults: a population-based study of model development and temporal validation",
-    "comment": "การเปรียบเทียบประสิทธิภาพของ Anticholinergic Burden Scales ในการทำนายการเข้ารับการรักษาใน รพ. และ ER ในผู้สูงอายุ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41995941/"
-  },
-  {
-    "date": "17 Apr",
-    "title": "Association between high ratio of platelet concentrate to red blood cell and survival among massively transfused patients",
-    "comment": "อัตราส่วน Platelet Concentrate ต่อ Red Blood Cell มีความสัมพันธ์กับการรอดชีวิตในผู้ป่วยที่ได้รับเลือดปริมาณมาก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41995810/"
-  },
-  {
-    "date": "17 Apr",
-    "title": "Independent bone-level diagnostic accuracy study of an AI tool for detecting appendicular skeletal fractures on radiographs",
-    "comment": "AI มีศักยภาพในการช่วยวินิจฉัยกระดูกหักแขนขาจากภาพถ่ายรังสี แม่นยำระดับ Bone-level",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/41995742/"
   }
 ]
