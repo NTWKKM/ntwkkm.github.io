@@ -1,5 +1,65 @@
 [
   {
+    "date": "28 Apr",
+    "title": "Drivers of Increased Hospital Mortality for Non-COVID-19 Conditions During COVID-19 Surges in 2020",
+    "comment": "ชี้ให้เห็นผลกระทบทางอ้อมของ COVID-19 ที่ส่งผลให้ผู้ป่วยที่ไม่ได้เป็น COVID-19 เสียชีวิตมากขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42046923/"
+  },
+  {
+    "date": "28 Apr",
+    "title": "Evaluation of brain injury biomarkers in mild traumatic brain injury with and without computed tomography findings",
+    "comment": "การประเมิน biomarker ในภาวะ TBI ที่ไม่รุนแรง อาจช่วยคัดกรองผู้ป่วยที่ไม่จำเป็นต้องทำ CT scan",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42047078/"
+  },
+  {
+    "date": "28 Apr",
+    "title": "Use of sodium thiosulfate in prevention of aki in oncologic patient that underwent hipec (Hyperthermic Intraperitoneal Chemotherapy) with Cisplatin: a Case Report",
+    "comment": "Sodium thiosulfate อาจมีบทบาทในการป้องกัน AKI ในผู้ป่วยมะเร็งที่ได้รับ Cisplatin ขณะทำ HIPEC",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42047121/"
+  },
+  {
+    "date": "28 Apr",
+    "title": "Association Between Atherogenic Index of Plasma and No-Reflow After Primary PCI in STEMI",
+    "comment": "Atherogenic Index of Plasma อาจเป็น predictor ของ No-Reflow Phenomenon ในผู้ป่วย STEMI หลังทำ Primary PCI",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42047148/"
+  },
+  {
+    "date": "28 Apr",
+    "title": "Performance of the Oakland Score for Safe Discharge in Asian Patients After Acute Presentation With Lower GI Bleeding",
+    "comment": "Oakland Score อาจมีประโยชน์ในการช่วยตัดสินใจจำหน่ายผู้ป่วยเอเชียที่มีภาวะเลือดออกในทางเดินอาหารส่วนล่างอย่างเฉียบพลัน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42047128/"
+  },
+  {
+    "date": "28 Apr",
+    "title": "Early albumin infusion and mortality in elderly patients with sepsis based on analysis of the Medical Information Mart for Intensive Care-IV (MIMIC-IV) database",
+    "comment": "การให้ Albumin ในช่วงต้นในผู้สูงอายุที่เป็น Sepsis อาจลดอัตราการเสียชีวิต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42046872/"
+  },
+  {
+    "date": "28 Apr",
+    "title": "News in autoimmune myelitis in the oncological context",
+    "comment": "ความเชื่อมโยงระหว่างมะเร็งและการเกิด Autoimmune Myelitis ที่น่าสนใจสำหรับ ER physician",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42046908/"
+  },
+  {
+    "date": "28 Apr",
+    "title": "Antimicrobial resistance emergence during war: looking for answers beyond antibiotics",
+    "comment": "การอุบัติขึ้นของเชื้อดื้อยาในช่วงสงคราม และแนวทางการรับมือที่นอกเหนือจากยาปฏิชีวนะ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42046764/"
+  },
+  {
+    "date": "28 Apr",
+    "title": "Application of a Nursing Quality Improvement Checklist in the Emergency Treatment of Trauma Patients",
+    "comment": "การนำ Checklist ด้านคุณภาพพยาบาลมาใช้ในการดูแลผู้ป่วยอุบัติเหตุใน ER อาจเพิ่มประสิทธิภาพการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42046759/"
+  },
+  {
+    "date": "28 Apr",
+    "title": "Necrotizing Fasciitis Caused by",
+    "comment": "การระบาดของ Necrotizing Fasciitis ที่น่าจับตามองในแง่ของการวินิจฉัยและผลกระทบ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42046743/"
+  },
+  {
     "date": "25 Apr",
     "title": "An Enduring Threat: NPS Benzodiazepines in Forensic and Clinical Toxicology from 2021-2025.",
     "comment": "การระบาดของสารเสพติดกลุ่มใหม่ (NPS) ที่ออกฤทธิ์คล้ายเบนโซไดอะซีปีน กำลังเป็นปัญหาใหญ่ทางการแพทย์และนิติเวช",
@@ -358,65 +418,5 @@
     "title": "Serum glucose-to-potassium ratio is associated with delirium and all-cause mortality in intensive care unit patients: insights from the MIMIC database analysis.",
     "comment": "อัตราส่วนน้ำตาลต่อโพแทสเซียมในเลือดโยงกับ Delirium และการตายใน ICU",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42007163/"
-  },
-  {
-    "date": "19 Apr",
-    "title": "Evaluating Large Language Models for AI-Assisted Grading: A Framework and Case Study in Higher Education",
-    "comment": "AI กับการประเมินผลการศึกษา อาจมีผลต่อการนำมาใช้ในทางการแพทย์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42000830/"
-  },
-  {
-    "date": "19 Apr",
-    "title": "Development and Prospective Shadow Evaluation of a Domain-Specific Large Language Model for Emergency Neurological Diagnosis",
-    "comment": "AI ด้านประสาทวิทยาสำหรับ ER อาจเป็นเครื่องมือช่วยวินิจฉัยที่สำคัญ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42000879/"
-  },
-  {
-    "date": "19 Apr",
-    "title": "Effect modification by chronic kidney disease on renal outcomes in septic shock patients undergoing high-MAP targeting: a secondary analysis of the OPTPRESS trial",
-    "comment": "CKD ส่งผลต่อการตอบสนองต่อการให้สารน้ำในผู้ป่วย septic shock ที่ต้องเฝ้าระวัง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42001124/"
-  },
-  {
-    "date": "19 Apr",
-    "title": "Regional anesthesia in the emergency department: A review of key pharmacotherapeutic considerations",
-    "comment": "ยาชาเฉพาะที่ในการทำหัตถการ ER มีบทบาทสำคัญที่ต้องทบทวน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42000675/"
-  },
-  {
-    "date": "19 Apr",
-    "title": "Prevalence, risk factors, and prognosis of the need for physical and chemical restraint in older patients attending emergency departments. EDEN-50.",
-    "comment": "การใช้ยา/เครื่องมือยับยั้งในผู้สูงอายุ ER ยังคงเป็นปัญหาที่ต้องศึกษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42000676/"
-  },
-  {
-    "date": "19 Apr",
-    "title": "Initiating advance care planning and DNACPR conversations in the emergency department: A narrative review and reflective case analysis to inform nursing practice",
-    "comment": "การวางแผนดูแลล่วงหน้าและการทำ DNACPR ใน ER สำคัญต่อการตัดสินใจของผู้ป่วยและครอบครัว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42000531/"
-  },
-  {
-    "date": "19 Apr",
-    "title": "The Minnesota Mobile Resuscitation Consortium ECMO Truck: A Feasibility Study for ECPR in Refractory Out-of-Hospital Cardiac Arrest",
-    "comment": "ECMO แบบเคลื่อนที่อาจพลิกโฉมการรักษา OHCA ที่รักษายาก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42000028/"
-  },
-  {
-    "date": "19 Apr",
-    "title": "Burnout, Stress, and Moral Injury Among Emergency Medical Services Clinicians: A Systematic Review",
-    "comment": "ภาวะหมดไฟของบุคลากร EMS เป็นปัญหาที่ต้องใส่ใจเพื่อการดูแลผู้ป่วยที่ดี",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42000301/"
-  },
-  {
-    "date": "19 Apr",
-    "title": "Paralyzing herniated disc: To operate or not to operate, and when is the right time?",
-    "comment": "การผ่าตัดหมอนรองกระดูกกดทับเส้นประสาทที่ทำให้เกิดอัมพาต ยังมีข้อถกเถียงเรื่องเวลาที่เหมาะสม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42000475/"
-  },
-  {
-    "date": "19 Apr",
-    "title": "Evaluating the Impact of Fentanyl Immunoassay Cutoff Concentrations in Emergency Department, Maternal, and Neonatal Populations",
-    "comment": "การตรวจหาสารเสพติดใน ER โดยเฉพาะ fentanyl ต้องพิจารณาค่า cutoff ที่เหมาะสม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42001212/"
   }
 ]
