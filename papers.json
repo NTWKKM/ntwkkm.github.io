@@ -1,5 +1,65 @@
 [
   {
+    "date": "29 Apr",
+    "title": "Is Poor Recognition of Out-of-Hospital Cardiac Arrest to Blame for Worse Rates of Survival at Night?",
+    "comment": "การรับรู้อาการหัวใจหยุดเต้นนอกโรงพยาบาลที่ล่าช้าอาจส่งผลต่ออัตราการรอดชีวิตในเวลากลางคืน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42054031/"
+  },
+  {
+    "date": "29 Apr",
+    "title": "Out-of-Hospital Cardiac Arrest Survival at Nighttime: A Nationwide Cohort Study.",
+    "comment": "การศึกษาภาวะหัวใจหยุดเต้นนอกโรงพยาบาล: อัตราการรอดชีวิตในเวลากลางคืนทั่วประเทศ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42054023/"
+  },
+  {
+    "date": "29 Apr",
+    "title": "The 2026 Surviving Sepsis Campaign guidelines: a turning point for emergency medicine.",
+    "comment": "แนวทางใหม่ของ Surviving Sepsis Campaign ปี 2026: การเปลี่ยนแปลงครั้งสำคัญสำหรับเวชศาสตร์ฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42053080/"
+  },
+  {
+    "date": "29 Apr",
+    "title": "Comparison of the 2024 National Institute for Health and Care Excellence sepsis guideline for adults against the 2016 guidelines: a service evaluation.",
+    "comment": "การเปรียบเทียบแนวปฏิบัติ sepsis ฉบับปี 2024 ของ NICE กับฉบับปี 2016",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42053084/"
+  },
+  {
+    "date": "29 Apr",
+    "title": "Effect of sex on syncope management in European emergency departments: the European Society for Emergency Medicine Research network Syncope in European Emergency Departments study.",
+    "comment": "ผลกระทบของเพศต่อการจัดการภาวะหน้ามืดใน ER ยุโรป",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42053083/"
+  },
+  {
+    "date": "29 Apr",
+    "title": "Artificial intelligence in emergency medicine: hallucination risks of large language models and mitigation approaches.",
+    "comment": "ความเสี่ยงของ LLM ใน ER และแนวทางการแก้ไข",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42053081/"
+  },
+  {
+    "date": "29 Apr",
+    "title": "Prehospital high-flow nasal canula oxygen therapy in hypoxemic acute respiratory failure: an open-label, randomized controlled pilot study (PRHOXY-1).",
+    "comment": "ประสิทธิภาพของ High-flow nasal cannula ในการช่วยหายใจในผู้ป่วย ARF แบบผู้ป่วยนอก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42053085/"
+  },
+  {
+    "date": "29 Apr",
+    "title": "Reaffirming the use of original pediatric parameters in the adult application of the Bacterial Meningitis Score.",
+    "comment": "การใช้พารามิเตอร์ของเด็กเพื่อประเมิน Bacterial Meningitis Score ในผู้ใหญ่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42053087/"
+  },
+  {
+    "date": "29 Apr",
+    "title": "Acute Stanford Type A Aortic Dissection Mimicking Acalculous Cholecystitis: A Case Report.",
+    "comment": "กรณีศึกษา: Aortic dissection ที่เลียนแบบอาการถุงน้ำดีอักเสบ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42051829/"
+  },
+  {
+    "date": "29 Apr",
+    "title": "Immature Neutrophil Programs Associate with Burn Mortality and Extend Across Critical Illnesses.",
+    "comment": "โปรแกรมของเซลล์เม็ดเลือดขาวชนิด immature neutrophil เกี่ยวข้องกับอัตราการตายในผู้ป่วยไฟไหม้และวิกฤต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42053371/"
+  },
+  {
     "date": "28 Apr",
     "title": "Drivers of Increased Hospital Mortality for Non-COVID-19 Conditions During COVID-19 Surges in 2020",
     "comment": "ชี้ให้เห็นผลกระทบทางอ้อมของ COVID-19 ที่ส่งผลให้ผู้ป่วยที่ไม่ได้เป็น COVID-19 เสียชีวิตมากขึ้น",
@@ -358,65 +418,5 @@
     "title": "The pulmonary artery catheter-Not a niche tool but often a must.",
     "comment": "Pulmonary Artery Catheter ยังคงมีความสำคัญในการดูแลผู้ป่วยวิกฤตบางราย แม้จะไม่ใช่เครื่องมือทั่วไป",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42012668/"
-  },
-  {
-    "date": "20 Apr",
-    "title": "Evaluation of Large Language Models as Decision Support for the Management of Abdominal Pain in the Emergency Department: A Pilot Study.",
-    "comment": "LLM เริ่มมีบทบาทช่วยตัดสินใจผู้ป่วย ER ที่ปวดท้อง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42007594/"
-  },
-  {
-    "date": "20 Apr",
-    "title": "Management of Gynaecological Chronic Pelvic Pain in the Emergency Setting- A Scoping Review.",
-    "comment": "ทบทวนแนวทางการจัดการอาการปวดอุ้งเชิงกรานเรื้อรังใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42007586/"
-  },
-  {
-    "date": "20 Apr",
-    "title": "National trends in pediatric sepsis hospitalizations, case mix, and mortality, 2016-2022.",
-    "comment": "ข้อมูลเทรนด์ Sepsis ในเด็กที่น่าสนใจสำหรับ ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42007515/"
-  },
-  {
-    "date": "20 Apr",
-    "title": "A Randomized Controlled Pilot Trial of Health Coaching to Improve Functioning and Reduce Suicidal Ideation Among Veterans Reintegrating Into Civilian Life.",
-    "comment": "นวัตกรรม Health Coaching ลดความคิดฆ่าตัวตายในกลุ่มทหารผ่านศึก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42007499/"
-  },
-  {
-    "date": "20 Apr",
-    "title": "Targeted metatranscriptomic detection of viruses from floors for simultaneous evaluation of respiratory disease burden and viral variant identification.",
-    "comment": "เทคนิคใหม่ตรวจจับไวรัสจากพื้นผิว เผยแพร่โรคทางเดินหายใจและสายพันธุ์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42007699/"
-  },
-  {
-    "date": "20 Apr",
-    "title": "Resolution of reverse takotsubo cardiomyopathy secondary to presumed pheochromocytoma with intralesional hemorrhage: A case report.",
-    "comment": "รายงานเคส Takotsubo cardiomyopathy จาก Pheochromocytoma หายเองได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42007243/"
-  },
-  {
-    "date": "20 Apr",
-    "title": "Differential survival impact of acetaminophen and non-steroidal anti-inflammatory drugs on NSCLC patients undergoing immune checkpoint inhibitor therapy: a region-wide cohort study in Hong Kong, China.",
-    "comment": "ยาที่ใช้บ่อยใน ER อย่าง Acetaminophen, NSAIDs มีผลต่อการรักษามะเร็งปอดที่ได้รับ immunotherapy",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42007217/"
-  },
-  {
-    "date": "20 Apr",
-    "title": "Hughes-Stovin syndrome as an uncommon cause of cardiac thrombus and pulmonary embolism: A case report.",
-    "comment": "รายงานเคส Hughes-Stovin syndrome ที่ทำให้เกิดลิ่มเลือดในหัวใจและหลอดเลือดปอด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42007204/"
-  },
-  {
-    "date": "20 Apr",
-    "title": "Machine Learning-Based Model for Predicting Acute Kidney Injury in Patients Hospitalized with Heart Failure: Development and Validation Study.",
-    "comment": "โมเดล ML ช่วยคาดการณ์ AKI ในผู้ป่วย Heart Failure ที่แอดมิท",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42007183/"
-  },
-  {
-    "date": "20 Apr",
-    "title": "Serum glucose-to-potassium ratio is associated with delirium and all-cause mortality in intensive care unit patients: insights from the MIMIC database analysis.",
-    "comment": "อัตราส่วนน้ำตาลต่อโพแทสเซียมในเลือดโยงกับ Delirium และการตายใน ICU",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42007163/"
   }
 ]
