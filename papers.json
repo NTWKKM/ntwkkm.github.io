@@ -1,5 +1,65 @@
 [
   {
+    "date": "30 Apr",
+    "title": "A Novel Therapeutic Strategy for Sepsis: The Multiorgan Protective Properties and Clinical Potential of Ulineastatin",
+    "comment": "วรรณสารใหม่ที่นำเสนอ Ulineastatin อาจพลิกโฉมการรักษาภาวะ Sepsis ด้วยฤทธิ์ปกป้องอวัยวะหลายระบบ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42059826/"
+  },
+  {
+    "date": "30 Apr",
+    "title": "Stepwise clinical and diagnostic strategy for coma of unknown origin",
+    "comment": "แนวทางการวินิจฉัยและรักษาภาวะโคม่าที่ไม่ทราบสาเหตุอย่างเป็นระบบ ช่วยให้แพทย์ ER ตัดสินใจได้เฉียบคมขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42059919/"
+  },
+  {
+    "date": "30 Apr",
+    "title": "The Impact of the Geriatric Emergency Department Initiative on Older Community Dwelling Adults Presenting to the Emergency Department With a Completed Delirium Screen",
+    "comment": "กลยุทธ์เฉพาะสำหรับผู้สูงอายุใน ER ที่มีภาวะ Delirium ช่วยลดผลกระทบเชิงลบและเพิ่มคุณภาพการดูแล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42059151/"
+  },
+  {
+    "date": "30 Apr",
+    "title": "Emergency Department Crowding and Diagnostic Safety: An Underrecognized Risk to Clinical Decision Making",
+    "comment": "ความแออัดใน ER เป็นปัจจัยเสี่ยงที่อาจกระทบต่อความแม่นยำในการวินิจฉัยและตัดสินใจรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42059752/"
+  },
+  {
+    "date": "30 Apr",
+    "title": "Trajectory-Defined Thrombo-Inflammatory Phenotypes Predict 30-Day ICU Mortality in Post-cardiac Arrest Syndrome: A Multicenter Retrospective Longitudinal Cohort Study",
+    "comment": "การจำแนกกลุ่มอาการ Thrombo-Inflammatory ในผู้ป่วยหลังภาวะหัวใจหยุดเต้น ช่วยคาดการณ์การเสียชีวิตใน ICU ได้แม่นยำขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42059137/"
+  },
+  {
+    "date": "30 Apr",
+    "title": "Developing Mind-Body Interventions for the Emergency Department",
+    "comment": "แนวคิดการนำ Mind-Body Interventions มาใช้ใน ER อาจช่วยจัดการความเครียดและส่งเสริมสุขภาพจิตผู้ป่วยและบุคลากร",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42058753/"
+  },
+  {
+    "date": "30 Apr",
+    "title": "Inferring the Intrinsic Mechanisms of Cancer Immune Escape and Therapeutic Resistance by Machine Learning",
+    "comment": "การใช้ Machine Learning เพื่อไขกลไกการหลบเลี่ยงภูมิคุ้มกันของมะเร็ง และความต้านทานต่อการรักษา เป็นกุญแจสู่การพัฒนากลยุทธ์ใหม่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42059720/"
+  },
+  {
+    "date": "30 Apr",
+    "title": "PSMA PET: the answer to MRI-occult prostate cancer… or another mirage?",
+    "comment": "การใช้ PSMA PET ในมะเร็งต่อมลูกหมากที่ MRI ตรวจไม่พบ ยังเป็นที่ถกเถียงถึงความคุ้มค่าและบทบาทที่แท้จริง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42059962/"
+  },
+  {
+    "date": "30 Apr",
+    "title": "Mechanisms and management of sepsis-related cardiac dysfunction",
+    "comment": "ความเข้าใจกลไกของภาวะหัวใจล้มเหลวที่เกี่ยวข้องกับ Sepsis นำไปสู่การพัฒนากลยุทธ์การรักษาที่มีประสิทธิภาพมากขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42059147/"
+  },
+  {
+    "date": "30 Apr",
+    "title": "Risk factors and timing of ocular complications after screening for retinopathy of prematurity",
+    "comment": "การระบุปัจจัยเสี่ยงและช่วงเวลาที่เกิดภาวะแทรกซ้อนทางตาในทารกคลอดก่อนกำหนดที่จอตา จะช่วยปรับปรุงการดูแลและการป้องกัน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42059903/"
+  },
+  {
     "date": "29 Apr",
     "title": "Is Poor Recognition of Out-of-Hospital Cardiac Arrest to Blame for Worse Rates of Survival at Night?",
     "comment": "การรับรู้อาการหัวใจหยุดเต้นนอกโรงพยาบาลที่ล่าช้าอาจส่งผลต่ออัตราการรอดชีวิตในเวลากลางคืน",
@@ -358,65 +418,5 @@
     "title": "Early Plasma Exchange for Multiple Organ Failure Following Massive Wasp Stings: A Case Report",
     "comment": "Plasma Exchange มีบทบาทในการรักษาภาวะ Multiple Organ Failure จากแมลงต่อยหรือไม่? (Case report)",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42017096/"
-  },
-  {
-    "date": "21 Apr",
-    "title": "Telemedicine Devices in Prehospital Trauma Care: A Scoping Review of Telemedical Actions, Clinical Utilities and Implementation Barriers.",
-    "comment": "การนำ Telemedicine มาใช้ใน Prehospital Trauma Care เป็นเรื่องใหม่ที่มีผลต่อการปฏิบัติและอาจลดความรุนแรงของการบาดเจ็บได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42012582/"
-  },
-  {
-    "date": "21 Apr",
-    "title": "Ketamine Versus Etomidate for Rapid Sequence Intubation in Critically Ill Adults: A Comprehensive Systematic Review and Meta-Analysis.",
-    "comment": "การเปรียบเทียบ Ketamine และ Etomidate สำหรับ RSI ในผู้ป่วยวิกฤต เป็นประเด็นสำคัญในการตัดสินใจเลือกยา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42011475/"
-  },
-  {
-    "date": "21 Apr",
-    "title": "Widespread Take-Home Naloxone Use Averted the Majority of Potential Opioid Poisoning Deaths in British Columbia, 2019-2024: A Bayesian Modelling Study.",
-    "comment": "การกระจาย Naloxone ให้ผู้ป่วยสามารถช่วยลดการเสียชีวิตจาก Opioid Overdose ได้อย่างมีนัยสำคัญ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42012358/"
-  },
-  {
-    "date": "21 Apr",
-    "title": "Artificial Intelligence for Public Health Surveillance: Promise, Inequities, and the Need for Transparent Global Adoption.",
-    "comment": "AI มีศักยภาพสูงในการเฝ้าระวังโรค แต่ต้องคำนึงถึงความเท่าเทียมและความโปร่งใสในการนำไปใช้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42012825/"
-  },
-  {
-    "date": "21 Apr",
-    "title": "Prognostic Value of the Platelet-to-Lymphocyte Ratio in Patients With Acute Coronary Syndrome and Its Correlation With Angiographic Findings.",
-    "comment": "PLR อาจเป็น biomarker ที่มีประโยชน์ในการประเมินความรุนแรงและผลลัพธ์ในผู้ป่วย ACS",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42011438/"
-  },
-  {
-    "date": "21 Apr",
-    "title": "Button battery ingestion in children: Update and practical approach.",
-    "comment": "ข้อมูลอัปเดตและแนวทางปฏิบัติสำหรับการจัดการ Button Battery ingestion ในเด็กมีความสำคัญอย่างยิ่ง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42012373/"
-  },
-  {
-    "date": "21 Apr",
-    "title": "Polypharmacy and anticholinergic burden are common but not independently associated with outcomes after emergency laparotomy in older adults.",
-    "comment": "การใช้ยาหลายชนิดและ Anticholinergic burden ในผู้สูงอายุหลังผ่าตัดฉุกเฉินอาจไม่ส่งผลโดยตรงต่อผลลัพธ์ แต่ก็ยังเป็นปัจจัยที่ต้องเฝ้าระวัง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42012554/"
-  },
-  {
-    "date": "21 Apr",
-    "title": "Age Differences in Acute Chest Pain Care in a Multisite US Cohort.",
-    "comment": "การดูแลผู้ป่วยเจ็บหน้าอกเฉียบพลันมีความแตกต่างตามกลุ่มอายุ ซึ่งอาจส่งผลต่อการวินิจฉัยและการรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42012467/"
-  },
-  {
-    "date": "21 Apr",
-    "title": "Advancing Cumulative Impact Assessment in the Global South.",
-    "comment": "การประเมินผลกระทบสะสมที่ครอบคลุมใน Global South เป็นสิ่งสำคัญเพื่อการพัฒนาที่ยั่งยืน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42012532/"
-  },
-  {
-    "date": "21 Apr",
-    "title": "The pulmonary artery catheter-Not a niche tool but often a must.",
-    "comment": "Pulmonary Artery Catheter ยังคงมีความสำคัญในการดูแลผู้ป่วยวิกฤตบางราย แม้จะไม่ใช่เครื่องมือทั่วไป",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42012668/"
   }
 ]
