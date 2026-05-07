@@ -1,5 +1,65 @@
 [
   {
+    "date": "7 May",
+    "title": "European Stroke Organisation (ESO), European Association of Neurosurgical Societies (EANS) and European Society for Minimally Invasive Neurological Therapy (ESMINT) guideline on aneurysmal subarachnoid haemorrhage.",
+    "comment": "อัปเดตกฎการรักษา SAH ที่สำคัญสำหรับ ER.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42095754/"
+  },
+  {
+    "date": "7 May",
+    "title": "Best Practices for Hospital-Based Initiation of Medications for Opioid Use Disorder: A Consensus Statement.",
+    "comment": "แนวทางการเริ่มยา OUD ใน รพ. ที่จำเป็นสำหรับ ER.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42096208/"
+  },
+  {
+    "date": "7 May",
+    "title": "Chest pain, troponin, and electrocardiogram: rethinking how we diagnose myocardial ischemia.",
+    "comment": "ทบทวนหลักการวินิจฉัย MI ที่อาจเปลี่ยนแนวปฏิบัติ.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42095606/"
+  },
+  {
+    "date": "7 May",
+    "title": "Novel treatment strategies in cardiogenic shock: an update on ongoing clinical trials.",
+    "comment": "อัปเดตแนวทางการรักษา Cardiogenic Shock ที่กำลังมา.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42095992/"
+  },
+  {
+    "date": "7 May",
+    "title": "Cost-of-Care Conversations-Time to Break the Ice?",
+    "comment": "การพูดคุยเรื่องค่ารักษาพยาบาลใน ER: เริ่มได้หรือยัง?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42096196/"
+  },
+  {
+    "date": "7 May",
+    "title": "The Patient's Perspective of Early Waiting Room Evaluation With Continuity of Emergency Physician Care.",
+    "comment": "มุมมองผู้ป่วยต่อการประเมินในห้องรอ ER และการดูแลต่อเนื่อง.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42095786/"
+  },
+  {
+    "date": "7 May",
+    "title": "Telemedicine Reimbursement Changes and Health Care Contact Days for Older Adults.",
+    "comment": "ผลกระทบการเปลี่ยนแปลงค่าตอบแทน Telemedicine ต่อการเข้าถึงบริการผู้สูงอายุ.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42096202/"
+  },
+  {
+    "date": "7 May",
+    "title": "Emergency Departments Leading the Transformation of Alzheimer's and Dementia Care.",
+    "comment": "บทบาท ER ในการดูแลผู้ป่วย Alzheimer's และ Dementia.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42095683/"
+  },
+  {
+    "date": "7 May",
+    "title": "Ghost in the Machine: Leveraging artificial intelligence in the trauma bay.",
+    "comment": "AI ในห้องอุบัติเหตุ: เครื่องมือใหม่ที่น่าสนใจ.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42094752/"
+  },
+  {
+    "date": "7 May",
+    "title": "On the frontlines of healthcare: Experiences, challenges, and ethical dilemmas during war.",
+    "comment": "ประสบการณ์และปัญหาจริยธรรมของบุคลากร ER ในภาวะสงคราม.",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42095664/"
+  },
+  {
     "date": "30 Apr",
     "title": "A Novel Therapeutic Strategy for Sepsis: The Multiorgan Protective Properties and Clinical Potential of Ulineastatin",
     "comment": "วรรณสารใหม่ที่นำเสนอ Ulineastatin อาจพลิกโฉมการรักษาภาวะ Sepsis ด้วยฤทธิ์ปกป้องอวัยวะหลายระบบ",
@@ -358,65 +418,5 @@
     "title": "Endovascular treatment for posterior epistaxis: should it still be considered a last-resort option? A literature review.",
     "comment": "การใช้ Endovascular treatment ในภาวะเลือดกำเดาไหลด้านหลังที่อาจไม่ใช่ทางเลือกสุดท้ายเสมอไป",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42023073/"
-  },
-  {
-    "date": "22 Apr",
-    "title": "Early Rule Out of Myocardial Infarction With a Novel High-Sensitivity Cardiac Troponin T Assay",
-    "comment": "ยกระดับการวินิจฉัย MI ใน ER ด้วย Troponin assay ตัวใหม่ที่ไวขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42018311/"
-  },
-  {
-    "date": "22 Apr",
-    "title": "Point-of-care lung ultrasound in the evaluation of chest pain in a pediatric emergency department",
-    "comment": "LUS แบบ Point-of-care ช่วยประเมินภาวะปวดอกในเด็ก ER ได้อย่างรวดเร็ว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42018080/"
-  },
-  {
-    "date": "22 Apr",
-    "title": "Association between diaphragm thickening fraction and noninvasive ventilation failure in patients with acute respiratory failure in the emergency department",
-    "comment": "Diaphragm thickening fraction บอกอะไรเกี่ยวกับความล้มเหลวของ N<bos>. ในผู้ป่วย ARF ใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42017664/"
-  },
-  {
-    "date": "22 Apr",
-    "title": "Functional Access to Public Defibrillators and Out-of-Hospital Cardiac Arrest Outcomes: A Population-Based Geospatial Analysis in Korea",
-    "comment": "การเข้าถึง AED สาธารณะมีความสำคัญต่อผลลัพธ์ของ OHCA แค่ไหน?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42017328/"
-  },
-  {
-    "date": "22 Apr",
-    "title": "Early Inflammatory Biomarkers Associated With Functional Outcomes in Acute Cerebral Venous Thrombosis: CLOT-VENUS Substudy",
-    "comment": "Biomarkers การอักเสบช่วงต้น อาจช่วยทำนายผลลัพธ์ในผู้ป่วย A.C.V.T.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42017277/"
-  },
-  {
-    "date": "22 Apr",
-    "title": "Discriminating migraine aura from transient ischemic attack using MRI-based oxygen metabolism mapping: A preliminary study",
-    "comment": "MRI-based oxygen metabolism mapping แยก Migraine aura กับ TIA ได้หรือไม่?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42017276/"
-  },
-  {
-    "date": "22 Apr",
-    "title": "Characterizing thunderstorm asthma emergency department presentations using natural language processing for improved real-time surveillance",
-    "comment": "NLP ช่วยวิเคราะห์ข้อมูลผู้ป่วย Thunderstorm Asthma ใน ER เพื่อการเฝ้าระวังแบบเรียลไทม์",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42017258/"
-  },
-  {
-    "date": "22 Apr",
-    "title": "Ensitrelvir for the treatment of hospitalized adults with COVID-19: an international phase 3 randomized placebo-controlled trial",
-    "comment": "ยา Ensitrelvir มีบทบาทในการรักษา COVID-19 ในผู้ป่วยที่ต้องนอน รพ. หรือไม่?",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42017206/"
-  },
-  {
-    "date": "22 Apr",
-    "title": "Personalized Multimodal and Opioid-Sparing Analgesia for Postoperative Pain Management: Enhancing Recovery and Addressing the Post-Discharge Gap",
-    "comment": "การจัดการความปวดหลังผ่าตัดแบบเฉพาะบุคคล ลดการใช้ Opioid และครอบคลุมถึงช่วงหลังออกจาก รพ.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42017149/"
-  },
-  {
-    "date": "22 Apr",
-    "title": "Early Plasma Exchange for Multiple Organ Failure Following Massive Wasp Stings: A Case Report",
-    "comment": "Plasma Exchange มีบทบาทในการรักษาภาวะ Multiple Organ Failure จากแมลงต่อยหรือไม่? (Case report)",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42017096/"
   }
 ]
