@@ -1,5 +1,65 @@
 [
   {
+    "date": "8 May",
+    "title": "Intravenous Tirofiban After Tenecteplase in Acute Ischemic Stroke: The INSTANT Randomized Clinical Trial",
+    "comment": "การใช้ Tirofiban เสริมหลังให้ Tenecteplase ในผู้ป่วย Stroke เกิดจากมีหลักฐาน RCT ที่แสดงผลลัพธ์ที่ดี อาจเป็นแนวทางใหม่ในการรักษา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/4209960/"
+  },
+  {
+    "date": "8 May",
+    "title": "Ultrasonographic Optic Nerve Sheath Diameter for Predicting Elevated Intracranial Pressure and Clinical Severity in Children: A Prospective Observational Study",
+    "comment": "USG วัด ONSD ในเด็กช่วยประเมิน ICP และความรุนแรงโรคได้เร็วและปลอดภัย น่าสนใจสำหรับการใช้ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42099663/"
+  },
+  {
+    "date": "8 May",
+    "title": "Heat-Related Illnesses",
+    "comment": "รวบรวมข้อมูลเกี่ยวกับ Heat Illness ที่มีหลากหลายและเป็นปัญหาสำคัญ โดยเฉพาะในสภาพอากาศที่เปลี่ยนแปลง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/420991601/"
+  },
+  {
+    "date": "8 May",
+    "title": "Advanced Practice Providers Versus Physicians in Emergency Department Abdominal Pain: Comparison of Length of Stay and Return Visits",
+    "comment": "เปรียบเทียบการดูแลผู้ป่วยปวดท้องใน ER โดย APP vs แพทย์ ชี้ให้เห็นประสิทธิภาพในการจัดการและผลลัพธ์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/420991386/"
+  },
+  {
+    "date": "8 May",
+    "title": "Diagnostic Accuracy of Lung Ultrasound Findings for Pneumonia in Adults",
+    "comment": "Lung USG สำหรับ Pneumonia ในผู้ใหญ่มีความแม่นยำสูง เป็นเครื่องมือที่ ER ควรมีติดตัว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/420991385/"
+  },
+  {
+    "date": "8 May",
+    "title": "Comparison of an integrated versus stand-alone approach to post-validation surveillance for lymphatic filariasis in Niue: a micro-costing study, 2025",
+    "comment": "แม้จะเป็นโรคเฉพาะทาง แต่การศึกษาเรื่องการเฝ้าระวังโรคติดเชื้อและต้นทุน เป็นแนวคิดที่นำมาประยุกต์ใช้ได้กับโรคอุบัติใหม่ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42099903/"
+  },
+  {
+    "date": "8 May",
+    "title": "Hypertensive Emergency in the Context of SARS-CoV-2 Infection: Clinical Course and Management",
+    "comment": "การศึกษา Hypertensive Emergency ในช่วง COVID-19 อาจให้บทเรียนเกี่ยวกับการจัดการภาวะวิกฤตในบริบทโรคระบาด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42099581/"
+  },
+  {
+    "date": "8 May",
+    "title": "Brain-computer interface: an update for the clinicians",
+    "comment": "BCI เป็นเทคโนโลยีใหม่ที่มีศักยภาพสูงในการฟื้นฟูผู้ป่วยทางระบบประสาทและอาจนำมาใช้ใน ER ได้ในอนาคต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42099576/"
+  },
+  {
+    "date": "8 May",
+    "title": "Integrating Emergency Medical Services Into Health Systems for Continuous and Resilient Care",
+    "comment": "การบูรณาการ EMS เข้ากับระบบสุขภาพเพื่อความต่อเนื่องและการดูแลที่ยืดหยุ่น เป็นประเด็นสำคัญต่อการจัดการ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42099565/"
+  },
+  {
+    "date": "8 May",
+    "title": "Chronic Pain: Epidemiology, Pathophysiology, and Clinical Management",
+    "comment": "Pain เป็นอาการที่พบได้บ่อยใน ER การเข้าใจถึงสาเหตุ การจัดการ และแนวโน้มการรักษาใหม่ๆ เป็นประโยชน์",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42099792/"
+  },
+  {
     "date": "7 May",
     "title": "European Stroke Organisation (ESO), European Association of Neurosurgical Societies (EANS) and European Society for Minimally Invasive Neurological Therapy (ESMINT) guideline on aneurysmal subarachnoid haemorrhage.",
     "comment": "อัปเดตกฎการรักษา SAH ที่สำคัญสำหรับ ER.",
@@ -358,65 +418,5 @@
     "title": "Management Strategies for Hypertensive Crises: A Systematic Review of Evidence-Based Approaches.",
     "comment": "สรุปแนวทางการจัดการภาวะความดันโลหิตสูงวิกฤตที่เป็นปัจจุบันและมีหลักฐานทางวิชาการรองรับ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42028502/"
-  },
-  {
-    "date": "23 Apr",
-    "title": "Resuscitative thoracotomy in modern warfare: Experience from a Military-Civilian trauma system.",
-    "comment": "การทบทวนแนวทางการทำ Resuscitative thoracotomy ในสถานการณ์สงครามที่อาจนำมาปรับใช้ใน ER ทั่วไป",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42023932/"
-  },
-  {
-    "date": "23 Apr",
-    "title": "Association of Early Steroid and Antibiotic Therapy With Airway Outcomes in Adult Epiglottitis: A 10-Year Multicenter Retrospective Cohort Study.",
-    "comment": "ชี้ให้เห็นถึงบทบาทของสเตียรอยด์และยาปฏิชีวนะในการรักษา Epiglottitis ที่อาจเปลี่ยนแนวทางการรักษาฉุกเฉิน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42023439/"
-  },
-  {
-    "date": "23 Apr",
-    "title": "The Evolving Role of Extracorporeal Carbon Dioxide Removal in Acute Respiratory Failure: A Narrative Review.",
-    "comment": "อัพเดทการใช้งาน ECPR ในภาวะ ARDS ที่อาจเป็นทางเลือกใหม่ในการรักษาผู้ป่วยวิกฤต",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42022721/"
-  },
-  {
-    "date": "23 Apr",
-    "title": "Hospital teaching status and COVID-19 outcomes: a multicenter retrospective cohort study in the emergency department.",
-    "comment": "การรักษาผู้ป่วย COVID-19 ใน ED ของโรงพยาบาลที่เป็น Teaching hospital อาจมีผลต่อ Outcome ผู้ป่วย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42023760/"
-  },
-  {
-    "date": "23 Apr",
-    "title": "Impact of early dexmedetomidine administration on short- and long-term outcomes in critically traumatic brain injury patients: A retrospective study using the MIMIC-IV database.",
-    "comment": "Dexmedetomidine อาจมีผลดีต่อผู้ป่วย TBI ใน ED",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42023254/"
-  },
-  {
-    "date": "23 Apr",
-    "title": "Pain assessment and management in the emergency department: A prospective quasi-experimental study.",
-    "comment": "การประเมินและจัดการความปวดใน ED ที่อาจต้องปรับปรุง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42023321/"
-  },
-  {
-    "date": "23 Apr",
-    "title": "Comparison of Alert, Response to Verbal Stimulus, Response to Verbal Stimulus, Response to Pain, Unresponsive (AVPU) Scale with Pediatric Glasgow Coma Scale for Assessing Level of Consciousness in Infants and Children.",
-    "comment": "AVPU scale เทียบกับ P-GCS ในเด็กเล็ก อาจเป็นเครื่องมือประเมิน GCS ที่ใช้ได้ใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42023565/"
-  },
-  {
-    "date": "23 Apr",
-    "title": "Gas gangrene of the great toe identified on radiograph.",
-    "comment": "การวินิจฉัย Gas gangrene จาก X-ray ที่อาจมองข้ามใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42023549/"
-  },
-  {
-    "date": "23 Apr",
-    "title": "Synovial fluid Lipocalin-2 as a biomarker for chronic prosthetic joint infection: Prospective validation in hip and knee revision arthroplasty.",
-    "comment": "Lipocalin-2 ในน้ำไขข้อ อาจเป็น biomarker ที่มีประโยชน์ในการวินิจฉัย prosthetic joint infection ใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42023543/"
-  },
-  {
-    "date": "23 Apr",
-    "title": "Endovascular treatment for posterior epistaxis: should it still be considered a last-resort option? A literature review.",
-    "comment": "การใช้ Endovascular treatment ในภาวะเลือดกำเดาไหลด้านหลังที่อาจไม่ใช่ทางเลือกสุดท้ายเสมอไป",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42023073/"
   }
 ]
