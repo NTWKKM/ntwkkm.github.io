@@ -1,5 +1,65 @@
 [
   {
+    "date": "9 May",
+    "title": "Agentic GPT-5.0 system outperforms standard large language models and human experts in critical care clinical decision-making: a simulation study.",
+    "comment": "AI กำลังจะมามีบทบาทสำคัญในการตัดสินใจทางการแพทย์วิกฤต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42104391/"
+  },
+  {
+    "date": "9 May",
+    "title": "Robotic surgery in colorectal emergencies: a systematic review of current evidence.",
+    "comment": "เทคนิคหุ่นยนต์อาจเป็นทางเลือกใหม่ในการผ่าตัดฉุกเฉินทางเดินอาหาร",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42104446/"
+  },
+  {
+    "date": "9 May",
+    "title": "Early vasopressin administration in septic shock: A systematic review, meta-analysis, and multicenter retrospective observational study.",
+    "comment": "การให้ Vasopressin ตั้งแต่เนิ่นๆ อาจมีผลต่อผลลัพธ์ในผู้ป่วย Sepsis Shock",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42103537/"
+  },
+  {
+    "date": "9 May",
+    "title": "Point-of-Care Ultrasound for the Diagnosis of Hip Effusion in Children Presenting to the Emergency Department With Atraumatic Limp or Hip Pain: A Scoping Review.",
+    "comment": "POCUS มีบทบาทสำคัญในการวินิจฉัยภาวะน้ำในข้อสะโพกในเด็ก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42104527/"
+  },
+  {
+    "date": "9 May",
+    "title": "Association between total prehospital time and early mortality in patients with severe torso trauma: a retrospective study at an urban Emergency and Critical Care Center.",
+    "comment": "ระยะเวลาก่อนถึง รพ. มีผลต่อการรอดชีวิตในผู้ป่วยอุบัติเหตุรุนแรง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42104240/"
+  },
+  {
+    "date": "9 May",
+    "title": "Management of patients with suspected but unidentified poisoning in the emergency department: a joint Royal College of Emergency Medicine and National Poisons Information Service best practice guideline.",
+    "comment": "มีแนวทางใหม่ในการจัดการผู้ป่วยพิษที่ไม่ทราบสาเหตุใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42103461/"
+  },
+  {
+    "date": "9 May",
+    "title": "Comparing Cellulitis Diagnostic Accuracy Between Emergency Physicians and Dermatologists Under Teledermatology Conditions.",
+    "comment": "ER Physicians สามารถวินิจฉัย Cellulitis ผ่าน Telemedicine ได้แม่นยำ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42102539/"
+  },
+  {
+    "date": "9 May",
+    "title": "Triage administration of sucrose for gastroenteritis in children; a randomized controlled trial.",
+    "comment": "การให้ Sucrose ช่วยลดอาการอาเจียนในเด็กเล็กที่มีภาวะท้องเสีย",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42102507/"
+  },
+  {
+    "date": "9 May",
+    "title": "Moral injury in a VUCA healthcare environment: ethical complexities and professional challenges for medical teams.",
+    "comment": "ความเครียดทางศีลธรรมในบุคลากรทางการแพทย์ช่วงวิกฤตเป็นปัญหาที่ต้องให้ความสำคัญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42104440/"
+  },
+  {
+    "date": "9 May",
+    "title": "Kikuchi-Fujimoto disease complicated with brachial plexus neuritis in a young woman: a case report and review of the literature.",
+    "comment": "รายงานเคสที่น่าสนใจ: Kikuchi-Fujimoto disease ร่วมกับ Brachial Plexus Neuritis",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42104390/"
+  },
+  {
     "date": "8 May",
     "title": "Intravenous Tirofiban After Tenecteplase in Acute Ischemic Stroke: The INSTANT Randomized Clinical Trial",
     "comment": "การใช้ Tirofiban เสริมหลังให้ Tenecteplase ในผู้ป่วย Stroke เกิดจากมีหลักฐาน RCT ที่แสดงผลลัพธ์ที่ดี อาจเป็นแนวทางใหม่ในการรักษา",
@@ -358,65 +418,5 @@
     "title": "Clinician interaction with a machine learning algorithm for the assessment of patients with possible acute heart failure: a qualitative study.",
     "comment": "การทำความเข้าใจมุมมองของแพทย์ต่อการใช้ AI ในการประเมินภาวะหัวใจล้มเหลวเฉียบพลัน เป็นสิ่งสำคัญสำหรับการนำไปใช้จริง",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42031525/"
-  },
-  {
-    "date": "24 Apr",
-    "title": "Can extracorporeal cardiopulmonary resuscitation save exsanguinating trauma victims?",
-    "comment": "แสดงให้เห็นถึงความเป็นไปได้ในการใช้ ECPR ในภาวะเสียเลือดขั้นรุนแรง ซึ่งอาจเปลี่ยนแนวทางการรักษาผู้ป่วย trauma",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42029149/"
-  },
-  {
-    "date": "24 Apr",
-    "title": "Early diagnosis of infective endocarditis in a patient without known risk factors using PoCUS.",
-    "comment": "การใช้ PoCUS ในการวินิจฉัย IE ตั้งแต่เนิ่นๆ ในผู้ป่วยที่ไม่มีปัจจัยเสี่ยง อาจช่วยลดความล่าช้าในการรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42029011/"
-  },
-  {
-    "date": "24 Apr",
-    "title": "Left Ventricular Unloading in Anterior ST-Segment Elevation Myocardial Infarction Without Shock: The ST-Segment Elevation Myocardial Infarction Door to Unload Randomized Controlled Trial.",
-    "comment": "การใช้ LV unloading ใน STEMI ที่ไม่มีภาวะ shock อาจเป็นแนวทางใหม่ในการรักษาเพื่อลดความเสียหายของกล้ามเนื้อหัวใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42029358/"
-  },
-  {
-    "date": "24 Apr",
-    "title": "Reversing AV Block and Cardiogenic Shock in STEMI Care: A Case Report on Use of Fibrinolysis and Inotrope without PCI in Rural Nepal.",
-    "comment": "รายงานเคสที่น่าสนใจเกี่ยวกับการรักษา STEMI ที่มี AV block และ cardiogenic shock ด้วย fibrinolysis และ inotrope โดยไม่ทำ PCI ในบริบทที่จำกัด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42028780/"
-  },
-  {
-    "date": "24 Apr",
-    "title": "Balanced Fluid or 0.9% Saline in Children Treated for Septic Shock.",
-    "comment": "การศึกษาเปรียบเทียบชนิดสารน้ำที่เหมาะสมในเด็ก septic shock ซึ่งเป็นประเด็นที่ยังมีการถกเถียง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42028918/"
-  },
-  {
-    "date": "24 Apr",
-    "title": "Syncope and Wellens Sign: A Case Report and Review of Precordial ST- and T-Wave Changes in the Emergency Department.",
-    "comment": "เน้นความสำคัญของ Wellens sign ในการวินิจฉัย ACS ซึ่งอาจมองข้ามได้ใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42029143/"
-  },
-  {
-    "date": "24 Apr",
-    "title": "Massive Gastrointestinal Bleeding in a 2-year-old child presenting as Meckel's diverticulum: A case report.",
-    "comment": "รายงานเคสที่หายากของการมีเลือดออกในทางเดินอาหารอย่างรุนแรงจาก Meckel's diverticulum ในเด็กเล็ก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42029454/"
-  },
-  {
-    "date": "24 Apr",
-    "title": "Extensive Rectal Ischemia with Perforation: A Rare Case of Whole-Segment Ischemic Injury.",
-    "comment": "แสดงภาพรวมของภาวะลำไส้ใหญ่ขาดเลือดที่รุนแรง ซึ่งเป็นภาวะฉุกเฉินที่ต้องอาศัยการวินิจฉัยและการจัดการที่รวดเร็ว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42029454/"
-  },
-  {
-    "date": "24 Apr",
-    "title": "Granulomatosis with Polyangiitis Presenting as ANCA-Negative Pulmonary Disease with Distributive Shock.",
-    "comment": "รายงานเคส ANCA-negative GPA ที่มีอาการ shock ซึ่งอาจท้าทายการวินิจฉัยใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42029476/"
-  },
-  {
-    "date": "24 Apr",
-    "title": "Management Strategies for Hypertensive Crises: A Systematic Review of Evidence-Based Approaches.",
-    "comment": "สรุปแนวทางการจัดการภาวะความดันโลหิตสูงวิกฤตที่เป็นปัจจุบันและมีหลักฐานทางวิชาการรองรับ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42028502/"
   }
 ]
