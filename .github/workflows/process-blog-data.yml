@@ -1,0 +1,36 @@
+name: Process Blog Data
+
+on:
+  push:
+    paths:
+      - 'latest_updates.json' # ทำงานอัตโนมัติเฉพาะเมื่อ n8n อัปเดตไฟล์นี้
+  workflow_dispatch: # อนุญาตให้กดรันแบบ Manual บน GitHub ได้
+
+permissions:
+  contents: write
+
+jobs:
+  process-and-chunk:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Run Data Processing Script
+        run: node .github/scripts/process_blog.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # ใช้ -A เพื่อ Track ไฟล์ใหม่ที่สร้างขึ้น และไฟล์เก่าที่ถูกลบออกไปพร้อมกัน
+          git add -A
+          
+          # ถ้ามีไฟล์ถูกแก้ไข ให้ commit และ push (ถ้าไม่มีการเปลี่ยนจะถูก skip ไป)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto-chunk blog data into folders and update index" && git push)
