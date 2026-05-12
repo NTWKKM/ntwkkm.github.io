@@ -8,6 +8,7 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- data /
 |   `-- blog /
 |       `-- (Chunked JSON files)
+|-- .gitignore
 |-- ARCHITECTURE.md
 |-- blog_index.json
 |-- blog.html
