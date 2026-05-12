@@ -1,0 +1,72 @@
+/* ===================================================================
+   SHARED STYLES — ntwkkm.github.io
+   Common styles used by both index.html and blog.html.
+   Page-specific styles remain in each file's <style> block.
+   =================================================================== */
+
+/* --- RESET --- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- THEME TOGGLE BUTTON --- */
+.theme-btn {
+    background: var(--toggle-bg);
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1) rotate(15deg);
+}
+
+.theme-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+/* --- SKIP TO CONTENT (Accessibility) --- */
+.skip-to-content {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: 999;
+    padding: 8px 16px;
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0 0 8px 0;
+}
+
+.skip-to-content:focus {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    z-index: 9999;
+}
+
+/* --- REDUCED MOTION --- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Med Statistics",
+    "desc": "Easy online calculator for medical stats.",
+    "icon": "📊",
+    "url": "https://medstat.app/"
+  },
+  {
+    "title": "Med Statistics (prototype)",
+    "desc": "Easy online calculator for medical stats.",
+    "icon": "📊",
+    "url": "https://medstat.netlify.app/"
+  },
+  {
+    "title": "Acetaminophen Tox",
+    "desc": "Interactive nomogram & protocol.",
+    "icon": "💊",
+    "url": "https://acetatox.netlify.app/"
+  },
+  {
+    "title": "VentSim",
+    "desc": "Mechanical ventilator simulator.",
+    "icon": "🫁",
+    "url": "https://ventsim.vercel.app/"
+  },
+  {
+    "title": "Shock Sim",
+    "desc": "Hemodynamic changes visualizer.",
+    "icon": "💓",
+    "url": "https://shocksimulation.vercel.app/"
+  },
+  {
+    "title": "MNRH Refer",
+    "desc": "Inter-hospital referral system.",
+    "icon": "🚑",
+    "url": "https://mnrhrefer.vercel.app/"
+  },
+  {
+    "title": "Stroke Protocol V4",
+    "desc": "Latest rtPA checklist & calculator.",
+    "icon": "🧠",
+    "url": "https://rt-pa-mnrh-v4.vercel.app/"
+  },
+  {
+    "title": "Stroke Protocol V1",
+    "desc": "Archive version of rtPA tools.",
+    "icon": "🕒",
+    "url": "https://rtpamnrh.vercel.app/"
+  }
+]

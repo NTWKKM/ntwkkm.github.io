@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NTWKKM | Emergency Medicine & Informatics</title>
+    <meta name="description" content="NTWKKM — Emergency Medicine physician & Clinical Informatics developer. Research papers, medical tools, and open-source projects.">
+    <meta property="og:title" content="NTWKKM | Emergency Medicine & Informatics">
+    <meta property="og:description" content="Emergency Medicine physician & Clinical Informatics developer. Research papers, medical tools, and open-source projects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ntwkkm.github.io/">
+    <link rel="canonical" href="https://ntwkkm.github.io/">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23244885'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='white' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
     
     <style>
         /* --- CSS VARIABLES (THEMING) --- */
@@ -43,7 +51,6 @@
             --scrollbar-thumb: #475569;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
@@ -116,6 +123,7 @@
             letter-spacing: -0.5px;
             background: linear-gradient(90deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
@@ -155,25 +163,6 @@
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
 
-        .theme-btn {
-            background: var(--toggle-bg);
-            border: none;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-main);
-            transition: all 0.3s ease;
-        }
-
-        .theme-btn:hover {
-            transform: scale(1.1) rotate(15deg);
-        }
-
-        .theme-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
         .social-link {
             text-decoration: none;
@@ -308,6 +297,7 @@
             color: var(--text-main);
             display: -webkit-box;
             -webkit-line-clamp: 3;
+            line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -502,12 +492,15 @@
             }
             .nav-highlight::after { content: '📝'; font-size: 1rem; }
         }
+
     </style>
 </head>
 <body>
 
-    <header class="animate-entry">
-        <div class="container header-content">
+    <a href="#papers-section" class="skip-to-content">Skip to content</a>
+
+    <header class="animate-entry" role="banner">
+        <nav class="container header-content" aria-label="Main navigation">
             <div class="brand-group">
                 <h1>NTWKKM</h1>
                 <p>Emergency Medicine & Clinical Informatics</p>
@@ -525,21 +518,25 @@
                     <span>GitHub Profile</span>
                 </a>
             </div>
-        </div>
+        </nav>
     </header>
 
-    <div class="container">
+    <main class="container" role="main">
         
-        <section id="papers-section" class="animate-entry delay-1">
+        <section id="papers-section" class="animate-entry delay-1" aria-label="Latest Research Papers">
+            <div class="section-header">
+                <h2 class="section-title">Latest Papers</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="paper-section-wrapper">
-                <button class="slider-nav-btn prev" id="slide-prev" aria-label="Previous">
+                <button class="slider-nav-btn prev" id="slide-prev" aria-label="Previous paper">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
-                <button class="slider-nav-btn next" id="slide-next" aria-label="Next">
+                <button class="slider-nav-btn next" id="slide-next" aria-label="Next paper">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
 
-                <div class="paper-scroll-container" id="paper-container">
+                <div class="paper-scroll-container" id="paper-container" role="list" aria-label="Research papers">
                     <div class="skeleton-card"><div class="skeleton-line w-50"></div><div class="skeleton-line w-80"></div><div class="skeleton-line"></div></div>
                     <div class="skeleton-card"><div class="skeleton-line w-50"></div><div class="skeleton-line w-80"></div><div class="skeleton-line"></div></div>
                     <div class="skeleton-card"><div class="skeleton-line w-50"></div><div class="skeleton-line w-80"></div><div class="skeleton-line"></div></div>
@@ -547,67 +544,22 @@
             </div>
         </section>
 
-        <section id="works-section" class="animate-entry delay-2">
+        <section id="works-section" class="animate-entry delay-2" aria-label="Projects">
             <div class="section-header">
                 <h2 class="section-title">Projects</h2>
                 <div class="section-line"></div>
             </div>
 
-            <div class="portfolio-grid">
-                <a href="https://medstat.app/" target="_blank" class="project-card">
-                    <div class="project-icon">📊</div>
-                    <div class="project-title">Med Statistics</div>
-                    <div class="project-desc">Easy online calculator for medical stats.</div>
-                </a>
-              
-                <a href="https://medstat.netlify.app/" target="_blank" class="project-card">
-                    <div class="project-icon">📊</div>
-                    <div class="project-title">Med Statistics (prototype)</div>
-                    <div class="project-desc">Easy online calculator for medical stats.</div>
-                </a>
-
-                <a href="https://acetatox.netlify.app/" target="_blank" class="project-card">
-                    <div class="project-icon">💊</div>
-                    <div class="project-title">Acetaminophen Tox</div>
-                    <div class="project-desc">Interactive nomogram & protocol.</div>
-                </a>
-
-                <a href="https://ventsim.vercel.app/" target="_blank" class="project-card">
-                    <div class="project-icon">🫁</div>
-                    <div class="project-title">VentSim</div>
-                    <div class="project-desc">Mechanical ventilator simulator.</div>
-                </a>
-
-                <a href="https://shocksimulation.vercel.app/" target="_blank" class="project-card">
-                    <div class="project-icon">💓</div>
-                    <div class="project-title">Shock Sim</div>
-                    <div class="project-desc">Hemodynamic changes visualizer.</div>
-                </a>
-
-                <a href="https://mnrhrefer.vercel.app/" target="_blank" class="project-card">
-                    <div class="project-icon">🚑</div>
-                    <div class="project-title">MNRH Refer</div>
-                    <div class="project-desc">Inter-hospital referral system.</div>
-                </a>
-
-                <a href="https://rt-pa-mnrh-v4.vercel.app/" target="_blank" class="project-card">
-                    <div class="project-icon">🧠</div>
-                    <div class="project-title">Stroke Protocol V4</div>
-                    <div class="project-desc">Latest rtPA checklist & calculator.</div>
-                </a>
-                 <a href="https://rtpamnrh.vercel.app/" target="_blank" class="project-card">
-                    <div class="project-icon">🕒</div>
-                    <div class="project-title">Stroke Protocol V1</div>
-                    <div class="project-desc">Archive version of rtPA tools.</div>
-                </a>
+            <div class="portfolio-grid" id="projects-container">
+                <!-- Loaded from projects.json -->
             </div>
         </section>
 
-    </div>
+    </main>
 
     <footer class="animate-entry delay-3">
         <div style="opacity: 0.9;">
-            &copy; 2025 <a href="https://github.com/NTWKKM/" target="_blank" style="color: inherit; text-decoration: none; font-weight: 700; border-bottom: 1px dotted var(--text-muted);">NTWKKM n Donate</a>. All Rights Reserved.
+            &copy; 2025–<span id="footer-year">2026</span> <a href="https://github.com/NTWKKM/" target="_blank" style="color: inherit; text-decoration: none; font-weight: 700; border-bottom: 1px dotted var(--text-muted);">NTWKKM</a>. All Rights Reserved.
         </div>
         <div style="margin-top: 8px; font-size: 0.85rem; opacity: 0.7;">
             Bridging Clinical Practice with Digital Innovation.
@@ -638,17 +590,29 @@
             updateIcon(newTheme);
         });
 
+        // --- SECURITY: HTML Sanitization ---
+        function escapeHTML(str) {
+            if (!str) return '';
+            return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        function sanitizeURL(url) {
+            if (!url) return '#';
+            try { return ['http:', 'https:'].includes(new URL(url).protocol) ? url : '#'; }
+            catch { return '#'; }
+        }
+
         // --- 2. FETCH PAPERS FROM JSON ---
         async function fetchPapers() {
             const container = document.getElementById('paper-container');
             
             try {
-                const response = await fetch('./papers.json'); 
+                const response = await fetch(`./papers.json?v=${Date.now()}`); 
                 if (!response.ok) throw new Error('Failed to fetch papers');
                 
                 const papers = await response.json();
                 
-                container.innerHTML = ''; // Clear Skeletons
+                container.innerHTML = ''; // Clear skeletons
 
                 papers.forEach((paper, index) => {
                     const card = document.createElement('div');
@@ -656,10 +620,10 @@
                     card.style.animationDelay = `${index * 0.1}s`; 
                     
                     card.innerHTML = `
-                        <div class="paper-date">${paper.date}</div>
-                        <div class="paper-title">${paper.title}</div>
-                        <div class="paper-comment">"${paper.comment}"</div>
-                        <a href="${paper.link}" class="paper-link" target="_blank" draggable="false">
+                        <div class="paper-date">${escapeHTML(paper.date)}</div>
+                        <div class="paper-title">${escapeHTML(paper.title)}</div>
+                        <div class="paper-comment">"${escapeHTML(paper.comment)}"</div>
+                        <a href="${sanitizeURL(paper.link)}" class="paper-link" target="_blank" draggable="false">
                             Read Paper 
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </a>
@@ -765,9 +729,52 @@
             // but we stop auto-scroll on touch too.
             container.addEventListener('touchstart', () => clearInterval(autoScrollInterval));
             container.addEventListener('touchend', () => startAutoScroll());
+
+            // Pause auto-scroll when tab is hidden (saves CPU/battery)
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    clearInterval(autoScrollInterval);
+                } else {
+                    startAutoScroll();
+                }
+            });
         }
 
-        document.addEventListener('DOMContentLoaded', fetchPapers);
+        // --- 4. FETCH PROJECTS FROM JSON ---
+        async function fetchProjects() {
+            const container = document.getElementById('projects-container');
+            try {
+                const response = await fetch(`./projects.json?v=${Date.now()}`);
+                if (!response.ok) throw new Error('Failed to fetch projects');
+                const projects = await response.json();
+
+                container.innerHTML = '';
+                projects.forEach((project, index) => {
+                    const card = document.createElement('a');
+                    card.href = sanitizeURL(project.url);
+                    card.target = '_blank';
+                    card.className = 'project-card';
+                    card.setAttribute('aria-label', escapeHTML(project.title));
+                    card.innerHTML = `
+                        <div class="project-icon" aria-hidden="true">${escapeHTML(project.icon)}</div>
+                        <div class="project-title">${escapeHTML(project.title)}</div>
+                        <div class="project-desc">${escapeHTML(project.desc)}</div>
+                    `;
+                    container.appendChild(card);
+                });
+            } catch (error) {
+                console.error("Error loading projects:", error);
+                container.innerHTML = '<div style="padding:20px; text-align:center; color:var(--text-muted);">Failed to load projects.</div>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchPapers();
+            fetchProjects();
+            // Dynamic footer year
+            const yearEl = document.getElementById('footer-year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+        });
     </script>
 </body>
 </html>
