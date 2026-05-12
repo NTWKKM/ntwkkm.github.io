@@ -6,11 +6,17 @@ const README_PATH = path.join(__dirname, '../../README.md');
 const REPO_ROOT = path.join(__dirname, '../../');
 const START_MARKER = '[--- REPOSITORY-TREE-START ---]';
 const END_MARKER = '[--- REPOSITORY-TREE-END ---]';
-const START_REGEX = '\\\\[--- REPOSITORY-TREE-START ---\\\\]|\\[--- REPOSITORY-TREE-START ---\\]';
-const END_REGEX = '\\\\[--- REPOSITORY-TREE-END ---\\\\]|\\[--- REPOSITORY-TREE-END ---\\]';
 
-// Ignore directories/files
-const IGNORE_LIST = ['.git', '.github', 'node_modules', '.tempmediaStorage', '.gemini'];
+// Ignore directories/files (เพิ่มโฟลเดอร์ที่ไม่ต้องการให้โชว์ใน README)
+const IGNORE_LIST = [
+    '.git', 
+    '.github', 
+    'node_modules', 
+    '.tempmediaStorage', 
+    '.gemini', 
+    'package.json', 
+    'package-lock.json'
+];
 
 function buildTree(dir, prefix = '') {
     let treeStr = '';
@@ -21,7 +27,10 @@ function buildTree(dir, prefix = '') {
         return treeStr;
     }
 
+    // กรองไฟล์ที่อยู่ใน IGNORE_LIST ออก
     files = files.filter(f => !IGNORE_LIST.includes(f));
+    
+    // เรียงลำดับ: โฟลเดอร์ขึ้นก่อน ไฟล์อยู่ทีหลัง ตามตัวอักษร
     files.sort((a, b) => {
         const aIsDir = fs.statSync(path.join(dir, a)).isDirectory();
         const bIsDir = fs.statSync(path.join(dir, b)).isDirectory();
@@ -39,7 +48,12 @@ function buildTree(dir, prefix = '') {
         
         if (isDir) {
             treeStr += `${prefix}${pointer}${file} /\n`;
-            treeStr += buildTree(fullPath, prefix + (isLast ? '    ' : '|   '));
+            // ถ้าโฟลเดอร์นั้นคือ data/blog ไม่ต้องเจาะลึกลงไปโชว์ไฟล์ย่อยๆ ทุกไฟล์ เพื่อไม่ให้ Tree รก
+            if (file === 'blog' && fullPath.includes('data')) {
+                 treeStr += `${prefix + (isLast ? '    ' : '|   ')}\`-- (Chunked JSON files)\n`;
+            } else {
+                 treeStr += buildTree(fullPath, prefix + (isLast ? '    ' : '|   '));
+            }
         } else {
             treeStr += `${prefix}${pointer}${file}\n`;
         }
@@ -63,19 +77,23 @@ ${treeString.trim()}
 `;
 
     console.log('Reading README.md...');
-    let readme = fs.readFileSync(README_PATH, 'utf8');
-    
-    const regex = /\\?\[--- REPOSITORY-TREE-START ---\\?\][\s\S]*?\\?\[--- REPOSITORY-TREE-END ---\\?\]/;
-    
-    if (readme.match(regex)) {
-        readme = readme.replace(
-            regex,
-            `${START_MARKER}\n${newContent}\n${END_MARKER}`
-        );
-        fs.writeFileSync(README_PATH, readme, 'utf8');
-        console.log('README.md updated successfully.');
+    if (fs.existsSync(README_PATH)) {
+        let readme = fs.readFileSync(README_PATH, 'utf8');
+        
+        const regex = /\[--- REPOSITORY-TREE-START ---\][\s\S]*?\[--- REPOSITORY-TREE-END ---\]/;
+        
+        if (readme.match(regex)) {
+            readme = readme.replace(
+                regex,
+                `${START_MARKER}\n${newContent}\n${END_MARKER}`
+            );
+            fs.writeFileSync(README_PATH, readme, 'utf8');
+            console.log('README.md updated successfully.');
+        } else {
+            console.log('Could not find markers in README.md.');
+        }
     } else {
-        console.log('Could not find markers in README.md.');
+        console.log('README.md does not exist.');
     }
 } catch (error) {
     console.error('Error generating README:', error);
