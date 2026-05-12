@@ -1,5 +1,41 @@
 [
   {
+    "id": "2e1ba464-60a7-8176-9a2d-f48e8ad94c91",
+    "name": "Robotic nanoparticle delivery systems for tumor hyperthermia: clinical readiness and challenges.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41497140/",
+    "property_tag_2": "Nanotechnology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนความก้าวหน้า ความพร้อมทางคลินิก และความท้าทายของระบบหุ่นยนต์นำส่งอนุภาคนาโนสำหรับการรักษาเนื้องอกด้วยความร้อน (Tumor hyperthermia) เพื่อเพิ่มความแม่นยำในการรักษามะเร็ง\n- **วิธีการ:** ใช้การบูรณาการระหว่างอนุภาคนาโนแม่เหล็ก (Iron oxide nanoparticles) ร่วมกับเทคโนโลยีหุ่นยนต์ (Microrobots) และระบบภาพนำวิถีแบบเรียลไทม์ (เช่น MRI และ Ultrasound) เพื่อสร้างความร้อนเฉพาะจุดโดยอาศัยสนามแม่เหล็กสลับ (Alternating magnetic fields) ในการทำลายเซลล์มะเร็ง\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ปัจจุบันอุปกรณ์ MagForce Nanotherm ได้รับการอนุมัติในเยอรมนีสำหรับรักษา Glioblastoma และกำลังมีการทดลองในมะเร็งต่อมลูกหมากและตับอ่อน พบว่าเทคโนโลยีนี้ช่วยเพิ่มความแม่นยำในการนำส่งและความสม่ำเสมอของความร้อน แต่ยังคงมีความท้าทายเรื่องความสม่ำเสมอของปริมาณยา ความปลอดภัยทางชีวภาพ และความจำเป็นในการสร้างมาตรฐานโปรโตคอล",
+    "property_tag_3": "Robotics",
+    "property_tag_1": "Oncology",
+    "property_last_edited_time": "2026-01-07T19:19:00.000Z",
+    "property_pmid": "41497140",
+    "property_name": "Robotic nanoparticle delivery systems for tumor hyperthermia: clinical readiness and challenges."
+  },
+  {
+    "id": "2e1ba464-60a7-8101-84b3-d46f28c020a1",
+    "name": "Inferential performance and temporal stability of large language models in suicide method prediction: A forensic psychiatric analysis",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41492705/",
+    "property_tag_2": "Psychiatry",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินประสิทธิภาพในการอนุมาน (Inferential performance) และความเสถียรทางเวลา (Temporal stability) ของโมเดลภาษาขนาดใหญ่ (LLMs) ในการทำนายวิธีการฆ่าตัวตายสำหรับงานวิเคราะห์ทางจิตเวชนิติเวช\n- **วิธีการ:** ทำการทดสอบโมเดลภาษาขนาดใหญ่ในการระบุและทำนายวิธีการฆ่าตัวตายจากข้อมูลทางนิติเวช และวิเคราะห์ความคงเส้นคงวาของผลลัพธ์เมื่อมีการทดสอบซ้ำในช่วงเวลาที่แตกต่างกัน\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ผลการศึกษาแสดงให้เห็นถึงศักยภาพและข้อจำกัดของโมเดลภาษาขนาดใหญ่ในการทำนายวิธีการฆ่าตัวตาย โดยเน้นที่ความแปรปรวนของประสิทธิภาพตามช่วงเวลา ซึ่งเป็นปัจจัยสำคัญที่ต้องคำนึงถึงก่อนนำเทคโนโลยีนี้มาประยุกต์ใช้จริงทางคลินิกและนิติเวชศาสตร์",
+    "property_tag_3": "Forensic Medicine",
+    "property_tag_1": "AI",
+    "property_last_edited_time": "2026-01-07T15:16:00.000Z",
+    "property_pmid": "41492705",
+    "property_name": "Inferential performance and temporal stability of large language models in suicide method prediction: A forensic psychiatric analysis"
+  },
+  {
+    "id": "2e0ba464-60a7-812a-851c-e746ed71f35e",
+    "name": "Life-Threatening Duodenal Perforation Following Endoscopic Retrograde Cholangiopancreatography in an Elderly Patient: A Case Report",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41492635/",
+    "property_tag_2": "Surgery",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อรายงานกรณีศึกษาของผู้ป่วยสูงอายุที่เกิดภาวะลำไส้เล็กส่วนดูโอดีนัมทะลุอย่างรุนแรงภายหลังการทำหัตถการส่องกล้องท่อน้ำดีและตับอ่อน (ERCP) ซึ่งเป็นภาวะแทรกซ้อนที่พบได้ยากแต่มีอันตรายถึงชีวิต\n- **วิธีการ:** ผู้ป่วยชายอายุ 77 ปี เข้ารับการทำ ERCP เพื่อรักษาอาการดีซ่าน แต่เกิดความยากลำบากในการใส่สายสวนจนต้องทำ precut sphincterotomy และเกิดการทะลุที่ลำไส้เล็กส่วนดูโอดีนัมส่วนที่ 3 ซึ่งยืนยันผลด้วย CT scan ที่พบอากาศรั่วในช่องท้อง รอยโรคทะลุ และภาวะลมรั่วในช่องเยื่อหุ้มปอด ผู้ป่วยได้รับการผ่าตัดฉุกเฉินซ่อมแซมรอยรั่วด้วยวิธี Graham patch\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** หลังการผ่าตัดและได้รับการดูแลในหอผู้ป่วยวิกฤต ผู้ป่วยเกิดภาวะช็อกจากการติดเชื้อ (septic shock) และอวัยวะล้มเหลวหลายระบบ จนเสียชีวิตใน 9 วันต่อมา กรณีนี้เน้นย้ำถึงความสำคัญของการวินิจฉัยด้วย CT อย่างรวดเร็วและการรักษาที่เหมาะสมในผู้ป่วยกลุ่มเสี่ยง",
+    "property_tag_3": "Emergency Medicine",
+    "property_tag_1": "Gastroenterology",
+    "property_last_edited_time": "2026-01-06T19:22:00.000Z",
+    "property_pmid": "41492635",
+    "property_name": "Life-Threatening Duodenal Perforation Following Endoscopic Retrograde Cholangiopancreatography in an Elderly Patient: A Case Report"
+  },
+  {
     "id": "2e0ba464-60a7-81e3-bb0b-d079a0eaf897",
     "name": "When the Numbers Lie: Uncovering Pseudohyponatremia After an Anabolic Steroid Injection.",
     "url": "https://pubmed.ncbi.nlm.nih.gov/41492630/",
