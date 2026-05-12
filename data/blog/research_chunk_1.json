@@ -1,5 +1,47 @@
 [
   {
+    "id": "35eba464-60a7-817e-87ee-d12d1af40ed8",
+    "name": "Artificial Intelligence in the Management of Breast Cancer: A Comprehensive Review",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42116978/",
+    "property_date": null,
+    "property_tag_2": "Oncology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนภาพรวมของการประยุกต์ใช้เทคโนโลยีปัญญาประดิษฐ์ (AI) ในปัจจุบันสำหรับการวินิจฉัยโรคมะเร็ง โดยเน้นที่โรคมะเร็งเต้านมเป็นหลัก\n- **วิธีการ:** ทำการทบทวนวรรณกรรมแบบพรรณนา (Narrative review) จากฐานข้อมูลหลัก เช่น PubMed และ Scopus โดยครอบคลุมการศึกษาเกี่ยวกับเทคนิค Machine Learning และ Deep Learning ที่นำมาประยุกต์ใช้กับภาพถ่ายทางการแพทย์ จุลพยาธิวิทยา และการตัดสินใจทางคลินิก\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** โมเดล AI โดยเฉพาะ Convolutional Neural Networks (CNNs) แสดงให้เห็นถึงความแม่นยำสูงในการวิเคราะห์ภาพแมมโมแกรมและตรวจหามะเร็งเต้านมระยะเริ่มต้น โดยมีประสิทธิภาพเทียบเท่าหรือเหนือกว่ารังสีแพทย์ที่มีประสบการณ์ นอกจากนี้ AI ยังช่วยเพิ่มความแม่นยำในการแยกประเภทของรอยโรค ลดอัตราผลบวกลวง และทำงานได้ดีในการตรวจหาและจัดระดับเนื้องอกทางจุลพยาธิวิทยา แม้จะยังคงมีความท้าทายเรื่องอคติของข้อมูล มาตรฐาน จริยธรรม และการนำไปใช้จริงในทางคลินิกก็ตาม",
+    "property_status": "Not started",
+    "property_tag_3": "Breast Cancer",
+    "property_tag_1": "AI",
+    "property_last_edited_time": "2026-05-12T16:02:00.000Z",
+    "property_pmid": "42116978",
+    "property_name": "Artificial Intelligence in the Management of Breast Cancer: A Comprehensive Review"
+  },
+  {
+    "id": "35eba464-60a7-8145-a62a-c286b24bba3c",
+    "name": "Restructuring the Obesity Paradigm: Molecular Etiologies, Clinical Complexities, and the Future of Precision Intervention.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42116975/",
+    "property_date": null,
+    "property_tag_2": "Endocrinology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนและรวบรวมองค์ความรู้ในปัจจุบันเกี่ยวกับพยาธิสรีรวิทยาของโรคอ้วน รวมถึงปัจจัยด้านพันธุกรรม ฮอร์โมน ไมโครไบโอมในลำไส้ และผลกระทบต่อระบบต่างๆ ในร่างกาย\n- **วิธีการ:** ศึกษาและรวบรวมข้อมูลแนวทางการรักษาใหม่ๆ เช่น ยาในกลุ่ม GLP-1 การส่องกล้องและการผ่าตัด การรักษาผ่านไมโครไบโอม รวมถึงการนำปัญญาประดิษฐ์ (AI) และการแพทย์แบบแม่นยำ (Precision medicine) มาประยุกต์ใช้\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบว่าโรคอ้วนยังคงขาดการวินิจฉัยและการรักษาที่เพียงพอทั่วโลกเนื่องจากอุปสรรคด้านค่าใช้จ่าย ความซับซ้อนของระบบสาธารณสุข และโครงสร้างพื้นฐานที่จำกัด จึงมีความจำเป็นต้องเปลี่ยนรูปแบบการดูแลผู้ป่วยให้เป็นแบบองค์รวม เน้นผู้ป่วยเป็นศูนย์กลาง และมีความเท่าเทียมในการเข้าถึงการรักษา",
+    "property_status": "Not started",
+    "property_tag_3": "Precision Medicine",
+    "property_tag_1": "Obesity",
+    "property_last_edited_time": "2026-05-12T16:00:00.000Z",
+    "property_pmid": "42116975",
+    "property_name": "Restructuring the Obesity Paradigm: Molecular Etiologies, Clinical Complexities, and the Future of Precision Intervention."
+  },
+  {
+    "id": "35eba464-60a7-81e9-85d4-f0dcd0ee4c76",
+    "name": "Administration of Post-intubation Analgesia and Sedation in Injured Patients in New Brunswick EDs.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42116967/",
+    "property_date": null,
+    "property_tag_2": "Trauma",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาความเชื่อมโยงของการได้รับยาแก้ปวดและยาระงับความรู้สึกอย่างเหมาะสมในผู้ป่วยอุบัติเหตุวัยผู้ใหญ่ที่ได้รับการใส่ท่อช่วยหายใจ เปรียบเทียบระหว่างก่อนและหลังการใช้แนวทางปฏิบัติและการจัดอบรมให้ความรู้ระดับจังหวัด\n- **วิธีการ:** เป็นการศึกษาย้อนหลัง (Retrospective cohort study) โดยใช้ข้อมูลจาก NB Trauma Registry วิเคราะห์ผู้ป่วยอุบัติเหตุวัยผู้ใหญ่ที่ใส่ท่อช่วยหายใจในแผนกฉุกเฉินจำนวน 202 ราย โดยแบ่งเปรียบเทียบข้อมูลเป็น 3 ช่วงเวลา ได้แก่ ก่อนการแทรกแซง (ปี 2017) หลังการแทรกแซง (ปี 2019) และระยะติดตามผล (ปี 2021)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** สัดส่วนของผู้ป่วยที่ได้รับทั้งยาแก้ปวดและยาระงับความรู้สึกเพิ่มขึ้นอย่างมีนัยสำคัญทางสถิติจาก 22.6% ในปี 2017 เป็น 61.1% ในปี 2019 และ 73.5% ในปี 2021 (p < 0.05) ซึ่งคิดเป็นการพัฒนาขึ้นถึง 3.3 เท่า ในขณะที่อัตราการไม่ให้ยาทั้งสองชนิดลดลงอย่างมีนัยสำคัญจาก 41.9% เหลือเพียง 8.8% ในระยะติดตามผล (p < 0.05) แสดงให้เห็นว่าการใช้แนวทางปฏิบัติช่วยเพิ่มการปฏิบัติตามมาตรฐานได้อย่างยั่งยืน",
+    "property_status": "Not started",
+    "property_tag_3": "Airway Management",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2026-05-12T15:59:00.000Z",
+    "property_pmid": "42116967",
+    "property_name": "Administration of Post-intubation Analgesia and Sedation in Injured Patients in New Brunswick EDs."
+  },
+  {
     "id": "35eba464-60a7-815f-a509-f85dc18a6cdd",
     "name": "Sex-related disparities in sepsis in western Europe: A systematic review and meta-analysis.",
     "url": "https://pubmed.ncbi.nlm.nih.gov/42115064/",
@@ -2574,41 +2616,5 @@
     "property_last_edited_time": "2026-01-06T19:22:00.000Z",
     "property_pmid": "41492635",
     "property_name": "Life-Threatening Duodenal Perforation Following Endoscopic Retrograde Cholangiopancreatography in an Elderly Patient: A Case Report"
-  },
-  {
-    "id": "2e0ba464-60a7-81e3-bb0b-d079a0eaf897",
-    "name": "When the Numbers Lie: Uncovering Pseudohyponatremia After an Anabolic Steroid Injection.",
-    "url": "https://pubmed.ncbi.nlm.nih.gov/41492630/",
-    "property_tag_2": "Nephrology",
-    "property_comment": "- **วัตถุประสงค์:** เพื่อนำเสนอกรณีศึกษาที่พบได้ยากของภาวะโซเดียมในเลือดต่ำเทียม (Pseudohyponatremia) ซึ่งเกิดจากการฉีดสเตียรอยด์ฮอร์โมน (Anabolic steroid) ที่เจือจางในน้ำมันเข้าหลอดเลือดดำโดยบังเอิญ\n- **วิธีการ:** ศึกษากรณีผู้ป่วยชายอายุ 42 ปี ที่เข้ารับการรักษาในแผนกฉุกเฉินด้วยอาการคลื่นไส้อาเจียนหลังฉีด Trenbolone โดยเปรียบเทียบค่าทางห้องปฏิบัติการระหว่างการวัดระดับโซเดียมด้วยวิธีมาตรฐาน (Indirect analysis) กับการวัดด้วยเครื่อง iSTAT (Direct analysis) และการประเมินค่า Osmolality ในเลือด\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ผลตรวจเลือดเบื้องต้นพบระดับโซเดียมต่ำที่ 125 mmol/L แต่ค่า Measured osmolality อยู่ในเกณฑ์ปกติ (289 mOsm/kg) และเมื่อตรวจยืนยันด้วย iSTAT พบระดับโซเดียมปกติที่ 137 mmol/L บ่งชี้ว่าเป็นภาวะโซเดียมต่ำเทียมจากการรบกวนของสารทำละลายในสเตียรอยด์ ผู้ป่วยได้รับการสังเกตอาการจนปลอดภัยและสามารถกลับบ้านได้",
-    "property_tag_3": "Toxicology",
-    "property_tag_1": "Emergency Medicine",
-    "property_last_edited_time": "2026-01-06T19:21:00.000Z",
-    "property_pmid": "41492630",
-    "property_name": "When the Numbers Lie: Uncovering Pseudohyponatremia After an Anabolic Steroid Injection."
-  },
-  {
-    "id": "2e0ba464-60a7-81ec-831a-ea623ea2b1da",
-    "name": "Gastrointestinal Mucormycosis in the Setting of Colonic Pseudo-Obstruction.",
-    "url": "https://pubmed.ncbi.nlm.nih.gov/41492613/",
-    "property_tag_2": "Infectious Disease",
-    "property_comment": "- **วัตถุประสงค์:** เพื่อรายงานและอภิปรายกรณีศึกษาที่พบได้ยากของการติดเชื้อรา Mucormycosis ในระบบทางเดินอาหารที่เกิดขึ้นในผู้ป่วยที่มีภาวะลำไส้ใหญ่เทียม (Colonic Pseudo-Obstruction)\n- **วิธีการ:** การนำเสนอข้อมูลผู้ป่วย (Case Report) โดยรวบรวมรายละเอียดอาการทางคลินิก ขั้นตอนการวินิจฉัยโรค และแนวทางการรักษาที่ผู้ป่วยได้รับ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การศึกษานี้เป็นการรายงานกรณีผู้ป่วยรายเดียวจึงไม่มีการวิเคราะห์ทางสถิติ ผลลัพธ์เน้นย้ำถึงความสำคัญของการวินิจฉัยและรักษาการติดเชื้อราฉวยโอกาสนี้อย่างทันท่วงที เนื่องจากเป็นภาวะที่มีความรุนแรงและมีอัตราการเสียชีวิตสูง",
-    "property_tag_3": "Internal Medicine",
-    "property_tag_1": "Gastroenterology",
-    "property_last_edited_time": "2026-01-06T19:20:00.000Z",
-    "property_pmid": "41492613",
-    "property_name": "Gastrointestinal Mucormycosis in the Setting of Colonic Pseudo-Obstruction."
-  },
-  {
-    "id": "2e0ba464-60a7-817e-91f2-c6a9c3133617",
-    "name": "In Vitro Evaluation of Whole Blood Hemostatic Function at a Level 1 Trauma Center",
-    "url": "https://pubmed.ncbi.nlm.nih.gov/41492610/",
-    "property_tag_2": "Hematology",
-    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินประสิทธิภาพการห้ามเลือดโดยเน้นที่การทำงานของเกล็ดเลือดในเลือดรวมที่เก็บรักษาในความเย็น (CSWB) เปรียบเทียบกับเลือดรวมที่เตรียมขึ้นใหม่ (RWB) โดยใช้กราฟแสดงการแข็งตัวของเลือด (TEG) และศึกษาผลกระทบของระยะเวลาการเก็บรักษา\n- **วิธีการ:** ทำการวิเคราะห์ด้วยเครื่อง TEG 6S ในตัวอย่างเลือด CSWB จำนวน 10 ยูนิต และ RWB จำนวน 10 ยูนิต โดยประเมินค่า Reaction time (R time), Functional Fibrinogen (FF) และ Maximum Amplitude (MA)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ค่า R time อยู่ในเกณฑ์ปกติทั้งสองกลุ่ม แต่พบว่าค่า MA ในกลุ่ม CSWB ต่ำกว่าเกณฑ์ปกติถึง 7 ใน 10 ตัวอย่าง เทียบกับกลุ่ม RWB ที่อยู่ในเกณฑ์ปกติทั้งหมด (P = 0.003) ซึ่งแสดงว่าการทำงานของเกล็ดเลือดใน CSWB ต่ำกว่า RWB อย่างมีนัยสำคัญ และไม่พบความสัมพันธ์ระหว่างค่า MA กับระยะเวลาการเก็บรักษา",
-    "property_tag_3": "Transfusion Medicine",
-    "property_tag_1": "Trauma",
-    "property_last_edited_time": "2026-01-06T19:19:00.000Z",
-    "property_pmid": "41492610",
-    "property_name": "In Vitro Evaluation of Whole Blood Hemostatic Function at a Level 1 Trauma Center"
   }
 ]
