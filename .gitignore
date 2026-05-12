@@ -1,0 +1,13 @@
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# Node.js (CI-only dependencies)
+node_modules/
+
+# n8n ephemeral file (should be consumed by GitHub Actions)
+latest_updates.json
