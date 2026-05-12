@@ -8,11 +8,16 @@ on:
       - main
     paths-ignore:
       - 'README.md'
+      - 'latest_updates.json' # ป้องกันไม่ให้รันตอน n8n เพิ่งส่งไฟล์มา (ให้รอ process-blog-data รันให้เสร็จก่อน)
   workflow_dispatch:
 
-# *** เพิ่ม Block permissions เข้ามาตรงนี้ ***
 permissions:
   contents: write  # ขอสิทธิ์ในการเขียนไฟล์ (Commit/Push)
+
+# *** ป้องกันการ Push ชนกันของ GitHub Actions ***
+concurrency:
+  group: readme-update
+  cancel-in-progress: false
 
 jobs:
   update-markdown:
@@ -21,7 +26,6 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
       
     steps:
-    
       # 1. Checkout โค้ด
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -49,7 +53,5 @@ jobs:
       - name: Commit and Push Changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Docs: Auto-update Repository Contents in README.md"
-          # *** ระบุไฟล์ที่จะ Commit อย่างชัดเจน ***
+          commit_message: "docs: Auto-update Repository Contents in README.md"
           file_pattern: 'README.md'
-          # ***********************************
