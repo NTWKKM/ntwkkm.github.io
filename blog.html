@@ -911,10 +911,17 @@
                 }
 
                 if (!rawData) {
-                    // Simulate slight delay to show skeleton animation if needed (optional)
-                    // await new Promise(r => setTimeout(r, 500)); 
-                    const response = await fetch('./research_blog.json');
-                    rawData = await response.json();
+                    // 1. Fetch the list of JSON files from blog_index.json
+                    const indexResponse = await fetch('./blog_index.json');
+                    const fileList = await indexResponse.json();
+
+                    // 2. Fetch data from all files concurrently
+                    const fetchPromises = fileList.map(file => fetch(`./${file}`).then(res => res.json()));
+                    const allFilesData = await Promise.all(fetchPromises);
+
+                    // 3. Flatten and combine data from all sources
+                    rawData = allFilesData.flat();
+
                     localStorage.setItem(CACHE_KEY, JSON.stringify({
                         timestamp: Date.now(),
                         data: rawData
