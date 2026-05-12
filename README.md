@@ -9,10 +9,10 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- blog_index.json
 |-- blog.html
 |-- index.html
+|-- latest_updates.json
 |-- papers.json
 |-- projects.json
 |-- README.md
-|-- research_blog.json
 `-- shared.css
 ```
 
