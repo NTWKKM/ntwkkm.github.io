@@ -3709,4 +3709,46 @@
     "property_pmid": "42114550",
     "property_name": "Ticagrelor with aspirin dual antiplatelet therapy combined with intravenous thrombolysis in patients with ischaemic stroke in China (TAPIS): a multicentre, double-blind, randomised controlled trial."
   }
+  {
+    "id": "35eba464-60a7-815f-a509-f85dc18a6cdd",
+    "name": "Sex-related disparities in sepsis in western Europe: A systematic review and meta-analysis.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42115064/",
+    "property_date": null,
+    "property_tag_2": "Infectious Disease",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาและทบทวนว่าเพศทางชีววิทยามีอิทธิพลต่อผลลัพธ์และอัตราการเสียชีวิตจากภาวะติดเชื้อในกระแสเลือด (Sepsis) อย่างอิสระหรือไม่ เนื่องจากข้อมูลในอดีตยังคงมีความขัดแย้งกัน\n- **วิธีการ:** ทำการทบทวนวรรณกรรมอย่างเป็นระบบและการวิเคราะห์อภิมานตามแนวทาง PRISMA โดยสืบค้นข้อมูลจาก PubMed, Scopus และ Web of Science (มกราคม 2020 ถึง เมษายน 2025) เพื่อหาการศึกษาที่รายงานอัตราการเสียชีวิตของผู้ป่วยผู้ใหญ่ที่มีภาวะติดเชื้อในกระแสเลือดในยุโรปตะวันตก โดยประเมินคุณภาพงานวิจัยด้วยเครื่องมือ QUIPS\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** จาก 18 การศึกษา (ผู้ป่วย 671,861 ราย) พบว่าปอดอักเสบพบบ่อยในเพศชาย ส่วนการติดเชื้อทางเดินปัสสาวะพบบ่อยในเพศหญิง การวิเคราะห์ข้อมูลรวมพบว่าเพศชายมีอัตราส่วนแต้มต่อ (OR) ของการเสียชีวิตระยะสั้นต่ำกว่าเพศหญิง (pooled OR = 0.96, 95% CI 0.94-0.98) แต่ข้อมูลอัตราส่วนอันตราย (HR) ชี้ว่าเพศชายมีความเสี่ยงสูงกว่า (pooled HR = 1.39, 95% CI 1.14-1.70) และไม่พบความแตกต่างของการเสียชีวิตที่ระยะเวลา 90 วัน (HR = 1.00, 95% CI 0.92-1.08) สรุปได้ว่าเพศเพียงอย่างเดียวไม่ใช่ปัจจัยทำนายการเสียชีวิตระยะสั้นที่ชัดเจน",
+    "property_status": "Not started",
+    "property_tag_3": "Internal Medicine",
+    "property_tag_1": "Sepsis",
+    "property_last_edited_time": "2026-05-12T11:14:00.000Z",
+    "property_pmid": "42115064",
+    "property_name": "Sex-related disparities in sepsis in western Europe: A systematic review and meta-analysis."
+  },
+  {
+    "id": "35eba464-60a7-81a8-a41e-eb19e2c028bf",
+    "name": "Early Warning Systems and Emergency Declarations During Brazil's Largest Dengue Outbreak.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42114973/",
+    "property_date": null,
+    "property_tag_2": "Public Health",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินความสอดคล้องระหว่างการตรวจจับความเสี่ยงการระบาดอย่างทันท่วงทีด้วยระบบเตือนภัยล่วงหน้า (Early warning systems) และการตอบสนองด้านการจัดการสาธารณสุข ในช่วงวิกฤตการระบาดของโรคไข้เลือดออกครั้งใหญ่ที่สุดในบราซิลปี 2024\n- **วิธีการ:** รวบรวมข้อมูลผู้ติดเชื้อ ผู้เสียชีวิต และการประกาศภาวะฉุกเฉินด้านสาธารณสุข (PHEDs) ทั้งในระดับรัฐบาลกลาง รัฐ และท้องถิ่น ทำการประเมินความทันท่วงทีในการประกาศโดยอ้างอิงเกณฑ์ระดับความเสี่ยง และใช้สมการถดถอยโลจิสติก (Logistic regression) เพื่อวิเคราะห์ว่าความรุนแรงของโรคระบาดมีความสัมพันธ์กับการประกาศภาวะฉุกเฉินหรือไม่ โดยคำนึงถึงปัจจัยด้านการเมืองและการครอบคลุมของระบบสาธารณสุขปฐมภูมิ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** สถานการณ์ระบาดรุนแรงขึ้นอย่างรวดเร็ว แต่หลายพื้นที่กลับประกาศภาวะฉุกเฉินหลังจากเข้าสู่เกณฑ์ระดับการระบาดไปแล้วระยะหนึ่ง (บางพื้นที่ที่มีภาระโรคสูงไม่ได้ประกาศเลย) ผลการวิเคราะห์ด้วยแบบจำลองความถดถอยโลจิสติกพบว่า มีเพียงปัจจัยด้าน \"ระยะเวลา\" ที่เผชิญกับความเสี่ยงระดับสูงเท่านั้นที่สามารถทำนายการประกาศภาวะฉุกเฉินได้อย่างมีนัยสำคัญ ส่วนปัจจัยทางการเมืองและระบบสาธารณสุขไม่มีผล แสดงให้เห็นว่าการประกาศภาวะฉุกเฉินเกิดขึ้นจากการปล่อยให้การระบาดยืดเยื้อมากกว่าการตรวจจับและตอบสนองล่วงหน้าอย่างรวดเร็ว",
+    "property_status": "Not started",
+    "property_tag_3": "Epidemiology",
+    "property_tag_1": "Dengue",
+    "property_last_edited_time": "2026-05-12T11:13:00.000Z",
+    "property_pmid": "42114973",
+    "property_name": "Early Warning Systems and Emergency Declarations During Brazil's Largest Dengue Outbreak."
+  },
+  {
+    "id": "35eba464-60a7-8162-9bcb-e2044e474654",
+    "name": "Artificial Intelligence-Enhanced Electrocardiography and Health Records to Predict Cardiac Arrest.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42114451/",
+    "property_date": null,
+    "property_tag_2": "AI",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินว่าการใช้ปัญญาประดิษฐ์ (AI) ร่วมกับการตรวจคลื่นไฟฟ้าหัวใจ (ECG) และข้อมูลทางคลินิกจากเวชระเบียนอิเล็กทรอนิกส์ (EHR) สามารถประเมินและแบ่งระดับความเสี่ยงของการเกิดภาวะหัวใจหยุดเต้นนอกโรงพยาบาล (OHCA) ในประชากรทั่วไปได้หรือไม่\n- **วิธีการ:** ใช้รูปแบบการศึกษาแบบมีกลุ่มควบคุม (Case-control study โดยจับคู่ตามอายุและเพศ) เพื่อสร้างและตรวจสอบความถูกต้องของแบบจำลองทำนาย OHCA พร้อมทั้งประเมินอุบัติการณ์สะสมของ OHCA ในระยะเวลา 2 ปีของผู้ที่เข้ารับการตรวจ ECG ในระบบสุขภาพ โดยคำนึงถึงความเสี่ยงของการเสียชีวิตจากสาเหตุอื่นร่วมด้วย\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** แบบจำลองร่วม (ECG + EHR) มีประสิทธิภาพในการจำแนก OHCA สูงสุด (AUC: 0.83, AUPRC: 0.44) ซึ่งสูงกว่าแบบจำลองที่ใช้ EHR หรือ ECG เพียงอย่างเดียวอย่างมีนัยสำคัญ แบบจำลองนี้สามารถระบุผู้ที่เกิดเหตุ OHCA ได้ถึง 2 ใน 3 ว่าเป็นกลุ่มเสี่ยงสูง โดยกลุ่มที่มีความเสี่ยงสูงมีอุบัติการณ์สะสมใน 2 ปีอยู่ที่ 2.4% (95% CI: 2.0%-2.8%) เทียบกับเพียง 0.5% (95% CI: 0.3%-0.8%) ในกลุ่มที่มีความเสี่ยงต่ำ",
+    "property_status": "Not started",
+    "property_tag_3": "Cardiac Arrest",
+    "property_tag_1": "Cardiology",
+    "property_last_edited_time": "2026-05-12T11:12:00.000Z",
+    "property_pmid": "42114451",
+    "property_name": "Artificial Intelligence-Enhanced Electrocardiography and Health Records to Predict Cardiac Arrest."
+  }
 ]
