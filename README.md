@@ -12,7 +12,6 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- papers.json
 |-- projects.json
 |-- README.md
-|-- research_blog_2.json
 |-- research_blog.json
 `-- shared.css
 ```
