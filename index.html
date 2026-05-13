@@ -602,6 +602,12 @@
             catch { return '#'; }
         }
 
+        // Strip residual markdown formatting (e.g. **bold**) from AI-generated text
+        function stripMarkdown(str) {
+            if (!str) return '';
+            return String(str).replace(/\*\*/g, '').trim();
+        }
+
         // --- 2. FETCH PAPERS FROM JSON ---
         async function fetchPapers() {
             const container = document.getElementById('paper-container');
@@ -621,7 +627,7 @@
                     
                     card.innerHTML = `
                         <div class="paper-date">${escapeHTML(paper.date)}</div>
-                        <div class="paper-title">${escapeHTML(paper.title)}</div>
+                        <div class="paper-title">${escapeHTML(stripMarkdown(paper.title))}</div>
                         <div class="paper-comment">"${escapeHTML(paper.comment)}"</div>
                         <a href="${sanitizeURL(paper.link)}" class="paper-link" target="_blank" draggable="false">
                             Read Paper 
