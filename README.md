@@ -16,7 +16,8 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- papers.json
 |-- projects.json
 |-- README.md
-`-- shared.css
+|-- shared.css
+`-- shared.js
 ```
 
 [--- REPOSITORY-TREE-END ---]
