@@ -27,15 +27,29 @@ jobs:
           node-version: '24'
 
       - name: Run Data Processing Script
+        id: process
+        # อ่าน latest_updates ก่อน merge + write chunks
         run: node .github/scripts/process_blog.js
 
+      - name: Delete latest_updates.json
+        # สำคัญ: ลบไฟล์เสมอแม้ Run Data Processing Script จะ fail
+        if: always()
+        run: rm -f latest_updates.json
+
       - name: Commit and Push Changes
+        # สำคัญ: ต้องทำงานเสมอเพื่อ push การลบไฟล์ (หรือไฟล์ chunk ใหม่) ขึ้น GitHub
+        if: always()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # ใช้ -A เพื่อ Track ไฟล์ใหม่ที่สร้างขึ้น และไฟล์เก่าที่ถูกลบออกไปพร้อมกัน
-          git add -A
+          if [ "${{ steps.process.outcome }}" = "success" ]; then
+            # Processing สำเร็จ: Stage ทุกอย่าง (chunks ใหม่ + ลบไฟล์ input)
+            git add -A
+          else
+            # Processing ล้มเหลว: Stage เฉพาะการลบไฟล์ input เพื่อ cleanup
+            git add latest_updates.json
+          fi
           
           # ถ้ามีไฟล์ถูกแก้ไข ให้ commit และ push (ถ้าไม่มีการเปลี่ยนจะถูก skip ไป)
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto-chunk blog data into folders and update index" && git push)
+          git diff --staged --quiet || (git commit -m "chore: auto-chunk blog data into folders and update index" && git push)
