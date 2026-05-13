@@ -83,6 +83,13 @@ All JSON data is sanitized before DOM injection via:
 - `escapeHTML(str)` — escapes `<`, `>`, `&`, `"` entities
 - `sanitizeURL(url)` — validates `http:` / `https:` protocol only
 
+## Tag Filtering (blog.html)
+
+- **Normalization:** AI-generated tags are normalized client-side via `TAG_NORMALIZATION` map (e.g., `Emergency` → `Emergency Medicine`, `Artificial Intelligence` → `AI`). No pipeline changes needed.
+- **Top-N Pills:** Only the top 12 tags (by post count) are shown as filter pills with count badges. Remaining tags are accessible via a "More ▾" dropdown.
+- **Multi-select:** Tags use OR logic — selecting multiple tags shows posts matching **any** active tag. "All" clears selection.
+- **URL State:** Active tags are persisted in `?tag=` query param (comma-separated). Shareable via URL, restored on page load and browser back/forward.
+
 ## Caching
 
 - JSON fetches include `?v=${Date.now()}` cache-buster to ensure freshness after n8n updates

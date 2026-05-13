@@ -284,13 +284,15 @@
             font-weight: 700;
         }
 
+        .filter-tags-wrapper {
+            position: relative;
+            margin-bottom: 0;
+        }
+
         .filter-tags {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
-            margin-bottom: 0;
-            max-height: 80px;
-            overflow-y: auto;
             padding-right: 4px;
         }
 
@@ -305,6 +307,9 @@
             border: 1px solid transparent;
             font-weight: 500;
             white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
 
         .filter-tag:hover {
@@ -316,6 +321,93 @@
             background: var(--primary);
             color: white;
             border-color: var(--primary);
+        }
+
+        /* Tag count badge */
+        .tag-count {
+            font-size: 0.6rem;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+
+        .filter-tag.active .tag-count {
+            opacity: 0.85;
+        }
+
+        /* "More" toggle button */
+        .filter-tag.more-btn {
+            background: transparent;
+            border: 1px dashed var(--border-color);
+            color: var(--text-muted);
+        }
+
+        .filter-tag.more-btn:hover {
+            border-style: solid;
+            background: var(--bg-paper-list);
+            color: var(--text-main);
+        }
+
+        .filter-tag.more-btn.open {
+            border-style: solid;
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        /* More tags dropdown */
+        .more-tags-dropdown {
+            display: none;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding: 12px;
+            margin-top: 8px;
+            background: var(--bg-body);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            animation: dropdownFade 0.2s ease;
+        }
+
+        .more-tags-dropdown.open {
+            display: flex;
+        }
+
+        @keyframes dropdownFade {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Active tag count indicator in sidebar header */
+        .active-filters-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.7rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-left: 6px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .active-filters-badge.visible {
+            opacity: 1;
+        }
+
+        .clear-filters-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .clear-filters-btn:hover {
+            color: var(--primary);
+            background: var(--primary-light);
         }
 
         /* ARTICLE LIST & SKELETON LOADING */
@@ -761,7 +853,8 @@
             .sidebar-header { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; padding: 16px 20px; }
             .brand { margin-bottom: 0; flex-shrink: 0; }
             .search-container { width: 100%; margin-bottom: 8px; }
-            .filter-tags { max-height: 40px; }
+            .filter-tags { max-height: none; }
+            .more-tags-dropdown { max-height: 150px; }
             .main-content { padding: 40px 32px; min-height: 500px; }
             .article-title { font-size: 1.8rem; }
         }
@@ -802,9 +895,12 @@
                     <input type="text" id="search-input" class="search-input" placeholder="Search papers..." aria-label="Search articles">
                 </div>
                 
-                <label class="filter-tags-label">Topics</label>
-                <div class="filter-tags" id="filter-tags-container">
-                    <span class="filter-tag active" data-tag="all">All</span>
+                <label class="filter-tags-label">Topics <span id="active-filters-badge" class="active-filters-badge"></span></label>
+                <div class="filter-tags-wrapper">
+                    <div class="filter-tags" id="filter-tags-container">
+                        <span class="filter-tag active" data-tag="all">All</span>
+                    </div>
+                    <div class="more-tags-dropdown" id="more-tags-dropdown"></div>
                 </div>
             </div>
 
@@ -878,11 +974,26 @@
         let filteredPosts = [];
         let currentPage = 1;
         const itemsPerPage = 10;
-        let activeTag = 'all';
+        let activeTags = new Set();  // empty = show all (multi-select)
         let currentPostId = null;
         
         const CACHE_KEY = 'research_blog_data';
         const CACHE_DURATION = 1000 * 60 * 5; // 5 minutes
+
+        // Step 1: Tag normalization — merge near-duplicate AI-generated tags
+        const TAG_NORMALIZATION = {
+            'Emergency': 'Emergency Medicine',
+            'Infectious Disease': 'Infectious Diseases',
+            'Artificial Intelligence': 'AI',
+            'Artificial intelligence': 'AI',
+            'Machine Learning': 'AI',
+            'Critical care': 'Critical Care',
+            'Public health': 'Public Health',
+            'Internal medicine': 'Internal Medicine',
+            'Pain management': 'Pain Management',
+            'Drug discovery': 'Drug Discovery',
+        };
+        const TOP_TAGS_COUNT = 12;
 
         document.addEventListener('DOMContentLoaded', async () => {
             // 1. Theme Initialization
@@ -927,7 +1038,10 @@
                 const rawList = Array.isArray(rawData) ? rawData : (rawData.data || []);
                 
                 allPosts = rawList.map(item => {
-                    const tags = [item.property_tag_1, item.property_tag_2, item.property_tag_3].filter(t => t && t.trim() !== "");
+                    const tags = [item.property_tag_1, item.property_tag_2, item.property_tag_3]
+                        .filter(t => t && t.trim() !== "")
+                        .map(t => TAG_NORMALIZATION[t.trim()] || t.trim())
+                        .filter((t, i, arr) => arr.indexOf(t) === i); // dedupe after normalization
                     let dateStr = "";
                     let timestamp = 0;
                     if (item.property_last_edited_time) {
@@ -1054,36 +1168,118 @@
             });
         }
 
+        // Step 2 & 3: Top-N pills with count badges + More dropdown
         function initTags(posts) {
-            const tagsSet = new Set();
-            posts.forEach(p => { if (p.tags) p.tags.forEach(t => tagsSet.add(t)); });
+            const tagCounts = new Map();
+            posts.forEach(p => {
+                if (p.tags) p.tags.forEach(t => {
+                    tagCounts.set(t, (tagCounts.get(t) || 0) + 1);
+                });
+            });
+
+            // Sort by count descending, then alphabetically
+            const sortedTags = Array.from(tagCounts.entries())
+                .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+            const topTags = sortedTags.slice(0, TOP_TAGS_COUNT);
+            const moreTags = sortedTags.slice(TOP_TAGS_COUNT);
 
             const container = document.getElementById('filter-tags-container');
-            container.innerHTML = '<span class="filter-tag active" data-tag="all">All</span>';
-            Array.from(tagsSet).sort().forEach(tag => {
-                const span = document.createElement('span');
-                span.className = 'filter-tag';
-                span.dataset.tag = tag;
-                span.textContent = tag;
-                span.onclick = () => selectTag(tag);
-                container.appendChild(span);
+            container.innerHTML = '';
+
+            // "All" pill
+            const allPill = createTagPill('all', 'All', posts.length);
+            allPill.classList.add('active');
+            container.appendChild(allPill);
+
+            // Top-N tag pills
+            topTags.forEach(([tag, count]) => {
+                container.appendChild(createTagPill(tag, tag, count));
             });
-            container.querySelector('[data-tag="all"]').onclick = () => selectTag('all');
+
+            // "More" toggle if remaining tags exist
+            const dropdown = document.getElementById('more-tags-dropdown');
+            dropdown.innerHTML = '';
+
+            if (moreTags.length > 0) {
+                const moreBtn = document.createElement('span');
+                moreBtn.className = 'filter-tag more-btn';
+                moreBtn.id = 'more-tags-btn';
+                moreBtn.innerHTML = `More <span class="tag-count">(${moreTags.length})</span> ▾`;
+                moreBtn.onclick = (e) => {
+                    e.stopPropagation();
+                    moreBtn.classList.toggle('open');
+                    dropdown.classList.toggle('open');
+                    moreBtn.innerHTML = dropdown.classList.contains('open')
+                        ? `Less ▴`
+                        : `More <span class="tag-count">(${moreTags.length})</span> ▾`;
+                };
+                container.appendChild(moreBtn);
+
+                // Render dropdown tags
+                moreTags.forEach(([tag, count]) => {
+                    dropdown.appendChild(createTagPill(tag, tag, count));
+                });
+            }
         }
-        
+
+        function createTagPill(dataTag, label, count) {
+            const span = document.createElement('span');
+            span.className = 'filter-tag';
+            span.dataset.tag = dataTag;
+            if (dataTag === 'all') {
+                span.innerHTML = `${escapeHTML(label)} <span class="tag-count">(${count})</span>`;
+            } else {
+                span.innerHTML = `${escapeHTML(label)} <span class="tag-count">(${count})</span>`;
+            }
+            span.onclick = () => selectTag(dataTag);
+            // Restore active state if previously selected
+            if (activeTags.has(dataTag)) span.classList.add('active');
+            return span;
+        }
+
+        // Step 4: Multi-select toggle (OR logic)
         function selectTag(tag) {
-            activeTag = tag;
-            document.querySelectorAll('.filter-tag').forEach(el => {
-                el.classList.toggle('active', el.dataset.tag === tag || (tag === 'all' && el.dataset.tag === 'all'));
-            });
+            if (tag === 'all') {
+                activeTags.clear();
+            } else {
+                if (activeTags.has(tag)) {
+                    activeTags.delete(tag);
+                } else {
+                    activeTags.add(tag);
+                }
+            }
+            refreshTagUI();
+            updateURLState();
             document.getElementById('search-input').value = '';
             handleFilter('');
+        }
+
+        function refreshTagUI() {
+            document.querySelectorAll('.filter-tag').forEach(el => {
+                if (el.classList.contains('more-btn')) return;
+                if (el.dataset.tag === 'all') {
+                    el.classList.toggle('active', activeTags.size === 0);
+                } else if (el.dataset.tag) {
+                    el.classList.toggle('active', activeTags.has(el.dataset.tag));
+                }
+            });
+            // Update active filters badge
+            const badge = document.getElementById('active-filters-badge');
+            if (activeTags.size > 0) {
+                badge.classList.add('visible');
+                badge.innerHTML = `(${activeTags.size} active) <button class="clear-filters-btn" onclick="selectTag('all')" title="Clear all filters">✕</button>`;
+            } else {
+                badge.classList.remove('visible');
+                badge.innerHTML = '';
+            }
         }
 
         function handleFilter(query) {
             const lowerQuery = query.toLowerCase();
             filteredPosts = allPosts.filter(post => {
-                const matchesTag = activeTag === 'all' || (post.tags && post.tags.includes(activeTag));
+                // Step 4: Multi-select OR logic — matches if ANY active tag is in the post's tags
+                const matchesTag = activeTags.size === 0 || (post.tags && post.tags.some(t => activeTags.has(t)));
                 const matchesSearch = post.title.toLowerCase().includes(lowerQuery) || 
                                       post.id.includes(lowerQuery) || 
                                       (post.summary && post.summary.toLowerCase().includes(lowerQuery));
@@ -1184,7 +1380,11 @@
             const activeEl = document.querySelector(`.article-list-item[data-id="${post.id}"]`);
             if (activeEl) activeEl.classList.add('active');
 
-            const newUrl = `${window.location.pathname}?id=${post.id}`;
+            // Step 5: Preserve tag state in URL when navigating articles
+            const params = new URLSearchParams();
+            params.set('id', post.id);
+            if (activeTags.size > 0) params.set('tag', Array.from(activeTags).join(','));
+            const newUrl = `${window.location.pathname}?${params.toString()}`;
             history.pushState({ id: post.id }, '', newUrl);
             updateNavButtonsState();
 
@@ -1301,8 +1501,22 @@
             return html;
         }
 
+        // Step 5: URL state sync — restore tags from ?tag= param
         function handleRouting() {
             const params = new URLSearchParams(window.location.search);
+
+            // Restore tag state from URL
+            const tagParam = params.get('tag');
+            if (tagParam) {
+                tagParam.split(',').forEach(t => {
+                    const trimmed = t.trim();
+                    if (trimmed) activeTags.add(trimmed);
+                });
+                refreshTagUI();
+                handleFilter('');
+            }
+
+            // Load specific article if ID present
             const id = params.get('id');
             if (id && allPosts.length > 0) {
                 const post = allPosts.find(p => p.id === id);
@@ -1310,7 +1524,31 @@
             }
         }
 
+        function updateURLState() {
+            const params = new URLSearchParams(window.location.search);
+            if (activeTags.size > 0) {
+                params.set('tag', Array.from(activeTags).join(','));
+            } else {
+                params.delete('tag');
+            }
+            const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
+            history.replaceState(history.state, '', newUrl);
+        }
+
         window.onpopstate = function(event) {
+            // Restore tags from URL on back/forward
+            const params = new URLSearchParams(window.location.search);
+            activeTags.clear();
+            const tagParam = params.get('tag');
+            if (tagParam) {
+                tagParam.split(',').forEach(t => {
+                    const trimmed = t.trim();
+                    if (trimmed) activeTags.add(trimmed);
+                });
+            }
+            refreshTagUI();
+            handleFilter(document.getElementById('search-input').value || '');
+
             if (event.state && event.state.id) {
                 const post = allPosts.find(p => p.id === event.state.id);
                 if (post) loadArticle(post);
