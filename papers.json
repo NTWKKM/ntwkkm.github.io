@@ -2,73 +2,73 @@
   {
     "date": "14 May",
     "title": "Major adverse cardiac events in patients with indeterminate high-sensitivity troponin testing and chest pain: a systematic review.",
-    "comment": "คนไข้เจ็บอกแต่ Trop ก้ำกึ่ง: สรุปความเสี่ยง MACE ที่ควรรู้เพื่อการตัดสินใจ disposition",
+    "comment": "คนไข้เจ็บอกแต่ hs-cTnI อยู่ในโซนสีเทา (indeterminate) จะมี MACE แค่ไหน? งานนี้มีคำตอบ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42132995/"
   },
   {
     "date": "14 May",
-    "title": "Complications of Temporary Transvenous Cardiac Pacing by Access Site: A Systematic Review and Meta-Analysis.",
-    "comment": "ใส่ temporary pace สายทางไหน (IJ, Subclavian, Femoral) complication ต่างกันอย่างไร: meta-analysis ที่ควรอ่านก่อนลงมือ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42132883/"
-  },
-  {
-    "date": "14 May",
-    "title": "Pacemaker Lead Perforation Leading to Cardiac Tamponade and Subsequent Anterior STEMI.",
-    "comment": "Case report เตือนใจ: PM lead perforation ที่มาด้วย tamponade และ mimic STEMI ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42132721/"
-  },
-  {
-    "date": "14 May",
-    "title": "Associations of the Composite Pulmonary Embolism Shock Score in the Emergency Department With Short-Term Clinical Outcomes.",
-    "comment": "Score ใหม่สำหรับประเมิน PE shock ใน ER ว่า short-term outcome จะเป็นอย่างไร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42132714/"
-  },
-  {
-    "date": "14 May",
-    "title": "Optimizing Levetiracetam Dosage in Status Epilepticus: A Retrospective Cohort Study.",
-    "comment": "ใช้ Keppra ใน Status Epilepticus: โดสที่เหมาะสมอาจสูงกว่าที่เราคิด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42132540/"
-  },
-  {
-    "date": "14 May",
-    "title": "Thrombotic Microangiopathy Without Thrombocytopenia as a Manifestation of Hypertensive Emergency.",
-    "comment": "Hypertensive emergency อาจมาด้วย TMA แบบเกล็ดเลือดไม่ต่ำก็ได้ (novel finding)",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42132453/"
-  },
-  {
-    "date": "14 May",
-    "title": "From Negative Duplex to Phlegmasia in Minutes: Bedside POCUS Identifies Rapid Thrombosis Unmasking Underlying May-Thurner Syndrome.",
-    "comment": "เคสสุดโหด: POCUS เจอ DVT ที่ลามอย่างรวดเร็วจนเป็น Phlegmasia ในไม่กี่นาที",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42132364/"
-  },
-  {
-    "date": "14 May",
-    "title": "Discovery of the First Highly Potent, Selective, Irreversible Small-Molecule Factor XIIa Inhibitor for Treating Sepsis.",
-    "comment": "อนาคตการรักษา Sepsis: ยาใหม่ในกลุ่ม Factor XIIa inhibitor อาจเป็น game changer",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42132262/"
-  },
-  {
-    "date": "14 May",
-    "title": "The Use of Cognitive Aids to Assist With the Resuscitation of Emergency Department Patients: A Scoping Review.",
-    "comment": "Checklist/Cognitive aids ช่วยลด error ในห้อง реаниматология ได้จริงหรือไม่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42131898/"
-  },
-  {
-    "date": "14 May",
     "title": "Assessment of Early Antibiotic Administration for Patients With Sepsis in the Emergency Department: A Retrospective Observational Study at a Tertiary Care Hospital.",
-    "comment": "ประเด็นถกเถียงตลอดกาล: การให้ยาฆ่าเชื้อเร็วใน Sepsis ที่ ER สำคัญแค่ไหน",
+    "comment": "การให้ยาปฏิชีวนะเร็วใน Sepsis สำคัญจริงหรือ? paper นี้ทบทวนข้อมูลสำคัญที่เราควรรู้",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42131672/"
   },
   {
     "date": "14 May",
+    "title": "Optimizing Levetiracetam Dosage in Status Epilepticus: A Retrospective Cohort Study.",
+    "comment": "Dose Levetiracetam ที่เหมาะสมสำหรับ Status Epilepticus คือเท่าไรกันแน่?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42132540/"
+  },
+  {
+    "date": "14 May",
+    "title": "From Negative Duplex to Phlegmasia in Minutes: Bedside POCUS Identifies Rapid Thrombosis Unmasking Underlying May-Thurner Syndrome.",
+    "comment": "เคส POCUS ที่น่าทึ่ง: DVT ผลลบกลายเป็น Phlegmasia ในไม่กี่นาที เตือนให้ระวัง May-Thurner",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42132364/"
+  },
+  {
+    "date": "14 May",
+    "title": "Location-Specific Hematoma Volume Tolerance for Spontaneous Intracerebral Hemorrhage: A Pooled Analysis of INTERACT2 and ATACH II.",
+    "comment": "ICH ตำแหน่งไหนทนต่อ volume ได้มากกว่ากัน? ข้อมูลใหม่ที่อาจเปลี่ยนการคุยกับ Neuro",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42132170/"
+  },
+  {
+    "date": "14 May",
+    "title": "Associations of the Composite Pulmonary Embolism Shock Score in the Emergency Department With Short-Term Clinical Outcomes.",
+    "comment": "ทำความรู้จักกับ Composite Pulmonary Embolism Shock Score (CPESS) score ใหม่สำหรับประเมิน PE ใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42132714/"
+  },
+  {
+    "date": "14 May",
     "title": "Metoclopramide-Induced Akathisia Mimicking Seizure With Transient Lactic Acidosis.",
-    "comment": "ระวัง! Akathisia จาก Plasil ที่อาจมาคล้ายชักและมี Lactic acidosis ได้",
+    "comment": "Metoclopramide-induced Akathisia ที่มาแบบชักเกร็ง (mimicking seizure) พร้อม Lactic acidosis",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42131653/"
   },
   {
     "date": "14 May",
-    "title": "Insights into the role of the shock index and its derivatives in triage.",
-    "comment": "ทบทวนการใช้ Shock Index และค่าอื่นๆ ที่เกี่ยวข้องเพื่อช่วย triage ผู้ป่วย shock",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42131404/"
+    "title": "Diagnosis of Pneumoperitoneum Using POCUS.",
+    "comment": "ใช้ POCUS วินิจฉัย Pneumoperitoneum ได้อย่างไร? มาดูเทคนิคใหม่ที่น่าสนใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42131545/"
+  },
+  {
+    "date": "14 May",
+    "title": "The Use of Cognitive Aids to Assist With the Resuscitation of Emergency Department Patients: A Scoping Review.",
+    "comment": "Cognitive aids (เช่น checklist, algorithm) ช่วยให้การกู้ชีพใน ER ดีขึ้นจริงไหม?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42131898/"
+  },
+  {
+    "date": "14 May",
+    "title": "Discovery of the First Highly Potent, Selective, Irreversible Small-Molecule Factor XIIa Inhibitor for Treating Sepsis.",
+    "comment": "นวัตกรรมยาใหม่สำหรับ Sepsis: small-molecule ที่ยับยั้ง Factor XIIa แบบจำเพาะเจาะจง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42132262/"
+  },
+  {
+    "date": "14 May",
+    "title": "Complications of Temporary Transvenous Cardiac Pacing by Access Site: A Systematic Review and Meta-Analysis.",
+    "comment": "ใส่ Temporary Pacemaker ทางไหน (IJ, Subclavian, Femoral) complication ต่างกันอย่างไร?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42132883/"
+  },
+  {
+    "date": "14 May",
+    "title": "Thrombotic Microangiopathy Without Thrombocytopenia as a Manifestation of Hypertensive Emergency.",
+    "comment": "ภาวะแทรกซ้อนใหม่ของ Hypertensive Emergency: TMA ที่ไม่มีเกล็ดเลือดต่ำ (Thrombocytopenia)",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42132453/"
   }
 ]
