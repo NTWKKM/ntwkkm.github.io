@@ -15,6 +15,9 @@
 
 name: Track Packages
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 on:
   schedule:
     # 4 runs/day aligned to Thailand time (UTC+7):
