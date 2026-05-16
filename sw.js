@@ -4,7 +4,7 @@
  * and network-first with cache fallback for dynamic content.
  */
 
-const CACHE_NAME = 'ntwkkm-v1';
+// CACHE_NAME constant removed as per code review
 const STATIC_CACHE = 'ntwkkm-static-v1';
 const DYNAMIC_CACHE = 'ntwkkm-dynamic-v1';
 
@@ -46,6 +46,7 @@ self.addEventListener('install', (event) => {
             })
             .catch((error) => {
                 console.error('[SW] Failed to cache static assets:', error);
+                throw error;
             })
     );
 });
@@ -205,9 +206,11 @@ self.addEventListener('message', (event) => {
     }
 
     if (event.data && event.data.type === 'CLEAR_CACHE') {
-        caches.keys().then((names) => {
-            names.forEach((name) => caches.delete(name));
-        });
+        event.waitUntil(
+            caches.keys().then((names) => {
+                return Promise.all(names.map((name) => caches.delete(name)));
+            })
+        );
     }
 });
 
@@ -215,8 +218,10 @@ self.addEventListener('message', (event) => {
 self.addEventListener('sync', (event) => {
     if (event.tag === 'sync-data') {
         event.waitUntil(
-            // Future: sync offline data when back online
-            console.log('[SW] Background sync triggered')
+            Promise.resolve().then(() => {
+                // Future: sync offline data when back online
+                console.log('[SW] Background sync triggered');
+            })
         );
     }
 });

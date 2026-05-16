@@ -1223,6 +1223,32 @@
                 if (e.target === modal) closeCitationModal();
             });
 
+            // Focus trap and Escape handling
+            const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            if (focusableElements.length > 0) {
+                const firstFocusable = focusableElements[0];
+                const lastFocusable = focusableElements[focusableElements.length - 1];
+
+                modal.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        closeCitationModal();
+                        e.stopPropagation();
+                    } else if (e.key === 'Tab') {
+                        if (e.shiftKey) { // Shift + Tab
+                            if (document.activeElement === firstFocusable) {
+                                lastFocusable.focus();
+                                e.preventDefault();
+                            }
+                        } else { // Tab
+                            if (document.activeElement === lastFocusable) {
+                                firstFocusable.focus();
+                                e.preventDefault();
+                            }
+                        }
+                    }
+                });
+            }
+
             // Focus trap for accessibility
             modal.querySelector('.citation-modal-close').focus();
         }
@@ -1260,38 +1286,13 @@
                     btn.classList.remove('copied');
                     btn.innerHTML = '📋 Copy Citation';
                 }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy clipboard: ', err);
+                announceToScreenReader('Failed to copy citation', 'assertive');
             });
         }
 
-        // ===========================================================================
-        // FUZZY SEARCH WITH HIGHLIGHTING
-        // ===========================================================================
-        function fuzzyMatch(query, text) {
-            if (!query || !text) return false;
-            const queryLower = query.toLowerCase();
-            const textLower = text.toLowerCase();
 
-            // Simple contains check first for performance
-            if (textLower.includes(queryLower)) return true;
-
-            // Fuzzy match
-            let queryIndex = 0;
-            for (let i = 0; i < textLower.length && queryIndex < queryLower.length; i++) {
-                if (textLower[i] === queryLower[queryIndex]) {
-                    queryIndex++;
-                }
-            }
-            return queryIndex === queryLower.length;
-        }
-
-        function highlightText(text, query) {
-            if (!query) return escapeHTML(text);
-
-            // Escape regex special characters
-            const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-            const regex = new RegExp(`(${escapedQuery})`, 'gi');
-            return escapeHTML(text).replace(regex, '<mark class="search-highlight">$1</mark>');
-        }
 
         // ===========================================================================
         // MAIN DATA LOADING
@@ -1446,6 +1447,9 @@
                     btn.classList.remove('copied');
                     btn.innerHTML = originalText;
                 }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy clipboard: ', err);
+                announceToScreenReader('Failed to copy link', 'assertive');
             });
         }
 

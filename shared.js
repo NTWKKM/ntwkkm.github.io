@@ -45,8 +45,11 @@ async function fetchWithFallback(url, fallbackData = null, maxRetries = 2) {
 function createErrorUI(message, retryCallback) {
     const retryId = `retry-${Date.now()}`;
 
-    // Store callback for retry button
-    window[retryId] = retryCallback;
+    // Store callback for retry button and ensure cleanup
+    window[retryId] = () => {
+        retryCallback();
+        delete window[retryId];
+    };
 
     return `
     <div class="error-state" role="alert" aria-live="polite">
@@ -110,8 +113,8 @@ function createSkeletonUI(count = 3, type = 'card') {
 function announceToScreenReader(message, priority = 'polite') {
     const announcement = document.getElementById('sr-announcer');
     if (announcement) {
-        announcement.textContent = message;
         announcement.setAttribute('aria-live', priority);
+        announcement.textContent = message;
 
         // Clear after announcement
         setTimeout(() => {

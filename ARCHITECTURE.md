@@ -11,6 +11,14 @@ Static personal website hosted on GitHub Pages (`ntwkkm.github.io`). Serves as a
 | `index.html`           | Homepage — paper slider + project portfolio grid           |
 | `blog.html`            | Research blog reader — sidebar list + article detail view  |
 | `tracking/index.html`  | Package tracking dashboard — Thailand Post status viewer   |
+| `fray/index.html`      | Fray Memory Dashboard — Project Fractal observability      |
+
+## New Files (PWA & Accessibility)
+
+| File                   | Purpose                                                    |
+| ---------------------- | ---------------------------------------------------------- |
+| `manifest.json`        | PWA manifest — enables installable web app experience      |
+| `sw.js`                | Service Worker — offline support with intelligent caching  |
 
 ## Data Flow
 
@@ -79,6 +87,7 @@ Path C — tracking/track_list.json (Workflow 4, on-demand):
 - `tracking/track_list.json` — **Semi-automated.** Add barcodes via dashboard webhook form (n8n Workflow 4) or edit directly. Remove manually.
 - `tracking/status_store.json` — **Auto-generated.** Updated by `tracker.py` via GitHub Actions. Never edit manually.
 - `tracking/auth.json` — **Auto-generated.** SHA-256 hash of the `TRACKING_PASSCODE` GitHub Secret. Used for client-side authentication on the tracking dashboard.
+
 > **Deduplication:** The processing script uses a `Map<id, post>` strategy — existing posts are loaded first, then updates are applied on top. If an ID exists in both old data and new updates, the update wins. This eliminates the legacy bug where editing old Notion entries caused duplicates across split files.
 
 ## n8n Automation Layer (Upstream)
@@ -332,3 +341,52 @@ All JSON data is sanitized before DOM injection via:
 
 - JSON fetches include `?v=${Date.now()}` cache-buster to ensure freshness after n8n updates
 - `blog.html` has a 5-minute `localStorage` cache (`research_blog_data`)
+- **Service Worker** (`sw.js`) implements dual caching strategy:
+  - **Static assets**: Cache-first with background refresh
+  - **Dynamic content**: Network-first with cache fallback
+  - Offline support for core pages and previously viewed content
+
+## Enhanced Features (Recent Updates)
+
+### Error Handling & Resilience
+
+- `fetchWithFallback()` — Exponential backoff retry mechanism (max 2 retries)
+- `createErrorUI()` — Reusable error state with retry button
+- `createSkeletonUI()` — Loading skeleton generator for better UX
+- Graceful degradation when APIs fail or network is unavailable
+
+### Accessibility (WCAG 2.1)
+
+- `announceToScreenReader()` — Dynamic announcements for screen readers
+- `initScreenReaderAnnouncer()` — Screen reader support element
+- Enhanced focus management with `:focus-visible` styles
+- Skip-to-content links on all pages
+- ARIA labels for interactive elements
+- Keyboard navigation support throughout
+
+### Citation Export (blog.html)
+
+- **Formats supported**: APA, MLA, Vancouver, BibTeX
+- `generateCitation(post, format)` — Generates properly formatted citations
+- Modal interface with format tabs and copy-to-clipboard functionality
+- Automatic PMID inclusion when available
+
+### Reading Progress Indicator
+
+- Fixed progress bar at top of page during article reading
+- Real-time scroll position tracking
+- Gradient styling matching site theme
+
+### Search Optimization
+
+- `fuzzyMatch(query, text)` — Fuzzy search algorithm for better matching
+- `highlightText(text, query)` — Highlights matched terms in results
+- Search highlights with yellow background for visibility
+
+### PWA Support
+
+- **Installable**: Users can add to home screen on mobile/desktop
+- **Offline-first**: Core pages cached for offline access
+- **Background sync**: Ready for future offline data synchronization
+- **Theme color**: Matches site branding (#244885)
+- **Icons**: SVG-based icons in multiple sizes (32, 192, 512)
