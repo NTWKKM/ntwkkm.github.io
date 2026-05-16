@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-16T21:49:54.428650+07:00",
+  "last_updated": "2026-05-16T23:09:42.798258+07:00",
   "packages": {
     "WB257740279TH": {
       "note": "แก้ว ceramic",
@@ -43,6 +43,131 @@
           "post_code": "10020",
           "status_code": "201",
           "delivery_status": null
+        }
+      ]
+    },
+    "ED952870660TH": {
+      "note": "booksmith",
+      "barcode": "ED952870660TH",
+      "last_status": "นำจ่ายสำเร็จ",
+      "last_status_date": "18/03/2569 12:40:22+07:00",
+      "status_code": "501",
+      "is_delivered": true,
+      "location": "นครราชสีมา",
+      "delivery_status": "S",
+      "track_count": "14",
+      "history": [
+        {
+          "status": "รับฝาก",
+          "status_date": "16/03/2569 16:24:33+07:00",
+          "location": "พระสิงห์",
+          "post_code": "50205",
+          "status_code": "103",
+          "delivery_status": null
+        },
+        {
+          "status": "ออกจากที่ทำการ/ศูนย์ไปรษณีย์",
+          "status_date": "16/03/2569 18:08:39+07:00",
+          "location": "พระสิงห์",
+          "post_code": "50205",
+          "status_code": "201",
+          "delivery_status": null
+        },
+        {
+          "status": "รับเข้า ณ ศูนย์คัดแยก",
+          "status_date": "16/03/2569 19:07:46+07:00",
+          "location": "ลำพูน",
+          "post_code": "51010",
+          "status_code": "211",
+          "delivery_status": null
+        },
+        {
+          "status": "ออกจากที่ทำการ/ศูนย์ไปรษณีย์",
+          "status_date": "16/03/2569 21:24:42+07:00",
+          "location": "ลำพูน",
+          "post_code": "51010",
+          "status_code": "201",
+          "delivery_status": null
+        },
+        {
+          "status": "รับเข้า ณ ศูนย์คัดแยก",
+          "status_date": "17/03/2569 04:01:09+07:00",
+          "location": "พิษณุโลก",
+          "post_code": "65010",
+          "status_code": "211",
+          "delivery_status": null
+        },
+        {
+          "status": "ออกจากที่ทำการ/ศูนย์ไปรษณีย์",
+          "status_date": "17/03/2569 05:14:45+07:00",
+          "location": "พิษณุโลก",
+          "post_code": "65010",
+          "status_code": "201",
+          "delivery_status": null
+        },
+        {
+          "status": "รับเข้า ณ ศูนย์คัดแยก",
+          "status_date": "17/03/2569 15:13:40+07:00",
+          "location": "ขอนแก่น",
+          "post_code": "40010",
+          "status_code": "211",
+          "delivery_status": null
+        },
+        {
+          "status": "ออกจากที่ทำการ/ศูนย์ไปรษณีย์",
+          "status_date": "17/03/2569 16:18:31+07:00",
+          "location": "ขอนแก่น",
+          "post_code": "40010",
+          "status_code": "201",
+          "delivery_status": null
+        },
+        {
+          "status": "รับเข้า ณ ศูนย์คัดแยก",
+          "status_date": "17/03/2569 20:53:58+07:00",
+          "location": "นครราชสีมา",
+          "post_code": "30010",
+          "status_code": "211",
+          "delivery_status": null
+        },
+        {
+          "status": "ออกจากที่ทำการ/ศูนย์ไปรษณีย์",
+          "status_date": "18/03/2569 01:02:08+07:00",
+          "location": "นครราชสีมา",
+          "post_code": "30010",
+          "status_code": "201",
+          "delivery_status": null
+        },
+        {
+          "status": "ออกจากที่ทำการ/ศูนย์ไปรษณีย์",
+          "status_date": "18/03/2569 06:13:44+07:00",
+          "location": "นครราชสีมา",
+          "post_code": "30000",
+          "status_code": "201",
+          "delivery_status": null
+        },
+        {
+          "status": "ถึงที่ทำการไปรษณีย์",
+          "status_date": "18/03/2569 07:57:29+07:00",
+          "location": "นครราชสีมา",
+          "post_code": "30000",
+          "status_code": "206",
+          "delivery_status": null
+        },
+        {
+          "status": "อยู่ระหว่างการนำจ่าย",
+          "status_date": "18/03/2569 09:44:19+07:00",
+          "location": "นครราชสีมา",
+          "post_code": "30000",
+          "status_code": "301",
+          "delivery_status": null
+        },
+        {
+          "status": "นำจ่ายสำเร็จ",
+          "status_date": "18/03/2569 12:40:22+07:00",
+          "location": "นครราชสีมา",
+          "post_code": "30000",
+          "status_code": "501",
+          "delivery_status": "S"
         }
       ]
     }
