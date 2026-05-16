@@ -532,9 +532,9 @@
     .auth-gate {
       position: fixed;
       inset: 0;
-      background: rgba(15, 23, 42, 0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(15, 23, 42, 0.35); /* More transparent */
+      backdrop-filter: blur(16px); /* Stronger blur */
+      -webkit-backdrop-filter: blur(16px);
       z-index: 9999;
       display: flex;
       align-items: center;
@@ -562,14 +562,14 @@
       transform: translateY(20px) scale(0.95);
     }
     .auth-icon {
-      font-size: 48px;
-      margin-bottom: 16px;
-      animation: float 3s ease-in-out infinite;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: center;
     }
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
+    .auth-svg {
+      width: 56px;
+      height: 56px;
+      stroke: var(--primary);
     }
     .auth-box h2 {
       font-size: 1.5rem;
@@ -642,7 +642,12 @@
   <!-- Auth Gate -->
   <div class="auth-gate" id="authGate">
     <div class="auth-box">
-      <div class="auth-icon">🔒</div>
+      <div class="auth-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="auth-svg">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
       <h2>Access Required</h2>
       <div class="auth-subtitle">Enter secure passcode to view dashboard</div>
       <input type="password" class="auth-input" id="authInput" placeholder="PASSCODE" maxlength="50" autocomplete="off">
