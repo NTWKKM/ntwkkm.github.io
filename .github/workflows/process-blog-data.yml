@@ -20,6 +20,8 @@ concurrency:
 jobs:
   process-and-chunk:
     runs-on: ubuntu-latest
+    outputs:
+      pushed: ${{ steps.commit.outputs.pushed }}
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -55,4 +57,13 @@ jobs:
           fi
           
           # ถ้ามีไฟล์ถูกแก้ไข ให้ commit และ push (ถ้าไม่มีการเปลี่ยนจะถูก skip ไป)
-          git diff --staged --quiet || (git commit -m "chore: auto-chunk blog data into folders and update index" && git push)
+          git diff --staged --quiet || (git commit -m "chore: auto-chunk blog data into folders and update index" && git push && echo "pushed=true" >> "$GITHUB_OUTPUT")
+
+  deploy:
+    needs: process-and-chunk
+    if: ${{ needs.process-and-chunk.outputs.pushed == 'true' }}
+    uses: ./.github/workflows/pages-build-deployment.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
