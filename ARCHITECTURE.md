@@ -196,28 +196,35 @@ Notion Ai-research DB (sorted by last_edited, limit 20)
 
 ### Workflow 4: `add-tracking` — Package Tracking Input
 
-**Purpose:** Accept new tracking barcodes from the dashboard form and commit to `track_list.json` via GitHub API.
+**Purpose:** Accept new tracking barcodes from the dashboard form and commit to `track_list.json` via GitHub API. Designed to handle Fly.io scale-to-zero cold starts gracefully.
 
 | Property | Value |
 | --- | --- |
 | Trigger | Webhook POST from `tracking/index.html` |
 | Endpoint | `https://ntwkkm-n8n-final.fly.dev/webhook/add-tracking` |
 | Output | `tracking/track_list.json` (GitHub commit) |
-| CORS | Restricted to `https://ntwkkm.github.io` |
+| CORS | Handled natively by n8n Webhook Node (Restricted to `https://ntwkkm.github.io`) |
 
 **Pipeline:**
 
 ```text
+Frontend: GET /healthz (No-CORS) to pre-warm Fly.io server on form open
+  ↓
 Webhook POST (barcode, note)
-  → Validate input (barcode not empty)
+  → Validate Input (Empty Check) ──[Empty]──→ Respond 400
   → GET tracking/track_list.json via GitHub API
-  → Code: Parse JSON → validate format (XX000000000XX) → dedup check → append
-  → PUT tracking/track_list.json via GitHub API (commit)
-  → Respond 200 (success/duplicate) or 400 (invalid)
+  → Code: Decode Base64 → Validate Regex → Dedup Check → Append
+  → Routing (If Nodes):
+      ├── [Error/Invalid Format] → Respond 400
+      ├── [Duplicate Barcode] ───→ Respond 409 Conflict
+      └── [Valid & New] ─────────→ PUT track_list.json (Commit)
+                                     ↳ Respond 200 Success
   → Commit triggers: track-packages.yml (poll Thailand Post API)
 ```
 
-**Deduplication:** Code node checks if barcode already exists in `track_list.json` before appending. Duplicates return 200 with a message instead of re-adding.
+**Cold Start Mitigation:** The n8n instance runs on a Fly.io free tier which sleeps when inactive. The frontend implements a "Pre-warm" strategy by firing a background `GET /healthz` request as soon as the user opens the Add Tracking form, ensuring the instance is awake by the time the user hits submit. The UI also provides a `⏳ Waking server...` fallback message if the webhook takes > 2.5s.
+
+**Validation & Deduplication:** The Code node strictly checks the `XX000000000XX` format and prevents duplicate entries. Duplicates route to a dedicated response node returning `409 Conflict`, which the frontend catches to display a specific "already being tracked" warning.
 
 ---
 

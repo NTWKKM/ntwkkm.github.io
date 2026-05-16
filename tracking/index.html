@@ -1031,7 +1031,21 @@
       const form = document.getElementById('addForm');
       const isHidden = form.style.display === 'none';
       form.style.display = isHidden ? 'block' : 'none';
-      if (isHidden) document.getElementById('inputBarcode').focus();
+      if (isHidden) {
+        document.getElementById('inputBarcode').focus();
+        // Pre-warm the Fly.io free tier server
+        wakeUpServer();
+      }
+    }
+
+    function wakeUpServer() {
+      try {
+        // Send a no-cors GET request to the root/healthz to trigger Fly.io cold start
+        if (WEBHOOK_URL.includes('fly.dev')) {
+          const url = new URL(WEBHOOK_URL);
+          fetch(url.origin + '/healthz', { method: 'GET', mode: 'no-cors' }).catch(() => {});
+        }
+      } catch (e) {}
     }
 
     function showToast(message, type) {
@@ -1067,17 +1081,39 @@
       btn.disabled = true;
       btn.textContent = '⏳...';
 
+      // Provide UX feedback if Fly.io cold start takes longer than 2.5s
+      const slowWarning = setTimeout(() => {
+        btn.textContent = '⏳ Waking server...';
+      }, 2500);
+
       try {
         const res = await fetch(WEBHOOK_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ barcode, note }),
         });
-        if (!res.ok) throw new Error('HTTP ' + res.status);
+        
+        clearTimeout(slowWarning);
+        
+        // Parse JSON to read backend message if available
+        const data = await res.json().catch(() => null);
+        
+        if (!res.ok) {
+          // Handle 409 Duplicate specifically
+          if (res.status === 409 && data && data.message) {
+            showToast('⚠️ ' + data.message, 'error');
+            barcodeInput.value = '';
+            noteInput.value = '';
+            return; // Exit early
+          }
+          throw new Error(data && data.message ? data.message : 'HTTP ' + res.status);
+        }
+
         showToast('✅ ' + barcode + ' added! Tracking will start shortly.', 'success');
         barcodeInput.value = '';
         noteInput.value = '';
       } catch (e) {
+        clearTimeout(slowWarning);
         console.error('Webhook error:', e);
         showToast('❌ Failed to add. Check webhook or try again.', 'error');
       } finally {
