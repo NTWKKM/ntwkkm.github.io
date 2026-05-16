@@ -114,6 +114,11 @@
       font-size: 1.5rem;
       font-weight: 800;
       margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-group h1 .gradient-text {
       background: linear-gradient(90deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       background-clip: text;
@@ -711,7 +716,7 @@
   <header class="app-header animate-entry" role="banner">
     <nav class="container header-content">
     <div class="brand-group">
-      <h1>📦 Package Tracker</h1>
+      <h1><span class="emoji-icon">📦</span><span class="gradient-text">Package Tracker</span></h1>
       <div class="subtitle">Thailand Post — Real-time Tracking Dashboard</div>
       <div class="last-updated" id="lastUpdated">Loading...</div>
     </div>
