@@ -6,11 +6,11 @@ Static personal website hosted on GitHub Pages (`ntwkkm.github.io`). Serves as a
 
 ## Pages
 
-| File         | Purpose                                                    |
-| ------------ | ---------------------------------------------------------- |
-| `index.html` | Homepage — paper slider + project portfolio grid           |
-| `blog.html`  | Research blog reader — sidebar list + article detail view  |
-| `tracking/index.html` | Package tracking dashboard — Thailand Post status viewer |
+| File                   | Purpose                                                    |
+| ---------------------- | ---------------------------------------------------------- |
+| `index.html`           | Homepage — paper slider + project portfolio grid           |
+| `blog.html`            | Research blog reader — sidebar list + article detail view  |
+| `tracking/index.html`  | Package tracking dashboard — Thailand Post status viewer   |
 
 ## Data Flow
 
