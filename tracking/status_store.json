@@ -1,16 +1,16 @@
 {
-  "last_updated": "2026-05-16T23:09:42.798258+07:00",
+  "last_updated": "2026-05-17T04:55:29.409808+07:00",
   "packages": {
     "WB257740279TH": {
       "note": "แก้ว ceramic",
       "barcode": "WB257740279TH",
-      "last_status": "ออกจากที่ทำการ/ศูนย์ไปรษณีย์",
-      "last_status_date": "16/05/2569 21:16:12+07:00",
-      "status_code": "201",
+      "last_status": "ถึงที่ทำการไปรษณีย์",
+      "last_status_date": "17/05/2569 02:52:45+07:00",
+      "status_code": "206",
       "is_delivered": false,
-      "location": "EMS",
+      "location": "นครราชสีมา",
       "delivery_status": null,
-      "track_count": "4",
+      "track_count": "7",
       "history": [
         {
           "status": "รับฝาก",
@@ -42,6 +42,30 @@
           "location": "EMS",
           "post_code": "10020",
           "status_code": "201",
+          "delivery_status": null
+        },
+        {
+          "status": "รับเข้า ณ ศูนย์คัดแยก",
+          "status_date": "17/05/2569 01:47:04+07:00",
+          "location": "นครราชสีมา",
+          "post_code": "30010",
+          "status_code": "211",
+          "delivery_status": null
+        },
+        {
+          "status": "ออกจากที่ทำการ/ศูนย์ไปรษณีย์",
+          "status_date": "17/05/2569 02:38:49+07:00",
+          "location": "นครราชสีมา",
+          "post_code": "30010",
+          "status_code": "201",
+          "delivery_status": null
+        },
+        {
+          "status": "ถึงที่ทำการไปรษณีย์",
+          "status_date": "17/05/2569 02:52:45+07:00",
+          "location": "นครราชสีมา",
+          "post_code": "30000",
+          "status_code": "206",
           "delivery_status": null
         }
       ]
