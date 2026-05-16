@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Research Blog | NTWKKM</title>
-    <meta name="description" content="Curated medical research papers with Thai-language commentary. Emergency Medicine, Clinical Informatics, and evidence-based practice.">
+    <meta name="description"
+        content="Curated medical research papers with Thai-language commentary. Emergency Medicine, Clinical Informatics, and evidence-based practice.">
     <meta property="og:title" content="Medical Research Blog | NTWKKM">
-    <meta property="og:description" content="Curated medical research papers with Thai-language commentary. Emergency Medicine, Clinical Informatics, and evidence-based practice.">
+    <meta property="og:description"
+        content="Curated medical research papers with Thai-language commentary. Emergency Medicine, Clinical Informatics, and evidence-based practice.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ntwkkm.github.io/blog.html">
     <link rel="canonical" href="https://ntwkkm.github.io/blog.html">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23244885'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='white' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23244885'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='white' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="shared.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="NTWKKM Blog">
     <style>
         :root {
             /* Light Mode Variables */
@@ -22,18 +32,18 @@
             --bg-sidebar: #ffffff;
             --bg-paper-list: #f1f5f9;
             --bg-card: #ffffff;
-            
+
             --text-main: #0f172a;
             --text-secondary: #475569;
             --text-muted: #94a3b8;
-            
+
             --primary: #2563eb;
             --primary-dark: #1e40af;
             --primary-light: #eff6ff;
-            
+
             --border-color: #e2e8f0;
             --border-light: #f1f5f9;
-            
+
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             --toc-bg: rgba(255, 255, 255, 0.8);
 
@@ -43,22 +53,24 @@
 
         /* 1. DARK MODE VARIABLES */
         [data-theme="dark"] {
-            --bg-body: #0f172a; /* Dark Slate */
+            --bg-body: #0f172a;
+            /* Dark Slate */
             --bg-sidebar: #1e293b;
             --bg-paper-list: #334155;
             --bg-card: #1e293b;
-            
+
             --text-main: #f1f5f9;
             --text-secondary: #cbd5e1;
             --text-muted: #64748b;
-            
-            --primary: #3b82f6; /* Lighter blue for dark mode */
+
+            --primary: #3b82f6;
+            /* Lighter blue for dark mode */
             --primary-dark: #60a5fa;
             --primary-light: rgba(59, 130, 246, 0.15);
-            
+
             --border-color: #334155;
             --border-light: #334155;
-            
+
             --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
             --toc-bg: rgba(30, 41, 59, 0.8);
 
@@ -67,7 +79,8 @@
         }
 
 
-        html, body {
+        html,
+        body {
             height: 100%;
             width: 100%;
         }
@@ -150,7 +163,7 @@
             width: 36px;
             height: 36px;
         }
-        
+
         .icon-btn:hover {
             background: var(--bg-paper-list);
             color: var(--text-main);
@@ -215,7 +228,7 @@
         }
 
         /* ===== COMPONENTS ===== */
-        
+
         /* BRAND */
         .brand {
             font-family: 'Inter', sans-serif;
@@ -230,7 +243,8 @@
             letter-spacing: 0.05em;
             margin-bottom: 20px;
             transition: color 0.2s;
-            max-width: 60%; /* Space for buttons */
+            max-width: 60%;
+            /* Space for buttons */
         }
 
         .brand:hover {
@@ -250,13 +264,16 @@
             border-radius: 8px;
             font-family: 'Inter', sans-serif;
             font-size: 0.9rem;
-            background: var(--bg-body); /* Adaptive bg */
+            background: var(--bg-body);
+            /* Adaptive bg */
             color: var(--text-main);
             outline: none;
             transition: all 0.2s ease;
         }
 
-        .search-input::placeholder { color: var(--text-muted); }
+        .search-input::placeholder {
+            color: var(--text-muted);
+        }
 
         .search-input:focus {
             border-color: var(--primary);
@@ -373,8 +390,15 @@
         }
 
         @keyframes dropdownFade {
-            from { opacity: 0; transform: translateY(-4px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Active tag count indicator in sidebar header */
@@ -453,11 +477,11 @@
         .skeleton-loader {
             padding: 16px 24px;
         }
-        
+
         .skeleton-item {
             margin-bottom: 16px;
         }
-        
+
         .skeleton-line {
             height: 12px;
             background: #e2e8f0;
@@ -466,11 +490,11 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         [data-theme="dark"] .skeleton-line {
             background: #334155;
         }
-        
+
         .skeleton-line::after {
             content: "";
             position: absolute;
@@ -478,17 +502,22 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
             animation: shimmer 1.5s infinite;
         }
 
         [data-theme="dark"] .skeleton-line::after {
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
         }
-        
+
         @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         .list-title {
@@ -544,7 +573,7 @@
         }
 
         /* ===== ARTICLE VIEW ===== */
-        
+
         .empty-state {
             display: flex;
             flex-direction: column;
@@ -577,7 +606,9 @@
             position: relative;
         }
 
-        .article-view.visible { display: block; }
+        .article-view.visible {
+            display: block;
+        }
 
         /* NAV BUTTONS */
         .article-navigation {
@@ -621,7 +652,7 @@
             padding-bottom: 16px;
             border-bottom: 1px solid var(--border-color);
         }
-        
+
         /* 5. COPY CITATION BUTTON */
         .citation-btn {
             background: transparent;
@@ -635,14 +666,15 @@
             align-items: center;
             gap: 4px;
             transition: all 0.2s;
-            margin-left: auto; /* Push to right */
+            margin-left: auto;
+            /* Push to right */
         }
-        
+
         .citation-btn:hover {
             border-color: var(--primary);
             color: var(--primary);
         }
-        
+
         .citation-btn.copied {
             background: var(--success);
             border-color: var(--success);
@@ -651,7 +683,8 @@
 
         .article-title {
             font-family: 'Inter', 'Sarabun', sans-serif;
-            font-size: 1.25rem; /* Reduced from 2.25rem to be slightly larger than content (1rem) */
+            font-size: 1.25rem;
+            /* Reduced from 2.25rem to be slightly larger than content (1rem) */
             font-weight: 800;
             line-height: 1.4;
             margin-bottom: 24px;
@@ -680,7 +713,7 @@
             transition: all 0.2s;
             cursor: pointer;
         }
-        
+
         .tag-badge:hover {
             border-color: var(--primary);
             transform: scale(1.05);
@@ -705,7 +738,7 @@
             align-items: center;
             gap: 8px;
         }
-        
+
         .sec-header::after {
             content: '';
             flex: 1;
@@ -738,12 +771,13 @@
             border-radius: 12px;
             border: 1px solid var(--border-color);
             box-shadow: var(--shadow-sm);
-            display: none; /* Hidden by default, shown by JS if space permits */
+            display: none;
+            /* Hidden by default, shown by JS if space permits */
             z-index: 100;
             max-height: calc(100vh - 140px);
             overflow-y: auto;
         }
-        
+
         .toc-title {
             font-size: 0.75rem;
             font-weight: 800;
@@ -752,7 +786,7 @@
             margin-bottom: 8px;
             letter-spacing: 0.05em;
         }
-        
+
         .toc-link {
             display: block;
             font-size: 0.85rem;
@@ -762,8 +796,10 @@
             transition: color 0.2s;
             cursor: pointer;
         }
-        
-        .toc-link:hover { color: var(--primary); }
+
+        .toc-link:hover {
+            color: var(--primary);
+        }
 
         /* 2. RELATED PAPERS */
         .related-papers-section {
@@ -838,38 +874,107 @@
 
         /* RESPONSIVE */
         @media (max-width: 1200px) {
-            .toc-container { display: none !important; } /* Hide ToC on smaller screens */
+            .toc-container {
+                display: none !important;
+            }
+
+            /* Hide ToC on smaller screens */
         }
 
         @media (max-width: 1024px) {
-            .container { flex-direction: column; height: auto; }
-            .sidebar { width: 100%; max-width: none; border-right: none; border-bottom: 1px solid var(--border-color); max-height: 380px; }
-            .sidebar.collapsed { width: 100%; opacity: 1; transform: none; }
-            .sidebar-open-btn { display: none !important; }
-            #sidebar-close-btn { display: none !important; }
-            .header-actions { position: static; display: flex; margin-left: auto; }
-            .sidebar-header { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; padding: 16px 20px; }
-            .brand { margin-bottom: 0; flex-shrink: 0; }
-            .search-container { width: 100%; margin-bottom: 8px; }
-            .filter-tags { max-height: none; }
-            .more-tags-dropdown { max-height: 150px; }
-            .main-content { padding: 40px 32px; min-height: 500px; }
-            .article-title { font-size: 1.8rem; }
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .sidebar {
+                width: 100%;
+                max-width: none;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                max-height: 380px;
+            }
+
+            .sidebar.collapsed {
+                width: 100%;
+                opacity: 1;
+                transform: none;
+            }
+
+            .sidebar-open-btn {
+                display: none !important;
+            }
+
+            #sidebar-close-btn {
+                display: none !important;
+            }
+
+            .header-actions {
+                position: static;
+                display: flex;
+                margin-left: auto;
+            }
+
+            .sidebar-header {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 16px 20px;
+            }
+
+            .brand {
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+
+            .search-container {
+                width: 100%;
+                margin-bottom: 8px;
+            }
+
+            .filter-tags {
+                max-height: none;
+            }
+
+            .more-tags-dropdown {
+                max-height: 150px;
+            }
+
+            .main-content {
+                padding: 40px 32px;
+                min-height: 500px;
+            }
+
+            .article-title {
+                font-size: 1.8rem;
+            }
         }
 
         @media (max-width: 640px) {
-            .sidebar-header { padding: 16px; }
-            .article-list-item { padding: 12px 16px; }
-            .main-content { padding: 24px 20px; }
-            .article-title { font-size: 1.5rem; }
-        }
+            .sidebar-header {
+                padding: 16px;
+            }
 
+            .article-list-item {
+                padding: 12px 16px;
+            }
+
+            .main-content {
+                padding: 24px 20px;
+            }
+
+            .article-title {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <div class="container" id="app-container">
-        
+
         <button id="sidebar-open-btn" class="sidebar-open-btn">
             <span>☰ Show Menu</span>
         </button>
@@ -879,21 +984,23 @@
                 <a href="https://ntwkkm.github.io/" class="brand">
                     <span>←</span> Research Hub
                 </a>
-                
+
                 <div class="header-actions">
                     <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
-                        </button>
+                    </button>
                     <button id="sidebar-close-btn" class="icon-btn" aria-label="Collapse sidebar">
                         «
                     </button>
                 </div>
-                
+
                 <div class="search-container">
                     <span class="search-icon">🔍</span>
-                    <input type="text" id="search-input" class="search-input" placeholder="Search papers..." aria-label="Search articles">
+                    <input type="text" id="search-input" class="search-input" placeholder="Search papers..."
+                        aria-label="Search articles">
                 </div>
-                
-                <label class="filter-tags-label">Topics <span id="active-filters-badge" class="active-filters-badge"></span></label>
+
+                <label class="filter-tags-label">Topics <span id="active-filters-badge"
+                        class="active-filters-badge"></span></label>
                 <div class="filter-tags-wrapper">
                     <div class="filter-tags" id="filter-tags-container">
                         <span class="filter-tag active" data-tag="all">All</span>
@@ -906,9 +1013,18 @@
                 <div class="article-list-section">
                     <label class="articles-label">Papers List</label>
                     <div id="loading-indicator" class="skeleton-loader" style="display: none;">
-                        <div class="skeleton-item"><div class="skeleton-line" style="width:70%"></div><div class="skeleton-line" style="width:40%"></div></div>
-                        <div class="skeleton-item"><div class="skeleton-line" style="width:80%"></div><div class="skeleton-line" style="width:30%"></div></div>
-                        <div class="skeleton-item"><div class="skeleton-line" style="width:60%"></div><div class="skeleton-line" style="width:50%"></div></div>
+                        <div class="skeleton-item">
+                            <div class="skeleton-line" style="width:70%"></div>
+                            <div class="skeleton-line" style="width:40%"></div>
+                        </div>
+                        <div class="skeleton-item">
+                            <div class="skeleton-line" style="width:80%"></div>
+                            <div class="skeleton-line" style="width:30%"></div>
+                        </div>
+                        <div class="skeleton-item">
+                            <div class="skeleton-line" style="width:60%"></div>
+                            <div class="skeleton-line" style="width:50%"></div>
+                        </div>
                     </div>
                     <div id="sidebar-list"></div>
                 </div>
@@ -948,9 +1064,9 @@
                 </div>
 
                 <h1 class="article-title" id="post-title">...</h1>
-                
+
                 <div id="post-tags" class="tags-container"></div>
-                
+
                 <div id="formatted-summary-container"></div>
 
                 <div id="related-papers" class="related-papers-section" style="display:none;">
@@ -967,6 +1083,19 @@
 
     <script src="shared.js"></script>
     <script>
+        // Register Service Worker for PWA offline support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('[PWA] ServiceWorker registered:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('[PWA] ServiceWorker registration failed:', error);
+                    });
+            });
+        }
+
         // Global State
         let allPosts = [];
         let filteredPosts = [];
@@ -974,7 +1103,7 @@
         const itemsPerPage = 10;
         let activeTags = new Set();  // empty = show all (multi-select)
         let currentPostId = null;
-        
+
         const CACHE_KEY = 'research_blog_data';
         const CACHE_DURATION = 1000 * 60 * 5; // 5 minutes
 
@@ -993,14 +1122,191 @@
         };
         const TOP_TAGS_COUNT = 12;
 
+        // Initialize screen reader announcer
+        document.addEventListener('DOMContentLoaded', () => {
+            initScreenReaderAnnouncer();
+        });
+
+        // ===========================================================================
+        // READING PROGRESS INDICATOR
+        // ===========================================================================
+        function initReadingProgress() {
+            const progressBar = document.createElement('div');
+            progressBar.className = 'reading-progress';
+            progressBar.innerHTML = '<div class="reading-progress-bar"></div>';
+            document.body.prepend(progressBar);
+
+            const progressBarFill = progressBar.querySelector('.reading-progress-bar');
+
+            const mainContent = document.querySelector('.main-content');
+            if (!mainContent) return;
+
+            mainContent.addEventListener('scroll', () => {
+                const articleView = document.getElementById('article-view');
+                if (!articleView || !articleView.classList.contains('visible')) {
+                    progressBar.style.display = 'none';
+                    return;
+                }
+
+                const scrollTop = mainContent.scrollTop;
+                const scrollHeight = mainContent.scrollHeight - mainContent.clientHeight;
+                const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+
+                progressBarFill.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+                progressBar.style.display = 'block';
+            });
+        }
+
+        // ===========================================================================
+        // CITATION EXPORT
+        // ===========================================================================
+        function generateCitation(post, format = 'apa') {
+            const authors = 'Unknown Authors';
+            const year = post.date ? new Date(post.date).getFullYear() : 'n.d.';
+            const title = post.title || 'Untitled';
+            const url = post.link || post.url || '';
+            const pmid = post.pmid || '';
+            const accessed = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+            switch (format) {
+                case 'bibtex':
+                    return `@article{${pmid || 'unknown'},
+  author = {${authors}},
+  title = {${title}},
+  journal = {PubMed},
+  year = {${year}},
+  pmid = {${pmid}},
+  url = {${url}},
+  note = {Accessed: ${accessed}}
+}`;
+                case 'apa':
+                    return `${authors} (${year}). ${title}${pmid ? `. PMID: ${pmid}` : ''}. Retrieved ${accessed}, from ${url || 'PubMed'}`;
+                case 'mla':
+                    return `${authors}. "${title}." PubMed, ${year}${pmid ? `, PMID ${pmid}` : ''}, ${url || 'PubMed'}. Accessed ${accessed}.`;
+                case 'vancouver':
+                    return `${authors}. ${title}. ${pmid ? `PMID: ${pmid}. ` : ''}${year} [cited ${accessed}]. Available from: ${url || 'PubMed'}`;
+                default:
+                    return `${title}. ${url}`;
+            }
+        }
+
+        let currentCitationFormat = 'apa';
+        let currentCitationPost = null;
+
+        function openCitationModal(post) {
+            currentCitationPost = post;
+            const modal = document.createElement('div');
+            modal.className = 'citation-modal-overlay';
+            modal.id = 'citation-modal';
+            modal.innerHTML = `
+                <div class="citation-modal" role="dialog" aria-label="Citation options" aria-modal="true">
+                    <div class="citation-modal-header">
+                        <h3 class="citation-modal-title">Cite this paper</h3>
+                        <button class="citation-modal-close" onclick="closeCitationModal()" aria-label="Close citation modal">&times;</button>
+                    </div>
+                    <div class="citation-format-tabs" role="tablist">
+                        <button class="citation-format-tab active" data-format="apa" role="tab" aria-selected="true" onclick="switchCitationFormat('apa', this)">APA</button>
+                        <button class="citation-format-tab" data-format="mla" role="tab" aria-selected="false" onclick="switchCitationFormat('mla', this)">MLA</button>
+                        <button class="citation-format-tab" data-format="vancouver" role="tab" aria-selected="false" onclick="switchCitationFormat('vancouver', this)">Vancouver</button>
+                        <button class="citation-format-tab" data-format="bibtex" role="tab" aria-selected="false" onclick="switchCitationFormat('bibtex', this)">BibTeX</button>
+                    </div>
+                    <textarea class="citation-text-area" id="citation-text" readonly aria-label="Citation text">${escapeHTML(generateCitation(post, 'apa'))}</textarea>
+                    <button class="citation-copy-btn" onclick="copyCitationText()" aria-label="Copy citation to clipboard">
+                        📋 Copy Citation
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            // Close on overlay click
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeCitationModal();
+            });
+
+            // Focus trap for accessibility
+            modal.querySelector('.citation-modal-close').focus();
+        }
+
+        function closeCitationModal() {
+            const modal = document.getElementById('citation-modal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        function switchCitationFormat(format, btn) {
+            currentCitationFormat = format;
+            const textArea = document.getElementById('citation-text');
+            textArea.value = generateCitation(currentCitationPost, format);
+
+            // Update tab states
+            document.querySelectorAll('.citation-format-tab').forEach(tab => {
+                tab.classList.remove('active');
+                tab.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+        }
+
+        function copyCitationText() {
+            const textArea = document.getElementById('citation-text');
+            navigator.clipboard.writeText(textArea.value).then(() => {
+                const btn = document.querySelector('.citation-copy-btn');
+                btn.classList.add('copied');
+                btn.innerHTML = '✓ Copied!';
+                announceToScreenReader('Citation copied to clipboard');
+
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.innerHTML = '📋 Copy Citation';
+                }, 2000);
+            });
+        }
+
+        // ===========================================================================
+        // FUZZY SEARCH WITH HIGHLIGHTING
+        // ===========================================================================
+        function fuzzyMatch(query, text) {
+            if (!query || !text) return false;
+            const queryLower = query.toLowerCase();
+            const textLower = text.toLowerCase();
+
+            // Simple contains check first for performance
+            if (textLower.includes(queryLower)) return true;
+
+            // Fuzzy match
+            let queryIndex = 0;
+            for (let i = 0; i < textLower.length && queryIndex < queryLower.length; i++) {
+                if (textLower[i] === queryLower[queryIndex]) {
+                    queryIndex++;
+                }
+            }
+            return queryIndex === queryLower.length;
+        }
+
+        function highlightText(text, query) {
+            if (!query) return escapeHTML(text);
+
+            // Escape regex special characters
+            const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const regex = new RegExp(`(${escapedQuery})`, 'gi');
+            return escapeHTML(text).replace(regex, '<mark class="search-highlight">$1</mark>');
+        }
+
+        // ===========================================================================
+        // MAIN DATA LOADING
+        // ===========================================================================
         document.addEventListener('DOMContentLoaded', async () => {
+            // Initialize reading progress
+            initReadingProgress();
+
             const loadingEl = document.getElementById('loading-indicator');
             loadingEl.style.display = 'block';
-            
+
             try {
                 let rawData = null;
                 const cached = localStorage.getItem(CACHE_KEY);
-                
+
                 if (cached) {
                     try {
                         const parsedCache = JSON.parse(cached);
@@ -1014,24 +1320,35 @@
                 if (!rawData) {
                     // 1. Fetch the list of JSON files from blog_index.json (cache-busted)
                     const cacheBuster = `?v=${Date.now()}`;
-                    const indexResponse = await fetch(`./blog_index.json${cacheBuster}`);
-                    const fileList = await indexResponse.json();
 
-                    // 2. Fetch data from all files concurrently (cache-busted)
-                    const fetchPromises = fileList.map(file => fetch(`./${file}${cacheBuster}`).then(res => res.json()));
+                    // Use fetchWithFallback for resilience
+                    const fileList = await fetchWithFallback('./blog_index.json' + cacheBuster, []);
+
+                    if (!fileList.length) {
+                        throw new Error('No blog data files found');
+                    }
+
+                    // 2. Fetch data from all files concurrently
+                    const fetchPromises = fileList.map(file =>
+                        fetchWithFallback(`./${file}${cacheBuster}`, [])
+                    );
                     const allFilesData = await Promise.all(fetchPromises);
 
                     // 3. Flatten and combine data from all sources
                     rawData = allFilesData.flat();
+
+                    if (!rawData.length) {
+                        throw new Error('No blog posts found');
+                    }
 
                     localStorage.setItem(CACHE_KEY, JSON.stringify({
                         timestamp: Date.now(),
                         data: rawData
                     }));
                 }
-                
+
                 const rawList = Array.isArray(rawData) ? rawData : (rawData.data || []);
-                
+
                 allPosts = rawList.map(item => {
                     const tags = [item.property_tag_1, item.property_tag_2, item.property_tag_3]
                         .filter(t => t && t.trim() !== "")
@@ -1050,7 +1367,7 @@
                         title: item.name,
                         summary: item.property_comment,
                         objective: item.property_objective || null,
-                        method: item.property_method || null, 
+                        method: item.property_method || null,
                         result: item.property_result || item.property_conclusion || null,
                         date: dateStr,
                         timestamp: timestamp,
@@ -1062,7 +1379,7 @@
 
                 allPosts.sort((a, b) => b.timestamp - a.timestamp);
                 filteredPosts = [...allPosts];
-                
+
                 initTags(allPosts);
                 renderSidebar();
                 setupEventListeners();
@@ -1089,7 +1406,7 @@
             // Sidebar Toggle
             const sidebar = document.getElementById('sidebar');
             const container = document.getElementById('app-container');
-            
+
             document.getElementById('sidebar-close-btn').addEventListener('click', () => {
                 sidebar.classList.add('collapsed');
                 container.classList.add('sidebar-hidden');
@@ -1119,7 +1436,7 @@
             const title = document.getElementById('post-title').textContent;
             const url = window.location.href;
             const textToCopy = `${title}. Available at: ${url}`;
-            
+
             navigator.clipboard.writeText(textToCopy).then(() => {
                 const btn = document.getElementById('citation-btn');
                 const originalText = btn.innerHTML;
@@ -1244,9 +1561,9 @@
             filteredPosts = allPosts.filter(post => {
                 // Step 4: Multi-select OR logic — matches if ANY active tag is in the post's tags
                 const matchesTag = activeTags.size === 0 || (post.tags && post.tags.some(t => activeTags.has(t)));
-                const matchesSearch = post.title.toLowerCase().includes(lowerQuery) || 
-                                      post.id.includes(lowerQuery) || 
-                                      (post.summary && post.summary.toLowerCase().includes(lowerQuery));
+                const matchesSearch = post.title.toLowerCase().includes(lowerQuery) ||
+                    post.id.includes(lowerQuery) ||
+                    (post.summary && post.summary.toLowerCase().includes(lowerQuery));
                 return matchesTag && matchesSearch;
             });
             currentPage = 1;
@@ -1320,10 +1637,10 @@
             // Render Content
             const summaryContainer = document.getElementById('formatted-summary-container');
             summaryContainer.innerHTML = parseContent(post);
-            
+
             // Generate ToC AFTER content is rendered
             generateToC();
-            
+
             // Render Related Papers
             renderRelatedPapers(post);
 
@@ -1361,9 +1678,9 @@
             const tocContainer = document.getElementById('toc-container');
             const tocList = document.getElementById('toc-list');
             tocList.innerHTML = '';
-            
+
             const headers = document.querySelectorAll('.sec-header');
-            
+
             if (headers.length > 0 && window.innerWidth > 1200) {
                 tocContainer.style.display = 'block';
                 headers.forEach((header, index) => {
@@ -1389,9 +1706,9 @@
             grid.innerHTML = '';
 
             // Find overlapping tags, excluding current post
-            const related = allPosts.filter(p => 
-                p.id !== currentPost.id && 
-                p.tags && currentPost.tags && 
+            const related = allPosts.filter(p =>
+                p.id !== currentPost.id &&
+                p.tags && currentPost.tags &&
                 p.tags.some(t => currentPost.tags.includes(t))
             ).slice(0, 3); // Top 3
 
@@ -1443,7 +1760,7 @@
             lines.forEach(line => {
                 let cleanLine = line.trim().replace(/^[-•*]\s*/, '');
                 if (!cleanLine) return;
-                
+
                 let sectionTitle = "";
                 let sectionContent = cleanLine;
 
@@ -1499,7 +1816,7 @@
             history.replaceState(history.state, '', newUrl);
         }
 
-        window.onpopstate = function(event) {
+        window.onpopstate = function (event) {
             // Restore tags from URL on back/forward
             const params = new URLSearchParams(window.location.search);
             activeTags.clear();
@@ -1521,4 +1838,5 @@
 
     </script>
 </body>
+
 </html>

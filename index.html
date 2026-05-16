@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NTWKKM | Emergency Medicine & Informatics</title>
-    <meta name="description" content="NTWKKM — Emergency Medicine physician & Clinical Informatics developer. Research papers, medical tools, and open-source projects.">
+    <meta name="description"
+        content="NTWKKM — Emergency Medicine physician & Clinical Informatics developer. Research papers, medical tools, and open-source projects.">
     <meta property="og:title" content="NTWKKM | Emergency Medicine & Informatics">
-    <meta property="og:description" content="Emergency Medicine physician & Clinical Informatics developer. Research papers, medical tools, and open-source projects.">
+    <meta property="og:description"
+        content="Emergency Medicine physician & Clinical Informatics developer. Research papers, medical tools, and open-source projects.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ntwkkm.github.io/">
     <link rel="canonical" href="https://ntwkkm.github.io/">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23244885'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='white' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23244885'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='white' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared.css">
-    
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="NTWKKM">
+
     <style>
         /* --- CSS VARIABLES (THEMING) --- */
         :root {
@@ -64,13 +72,25 @@
 
         /* --- ANIMATIONS --- */
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
         }
 
         .animate-entry {
@@ -78,9 +98,17 @@
             animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
 
         /* --- LAYOUT UTILITIES --- */
         .container {
@@ -89,7 +117,10 @@
             padding: 0 20px;
         }
 
-        section { margin-bottom: 60px; position: relative; }
+        section {
+            margin-bottom: 60px;
+            position: relative;
+        }
 
         /* --- HEADER & NAV (COMPACT) --- */
         header {
@@ -104,7 +135,7 @@
             background: color-mix(in srgb, var(--bg-card), transparent 10%);
             transition: background-color 0.4s ease, border-color 0.4s ease;
         }
-        
+
         .header-content {
             display: flex;
             justify-content: space-between;
@@ -143,7 +174,8 @@
         /* --- NEW: Hotlink Button --- */
         .nav-highlight {
             background-color: var(--primary);
-            color: #ffffff !important; /* Force white text */
+            color: #ffffff !important;
+            /* Force white text */
             padding: 8px 18px;
             border-radius: 50px;
             text-decoration: none;
@@ -153,14 +185,14 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border: 1px solid var(--primary);
         }
 
         .nav-highlight:hover {
             background-color: var(--primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
 
 
@@ -180,7 +212,7 @@
             border-color: var(--primary);
             color: var(--primary);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         /* --- SECTION TITLES --- */
@@ -197,7 +229,7 @@
             color: var(--text-main);
             position: relative;
         }
-        
+
         .section-title::after {
             content: '';
             display: inline-block;
@@ -229,23 +261,33 @@
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
-            cursor: grab; /* Shows user it can be grabbed */
-            user-select: none; /* Prevent text selection while dragging */
+            cursor: grab;
+            /* Shows user it can be grabbed */
+            user-select: none;
+            /* Prevent text selection while dragging */
         }
 
         /* When dragging is active */
         .paper-scroll-container.active {
             cursor: grabbing;
             cursor: -webkit-grabbing;
-            scroll-snap-type: none; /* Disable snap for smooth dragging */
-            scroll-behavior: auto; /* Disable smooth scroll for direct 1:1 movement */
+            scroll-snap-type: none;
+            /* Disable snap for smooth dragging */
+            scroll-behavior: auto;
+            /* Disable smooth scroll for direct 1:1 movement */
         }
 
-        .paper-scroll-container::-webkit-scrollbar { height: 8px; }
-        .paper-scroll-container::-webkit-scrollbar-track { background: transparent; }
-        .paper-scroll-container::-webkit-scrollbar-thumb { 
-            background: var(--scrollbar-thumb); 
-            border-radius: 10px; 
+        .paper-scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .paper-scroll-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .paper-scroll-container::-webkit-scrollbar-thumb {
+            background: var(--scrollbar-thumb);
+            border-radius: 10px;
             border: 2px solid var(--bg-body);
         }
 
@@ -275,7 +317,10 @@
         .paper-card::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
             background: var(--accent);
             opacity: 0.8;
         }
@@ -322,15 +367,18 @@
             align-items: center;
             gap: 5px;
             transition: gap 0.2s;
-            pointer-events: auto; /* Ensure links are clickable */
+            pointer-events: auto;
+            /* Ensure links are clickable */
         }
-        
+
         /* Prevent clicks on links while dragging */
         .paper-scroll-container.active .paper-link {
             pointer-events: none;
         }
 
-        .paper-link:hover { gap: 10px; }
+        .paper-link:hover {
+            gap: 10px;
+        }
 
         .slider-nav-btn {
             position: absolute;
@@ -351,7 +399,7 @@
             transition: all 0.2s ease;
             opacity: 0.8;
         }
-        
+
         .slider-nav-btn:hover {
             background: var(--primary);
             color: white;
@@ -360,11 +408,18 @@
             transform: translateY(-50%) scale(1.1);
         }
 
-        .slider-nav-btn.prev { left: -20px; }
-        .slider-nav-btn.next { right: -20px; }
+        .slider-nav-btn.prev {
+            left: -20px;
+        }
+
+        .slider-nav-btn.next {
+            right: -20px;
+        }
 
         @media (max-width: 768px) {
-            .slider-nav-btn { display: none; }
+            .slider-nav-btn {
+                display: none;
+            }
         }
 
         /* --- PART 2: PORTFOLIO GRID --- */
@@ -438,6 +493,7 @@
             padding: 24px;
             border: 1px solid var(--border);
         }
+
         .skeleton-line {
             height: 12px;
             margin-bottom: 10px;
@@ -447,8 +503,14 @@
             background-size: 1200px 100%;
             animation: shimmer 2s linear infinite;
         }
-        .w-50 { width: 50%; }
-        .w-80 { width: 80%; }
+
+        .w-50 {
+            width: 50%;
+        }
+
+        .w-80 {
+            width: 80%;
+        }
 
         /* --- FOOTER --- */
         footer {
@@ -460,41 +522,83 @@
             margin-top: 50px;
         }
 
-        footer a { 
-            color: var(--text-main); 
+        footer a {
+            color: var(--text-main);
             transition: color 0.2s ease;
         }
-        
+
         footer a:hover {
             color: var(--primary);
         }
 
         /* MOBILE ADJUSTMENTS */
         @media (max-width: 640px) {
-            .brand h1 { font-size: 1.3rem; }
-            .header-content { flex-direction: row; justify-content: space-between; align-items: center; }
-            .brand-group { max-width: 50%; } /* Adjusted to fit new button */
-            .controls { gap: 8px; }
-            .social-link span { display: none; }
-            .social-link { padding: 8px; border-radius: 50%; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px;}
-            .social-link::after { content: 'GH'; font-size: 0.8rem; }
-            
-            .paper-card { flex: 0 0 280px; }
-            .slider-nav-btn { display: none; } 
+            .brand h1 {
+                font-size: 1.3rem;
+            }
+
+            .header-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .brand-group {
+                max-width: 50%;
+            }
+
+            /* Adjusted to fit new button */
+            .controls {
+                gap: 8px;
+            }
+
+            .social-link span {
+                display: none;
+            }
+
+            .social-link {
+                padding: 8px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 36px;
+                height: 36px;
+            }
+
+            .social-link::after {
+                content: 'GH';
+                font-size: 0.8rem;
+            }
+
+            .paper-card {
+                flex: 0 0 280px;
+            }
+
+            .slider-nav-btn {
+                display: none;
+            }
 
             /* Mobile adjustment for the new hotlink button */
-            .nav-highlight span { display: none; }
-            .nav-highlight { 
-                padding: 0; 
-                width: 36px; 
-                height: 36px; 
+            .nav-highlight span {
+                display: none;
+            }
+
+            .nav-highlight {
+                padding: 0;
+                width: 36px;
+                height: 36px;
                 justify-content: center;
             }
-            .nav-highlight::after { content: '📝'; font-size: 1rem; }
-        }
 
+            .nav-highlight::after {
+                content: '📝';
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <a href="#papers-section" class="skip-to-content">Skip to content</a>
@@ -505,7 +609,7 @@
                 <h1>NTWKKM</h1>
                 <p>Emergency Medicine & Clinical Informatics</p>
             </div>
-            
+
             <div class="controls">
                 <a href="https://ntwkkm.github.io/blog.html" class="nav-highlight">
                     <span>📝 Research Blog</span>
@@ -522,7 +626,7 @@
     </header>
 
     <main class="container" role="main">
-        
+
         <section id="papers-section" class="animate-entry delay-1" aria-label="Latest Research Papers">
             <div class="section-header">
                 <h2 class="section-title">Latest Papers</h2>
@@ -530,16 +634,34 @@
             </div>
             <div class="paper-section-wrapper">
                 <button class="slider-nav-btn prev" id="slide-prev" aria-label="Previous paper">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
                 </button>
                 <button class="slider-nav-btn next" id="slide-next" aria-label="Next paper">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
                 </button>
 
                 <div class="paper-scroll-container" id="paper-container" role="list" aria-label="Research papers">
-                    <div class="skeleton-card"><div class="skeleton-line w-50"></div><div class="skeleton-line w-80"></div><div class="skeleton-line"></div></div>
-                    <div class="skeleton-card"><div class="skeleton-line w-50"></div><div class="skeleton-line w-80"></div><div class="skeleton-line"></div></div>
-                    <div class="skeleton-card"><div class="skeleton-line w-50"></div><div class="skeleton-line w-80"></div><div class="skeleton-line"></div></div>
+                    <div class="skeleton-card">
+                        <div class="skeleton-line w-50"></div>
+                        <div class="skeleton-line w-80"></div>
+                        <div class="skeleton-line"></div>
+                    </div>
+                    <div class="skeleton-card">
+                        <div class="skeleton-line w-50"></div>
+                        <div class="skeleton-line w-80"></div>
+                        <div class="skeleton-line"></div>
+                    </div>
+                    <div class="skeleton-card">
+                        <div class="skeleton-line w-50"></div>
+                        <div class="skeleton-line w-80"></div>
+                        <div class="skeleton-line"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -559,7 +681,9 @@
 
     <footer class="animate-entry delay-3">
         <div style="opacity: 0.9;">
-            &copy; 2025–<span id="footer-year">2026</span> <a href="https://github.com/NTWKKM/" target="_blank" style="color: inherit; text-decoration: none; font-weight: 700; border-bottom: 1px dotted var(--text-muted);">NTWKKM</a>. All Rights Reserved.
+            &copy; 2025–<span id="footer-year">2026</span> <a href="https://github.com/NTWKKM/" target="_blank"
+                style="color: inherit; text-decoration: none; font-weight: 700; border-bottom: 1px dotted var(--text-muted);">NTWKKM</a>.
+            All Rights Reserved.
         </div>
         <div style="margin-top: 8px; font-size: 0.85rem; opacity: 0.7;">
             Bridging Clinical Practice with Digital Innovation.
@@ -568,6 +692,23 @@
 
     <script src="shared.js"></script>
     <script>
+        // Register Service Worker for PWA offline support
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('[PWA] ServiceWorker registered:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('[PWA] ServiceWorker registration failed:', error);
+                    });
+            });
+        }
+
+        // Initialize screen reader announcer on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            initScreenReaderAnnouncer();
+        });
 
         // Strip residual markdown formatting (e.g. **bold**) from AI-generated text
         function stripMarkdown(str) {
@@ -578,22 +719,29 @@
         // --- 2. FETCH PAPERS FROM JSON ---
         async function fetchPapers() {
             const container = document.getElementById('paper-container');
-            
+
             try {
                 // Use an hourly cache-buster instead of Date.now() to optimize bandwidth
                 const currentHour = new Date().toISOString().slice(0, 13);
-                const response = await fetch(`./papers.json?v=${currentHour}`); 
-                if (!response.ok) throw new Error('Failed to fetch papers');
-                
-                const papers = await response.json();
-                
+
+                // Use fetchWithFallback for resilience
+                const papers = await fetchWithFallback(
+                    `./papers.json?v=${currentHour}`,
+                    null,
+                    2
+                );
+
+                if (!papers || !Array.isArray(papers)) {
+                    throw new Error('Invalid data format received');
+                }
+
                 container.innerHTML = ''; // Clear skeletons
 
                 papers.forEach((paper, index) => {
                     const card = document.createElement('div');
                     card.className = 'paper-card animate-entry';
-                    card.style.animationDelay = `${index * 0.1}s`; 
-                    
+                    card.style.animationDelay = `${index * 0.1}s`;
+
                     card.innerHTML = `
                         <div class="paper-date">${escapeHTML(paper.date)}</div>
                         <div class="paper-title">${escapeHTML(stripMarkdown(paper.title))}</div>
@@ -609,13 +757,15 @@
                 // Start Controls & Drag Logic
                 initSliderControls();
 
+                // Announce to screen readers
+                announceToScreenReader(`Loaded ${papers.length} research papers`);
+
             } catch (error) {
                 console.error("Error loading papers:", error);
-                container.innerHTML = `
-                    <div style="padding:20px; text-align:center; color:var(--text-muted); display:flex; flex-direction:column; align-items:center; gap:10px;">
-                        <span>Failed to load latest papers.</span>
-                        <button onclick="fetchPapers()" class="social-link" style="cursor:pointer;">Retry ↻</button>
-                    </div>`;
+                container.innerHTML = createErrorUI(
+                    'Failed to load latest papers. Please check your connection and try again.',
+                    fetchPapers
+                );
             }
         }
 
@@ -624,11 +774,11 @@
             const container = document.getElementById('paper-container');
             const prevBtn = document.getElementById('slide-prev');
             const nextBtn = document.getElementById('slide-next');
-            
+
             // --- AUTO SCROLL & BUTTONS ---
             const getScrollAmount = () => {
-                 const card = container.querySelector('.paper-card');
-                 return card ? (card.offsetWidth + 20) * 2 : 680;
+                const card = container.querySelector('.paper-card');
+                return card ? (card.offsetWidth + 20) * 2 : 680;
             };
 
             let autoScrollInterval;
@@ -636,17 +786,17 @@
             function startAutoScroll() {
                 // Clear existing to avoid duplicates
                 clearInterval(autoScrollInterval);
-                
+
                 autoScrollInterval = setInterval(() => {
                     const scrollAmount = getScrollAmount();
                     const isAtEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 10;
-                    
+
                     if (isAtEnd) {
                         container.scrollTo({ left: 0, behavior: 'smooth' });
                     } else {
                         container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
                     }
-                }, 5000); 
+                }, 5000);
             }
 
             function resetAutoScroll() {
@@ -677,7 +827,7 @@
                 container.classList.add('active'); // Change cursor, remove snap
                 startX = e.pageX - container.offsetLeft;
                 scrollLeft = container.scrollLeft;
-                
+
                 // Stop auto scroll while user is interacting
                 clearInterval(autoScrollInterval);
             });
@@ -703,7 +853,7 @@
                 const walk = (x - startX) * 2; // Scroll-fast multiplier
                 container.scrollLeft = scrollLeft - walk;
             });
-            
+
             // Touch support is handled natively by CSS (overflow-x: auto), 
             // but we stop auto-scroll on touch too.
             container.addEventListener('touchstart', () => clearInterval(autoScrollInterval));
@@ -762,4 +912,5 @@
         });
     </script>
 </body>
+
 </html>
