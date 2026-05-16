@@ -10,6 +10,9 @@ on:
     paths-ignore:
       - 'latest_updates.json'
       - 'tracking/track_list.json'
+      - 'README.md'
+      - 'ARCHITECTURE.md'
+      - '.github/**'
   workflow_dispatch:
   workflow_call:
 

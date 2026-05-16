@@ -10,6 +10,7 @@ on:
       - 'README.md'
       - 'latest_updates.json' # ป้องกันไม่ให้รันตอน n8n เพิ่งส่งไฟล์มา (ให้รอ process-blog-data รันให้เสร็จก่อน)
   workflow_dispatch:
+  workflow_call:
 
 permissions:
   contents: write  # ขอสิทธิ์ในการเขียนไฟล์ (Commit/Push)

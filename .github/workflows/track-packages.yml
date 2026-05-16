@@ -92,3 +92,10 @@ jobs:
       contents: read
       pages: write
       id-token: write
+
+  update-readme:
+    needs: track
+    if: ${{ needs.track.outputs.pushed == 'true' }}
+    uses: ./.github/workflows/update-readme.yml
+    permissions:
+      contents: write
