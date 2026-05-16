@@ -64,8 +64,9 @@ Path B — latest_updates.json (Workflow 3, daily 02:25):
 
 Path C — tracking/track_list.json (Workflow 4, on-demand):
   Dashboard form → n8n webhook → commits track_list.json via GitHub API
-    → Triggers: track-packages.yml (poll Thailand Post API)
-    → Commits tracking/status_store.json with [skip ci]
+    → Triggers: track-packages.yml (poll Thailand Post API & generate auth.json)
+    → Commits tracking/status_store.json and auth.json
+    → Triggers: pages-build-deployment.yml
 ```
 
 ### Key Rules
@@ -77,7 +78,7 @@ Path C — tracking/track_list.json (Workflow 4, on-demand):
 - `projects.json` — **Manual.** Edit directly to add/remove project cards.
 - `tracking/track_list.json` — **Semi-automated.** Add barcodes via dashboard webhook form (n8n Workflow 4) or edit directly. Remove manually.
 - `tracking/status_store.json` — **Auto-generated.** Updated by `tracker.py` via GitHub Actions. Never edit manually.
-
+- `tracking/auth.json` — **Auto-generated.** SHA-256 hash of the `TRACKING_PASSCODE` GitHub Secret. Used for client-side authentication on the tracking dashboard.
 > **Deduplication:** The processing script uses a `Map<id, post>` strategy — existing posts are loaded first, then updates are applied on top. If an ID exists in both old data and new updates, the update wins. This eliminates the legacy bug where editing old Notion entries caused duplicates across split files.
 
 ## n8n Automation Layer (Upstream)
@@ -230,6 +231,9 @@ Schedule Overview (Daily):
   02:25  Workflow 3 — Notion → latest_updates.json (GitHub)
                         └── Triggers: process-blog-data.yml → chunked blog data
                         └── Triggers: pages-build-deployment.yml → deploy
+
+  04:00 - 07:30  (Every 30 mins) track-packages.yml (Thailand Post API)
+  08:00, 12:00, 18:00, 22:00     track-packages.yml (Thailand Post API)
 
   05:01  Workflow 2 — Second run (same as above)
   05:15  Workflow 1 — Second run (same as above)
