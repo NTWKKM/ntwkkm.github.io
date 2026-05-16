@@ -1,74 +1,74 @@
 [
   {
     "date": "16 May",
-    "title": "Implementation of a nurse-led protocol for peripheral administration of vasoactive agents in critically ill patients: A prospective observational study",
-    "comment": "ให้ pressors ทาง peripheral line ได้ไหม? paper นี้มีแนวทางที่อาจเปลี่ยน practice เรื่องการเปิด central line โดยไม่จำเป็น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42139832/"
-  },
-  {
-    "date": "16 May",
-    "title": "Time-Dependent Association Between Prehospital Blood Pressure and Outcomes in Acute Spontaneous Intracerebral Hemorrhage",
-    "comment": "BP ก่อนถึง รพ. ในผู้ป่วย ICH มีผลต่อ outcome แค่ไหน? อาจต้อง re-think target BP ของเรา",
+    "title": "Time-Dependent Association Between Prehospital Blood Pressure and Outcomes in Acute Spontaneous Intracerebral Hemorrhage.",
+    "comment": "BP ที่วัดได้ก่อนถึง รพ. สัมพันธ์กับผลการรักษา ICH อย่างไร? อาจต้องทบทวนเป้าหมายใหม่",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42141839/"
   },
   {
     "date": "16 May",
-    "title": "Biological subphenotypes in severe acute hypoxaemic respiratory failure and acute respiratory distress syndrome using rapid prospective classification (SPARC) in the USA",
-    "comment": "ARDS ไม่ได้มีแค่แบบเดียว! งานวิจัยนี้ชี้ว่าการแบ่งกลุ่มย่อยอาจนำไปสู่การรักษาที่จำเพาะเจาะจงมากขึ้น",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42140220/"
-  },
-  {
-    "date": "16 May",
-    "title": "Definition and prognostic value of response to prone positioning in ARDS: a systematic review and meta-analysis",
-    "comment": "Prone position ใน ARDS ได้ผลจริงแค่ไหน? Meta-analysis ล่าสุดสรุป evidence ให้แล้ว",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42141498/"
-  },
-  {
-    "date": "16 May",
-    "title": "Medication Safety Strategies for Geriatric Patients in the Emergency Department: A Narrative Review",
-    "comment": "รีวิวกลยุทธ์สำคัญเพื่อลดความผิดพลาดในการให้ยาผู้สูงอายุใน ER ซึ่งเป็นกลุ่มเสี่ยงสูงสุด",
+    "title": "Medication Safety Strategies for Geriatric Patients in the Emergency Department: A Narrative Review.",
+    "comment": "ทบทวนกลยุทธ์การใช้ยาให้ปลอดภัยในผู้สูงอายุที่ ER เพื่อลดความเสี่ยงและภาวะแทรกซ้อน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42141740/"
   },
   {
     "date": "16 May",
-    "title": "Effects of Semaglutide on Dumping Syndrome and Reactive Hypoglycemia After Bariatric Surgery: A Systematic Review and Meta-Analysis",
-    "comment": "เมื่อยา GLP-1 agonist ฮิตทั่วเมือง ER ควรรู้จักภาวะแทรกซ้อนอย่าง Dumping syndrome และ Hypoglycemia",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42140745/"
-  },
-  {
-    "date": "16 May",
-    "title": "An innovative staffing-neutral flow model reduces rates of leaving-without-being-seen",
-    "comment": "ไม่ต้องเพิ่มคนก็ลดอัตราผู้ป่วยกลับบ้านโดยไม่รอตรวจ (LWBS) ได้? โมเดลการจัดการ flow ที่น่าสนใจ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42140778/"
-  },
-  {
-    "date": "16 May",
-    "title": "Clinical characteristics and prognostic analysis of sepsis in immunocompromised and non-immunocompromised patients: a prospective cohort study in the emergency department",
-    "comment": "Sepsis ในผู้ป่วย Immunocompromised ต่างจากคนทั่วไปอย่างไร? การศึกษานี้ชี้ให้เห็นลักษณะทางคลินิกและ Prognosis",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42141420/"
-  },
-  {
-    "date": "16 May",
-    "title": "Barriers and Facilitators to Caring for People Presenting With Suicidal Distress in Rural Emergency Departments: A Qualitative Study",
-    "comment": "ปัญหาและอุปสรรคในการดูแลผู้ป่วย suicidal ใน ER ชนบทที่เราอาจมองข้ามไป",
+    "title": "Barriers and Facilitators to Caring for People Presenting With Suicidal Distress in Rural Emergency Departments: A Qualitative Study.",
+    "comment": "เจาะลึกความท้าทายและแนวทางในการดูแลผู้ป่วยที่มีภาวะ suicidal ในบริบท ER ที่ทรัพยากรจำกัด",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42141698/"
   },
   {
     "date": "16 May",
-    "title": "Concordance of Large Language Model Recommendations with Multidisciplinary Heart Team Decisions in Coronary Revascularization and Aortic Valve Intervention",
-    "comment": "AI (LLM) ปะทะทีมแพทย์เฉพาะทาง! เปรียบเทียบคำแนะนำในการทำ Revascularization ที่น่าสนใจมาก",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42141253/"
+    "title": "\"Stuck\" on the Ramp: What Factors Influence Patient Comfort and Satisfaction While Waiting on Emergency Department Ramps? A Qualitative Analysis.",
+    "comment": "วิเคราะห์ปัญหาผู้ป่วยล้นรอหน้า ER (Ramping) และปัจจัยที่ส่งผลต่อความพึงพอใจของผู้ป่วยโดยตรง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42141516/"
   },
   {
     "date": "16 May",
-    "title": "Type, severity, frequency and management of adverse reactions associated with ultrasound contrast agents: a systematic review and meta-analysis",
-    "comment": "เมื่อจะใช้ contrast ใน U/S ที่ ER ต้องระวังอะไรบ้าง? Meta-analysis สรุปอาการไม่พึงประสงค์และการจัดการ",
+    "title": "Definition and prognostic value of response to prone positioning in ARDS: a systematic review and meta-analysis.",
+    "comment": "สรุปว่าผู้ป่วย ARDS กลุ่มไหนที่ตอบสนองต่อการทำ Prone positioning ได้ดีที่สุด เพื่อการคัดเลือกที่แม่นยำขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42141498/"
+  },
+  {
+    "date": "16 May",
+    "title": "Clinical characteristics and prognostic analysis of sepsis in immunocompromised and non-immunocompromised patients: a prospective cohort study in the emergency department.",
+    "comment": "วิเคราะห์ความแตกต่างและพยากรณ์โรคของ Sepsis ในผู้ป่วยภูมิคุ้มกันบกพร่องที่มา ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42141420/"
+  },
+  {
+    "date": "16 May",
+    "title": "Type, severity, frequency and management of adverse reactions associated with ultrasound contrast agents: a systematic review and meta-analysis.",
+    "comment": "เมื่อ POCUS ก้าวไปอีกขั้น: สรุปทุกเรื่องเกี่ยวกับความปลอดภัยและการจัดการภาวะแทรกซ้อนของ Ultrasound Contrast Agents",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42141289/"
   },
   {
     "date": "16 May",
-    "title": "\"Stuck\" on the Ramp: What Factors Influence Patient Comfort and Satisfaction While Waiting on Emergency Department Ramps? A Qualitative Analysis",
-    "comment": "การรอคอยบน Ramp หน้า ER เป็นปัญหาใหญ่ งานวิจัยเชิงคุณภาพนี้ชี้ให้เห็นปัจจัยที่กระทบความพึงพอใจผู้ป่วยโดยตรง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42141516/"
+    "title": "Concordance of Large Language Model Recommendations with Multidisciplinary Heart Team Decisions in Coronary Revascularization and Aortic Valve Intervention: A Systematic Review and Pooled Analysis.",
+    "comment": "LLM (AI) ให้คำแนะนำการรักษาโรคหัวใจได้แม่นยำแค่ไหนเมื่อเทียบกับทีมแพทย์ผู้เชี่ยวชาญ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42141253/"
+  },
+  {
+    "date": "16 May",
+    "title": "An innovative staffing-neutral flow model reduces rates of leaving-without-being-seen.",
+    "comment": "โมเดลจัดการ Flow ใน ER ที่ช่วยลดอัตราผู้ป่วยกลับบ้านโดยไม่รอตรวจ (LWBS) โดยไม่ต้องเพิ่มคน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42140778/"
+  },
+  {
+    "date": "16 May",
+    "title": "Effects of Semaglutide on Dumping Syndrome and Reactive Hypoglycemia After Bariatric Surgery: A Systematic Review and Meta-Analysis.",
+    "comment": "ยุคของ GLP-1: ทำความเข้าใจภาวะแทรกซ้อนใหม่ๆ ที่เราต้องเจอใน ER มากขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42140745/"
+  },
+  {
+    "date": "16 May",
+    "title": "Biological subphenotypes in severe acute hypoxaemic respiratory failure and acute respiratory distress syndrome using rapid prospective classification (SPARC) in the USA: a multicentre, observational, study.",
+    "comment": "มองอนาคตการรักษา ARDS: การจำแนกผู้ป่วยเป็นกลุ่มย่อย (subphenotypes) เพื่อการรักษาที่จำเพาะเจาะจง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42140220/"
+  },
+  {
+    "date": "16 May",
+    "title": "Implementation of a nurse-led protocol for peripheral administration of vasoactive agents in critically ill patients: A prospective observational study.",
+    "comment": "ประเด็นร้อน: การให้ pressors ผ่าน PIV-line อย่างปลอดภัย โปรโตคอลที่น่าสนใจสำหรับภาวะ shock",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42139832/"
   }
 ]
