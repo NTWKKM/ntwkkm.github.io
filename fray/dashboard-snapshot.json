@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T09:01:14Z",
+  "generated_at": "2026-05-16T17:01:09Z",
   "system_health": {
     "version": 1,
     "last_updated": null,
@@ -80,12 +80,12 @@
     "last_checked": null
   },
   "heartbeat": {
-    "last_security_check": "2026-05-16T13:31:00Z",
+    "last_security_check": "2026-05-16T17:50:00Z",
     "last_calendar_check": "2026-05-16T13:48:00Z",
     "last_email_check": "2026-05-16T13:48:00Z",
     "last_n8n_check": "2026-05-16T13:31:00Z",
     "last_mac_check": "failed",
-    "last_reflection": null
+    "last_reflection": "2026-05-16T17:15:00Z"
   },
   "degradation_tier": {
     "tier": "full",
