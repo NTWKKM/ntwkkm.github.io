@@ -1,0 +1,63 @@
+# =============================================================================
+# Track Packages — Thailand Post API Cron Job
+# =============================================================================
+# Polls Thailand Post Track & Trace API for package status updates.
+# Runs 4 times daily and on manual dispatch.
+#
+# Required Secrets:
+#   TRACK_API_TOKEN — Thailand Post developer API token
+#
+# Files:
+#   READ:  tracking/track_list.json    — Barcodes to monitor
+#   WRITE: tracking/status_store.json  — Latest status per barcode
+# =============================================================================
+
+name: Track Packages
+
+on:
+  schedule:
+    # 4 runs/day aligned to Thailand time (UTC+7):
+    #   06:00 TH = 23:00 UTC (previous day)
+    #   12:00 TH = 05:00 UTC
+    #   18:00 TH = 11:00 UTC
+    #   22:00 TH = 15:00 UTC
+    - cron: '0 23 * * *'
+    - cron: '0 5 * * *'
+    - cron: '0 11 * * *'
+    - cron: '0 15 * * *'
+  push:
+    paths:
+      - 'tracking/track_list.json'  # Auto-run when barcode list is updated
+  workflow_dispatch: # Manual trigger via GitHub Actions UI
+
+concurrency:
+  group: package-tracking
+  cancel-in-progress: false
+
+jobs:
+  track:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run tracker script
+        env:
+          TRACK_API_TOKEN: ${{ secrets.TRACK_API_TOKEN }}
+        run: python .github/scripts/tracker.py
+
+      - name: Commit and push status changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tracking/status_store.json
+          git diff --staged --quiet || (git commit -m "📦 Update package tracking status [skip ci]" && git push)
