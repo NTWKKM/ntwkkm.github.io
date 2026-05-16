@@ -21,11 +21,13 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- blog_index.json
 |-- blog.html
 |-- index.html
+|-- manifest.json
 |-- papers.json
 |-- projects.json
 |-- README.md
 |-- shared.css
-`-- shared.js
+|-- shared.js
+`-- sw.js
 ```
 
 [--- REPOSITORY-TREE-END ---]
