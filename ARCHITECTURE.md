@@ -298,13 +298,14 @@ graph LR
 
 ## Theming
 
-Both pages use `data-theme="light|dark"` on `<html>` element with `localStorage.theme` persistence. Theme selection syncs seamlessly between pages.
+All pages use `data-theme="light|dark"` on the `<html>` element with `localStorage.theme` persistence. Theme selection syncs seamlessly across the site.
 
 ### CSS Architecture
 
 - `shared.css` — Common styles (reset, theme toggle, skip-to-content, reduced-motion)
 - `index.html <style>` — Homepage-specific styles (paper slider, portfolio grid, header)
 - `blog.html <style>` — Blog-specific styles (sidebar, article view, search, filters)
+- `tracking/index.html <style>` — Tracking dashboard styles (passcode gate, status timeline, package grid)
 
 ## Security
 
