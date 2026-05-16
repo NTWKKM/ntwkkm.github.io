@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fray 🦋 Memory Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-card: #12121a;
+      --bg-card-hover: #1a1a28;
+      --border: #2a2a3a;
+      --text-primary: #e4e4ef;
+      --text-secondary: #8888a0;
+      --text-muted: #55556a;
+      --accent-green: #34d399;
+      --accent-yellow: #fbbf24;
+      --accent-red: #f87171;
+      --accent-blue: #60a5fa;
+      --accent-purple: #a78bfa;
+      --accent-orange: #fb923c;
+      --gradient-primary: linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #34d399 100%);
+      --shadow-glow: 0 0 30px rgba(167, 139, 250, 0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 32px;
+      padding: 24px 0;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .header .subtitle {
+      color: var(--text-secondary);
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .header .last-updated {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(167, 139, 250, 0.3);
+      box-shadow: var(--shadow-glow);
+      transform: translateY(-2px);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--gradient-primary);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover::before { opacity: 1; }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-title .icon { font-size: 20px; }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: rgba(52, 211, 153, 0.15); color: var(--accent-green); }
+    .badge-yellow { background: rgba(251, 191, 36, 0.15); color: var(--accent-yellow); }
+    .badge-red { background: rgba(248, 113, 113, 0.15); color: var(--accent-red); }
+    .badge-blue { background: rgba(96, 165, 250, 0.15); color: var(--accent-blue); }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(42, 42, 58, 0.5);
+    }
+
+    .stat-row:last-child { border-bottom: none; }
+
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .stat-value {
+      font-size: 14px;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-value.green { color: var(--accent-green); }
+    .stat-value.yellow { color: var(--accent-yellow); }
+    .stat-value.red { color: var(--accent-red); }
+    .stat-value.blue { color: var(--accent-blue); }
+    .stat-value.purple { color: var(--accent-purple); }
+    .stat-value.muted { color: var(--text-muted); }
+
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(42, 42, 58, 0.8);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.6s ease;
+    }
+
+    .chart-container {
+      width: 100%;
+      height: 160px;
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      padding-top: 12px;
+    }
+
+    .chart-bar {
+      flex: 1;
+      background: rgba(167, 139, 250, 0.3);
+      border-radius: 3px 3px 0 0;
+      min-height: 4px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .chart-bar:hover {
+      background: rgba(167, 139, 250, 0.6);
+    }
+
+    .chart-bar .tooltip {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      white-space: nowrap;
+      z-index: 10;
+    }
+
+    .chart-bar:hover .tooltip { display: block; }
+
+    .empty-state {
+      text-align: center;
+      padding: 32px 16px;
+      color: var(--text-muted);
+    }
+
+    .empty-state .emoji { font-size: 32px; margin-bottom: 8px; }
+    .empty-state p { font-size: 13px; line-height: 1.6; }
+
+    .drift-meter {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .drift-meter .track {
+      flex: 1;
+      height: 8px;
+      background: rgba(42, 42, 58, 0.8);
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .drift-meter .marker {
+      position: absolute;
+      top: -3px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent-green);
+      border: 2px solid var(--bg-card);
+      transition: left 0.6s ease, background 0.3s ease;
+    }
+
+    .drift-meter .threshold {
+      position: absolute;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: var(--accent-red);
+      opacity: 0.6;
+    }
+
+    .drift-meter .label {
+      font-size: 24px;
+      font-weight: 700;
+      min-width: 60px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .memory-list {
+      list-style: none;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .memory-list::-webkit-scrollbar { width: 4px; }
+    .memory-list::-webkit-scrollbar-track { background: transparent; }
+    .memory-list::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+    .memory-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(42, 42, 58, 0.3);
+      font-size: 13px;
+    }
+
+    .memory-item .confidence {
+      min-width: 40px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .memory-item .key {
+      color: var(--text-primary);
+      flex: 1;
+    }
+
+    .memory-item .source {
+      color: var(--text-muted);
+      font-size: 11px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 8px 20px;
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      border-color: rgba(167, 139, 250, 0.5);
+      color: var(--text-primary);
+      background: var(--bg-card-hover);
+    }
+
+    .btn.active {
+      border-color: var(--accent-purple);
+      color: var(--accent-purple);
+      background: rgba(167, 139, 250, 0.1);
+    }
+
+    .full-width { grid-column: 1 / -1; }
+
+    @media (max-width: 768px) {
+      .grid { grid-template-columns: 1fr; }
+      body { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>🦋 Fray Memory Dashboard</h1>
+    <div class="subtitle">Project Fractal — Buddhist Method Observability</div>
+    <div class="last-updated" id="lastUpdated">Loading...</div>
+  </div>
+
+  <div class="controls">
+    <button class="btn active" onclick="loadData()">🔄 Refresh</button>
+    <button class="btn" id="btnLoadFiles" onclick="document.getElementById('fileInput').click()">📂 Load Files</button>
+    <input type="file" id="fileInput" multiple accept=".json,.jsonl" style="display:none" onchange="handleFileUpload(event)">
+  </div>
+
+  <div class="grid">
+
+    <!-- System Health -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><span class="icon">🖥</span> System Health</div>
+        <span class="badge badge-green" id="healthBadge">NOMINAL</span>
+      </div>
+      <div id="healthStats">
+        <div class="empty-state">
+          <div class="emoji">📡</div>
+          <p>Load <code>state/system-health.json</code> to view job statuses</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Circuit Breakers -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><span class="icon">⚡</span> Circuit Breakers</div>
+        <span class="badge badge-green" id="cbBadge">ALL CLOSED</span>
+      </div>
+      <div id="circuitBreakers">
+        <div class="empty-state">
+          <div class="emoji">🔌</div>
+          <p>Load <code>state/circuit-breakers.json</code> to view service states</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Memory Confidence -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><span class="icon">🧠</span> Memory Log</div>
+        <span class="badge badge-blue" id="memoryBadge">0 entries</span>
+      </div>
+      <div id="memoryLog">
+        <div class="empty-state">
+          <div class="emoji">📝</div>
+          <p>Load <code>memory/memory-log.jsonl</code> to view confirmed memories</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pending Reviews -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><span class="icon">⏳</span> Pending Reviews</div>
+        <span class="badge badge-yellow" id="pendingBadge">0 items</span>
+      </div>
+      <div id="pendingReviews">
+        <div class="empty-state">
+          <div class="emoji">🔍</div>
+          <p>Memories with confidence &lt; 0.8 appear here for manual review</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drift Score -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><span class="icon">📊</span> Behavioral Drift</div>
+        <span class="badge badge-green" id="driftBadge">STABLE</span>
+      </div>
+      <div id="driftSection">
+        <div class="stat-row">
+          <span class="stat-label">Current Drift Score</span>
+          <span class="stat-value muted" id="driftValue">—</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Threshold</span>
+          <span class="stat-value red">1.50</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">Baseline Status</span>
+          <span class="stat-value muted" id="baselineStatus">Insufficient data</span>
+        </div>
+        <div class="drift-meter">
+          <div class="track">
+            <div class="threshold" style="left: 75%"></div>
+            <div class="marker" id="driftMarker" style="left: 0%"></div>
+          </div>
+          <div class="label muted" id="driftLabel">0.00</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Heartbeat State -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title"><span class="icon">💓</span> Heartbeat State</div>
+        <span class="badge badge-blue" id="heartbeatBadge">—</span>
+      </div>
+      <div id="heartbeatState">
+        <div class="empty-state">
+          <div class="emoji">💓</div>
+          <p>Load <code>memory/heartbeat-state.json</code> to view task timestamps</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confidence Distribution (Full Width) -->
+    <div class="card full-width">
+      <div class="card-header">
+        <div class="card-title"><span class="icon">📈</span> Confidence Score Distribution</div>
+        <span class="badge badge-purple" id="chartBadge">—</span>
+      </div>
+      <div id="confidenceChart">
+        <div class="empty-state">
+          <div class="emoji">📊</div>
+          <p>Load memory data to see confidence score distribution over time</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // State
+    let state = {
+      systemHealth: null,
+      circuitBreakers: null,
+      memoryLog: [],
+      pendingReviews: [],
+      heartbeat: null,
+      reflections: []
+    };
+
+    // File upload handler
+    function handleFileUpload(event) {
+      const files = event.target.files;
+      Array.from(files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const content = e.target.result;
+          const name = file.name;
+
+          try {
+            if (name === 'system-health.json') {
+              state.systemHealth = JSON.parse(content);
+              renderSystemHealth();
+            } else if (name === 'circuit-breakers.json') {
+              state.circuitBreakers = JSON.parse(content);
+              renderCircuitBreakers();
+            } else if (name === 'heartbeat-state.json') {
+              state.heartbeat = JSON.parse(content);
+              renderHeartbeat();
+            } else if (name === 'memory-log.jsonl') {
+              state.memoryLog = content.trim().split('\n').filter(l => l).map(l => JSON.parse(l));
+              renderMemoryLog();
+              renderConfidenceChart();
+            } else if (name.endsWith('.json') && file.webkitRelativePath?.includes('reflections')) {
+              state.reflections.push(JSON.parse(content));
+              renderDrift();
+            }
+          } catch (err) {
+            console.error(`Error parsing ${name}:`, err);
+          }
+        };
+        reader.readAsText(file);
+      });
+      // Reset input
+      event.target.value = '';
+    }
+
+    // Render System Health
+    function renderSystemHealth() {
+      if (!state.systemHealth) return;
+      const container = document.getElementById('healthStats');
+      const jobs = state.systemHealth.jobs;
+      let hasError = false;
+
+      let html = '';
+      for (const [id, job] of Object.entries(jobs)) {
+        const statusClass = job.status === 'ok' ? 'green' : job.status === 'error' ? 'red' : job.status === 'pending' ? 'muted' : 'yellow';
+        if (job.status === 'error') hasError = true;
+        const lastRun = job.last_run ? new Date(job.last_run).toLocaleTimeString() : '—';
+        html += `<div class="stat-row">
+          <span class="stat-label">${id.replace(/_/g, ' ')}</span>
+          <span class="stat-value ${statusClass}">${job.status.toUpperCase()} · ${lastRun}</span>
+        </div>`;
+      }
+      container.innerHTML = html;
+
+      const badge = document.getElementById('healthBadge');
+      if (hasError) {
+        badge.textContent = 'DEGRADED';
+        badge.className = 'badge badge-red';
+      } else {
+        badge.textContent = 'NOMINAL';
+        badge.className = 'badge badge-green';
+      }
+
+      document.getElementById('lastUpdated').textContent =
+        `Last updated: ${state.systemHealth.last_updated ? new Date(state.systemHealth.last_updated).toLocaleString() : 'Never'}`;
+    }
+
+    // Render Circuit Breakers
+    function renderCircuitBreakers() {
+      if (!state.circuitBreakers) return;
+      const container = document.getElementById('circuitBreakers');
+      let hasOpen = false;
+
+      let html = '';
+      for (const [name, data] of Object.entries(state.circuitBreakers)) {
+        if (name === 'last_checked') continue;
+        const cbState = typeof data === 'object' ? data.state : data;
+        const isOpen = cbState?.toUpperCase() === 'OPEN';
+        if (isOpen) hasOpen = true;
+        const errors = typeof data === 'object' ? (data.errors || 0) : 0;
+
+        html += `<div class="stat-row">
+          <span class="stat-label">${name}</span>
+          <span class="stat-value ${isOpen ? 'red' : 'green'}">${isOpen ? '🔴 OPEN' : '🟢 CLOSED'}${errors > 0 ? ` (${errors} errors)` : ''}</span>
+        </div>`;
+      }
+      container.innerHTML = html;
+
+      const badge = document.getElementById('cbBadge');
+      badge.textContent = hasOpen ? 'CIRCUIT OPEN' : 'ALL CLOSED';
+      badge.className = hasOpen ? 'badge badge-red' : 'badge badge-green';
+    }
+
+    // Render Memory Log
+    function renderMemoryLog() {
+      const container = document.getElementById('memoryLog');
+      const badge = document.getElementById('memoryBadge');
+      badge.textContent = `${state.memoryLog.length} entries`;
+
+      if (state.memoryLog.length === 0) {
+        container.innerHTML = '<div class="empty-state"><div class="emoji">📝</div><p>No confirmed memories yet</p></div>';
+        return;
+      }
+
+      let html = '<ul class="memory-list">';
+      state.memoryLog.forEach(mem => {
+        const conf = mem.confidence || 0;
+        const confClass = conf >= 0.8 ? 'green' : conf >= 0.5 ? 'yellow' : 'red';
+        const confBg = conf >= 0.8 ? 'rgba(52,211,153,0.15)' : conf >= 0.5 ? 'rgba(251,191,36,0.15)' : 'rgba(248,113,113,0.15)';
+        html += `<li class="memory-item">
+          <span class="confidence ${confClass}" style="background:${confBg}">${conf.toFixed(1)}</span>
+          <span class="key">${mem.key || mem.id}</span>
+          <span class="source">${mem.source || '—'}</span>
+        </li>`;
+      });
+      html += '</ul>';
+      container.innerHTML = html;
+    }
+
+    // Render Confidence Chart
+    function renderConfidenceChart() {
+      const container = document.getElementById('confidenceChart');
+      const badge = document.getElementById('chartBadge');
+
+      if (state.memoryLog.length === 0) return;
+
+      // Group by confidence buckets
+      const buckets = Array(10).fill(0);
+      state.memoryLog.forEach(mem => {
+        const idx = Math.min(Math.floor((mem.confidence || 0) * 10), 9);
+        buckets[idx]++;
+      });
+
+      const max = Math.max(...buckets, 1);
+      badge.textContent = `avg: ${(state.memoryLog.reduce((s, m) => s + (m.confidence || 0), 0) / state.memoryLog.length).toFixed(2)}`;
+
+      let html = '<div class="chart-container">';
+      buckets.forEach((count, i) => {
+        const height = (count / max) * 100;
+        const label = `${(i * 0.1).toFixed(1)}-${((i + 1) * 0.1).toFixed(1)}`;
+        const color = i >= 8 ? 'var(--accent-green)' : i >= 5 ? 'var(--accent-yellow)' : 'var(--accent-red)';
+        html += `<div class="chart-bar" style="height:${Math.max(height, 3)}%;background:${color}40;border:1px solid ${color}60">
+          <div class="tooltip">${label}: ${count} memories</div>
+        </div>`;
+      });
+      html += '</div>';
+      container.innerHTML = html;
+    }
+
+    // Render Heartbeat
+    function renderHeartbeat() {
+      if (!state.heartbeat) return;
+      const container = document.getElementById('heartbeatState');
+      const badge = document.getElementById('heartbeatBadge');
+
+      let nullCount = 0;
+      let html = '';
+      for (const [key, val] of Object.entries(state.heartbeat)) {
+        if (val === null) nullCount++;
+        const display = val ? new Date(val).toLocaleString() : 'Never';
+        const isStale = val ? (Date.now() - new Date(val).getTime() > 3600000) : true;
+        html += `<div class="stat-row">
+          <span class="stat-label">${key.replace(/last_/g, '').replace(/_/g, ' ')}</span>
+          <span class="stat-value ${isStale ? 'muted' : 'green'}">${display}</span>
+        </div>`;
+      }
+      container.innerHTML = html;
+      badge.textContent = nullCount > 0 ? `${nullCount} pending` : 'All active';
+      badge.className = nullCount > 0 ? 'badge badge-yellow' : 'badge badge-green';
+    }
+
+    // Render Drift
+    function renderDrift() {
+      if (state.reflections.length === 0) return;
+      const latest = state.reflections[state.reflections.length - 1];
+      const score = latest.drift_score || 0;
+      const pct = Math.min((score / 2.0) * 100, 100);
+
+      document.getElementById('driftValue').textContent = score.toFixed(2);
+      document.getElementById('driftValue').className = `stat-value ${score > 1.5 ? 'red' : score > 0.8 ? 'yellow' : 'green'}`;
+      document.getElementById('driftLabel').textContent = score.toFixed(2);
+      document.getElementById('driftLabel').className = `label ${score > 1.5 ? 'red' : score > 0.8 ? 'yellow' : 'green'}`;
+      document.getElementById('driftMarker').style.left = `${pct}%`;
+      document.getElementById('driftMarker').style.background = score > 1.5 ? 'var(--accent-red)' : score > 0.8 ? 'var(--accent-yellow)' : 'var(--accent-green)';
+      document.getElementById('baselineStatus').textContent = state.reflections.length >= 28 ? 'Active (4+ weeks)' : `${state.reflections.length}/28 days`;
+
+      const badge = document.getElementById('driftBadge');
+      badge.textContent = score > 1.5 ? 'ALERT' : 'STABLE';
+      badge.className = score > 1.5 ? 'badge badge-red' : 'badge badge-green';
+    }
+
+    // Auto-load from dashboard-snapshot.json (for GitHub Pages / static hosting)
+    async function loadSnapshot() {
+      try {
+        const res = await fetch('dashboard-snapshot.json?' + Date.now());
+        if (!res.ok) throw new Error('Not found');
+        const snapshot = await res.json();
+
+        // Populate state from snapshot
+        if (snapshot.system_health) { state.systemHealth = snapshot.system_health; renderSystemHealth(); }
+        if (snapshot.circuit_breakers) { state.circuitBreakers = snapshot.circuit_breakers; renderCircuitBreakers(); }
+        if (snapshot.heartbeat) { state.heartbeat = snapshot.heartbeat; renderHeartbeat(); }
+        if (snapshot.memory_log && snapshot.memory_log.length) { state.memoryLog = snapshot.memory_log; renderMemoryLog(); renderConfidenceChart(); }
+        if (snapshot.reflections && snapshot.reflections.length) { state.reflections = snapshot.reflections; renderDrift(); }
+
+        document.getElementById('lastUpdated').textContent =
+          `Snapshot: ${snapshot.generated_at ? new Date(snapshot.generated_at).toLocaleString() : 'Unknown'}`;
+      } catch (e) {
+        // Fallback: manual file picker mode
+        document.getElementById('lastUpdated').textContent = 'Auto-load unavailable — use 📂 Load Files to import manually';
+      }
+    }
+
+    function loadData() { loadSnapshot(); }
+    loadData();
+  </script>
+</body>
+</html>

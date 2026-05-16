@@ -1,0 +1,140 @@
+{
+  "generated_at": "2026-05-16T05:16:41Z",
+  "system_health": {
+    "version": 1,
+    "last_updated": null,
+    "jobs": {
+      "telemetry_security": {
+        "last_run": null,
+        "status": "pending",
+        "runs_24h": 0,
+        "last_error": null
+      },
+      "mac_observer": {
+        "last_run": null,
+        "status": "pending",
+        "runs_24h": 0,
+        "last_error": null
+      },
+      "n8n_health": {
+        "last_run": null,
+        "status": "pending",
+        "runs_24h": 0,
+        "last_error": null
+      },
+      "reflection": {
+        "last_run": null,
+        "status": "pending",
+        "runs_24h": 0,
+        "last_error": null
+      },
+      "security_gate": {
+        "last_run": null,
+        "status": "pending",
+        "runs_24h": 0,
+        "last_error": null
+      },
+      "lifestyle_sync": {
+        "last_run": null,
+        "status": "pending",
+        "runs_24h": 0,
+        "last_error": null
+      },
+      "daily_briefing": {
+        "last_run": null,
+        "status": "pending",
+        "runs_24h": 0,
+        "last_error": null
+      },
+      "session_cleanup": {
+        "last_run": null,
+        "status": "pending",
+        "runs_24h": 0,
+        "last_error": null,
+        "files_removed": 0,
+        "bytes_recovered": 0
+      }
+    },
+    "token_usage_24h": {
+      "ollama": 0,
+      "google": 0
+    },
+    "alerts_pending": 0
+  },
+  "circuit_breakers": {
+    "n8n": {
+      "state": "CLOSED",
+      "errors": 0,
+      "last_error_ts": null
+    },
+    "google": {
+      "state": "CLOSED",
+      "errors": 0,
+      "last_error_ts": null
+    },
+    "ollama": {
+      "state": "CLOSED",
+      "errors": 0,
+      "last_error_ts": null
+    },
+    "last_checked": null
+  },
+  "heartbeat": {
+    "last_security_check": null,
+    "last_calendar_check": null,
+    "last_email_check": null,
+    "last_n8n_check": null,
+    "last_mac_check": null,
+    "last_reflection": null
+  },
+  "degradation_tier": {
+    "tier": "full",
+    "reason": null,
+    "since": null
+  },
+  "context_snapshot": {
+    "version": 1,
+    "metadata": {
+      "snapshot_ts": null,
+      "prune_after_ts": null
+    },
+    "ttl_hours": 24,
+    "degradation_tier": "full",
+    "active_context": "idle",
+    "last_user_active": null,
+    "active_task": {
+      "task_id": null,
+      "domain": null,
+      "last_action_ts": null
+    },
+    "current_resource_load": {
+      "cpu_load": null,
+      "ram_used_gb": null,
+      "battery_pct": null,
+      "network_status": null
+    },
+    "recent_errors": [],
+    "subagent_outputs": {}
+  },
+  "memory_log": [
+    {
+      "id": "mem_0001",
+      "category": "system",
+      "key": "initialized",
+      "value": true,
+      "confidence": 1.0,
+      "observations": 1,
+      "first_seen": "2026-05-13",
+      "last_confirmed": "2026-05-13",
+      "source": "system"
+    }
+  ],
+  "reflections": [],
+  "delivery_queue": {
+    "version": 1,
+    "description": "Offline resilience queue. When network is unavailable or Telegram delivery fails, subagent outputs are queued here for later delivery.",
+    "max_retry": 3,
+    "flush_on_reconnect": true,
+    "items": []
+  }
+}
