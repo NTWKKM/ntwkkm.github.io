@@ -1,74 +1,74 @@
 [
   {
-    "date": "15 May",
-    "title": "The 2025 Brazilian methanol poisoning crisis: a critical care and emergency medicine review.",
-    "comment": "ทบทวนการระบาดของ Methanol poisoning ที่บราซิล, เป็นความรู้ที่ ER ต้องเตรียมพร้อมเสมอ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42138939/"
+    "date": "16 May",
+    "title": "Implementation of a nurse-led protocol for peripheral administration of vasoactive agents in critically ill patients: A prospective observational study",
+    "comment": "ให้ pressors ทาง peripheral line ได้ไหม? paper นี้มีแนวทางที่อาจเปลี่ยน practice เรื่องการเปิด central line โดยไม่จำเป็น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42139832/"
   },
   {
-    "date": "15 May",
-    "title": "Direct Oral Anticoagulants Increase Overall but Not Major Bleeding in Critically Ill Chronic Kidney Disease Patients With Pulmonary Embolism.",
-    "comment": "ประเด็นถกเถียง: ใช้ DOAC ในผู้ป่วย PE + CKD ที่ Crtically ill เสี่ยงเลือดออกเพิ่ม แต่ไม่ใช่ Major bleed",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42138712/"
+    "date": "16 May",
+    "title": "Time-Dependent Association Between Prehospital Blood Pressure and Outcomes in Acute Spontaneous Intracerebral Hemorrhage",
+    "comment": "BP ก่อนถึง รพ. ในผู้ป่วย ICH มีผลต่อ outcome แค่ไหน? อาจต้อง re-think target BP ของเรา",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42141839/"
   },
   {
-    "date": "15 May",
-    "title": "Intravenous Magnesium Sulfate for Acute Nontraumatic Headache in the Emergency Department.",
-    "comment": "สรุปการให้ IV Magnesium รักษาปวดหัวเฉียบพลันใน ER ว่าได้ผลจริงหรือไม่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42138680/"
+    "date": "16 May",
+    "title": "Biological subphenotypes in severe acute hypoxaemic respiratory failure and acute respiratory distress syndrome using rapid prospective classification (SPARC) in the USA",
+    "comment": "ARDS ไม่ได้มีแค่แบบเดียว! งานวิจัยนี้ชี้ว่าการแบ่งกลุ่มย่อยอาจนำไปสู่การรักษาที่จำเพาะเจาะจงมากขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42140220/"
   },
   {
-    "date": "15 May",
-    "title": "Systematic Review of Pediatric Ketamine in Emergency Department Procedural Sedation: Frequency and Predictors of Adverse Events.",
-    "comment": "รีวิวใหญ่เรื่อง Adverse events ของ Ketamine ในเด็กที่ ER, พบบ่อยแค่ไหนและปัจจัยเสี่ยงคืออะไร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42138678/"
+    "date": "16 May",
+    "title": "Definition and prognostic value of response to prone positioning in ARDS: a systematic review and meta-analysis",
+    "comment": "Prone position ใน ARDS ได้ผลจริงแค่ไหน? Meta-analysis ล่าสุดสรุป evidence ให้แล้ว",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42141498/"
   },
   {
-    "date": "15 May",
-    "title": "SGLT-2 Use and Hypoglycemic Ketoacidosis.",
-    "comment": "เตือนภัย SGLT-2 inhibitor ทำให้เกิด euglycemic DKA (น้ำตาลปกติ) ได้, เป็นภาวะที่ห้ามพลาด",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42138676/"
+    "date": "16 May",
+    "title": "Medication Safety Strategies for Geriatric Patients in the Emergency Department: A Narrative Review",
+    "comment": "รีวิวกลยุทธ์สำคัญเพื่อลดความผิดพลาดในการให้ยาผู้สูงอายุใน ER ซึ่งเป็นกลุ่มเสี่ยงสูงสุด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42141740/"
   },
   {
-    "date": "15 May",
-    "title": "Istaroxime's Effect on Hemodynamics and Arrhythmias in Cardiogenic Shock: A Pooled Analysis of SEISMiC Trials.",
-    "comment": "ยาใหม่ Istaroxime สำหรับ Cardiogenic Shock, มีผลต่อ Hemodynamics และ Arrhythmias อย่างไร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42138657/"
+    "date": "16 May",
+    "title": "Effects of Semaglutide on Dumping Syndrome and Reactive Hypoglycemia After Bariatric Surgery: A Systematic Review and Meta-Analysis",
+    "comment": "เมื่อยา GLP-1 agonist ฮิตทั่วเมือง ER ควรรู้จักภาวะแทรกซ้อนอย่าง Dumping syndrome และ Hypoglycemia",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42140745/"
   },
   {
-    "date": "15 May",
-    "title": "Development and Validation of a Diffusion-weighted Imaging-only Deep Learning Model for the Detection of Supratentorial Acute Ischemic Infarcts.",
-    "comment": "นวัตกรรม: AI Deep Learning สามารถวินิจฉัย Acute Ischemic Stroke จาก DWI-only MRI ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42138578/"
+    "date": "16 May",
+    "title": "An innovative staffing-neutral flow model reduces rates of leaving-without-being-seen",
+    "comment": "ไม่ต้องเพิ่มคนก็ลดอัตราผู้ป่วยกลับบ้านโดยไม่รอตรวจ (LWBS) ได้? โมเดลการจัดการ flow ที่น่าสนใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42140778/"
   },
   {
-    "date": "15 May",
-    "title": "Prognostic Factors Associated With Mortality Among Patients With Necrotizing Soft-Tissue Infection: A Systematic Review and Meta-Analysis.",
-    "comment": "Meta-analysis หาปัจจัยเสี่ยงต่อการเสียชีวิตในผู้ป่วย Necrotizing Soft-Tissue Infection ที่ ER ต้องรู้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42138515/"
+    "date": "16 May",
+    "title": "Clinical characteristics and prognostic analysis of sepsis in immunocompromised and non-immunocompromised patients: a prospective cohort study in the emergency department",
+    "comment": "Sepsis ในผู้ป่วย Immunocompromised ต่างจากคนทั่วไปอย่างไร? การศึกษานี้ชี้ให้เห็นลักษณะทางคลินิกและ Prognosis",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42141420/"
   },
   {
-    "date": "15 May",
-    "title": "First Detection of Xylazine in Texas Wastewater and Its Association with Fentanyl Use.",
-    "comment": "พบ Xylazine (Tranq) ยาซอมบี้ในพื้นที่ใหม่แล้ว, เป็นสัญญาณเตือนภัยด้าน Toxicology สำหรับ ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42137493/"
+    "date": "16 May",
+    "title": "Barriers and Facilitators to Caring for People Presenting With Suicidal Distress in Rural Emergency Departments: A Qualitative Study",
+    "comment": "ปัญหาและอุปสรรคในการดูแลผู้ป่วย suicidal ใน ER ชนบทที่เราอาจมองข้ามไป",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42141698/"
   },
   {
-    "date": "15 May",
-    "title": "Artificial Intelligence-Driven Triage in Pediatric Emergency Departments: Accuracy, Bias, and Impact on Clinical Outcomes: A Narrative Review.",
-    "comment": "รีวิวการใช้ AI ช่วย Triage ผู้ป่วยเด็กใน ER ทั้งด้านความแม่นยำ, bias และผลลัพธ์การรักษา",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42137483/"
+    "date": "16 May",
+    "title": "Concordance of Large Language Model Recommendations with Multidisciplinary Heart Team Decisions in Coronary Revascularization and Aortic Valve Intervention",
+    "comment": "AI (LLM) ปะทะทีมแพทย์เฉพาะทาง! เปรียบเทียบคำแนะนำในการทำ Revascularization ที่น่าสนใจมาก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42141253/"
   },
   {
-    "date": "15 May",
-    "title": "Electronic cigarette use as a rare cause of diffuse alveolar hemorrhage.",
-    "comment": "เคสรีพอร์ตบุหรี่ไฟฟ้า (Vaping) เป็นสาเหตุของ Diffuse Alveolar Hemorrhage (DAH) ที่ต้องนึกถึง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42137073/"
+    "date": "16 May",
+    "title": "Type, severity, frequency and management of adverse reactions associated with ultrasound contrast agents: a systematic review and meta-analysis",
+    "comment": "เมื่อจะใช้ contrast ใน U/S ที่ ER ต้องระวังอะไรบ้าง? Meta-analysis สรุปอาการไม่พึงประสงค์และการจัดการ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42141289/"
   },
   {
-    "date": "15 May",
-    "title": "Reducing hemolysis in emergency departments: effectiveness of BD Barricor™ low-vacuum tubes.",
-    "comment": "นวัตกรรมเชิงปฏิบัติ: หลอดเลือด Low-vacuum (BD Barricor™) ช่วยลดปัญหา Lab Hemolysis ใน ER ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42136971/"
+    "date": "16 May",
+    "title": "\"Stuck\" on the Ramp: What Factors Influence Patient Comfort and Satisfaction While Waiting on Emergency Department Ramps? A Qualitative Analysis",
+    "comment": "การรอคอยบน Ramp หน้า ER เป็นปัญหาใหญ่ งานวิจัยเชิงคุณภาพนี้ชี้ให้เห็นปัจจัยที่กระทบความพึงพอใจผู้ป่วยโดยตรง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42141516/"
   }
 ]
