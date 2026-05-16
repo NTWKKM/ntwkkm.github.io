@@ -42,6 +42,7 @@ jobs:
         run: rm -f latest_updates.json
 
       - name: Commit and Push Changes
+        id: commit
         # สำคัญ: ต้องทำงานเสมอเพื่อ push การลบไฟล์ (หรือไฟล์ chunk ใหม่) ขึ้น GitHub
         if: always()
         run: |
