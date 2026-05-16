@@ -11,6 +11,10 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- fray /
 |   |-- dashboard-snapshot.json
 |   `-- index.html
+|-- tracking /
+|   |-- index.html
+|   |-- status_store.json
+|   `-- track_list.json
 |-- .gitignore
 |-- ARCHITECTURE.md
 |-- blog_index.json
