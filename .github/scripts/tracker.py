@@ -377,10 +377,13 @@ def main() -> None:
         del packages[bc]
         changes_made = True
 
-    # --- 10. Save updated store ---
-    status_store["last_updated"] = datetime.now(TH_TZ).isoformat()
-    status_store["packages"] = packages
-    save_json(STATUS_STORE_PATH, status_store)
+    # --- 10. Save updated store (only if changes detected) ---
+    if changes_made:
+        status_store["last_updated"] = datetime.now(TH_TZ).isoformat()
+        status_store["packages"] = packages
+        save_json(STATUS_STORE_PATH, status_store)
+    else:
+        log("No changes detected — skipping save to avoid unnecessary commit")
 
     log("=" * 60)
     log(f"Done. Total: {len(packages)}, Active: {len(active_items)}, Changes: {changes_made}")
