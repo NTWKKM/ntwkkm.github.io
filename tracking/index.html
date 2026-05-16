@@ -1,38 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>📦 Package Tracker — NTWKKM</title>
   <meta name="description" content="Real-time Thailand Post package tracking dashboard.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23244885'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='white' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../shared.css">
   <style>
     :root {
-      --bg-primary: #0a0a0f;
-      --bg-card: #12121a;
-      --bg-card-hover: #1a1a28;
-      --border: #2a2a3a;
-      --text-primary: #e4e4ef;
-      --text-secondary: #8888a0;
-      --text-muted: #55556a;
-      --accent-green: #34d399;
-      --accent-yellow: #fbbf24;
-      --accent-red: #f87171;
-      --accent-blue: #60a5fa;
-      --accent-purple: #a78bfa;
-      --accent-orange: #fb923c;
-      --gradient-primary: linear-gradient(135deg, #a78bfa 0%, #60a5fa 50%, #34d399 100%);
-      --shadow-glow: 0 0 30px rgba(167, 139, 250, 0.1);
+      --primary: #244885;
+      --primary-hover: #1a3663;
+      --accent: #E63946;
+      --bg-body: #F3F4F6;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #F8FAFC;
+      --text-main: #1F2937;
+      --text-secondary: #6B7280;
+      --text-muted: #9CA3AF;
+      --border: #E5E7EB;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+      --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1);
+      --radius: 16px;
+      --toggle-bg: #E5E7EB;
+      --scrollbar-thumb: #CBD5E1;
+      --accent-green: #059669;
+      --accent-yellow: #D97706;
+      --accent-red: #DC2626;
+      --accent-blue: #2563EB;
+      --accent-purple: #244885;
+      --input-bg: #F1F5F9;
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    [data-theme="dark"] {
+      --primary: #60A5FA;
+      --primary-hover: #93C5FD;
+      --accent: #F87171;
+      --bg-body: #0F172A;
+      --bg-card: #1E293B;
+      --bg-card-hover: #263548;
+      --text-main: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --border: #334155;
+      --shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
+      --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.4);
+      --toggle-bg: #334155;
+      --scrollbar-thumb: #475569;
+      --accent-green: #34D399;
+      --accent-yellow: #FBBF24;
+      --accent-red: #F87171;
+      --accent-blue: #60A5FA;
+      --accent-purple: #60A5FA;
+      --input-bg: #0F172A;
+    }
 
     body {
       font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
+      background: var(--bg-body);
+      color: var(--text-main);
       min-height: 100vh;
-      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.4s ease, color 0.4s ease;
     }
 
     /* --- Header --- */
@@ -42,9 +73,9 @@
       padding: 24px 0;
     }
     .header h1 {
-      font-size: 28px;
+      font-size: 1.5rem;
       font-weight: 700;
-      background: var(--gradient-primary);
+      background: linear-gradient(90deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -64,15 +95,17 @@
     .summary-item {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--radius);
       padding: 14px 24px;
       text-align: center;
       min-width: 120px;
+      box-shadow: var(--shadow);
       transition: all 0.3s ease;
     }
     .summary-item:hover {
-      border-color: rgba(167, 139, 250, 0.3);
+      border-color: var(--primary);
       transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
     }
     .summary-num {
       font-size: 28px;
@@ -97,20 +130,22 @@
     .btn {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      color: var(--text-secondary);
+      color: var(--text-main);
       padding: 8px 20px;
-      border-radius: 10px;
+      border-radius: 50px;
       font-family: 'Inter', sans-serif;
       font-size: 13px;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
       text-decoration: none;
+      box-shadow: var(--shadow);
     }
     .btn:hover {
-      border-color: rgba(167, 139, 250, 0.5);
-      color: var(--text-primary);
-      background: var(--bg-card-hover);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     /* --- Package Grid --- */
@@ -118,7 +153,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
       gap: 20px;
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
@@ -126,27 +161,25 @@
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: var(--radius);
       padding: 24px;
-      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: relative;
       overflow: hidden;
     }
     .card:hover {
       background: var(--bg-card-hover);
-      border-color: rgba(167, 139, 250, 0.3);
-      box-shadow: var(--shadow-glow);
-      transform: translateY(-2px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
     }
     .card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      top: 0; left: 0; width: 4px; height: 100%;
+      opacity: 0.8;
     }
-    .card:hover::before { opacity: 1; }
     .card.delivered::before { background: var(--accent-green); opacity: 1; }
     .card.in-transit::before { background: var(--accent-yellow); opacity: 1; }
     .card.exception::before { background: var(--accent-red); opacity: 1; }
@@ -228,8 +261,8 @@
       transition: all 0.3s ease;
     }
     .progress-dot.active {
-      background: var(--accent-blue);
-      box-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
+      background: var(--primary);
+      box-shadow: 0 0 8px rgba(36, 72, 133, 0.4);
     }
     .progress-dot.completed {
       background: var(--accent-green);
@@ -244,7 +277,7 @@
       color: var(--text-muted);
       letter-spacing: 0.3px;
     }
-    .progress-label.active { color: var(--accent-blue); font-weight: 600; }
+    .progress-label.active { color: var(--primary); font-weight: 600; }
     .progress-label.completed { color: var(--accent-green); }
 
     .progress-line {
@@ -266,7 +299,7 @@
     /* --- Timeline --- */
     .timeline-toggle {
       font-size: 12px;
-      color: var(--accent-purple);
+      color: var(--primary);
       cursor: pointer;
       border: none;
       background: none;
@@ -275,7 +308,7 @@
       margin-top: 8px;
       transition: color 0.2s ease;
     }
-    .timeline-toggle:hover { color: var(--text-primary); }
+    .timeline-toggle:hover { color: var(--accent); }
 
     .timeline {
       display: none;
@@ -289,7 +322,7 @@
 
     .timeline::-webkit-scrollbar { width: 4px; }
     .timeline::-webkit-scrollbar-track { background: transparent; }
-    .timeline::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    .timeline::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 2px; }
 
     .timeline-item {
       position: relative;
@@ -333,11 +366,11 @@
       line-height: 1.6;
     }
     .empty-state code {
-      background: rgba(167, 139, 250, 0.1);
+      background: rgba(36, 72, 133, 0.1);
       padding: 2px 8px;
       border-radius: 4px;
       font-size: 13px;
-      color: var(--accent-purple);
+      color: var(--primary);
     }
 
     /* --- Add Package Form --- */
@@ -351,8 +384,8 @@
       transition: all 0.3s ease;
     }
     .add-form:focus-within {
-      border-color: rgba(167, 139, 250, 0.4);
-      box-shadow: var(--shadow-glow);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-hover);
     }
     .add-form-title {
       font-size: 14px;
@@ -380,38 +413,40 @@
       letter-spacing: 0.5px;
     }
     .add-form-field input {
-      background: var(--bg-primary);
+      background: var(--input-bg);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 10px 14px;
-      color: var(--text-primary);
+      color: var(--text-main);
       font-family: 'Inter', sans-serif;
       font-size: 14px;
       outline: none;
       transition: border-color 0.2s ease;
     }
     .add-form-field input:focus {
-      border-color: var(--accent-purple);
+      border-color: var(--primary);
     }
     .add-form-field input::placeholder {
       color: var(--text-muted);
     }
     .btn-add {
-      background: linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(96, 165, 250, 0.2));
-      border: 1px solid rgba(167, 139, 250, 0.4);
-      color: var(--accent-purple);
+      background: var(--primary);
+      border: 1px solid var(--primary);
+      color: #ffffff;
       padding: 10px 20px;
-      border-radius: 8px;
+      border-radius: 50px;
       font-family: 'Inter', sans-serif;
       font-size: 13px;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
       white-space: nowrap;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
     .btn-add:hover {
-      background: linear-gradient(135deg, rgba(167, 139, 250, 0.3), rgba(96, 165, 250, 0.3));
+      background: var(--primary-hover);
       transform: translateY(-1px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
     }
     .btn-add:disabled {
       opacity: 0.5;
@@ -465,24 +500,25 @@
     .footer {
       text-align: center;
       margin-top: 48px;
-      padding: 16px;
+      padding: 60px 20px;
       color: var(--text-muted);
-      font-size: 12px;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
     }
     .footer a {
-      color: var(--accent-purple);
+      color: var(--text-main);
       text-decoration: none;
+      transition: color 0.2s ease;
     }
-    .footer a:hover { text-decoration: underline; }
+    .footer a:hover { color: var(--primary); }
 
     /* --- Responsive --- */
     @media (max-width: 768px) {
-      body { padding: 16px; }
       .grid { grid-template-columns: 1fr; }
       .summary { gap: 10px; }
       .summary-item { min-width: 90px; padding: 10px 16px; }
       .summary-num { font-size: 22px; }
-      .header h1 { font-size: 22px; }
+      .header h1 { font-size: 1.2rem; }
       .add-form-row { flex-direction: column; }
     }
 
@@ -496,6 +532,8 @@
 </head>
 <body>
 
+  <div class="container">
+
   <div class="header">
     <h1>📦 Package Tracker</h1>
     <div class="subtitle">Thailand Post — Real-time Tracking Dashboard</div>
@@ -505,7 +543,7 @@
   <!-- Summary Stats -->
   <div class="summary" id="summary" style="display:none;">
     <div class="summary-item">
-      <div class="summary-num" id="statTotal" style="color:var(--accent-blue)">0</div>
+      <div class="summary-num" id="statTotal" style="color:var(--primary)">0</div>
       <div class="summary-label">Total</div>
     </div>
     <div class="summary-item">
@@ -522,6 +560,7 @@
   <div class="controls">
     <button class="btn" onclick="loadData()" id="refreshBtn">🔄 Refresh</button>
     <button class="btn" onclick="toggleAddForm()" id="addToggleBtn">➕ Add Package</button>
+    <button class="theme-btn" id="theme-toggle" aria-label="Toggle Dark Mode"></button>
     <a class="btn" href="../" title="Back to homepage">🏠 Home</a>
   </div>
 
@@ -559,8 +598,10 @@
     Auto-updated via GitHub Actions
   </div>
 
+  </div><!-- /.container -->
+
+  <script src="../shared.js"></script>
   <script>
-    // =========================================================================
     // Configuration — Replace with your n8n webhook URL
     // =========================================================================
     const WEBHOOK_URL = 'https://ntwkkm-n8n-final.fly.dev/webhook/add-tracking';
