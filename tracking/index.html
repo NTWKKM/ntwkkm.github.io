@@ -66,23 +66,40 @@
       transition: background-color 0.4s ease, color 0.4s ease;
     }
 
-    /* --- Header --- */
-    .header {
-      text-align: center;
+    /* --- Top Navbar --- */
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
       margin-bottom: 32px;
-      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
     }
-    .header h1 {
+    .brand-group {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+    .brand-group h1 {
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: 800;
+      margin: 0;
       background: linear-gradient(90deg, var(--primary), var(--accent));
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 8px;
     }
-    .header .subtitle { color: var(--text-secondary); font-size: 14px; }
-    .header .last-updated { color: var(--text-muted); font-size: 12px; margin-top: 4px; }
+    .brand-group .subtitle {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin: 4px 0 0 0;
+    }
+    .brand-group .last-updated {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 4px;
+    }
 
     /* --- Summary Stats --- */
     .summary {
@@ -124,8 +141,7 @@
     .controls {
       display: flex;
       gap: 12px;
-      justify-content: center;
-      margin-bottom: 28px;
+      align-items: center;
     }
     .btn {
       background: var(--bg-card);
@@ -514,11 +530,14 @@
 
     /* --- Responsive --- */
     @media (max-width: 768px) {
+      .nav-bar { flex-direction: column; gap: 20px; text-align: center; }
+      .brand-group { text-align: center; }
+      .controls { flex-wrap: wrap; justify-content: center; }
       .grid { grid-template-columns: 1fr; }
       .summary { gap: 10px; }
       .summary-item { min-width: 90px; padding: 10px 16px; }
       .summary-num { font-size: 22px; }
-      .header h1 { font-size: 1.2rem; }
+      .brand-group h1 { font-size: 1.3rem; }
       .add-form-row { flex-direction: column; }
     }
 
@@ -659,11 +678,20 @@
   <!-- Main Content (hidden until auth) -->
   <div class="container" id="mainContent" style="display:none;">
 
-  <div class="header">
-    <h1>📦 Package Tracker</h1>
-    <div class="subtitle">Thailand Post — Real-time Tracking Dashboard</div>
-    <div class="last-updated" id="lastUpdated">Loading...</div>
-  </div>
+  <header class="nav-bar animate-entry" role="banner">
+    <div class="brand-group">
+      <h1>📦 Package Tracker</h1>
+      <div class="subtitle">Thailand Post — Real-time Tracking Dashboard</div>
+      <div class="last-updated" id="lastUpdated">Loading...</div>
+    </div>
+    
+    <div class="controls">
+      <button class="btn" onclick="loadData()" id="refreshBtn">🔄 Refresh</button>
+      <button class="btn" onclick="toggleAddForm()" id="addToggleBtn">➕ Add Tracking</button>
+      <button class="theme-btn" id="theme-toggle" aria-label="Toggle Dark Mode"></button>
+      <a class="btn" href="../" title="Back to homepage" style="text-decoration:none;">🏠 Home</a>
+    </div>
+  </header>
 
   <!-- Summary Stats -->
   <div class="summary" id="summary" style="display:none;">
@@ -679,14 +707,6 @@
       <div class="summary-num" id="statDelivered" style="color:var(--accent-green)">0</div>
       <div class="summary-label">Delivered</div>
     </div>
-  </div>
-
-  <!-- Controls -->
-  <div class="controls">
-    <button class="btn" onclick="loadData()" id="refreshBtn">🔄 Refresh</button>
-    <button class="btn" onclick="toggleAddForm()" id="addToggleBtn">➕ Add Package</button>
-    <button class="theme-btn" id="theme-toggle" aria-label="Toggle Dark Mode"></button>
-    <a class="btn" href="../" title="Back to homepage">🏠 Home</a>
   </div>
 
   <!-- Add Package Form -->
