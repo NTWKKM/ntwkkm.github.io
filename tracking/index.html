@@ -527,12 +527,99 @@
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
       }
+    /* --- Auth Gate --- */
+    .auth-gate {
+      position: fixed;
+      inset: 0;
+      background: var(--bg-body);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease;
+    }
+    .auth-gate.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .auth-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px;
+      text-align: center;
+      box-shadow: var(--shadow-hover);
+      max-width: 380px;
+      width: 90%;
+    }
+    .auth-box h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .auth-box .auth-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+    }
+    .auth-input {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--text-main);
+      outline: none;
+      text-align: center;
+      letter-spacing: 4px;
+      transition: border-color 0.2s ease;
+      margin-bottom: 16px;
+    }
+    .auth-input:focus { border-color: var(--primary); }
+    .auth-input::placeholder { letter-spacing: 0; color: var(--text-muted); }
+    .auth-error {
+      color: var(--accent-red);
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+      min-height: 20px;
+    }
+    .auth-submit {
+      background: var(--primary);
+      border: none;
+      color: #fff;
+      padding: 10px 32px;
+      border-radius: 50px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .auth-submit:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+    .auth-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <!-- Auth Gate -->
+  <div class="auth-gate" id="authGate">
+    <div class="auth-box">
+      <h2>🔐 Access Required</h2>
+      <div class="auth-subtitle">Enter passcode to view tracking dashboard</div>
+      <input type="password" class="auth-input" id="authInput" placeholder="Passcode" maxlength="50" autocomplete="off">
+      <div class="auth-error" id="authError"></div>
+      <button class="auth-submit" id="authSubmit" onclick="verifyPasscode()">Unlock</button>
+    </div>
+  </div>
+
+  <!-- Main Content (hidden until auth) -->
+  <div class="container" id="mainContent" style="display:none;">
 
   <div class="header">
     <h1>📦 Package Tracker</h1>
@@ -900,7 +987,82 @@
       }
     }
 
-    // Allow Enter key to submit
+    // =========================================================================
+    // Auth Gate — SHA-256 passcode verification
+    // =========================================================================
+    let authHash = null;
+
+    async function sha256(text) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(text);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function initAuth() {
+      // Check sessionStorage first
+      if (sessionStorage.getItem('tracking_auth') === 'granted') {
+        grantAccess();
+        return;
+      }
+
+      try {
+        const res = await fetch('auth.json?v=' + Date.now());
+        if (!res.ok) throw new Error('No auth.json');
+        const data = await res.json();
+        authHash = data.hash;
+        // Show the gate
+        document.getElementById('authGate').style.display = 'flex';
+        document.getElementById('authInput').focus();
+      } catch {
+        // No auth.json = open access (passcode not configured)
+        grantAccess();
+      }
+    }
+
+    function grantAccess() {
+      document.getElementById('authGate').classList.add('hidden');
+      document.getElementById('mainContent').style.display = 'block';
+      sessionStorage.setItem('tracking_auth', 'granted');
+      loadData();
+    }
+
+    async function verifyPasscode() {
+      const input = document.getElementById('authInput');
+      const errorEl = document.getElementById('authError');
+      const btn = document.getElementById('authSubmit');
+      const passcode = input.value.trim();
+
+      if (!passcode) {
+        errorEl.textContent = 'Please enter the passcode.';
+        input.focus();
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = 'Verifying...';
+
+      const inputHash = await sha256(passcode);
+
+      if (inputHash === authHash) {
+        grantAccess();
+      } else {
+        errorEl.textContent = 'Incorrect passcode. Try again.';
+        input.value = '';
+        input.focus();
+      }
+
+      btn.disabled = false;
+      btn.textContent = 'Unlock';
+    }
+
+    // Enter key on auth input
+    document.getElementById('authInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') verifyPasscode();
+    });
+
+    // Allow Enter key to submit barcode
     document.getElementById('inputBarcode').addEventListener('keydown', (e) => {
       if (e.key === 'Enter') submitBarcode();
     });
@@ -908,8 +1070,8 @@
       if (e.key === 'Enter') submitBarcode();
     });
 
-    // Initial load
-    loadData();
+    // Start auth flow (replaces direct loadData)
+    initAuth();
   </script>
 </body>
 </html>
