@@ -239,11 +239,10 @@ Schedule Overview (Daily):
   05:15  Workflow 1 — Second run (same as above)
 ```
 
-**Data Flow Between Workflows:**
+**Data Flow 1: Medical Research Pipeline**
 
 ```mermaid
 graph LR
-    %% Research Data Flow
     B["Workflow 2<br/>pubmed-ai-web-notion"] -->|"papers.json"| G["GitHub Repo"]
     B -->|"Curated papers"| SRC["Notion<br/>research n8n"]
     SRC -->|"Reads from"| A["Workflow 1<br/>research-ai-notion"]
@@ -251,15 +250,18 @@ graph LR
     A -->|"Dedup log"| IDX["Notion<br/>index reserch"]
     OUT -->|"Reads from"| C["Workflow 3<br/>notion-github-blog"]
     C -->|"latest_updates.json"| G
-
-    %% Tracking Data Flow
-    W4["Workflow 4<br/>add-tracking (Webhook)"] -->|"track_list.json"| G
-    G -->|"Triggers"| TP["GitHub Actions<br/>track-packages.yml"]
-    TP -->|"status_store.json<br/>auth.json"| G
-
-    %% CI/CD Deployment
     G -->|"Triggers"| CI["GitHub Actions<br/>process-blog-data.yml"]
     CI -->|"Generates"| D["data/blog/*.json<br/>blog_index.json"]
+    G -->|"Triggers"| DEPLOY["GitHub Actions<br/>pages-build-deployment.yml"]
+```
+
+**Data Flow 2: Package Tracking System**
+
+```mermaid
+graph LR
+    W4["Workflow 4<br/>add-tracking (Webhook)"] -->|"track_list.json"| G["GitHub Repo"]
+    G -->|"Triggers"| TP["GitHub Actions<br/>track-packages.yml"]
+    TP -->|"status_store.json<br/>auth.json"| G
     G -->|"Triggers"| DEPLOY["GitHub Actions<br/>pages-build-deployment.yml"]
 ```
 
