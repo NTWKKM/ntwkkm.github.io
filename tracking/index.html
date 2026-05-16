@@ -66,14 +66,37 @@
       transition: background-color 0.4s ease, color 0.4s ease;
     }
 
-    /* --- Top Navbar --- */
-    .nav-bar {
+    /* --- App Header (Matches main index.html) --- */
+    .app-header {
+      background: var(--bg-card);
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 30px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.85);
+      transition: background-color 0.4s ease, border-color 0.4s ease;
+    }
+    [data-theme="dark"] .app-header {
+      background: rgba(30, 41, 59, 0.85);
+    }
+    @supports (background: color-mix(in srgb, white, transparent)) {
+      .app-header {
+        background: color-mix(in srgb, var(--bg-card), transparent 10%);
+      }
+      [data-theme="dark"] .app-header {
+        background: color-mix(in srgb, var(--bg-card), transparent 10%);
+      }
+    }
+    .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 0;
-      margin-bottom: 32px;
-      border-bottom: 1px solid var(--border);
+      padding-top: 0;
+      padding-bottom: 0;
     }
     .brand-group {
       display: flex;
@@ -530,7 +553,7 @@
 
     /* --- Responsive --- */
     @media (max-width: 768px) {
-      .nav-bar { flex-direction: column; gap: 20px; text-align: center; }
+      .header-content { flex-direction: column; gap: 20px; text-align: center; }
       .brand-group { text-align: center; }
       .controls { flex-wrap: wrap; justify-content: center; }
       .grid { grid-template-columns: 1fr; }
@@ -676,9 +699,10 @@
   </div>
 
   <!-- Main Content (hidden until auth) -->
-  <div class="container" id="mainContent" style="display:none;">
+  <div id="mainContent" style="display:none;">
 
-  <header class="nav-bar animate-entry" role="banner">
+  <header class="app-header animate-entry" role="banner">
+    <nav class="container header-content">
     <div class="brand-group">
       <h1>📦 Package Tracker</h1>
       <div class="subtitle">Thailand Post — Real-time Tracking Dashboard</div>
@@ -691,7 +715,10 @@
       <button class="theme-btn" id="theme-toggle" aria-label="Toggle Dark Mode"></button>
       <a class="btn" href="../" title="Back to homepage" style="text-decoration:none;">🏠 Home</a>
     </div>
+    </nav>
   </header>
+
+  <main class="container">
 
   <!-- Summary Stats -->
   <div class="summary" id="summary" style="display:none;">
@@ -737,13 +764,15 @@
     </div>
   </div>
 
+  </main><!-- /.container -->
+
   <!-- Footer -->
   <div class="footer">
     Powered by <a href="https://track.thailandpost.co.th" target="_blank" rel="noopener">Thailand Post API</a> &middot;
     Auto-updated via GitHub Actions
   </div>
 
-  </div><!-- /.container -->
+  </div><!-- /#mainContent -->
 
   <script src="../shared.js"></script>
   <script>
