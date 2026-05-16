@@ -339,6 +339,116 @@
       color: var(--accent-purple);
     }
 
+    /* --- Add Package Form --- */
+    .add-form {
+      max-width: 560px;
+      margin: 0 auto 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px 24px;
+      transition: all 0.3s ease;
+    }
+    .add-form:focus-within {
+      border-color: rgba(167, 139, 250, 0.4);
+      box-shadow: var(--shadow-glow);
+    }
+    .add-form-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .add-form-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-end;
+    }
+    .add-form-field {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .add-form-field label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .add-form-field input {
+      background: var(--bg-primary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .add-form-field input:focus {
+      border-color: var(--accent-purple);
+    }
+    .add-form-field input::placeholder {
+      color: var(--text-muted);
+    }
+    .btn-add {
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(96, 165, 250, 0.2));
+      border: 1px solid rgba(167, 139, 250, 0.4);
+      color: var(--accent-purple);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-add:hover {
+      background: linear-gradient(135deg, rgba(167, 139, 250, 0.3), rgba(96, 165, 250, 0.3));
+      transform: translateY(-1px);
+    }
+    .btn-add:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* --- Toast Notification --- */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 500;
+      z-index: 1000;
+      opacity: 0;
+      transition: all 0.4s ease;
+      pointer-events: none;
+      max-width: 90vw;
+    }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    .toast.success {
+      background: rgba(52, 211, 153, 0.15);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+      color: var(--accent-green);
+    }
+    .toast.error {
+      background: rgba(248, 113, 113, 0.15);
+      border: 1px solid rgba(248, 113, 113, 0.3);
+      color: var(--accent-red);
+    }
+
     /* --- Animations --- */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-4px); }
@@ -372,6 +482,7 @@
       .summary-item { min-width: 90px; padding: 10px 16px; }
       .summary-num { font-size: 22px; }
       .header h1 { font-size: 22px; }
+      .add-form-row { flex-direction: column; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -409,8 +520,28 @@
   <!-- Controls -->
   <div class="controls">
     <button class="btn" onclick="loadData()" id="refreshBtn">🔄 Refresh</button>
+    <button class="btn" onclick="toggleAddForm()" id="addToggleBtn">➕ Add Package</button>
     <a class="btn" href="../" title="Back to homepage">🏠 Home</a>
   </div>
+
+  <!-- Add Package Form -->
+  <div class="add-form" id="addForm" style="display:none;">
+    <div class="add-form-title">📝 Add New Tracking Number</div>
+    <div class="add-form-row">
+      <div class="add-form-field" style="flex:1.2;">
+        <label for="inputBarcode">Barcode</label>
+        <input type="text" id="inputBarcode" placeholder="EF123456789TH" maxlength="13" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="add-form-field">
+        <label for="inputNote">Note (optional)</label>
+        <input type="text" id="inputNote" placeholder="e.g. Computer parts" maxlength="100" autocomplete="off">
+      </div>
+      <button class="btn-add" id="addBtn" onclick="submitBarcode()">Add</button>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
 
   <!-- Package Grid -->
   <div class="grid" id="packageGrid">
@@ -428,6 +559,11 @@
   </div>
 
   <script>
+    // =========================================================================
+    // Configuration — Replace with your n8n webhook URL
+    // =========================================================================
+    const WEBHOOK_URL = 'YOUR_N8N_WEBHOOK_URL_HERE';
+
     // =========================================================================
     // Security: HTML Sanitization (consistent with shared.js pattern)
     // =========================================================================
@@ -657,6 +793,78 @@
         btn.disabled = false;
       }
     }
+
+    // =========================================================================
+    // Add Package — Webhook Submission
+    // =========================================================================
+    const BARCODE_RE = /^[A-Z]{2}\d{9}[A-Z]{2}$/;
+
+    function toggleAddForm() {
+      const form = document.getElementById('addForm');
+      const isHidden = form.style.display === 'none';
+      form.style.display = isHidden ? 'block' : 'none';
+      if (isHidden) document.getElementById('inputBarcode').focus();
+    }
+
+    function showToast(message, type) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = 'toast ' + type + ' show';
+      setTimeout(() => { toast.classList.remove('show'); }, 3500);
+    }
+
+    async function submitBarcode() {
+      const barcodeInput = document.getElementById('inputBarcode');
+      const noteInput = document.getElementById('inputNote');
+      const btn = document.getElementById('addBtn');
+      const barcode = barcodeInput.value.trim().toUpperCase();
+      const note = noteInput.value.trim();
+
+      // Validate
+      if (!barcode) {
+        showToast('⚠️ Please enter a barcode.', 'error');
+        barcodeInput.focus();
+        return;
+      }
+      if (!BARCODE_RE.test(barcode)) {
+        showToast('⚠️ Invalid format. Expected: XX000000000XX', 'error');
+        barcodeInput.focus();
+        return;
+      }
+      if (WEBHOOK_URL === 'YOUR_N8N_WEBHOOK_URL_HERE') {
+        showToast('⚠️ Webhook URL not configured.', 'error');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = '⏳...';
+
+      try {
+        const res = await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ barcode, note }),
+        });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        showToast('✅ ' + barcode + ' added! Tracking will start shortly.', 'success');
+        barcodeInput.value = '';
+        noteInput.value = '';
+      } catch (e) {
+        console.error('Webhook error:', e);
+        showToast('❌ Failed to add. Check webhook or try again.', 'error');
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Add';
+      }
+    }
+
+    // Allow Enter key to submit
+    document.getElementById('inputBarcode').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') submitBarcode();
+    });
+    document.getElementById('inputNote').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') submitBarcode();
+    });
 
     // Initial load
     loadData();
