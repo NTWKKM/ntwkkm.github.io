@@ -12,6 +12,7 @@ This content reflects the repository structure (updated by GitHub Actions):
 |   |-- dashboard-snapshot.json
 |   `-- index.html
 |-- tracking /
+|   |-- auth.json
 |   |-- index.html
 |   |-- status_store.json
 |   `-- track_list.json
