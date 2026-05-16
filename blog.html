@@ -582,9 +582,7 @@
         /* NAV BUTTONS */
         .article-navigation {
             display: flex;
-            justify-content: flex-end;
             gap: 8px;
-            margin-bottom: 16px;
         }
 
         .nav-btn {
@@ -936,11 +934,6 @@
             </div>
 
             <article id="article-view" class="article-view">
-                <div class="article-navigation">
-                    <button id="nav-prev-article" class="nav-btn" aria-label="Previous Article">‹</button>
-                    <button id="nav-next-article" class="nav-btn" aria-label="Next Article">›</button>
-                </div>
-
                 <div class="article-meta">
                     <span>📅 <span id="post-date">...</span></span>
                     <span>|</span>
@@ -948,6 +941,10 @@
                     <button id="citation-btn" class="citation-btn" title="Copy Citation">
                         🔗 Cite
                     </button>
+                    <div class="article-navigation">
+                        <button id="nav-prev-article" class="nav-btn" aria-label="Previous Article">‹</button>
+                        <button id="nav-next-article" class="nav-btn" aria-label="Next Article">›</button>
+                    </div>
                 </div>
 
                 <h1 class="article-title" id="post-title">...</h1>
