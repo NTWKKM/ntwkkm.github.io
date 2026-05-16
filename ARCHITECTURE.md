@@ -37,8 +37,11 @@ Static Data:
   └── projects.json          → Project cards (manually maintained)
 
 Package Tracking Pipeline:
-  GitHub Actions (track-packages.yml, 4x/day):
-    ├── Reads tracking/track_list.json (manually maintained barcode list)
+  n8n Workflow 4 (add-tracking, on-demand via webhook):
+    └── Dashboard form POST → n8n webhook → GET/PUT track_list.json via GitHub API
+
+  GitHub Actions (track-packages.yml, 4x/day + on push to track_list.json):
+    ├── Reads tracking/track_list.json
     ├── Calls Thailand Post Track & Trace API (2-step token auth)
     ├── Diffs new status against tracking/status_store.json
     ├── Commits only when status changes ([skip ci])
@@ -58,6 +61,11 @@ Path B — latest_updates.json (Workflow 3, daily 02:25):
     → Triggers: process-blog-data.yml (merge + chunk + index + delete)
     → Triggers: pages-build-deployment.yml (deploy to GitHub Pages)
     → update-readme.yml ignores latest_updates.json (paths-ignore)
+
+Path C — tracking/track_list.json (Workflow 4, on-demand):
+  Dashboard form → n8n webhook → commits track_list.json via GitHub API
+    → Triggers: track-packages.yml (poll Thailand Post API)
+    → Commits tracking/status_store.json with [skip ci]
 ```
 
 ### Key Rules
@@ -67,7 +75,7 @@ Path B — latest_updates.json (Workflow 3, daily 02:25):
 - `blog_index.json` — **Auto-generated.** Written by `process_blog.js` with relative paths (e.g., `data/blog/research_chunk_1.json`). Never edit manually.
 - `papers.json` — **Automated.** Merged by Workflow 2 (dedup by link, cap 70 items, 2x/day). Do not edit manually.
 - `projects.json` — **Manual.** Edit directly to add/remove project cards.
-- `tracking/track_list.json` — **Manual.** Add/remove Thailand Post barcodes to track.
+- `tracking/track_list.json` — **Semi-automated.** Add barcodes via dashboard webhook form (n8n Workflow 4) or edit directly. Remove manually.
 - `tracking/status_store.json` — **Auto-generated.** Updated by `tracker.py` via GitHub Actions. Never edit manually.
 
 > **Deduplication:** The processing script uses a `Map<id, post>` strategy — existing posts are loaded first, then updates are applied on top. If an ID exists in both old data and new updates, the update wins. This eliminates the legacy bug where editing old Notion entries caused duplicates across split files.
@@ -185,6 +193,33 @@ Notion Ai-research DB (sorted by last_edited, limit 20)
 
 ---
 
+### Workflow 4: `add-tracking` — Package Tracking Input
+
+**Purpose:** Accept new tracking barcodes from the dashboard form and commit to `track_list.json` via GitHub API.
+
+| Property | Value |
+| --- | --- |
+| Trigger | Webhook POST from `tracking/index.html` |
+| Endpoint | `https://ntwkkm-n8n-final.fly.dev/webhook/add-tracking` |
+| Output | `tracking/track_list.json` (GitHub commit) |
+| CORS | Restricted to `https://ntwkkm.github.io` |
+
+**Pipeline:**
+
+```text
+Webhook POST (barcode, note)
+  → Validate input (barcode not empty)
+  → GET tracking/track_list.json via GitHub API
+  → Code: Parse JSON → validate format (XX000000000XX) → dedup check → append
+  → PUT tracking/track_list.json via GitHub API (commit)
+  → Respond 200 (success/duplicate) or 400 (invalid)
+  → Commit triggers: track-packages.yml (poll Thailand Post API)
+```
+
+**Deduplication:** Code node checks if barcode already exists in `track_list.json` before appending. Duplicates return 200 with a message instead of re-adding.
+
+---
+
 ### Workflow Orchestration
 
 ```text
@@ -225,7 +260,8 @@ graph LR
 | **Gemini 2.5 Pro** | High-quality clinical curation with expert persona (Workflow 2) |
 | **Notion** | Primary data warehouse — stores all processed papers, index logs, and curated selections |
 | **LINE Messaging API** | Notification channel + chat-based trigger for on-demand searches |
-| **GitHub API** | Direct file commits (`papers.json`, `latest_updates.json`) |
+| **GitHub API** | Direct file commits (`papers.json`, `latest_updates.json`, `track_list.json`) |
+| **Thailand Post API** | Track & Trace barcode status polling (2-step token auth, Workflow 4 + GitHub Actions) |
 
 ## CI/CD Workflows
 
