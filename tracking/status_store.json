@@ -1,4 +1,42 @@
 {
-  "last_updated": null,
-  "packages": {}
+  "last_updated": "2026-05-16T21:19:01.615616+07:00",
+  "packages": {
+    "WB257740279TH": {
+      "note": "แก้ว ceramic",
+      "barcode": "WB257740279TH",
+      "last_status": "รับเข้า ณ ศูนย์คัดแยก",
+      "last_status_date": "16/05/2569 19:00:09+07:00",
+      "status_code": "211",
+      "is_delivered": false,
+      "location": "EMS",
+      "delivery_status": null,
+      "track_count": "3",
+      "history": [
+        {
+          "status": "รับฝาก",
+          "status_date": "16/05/2569 15:19:00+07:00",
+          "location": "ปากเกร็ด",
+          "post_code": "11120",
+          "status_code": "103",
+          "delivery_status": null
+        },
+        {
+          "status": "ออกจากที่ทำการ/ศูนย์ไปรษณีย์",
+          "status_date": "16/05/2569 18:07:00+07:00",
+          "location": "ปากเกร็ด",
+          "post_code": "11120",
+          "status_code": "201",
+          "delivery_status": null
+        },
+        {
+          "status": "รับเข้า ณ ศูนย์คัดแยก",
+          "status_date": "16/05/2569 19:00:09+07:00",
+          "location": "EMS",
+          "post_code": "10020",
+          "status_code": "211",
+          "delivery_status": null
+        }
+      ]
+    }
+  }
 }
