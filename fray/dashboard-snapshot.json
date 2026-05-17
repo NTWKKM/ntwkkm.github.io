@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-17T17:46:53Z",
+  "generated_at": "2026-05-17T18:01:38Z",
   "system_health": {
     "version": 1,
     "last_updated": null,
@@ -95,7 +95,7 @@
   "context_snapshot": {
     "version": 1,
     "metadata": {
-      "snapshot_ts": "2026-05-17T15:51:04Z",
+      "snapshot_ts": "2026-05-17T17:51:11Z",
       "prune_after_ts": null
     },
     "ttl_hours": 24,
@@ -108,9 +108,9 @@
       "last_action_ts": null
     },
     "current_resource_load": {
-      "cpu_load": "4.0",
-      "ram_used_gb": "7523M",
-      "battery_pct": "100",
+      "cpu_load": "12.5",
+      "ram_used_gb": "7487M",
+      "battery_pct": "58",
       "network_status": "online"
     },
     "recent_errors": [],
