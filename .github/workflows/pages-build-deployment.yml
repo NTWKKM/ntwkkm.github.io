@@ -42,6 +42,32 @@ jobs:
           token: ${{ secrets.PAT_FOR_PL }}
           path: pl
 
+      # เพิ่ม Step นี้เข้าไปเพื่อสร้างไฟล์สารบัญ tree.json ไว้ในโฟลเดอร์ pl
+      - name: Generate file tree for pl
+        run: |
+          cd pl
+          node -e "
+          const fs = require('fs');
+          const path = require('path');
+          function walk(dir, fileList = [], baseDir = '') {
+            const files = fs.readdirSync(dir);
+            for (const file of files) {
+              if (['.git', '.github', 'node_modules'].includes(file)) continue;
+              const filePath = path.join(dir, file);
+              const relPath = baseDir ? baseDir + '/' + file : file;
+              const stat = fs.statSync(filePath);
+              if (stat.isDirectory()) {
+                fileList.push({ path: relPath, type: 'tree' });
+                walk(filePath, fileList, relPath);
+              } else {
+                fileList.push({ path: relPath, type: 'blob' });
+              }
+            }
+            return fileList;
+          }
+          fs.writeFileSync('tree.json', JSON.stringify({ tree: walk('.') }));
+          "
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
