@@ -1,55 +1,55 @@
 {
-  "generated_at": "2026-05-17T18:16:11Z",
+  "generated_at": "2026-05-17T18:17:01Z",
   "system_health": {
     "version": 1,
-    "last_updated": "2026-05-18T01:16:00Z",
+    "last_updated": "2026-05-17T18:17:00.277389Z",
     "jobs": {
       "telemetry_security": {
-        "last_run": "2026-05-18T01:00:00Z",
+        "last_run": "2026-05-17T18:17:00.277389Z",
         "status": "success",
-        "runs_24h": 24,
+        "runs_24h": 1,
         "last_error": null
       },
       "mac_observer": {
-        "last_run": "2026-05-18T01:15:00Z",
+        "last_run": "2026-05-17T18:17:00.277389Z",
         "status": "success",
-        "runs_24h": 288,
+        "runs_24h": 1,
         "last_error": null
       },
       "n8n_health": {
-        "last_run": "2026-05-18T00:57:00Z",
+        "last_run": "2026-05-17T18:17:00.277389Z",
         "status": "success",
-        "runs_24h": 3,
+        "runs_24h": 1,
         "last_error": null
       },
       "reflection": {
-        "last_run": "2026-05-18T02:00:00Z",
-        "status": "success",
-        "runs_24h": 1,
+        "last_run": null,
+        "status": "pending",
+        "runs_24h": 0,
         "last_error": null
       },
       "security_gate": {
-        "last_run": "2026-05-18T01:00:00Z",
-        "status": "success",
-        "runs_24h": 3,
+        "last_run": null,
+        "status": "pending",
+        "runs_24h": 0,
         "last_error": null
       },
       "lifestyle_sync": {
-        "last_run": "2026-05-18T01:00:00Z",
-        "status": "success",
-        "runs_24h": 1,
+        "last_run": null,
+        "status": "pending",
+        "runs_24h": 0,
         "last_error": null
       },
       "daily_briefing": {
-        "last_run": "2026-05-18T01:00:00Z",
-        "status": "success",
-        "runs_24h": 1,
+        "last_run": null,
+        "status": "pending",
+        "runs_24h": 0,
         "last_error": null
       },
       "session_cleanup": {
-        "last_run": "2026-05-18T01:00:00Z",
-        "status": "success",
-        "runs_24h": 1,
+        "last_run": null,
+        "status": "pending",
+        "runs_24h": 0,
         "last_error": null,
         "files_removed": 12,
         "bytes_recovered": 10485760
@@ -63,9 +63,9 @@
   },
   "circuit_breakers": {
     "n8n": {
-      "state": "CLOSED",
-      "errors": 0,
-      "last_error_ts": null
+      "state": "OPEN",
+      "errors": 1,
+      "last_error_ts": "2026-05-17T18:17:01Z"
     },
     "google": {
       "state": "CLOSED",
@@ -77,7 +77,7 @@
       "errors": 0,
       "last_error_ts": null
     },
-    "last_checked": null
+    "last_checked": "2026-05-17T18:17:01Z"
   },
   "heartbeat": {
     "last_security_check": "2026-05-16T17:50:00Z",
@@ -95,7 +95,7 @@
   "context_snapshot": {
     "version": 1,
     "metadata": {
-      "snapshot_ts": "2026-05-17T18:07:23Z",
+      "snapshot_ts": "2026-05-17T18:17:00Z",
       "prune_after_ts": null
     },
     "ttl_hours": 24,
@@ -108,9 +108,9 @@
       "last_action_ts": null
     },
     "current_resource_load": {
-      "cpu_load": "14.46",
-      "ram_used_gb": "7.339",
-      "battery_pct": "49",
+      "cpu_load": "14.58",
+      "ram_used_gb": "7.368",
+      "battery_pct": "45",
       "network_status": "online"
     },
     "recent_errors": [],
@@ -118,36 +118,14 @@
   },
   "memory_log": [
     {
-      "timestamp": "2026-05-18T01:00:00Z",
+      "timestamp": "2026-05-17T18:10:00Z",
       "level": "info",
       "message": "Initialized Project Fractal dashboard pipeline",
       "confidence": 1,
       "source": "system"
-    },
-    {
-      "timestamp": "2026-05-18T01:10:00Z",
-      "level": "info",
-      "message": "Successfully synchronized Fray state via n8n webhook",
-      "confidence": 0.98,
-      "source": "webhook"
     }
   ],
-  "reflections": [
-    {
-      "date": "2026-05-18",
-      "drift_score": 0.35,
-      "confidence_score": 0.95,
-      "efficiency_metrics": {
-        "total_tokens": 170000,
-        "average_response_time_sec": 2.4
-      },
-      "key_learnings": [
-        "Integrated n8n workflow for secure and fast dashboard updates",
-        "Pruned old Node 20 GitHub actions to satisfy safety warning annotations",
-        "Validated F2A Iron Gate lock under isolation subagent testing"
-      ]
-    }
-  ],
+  "reflections": [],
   "delivery_queue": {
     "version": 1,
     "description": "Offline resilience queue. When network is unavailable or Telegram delivery fails, subagent outputs are queued here for later delivery.",
