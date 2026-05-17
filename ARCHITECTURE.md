@@ -285,16 +285,48 @@ graph LR
 
 **Data Flow 3: Fray Observability Sync (Every 8h)**
 
-```text
-              GitHub                    GitHub Pages
-┌──────────────┐    push    ┌──────────────┐  Action   ┌──────────────┐
-│ Local state  │ ────────→  │ openclaw-    │ ────────→ │ ntwkkm.      │
-│ files        │            │ config/      │           │ github.io/   │
-│              │            │ dashboard/   │           │ fray/        │
-│ snapshot.json│            │ snapshot.json│           │ snapshot.json│
-└──────────────┘            └──────────────┘           └──────────────┘
- push_dashboard.sh          sync-dashboard.yml          Auto-deploy
-```
+This section details the architectural pipeline for the Fray Dashboard, illustrating the data flow from the local macOS environment to the public web interface.
+
+#### 1. The Trigger (OpenClaw Initiation)
+* **Tool:** Fray's `cron/jobs.json`
+* **Process:** Fray interprets the defined cron schedule named `dashboard_push`, executing every **8 hours** (00:00, 08:00, 16:00).
+* **Execution:** Fray triggers a local Bash script: `bash ~/.openclaw/tasks/system/push_dashboard.sh`.
+
+#### 2. Data Consolidation (Local Processing)
+* **Tools:** `push_dashboard.sh` coupled with an embedded Python script.
+* **Process:**
+  1. As the system state comprises multiple files excluded from version control (`.gitignore`), the Python script dynamically aggregates real-time data from:
+     * `state/system-health.json` (Status of all 9 Cron Jobs)
+     * `state/circuit-breakers.json` (Operational status of n8n, Ollama, Google APIs)
+     * `memory/heartbeat-state.json` (Timestamp of the latest task)
+     * `memory/memory-log.jsonl` (Validated system memories)
+     * `memory/reflections/*.json` (Calculated Drift Scores)
+  2. This data is consolidated into a singular temporary file located at `/tmp/dashboard-snapshot.json`.
+
+#### 3. The Transport (Cloud Transmission)
+* **Tool:** `curl` (embedded within `push_dashboard.sh`)
+* **Process:** The script executes an HTTP POST request via `curl`, immediately transmitting the `dashboard-snapshot.json` payload from the local environment to the cloud webhook: `https://ntwkkm-n8n-final.fly.dev/webhook/fray-dashboard-sync`.
+
+#### 4. The Cloud Relay (n8n Orchestration)
+* **Tools:** n8n Workflow (Webhook Node → GitHub Node)
+* **Process:**
+  1. **Webhook Node:** Intercepts the incoming POST request and extracts the JSON payload.
+  2. **GitHub Node:** Functions as a Git client utilizing personal access tokens (PAT/OAuth2) to interface directly with the GitHub API.
+  3. Overwrites the destination file `fray/dashboard-snapshot.json` within the `NTWKKM/ntwkkm.github.io` repository.
+  4. Commits the changes with the message: *"data: update Fray dashboard snapshot from n8n"*.
+
+#### 5. The Presentation (Web Interface)
+* **Tools:** GitHub Pages + `index.html` (formerly `dashboard.html`)
+* **Process:**
+  1. Upon successful commit by n8n, GitHub Pages serves the updated static file.
+  2. Accessing the dashboard via **https://ntwkkm.github.io/fray/** initiates the client-side JavaScript.
+  3. A cache-busting mechanism appending `Date.now()` ensures the latest data is retrieved.
+  4. The client fetches the updated `dashboard-snapshot.json`, rendering dynamic visualizations for system health, circuit breaker status, and drift scores in real-time.
+
+**Architectural Advantages:**
+1. **Enhanced Security:** Operates on a push-only model, eliminating the need to expose local ports to external networks.
+2. **Cost-Efficiency:** The entire pipeline relies on deterministic scripts (Bash, Python) and n8n, avoiding token consumption associated with LLM calls.
+3. **Version Control Hygiene:** Highly volatile state files are isolated from the primary source code in `openclaw-config`, ensuring a clean and manageable Git history.
 
 ### External Services
 
