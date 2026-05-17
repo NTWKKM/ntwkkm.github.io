@@ -32,6 +32,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # เพิ่มขั้นตอน: ดึงข้อมูลจาก Private Repository มาวางไว้ในโฟลเดอร์ pl/
+      - name: Checkout private pl repository
+        uses: actions/checkout@v4
+        with:
+          repository: NTWKKM/pl
+          token: ${{ secrets.PAT_FOR_PL }}
+          path: pl
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
