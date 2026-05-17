@@ -2,73 +2,73 @@
   {
     "date": "17 May",
     "title": "Diagnostic accuracy of AI-assisted point-of-care ultrasound for abdominal free fluid detection in FAST trauma assessment: a systematic review and meta-analysis",
-    "comment": "AI อาจช่วยให้การทำ FAST exam ในผู้ป่วย trauma แม่นยำและรวดเร็วยิ่งขึ้น",
+    "comment": "AI อาจช่วยอ่าน FAST scan ในผู้ป่วย trauma ได้แม่นยำและรวดเร็วยิ่งขึ้น ซึ่งอาจเปลี่ยนวิธีที่เราประเมินผู้ป่วยในอนาคต",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42143253/"
   },
   {
     "date": "17 May",
-    "title": "Improving Chest Compression Quality in Cardiac Arrest: A Multimodal Intervention Project in the Emergency Department",
-    "comment": "การใช้หลายวิธีร่วมกัน (multimodal) สามารถช่วยเพิ่มคุณภาพการทำ CPR ใน ER ได้จริง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42142110/"
-  },
-  {
-    "date": "17 May",
-    "title": "Diagnostic and prognostic value of blood neurofilament light chain in ischemic stroke: an individual patient data meta-analysis",
-    "comment": "Biomarker ตัวใหม่ในเลือด อาจช่วยวินิจฉัยและพยากรณ์โรคในผู้ป่วย Stroke ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42142116/"
-  },
-  {
-    "date": "17 May",
-    "title": "Time-Dependent Association Between Prehospital Blood Pressure and Outcomes in Acute Spontaneous Intracerebral Hemorrhage",
-    "comment": "ความดันโลหิตก่อนถึงโรงพยาบาลสัมพันธ์กับผลการรักษาในผู้ป่วยเลือดออกในสมอง (ICH)",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42141839/"
-  },
-  {
-    "date": "17 May",
-    "title": "Virus Detection and Hospitalization Rate in Infants With Bronchiolitis After Nirsevimab Introduction: A Retrospective Comparative Two-Season Study",
-    "comment": "ข้อมูลจริงหลังการใช้ Nirsevimab ชี้ว่าอาจลดการนอน việnในเด็กที่เป็นหลอดลมอักเสบได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42142018/"
-  },
-  {
-    "date": "17 May",
-    "title": "From paediatric rebound to adult redistribution: changing the epidemiology of group A Streptococcus after COVID-19",
-    "comment": "ระบาดวิทยาของเชื้อ Group A Strep ที่เปลี่ยนไปหลังโควิด-19 กระทบต่อการวินิจฉัยของเราโดยตรง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42143408/"
-  },
-  {
-    "date": "17 May",
-    "title": "The Clinical Impact of Team Triage vs Conventional Triage on Patients With Acute Surgical Appendicitis or Cholecystitis",
-    "comment": "การใช้ Team Triage อาจช่วยลดระยะเวลารอคอยสำหรับผู้ป่วยศัลยกรรมเฉียบพลันได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42142108/"
-  },
-  {
-    "date": "17 May",
     "title": "Characterization and Outcomes of Septic Shock Patients With Macrophage Activation-Like Syndrome: Prognostic Role of Hyperferritinemia and and Description of Hemoadsorption in Refractory Hyperinflammatory Septic Shock",
-    "comment": "ทำความรู้จักกับภาวะ hyperinflammation ใน septic shock เพื่อการดูแลผู้ป่วยที่ซับซ้อน",
+    "comment": "ประเด็นน่าถกเถียงเรื่องภาวะ Hyperinflammatory septic shock และการใช้ Hemoadsorption ซึ่งอาจเป็นทางเลือกในเคสที่ดื้อต่อการรักษามาตรฐาน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42142341/"
   },
   {
     "date": "17 May",
+    "title": "Time-Dependent Association Between Prehospital Blood Pressure and Outcomes in Acute Spontaneous Intracerebral Hemorrhage",
+    "comment": "การควบคุมความดันโลหิตในผู้ป่วย ICH ตั้งแต่ช่วง Prehospital อาจส่งผลต่อ outcome อย่างมีนัยสำคัญและอาจต้องปรับแนวทางการดูแล",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42141839/"
+  },
+  {
+    "date": "17 May",
+    "title": "Improving Chest Compression Quality in Cardiac Arrest: A Multimodal Intervention Project in the Emergency Department",
+    "comment": "ทบทวนเทคนิคและ feedback device เพื่อเพิ่มคุณภาพ CPR ซึ่งเป็นหัวใจสำคัญของการกู้ชีพและเปลี่ยนแปลง outcome ได้จริง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42142110/"
+  },
+  {
+    "date": "17 May",
+    "title": "Data-driven decision support in hospital resource planning: an artificial intelligence-based model proposal for emergency department demand",
+    "comment": "นวัตกรรมการใช้ AI พยากรณ์จำนวนผู้ป่วย ER เพื่อแก้ปัญหาเตียงเต็มและบริหารจัดการทรัพยากรได้อย่างมีประสิทธิภาพ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42143518/"
+  },
+  {
+    "date": "17 May",
+    "title": "From paediatric rebound to adult redistribution: changing the epidemiology of group A Streptococcus after COVID-19",
+    "comment": "ระบาดวิทยาของเชื้อ Group A Strep ที่เปลี่ยนไปหลังยุคโควิด อาจทำให้เราต้องนึกถึงเชื้อนี้ในผู้ใหญ่มากขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42143408/"
+  },
+  {
+    "date": "17 May",
+    "title": "Diagnostic and prognostic value of blood neurofilament light chain in ischemic stroke: an individual patient data meta-analysis",
+    "comment": "อนาคตของการวินิจฉัย Stroke อาจเปลี่ยนไป ด้วย biomarker ใหม่อย่าง Neurofilament light chain (NfL) ที่ตรวจได้จากเลือด",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42142116/"
+  },
+  {
+    "date": "17 May",
+    "title": "The Clinical Impact of Team Triage vs Conventional Triage on Patients With Acute Surgical Appendicitis or Cholecystitis",
+    "comment": "การปรับระบบ Triage เป็นแบบ Team-based อาจช่วยลดระยะเวลารอคอยและปรับปรุง flow ของผู้ป่วยกลุ่ม Acute abdomen",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42142108/"
+  },
+  {
+    "date": "17 May",
+    "title": "Ricin as a Biothreat Agent: From Molecular Mechanisms to Clinical Toxicology, Forensic Aspects, and Risk Mitigation",
+    "comment": "ทบทวนความรู้ด้านพิษวิทยาและการรับมือสารพิษ Ricin ซึ่งเป็นหนึ่งใน Biothreat ที่แพทย์ ER ควรรู้จัก",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42142329/"
+  },
+  {
+    "date": "17 May",
     "title": "Medication Safety Strategies for Geriatric Patients in the Emergency Department: A Narrative Review",
-    "comment": "สรุปกลยุทธ์สำคัญเพื่อเพิ่มความปลอดภัยในการให้ยาผู้สูงอายุในห้องฉุกเฉิน",
+    "comment": "สรุปกลยุทธ์สำคัญเพื่อเพิ่มความปลอดภัยในการใช้ยาสำหรับผู้สูงอายุใน ER ซึ่งเป็นกลุ่มเสี่ยงสูงและพบบ่อย",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42141740/"
   },
   {
     "date": "17 May",
     "title": "Cannabis surpasses tobacco among pregnant women: national trends and predictors of use in the U.S., 2015-2023",
-    "comment": "เทรนด์การใช้กัญชาในหญิงตั้งครรภ์ที่แซงหน้าบุหรี่ เป็นข้อมูลสำคัญที่ต้องซักประวัติ",
+    "comment": "เทรนด์การใช้กัญชาที่เพิ่มขึ้นในหญิงตั้งครรภ์ ซึ่งเป็นข้อมูลสำคัญที่ต้องซักประวัติใน ER เพราะอาจสัมพันธ์กับภาวะฉุกเฉินต่างๆ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42143410/"
   },
   {
     "date": "17 May",
-    "title": "\"Stuck\" on the Ramp: What Factors Influence Patient Comfort and Satisfaction While Waiting on Emergency Department Ramps? A Qualitative Analysis",
-    "comment": "มุมมองของผู้ป่วยต่อปัญหาผู้ป่วยล้น ER ที่ต้องรอหน้าห้องฉุกเฉิน (ramping)",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42141516/"
-  },
-  {
-    "date": "17 May",
     "title": "Heart failure in adults with congenital heart disease: the role of sodium-glucose cotransporter 2 inhibitors",
-    "comment": "อัปเดตการใช้ยา SGLT2 inhibitors ในผู้ป่วย Heart Failure กลุ่มผู้ใหญ่ที่เป็นโรคหัวใจแต่กำเนิด",
+    "comment": "ยา SGLT2i อาจมีบทบาทในผู้ป่วย Heart Failure กลุ่ม Congenital Heart Disease ซึ่งเป็นกลุ่มประชากรที่ซับซ้อนและเพิ่มขึ้นใน ER",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42143619/"
   }
 ]
