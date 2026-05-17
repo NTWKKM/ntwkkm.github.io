@@ -1139,24 +1139,33 @@
             document.body.prepend(progressBar);
 
             const progressBarFill = progressBar.querySelector('.reading-progress-bar');
-
             const mainContent = document.querySelector('.main-content');
             if (!mainContent) return;
 
-            mainContent.addEventListener('scroll', () => {
+            window.updateReadingProgress = () => {
                 const articleView = document.getElementById('article-view');
                 if (!articleView || !articleView.classList.contains('visible')) {
                     progressBar.style.display = 'none';
                     return;
                 }
 
-                const scrollTop = mainContent.scrollTop;
-                const scrollHeight = mainContent.scrollHeight - mainContent.clientHeight;
-                const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+                let scrollTop, scrollHeight;
+                if (window.innerWidth > 1024) {
+                    scrollTop = mainContent.scrollTop;
+                    scrollHeight = mainContent.scrollHeight - mainContent.clientHeight;
+                } else {
+                    scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                }
 
+                const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
                 progressBarFill.style.width = `${Math.min(100, Math.max(0, progress))}%`;
                 progressBar.style.display = 'block';
-            });
+            };
+
+            mainContent.addEventListener('scroll', window.updateReadingProgress);
+            window.addEventListener('scroll', window.updateReadingProgress);
+            window.addEventListener('resize', window.updateReadingProgress);
         }
 
         // ===========================================================================
@@ -1424,34 +1433,17 @@
             document.getElementById('nav-prev-article').addEventListener('click', () => navigateArticle(-1));
             document.getElementById('nav-next-article').addEventListener('click', () => navigateArticle(1));
 
-            // Copy Citation
-            document.getElementById('citation-btn').addEventListener('click', copyCitation);
+            // Setup Citation Button
+            document.getElementById('citation-btn').addEventListener('click', () => {
+                const post = allPosts.find(p => p.id === currentPostId);
+                if (post) openCitationModal(post);
+            });
 
             // Keyboard
             document.addEventListener('keydown', (e) => {
                 if (document.activeElement === document.getElementById('search-input')) return;
                 if (e.key === 'ArrowLeft') navigateArticle(-1);
                 else if (e.key === 'ArrowRight') navigateArticle(1);
-            });
-        }
-
-        function copyCitation() {
-            const title = document.getElementById('post-title').textContent;
-            const url = window.location.href;
-            const textToCopy = `${title}. Available at: ${url}`;
-
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                const btn = document.getElementById('citation-btn');
-                const originalText = btn.innerHTML;
-                btn.classList.add('copied');
-                btn.innerHTML = '✓ Copied!';
-                setTimeout(() => {
-                    btn.classList.remove('copied');
-                    btn.innerHTML = originalText;
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy clipboard: ', err);
-                announceToScreenReader('Failed to copy link', 'assertive');
             });
         }
 
@@ -1567,9 +1559,9 @@
             filteredPosts = allPosts.filter(post => {
                 // Step 4: Multi-select OR logic — matches if ANY active tag is in the post's tags
                 const matchesTag = activeTags.size === 0 || (post.tags && post.tags.some(t => activeTags.has(t)));
-                const matchesSearch = post.title.toLowerCase().includes(lowerQuery) ||
-                    post.id.includes(lowerQuery) ||
-                    (post.summary && post.summary.toLowerCase().includes(lowerQuery));
+                const matchesSearch = fuzzyMatch(lowerQuery, post.title) ||
+                    fuzzyMatch(lowerQuery, post.id) ||
+                    fuzzyMatch(lowerQuery, post.summary);
                 return matchesTag && matchesSearch;
             });
             currentPage = 1;
@@ -1594,7 +1586,11 @@
                 item.className = 'article-list-item';
                 if (post.id === currentPostId) item.classList.add('active');
                 item.dataset.id = post.id;
-                item.innerHTML = `<div class="list-title">${escapeHTML(post.title)}</div><div class="list-meta"><span>${escapeHTML(post.date)}</span></div>`;
+                
+                const searchQuery = document.getElementById('search-input').value;
+                const highlightedTitle = highlightText(post.title, searchQuery);
+                
+                item.innerHTML = `<div class="list-title">${highlightedTitle}</div><div class="list-meta"><span>${escapeHTML(post.date)}</span></div>`;
                 item.onclick = () => loadArticle(post);
                 listContainer.appendChild(item);
             });
@@ -1675,8 +1671,12 @@
             history.pushState({ id: post.id }, '', newUrl);
             updateNavButtonsState();
 
-            setTimeout(() => articleView.classList.add('visible'), 50);
+            setTimeout(() => {
+                articleView.classList.add('visible');
+                if (window.updateReadingProgress) window.updateReadingProgress();
+            }, 50);
             document.querySelector('.main-content').scrollTop = 0;
+            window.scrollTo(0, 0); // For mobile
         }
 
         /* --- 3. DYNAMIC ToC LOGIC --- */
