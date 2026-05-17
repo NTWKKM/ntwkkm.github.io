@@ -14,6 +14,7 @@ Static personal website hosted on GitHub Pages (`ntwkkm.github.io`). Serves as a
 | `blog.html`            | Research blog reader — sidebar list + article detail view  |
 | `tracking/index.html`  | Package tracking dashboard — Thailand Post status viewer   |
 | `fray/index.html`      | Fray Memory Dashboard — Auto-synced from `openclaw-config` |
+| `pl/index.html`        | `[NEW]` NTWKKM Knowledge Vault — Auto-synced from private `NTWKKM/pl` |
 | `manifest.json`        | `[NEW]` PWA manifest — installable web app experience      |
 | `sw.js`                | `[NEW]` Service Worker — offline caching and resilience    |
 | `shared.js`            | `[NEW]` Global utilities (fetch fallbacks, UI, search, a11y)|
@@ -45,6 +46,14 @@ Static Data:
 Observability Data (Auto-Synced):
   ├── fray/index.html        → Dashboard UI (Pushed from openclaw-config)
   └── fray/dashboard-snapshot.json → Local Fray system state metrics
+
+Private Repository Synchronization (pl/):
+  pl/ repository (Private):
+    └── Triggers update-pl-site repository_dispatch on push
+  GitHub Actions (pages-build-deployment.yml):
+    ├── Clones private NTWKKM/pl repository using PAT_FOR_PL
+    ├── Injects into pl/ subdirectory during build
+    └── Deploys securely to GitHub Pages without exposing repo access
 
 Package Tracking Pipeline:
   n8n Workflow 4 (add-tracking, on-demand via webhook):
@@ -340,12 +349,26 @@ This section details the architectural pipeline for the Fray Dashboard, illustra
 | **GitHub API** | Direct file commits (`papers.json`, `latest_updates.json`, `track_list.json`) |
 | **Thailand Post API** | Track & Trace barcode status polling (2-step token auth, Workflow 4 + GitHub Actions) |
 
+## NTWKKM Knowledge Vault (`pl/`)
+
+The NTWKKM Knowledge Vault is an automated, dynamic resource hub and clinical informatics dashboard hosted in a separate private repository (`NTWKKM/pl`) and securely aggregated into the main site at build time.
+
+### System Components
+1. **Frontend Interface:** Built with vanilla HTML/CSS/JS, enforcing professional accessibility standards (WCAG 2.1) and dynamic theming. Features passcode authentication securely hashed client-side via Web Crypto API.
+2. **Workflow Visualization:** Client-side viewer rendering automated n8n workflows using Cytoscape.js and Dagre algorithms from JSON payloads.
+3. **Automated Data Pipeline:** Bookmarking and external link management is fully automated via an n8n workflow leveraging Google Gemini for AI formatting and deduplication.
+
+### Security & Maintenance Protocols
+- **Build-Time Aggregation (`pages-build-deployment.yml`):** Utilizes a scoped Personal Access Token (PAT) to clone the private `NTWKKM/pl` repository into the `pl/` subdirectory during the GitHub Actions deployment phase. The frontend UI and code logic function natively at `ntwkkm.github.io/pl/` without exposing the original repository structure.
+- **Cross-Repository Synchronization:** A `trigger-main-repo.yml` workflow in the private `pl` repository sends a `repository_dispatch` payload to this main repository upon any push, triggering an automated rebuild.
+- **Stateless Execution:** Fetches data directly from GitHub infrastructure (Tree API), ensuring real-time accuracy and high availability without a backend database.
+
 ## CI/CD Workflows
 
 | Workflow | Trigger | Concurrency Group | Purpose |
 | --- | --- | --- | --- |
 | `process-blog-data.yml` | Push to `latest_updates.json` or manual | `blog-data-processing` | Merge, deduplicate, chunk blog data |
-| `pages-build-deployment.yml` | Push to `main` or manual | `pages` | Build and deploy to GitHub Pages |
+| `pages-build-deployment.yml` | Push to `main`, manual, or `repository_dispatch` | `pages` | Build, fetch private `pl` repo, and deploy to Pages |
 | `update-readme.yml` | Push to `main` (ignores `README.md`, `latest_updates.json`) | `readme-update` | Auto-generate repository tree in README |
 | `track-packages.yml` | Schedule (4x/day), push to `track_list.json`, or manual | `package-tracking` | Poll Thailand Post API, update tracking status |
 
