@@ -1,136 +1,18 @@
 {
-  "generated_at": "2026-05-18T01:00:52Z",
-  "system_health": {
-    "version": 1,
-    "last_updated": "2026-05-17T18:17:00.277389Z",
-    "jobs": {
-      "telemetry_security": {
-        "last_run": "2026-05-17T18:17:00.277389Z",
-        "status": "success",
-        "runs_24h": 1,
-        "last_error": null
-      },
-      "mac_observer": {
-        "last_run": "2026-05-17T18:17:00.277389Z",
-        "status": "success",
-        "runs_24h": 1,
-        "last_error": null
-      },
-      "n8n_health": {
-        "last_run": "2026-05-17T18:17:00.277389Z",
-        "status": "success",
-        "runs_24h": 1,
-        "last_error": null
-      },
-      "reflection": {
-        "last_run": null,
-        "status": "pending",
-        "runs_24h": 0,
-        "last_error": null
-      },
-      "security_gate": {
-        "last_run": null,
-        "status": "pending",
-        "runs_24h": 0,
-        "last_error": null
-      },
-      "lifestyle_sync": {
-        "last_run": null,
-        "status": "pending",
-        "runs_24h": 0,
-        "last_error": null
-      },
-      "daily_briefing": {
-        "last_run": null,
-        "status": "pending",
-        "runs_24h": 0,
-        "last_error": null
-      },
-      "session_cleanup": {
-        "last_run": null,
-        "status": "pending",
-        "runs_24h": 0,
-        "last_error": null,
-        "files_removed": 12,
-        "bytes_recovered": 10485760
-      }
-    },
-    "token_usage_24h": {
-      "ollama": 45000,
-      "google": 125000
-    },
-    "alerts_pending": 0
+  "system": {
+    "status": "IDLE",
+    "security_lock": false,
+    "circuit_breaker": "CLOSED",
+    "timestamp": ""
   },
-  "circuit_breakers": {
-    "n8n": {
-      "state": "OPEN",
-      "errors": 1,
-      "last_error_ts": "2026-05-17T18:17:01Z"
-    },
-    "google": {
-      "state": "CLOSED",
-      "errors": 0,
-      "last_error_ts": null
-    },
-    "ollama": {
-      "state": "CLOSED",
-      "errors": 0,
-      "last_error_ts": null
-    },
-    "last_checked": "2026-05-17T18:17:01Z"
+  "metrics": {
+    "cpu_load": 0,
+    "ram_used_gb": 0,
+    "battery_pct": 0,
+    "network_status": "unknown"
   },
-  "heartbeat": {
-    "last_security_check": "2026-05-16T17:50:00Z",
-    "last_calendar_check": "2026-05-16T13:48:00Z",
-    "last_email_check": "2026-05-16T13:48:00Z",
-    "last_n8n_check": "2026-05-16T13:31:00Z",
-    "last_mac_check": "failed",
-    "last_reflection": "2026-05-16T17:15:00Z"
-  },
-  "degradation_tier": {
-    "tier": "full",
-    "reason": null,
-    "since": null
-  },
-  "context_snapshot": {
-    "version": 1,
-    "metadata": {
-      "snapshot_ts": "2026-05-17T18:17:00Z",
-      "prune_after_ts": null
-    },
-    "ttl_hours": 24,
-    "degradation_tier": "full",
-    "active_context": "idle",
-    "last_user_active": null,
-    "active_task": {
-      "task_id": null,
-      "domain": null,
-      "last_action_ts": null
-    },
-    "current_resource_load": {
-      "cpu_load": "14.58",
-      "ram_used_gb": "7.368",
-      "battery_pct": "45",
-      "network_status": "online"
-    },
-    "recent_errors": [],
-    "subagent_outputs": {}
-  },
-  "memory_log": [
-    {
-      "timestamp": "2026-05-17T18:10:00Z",
-      "level": "info",
-      "message": "Initialized Project Fractal dashboard pipeline",
-      "confidence": 1,
-      "source": "system"
-    }
-  ],
-  "reflections": [],
-  "delivery_queue": {
-    "version": 1,
-    "description": "Offline resilience queue. When network is unavailable or Telegram delivery fails, subagent outputs are queued here for later delivery.",
-    "max_retry": 3,
-    "flush_on_reconnect": true,
-    "items": []
+  "metadata": {
+    "agent": "Fray-Orchestrator",
+    "version": "1.0.0"
   }
 }
