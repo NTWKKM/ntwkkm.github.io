@@ -7,15 +7,14 @@ on:
     branches:
       - main
     paths-ignore:
-      - 'README.md'
-      - 'latest_updates.json' # ป้องกันไม่ให้รันตอน n8n เพิ่งส่งไฟล์มา (ให้รอ process-blog-data รันให้เสร็จก่อน)
+      - "README.md"
+      - "latest_updates.json" # ป้องกันไม่ให้รันตอน n8n เพิ่งส่งไฟล์มา (ให้รอ process-blog-data รันให้เสร็จก่อน)
   workflow_dispatch:
   workflow_call:
 
 permissions:
-  contents: write  # ขอสิทธิ์ในการเขียนไฟล์ (Commit/Push)
+  contents: write # ขอสิทธิ์ในการเขียนไฟล์ (Commit/Push)
 
-# *** ป้องกันการ Push ชนกันของ GitHub Actions ***
 concurrency:
   group: readme-update
   cancel-in-progress: false
@@ -25,19 +24,26 @@ jobs:
     runs-on: ubuntu-latest
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-      
+
     steps:
       # 1. Checkout โค้ด
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} 
-          
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       # 2. ติดตั้ง Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: "24"
+
+      # ---> เพิ่มสเต็ปนี้: เพื่อดึงไฟล์ที่มีการอัปเดตล่าสุดป้องกันการ push ชนกัน <---
+      - name: Pull latest changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull origin main --rebase
 
       # 3. รันสคริปต์ Node.js เพื่อสร้าง README.md ใหม่
       - name: Generate New README Content
@@ -48,5 +54,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "docs: Auto-update Repository Contents in README.md"
-          file_pattern: 'README.md'
-
+          file_pattern: "README.md"
