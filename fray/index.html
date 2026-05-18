@@ -443,21 +443,61 @@
             color: var(--primary);
         }
 
+        .brand-group h1.dashboard-nav-title {
+            margin: 0;
+            font-size: 1.35rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-group .dashboard-nav-sync {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-top: 2px;
+        }
+
+        .nav-btn {
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.85rem;
+            background: var(--bg-card);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
         /* --- RESPONSIVE STYLES --- */
         @media (max-width: 640px) {
-            .brand-group h1 {
-                font-size: 1.3rem;
+            .brand-group h1.dashboard-nav-title {
+                font-size: 1.05rem;
             }
 
-            .brand-group p {
-                font-size: 0.75rem;
+            .brand-group .dashboard-nav-sync {
+                font-size: 0.7rem;
             }
 
-            .nav-highlight span {
+            .nav-highlight span, .nav-btn span {
                 display: none;
             }
 
-            .nav-highlight {
+            .nav-highlight, .nav-btn {
                 padding: 0;
                 width: 36px;
                 height: 36px;
@@ -467,6 +507,11 @@
 
             .nav-highlight::after {
                 content: '📝';
+                font-size: 1rem;
+            }
+
+            .nav-btn::after {
+                content: '🏠';
                 font-size: 1rem;
             }
 
@@ -488,13 +533,17 @@
     <header class="animate-entry" role="banner">
         <nav class="container header-content" aria-label="Main navigation">
             <div class="brand-group">
-                <a href="../index.html" style="text-decoration: none;" aria-label="Back to home">
-                    <h1>NTWKKM</h1>
-                </a>
-                <p>Emergency Medicine & Clinical Informatics</p>
+                <h1 class="dashboard-nav-title">Fray Telemetry Dashboard</h1>
+                <div class="dashboard-nav-sync">
+                    Last Telemetry Sync: <time id="timestamp-val" class="metric-value" style="display: inline-block; font-size: 0.78rem; font-weight: 600; font-family: 'JetBrains Mono', 'Courier New', monospace;">-</time>
+                </div>
             </div>
 
             <div class="controls">
+                <a href="../index.html" class="nav-btn" aria-label="Go to Home Portal">
+                    <span>🏠 Home</span>
+                </a>
+
                 <a href="../blog.html" class="nav-highlight" aria-label="Read Research Blog">
                     <span>📝 Research Blog</span>
                 </a>
@@ -507,16 +556,7 @@
 
     <main class="container" role="main">
 
-        <section id="observability-section" class="animate-entry delay-1" aria-label="Fray Observability Core">
-            <div class="section-header">
-                <div style="display: flex; flex-direction: column; gap: 4px;">
-                    <h2 class="section-title" style="margin: 0;">Fray Telemetry Dashboard</h2>
-                    <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">
-                        Last Telemetry Sync: <time id="timestamp-val" class="metric-value" style="display: inline-block; font-size: 0.8rem; font-weight: 600; font-family: 'JetBrains Mono', 'Courier New', monospace;">-</time>
-                    </div>
-                </div>
-                <div class="section-line"></div>
-            </div>
+        <section id="observability-section" class="animate-entry delay-1" aria-label="Fray Observability Core" style="margin-top: 10px;">
 
             <!-- Loading State (Skeletons) -->
             <div id="dashboard-loader" aria-hidden="true">
