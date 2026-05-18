@@ -3,23 +3,32 @@
     "status": "ONLINE",
     "tier": "full",
     "security_lock": false,
-    "circuit_breaker": "CLOSED",
+    "circuit_breaker": "{\n  \"n8n\": \"CLOSED\",\n  \"last_updated\": \"2026-05-18T20:00:00Z\"\n}",
     "mindset": "Sati-Observation",
-    "last_reflection": "{\"timestamp\": \"2026-05-18\", \"category\": \"security\", \"fact\": \"Telemetry and Security cycle completed on 2026-05-18; Buddhist lock verification performed and security.lock found to be empty.\"}",
-    "timestamp": "2026-05-18T12:31:58Z"
+    "last_reflection": "{\"timestamp\": \"2026-05-18\", \"category\": \"system_audit\", \"fact\": \"Telemetry and Security cycle for 2026-05-18 completed; Buddhist lock verification performed, security.lock confirmed empty.\"}",
+    "timestamp": "2026-05-18T17:00:15Z"
   },
   "metrics": {
-    "system_load": "3.77, 2.72, 2.29",
-    "cpu_usage": {
-      "user": "15.69%",
-      "sys": "30.81%",
-      "idle": "53.48%"
+    "timestamp": "2026-05-18T22:12:32Z",
+    "system_loads": {
+      "load_avg": [
+        1.14,
+        2,
+        2.25
+      ],
+      "cpu_usage": {
+        "user": "6.86%",
+        "sys": "12.87%",
+        "idle": "80.25%"
+      },
+      "physical_memory": {
+        "used": "7534M",
+        "unused": "98M"
+      }
     },
-    "memory": {
-      "phys_mem_used": "7549M",
-      "phys_mem_unused": "84M"
-    },
-    "timestamp": "2026-05-18T18:22:04Z"
+    "infrastructure": {
+      "n8n": "Healthy"
+    }
   },
   "metadata": {
     "agent": "Fray-Orchestrator",
