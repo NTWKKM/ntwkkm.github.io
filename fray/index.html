@@ -1,68 +1,822 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fray 🦋 Status Center</title>
+    <title>Fray Cognitive Observability Core | NTWKKM</title>
+    <meta name="description"
+        content="Fray Mindset and Observability Dashboard. Real-time telemetry, cognitive reflection logs, and system operations metrics.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Fray Cognitive Observability Core | NTWKKM">
+    <meta property="og:description"
+        content="Real-time cognitive mindset logs, circuit breakers, and telemetry updates.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ntwkkm.github.io/fray/">
+    <link rel="canonical" href="https://ntwkkm.github.io/fray/">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23244885'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='white' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../shared.css">
+    
     <style>
-        body { background: #0f17 la; color: #f8fafc; font-family: 'Inter', system-ui, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-        .card { background: #1e293b; padding: 2rem; border-radius: 1.5rem; box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.5); border: 1px solid #334155; width: 450px; transition: all 0.3s ease; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-        .status-pill { padding: 0.3rem 0.8rem; border-radius: 9999px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; transition: background 0.5s ease; }
-        .full { background: #065f46; color: #34d399; }
-        .degraded { background: #854d0e; color: #fde047; }
-        .critical { background: #7f1d1d; color: #fca5a5; }
-        .metric { display: flex; justify-content: space-between; margin: 0.8rem 0; font-family: 'JetBrains Mono', monospace; border-bottom: 1px solid #334155; padding-bottom: 0.4rem; }
-        .label { color: #94a3b8; font-size: 0.9rem; }
-        .value { color: #f1f5f9; font-weight: 600; }
-        .reflection-box { background: #0f172a; padding: 1rem; border-radius: 0.75rem; margin: 1rem 0; font-style: italic; font-size: 0.85rem; color: #cbd5e1; border-left: 4px solid #38bdf8; }
-        .footer { margin-top: 1.5rem; text-align: center; font-size: 0.7rem; color: #64748b; }
+        /* --- THEME OVERRIDES --- */
+        :root {
+            --primary: #244885;
+            --primary-hover: #1a3663;
+            --accent: #E63946;
+            --bg-body: #F3F4F6;
+            --bg-card: #FFFFFF;
+            --text-main: #1F2937;
+            --text-muted: #6B7280;
+            --border: #E5E7EB;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --radius: 16px;
+            --toggle-bg: #E5E7EB;
+            --scrollbar-thumb: #CBD5E1;
+        }
+
+        [data-theme="dark"] {
+            --primary: #60A5FA;
+            --primary-hover: #93C5FD;
+            --accent: #F87171;
+            --bg-body: #0F172A;
+            --bg-card: #1E293B;
+            --text-main: #F1F5F9;
+            --text-muted: #94A3B8;
+            --border: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+            --toggle-bg: #334155;
+            --scrollbar-thumb: #475569;
+        }
+
+        body {
+            font-family: 'Inter', 'Sarabun', -apple-system, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-entry {
+            opacity: 0;
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background: var(--bg-card);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: color-mix(in srgb, var(--bg-card), transparent 10%);
+            transition: background-color 0.4s ease, border-color 0.4s ease;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-group h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-group p {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.2px;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-highlight {
+            background-color: var(--primary);
+            color: #ffffff !important;
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--primary);
+        }
+
+        .nav-highlight:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* --- SECTION HEADER --- */
+        .section-header {
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-left: 8px;
+            margin-bottom: 2px;
+        }
+
+        .section-line {
+            height: 1px;
+            background: var(--border);
+            flex-grow: 1;
+            opacity: 0.5;
+        }
+
+        /* --- REDESIGNED DASHBOARD CORE --- */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary);
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- TELEMETRY ROW ELEMENTS --- */
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 8px;
+        }
+
+        .metric-row:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .metric-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .metric-value {
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* --- STATUS PILLS --- */
+        .status-pill {
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .status-pill.success {
+            background-color: color-mix(in srgb, #10B981 15%, transparent);
+            color: #10B981;
+            border: 1px solid color-mix(in srgb, #10B981 30%, transparent);
+        }
+
+        [data-theme="dark"] .status-pill.success {
+            background-color: color-mix(in srgb, #34D399 20%, transparent);
+            color: #34D399;
+        }
+
+        .status-pill.danger {
+            background-color: color-mix(in srgb, #EF4444 15%, transparent);
+            color: #EF4444;
+            border: 1px solid color-mix(in srgb, #EF4444 30%, transparent);
+        }
+
+        [data-theme="dark"] .status-pill.danger {
+            background-color: color-mix(in srgb, #F87171 20%, transparent);
+            color: #F87171;
+        }
+
+        .status-pill.warning {
+            background-color: color-mix(in srgb, #F59E0B 15%, transparent);
+            color: #F59E0B;
+            border: 1px solid color-mix(in srgb, #F59E0B 30%, transparent);
+        }
+
+        [data-theme="dark"] .status-pill.warning {
+            background-color: color-mix(in srgb, #FBBF24 20%, transparent);
+            color: #FBBF24;
+        }
+
+        /* --- PROGRESS GAUGES --- */
+        .gauge-wrapper {
+            width: 100%;
+            margin-top: 6px;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background-color: var(--border);
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 4px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            width: 0%;
+            transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* --- PULSING INDICATOR --- */
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10B981;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulse-animation 2s infinite;
+        }
+
+        @keyframes pulse-animation {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        /* --- COGNITIVE REFLECTION STYLES --- */
+        .reflection-card {
+            grid-column: 1 / -1;
+        }
+
+        .reflection-box {
+            background: color-mix(in srgb, var(--primary) 4%, var(--bg-card));
+            padding: 24px;
+            border-radius: 12px;
+            margin-top: 10px;
+            border-left: 4px solid var(--accent);
+            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        .reflection-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 12px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        /* --- SKELETON LOADER GRID --- */
+        #dashboard-loader {
+            display: block;
+        }
+
+        #dashboard-container {
+            display: none;
+        }
+
+        .skeleton-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .skeleton-block {
+            height: 250px;
+        }
+
+        .skeleton-full {
+            grid-column: 1 / -1;
+            height: 180px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            margin-top: auto;
+        }
+
+        footer a {
+            color: var(--text-main);
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+
+        /* --- RESPONSIVE STYLES --- */
+        @media (max-width: 640px) {
+            .brand-group h1 {
+                font-size: 1.3rem;
+            }
+
+            .brand-group p {
+                font-size: 0.75rem;
+            }
+
+            .nav-highlight span {
+                display: none;
+            }
+
+            .nav-highlight {
+                padding: 0;
+                width: 36px;
+                height: 36px;
+                justify-content: center;
+                border-radius: 50%;
+            }
+
+            .nav-highlight::after {
+                content: '📝';
+                font-size: 1rem;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
+
 <body>
-    <div class="card">
-        <div class="header">
-            <h2 style="margin:0; font-size: 1.5rem;">Fray 🦋 <span style="font-size: 0.8rem; color: #64748b;">v1.1</span></h2>
-            <span id="tier" class="status-pill full">FULL</span>
+
+    <a href="#observability-section" class="skip-to-content">Skip to content</a>
+
+    <header class="animate-entry" role="banner">
+        <nav class="container header-content" aria-label="Main navigation">
+            <div class="brand-group">
+                <a href="../index.html" style="text-decoration: none;" aria-label="Back to home">
+                    <h1>NTWKKM</h1>
+                </a>
+                <p>Emergency Medicine & Clinical Informatics</p>
+            </div>
+
+            <div class="controls">
+                <a href="../blog.html" class="nav-highlight" aria-label="Read Research Blog">
+                    <span>📝 Research Blog</span>
+                </a>
+
+                <button class="theme-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container" role="main">
+
+        <section id="observability-section" class="animate-entry delay-1" aria-label="Fray Observability Core">
+            <div class="section-header">
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                    <h2 class="section-title" style="margin: 0;">Fray Telemetry Dashboard</h2>
+                    <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 500;">
+                        Last Telemetry Sync: <time id="timestamp-val" class="metric-value" style="display: inline-block; font-size: 0.8rem; font-weight: 600; font-family: 'JetBrains Mono', 'Courier New', monospace;">-</time>
+                    </div>
+                </div>
+                <div class="section-line"></div>
+            </div>
+
+            <!-- Loading State (Skeletons) -->
+            <div id="dashboard-loader" aria-hidden="true">
+                <div class="skeleton-grid">
+                    <div class="skeleton-card skeleton-block">
+                        <div class="skeleton-line w-60"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line w-80"></div>
+                        <div class="skeleton-line w-40"></div>
+                    </div>
+                    <div class="skeleton-card skeleton-block">
+                        <div class="skeleton-line w-60"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line w-80"></div>
+                        <div class="skeleton-line w-40"></div>
+                    </div>
+                    <div class="skeleton-card skeleton-full">
+                        <div class="skeleton-line w-40"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line w-80"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Dashboard Layout -->
+            <div id="dashboard-container" class="dashboard-grid">
+                
+                <!-- Card 1: Cognitive State Diagnostics -->
+                <article class="card" aria-labelledby="diagnostics-heading">
+                    <h3 id="diagnostics-heading" class="card-title">
+                        🧠 System Diagnostics
+                    </h3>
+                    
+                    <div class="metric-row">
+                        <span class="metric-label">Operational State</span>
+                        <span class="metric-value">
+                            <span class="pulse-dot" aria-hidden="true"></span>
+                            ONLINE
+                        </span>
+                    </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">Current Mindset</span>
+                        <span id="mindset-text" class="metric-value">-</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">Circuit Breaker</span>
+                        <span id="circuit-pill" class="status-pill success">CLOSED</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">Security Gate</span>
+                        <span id="lock-pill" class="status-pill success">UNLOCKED</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">Operations Class</span>
+                        <span id="tier-pill" class="status-pill success">FULL</span>
+                    </div>
+                </article>
+
+                <!-- Card 2: Hardware Telemetry -->
+                <article class="card" aria-labelledby="hardware-heading">
+                    <h3 id="hardware-heading" class="card-title">
+                        ⚡ Hardware Telemetry
+                    </h3>
+
+                    <div class="metric-row">
+                        <span class="metric-label">System Load</span>
+                        <span id="system-load-val" class="metric-value">-</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <div style="width: 100%;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span class="metric-label">CPU Utilization</span>
+                                <span id="cpu-val" class="metric-value">-</span>
+                            </div>
+                            <div class="gauge-wrapper">
+                                <div class="progress-bar-container" aria-hidden="true">
+                                    <div id="cpu-fill" class="progress-bar-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">Physical Memory</span>
+                        <span id="memory-val" class="metric-value">-</span>
+                    </div>
+
+                    <div id="extra-stats-row" class="metric-row" style="display: none;">
+                        <span class="metric-label">Local Host Telemetry</span>
+                        <span id="extra-stats-val" class="metric-value">-</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">Telemetry Agent</span>
+                        <span id="agent-val" class="metric-value">-</span>
+                    </div>
+                </article>
+
+                <!-- Card 3: Cognitive Reflection Log -->
+                <article class="card reflection-card" aria-labelledby="reflection-heading">
+                    <h3 id="reflection-heading" class="card-title">
+                        🦋 Latest Cognitive Reflection
+                    </h3>
+                    
+                    <div id="reflection-content" class="reflection-box">
+                        Awaiting system telemetry synchronization...
+                    </div>
+                    
+                    <div id="reflection-meta" class="reflection-meta">
+                        <!-- Filled dynamically -->
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="animate-entry delay-3">
+        <div style="opacity: 0.9;">
+            &copy; 2025–<span id="footer-year">2026</span> <a href="https://github.com/NTWKKM/" target="_blank"
+                style="color: inherit; text-decoration: none; font-weight: 700; border-bottom: 1px dotted var(--text-muted);">NTWKKM</a>.
+            All Rights Reserved.
         </div>
-        <div class="metric"><span class="label">Current Mindset</span> <span id="mindset" class="value">-</span></div>
-        <div class="metric"><span class="label">Circuit Breaker</span> <span id="circuit" class="value">-</span></div>
-        <div class="metric"><span class="label">Security Lock</span> <span id="lock" class="value">-</span></div>
-        
-        <div style="margin: 1.5rem 0 0.5rem 0; color: #64748b; font-size: 0.8rem; font-weight: 600;">CORE METRICS</div>
-        <div id="metrics">
-            <div class="metric"><span class="label">CPU Load</span> <span id="cpu" class="value">-</span></div>
-            <div class="metric"><span class="label">RAM Usage</span> <span id="ram" class="value">-</span></div>
-            <div class="metric"><span class="label">Battery</span> <span id="bat" class="value">-</span></div>
-            <div class="metric"><span class="label">Network</span> <span id="net" class="value">-</span></div>
+        <div style="margin-top: 8px; font-size: 0.85rem; opacity: 0.7;">
+            Bridging Clinical Practice with Digital Innovation.
         </div>
-        
-        <div style="margin: 1.5rem 0 0.5rem 0; color: #64748b; font-size: 0.8rem; font-weight: 600;">LATEST REFLECTION</div>
-        <div id="reflection" class="reflection-box">Awaiting first reflection...</div>
-        
-        <div class="footer">Last Sync: <span id="timestamp">-</span></div>
-    </div>
+    </footer>
+
+    <!-- Shared Scripts -->
+    <script src="../shared.js"></script>
+    
     <script>
+        // Initialize screen reader support
+        document.addEventListener('DOMContentLoaded', () => {
+            initScreenReaderAnnouncer();
+        });
+
+        // Main telemetry sync update loop
         async function updateDashboard() {
+            const container = document.getElementById('dashboard-container');
+            const loader = document.getElementById('dashboard-loader');
+            
             try {
-                const response = await fetch('dashboard-snapshot.json');
-                const data = await response.json();
+                // Hour-based cache-buster to limit traffic overhead
+                const currentHour = new Date().toISOString().slice(0, 13);
+                const data = await fetchWithFallback(`dashboard-snapshot.json?v=${currentHour}`, null, 2);
+                
+                if (!data) {
+                    throw new Error('Null or invalid payload received.');
+                }
+                
+                // Toggle active views
+                loader.style.display = 'none';
+                container.style.display = 'grid';
+                
+                // Diagnostics values
                 const tier = data.system.tier || 'full';
-                document.getElementById('tier').innerText = tier.toUpperCase();
-                document.getElementById('tier').className = 'status-pill ' + tier;
-                document.getElementById('mindset').innerText = data.system.mindset || 'Sati-Observation';
-                document.getElementById('circuit').innerText = data.system.circuit_breaker;
-                document.getElementById('lock').innerText = data.system.security_lock ? 'LOCKED' : 'UNLOCKED';
-                document.getElementById('cpu').innerText = data.metrics.cpu_load + '%';
-                document.getElementById('ram').innerText = data.metrics.ram_used_gb + ' GB';
-                document.getElementById('bat').innerText = data.metrics.battery_pct + '%';
-                document.getElementById('net').innerText = data.metrics.network_status;
-                document.getElementById('reflection').innerText = data.system.last_reflection || 'No reflection recorded.';
-                document.getElementById('timestamp').innerText = data.system.timestamp;
-            } catch (e) { console.error("Fetch failed", e); }
+                const mindset = data.system.mindset || 'Sati-Observation';
+                const circuit = data.system.circuit_breaker || 'CLOSED';
+                const lock = data.system.security_lock;
+                
+                // Operations tier badge
+                const tierPill = document.getElementById('tier-pill');
+                tierPill.innerText = tier.toUpperCase();
+                if (tier === 'full') {
+                    tierPill.className = 'status-pill success';
+                } else if (tier === 'degraded') {
+                    tierPill.className = 'status-pill warning';
+                } else {
+                    tierPill.className = 'status-pill danger';
+                }
+                
+                // Current Mindset state details
+                document.getElementById('mindset-text').innerText = mindset;
+                
+                // Circuit Breaker status
+                const circuitPill = document.getElementById('circuit-pill');
+                circuitPill.innerText = circuit;
+                if (circuit === 'CLOSED') {
+                    circuitPill.className = 'status-pill success';
+                } else {
+                    circuitPill.className = 'status-pill danger';
+                }
+                
+                // Security Lock status
+                const lockPill = document.getElementById('lock-pill');
+                lockPill.innerText = lock ? 'LOCKED' : 'UNLOCKED';
+                if (lock) {
+                    lockPill.className = 'status-pill danger';
+                } else {
+                    lockPill.className = 'status-pill success';
+                }
+                
+                // Core hardware telemetry
+                // 1. System Load
+                const systemLoad = data.metrics.system_load || (data.metrics.cpu_load ? `${data.metrics.cpu_load}%` : '-');
+                document.getElementById('system-load-val').innerText = systemLoad;
+                
+                // 2. CPU usage details
+                let cpuPct = 0;
+                let cpuText = '-';
+                if (data.metrics.cpu_usage) {
+                    const user = parseFloat(data.metrics.cpu_usage.user) || 0;
+                    const sys = parseFloat(data.metrics.cpu_usage.sys) || 0;
+                    cpuPct = Math.round(user + sys);
+                    cpuText = `${cpuPct}% (User: ${data.metrics.cpu_usage.user}, Sys: ${data.metrics.cpu_usage.sys})`;
+                } else if (data.metrics.cpu_load !== undefined) {
+                    cpuPct = Math.round(parseFloat(data.metrics.cpu_load)) || 0;
+                    cpuText = `${cpuPct}%`;
+                }
+                document.getElementById('cpu-val').innerText = cpuText;
+                document.getElementById('cpu-fill').style.width = `${cpuPct}%`;
+                
+                // 3. Physical memory utilization
+                let memText = '-';
+                if (data.metrics.memory) {
+                    memText = `${data.metrics.memory.phys_mem_used} used (Free: ${data.metrics.memory.phys_mem_unused})`;
+                } else if (data.metrics.ram_used_gb !== undefined) {
+                    memText = `${data.metrics.ram_used_gb} GB used`;
+                }
+                document.getElementById('memory-val').innerText = memText;
+                
+                // 4. Legacy fallbacks (Battery / Network)
+                const batVal = data.metrics.battery_pct !== undefined ? `${data.metrics.battery_pct}%` : null;
+                const netVal = data.metrics.network_status || null;
+                const extraStatsRow = document.getElementById('extra-stats-row');
+                if (batVal || netVal) {
+                    extraStatsRow.style.display = 'flex';
+                    let extraText = '';
+                    if (batVal) extraText += `⚡ Battery: ${batVal}`;
+                    if (netVal) {
+                        if (extraText) extraText += ' | ';
+                        extraText += `🌐 Network: ${netVal}`;
+                    }
+                    document.getElementById('extra-stats-val').innerText = extraText;
+                } else {
+                    extraStatsRow.style.display = 'none';
+                }
+                
+                // 5. Version / Agent details
+                const agent = data.metadata ? `${data.metadata.agent} v${data.metadata.version}` : 'Fray v1.1';
+                document.getElementById('agent-val').innerText = agent;
+                
+                // Telemetry Reflection
+                const rawReflection = data.system.last_reflection || 'No reflection recorded.';
+                let reflectionFact = '';
+                let reflectionMeta = '';
+                try {
+                    // Try parsing JSON format if it exists
+                    const parsed = JSON.parse(rawReflection);
+                    reflectionFact = parsed.fact || parsed.reflection || rawReflection;
+                    if (parsed.category || parsed.timestamp) {
+                        reflectionMeta = `
+                            ${parsed.category ? `🏷️ Category: ${escapeHTML(parsed.category)}` : ''}
+                            ${parsed.timestamp ? ` | ⏱️ Fact Date: ${escapeHTML(parsed.timestamp)}` : ''}
+                        `;
+                    }
+                } catch (e) {
+                    // Treat as standard string
+                    reflectionFact = rawReflection;
+                }
+                
+                document.getElementById('reflection-content').innerHTML = escapeHTML(reflectionFact);
+                document.getElementById('reflection-meta').innerHTML = reflectionMeta;
+                
+                // Sync Timestamps
+                document.getElementById('timestamp-val').innerText = data.system.timestamp || data.metrics.timestamp || '-';
+                
+                // Trigger Accessibility Announcement
+                announceToScreenReader('Fray system telemetry state synchronized successfully.');
+                
+            } catch (error) {
+                console.error("Fray telemetry fetch failed:", error);
+                loader.style.display = 'none';
+                container.style.display = 'none';
+                
+                // Safely render error UI fallback
+                const errDivId = 'dashboard-error-container';
+                let errDiv = document.getElementById(errDivId);
+                if (!errDiv) {
+                    errDiv = document.createElement('div');
+                    errDiv.id = errDivId;
+                    errDiv.style.margin = '2rem auto';
+                    errDiv.style.maxWidth = '600px';
+                    container.parentNode.appendChild(errDiv);
+                }
+                errDiv.innerHTML = createErrorUI('Connection to Fray telemetry endpoint lost.', updateDashboard);
+            }
         }
+
+        // Standard 30-second observibility interval
         setInterval(updateDashboard, 30000);
         updateDashboard();
     </script>
-</body
+</body>
+
 </html>
