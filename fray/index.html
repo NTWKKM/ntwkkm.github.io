@@ -15,7 +15,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500;600&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sarabun:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../shared.css">
@@ -30,19 +30,19 @@
             --primary-hover: #1a3663;
             --accent: #E63946;
             --accent-soft: rgba(230, 57, 70, 0.12);
-            --bg-body: #F0F2F5;
+            --bg-body: #F3F4F6;
             --bg-card: #FFFFFF;
-            --bg-surface: #F7F8FA;
-            --text-main: #111827;
+            --bg-surface: #F9FAFB;
+            --text-main: #1F2937;
             --text-secondary: #374151;
             --text-muted: #6B7280;
             --text-faint: #9CA3AF;
             --border: #E5E7EB;
             --border-strong: #D1D5DB;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-            --shadow: 0 4px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
-            --shadow-lg: 0 12px 40px rgba(0,0,0,0.10);
-            --radius: 12px;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --radius: 16px;
             --radius-sm: 8px;
             --toggle-bg: #E5E7EB;
             --state-ok: #059669;
@@ -60,24 +60,24 @@
         }
 
         [data-theme="dark"] {
-            --primary: #5A9FFF;
-            --primary-light: #7ab3ff;
+            --primary: #60A5FA;
+            --primary-light: #93C5FD;
             --primary-hover: #93C5FD;
             --accent: #F87171;
             --accent-soft: rgba(248,113,113,0.12);
-            --bg-body: #0B1120;
-            --bg-card: #111827;
-            --bg-surface: #1A2333;
+            --bg-body: #0F172A;
+            --bg-card: #1E293B;
+            --bg-surface: #0F172A;
             --text-main: #F1F5F9;
             --text-secondary: #CBD5E1;
             --text-muted: #94A3B8;
             --text-faint: #64748B;
-            --border: #1E2D3D;
-            --border-strong: #2D3F55;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-            --shadow: 0 4px 16px rgba(0,0,0,0.3);
-            --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
-            --toggle-bg: #1E2D3D;
+            --border: #334155;
+            --border-strong: #475569;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+            --toggle-bg: #334155;
             --state-ok: #10B981;
             --state-ok-bg: rgba(16,185,129,0.12);
             --state-ok-border: rgba(16,185,129,0.3);
@@ -89,7 +89,7 @@
             --state-err-border: rgba(248,113,113,0.3);
             --state-neutral: #94A3B8;
             --state-neutral-bg: rgba(148,163,184,0.1);
-            --progress-track: #1E2D3D;
+            --progress-track: #334155;
         }
 
         /* ====================================================
@@ -98,7 +98,7 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Sarabun', -apple-system, sans-serif;
+            font-family: 'Inter', 'Sarabun', -apple-system, sans-serif;
             background: var(--bg-body);
             color: var(--text-main);
             line-height: 1.6;
@@ -107,10 +107,10 @@
             transition: background 0.35s ease, color 0.35s ease;
         }
 
-        h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Inter', 'Sarabun', -apple-system, sans-serif; }
 
         .mono {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
             font-size: 0.85em;
         }
 
@@ -149,139 +149,166 @@
         .d4 { animation-delay: 0.28s; }
 
         /* ====================================================
-           TOP STATUS BANNER
+           HEADER & NAV (COMPACT)
         ==================================================== */
-        .status-banner {
-            background: var(--primary);
-            padding: 10px 0;
+        header {
+            background: var(--bg-card);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 30px;
             position: sticky;
             top: 0;
-            z-index: 200;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: color-mix(in srgb, var(--bg-card), transparent 10%);
+            transition: background-color 0.4s ease, border-color 0.4s ease;
         }
 
-        [data-theme="dark"] .status-banner {
-            background: #0D1B2E;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .banner-inner {
+        .header-content {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .banner-left {
-            display: flex;
             align-items: center;
-            gap: 20px;
         }
 
-        .banner-logo {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: #fff;
-            letter-spacing: -0.5px;
+        .brand-group {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
         }
 
-        [data-theme="dark"] .banner-logo { color: var(--primary); }
-
-        .banner-logo-dot {
-            width: 8px; height: 8px;
-            border-radius: 50%;
-            background: var(--accent);
-            flex-shrink: 0;
-        }
-
-        .banner-status-row {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .banner-pulse {
-            width: 7px; height: 7px;
-            border-radius: 50%;
-            background: #10B981;
-            animation: pulse-ring 2s infinite;
-            flex-shrink: 0;
-        }
-
-        .banner-status-text {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.72rem;
-            font-weight: 500;
-            color: rgba(255,255,255,0.75);
-            letter-spacing: 0.04em;
-        }
-
-        [data-theme="dark"] .banner-status-text { color: var(--text-muted); }
-
-        .banner-right {
+        .brand-title-row {
             display: flex;
             align-items: center;
             gap: 12px;
+            flex-wrap: wrap;
         }
 
-        .banner-nav-link {
-            font-family: 'Syne', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: rgba(255,255,255,0.7);
-            padding: 5px 14px;
-            border-radius: 6px;
-            border: 1px solid rgba(255,255,255,0.18);
-            transition: all 0.2s;
-            letter-spacing: 0.03em;
-        }
-        [data-theme="dark"] .banner-nav-link {
-            color: var(--text-muted);
-            border-color: var(--border);
-        }
-        .banner-nav-link:hover {
-            background: rgba(255,255,255,0.12);
-            color: #fff;
+        .brand-title-row h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            line-height: 1;
         }
 
-        .banner-nav-link.highlight {
-            background: var(--accent);
-            color: #fff;
-            border-color: var(--accent);
-        }
-        .banner-nav-link.highlight:hover {
-            background: #c62e3a;
-            border-color: #c62e3a;
+        .brand-badges {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .banner-theme-btn {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.18);
-            width: 32px; height: 32px;
-            border-radius: 6px;
-            cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-            color: rgba(255,255,255,0.8);
-            transition: all 0.2s;
+        .brand-badges .health-badge {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 0.68rem;
+            padding: 4px 10px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            border: 1px solid;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+        }
+
+        .brand-badges .health-badge.ok {
+            background: var(--state-ok-bg);
+            color: var(--state-ok);
+            border-color: var(--state-ok-border);
+        }
+
+        .brand-badges .health-badge.warn {
+            background: var(--state-warn-bg);
+            color: var(--state-warn);
+            border-color: var(--state-warn-border);
+        }
+
+        .brand-badges .health-badge.err {
+            background: var(--state-err-bg);
+            color: var(--state-err);
+            border-color: var(--state-err-border);
+        }
+
+        .brand-badges .health-badge.neutral {
+            background: var(--state-neutral-bg);
+            color: var(--state-neutral);
+            border-color: transparent;
+        }
+
+        .brand-badges .health-badge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
             flex-shrink: 0;
         }
-        [data-theme="dark"] .banner-theme-btn {
-            background: var(--bg-surface);
-            border-color: var(--border);
+
+        .brand-group p {
             color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.2px;
+            margin: 6px 0 0 0;
+            line-height: 1.2;
         }
-        .banner-theme-btn:hover { background: rgba(255,255,255,0.2); color: #fff; }
-        .banner-theme-btn svg { width: 15px; height: 15px; fill: currentColor; }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* --- Hotlink Button --- */
+        .nav-highlight {
+            background-color: var(--primary);
+            color: #ffffff !important;
+            padding: 8px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--primary);
+        }
+
+        .nav-highlight:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-link {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            padding: 6px 16px;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            transition: all 0.2s ease;
+            font-size: 0.8rem;
+            background: var(--bg-card);
+        }
+
+        .social-link:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
 
         /* ====================================================
            PAGE LAYOUT
         ==================================================== */
         .page-wrapper {
-            padding: 32px 0 60px;
+            padding: 0 0 60px;
         }
 
         /* ====================================================
@@ -405,7 +432,7 @@
         .vital-card:hover::before { opacity: 1; }
 
         .vital-label {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
             font-size: 0.68rem;
             font-weight: 500;
             color: var(--text-muted);
@@ -415,7 +442,7 @@
         }
 
         .vital-value {
-            font-family: 'Syne', sans-serif;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
             font-size: 1.6rem;
             font-weight: 700;
             color: var(--text-main);
@@ -482,7 +509,7 @@
         }
 
         .panel-title {
-            font-family: 'Syne', sans-serif;
+            font-family: 'Inter', 'Sarabun', -apple-system, sans-serif;
             font-size: 0.78rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -522,7 +549,7 @@
         }
 
         .data-val {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
             font-size: 0.82rem;
             font-weight: 500;
             color: var(--text-main);
@@ -538,7 +565,7 @@
             gap: 5px;
             padding: 3px 9px;
             border-radius: 4px;
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
             font-size: 0.68rem;
             font-weight: 600;
             letter-spacing: 0.06em;
@@ -581,7 +608,7 @@
         }
 
         .perf-value {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
             font-size: 0.82rem;
             font-weight: 600;
             color: var(--text-main);
@@ -637,7 +664,7 @@
         }
 
         .insight-label {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
             font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -665,7 +692,7 @@
         }
 
         .meta-tag {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
             font-size: 0.68rem;
             color: var(--text-faint);
             background: var(--bg-surface);
@@ -685,7 +712,7 @@
         }
 
         .section-divider-title {
-            font-family: 'Syne', sans-serif;
+            font-family: 'Inter', 'Sarabun', -apple-system, sans-serif;
             font-size: 0.78rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -731,7 +758,7 @@
         }
 
         .agent-name {
-            font-family: 'Syne', sans-serif;
+            font-family: 'Inter', 'Sarabun', -apple-system, sans-serif;
             font-size: 0.82rem;
             font-weight: 700;
             color: var(--text-main);
@@ -759,7 +786,7 @@
         }
 
         .agent-technical {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
             font-size: 0.67rem;
             color: var(--text-faint);
             background: var(--bg-surface);
@@ -781,7 +808,7 @@
         }
 
         .flt-btn {
-            font-family: 'IBM Plex Mono', monospace;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
             font-size: 0.7rem;
             font-weight: 600;
             padding: 5px 12px;
@@ -885,57 +912,46 @@
     <a href="#main-content" class="skip-to-content">Skip to content</a>
 
     <!-- ============================================================
-         TOP STATUS BANNER
+         HEADER & NAV (COMPACT)
     ============================================================ -->
-    <div class="status-banner" role="banner">
-        <div class="container banner-inner">
-            <div class="banner-left">
-                <div class="banner-logo">
-                    <div class="banner-logo-dot"></div>
-                    Fray
+    <header class="animate-entry" role="banner">
+        <nav class="container header-content" aria-label="Main navigation">
+            <div class="brand-group">
+                <div class="brand-title-row">
+                    <h1>NTWKKM</h1>
+                    <div class="brand-badges">
+                        <span id="header-agent-badge" class="health-badge neutral">
+                            <span class="dot"></span>
+                            <span id="header-agent-text">Fray-Orchestrator v1.1.4</span>
+                        </span>
+                        <span id="header-health-badge" class="health-badge ok">
+                            <span class="dot"></span>
+                            <span id="header-health-text">STABLE</span>
+                        </span>
+                    </div>
                 </div>
-                <div class="banner-status-row">
-                    <div class="banner-pulse" aria-hidden="true"></div>
-                    <span class="banner-status-text">
-                        SYNC: <time id="banner-timestamp">—</time>
-                    </span>
-                </div>
+                <p>Emergency Medicine & Clinical Informatics &middot; Telemetry Sync: <span id="banner-timestamp">—</span></p>
             </div>
-            <div class="banner-right">
-                <a href="../index.html" class="banner-nav-link" aria-label="Home">
+            <div class="controls">
+                <a href="../index.html" class="social-link" aria-label="Home">
                     <span>Home</span>
                 </a>
-                <a href="../blog.html" class="banner-nav-link highlight" aria-label="Research Blog">
-                    <span>Research Blog</span>
+                <a href="../blog.html" class="nav-highlight" aria-label="Research Blog">
+                    <span>📝 Research Blog</span>
                 </a>
-                <button class="banner-theme-btn" id="theme-toggle" aria-label="Toggle dark mode"></button>
+                <button class="theme-btn" id="theme-toggle" aria-label="Toggle Dark Mode"></button>
+                <a href="https://github.com/NTWKKM" target="_blank" class="social-link" aria-label="GitHub Profile">
+                    <span>GitHub Profile</span>
+                </a>
             </div>
-        </div>
-    </div>
+        </nav>
+    </header>
 
     <!-- ============================================================
          MAIN CONTENT
     ============================================================ -->
     <main class="page-wrapper" id="main-content">
         <div class="container">
-
-            <!-- Page heading row -->
-            <div class="page-header fade-up">
-                <div>
-                    <h1 class="page-title">Cognitive <span>Observability</span></h1>
-                    <div class="page-sub">Fray-Orchestrator — Real-time system telemetry</div>
-                </div>
-                <div class="page-meta">
-                    <span id="header-agent-badge" class="health-badge neutral">
-                        <span class="dot"></span>
-                        <span id="header-agent-text">—</span>
-                    </span>
-                    <span id="header-health-badge" class="health-badge ok">
-                        <span class="dot"></span>
-                        <span id="header-health-text">STABLE</span>
-                    </span>
-                </div>
-            </div>
 
             <!-- ================================================
                  LOADING STATE (SKELETONS)
