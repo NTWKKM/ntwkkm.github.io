@@ -740,11 +740,56 @@
                 
                 // Circuit Breaker status
                 const circuitPill = document.getElementById('circuit-pill');
-                circuitPill.innerText = circuit;
-                if (circuit === 'CLOSED') {
-                    circuitPill.className = 'status-pill success';
+                let parsedCircuit = null;
+                
+                try {
+                    if (typeof circuit === 'string' && (circuit.startsWith('{') || circuit.startsWith('['))) {
+                        parsedCircuit = JSON.parse(circuit);
+                    } else if (typeof circuit === 'object' && circuit !== null) {
+                        parsedCircuit = circuit;
+                    }
+                } catch (e) {
+                    console.warn("Fray: Failed to parse circuit_breaker JSON:", e);
+                }
+
+                if (parsedCircuit) {
+                    // Render multi-key circuit breaker status list dynamically
+                    circuitPill.innerHTML = '';
+                    circuitPill.className = ''; // Remove status-pill styling from the container
+                    circuitPill.style.display = 'flex';
+                    circuitPill.style.flexDirection = 'column';
+                    circuitPill.style.gap = '6px';
+                    circuitPill.style.alignItems = 'flex-end';
+                    
+                    for (const [key, val] of Object.entries(parsedCircuit)) {
+                        if (key.toLowerCase() === 'last_updated') continue;
+                        
+                        const valStr = String(val).toUpperCase();
+                        const isClosed = valStr === 'CLOSED';
+                        const badge = document.createElement('span');
+                        badge.className = `status-pill ${isClosed ? 'success' : 'danger'}`;
+                        badge.innerText = `${key.toUpperCase()}: ${valStr}`;
+                        circuitPill.appendChild(badge);
+                    }
+                    
+                    if (circuitPill.children.length === 0) {
+                        circuitPill.className = 'status-pill success';
+                        circuitPill.innerText = 'CLOSED';
+                    }
                 } else {
-                    circuitPill.className = 'status-pill danger';
+                    // Standard raw string fallback
+                    circuitPill.style.display = '';
+                    circuitPill.style.flexDirection = '';
+                    circuitPill.style.gap = '';
+                    circuitPill.style.alignItems = '';
+                    
+                    const circuitStr = String(circuit).toUpperCase();
+                    circuitPill.innerText = circuitStr;
+                    if (circuitStr === 'CLOSED') {
+                        circuitPill.className = 'status-pill success';
+                    } else {
+                        circuitPill.className = 'status-pill danger';
+                    }
                 }
                 
                 // Security Lock status
