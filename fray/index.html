@@ -209,7 +209,7 @@
         /* --- REDESIGNED DASHBOARD CORE --- */
         .dashboard-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
             margin-bottom: 35px;
         }
@@ -410,7 +410,7 @@
 
         .skeleton-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 25px;
             margin-bottom: 35px;
         }
@@ -484,6 +484,13 @@
         }
 
         /* --- RESPONSIVE STYLES --- */
+        @media (max-width: 992px) {
+            .dashboard-grid,
+            .skeleton-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 640px) {
             .brand-group h1.dashboard-nav-title {
                 font-size: 1.05rem;
@@ -574,6 +581,12 @@
                         <div class="skeleton-line w-80"></div>
                         <div class="skeleton-line w-40"></div>
                     </div>
+                    <div class="skeleton-card skeleton-block">
+                        <div class="skeleton-line w-60"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line w-80"></div>
+                        <div class="skeleton-line w-40"></div>
+                    </div>
                     <div class="skeleton-card skeleton-full">
                         <div class="skeleton-line w-40"></div>
                         <div class="skeleton-line"></div>
@@ -585,7 +598,7 @@
             <!-- Active Dashboard Layout -->
             <div id="dashboard-container" class="dashboard-grid">
                 
-                <!-- Card 1: Cognitive State Diagnostics -->
+                <!-- Card 1: System Diagnostics -->
                 <article class="card" aria-labelledby="diagnostics-heading">
                     <h3 id="diagnostics-heading" class="card-title">
                         🧠 System Diagnostics
@@ -618,12 +631,49 @@
                         <span class="metric-label">Operations Class</span>
                         <span id="tier-pill" class="status-pill success">FULL</span>
                     </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">Network Latency</span>
+                        <span id="network-pill" class="status-pill success">-</span>
+                    </div>
                 </article>
 
-                <!-- Card 2: Hardware Telemetry -->
+                <!-- Card 2: Stress & Thermals -->
+                <article class="card" aria-labelledby="stress-heading">
+                    <h3 id="stress-heading" class="card-title">
+                        🔥 Stress & Thermals
+                    </h3>
+
+                    <div class="metric-row">
+                        <span class="metric-label">Overall Stress</span>
+                        <span id="stress-overall-pill" class="status-pill success">-</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">CPU Stress</span>
+                        <span id="stress-cpu-pill" class="status-pill success">-</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">GPU Stress</span>
+                        <span id="stress-gpu-pill" class="status-pill success">-</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">Memory Stress</span>
+                        <span id="stress-memory-pill" class="status-pill success">-</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">Thermal State</span>
+                        <span id="thermal-pill" class="status-pill success">-</span>
+                    </div>
+                </article>
+
+                <!-- Card 3: Performance Telemetry -->
                 <article class="card" aria-labelledby="hardware-heading">
                     <h3 id="hardware-heading" class="card-title">
-                        ⚡ Hardware Telemetry
+                        ⚡ Performance Telemetry
                     </h3>
 
                     <div class="metric-row">
@@ -750,6 +800,29 @@
     <script src="../shared.js"></script>
     
     <script>
+        // Helper function to map metrics to accessibility/theme status pill classes
+        function getStatusPillClass(val) {
+            if (!val) return 'status-pill success';
+            const cleanVal = String(val).toUpperCase().trim();
+            if (cleanVal === 'NOMINAL' || cleanVal === 'NOMINAL_STRESS' || cleanVal === 'NOMINAL_TEMP' || cleanVal === 'LOW' || cleanVal === 'NORMAL' || cleanVal === 'CLOSED' || cleanVal === 'UNLOCKED' || cleanVal === 'ACTIVE' || cleanVal === 'ONLINE') {
+                return 'status-pill success';
+            } else if (cleanVal === 'WARNING' || cleanVal === 'MODERATE' || cleanVal === 'DEGRADED' || cleanVal === 'STRESSED') {
+                return 'status-pill warning';
+            } else if (cleanVal === 'CRITICAL' || cleanVal === 'HIGH' || cleanVal === 'TIMEOUT' || cleanVal === 'OVERHEATED' || cleanVal === 'LOCKED' || cleanVal === 'OPEN' || cleanVal === 'OFFLINE' || cleanVal === 'ERROR') {
+                return 'status-pill danger';
+            }
+            // For custom numeric latencies (e.g. "45ms"), check if it contains "ms"
+            if (cleanVal.includes('MS')) {
+                const num = parseFloat(cleanVal);
+                if (!isNaN(num)) {
+                    if (num > 300) return 'status-pill danger';
+                    if (num > 150) return 'status-pill warning';
+                }
+                return 'status-pill success';
+            }
+            return 'status-pill success';
+        }
+
         // Initialize screen reader support
         document.addEventListener('DOMContentLoaded', () => {
             initScreenReaderAnnouncer();
@@ -781,13 +854,7 @@
                 // Operations tier badge
                 const tierPill = document.getElementById('tier-pill');
                 tierPill.innerText = tier.toUpperCase();
-                if (tier === 'full') {
-                    tierPill.className = 'status-pill success';
-                } else if (tier === 'degraded') {
-                    tierPill.className = 'status-pill warning';
-                } else {
-                    tierPill.className = 'status-pill danger';
-                }
+                tierPill.className = getStatusPillClass(tier);
                 
                 // Current Mindset state details
                 document.getElementById('mindset-text').innerText = mindset;
@@ -821,9 +888,8 @@
                         if (key.toLowerCase() === 'last_updated' || key.toLowerCase() === 'last_check') continue;
                         
                         const valStr = String(val).toUpperCase();
-                        const isClosed = valStr === 'CLOSED';
                         const badge = document.createElement('span');
-                        badge.className = `status-pill ${isClosed ? 'success' : 'danger'}`;
+                        badge.className = getStatusPillClass(val);
                         badge.innerText = `${key.toUpperCase()}: ${valStr}`;
                         circuitPill.appendChild(badge);
                     }
@@ -851,24 +917,73 @@
                     
                     const circuitStr = String(circuit).toUpperCase();
                     circuitPill.innerText = circuitStr;
-                    if (circuitStr === 'CLOSED') {
-                        circuitPill.className = 'status-pill success';
-                    } else {
-                        circuitPill.className = 'status-pill danger';
-                    }
+                    circuitPill.className = getStatusPillClass(circuit);
                 }
                 
                 // Security Lock status
                 const lockPill = document.getElementById('lock-pill');
                 lockPill.innerText = lock ? 'LOCKED' : 'UNLOCKED';
-                if (lock) {
-                    lockPill.className = 'status-pill danger';
-                } else {
-                    lockPill.className = 'status-pill success';
-                }
-                
+                lockPill.className = getStatusPillClass(lock ? 'LOCKED' : 'UNLOCKED');
+
                 // Core hardware telemetry
                 const sysMetrics = data.metrics ? data.metrics.system_metrics : null;
+
+                // Network Latency status
+                const networkPill = document.getElementById('network-pill');
+                let netLatency = '-';
+                if (sysMetrics && sysMetrics.network_latency !== undefined) {
+                    netLatency = sysMetrics.network_latency;
+                } else if (data.metrics && data.metrics.network_latency !== undefined) {
+                    netLatency = data.metrics.network_latency;
+                }
+                if (networkPill) {
+                    networkPill.innerText = String(netLatency).toUpperCase();
+                    networkPill.className = getStatusPillClass(netLatency);
+                }
+
+                // Stress & Thermals
+                const stressOverallPill = document.getElementById('stress-overall-pill');
+                const stressCpuPill = document.getElementById('stress-cpu-pill');
+                const stressGpuPill = document.getElementById('stress-gpu-pill');
+                const stressMemoryPill = document.getElementById('stress-memory-pill');
+                const thermalPill = document.getElementById('thermal-pill');
+
+                let stressOverall = '-';
+                let stressCpu = '-';
+                let stressGpu = '-';
+                let stressMemory = '-';
+                let thermalState = '-';
+
+                if (sysMetrics) {
+                    if (sysMetrics.stress_analysis) {
+                        stressOverall = sysMetrics.stress_analysis.overall || '-';
+                        stressCpu = sysMetrics.stress_analysis.cpu || '-';
+                        stressGpu = sysMetrics.stress_analysis.gpu || '-';
+                        stressMemory = sysMetrics.stress_analysis.memory || '-';
+                    }
+                    thermalState = sysMetrics.thermal_state || '-';
+                }
+
+                if (stressOverallPill) {
+                    stressOverallPill.innerText = String(stressOverall).toUpperCase();
+                    stressOverallPill.className = getStatusPillClass(stressOverall);
+                }
+                if (stressCpuPill) {
+                    stressCpuPill.innerText = String(stressCpu).toUpperCase();
+                    stressCpuPill.className = getStatusPillClass(stressCpu);
+                }
+                if (stressGpuPill) {
+                    stressGpuPill.innerText = String(stressGpu).toUpperCase();
+                    stressGpuPill.className = getStatusPillClass(stressGpu);
+                }
+                if (stressMemoryPill) {
+                    stressMemoryPill.innerText = String(stressMemory).toUpperCase();
+                    stressMemoryPill.className = getStatusPillClass(stressMemory);
+                }
+                if (thermalPill) {
+                    thermalPill.innerText = String(thermalState).toUpperCase();
+                    thermalPill.className = getStatusPillClass(thermalState);
+                }
 
                 // 1. System Load
                 let systemLoad = '-';
