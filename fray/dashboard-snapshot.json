@@ -3,45 +3,36 @@
     "status": "ONLINE",
     "tier": "full",
     "security_lock": false,
-    "circuit_breaker": "{\n  \"circuit_breakers\": {\n    \"n8n\": \"CLOSED\",\n    \"last_check\": \"2026-05-19T00:00:00Z\"\n  }\n}",
+    "circuit_breaker": "{\n  \"n8n\": \"CLOSED\",\n  \"last_updated\": \"2026-05-19T00:00:00Z\"\n}",
     "mindset": "Sati-Observation",
     "last_reflection": "{\"timestamp\": \"2026-05-19\", \"category\": \"system_audit\", \"fact\": \"Daily heartbeats for 2026-05-18 maintained system state snapshots. The Guard sequence completed and verified security telemetry as OK.\"}",
-    "timestamp": "2026-05-19T08:46:09Z"
+    "timestamp": "2026-05-19T09:10:50Z"
   },
   "metrics": {
-    "system_metrics": {
-      "timestamp": "2026-05-19T08:01:23Z",
+    "timestamp": "2026-05-19T16:01:40Z",
+    "metrics": {
       "load_avg": [
-        3.92,
-        3.82,
-        3.67
+        3.39,
+        2.66,
+        2.78
       ],
       "cpu_usage": {
-        "user": "12.91%",
-        "sys": "14.83%",
-        "idle": "72.25%"
-      },
-      "gpu_usage": "25.18%",
-      "thermal_state": "Nominal",
-      "stress_analysis": {
-        "cpu": "NOMINAL",
-        "gpu": "NOMINAL",
-        "memory": "NOMINAL",
-        "overall": "NOMINAL"
+        "user": "12.79%",
+        "sys": "16.66%",
+        "idle": "70.53%"
       },
       "memory": {
-        "phys_mem_used": "7526M",
-        "pages_free": 6591,
-        "swapins": 18118573,
-        "swapouts": 20717110
+        "phys_mem_used": "7540M",
+        "unused": "92M",
+        "swapins": 19093724,
+        "swapouts": 21802163
       },
-      "disk_io": {
-        "read_mb_s": 40.85,
-        "tps": 9214
-      },
-      "network_latency": "Timeout"
+      "disk": {
+        "read": "15T",
+        "written": "673G"
+      }
     },
-    "status": "ACTIVE"
+    "status": "stable"
   },
   "audit": {
     "timestamp": "2026-05-19T08:45:54.546042Z",
