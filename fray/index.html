@@ -707,9 +707,8 @@
             const loader = document.getElementById('dashboard-loader');
             
             try {
-                // Hour-based cache-buster to limit traffic overhead
-                const currentHour = new Date().toISOString().slice(0, 13);
-                const data = await fetchWithFallback(`dashboard-snapshot.json?v=${currentHour}`, null, 2);
+                // Real-time cache-buster for telemetry freshness
+                const data = await fetchWithFallback(`dashboard-snapshot.json?v=${Date.now()}`, null, 2);
                 
                 if (!data) {
                     throw new Error('Null or invalid payload received.');
@@ -754,6 +753,8 @@
                 }
 
                 if (parsedCircuit) {
+                    // Support both nested circuit_breakers key and flat format
+                    const breakers = parsedCircuit.circuit_breakers || parsedCircuit;
                     // Render multi-key circuit breaker status list dynamically
                     circuitPill.innerHTML = '';
                     circuitPill.className = ''; // Remove status-pill styling from the container
@@ -762,8 +763,8 @@
                     circuitPill.style.gap = '6px';
                     circuitPill.style.alignItems = 'flex-end';
                     
-                    for (const [key, val] of Object.entries(parsedCircuit)) {
-                        if (key.toLowerCase() === 'last_updated') continue;
+                    for (const [key, val] of Object.entries(breakers)) {
+                        if (key.toLowerCase() === 'last_updated' || key.toLowerCase() === 'last_check') continue;
                         
                         const valStr = String(val).toUpperCase();
                         const isClosed = valStr === 'CLOSED';
@@ -803,19 +804,33 @@
                 }
                 
                 // Core hardware telemetry
+                const sysMetrics = data.metrics ? data.metrics.system_metrics : null;
+
                 // 1. System Load
-                const systemLoad = data.metrics.system_load || (data.metrics.cpu_load ? `${data.metrics.cpu_load}%` : '-');
+                let systemLoad = '-';
+                if (sysMetrics && sysMetrics.load_avg) {
+                    systemLoad = Array.isArray(sysMetrics.load_avg) ? sysMetrics.load_avg.join(', ') : sysMetrics.load_avg;
+                } else if (data.metrics && data.metrics.system_load) {
+                    systemLoad = data.metrics.system_load;
+                } else if (data.metrics && data.metrics.cpu_load) {
+                    systemLoad = `${data.metrics.cpu_load}%`;
+                }
                 document.getElementById('system-load-val').innerText = systemLoad;
                 
                 // 2. CPU usage details
                 let cpuPct = 0;
                 let cpuText = '-';
-                if (data.metrics.cpu_usage) {
+                if (sysMetrics && sysMetrics.cpu_usage) {
+                    const user = parseFloat(sysMetrics.cpu_usage.user) || 0;
+                    const sys = parseFloat(sysMetrics.cpu_usage.sys) || 0;
+                    cpuPct = Math.round(user + sys);
+                    cpuText = `${cpuPct}% (User: ${sysMetrics.cpu_usage.user}, Sys: ${sysMetrics.cpu_usage.sys})`;
+                } else if (data.metrics && data.metrics.cpu_usage) {
                     const user = parseFloat(data.metrics.cpu_usage.user) || 0;
                     const sys = parseFloat(data.metrics.cpu_usage.sys) || 0;
                     cpuPct = Math.round(user + sys);
                     cpuText = `${cpuPct}% (User: ${data.metrics.cpu_usage.user}, Sys: ${data.metrics.cpu_usage.sys})`;
-                } else if (data.metrics.cpu_load !== undefined) {
+                } else if (data.metrics && data.metrics.cpu_load !== undefined) {
                     cpuPct = Math.round(parseFloat(data.metrics.cpu_load)) || 0;
                     cpuText = `${cpuPct}%`;
                 }
@@ -824,9 +839,13 @@
                 
                 // 3. Physical memory utilization
                 let memText = '-';
-                if (data.metrics.memory) {
+                if (sysMetrics && sysMetrics.memory) {
+                    const used = sysMetrics.memory.phys_mem_used || '-';
+                    const free = sysMetrics.memory.phys_mem_unused || (sysMetrics.memory.pages_free !== undefined ? `${sysMetrics.memory.pages_free} pages free` : null);
+                    memText = free ? `${used} used (${free})` : `${used} used`;
+                } else if (data.metrics && data.metrics.memory) {
                     memText = `${data.metrics.memory.phys_mem_used} used (Free: ${data.metrics.memory.phys_mem_unused})`;
-                } else if (data.metrics.ram_used_gb !== undefined) {
+                } else if (data.metrics && data.metrics.ram_used_gb !== undefined) {
                     memText = `${data.metrics.ram_used_gb} GB used`;
                 }
                 document.getElementById('memory-val').innerText = memText;
