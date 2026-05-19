@@ -1,74 +1,74 @@
 [
   {
     "date": "19 May",
-    "title": "Flumazenil use in acute poisoning: improved composite clinical outcomes in a propensity-matched retrospective cohort study.",
-    "comment": "ข้อมูลใหม่ที่อาจสนับสนุนการใช้ Flumazenil ในเคส BZD overdose ที่คัดเลือกมาอย่างดี",
+    "title": "Flumazenil use in acute poisoning: improved composite clinical outcomes in a propensity-matched retrospective cohort study",
+    "comment": "อาจต้องทบทวนข้อห้ามใช้ Flumazenil ที่เคยเชื่อกันมา เมื่อข้อมูลใหม่ชี้ว่าผลลัพธ์โดยรวมดีขึ้น",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42154489/"
   },
   {
     "date": "19 May",
-    "title": "Gabapentin and Pregabalin Overdoses and Their Management: An Update.",
-    "comment": "อัปเดตแนวทางการจัดการภาวะยาเกินขนาดจาก Gabapentinoids ที่พบบ่อยขึ้นใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42152644/"
-  },
-  {
-    "date": "19 May",
-    "title": "Validation of 2 Syncope Risk Scores and Comparison With Physician Risk Estimation.",
-    "comment": "ท้าทาย clinical gestalt ด้วยการเปรียบเทียบ risk scores สำหรับ syncope กับการประเมินของแพทย์โดยตรง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42154462/"
-  },
-  {
-    "date": "19 May",
-    "title": "Bupropion overdose: insights on the role of upper gastrointestinal decontamination endoscopy.",
-    "comment": "เสนอแนวทางใหม่ในการทำ GI decontamination ด้วย endoscopy ในเคส Bupropion OD ซึ่งเป็นพิษรุนแรง",
+    "title": "Bupropion overdose: insights on the role of upper gastrointestinal decontamination endoscopy",
+    "comment": "เสนอไอเดียใหม่ใช้ Endoscopy ทำ Decontamination ในเคส Bupropion OD ซึ่งเป็นภาวะที่น่ากังวลเรื่องชัก",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42154477/"
   },
   {
     "date": "19 May",
-    "title": "Do frailty screening tools assessed at emergency department presentation predict in-hospital mortality and length of stay in older adults with acute pulmonary edema?",
-    "comment": "เครื่องมือประเมินความเปราะบาง (Frailty) ที่ ER อาจช่วยทำนายผลลัพธ์ในผู้สูงอายุที่เป็น APE ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42152380/"
+    "title": "Validation of 2 Syncope Risk Scores and Comparison With Physician Risk Estimation",
+    "comment": "เทียบ Syncope risk scores กับการตัดสินใจของแพทย์ ER ว่าอะไรดีกว่ากันในการประเมินความเสี่ยงผู้ป่วยเป็นลม",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42154462/"
   },
   {
     "date": "19 May",
-    "title": "After Hours, After Thought? Rethinking CT Stewardship in Pediatric Head Trauma.",
-    "comment": "กระตุ้นให้ฉุกคิดถึงการใช้ CT scan ในเด็กที่บาดเจ็บที่ศีรษะนอกเวลาราชการอีกครั้ง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42153269/"
+    "title": "Trefoil factor 3 as a marker of gastrointestinal cell injury during sepsis",
+    "comment": "พบ Biomarker ตัวใหม่อาจช่วยประเมินภาวะ GI injury และบอกความรุนแรงในผู้ป่วย Sepsis ได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42154329/"
   },
   {
     "date": "19 May",
-    "title": "Optimizing Radiography Utilization: Multidisciplinary Expert Consensus Recommendations.",
-    "comment": "แนวทางฉันทามติใหม่ล่าสุดเพื่อลดการใช้ X-ray ที่ไม่จำเป็นใน ER จากหลายสมาคมฯ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42153836/"
-  },
-  {
-    "date": "19 May",
-    "title": "The real-world management of acute mesenteric ischemia in Spain: results from a multicenter national survey.",
-    "comment": "ข้อมูลจริงจากการสำรวจระดับชาติเกี่ยวกับแนวทางการจัดการภาวะลำไส้ขาดเลือดเฉียบพลัน",
+    "title": "The real-world management of acute mesenteric ischemia in Spain: results from a multicenter national survey",
+    "comment": "สำรวจแนวทางการจัดการ Acute mesenteric ischemia ในโลกความจริง ซึ่งเป็นภาวะที่วินิจฉัยและรักษาท้าทายเสมอ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42154050/"
   },
   {
     "date": "19 May",
-    "title": "Assessment of Brain Natriuretic Peptide Levels in Patients Presenting to the Emergency Department With High Blood Pressure.",
-    "comment": "ตั้งคำถามถึงบทบาทของ BNP ในผู้ป่วยความดันโลหิตสูงที่มา ER ว่ามีประโยชน์จริงหรือไม่",
+    "title": "[Evaluation of the TriageClient digital decision support system for the sectoral allocation of emergency patients in an integrated emergency center : A secondary data analysis]",
+    "comment": "รีวิวการใช้ระบบ Digital decision support (AI) มาช่วยในการ Triage ผู้ป่วยหน้าห้องฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42154035/"
+  },
+  {
+    "date": "19 May",
+    "title": "Purulent Pericarditis Presenting With Abnormal Electrocardiogram Consistent With STEMI",
+    "comment": "เคสสอนใจ: Purulent pericarditis ที่มาด้วย ECG คล้าย STEMI เป็นภาวะฉุกเฉินที่ต้องวินิจฉัยแยกโรคให้ได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42153930/"
+  },
+  {
+    "date": "19 May",
+    "title": "Optimizing Radiography Utilization: Multidisciplinary Expert Consensus Recommendations Endorsed by the Society of Academic Bone Radiologists, Society of Skeletal Radiology, American Society of Emergency Radiology, Orthopaedic Trauma Association, American Academy of Emergency Medicine, and American Rhinologic Society",
+    "comment": "แนวทางใหม่จากหลายสมาคมฯ เพื่อลดการส่งตรวจ X-ray ที่ไม่จำเป็นใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42153836/"
+  },
+  {
+    "date": "19 May",
+    "title": "After Hours, After Thought? Rethinking CT Stewardship in Pediatric Head Trauma",
+    "comment": "ชวนคิดเรื่องการใช้ CT scan ในเด็กเล็กที่ head trauma โดยเฉพาะช่วงนอกเวลาราชการ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42153269/"
+  },
+  {
+    "date": "19 May",
+    "title": "Assessment of Brain Natriuretic Peptide Levels in Patients Presenting to the Emergency Department With High Blood Pressure",
+    "comment": "BNP อาจมีบทบาทในการประเมินผู้ป่วยความดันโลหิตสูงที่ ER เพื่อหาความเสี่ยงทางหัวใจหรือไม่?",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42153071/"
   },
   {
     "date": "19 May",
-    "title": "Human-Artificial Intelligence Collaborative Decision-Making in Emergencies: Relative Advantage Theory.",
-    "comment": "สำรวจอนาคตของการใช้ AI ช่วยแพทย์ตัดสินใจในภาวะฉุกเฉิน ว่าจะดีกว่าได้อย่างไร",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42152738/"
+    "title": "Gabapentin and Pregabalin Overdoses and Their Management: An Update",
+    "comment": "อัปเดตความรู้ที่ต้องมี ว่าด้วยการจัดการภาวะ Gabapentin/Pregabalin OD ที่พบบ่อยขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42152644/"
   },
   {
     "date": "19 May",
-    "title": "Acute fluoroacetamide poisoning with reversible leukoencephalopathy: A case report and literature review highlighting the effectiveness of acetamide.",
-    "comment": "รายงานเคสพิษวิทยาที่น่าสนใจและยาแก้พิษ (Acetamide) ที่อาจไม่ได้ใช้กันแพร่หลาย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42153809/"
-  },
-  {
-    "date": "19 May",
-    "title": "Purulent Pericarditis Presenting With Abnormal Electrocardiogram Consistent With STEMI.",
-    "comment": "เคส শিক্ষาสอนใจ: Purulent pericarditis ที่มาด้วย EKG เหมือน STEMI ซึ่งเป็นภาวะที่ต้องวินิจฉัยแยกให้ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42153930/"
+    "title": "Do frailty screening tools assessed at emergency department presentation predict in-hospital mortality and length of stay in older adults with acute pulmonary edema?: A prospective cohort study",
+    "comment": "เครื่องมือประเมินความเปราะบาง (Frailty) ที่ ER บอก tiên lượng ผู้สูงอายุที่เป็นปอดบวมน้ำได้จริงหรือ?",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42152380/"
   }
 ]
