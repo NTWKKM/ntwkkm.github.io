@@ -209,7 +209,7 @@
         /* --- REDESIGNED DASHBOARD CORE --- */
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 25px;
             margin-bottom: 35px;
         }
@@ -410,7 +410,7 @@
 
         .skeleton-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 25px;
             margin-bottom: 35px;
         }
@@ -515,7 +515,8 @@
                 font-size: 1rem;
             }
 
-            .dashboard-grid {
+            .dashboard-grid,
+            .skeleton-grid {
                 grid-template-columns: 1fr;
             }
 
