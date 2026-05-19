@@ -660,8 +660,21 @@
                     </div>
 
                     <div class="metric-row">
-                        <span class="metric-label">Physical Memory</span>
-                        <span id="memory-val" class="metric-value">-</span>
+                        <div style="width: 100%;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span class="metric-label">Physical Memory</span>
+                                <span id="memory-val" class="metric-value">-</span>
+                            </div>
+                            <div class="gauge-wrapper">
+                                <div class="progress-bar-container" aria-hidden="true">
+                                    <div id="memory-fill" class="progress-bar-fill"></div>
+                                </div>
+                            </div>
+                            <div id="memory-subtext" style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">
+                                <span id="memory-free-val">-</span>
+                                <span id="memory-swap-val">-</span>
+                            </div>
+                        </div>
                     </div>
 
                     <div id="extra-stats-row" class="metric-row" style="display: none;">
@@ -870,16 +883,61 @@
                 
                 // 3. Physical memory utilization
                 let memText = '-';
+                let memPct = 0;
+                let memFreeText = '-';
+                let memSwapText = '-';
+                
                 if (sysMetrics && sysMetrics.memory) {
-                    const used = sysMetrics.memory.phys_mem_used || '-';
-                    const free = sysMetrics.memory.phys_mem_unused || (sysMetrics.memory.pages_free !== undefined ? `${sysMetrics.memory.pages_free} pages free` : null);
-                    memText = free ? `${used} used (${free})` : `${used} used`;
+                    const usedStr = sysMetrics.memory.phys_mem_used || '0M';
+                    const usedMb = parseFloat(usedStr) || 0;
+                    const freePages = sysMetrics.memory.pages_free || 0;
+                    // Standard macOS page size is 16KB on Apple Silicon, 4KB on Intel.
+                    // We assume 16KB page size for calculations since Fray is Apple Silicon based.
+                    const freeMb = (freePages * 16) / 1024;
+                    const totalMb = usedMb + freeMb;
+                    
+                    memPct = totalMb > 0 ? Math.round((usedMb / totalMb) * 100) : 0;
+                    memText = `${usedStr} used (${memPct}%)`;
+                    
+                    memFreeText = `Free: ${freePages.toLocaleString()} pages (~${Math.round(freeMb)}M)`;
+                    
+                    const swapins = sysMetrics.memory.swapins;
+                    const swapouts = sysMetrics.memory.swapouts;
+                    if (swapins !== undefined && swapouts !== undefined) {
+                        const formatPages = (num) => {
+                            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+                            if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+                            return num;
+                        };
+                        memSwapText = `Swap In/Out: ${formatPages(swapins)} / ${formatPages(swapouts)}`;
+                    }
                 } else if (data.metrics && data.metrics.memory) {
-                    memText = `${data.metrics.memory.phys_mem_used} used (Free: ${data.metrics.memory.phys_mem_unused})`;
+                    memText = `${data.metrics.memory.phys_mem_used} used`;
+                    memFreeText = `Free: ${data.metrics.memory.phys_mem_unused || '-'}`;
                 } else if (data.metrics && data.metrics.ram_used_gb !== undefined) {
                     memText = `${data.metrics.ram_used_gb} GB used`;
                 }
+                
                 document.getElementById('memory-val').innerText = memText;
+                
+                const memFillEl = document.getElementById('memory-fill');
+                if (memFillEl) {
+                    memFillEl.style.width = `${memPct}%`;
+                }
+                
+                const memFreeEl = document.getElementById('memory-free-val');
+                const memSwapEl = document.getElementById('memory-swap-val');
+                const memSubEl = document.getElementById('memory-subtext');
+                
+                if (memFreeEl && memSwapEl && memSubEl) {
+                    if (memFreeText !== '-' || memSwapText !== '-') {
+                        memSubEl.style.display = 'flex';
+                        memFreeEl.innerText = memFreeText;
+                        memSwapEl.innerText = memSwapText;
+                    } else {
+                        memSubEl.style.display = 'none';
+                    }
+                }
                 
                 // 4. Legacy fallbacks (Battery / Network)
                 const batVal = data.metrics.battery_pct !== undefined ? `${data.metrics.battery_pct}%` : null;
