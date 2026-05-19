@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fray Cognitive Observability Core | NTWKKM</title>
+    <meta name="description" content="Fray Mindset and Observability Dashboard. Real-time telemetry, cognitive reflection logs, and system operations metrics.">
+    <meta property="og:title" content="Fray Cognitive Observability Core | NTWKKM">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ntwkkm.github.io/fray/">
+    <link rel="canonical" href="https://ntwkkm.github.io/fray/">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23244885'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='white' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500;600&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../shared.css">
+
+    <style>
+        /* ====================================================
+           THEME TOKENS
+        ==================================================== */
+        :root {
+            --primary: #244885;
+            --primary-light: #3a65b5;
+            --primary-hover: #1a3663;
+            --accent: #E63946;
+            --accent-soft: rgba(230, 57, 70, 0.12);
+            --bg-body: #F0F2F5;
+            --bg-card: #FFFFFF;
+            --bg-surface: #F7F8FA;
+            --text-main: #111827;
+            --text-secondary: #374151;
+            --text-muted: #6B7280;
+            --text-faint: #9CA3AF;
+            --border: #E5E7EB;
+            --border-strong: #D1D5DB;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow: 0 4px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.10);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --toggle-bg: #E5E7EB;
+            --state-ok: #059669;
+            --state-ok-bg: rgba(5,150,105,0.1);
+            --state-ok-border: rgba(5,150,105,0.25);
+            --state-warn: #D97706;
+            --state-warn-bg: rgba(217,119,6,0.1);
+            --state-warn-border: rgba(217,119,6,0.25);
+            --state-err: #DC2626;
+            --state-err-bg: rgba(220,38,38,0.1);
+            --state-err-border: rgba(220,38,38,0.25);
+            --state-neutral: #6B7280;
+            --state-neutral-bg: rgba(107,114,128,0.1);
+            --progress-track: #E5E7EB;
+        }
+
+        [data-theme="dark"] {
+            --primary: #5A9FFF;
+            --primary-light: #7ab3ff;
+            --primary-hover: #93C5FD;
+            --accent: #F87171;
+            --accent-soft: rgba(248,113,113,0.12);
+            --bg-body: #0B1120;
+            --bg-card: #111827;
+            --bg-surface: #1A2333;
+            --text-main: #F1F5F9;
+            --text-secondary: #CBD5E1;
+            --text-muted: #94A3B8;
+            --text-faint: #64748B;
+            --border: #1E2D3D;
+            --border-strong: #2D3F55;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+            --shadow: 0 4px 16px rgba(0,0,0,0.3);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
+            --toggle-bg: #1E2D3D;
+            --state-ok: #10B981;
+            --state-ok-bg: rgba(16,185,129,0.12);
+            --state-ok-border: rgba(16,185,129,0.3);
+            --state-warn: #FBBF24;
+            --state-warn-bg: rgba(251,191,36,0.12);
+            --state-warn-border: rgba(251,191,36,0.3);
+            --state-err: #F87171;
+            --state-err-bg: rgba(248,113,113,0.12);
+            --state-err-border: rgba(248,113,113,0.3);
+            --state-neutral: #94A3B8;
+            --state-neutral-bg: rgba(148,163,184,0.1);
+            --progress-track: #1E2D3D;
+        }
+
+        /* ====================================================
+           BASE
+        ==================================================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Sarabun', -apple-system, sans-serif;
+            background: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            transition: background 0.35s ease, color 0.35s ease;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* ====================================================
+           ANIMATIONS
+        ==================================================== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse-ring {
+            0%   { transform: scale(0.92); box-shadow: 0 0 0 0 rgba(5,150,105,0.6); }
+            70%  { transform: scale(1);    box-shadow: 0 0 0 6px rgba(5,150,105,0); }
+            100% { transform: scale(0.92); box-shadow: 0 0 0 0 rgba(5,150,105,0); }
+        }
+        @keyframes bar-fill {
+            from { width: 0; }
+        }
+        @keyframes scanline {
+            0%   { top: -2px; }
+            100% { top: 100%; }
+        }
+
+        .fade-up { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+        .d1 { animation-delay: 0.05s; }
+        .d2 { animation-delay: 0.12s; }
+        .d3 { animation-delay: 0.20s; }
+        .d4 { animation-delay: 0.28s; }
+
+        /* ====================================================
+           TOP STATUS BANNER
+        ==================================================== */
+        .status-banner {
+            background: var(--primary);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+
+        [data-theme="dark"] .status-banner {
+            background: #0D1B2E;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .banner-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .banner-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .banner-logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        [data-theme="dark"] .banner-logo { color: var(--primary); }
+
+        .banner-logo-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .banner-status-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .banner-pulse {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: #10B981;
+            animation: pulse-ring 2s infinite;
+            flex-shrink: 0;
+        }
+
+        .banner-status-text {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.75);
+            letter-spacing: 0.04em;
+        }
+
+        [data-theme="dark"] .banner-status-text { color: var(--text-muted); }
+
+        .banner-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .banner-nav-link {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            padding: 5px 14px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.18);
+            transition: all 0.2s;
+            letter-spacing: 0.03em;
+        }
+        [data-theme="dark"] .banner-nav-link {
+            color: var(--text-muted);
+            border-color: var(--border);
+        }
+        .banner-nav-link:hover {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+        }
+
+        .banner-nav-link.highlight {
+            background: var(--accent);
+            color: #fff;
+            border-color: var(--accent);
+        }
+        .banner-nav-link.highlight:hover {
+            background: #c62e3a;
+            border-color: #c62e3a;
+        }
+
+        .banner-theme-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.18);
+            width: 32px; height: 32px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.8);
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        [data-theme="dark"] .banner-theme-btn {
+            background: var(--bg-surface);
+            border-color: var(--border);
+            color: var(--text-muted);
+        }
+        .banner-theme-btn:hover { background: rgba(255,255,255,0.2); color: #fff; }
+        .banner-theme-btn svg { width: 15px; height: 15px; fill: currentColor; }
+
+        /* ====================================================
+           PAGE LAYOUT
+        ==================================================== */
+        .page-wrapper {
+            padding: 32px 0 60px;
+        }
+
+        /* ====================================================
+           PAGE HEADER ROW
+        ==================================================== */
+        .page-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .page-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.8px;
+            line-height: 1.1;
+        }
+
+        .page-title span {
+            color: var(--primary);
+        }
+
+        .page-sub {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .page-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* ====================================================
+           HEALTH BADGE
+        ==================================================== */
+        .health-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            border-radius: 999px;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 1px solid;
+        }
+
+        .health-badge.ok {
+            background: var(--state-ok-bg);
+            color: var(--state-ok);
+            border-color: var(--state-ok-border);
+        }
+        .health-badge.warn {
+            background: var(--state-warn-bg);
+            color: var(--state-warn);
+            border-color: var(--state-warn-border);
+        }
+        .health-badge.err {
+            background: var(--state-err-bg);
+            color: var(--state-err);
+            border-color: var(--state-err-border);
+        }
+        .health-badge.neutral {
+            background: var(--state-neutral-bg);
+            color: var(--state-neutral);
+            border-color: transparent;
+        }
+        .health-badge .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* ====================================================
+           VITALS STRIP  (top 4-column row)
+        ==================================================== */
+        .vitals-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .vital-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+
+        .vital-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .vital-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .vital-card:hover::before { opacity: 1; }
+
+        .vital-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        .vital-value {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .vital-bar-track {
+            width: 100%;
+            height: 4px;
+            background: var(--progress-track);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .vital-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            width: 0;
+            animation: bar-fill 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+
+        .vital-bar-fill.blue  { background: var(--primary); }
+        .vital-bar-fill.red   { background: var(--accent); }
+        .vital-bar-fill.green { background: var(--state-ok); }
+        .vital-bar-fill.amber { background: var(--state-warn); }
+
+        .vital-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ====================================================
+           MAIN GRID
+        ==================================================== */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* ====================================================
+           PANEL (shared card base)
+        ==================================================== */
+        .panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.2s;
+        }
+        .panel:hover { box-shadow: var(--shadow); }
+
+        .panel-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border);
+            gap: 8px;
+        }
+
+        .panel-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .panel-title-icon {
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+
+        .panel-body { padding: 16px 18px; }
+
+        /* ====================================================
+           DATA ROWS
+        ==================================================== */
+        .data-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 9px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .data-row:first-child { padding-top: 0; }
+
+        .data-label {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .data-val {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-main);
+            text-align: right;
+        }
+
+        /* ====================================================
+           STATUS CHIPS
+        ==================================================== */
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 9px;
+            border-radius: 4px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border: 1px solid;
+        }
+        .chip.ok      { background: var(--state-ok-bg);   color: var(--state-ok);   border-color: var(--state-ok-border); }
+        .chip.warn    { background: var(--state-warn-bg); color: var(--state-warn); border-color: var(--state-warn-border); }
+        .chip.err     { background: var(--state-err-bg);  color: var(--state-err);  border-color: var(--state-err-border); }
+        .chip.neutral { background: var(--state-neutral-bg); color: var(--state-neutral); border-color: transparent; }
+        .chip .dot-sm { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+        /* ====================================================
+           SPAN UTILITIES
+        ==================================================== */
+        .span-2 { grid-column: span 2; }
+        .span-3 { grid-column: span 3; }
+
+        /* ====================================================
+           PERFORMANCE ROWS WITH INLINE BARS
+        ==================================================== */
+        .perf-row {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .perf-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .perf-row:first-child { padding-top: 0; }
+
+        .perf-row-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .perf-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .perf-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .perf-track {
+            width: 100%;
+            height: 5px;
+            background: var(--progress-track);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .perf-fill {
+            height: 100%;
+            border-radius: 3px;
+            animation: bar-fill 1s cubic-bezier(0.16,1,0.3,1) both;
+        }
+
+        /* ====================================================
+           REFLECTION / INSIGHT BLOCKS
+        ==================================================== */
+        .quote-block {
+            background: var(--bg-surface);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 14px 16px;
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .insight-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .insight-block {
+            background: var(--bg-surface);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 12px 14px;
+            font-size: 0.84rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+        }
+        .insight-block:last-child { margin-bottom: 0; }
+
+        .reflection-meta-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .meta-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-faint);
+            background: var(--bg-surface);
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        /* ====================================================
+           SECTION DIVIDER
+        ==================================================== */
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 32px 0 20px;
+        }
+
+        .section-divider-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .section-divider-line {
+            height: 1px;
+            background: var(--border);
+            flex: 1;
+        }
+
+        /* ====================================================
+           AGENT AUDIT GRID
+        ==================================================== */
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .agent-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .agent-panel:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .agent-panel-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .agent-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: 0.02em;
+        }
+
+        .agent-indicator {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .agent-indicator.ok   { background: var(--state-ok); }
+        .agent-indicator.warn { background: var(--state-warn); }
+        .agent-indicator.err  { background: var(--state-err); }
+
+        .agent-panel-body {
+            padding: 12px 14px;
+        }
+
+        .agent-analysis {
+            font-size: 0.81rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin-bottom: 10px;
+        }
+
+        .agent-technical {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.67rem;
+            color: var(--text-faint);
+            background: var(--bg-surface);
+            padding: 7px 10px;
+            border-radius: var(--radius-sm);
+            word-break: break-all;
+            line-height: 1.5;
+            border: 1px solid var(--border);
+        }
+
+        /* ====================================================
+           FILTER STRIP
+        ==================================================== */
+        .filter-strip {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            align-items: center;
+        }
+
+        .flt-btn {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.15s;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .flt-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .flt-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        /* ====================================================
+           FOOTER
+        ==================================================== */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            font-size: 0.82rem;
+            color: var(--text-faint);
+            border-top: 1px solid var(--border);
+            margin-top: 48px;
+        }
+
+        footer a { color: var(--text-muted); transition: color 0.15s; }
+        footer a:hover { color: var(--primary); }
+
+        /* ====================================================
+           LOADING OVERLAY
+        ==================================================== */
+        #dash-loading {
+            display: block;
+        }
+        #dash-content {
+            display: none;
+        }
+        .skel-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+        .skel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            animation: sk-pulse 1.5s ease-in-out infinite;
+        }
+        .skel-tall { height: 110px; }
+        .skel-med  { height: 220px; }
+        .skel-long { height: 160px; }
+        @keyframes sk-pulse {
+            0%,100% { opacity: 1; }
+            50%      { opacity: 0.5; }
+        }
+        .skel-text {
+            height: 12px;
+            background: var(--border);
+            border-radius: 4px;
+            margin: 14px 14px 0;
+            animation: sk-pulse 1.5s ease-in-out infinite;
+        }
+
+        /* ====================================================
+           ACCESSIBILITY
+        ==================================================== */
+        .sr-only {
+            position: absolute; width: 1px; height: 1px;
+            padding: 0; margin: -1px; overflow: hidden;
+            clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+        }
+        .skip-link {
+            position: absolute; left: -9999px; top: 0;
+            background: var(--primary); color: #fff;
+            padding: 8px 16px; border-radius: 0 0 8px 0;
+            font-weight: 600; z-index: 9999;
+        }
+        .skip-link:focus { left: 0; }
+
+        *:focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* ====================================================
+           RESPONSIVE
+        ==================================================== */
+        @media (max-width: 1024px) {
+            .vitals-strip { grid-template-columns: repeat(2, 1fr); }
+            .main-grid    { grid-template-columns: 1fr 1fr; }
+            .span-2       { grid-column: span 2; }
+            .span-3       { grid-column: span 2; }
+            .agent-grid   { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 640px) {
+            .vitals-strip { grid-template-columns: repeat(2, 1fr); }
+            .main-grid    { grid-template-columns: 1fr; }
+            .span-2, .span-3 { grid-column: 1; }
+            .agent-grid   { grid-template-columns: 1fr; }
+            .page-title   { font-size: 1.35rem; }
+            .skel-grid    { grid-template-columns: 1fr 1fr; }
+            .banner-left  { gap: 10px; }
+            .banner-nav-link span { display: none; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<!-- ============================================================
+     TOP STATUS BANNER
+============================================================ -->
+<div class="status-banner" role="banner">
+    <div class="container banner-inner">
+        <div class="banner-left">
+            <div class="banner-logo">
+                <div class="banner-logo-dot"></div>
+                Fray
+            </div>
+            <div class="banner-status-row">
+                <div class="banner-pulse" aria-hidden="true"></div>
+                <span class="banner-status-text">
+                    SYNC: <time id="banner-timestamp">—</time>
+                </span>
+            </div>
+        </div>
+        <div class="banner-right">
+            <a href="../index.html" class="banner-nav-link" aria-label="Home">
+                <span>Home</span>
+            </a>
+            <a href="../blog.html" class="banner-nav-link highlight" aria-label="Research Blog">
+                <span>Research Blog</span>
+            </a>
+            <button class="banner-theme-btn" id="theme-toggle" aria-label="Toggle dark mode"></button>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     MAIN CONTENT
+============================================================ -->
+<main class="page-wrapper" id="main-content">
+    <div class="container">
+
+        <!-- Page heading row -->
+        <div class="page-header fade-up">
+            <div>
+                <h1 class="page-title">Cognitive <span>Observability</span></h1>
+                <div class="page-sub">Fray-Orchestrator — Real-time system telemetry</div>
+            </div>
+            <div class="page-meta">
+                <span id="header-agent-badge" class="health-badge neutral">
+                    <span class="dot"></span>
+                    <span id="header-agent-text">—</span>
+                </span>
+                <span id="header-health-badge" class="health-badge ok">
+                    <span class="dot"></span>
+                    <span id="header-health-text">STABLE</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- ================================================
+             LOADING STATE
+        ================================================ -->
+        <div id="dash-loading" aria-hidden="true">
+            <div class="skel-grid">
+                <div class="skel skel-tall"><div class="skel-text" style="width:55%"></div></div>
+                <div class="skel skel-tall"><div class="skel-text" style="width:45%"></div></div>
+                <div class="skel skel-tall"><div class="skel-text" style="width:60%"></div></div>
+                <div class="skel skel-tall"><div class="skel-text" style="width:35%"></div></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px;">
+                <div class="skel skel-med"><div class="skel-text" style="width:50%"></div></div>
+                <div class="skel skel-med"><div class="skel-text" style="width:60%"></div></div>
+                <div class="skel skel-long"><div class="skel-text" style="width:40%"></div></div>
+            </div>
+        </div>
+
+        <!-- ================================================
+             DASHBOARD CONTENT
+        ================================================ -->
+        <div id="dash-content">
+
+            <!-- VITALS STRIP -->
+            <div class="vitals-strip fade-up d1">
+
+                <!-- CPU Usage -->
+                <div class="vital-card">
+                    <div class="vital-label">CPU User</div>
+                    <div class="vital-value" id="v-cpu-user">—</div>
+                    <div class="vital-sub" id="v-cpu-sys">sys —</div>
+                    <div class="vital-bar-track">
+                        <div class="vital-bar-fill blue" id="v-cpu-bar" style="width:0"></div>
+                    </div>
+                </div>
+
+                <!-- GPU Usage -->
+                <div class="vital-card">
+                    <div class="vital-label">GPU Usage</div>
+                    <div class="vital-value" id="v-gpu">—</div>
+                    <div class="vital-sub">Thermal: <span id="v-thermal">—</span></div>
+                    <div class="vital-bar-track">
+                        <div class="vital-bar-fill green" id="v-gpu-bar" style="width:0"></div>
+                    </div>
+                </div>
+
+                <!-- Memory -->
+                <div class="vital-card">
+                    <div class="vital-label">Memory Used</div>
+                    <div class="vital-value" id="v-mem">—</div>
+                    <div class="vital-sub">Free pages: <span id="v-pages">—</span></div>
+                    <div class="vital-bar-track">
+                        <div class="vital-bar-fill red" id="v-mem-bar" style="width:0"></div>
+                    </div>
+                </div>
+
+                <!-- Disk I/O -->
+                <div class="vital-card">
+                    <div class="vital-label">Disk I/O</div>
+                    <div class="vital-value" id="v-disk-read">—</div>
+                    <div class="vital-sub">TPS: <span id="v-disk-tps">—</span></div>
+                    <div class="vital-bar-track">
+                        <div class="vital-bar-fill amber" id="v-disk-bar" style="width:0"></div>
+                    </div>
+                </div>
+
+            </div><!-- /vitals-strip -->
+
+            <!-- MAIN 3-COLUMN GRID -->
+            <div class="main-grid fade-up d2">
+
+                <!-- === Panel: System Status === -->
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title"><span class="panel-title-icon">⬡</span> System Status</div>
+                        <div id="p-system-status-chip" class="chip ok"><span class="dot-sm"></span>ONLINE</div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="data-row">
+                            <span class="data-label">Operational State</span>
+                            <span id="p-op-state" class="data-val">—</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Tier</span>
+                            <span id="p-tier" class="data-val">—</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Mindset</span>
+                            <span id="p-mindset" class="data-val">—</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Circuit Breaker</span>
+                            <span id="p-circuit" class="chip ok"><span class="dot-sm"></span>—</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Security Gate</span>
+                            <span id="p-security" class="chip ok"><span class="dot-sm"></span>—</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Network</span>
+                            <span id="p-network" class="chip neutral"><span class="dot-sm"></span>—</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === Panel: Hardware Stress === -->
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title"><span class="panel-title-icon">⚡</span> Stress Analysis</div>
+                        <div id="p-stress-chip" class="chip ok"><span class="dot-sm"></span>—</div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="perf-row">
+                            <div class="perf-row-top">
+                                <span class="perf-label">CPU</span>
+                                <span class="perf-value" id="s-cpu">—</span>
+                            </div>
+                            <div class="perf-track">
+                                <div class="perf-fill" id="s-cpu-bar" style="background:var(--primary);width:0"></div>
+                            </div>
+                        </div>
+                        <div class="perf-row">
+                            <div class="perf-row-top">
+                                <span class="perf-label">GPU</span>
+                                <span class="perf-value" id="s-gpu">—</span>
+                            </div>
+                            <div class="perf-track">
+                                <div class="perf-fill" id="s-gpu-bar" style="background:var(--state-ok);width:0"></div>
+                            </div>
+                        </div>
+                        <div class="perf-row">
+                            <div class="perf-row-top">
+                                <span class="perf-label">Memory</span>
+                                <span class="perf-value" id="s-mem">—</span>
+                            </div>
+                            <div class="perf-track">
+                                <div class="perf-fill" id="s-mem-bar" style="background:var(--accent);width:0"></div>
+                            </div>
+                        </div>
+                        <div class="data-row" style="margin-top:12px;">
+                            <span class="data-label">Load Avg (1m / 5m / 15m)</span>
+                            <span class="data-val" id="s-load">—</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Swap In / Out</span>
+                            <span class="data-val" id="s-swap">—</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">CPU Idle</span>
+                            <span class="data-val" id="s-idle">—</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === Panel: Agent (metadata) === -->
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title"><span class="panel-title-icon">◈</span> Agent Info</div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="data-row">
+                            <span class="data-label">Agent</span>
+                            <span class="data-val" id="p-agent">—</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Version</span>
+                            <span class="data-val" id="p-version">—</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Metrics Status</span>
+                            <span id="p-metrics-status" class="chip neutral"><span class="dot-sm"></span>—</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Audit Health</span>
+                            <span id="p-audit-health" class="chip ok"><span class="dot-sm"></span>—</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Metrics Timestamp</span>
+                            <span class="data-val" id="p-metrics-ts">—</span>
+                        </div>
+                        <div class="data-row">
+                            <span class="data-label">Audit Timestamp</span>
+                            <span class="data-val" id="p-audit-ts">—</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === Panel: Cognitive Reflection (span 2) === -->
+                <div class="panel span-2">
+                    <div class="panel-head">
+                        <div class="panel-title"><span class="panel-title-icon">🌀</span> Cognitive Reflection</div>
+                    </div>
+                    <div class="panel-body">
+                        <div id="reflection-content" class="quote-block">
+                            Awaiting synchronization…
+                        </div>
+                        <div id="reflection-meta" class="reflection-meta-row"></div>
+                    </div>
+                </div>
+
+                <!-- === Panel: Cognitive Insights (span 1) === -->
+                <div class="panel">
+                    <div class="panel-head">
+                        <div class="panel-title"><span class="panel-title-icon">◎</span> Insights</div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="insight-label">Synthesis</div>
+                        <div id="insights-synthesis" class="insight-block">Awaiting…</div>
+
+                        <div class="insight-label">Observation</div>
+                        <div id="insights-observation" class="insight-block">Awaiting…</div>
+                    </div>
+                </div>
+
+            </div><!-- /main-grid -->
+
+            <!-- AGENT AUDIT SECTION -->
+            <div class="section-divider fade-up d3">
+                <span class="section-divider-title">Agent Sentinel Audits</span>
+                <div class="section-divider-line"></div>
+                <span id="audit-health-chip" class="chip ok"><span class="dot-sm"></span>STABLE</span>
+            </div>
+
+            <div class="filter-strip fade-up d3">
+                <button class="flt-btn active" data-filter="all" id="btn-filter-all">All</button>
+                <button class="flt-btn" data-filter="healthy" id="btn-filter-healthy">Healthy</button>
+                <button class="flt-btn" data-filter="issue" id="btn-filter-issue">Issues</button>
+            </div>
+
+            <div id="audit-grid" class="agent-grid fade-up d4">
+                <!-- Rendered dynamically -->
+            </div>
+
+        </div><!-- /dash-content -->
+
+    </div><!-- /container -->
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div>
+        &copy; 2025–<span id="footer-year">2026</span>
+        <a href="https://github.com/NTWKKM/" target="_blank" rel="noopener">NTWKKM</a>.
+        All Rights Reserved.
+    </div>
+    <div style="margin-top:6px;font-size:0.78rem;">Bridging Clinical Practice with Digital Innovation.</div>
+</footer>
+
+<div id="sr-announcer" role="status" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
+<!-- Shared scripts -->
+<script src="../shared.js"></script>
+
+<script>
+// ============================================================
+// HELPERS
+// ============================================================
+function esc(str) {
+    if (!str) return '';
+    return String(str)
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function sanitizeURL(url) {
+    if (!url) return '#';
+    try { return ['http:','https:'].includes(new URL(url).protocol) ? url : '#'; }
+    catch { return '#'; }
+}
+
+function chipClass(val) {
+    if (!val) return 'neutral';
+    const v = String(val).toUpperCase().trim();
+    const OK_SET   = new Set(['NOMINAL','LOW','NORMAL','CLOSED','UNLOCKED','ACTIVE','ONLINE','HEALTHY','STABLE','FULL','OPEN_GOOD']);
+    const WARN_SET = new Set(['WARNING','MODERATE','DEGRADED','STRESSED']);
+    const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR']);
+    if (OK_SET.has(v))   return 'ok';
+    if (WARN_SET.has(v)) return 'warn';
+    if (ERR_SET.has(v))  return 'err';
+    return 'neutral';
+}
+
+function setChip(id, text) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const cls = chipClass(text);
+    el.className = `chip ${cls}`;
+    el.innerHTML = `<span class="dot-sm"></span>${esc(text)}`;
+}
+
+function setVal(id, text) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = text || '—';
+}
+
+function setBar(id, pct) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const clamped = Math.min(100, Math.max(0, pct || 0));
+    el.style.width = clamped + '%';
+}
+
+function parsePct(str) {
+    if (!str) return 0;
+    return parseFloat(String(str).replace('%','')) || 0;
+}
+
+// ============================================================
+// FILTER LOGIC
+// ============================================================
+let currentFilter = 'all';
+
+function applyFilter(filter) {
+    currentFilter = filter;
+    document.querySelectorAll('.flt-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === filter);
+    });
+    document.querySelectorAll('.agent-panel').forEach(card => {
+        const s = card.dataset.status;
+        card.style.display = (filter === 'all' || s === filter) ? '' : 'none';
+    });
+}
+
+document.addEventListener('click', e => {
+    if (e.target && e.target.classList.contains('flt-btn')) {
+        applyFilter(e.target.dataset.filter);
+    }
+});
+
+// ============================================================
+// MAIN UPDATE
+// ============================================================
+async function updateDashboard() {
+    try {
+        const res  = await fetch(`dashboard-snapshot.json?t=${Date.now()}`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        renderDashboard(data);
+    } catch (err) {
+        console.error('[Fray] fetch error', err);
+    }
+}
+
+function renderDashboard(data) {
+    const loader  = document.getElementById('dash-loading');
+    const content = document.getElementById('dash-content');
+
+    // ---- SYSTEM ----
+    const sys = data.system || {};
+
+    // Banner timestamp
+    const ts = sys.timestamp || '—';
+    const tsEl = document.getElementById('banner-timestamp');
+    if (tsEl) tsEl.textContent = ts;
+
+    // Header page-meta
+    const agentName = data.metadata ? `${data.metadata.agent} v${data.metadata.version}` : '—';
+    setVal('header-agent-text', agentName);
+    const overallHealth = (data.audit && data.audit.overall_health) ? data.audit.overall_health : 'STABLE';
+    const healthEl = document.getElementById('header-health-badge');
+    if (healthEl) {
+        healthEl.className = `health-badge ${chipClass(overallHealth)}`;
+        healthEl.innerHTML = `<span class="dot"></span>${esc(overallHealth)}`;
+    }
+
+    // System Status panel
+    setVal('p-op-state',  sys.status || '—');
+    setVal('p-tier',      sys.tier   || '—');
+    setVal('p-mindset',   sys.mindset || '—');
+
+    // Circuit breaker (nested JSON string)
+    let circuitState = '—';
+    try {
+        const cb = JSON.parse(sys.circuit_breaker || '{}');
+        circuitState = (cb.circuit_breakers && cb.circuit_breakers.n8n) ? cb.circuit_breakers.n8n : '—';
+    } catch (_) { circuitState = String(sys.circuit_breaker || '—'); }
+    setChip('p-circuit',  circuitState);
+
+    // Security
+    const locked = sys.security_lock;
+    setChip('p-security', locked ? 'LOCKED' : 'UNLOCKED');
+
+    // System status chip
+    setChip('p-system-status-chip', sys.status || 'ONLINE');
+
+    // ---- METRICS ----
+    const metricsRoot = data.metrics || {};
+    const m = metricsRoot.system_metrics || {};
+
+    // Network chip
+    const netLat = m.network_latency || '—';
+    setChip('p-network', netLat.toUpperCase() === 'TIMEOUT' ? 'TIMEOUT' : netLat);
+
+    // Vitals strip
+    const cpuUser = parsePct(m.cpu_usage && m.cpu_usage.user);
+    const cpuSys  = parsePct(m.cpu_usage && m.cpu_usage.sys);
+    const cpuIdle = parsePct(m.cpu_usage && m.cpu_usage.idle);
+    const gpuPct  = parsePct(m.gpu_usage);
+    const diskRead = m.disk_io ? m.disk_io.read_mb_s : 0;
+
+    setVal('v-cpu-user',  m.cpu_usage ? m.cpu_usage.user : '—');
+    setVal('v-cpu-sys',   m.cpu_usage ? `sys ${m.cpu_usage.sys}` : 'sys —');
+    setBar('v-cpu-bar',   cpuUser);
+
+    setVal('v-gpu',       m.gpu_usage || '—');
+    setVal('v-thermal',   m.thermal_state || '—');
+    setBar('v-gpu-bar',   gpuPct);
+
+    const memUsed = m.memory ? m.memory.phys_mem_used : '—';
+    const pagesFree = m.memory ? m.memory.pages_free : '—';
+    setVal('v-mem',       memUsed);
+    setVal('v-pages',     pagesFree);
+    // rough % estimate: if 7526M out of ~16384M
+    const memPct = memUsed ? Math.round((parseFloat(memUsed) / 16384) * 100) : 0;
+    setBar('v-mem-bar',   memPct);
+
+    setVal('v-disk-read', m.disk_io ? `${m.disk_io.read_mb_s} MB/s` : '—');
+    setVal('v-disk-tps',  m.disk_io ? m.disk_io.tps : '—');
+    const diskPct = diskRead ? Math.min(100, Math.round((diskRead / 200) * 100)) : 0;
+    setBar('v-disk-bar',  diskPct);
+
+    // Stress panel
+    const stress = m.stress_analysis || {};
+    const loadAvg = m.load_avg || [];
+
+    setVal('s-cpu',  stress.cpu  || '—');
+    setVal('s-gpu',  stress.gpu  || '—');
+    setVal('s-mem',  stress.memory || '—');
+    setVal('s-idle', cpuIdle ? `${cpuIdle}%` : '—');
+
+    // stress bars: NOMINAL = 20%, WARNING = 65%, CRITICAL = 95%
+    const stressToWidth = v => ({ NOMINAL: 20, WARNING: 65, CRITICAL: 95 }[String(v).toUpperCase()] || 20);
+    const stressToColor = v => ({
+        NOMINAL: 'var(--state-ok)', WARNING: 'var(--state-warn)', CRITICAL: 'var(--state-err)'
+    }[String(v).toUpperCase()] || 'var(--primary)');
+
+    ['cpu','gpu','mem'].forEach(k => {
+        const key = k === 'mem' ? 'memory' : k;
+        const val = stress[key] || 'NOMINAL';
+        const barEl = document.getElementById(`s-${k}-bar`);
+        if (barEl) {
+            barEl.style.width = stressToWidth(val) + '%';
+            barEl.style.background = stressToColor(val);
+        }
+    });
+
+    setChip('p-stress-chip', stress.overall || '—');
+
+    setVal('s-load', loadAvg.length >= 3 ? `${loadAvg[0]} / ${loadAvg[1]} / ${loadAvg[2]}` : '—');
+    if (m.memory) {
+        setVal('s-swap', `${m.memory.swapins?.toLocaleString() || '—'} / ${m.memory.swapouts?.toLocaleString() || '—'}`);
+    }
+
+    // Agent Info panel
+    if (data.metadata) {
+        setVal('p-agent',   data.metadata.agent   || '—');
+        setVal('p-version', `v${data.metadata.version}` || '—');
+    }
+    setChip('p-metrics-status', metricsRoot.status || '—');
+    setChip('p-audit-health',   overallHealth);
+    setVal('p-metrics-ts', m.timestamp || '—');
+    setVal('p-audit-ts',   data.audit  ? data.audit.timestamp : '—');
+
+    // ---- REFLECTION ----
+    const rawRef = sys.last_reflection || 'No reflection recorded.';
+    let refFact = '', refMeta = '';
+    try {
+        const pr = JSON.parse(rawRef);
+        refFact = pr.fact || pr.reflection || rawRef;
+        if (pr.category || pr.timestamp) {
+            refMeta = [
+                pr.category  ? `🏷 ${esc(pr.category)}`  : '',
+                pr.timestamp ? `⏱ ${esc(pr.timestamp)}` : ''
+            ].filter(Boolean).join('  ·  ');
+        }
+    } catch(_) { refFact = rawRef; }
+
+    const refEl = document.getElementById('reflection-content');
+    if (refEl) refEl.textContent = refFact;
+
+    const refMetaEl = document.getElementById('reflection-meta');
+    if (refMetaEl && refMeta) {
+        refMetaEl.innerHTML = refMeta.split('  ·  ')
+            .filter(Boolean)
+            .map(t => `<span class="meta-tag">${t}</span>`)
+            .join('');
+    }
+
+    // ---- INSIGHTS ----
+    const ins = (data.audit && data.audit.cognitive_insights) || {};
+    const synthEl = document.getElementById('insights-synthesis');
+    const obsEl   = document.getElementById('insights-observation');
+    if (synthEl) synthEl.textContent = ins.synthesis   || 'No synthesis recorded.';
+    if (obsEl)   obsEl.textContent   = ins.observation || 'No observations recorded.';
+
+    // ---- AUDIT GRID ----
+    const auditData  = data.audit  || {};
+    const agents     = auditData.audit || {};
+    const auditChipEl = document.getElementById('audit-health-chip');
+    if (auditChipEl) {
+        const cls = chipClass(overallHealth);
+        auditChipEl.className = `chip ${cls}`;
+        auditChipEl.innerHTML = `<span class="dot-sm"></span>${esc(overallHealth)}`;
+    }
+
+    const auditGrid = document.getElementById('audit-grid');
+    if (auditGrid) {
+        auditGrid.innerHTML = '';
+        let healthy = 0, issues = 0;
+
+        for (const [name, info] of Object.entries(agents)) {
+            const status = info.status || 'UNKNOWN';
+            const cls    = chipClass(status);
+            const isOk   = cls === 'ok';
+            if (isOk) healthy++; else issues++;
+
+            const dot = isOk ? 'ok' : (cls === 'warn' ? 'warn' : 'err');
+            auditGrid.innerHTML += `
+                <article class="agent-panel" data-status="${isOk ? 'healthy' : 'issue'}">
+                    <div class="agent-panel-head">
+                        <span class="agent-name">${esc(name)}</span>
+                        <div style="display:flex;align-items:center;gap:8px;">
+                            <span class="chip ${cls}"><span class="dot-sm"></span>${esc(status)}</span>
+                            <span class="agent-indicator ${dot}" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="agent-panel-body">
+                        <div class="agent-analysis">${esc(info.analysis || 'No analysis details.')}</div>
+                        <div class="agent-technical">${esc(info.technical || 'No technical details.')}</div>
+                    </div>
+                </article>`;
+        }
+
+        const btnAll     = document.getElementById('btn-filter-all');
+        const btnHealthy = document.getElementById('btn-filter-healthy');
+        const btnIssue   = document.getElementById('btn-filter-issue');
+        if (btnAll)     btnAll.textContent     = `All (${Object.keys(agents).length})`;
+        if (btnHealthy) btnHealthy.textContent = `Healthy (${healthy})`;
+        if (btnIssue) {
+            btnIssue.textContent = `Issues (${issues})`;
+            btnIssue.style.color  = issues > 0 ? 'var(--state-err)' : '';
+            btnIssue.style.border = issues > 0 ? `1px solid var(--state-err)` : '';
+        }
+
+        applyFilter(currentFilter);
+    }
+
+    // Show content
+    loader.style.display  = 'none';
+    content.style.display = 'block';
+
+    // Announce
+    const ann = document.getElementById('sr-announcer');
+    if (ann) ann.textContent = 'Dashboard updated successfully.';
+}
+
+// Footer year
+const fyEl = document.getElementById('footer-year');
+if (fyEl) fyEl.textContent = new Date().getFullYear();
+
+// Auto-refresh every 30 seconds
+setInterval(updateDashboard, 30000);
+updateDashboard();
+</script>
+
+</body>
+</html>
