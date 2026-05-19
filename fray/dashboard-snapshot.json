@@ -3,32 +3,36 @@
     "status": "ONLINE",
     "tier": "full",
     "security_lock": false,
-    "circuit_breaker": "{\n  \"n8n\": \"CLOSED\",\n  \"last_updated\": \"2026-05-18T20:00:00Z\"\n}",
+    "circuit_breaker": "{\n  \"circuit_breakers\": {\n    \"n8n\": \"CLOSED\",\n    \"last_check\": \"2026-05-19T00:00:00Z\"\n  }\n}",
     "mindset": "Sati-Observation",
-    "last_reflection": "{\"timestamp\": \"2026-05-18\", \"category\": \"system_audit\", \"fact\": \"Telemetry and Security cycle for 2026-05-18 completed; Buddhist lock verification performed, security.lock confirmed empty.\"}",
-    "timestamp": "2026-05-18T17:00:15Z"
+    "last_reflection": "{\"timestamp\": \"2026-05-19\", \"category\": \"system_audit\", \"fact\": \"Daily heartbeats for 2026-05-18 maintained system state snapshots. The Guard sequence completed and verified security telemetry as OK.\"}",
+    "timestamp": "2026-05-19T01:10:52Z"
   },
   "metrics": {
-    "timestamp": "2026-05-18T22:12:32Z",
-    "system_loads": {
+    "system_metrics": {
+      "timestamp": "2026-05-19T08:01:23Z",
       "load_avg": [
-        1.14,
-        2,
-        2.25
+        3.92,
+        3.82,
+        3.67
       ],
       "cpu_usage": {
-        "user": "6.86%",
-        "sys": "12.87%",
-        "idle": "80.25%"
+        "user": "12.91%",
+        "sys": "14.83%",
+        "idle": "72.25%"
       },
-      "physical_memory": {
-        "used": "7534M",
-        "unused": "98M"
+      "memory": {
+        "phys_mem_used": "7526M",
+        "pages_free": 6591,
+        "swapins": 18118573,
+        "swapouts": 20717110
+      },
+      "disk_io": {
+        "read_mb_s": 40.85,
+        "tps": 9214
       }
     },
-    "infrastructure": {
-      "n8n": "Healthy"
-    }
+    "status": "ACTIVE"
   },
   "metadata": {
     "agent": "Fray-Orchestrator",
