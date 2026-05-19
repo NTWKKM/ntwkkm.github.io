@@ -6,7 +6,7 @@
     "circuit_breaker": "{\n  \"circuit_breakers\": {\n    \"n8n\": \"CLOSED\",\n    \"last_check\": \"2026-05-19T00:00:00Z\"\n  }\n}",
     "mindset": "Sati-Observation",
     "last_reflection": "{\"timestamp\": \"2026-05-19\", \"category\": \"system_audit\", \"fact\": \"Daily heartbeats for 2026-05-18 maintained system state snapshots. The Guard sequence completed and verified security telemetry as OK.\"}",
-    "timestamp": "2026-05-19T07:28:58Z"
+    "timestamp": "2026-05-19T08:09:54Z"
   },
   "metrics": {
     "system_metrics": {
@@ -42,6 +42,42 @@
       "network_latency": "Timeout"
     },
     "status": "ACTIVE"
+  },
+  "audit": {
+    "timestamp": "2026-05-19T08:02:35.890770Z",
+    "audit": {
+      "THE GUARD": {
+        "status": "HEALTHY",
+        "technical": "Artifact /Users/ntwkkm/hermes/state/security.lock is present and accessible.",
+        "analysis": "Agent is operating within expected parameters. No anomalies detected in activity patterns."
+      },
+      "THE OBSERVER": {
+        "status": "HEALTHY",
+        "technical": "Artifact /Users/ntwkkm/hermes/state/context-snapshot.json is present and accessible.",
+        "analysis": "Agent is operating within expected parameters. No anomalies detected in activity patterns."
+      },
+      "THE HERALD": {
+        "status": "HEALTHY",
+        "technical": "Artifact /Users/ntwkkm/hermes/tasks/system/push_dashboard.sh is present and accessible.",
+        "analysis": "Agent is operating within expected parameters. No anomalies detected in activity patterns."
+      },
+      "THE COMPANION": {
+        "status": "MISSING",
+        "technical": "Could not locate artifact /Users/ntwkkm/hermes/logs/companion.log.",
+        "analysis": "Agent may be dormant or experienced a catastrophic failure. Recommend immediate restart."
+      },
+      "THE ARCHIVIST": {
+        "status": "HEALTHY",
+        "technical": "Artifact /Users/ntwkkm/hermes/memory/memory-log.jsonl is present and accessible.",
+        "analysis": "Agent is operating within expected parameters. No anomalies detected in activity patterns."
+      },
+      "THE SAGE": {
+        "status": "MISSING",
+        "technical": "Could not locate artifact /Users/ntwkkm/hermes/state/system-audit.json.",
+        "analysis": "Agent may be dormant or experienced a catastrophic failure. Recommend immediate restart."
+      }
+    },
+    "overall_health": "DEGRADED"
   },
   "metadata": {
     "agent": "Fray-Orchestrator",
