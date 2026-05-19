@@ -728,33 +728,63 @@
         }
 
         /* ====================================================
-           AGENT SENTINEL AUDITS
+           AGENT SENTINEL AUDITS (TABLE VIEW)
         ==================================================== */
-        .agent-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-        }
-
-        .agent-panel {
+        .audit-table-wrapper {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             overflow: hidden;
+            overflow-x: auto;
             box-shadow: var(--shadow-sm);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .agent-panel:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
         }
 
-        .agent-panel-head {
+        .audit-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.82rem;
+            min-width: 800px;
+        }
+
+        .audit-table th {
+            background: var(--bg-surface);
+            color: var(--text-muted);
+            font-weight: 600;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 0.05em;
+        }
+
+        .audit-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+            color: var(--text-secondary);
+        }
+
+        .audit-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .audit-table tr {
+            transition: background-color 0.15s ease;
+        }
+
+        .audit-table tr:hover {
+            background-color: rgba(0, 0, 0, 0.015);
+        }
+
+        [data-theme="dark"] .audit-table tr:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .audit-agent-cell {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 12px 14px;
-            border-bottom: 1px solid var(--border);
+            gap: 10px;
         }
 
         .agent-name {
@@ -766,35 +796,33 @@
         }
 
         .agent-indicator {
-            width: 8px; height: 8px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             flex-shrink: 0;
+            display: inline-block;
         }
         .agent-indicator.ok   { background: var(--state-ok); }
         .agent-indicator.warn { background: var(--state-warn); }
         .agent-indicator.err  { background: var(--state-err); }
 
-        .agent-panel-body {
-            padding: 12px 14px;
-        }
-
         .agent-analysis {
             font-size: 0.81rem;
             color: var(--text-secondary);
-            line-height: 1.55;
-            margin-bottom: 10px;
+            line-height: 1.5;
         }
 
-        .agent-technical {
+        .audit-technical-cell {
             font-family: 'JetBrains Mono', 'Courier New', monospace;
             font-size: 0.67rem;
             color: var(--text-faint);
             background: var(--bg-surface);
-            padding: 7px 10px;
+            padding: 5px 8px;
             border-radius: var(--radius-sm);
             word-break: break-all;
-            line-height: 1.5;
+            line-height: 1.4;
             border: 1px solid var(--border);
+            display: inline-block;
         }
 
         /* ====================================================
@@ -883,7 +911,6 @@
             .main-grid    { grid-template-columns: 1fr 1fr; }
             .span-2       { grid-column: span 2; }
             .span-3       { grid-column: span 2; }
-            .agent-grid   { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 768px) {
@@ -894,7 +921,6 @@
             .vitals-strip { grid-template-columns: repeat(2, 1fr); }
             .main-grid    { grid-template-columns: 1fr; }
             .span-2, .span-3 { grid-column: 1; }
-            .agent-grid   { grid-template-columns: 1fr; }
             .page-title   { font-size: 1.35rem; }
             .skel-grid    { grid-template-columns: 1fr 1fr; }
             .banner-left  { gap: 10px; }
@@ -1183,8 +1209,20 @@
                     <button class="flt-btn" data-filter="issue" id="btn-filter-issue">Issues</button>
                 </div>
 
-                <div id="audit-grid" class="agent-grid fade-up d4">
-                    <!-- Rendered dynamically -->
+                <div class="audit-table-wrapper fade-up d4">
+                    <table class="audit-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 18%;">Agent</th>
+                                <th style="width: 12%;">Status</th>
+                                <th style="width: 40%;">Analysis</th>
+                                <th style="width: 30%;">Technical Details</th>
+                            </tr>
+                        </thead>
+                        <tbody id="audit-table-body">
+                            <!-- Rendered dynamically -->
+                        </tbody>
+                    </table>
                 </div>
 
             </div><!-- /dash-content -->
@@ -1294,9 +1332,9 @@
             document.querySelectorAll('.flt-btn').forEach(btn => {
                 btn.classList.toggle('active', btn.dataset.filter === filter);
             });
-            document.querySelectorAll('.agent-panel').forEach(card => {
-                const s = card.dataset.status;
-                card.style.display = (filter === 'all' || s === filter) ? '' : 'none';
+            document.querySelectorAll('.agent-row').forEach(row => {
+                const s = row.dataset.status;
+                row.style.display = (filter === 'all' || s === filter) ? '' : 'none';
             });
         }
 
@@ -1572,9 +1610,9 @@
                 auditChipEl.innerHTML = `<span class="dot-sm"></span>${escapeHTML(overallHealth)}`;
             }
 
-            const auditGrid = document.getElementById('audit-grid');
-            if (auditGrid) {
-                auditGrid.innerHTML = '';
+            const auditTableBody = document.getElementById('audit-table-body');
+            if (auditTableBody) {
+                auditTableBody.innerHTML = '';
                 let healthy = 0, issues = 0;
 
                 for (const [name, info] of Object.entries(agents)) {
@@ -1584,20 +1622,24 @@
                     if (isOk) healthy++; else issues++;
 
                     const dot = isOk ? 'ok' : (cls === 'warn' ? 'warn' : 'err');
-                    auditGrid.innerHTML += `
-                        <article class="agent-panel" data-status="${isOk ? 'healthy' : 'issue'}">
-                            <div class="agent-panel-head">
-                                <span class="agent-name">${escapeHTML(name)}</span>
-                                <div style="display:flex;align-items:center;gap:8px;">
-                                    <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(status)}</span>
+                    auditTableBody.innerHTML += `
+                        <tr class="agent-row" data-status="${isOk ? 'healthy' : 'issue'}">
+                            <td>
+                                <div class="audit-agent-cell">
                                     <span class="agent-indicator ${dot}" aria-hidden="true"></span>
+                                    <span class="agent-name">${escapeHTML(name)}</span>
                                 </div>
-                            </div>
-                            <div class="agent-panel-body">
+                            </td>
+                            <td>
+                                <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(status)}</span>
+                            </td>
+                            <td>
                                 <div class="agent-analysis">${escapeHTML(info.analysis || 'No analysis details.')}</div>
-                                <div class="agent-technical">${escapeHTML(info.technical || 'No technical details.')}</div>
-                            </div>
-                        </article>`;
+                            </td>
+                            <td>
+                                <div class="audit-technical-cell">${escapeHTML(info.technical || 'No technical details.')}</div>
+                            </td>
+                        </tr>`;
                 }
 
                 const btnAll     = document.getElementById('btn-filter-all');
