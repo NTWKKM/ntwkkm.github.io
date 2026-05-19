@@ -642,6 +642,10 @@
                                     <div id="cpu-fill" class="progress-bar-fill"></div>
                                 </div>
                             </div>
+                            <div id="cpu-subtext" style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; display: none;">
+                                <span id="cpu-user-sys-val">-</span>
+                                <span id="cpu-idle-val">-</span>
+                            </div>
                         </div>
                     </div>
 
@@ -675,6 +679,29 @@
                                 <span id="memory-swap-val">-</span>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="metric-row">
+                        <div style="width: 100%;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span class="metric-label">Disk Storage I/O</span>
+                                <span id="disk-io-val" class="metric-value">-</span>
+                            </div>
+                            <div class="gauge-wrapper">
+                                <div class="progress-bar-container" aria-hidden="true">
+                                    <div id="disk-fill" class="progress-bar-fill"></div>
+                                </div>
+                            </div>
+                            <div id="disk-subtext" style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; display: none;">
+                                <span id="disk-read-val">-</span>
+                                <span id="disk-tps-val">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">Hardware Sensor Sync</span>
+                        <span id="metrics-time-val" class="metric-value" style="font-size: 0.78rem; font-weight: 600; font-family: 'JetBrains Mono', 'Courier New', monospace;">-</span>
                     </div>
 
                     <div id="extra-stats-row" class="metric-row" style="display: none;">
@@ -801,6 +828,16 @@
                         circuitPill.appendChild(badge);
                     }
                     
+                    const lastCheck = breakers.last_check || breakers.last_updated;
+                    if (lastCheck) {
+                        const checkTime = document.createElement('span');
+                        checkTime.style.fontSize = '0.72rem';
+                        checkTime.style.color = 'var(--text-muted)';
+                        checkTime.style.marginTop = '2px';
+                        checkTime.innerText = `Checked: ${lastCheck}`;
+                        circuitPill.appendChild(checkTime);
+                    }
+                    
                     if (circuitPill.children.length === 0) {
                         circuitPill.className = 'status-pill success';
                         circuitPill.innerText = 'CLOSED';
@@ -847,22 +884,41 @@
                 // 2. CPU usage details
                 let cpuPct = 0;
                 let cpuText = '-';
+                let cpuUserSysText = '-';
+                let cpuIdleText = '-';
                 if (sysMetrics && sysMetrics.cpu_usage) {
                     const user = parseFloat(sysMetrics.cpu_usage.user) || 0;
                     const sys = parseFloat(sysMetrics.cpu_usage.sys) || 0;
                     cpuPct = Math.round(user + sys);
-                    cpuText = `${cpuPct}% (User: ${sysMetrics.cpu_usage.user}, Sys: ${sysMetrics.cpu_usage.sys})`;
+                    cpuText = `${cpuPct}%`;
+                    cpuUserSysText = `User: ${sysMetrics.cpu_usage.user} | Sys: ${sysMetrics.cpu_usage.sys}`;
+                    cpuIdleText = `Idle: ${sysMetrics.cpu_usage.idle}`;
                 } else if (data.metrics && data.metrics.cpu_usage) {
                     const user = parseFloat(data.metrics.cpu_usage.user) || 0;
                     const sys = parseFloat(data.metrics.cpu_usage.sys) || 0;
                     cpuPct = Math.round(user + sys);
-                    cpuText = `${cpuPct}% (User: ${data.metrics.cpu_usage.user}, Sys: ${data.metrics.cpu_usage.sys})`;
+                    cpuText = `${cpuPct}%`;
+                    cpuUserSysText = `User: ${data.metrics.cpu_usage.user} | Sys: ${data.metrics.cpu_usage.sys}`;
+                    cpuIdleText = `Idle: ${data.metrics.cpu_usage.idle}`;
                 } else if (data.metrics && data.metrics.cpu_load !== undefined) {
                     cpuPct = Math.round(parseFloat(data.metrics.cpu_load)) || 0;
                     cpuText = `${cpuPct}%`;
                 }
                 document.getElementById('cpu-val').innerText = cpuText;
                 document.getElementById('cpu-fill').style.width = `${cpuPct}%`;
+                
+                const cpuUserSysEl = document.getElementById('cpu-user-sys-val');
+                const cpuIdleEl = document.getElementById('cpu-idle-val');
+                const cpuSubEl = document.getElementById('cpu-subtext');
+                if (cpuUserSysEl && cpuIdleEl && cpuSubEl) {
+                    if (cpuUserSysText !== '-' || cpuIdleText !== '-') {
+                        cpuSubEl.style.display = 'flex';
+                        cpuUserSysEl.innerText = cpuUserSysText;
+                        cpuIdleEl.innerText = cpuIdleText;
+                    } else {
+                        cpuSubEl.style.display = 'none';
+                    }
+                }
                 
                 // GPU usage details
                 let gpuPct = 0;
@@ -937,6 +993,50 @@
                     } else {
                         memSubEl.style.display = 'none';
                     }
+                }
+
+                // 4. Disk Storage I/O utilization
+                let diskPct = 0;
+                let diskText = '-';
+                let diskReadText = '-';
+                let diskTpsText = '-';
+                
+                if (sysMetrics && sysMetrics.disk_io) {
+                    const readMb = parseFloat(sysMetrics.disk_io.read_mb_s) || 0;
+                    const tps = sysMetrics.disk_io.tps || 0;
+                    
+                    // We assume a peak/high reference bandwidth of 200 MB/s to scale the progress bar.
+                    diskPct = Math.min(100, Math.round((readMb / 200) * 100));
+                    diskText = `${readMb.toFixed(2)} MB/s`;
+                    
+                    diskReadText = `Read Speed: ${readMb.toFixed(2)} MB/s`;
+                    diskTpsText = `IOPS / TPS: ${tps.toLocaleString()}`;
+                }
+                
+                const diskValEl = document.getElementById('disk-io-val');
+                const diskFillEl = document.getElementById('disk-fill');
+                if (diskValEl && diskFillEl) {
+                    diskValEl.innerText = diskText;
+                    diskFillEl.style.width = `${diskPct}%`;
+                }
+                
+                const diskReadEl = document.getElementById('disk-read-val');
+                const diskTpsEl = document.getElementById('disk-tps-val');
+                const diskSubEl = document.getElementById('disk-subtext');
+                if (diskReadEl && diskTpsEl && diskSubEl) {
+                    if (diskReadText !== '-' || diskTpsText !== '-') {
+                        diskSubEl.style.display = 'flex';
+                        diskReadEl.innerText = diskReadText;
+                        diskTpsEl.innerText = diskTpsText;
+                    } else {
+                        diskSubEl.style.display = 'none';
+                    }
+                }
+
+                // 5. Hardware Sensor Sync Timestamp
+                const metricsTimeEl = document.getElementById('metrics-time-val');
+                if (metricsTimeEl) {
+                    metricsTimeEl.innerText = (sysMetrics && sysMetrics.timestamp) ? sysMetrics.timestamp : '-';
                 }
                 
                 // 4. Legacy fallbacks (Battery / Network)
