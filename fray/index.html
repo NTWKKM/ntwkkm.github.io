@@ -1394,8 +1394,9 @@
                 const breakers = parsedCircuit.circuit_breakers || parsedCircuit;
                 circuitPill.innerHTML = '';
                 circuitPill.className = ''; 
-                circuitPill.style.display = 'inline-flex';
-                circuitPill.style.flexWrap = 'wrap';
+                circuitPill.style.display = 'flex';
+                circuitPill.style.flexDirection = 'column';
+                circuitPill.style.alignItems = 'flex-end';
                 circuitPill.style.gap = '4px';
                 
                 for (const [key, val] of Object.entries(breakers)) {
