@@ -1003,7 +1003,7 @@
 
                     <!-- CPU Usage -->
                     <div class="vital-card">
-                        <div class="vital-label">CPU User</div>
+                        <div class="vital-label">CPU Load</div>
                         <div class="vital-value" id="v-cpu-user">—</div>
                         <div class="vital-sub" id="v-cpu-sys">sys —</div>
                         <div class="vital-bar-track">
@@ -1270,7 +1270,7 @@
             const v = String(val).toUpperCase().trim();
             const OK_SET   = new Set(['NOMINAL','LOW','NORMAL','CLOSED','UNLOCKED','ACTIVE','ONLINE','HEALTHY','STABLE','FULL','OPEN_GOOD']);
             const WARN_SET = new Set(['WARNING','MODERATE','DEGRADED','STRESSED']);
-            const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR']);
+            const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR','DOWN','FAILED']);
             if (OK_SET.has(v))   return 'ok';
             if (WARN_SET.has(v)) return 'warn';
             if (ERR_SET.has(v))  return 'err';
@@ -1476,59 +1476,100 @@
 
             // ---- METRICS ----
             const metricsRoot = data.metrics || {};
-            const m = metricsRoot.system_metrics || metricsRoot.metrics || metricsRoot || {};
+            const m = metricsRoot.telemetry || {};
 
             // Network chip
-            const netLat = m.network_latency || '—';
-            setChip('p-network', netLat.toUpperCase() === 'TIMEOUT' ? 'TIMEOUT' : netLat);
+            let netLat = '—';
+            if (m.network) {
+                if (m.network.n8n_ttfb && m.network.n8n_ttfb !== 'failed') {
+                    netLat = m.network.n8n_ttfb;
+                } else {
+                    netLat = m.network.connectivity || 'DOWN';
+                }
+            }
+            setChip('p-network', netLat);
 
             // Vitals strip
-            const cpuUser = parsePct(m.cpu_usage && m.cpu_usage.user);
-            const cpuSys  = parsePct(m.cpu_usage && m.cpu_usage.sys);
-            const cpuIdle = parsePct(m.cpu_usage && m.cpu_usage.idle);
-            const gpuPct  = m.gpu_usage ? parsePct(m.gpu_usage) : 0;
+            const cpuLoad1m = (m.cpu && m.cpu.load_avg_1m) || 0;
+            const cpuLoad5m = (m.cpu && m.cpu.load_avg_5m) || 0;
+            const cpuLoad15m = (m.cpu && m.cpu.load_avg_15m) || 0;
+            const cpuPct = Math.min(100, Math.round((cpuLoad1m / 8) * 100)); // Assuming 8-core CPU scaling
 
-            setVal('v-cpu-user',  m.cpu_usage ? m.cpu_usage.user : '—');
-            setVal('v-cpu-sys',   m.cpu_usage ? `sys ${m.cpu_usage.sys}` : 'sys —');
-            setBar('v-cpu-bar',   cpuUser);
+            setVal('v-cpu-user',  m.cpu ? cpuLoad1m.toFixed(2) : '—');
+            setVal('v-cpu-sys',   m.cpu ? `5m: ${cpuLoad5m.toFixed(2)} · 15m: ${cpuLoad15m.toFixed(2)}` : '5m: — · 15m: —');
+            setBar('v-cpu-bar',   cpuPct);
 
-            setVal('v-gpu',       m.gpu_usage || 'N/A');
-            setVal('v-thermal',   m.thermal_state || 'N/A');
+            let gpuVal = '—';
+            let thermalVal = '—';
+            let gpuPct = 0;
+            if (m.gpu) {
+                gpuVal = `${m.gpu.residency_percent.toFixed(1)}%`;
+                gpuPct = m.gpu.residency_percent;
+            }
+            if (m.thermal) {
+                thermalVal = m.thermal.pressure_level || '—';
+            }
+            setVal('v-gpu',       gpuVal);
+            setVal('v-thermal',   m.thermal && m.gpu ? `${thermalVal} (${m.gpu.power_mw}mW / ${m.gpu.frequency_mhz}MHz)` : thermalVal);
             setBar('v-gpu-bar',   gpuPct);
 
-            const memUsed = m.memory ? m.memory.phys_mem_used : '—';
-            const pagesFree = m.memory ? (m.memory.pages_free || m.memory.unused) : '—';
-            setVal('v-mem',       memUsed);
-            setVal('v-pages',     pagesFree);
-            const memPct = memUsed ? Math.round((parseFloat(memUsed) / 16384) * 100) : 0;
+            let memUsedStr = '—';
+            let freePagesStr = '—';
+            let memPct = 0;
+            if (m.memory) {
+                const activePages = m.memory.pages_active || 0;
+                const wiredPages = m.memory.pages_wired || 0;
+                const compressedPages = m.memory.pages_compressed || 0;
+                const freePages = m.memory.pages_free || 0;
+                
+                const activeGB = (activePages * 4096) / (1024 ** 3);
+                const wiredGB = (wiredPages * 4096) / (1024 ** 3);
+                const compGB = (compressedPages * 4096) / (1024 ** 3);
+                const freeGB = (freePages * 4096) / (1024 ** 3);
+                
+                const usedGB = activeGB + wiredGB + compGB;
+                const totalGB = usedGB + freeGB;
+                
+                memUsedStr = `${usedGB.toFixed(2)} GB`;
+                freePagesStr = freePages.toLocaleString();
+                memPct = totalGB > 0 ? Math.round((usedGB / totalGB) * 100) : 0;
+            }
+            setVal('v-mem',       memUsedStr);
+            setVal('v-pages',     freePagesStr);
             setBar('v-mem-bar',   memPct);
 
-            let diskReadStr = '—';
-            let diskTpsStr = '—';
-            let diskPct = 0;
+            // Fallback gracefully for Disk I/O since snapshot does not contain disk metrics
+            setVal('v-disk-read', 'N/A');
+            setVal('v-disk-tps',  'N/A');
+            setBar('v-disk-bar',  0);
 
-            if (m.disk_io) {
-                diskReadStr = `${m.disk_io.read_mb_s} MB/s`;
-                diskTpsStr = m.disk_io.tps || '—';
-                const diskReadVal = m.disk_io.read_mb_s || 0;
-                diskPct = diskReadVal ? Math.min(100, Math.round((diskReadVal / 200) * 100)) : 0;
-            } else if (m.disk) {
-                diskReadStr = `R: ${m.disk.read || '—'}`;
-                diskTpsStr = `W: ${m.disk.written || '—'}`;
-                diskPct = 0;
+            // Stress panel calculations
+            const analysis = metricsRoot.analysis || {};
+            const overallStress = analysis.stress_level || 'NOMINAL';
+            
+            let cpuStress = 'NOMINAL';
+            if (cpuLoad1m > 6.0) cpuStress = 'CRITICAL';
+            else if (cpuLoad1m > 4.0) cpuStress = 'WARNING';
+            
+            let gpuStress = 'NOMINAL';
+            if (m.gpu) {
+                if (m.gpu.residency_percent > 80) gpuStress = 'CRITICAL';
+                else if (m.gpu.residency_percent > 50) gpuStress = 'WARNING';
+            } else {
+                gpuStress = 'N/A';
             }
-            setVal('v-disk-read', diskReadStr);
-            setVal('v-disk-tps',  diskTpsStr);
-            setBar('v-disk-bar',  diskPct);
+            
+            let memStress = 'NOMINAL';
+            if (m.memory) {
+                const memStatus = String(m.memory.status).toUpperCase();
+                if (memStatus === 'CRITICAL' || memStatus === 'HIGH') memStress = 'CRITICAL';
+                else if (memStatus === 'WARNING' || memStatus === 'STRESSED') memStress = 'WARNING';
+            }
 
-            // Stress panel
-            const stress = m.stress_analysis || {};
-            const loadAvg = m.load_avg || [];
-
-            setVal('s-cpu',  stress.cpu  || 'NOMINAL');
-            setVal('s-gpu',  stress.gpu  || 'N/A');
-            setVal('s-mem',  stress.memory || 'NOMINAL');
-            setVal('s-idle', cpuIdle ? `${cpuIdle}%` : '—');
+            setVal('s-cpu',  cpuStress);
+            setVal('s-gpu',  gpuStress);
+            setVal('s-mem',  memStress);
+            setVal('s-idle', 'N/A');
 
             // Stress bars: NOMINAL = 20%, WARNING = 65%, CRITICAL = 95%
             const stressToWidth = v => ({ NOMINAL: 20, WARNING: 65, CRITICAL: 95 }[String(v).toUpperCase()] || 20);
@@ -1537,8 +1578,7 @@
             }[String(v).toUpperCase()] || 'var(--primary)');
 
             ['cpu','gpu','mem'].forEach(k => {
-                const key = k === 'mem' ? 'memory' : k;
-                const val = stress[key] || (key === 'gpu' ? 'N/A' : 'NOMINAL');
+                const val = k === 'cpu' ? cpuStress : (k === 'gpu' ? gpuStress : memStress);
                 const barEl = document.getElementById(`s-${k}-bar`);
                 if (barEl) {
                     if (val === 'N/A') {
@@ -1551,21 +1591,20 @@
                 }
             });
 
-            setChip('p-stress-chip', stress.overall || 'NOMINAL');
+            setChip('p-stress-chip', overallStress);
 
-            setVal('s-load', loadAvg.length >= 3 ? `${loadAvg[0]} / ${loadAvg[1]} / ${loadAvg[2]}` : '—');
-            if (m.memory) {
-                setVal('s-swap', `${m.memory.swapins?.toLocaleString() || '—'} / ${m.memory.swapouts?.toLocaleString() || '—'}`);
-            }
+            setVal('s-load', m.cpu ? `${cpuLoad1m.toFixed(2)} / ${cpuLoad5m.toFixed(2)} / ${cpuLoad15m.toFixed(2)}` : '—');
+            setVal('s-swap', 'N/A');
 
             // Agent Info panel
             if (data.metadata) {
                 setVal('p-agent',   data.metadata.agent   || '—');
                 setVal('p-version', `v${data.metadata.version}` || '—');
             }
-            setChip('p-metrics-status', metricsRoot.status || '—');
+            const metricsStatus = metricsRoot.timestamp ? 'ACTIVE' : 'OFFLINE';
+            setChip('p-metrics-status', metricsStatus);
             setChip('p-audit-health',   overallHealth);
-            setVal('p-metrics-ts', (m.timestamp || metricsRoot.timestamp) || '—');
+            setVal('p-metrics-ts', metricsRoot.timestamp || '—');
             setVal('p-audit-ts',   data.audit  ? data.audit.timestamp : '—');
 
             // ---- REFLECTION ----
