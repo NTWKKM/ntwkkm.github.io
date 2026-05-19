@@ -493,10 +493,117 @@
             box-shadow: var(--shadow-hover);
         }
 
+        /* --- STATE COLORS --- */
+        :root {
+            --state-success: #10B981;
+            --state-warning: #F59E0B;
+            --state-danger: #EF4444;
+        }
+
+        [data-theme="dark"] {
+            --state-success: #34D399;
+            --state-warning: #FBBF24;
+            --state-danger: #F87171;
+        }
+
+        /* --- AUDIT GRID & CARDS --- */
+        .audit-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 15px;
+            margin-bottom: 35px;
+        }
+
+        .agent-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--border);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .agent-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .agent-card.healthy { border-left-color: var(--state-success); }
+        .agent-card.warning { border-left-color: var(--state-warning); }
+        .agent-card.danger { border-left-color: var(--state-danger); }
+
+        .agent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .agent-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .agent-analysis {
+            font-size: 0.88rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .agent-technical {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 0.72rem;
+            background: color-mix(in srgb, var(--primary) 4%, var(--bg-body));
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px dashed var(--border);
+            color: var(--text-muted);
+            word-break: break-all;
+            margin-top: auto;
+        }
+
+        /* --- FILTER CONTROLS --- */
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0 20px 0;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #ffffff;
+        }
+
         /* --- RESPONSIVE STYLES --- */
         @media (max-width: 992px) {
             .dashboard-grid,
-            .skeleton-grid {
+            .skeleton-grid,
+            .audit-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -533,7 +640,8 @@
             }
 
             .dashboard-grid,
-            .skeleton-grid {
+            .skeleton-grid,
+            .audit-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -603,6 +711,15 @@
                         <div class="skeleton-line w-80"></div>
                     </div>
                 </div>
+                <!-- Skeleton items for the Audit section -->
+                <div style="margin-top: 40px; margin-bottom: 20px;">
+                    <div class="skeleton-line w-40" style="height: 24px;"></div>
+                </div>
+                <div class="skeleton-grid">
+                    <div class="skeleton-card" style="height: 160px;"></div>
+                    <div class="skeleton-card" style="height: 160px; animation-delay: 0.1s;"></div>
+                    <div class="skeleton-card" style="height: 160px; animation-delay: 0.2s;"></div>
+                </div>
             </div>
 
             <!-- Active Dashboard Layout -->
@@ -620,6 +737,11 @@
                             <span class="pulse-dot" aria-hidden="true"></span>
                             ONLINE
                         </span>
+                    </div>
+
+                    <div class="metric-row">
+                        <span class="metric-label">Audit Sentinel</span>
+                        <span id="audit-pill" class="status-pill success">-</span>
                     </div>
 
                     <div class="metric-row">
@@ -793,6 +915,29 @@
             </div>
         </section>
 
+        <!-- Section 2: Agent Audits -->
+        <section id="audit-section" class="animate-entry delay-2" style="margin-top: 40px; display: none;">
+            <div class="section-header">
+                <h2 class="section-title">🛡️ Agent Sentinel Audits</h2>
+                <div class="section-line"></div>
+                <span id="audit-health-pill" class="status-pill success">STABLE</span>
+            </div>
+            
+            <div id="audit-sync-time" style="font-size: 0.78rem; color: var(--text-muted); font-weight: 500; margin-top: -15px; margin-bottom: 15px;">
+                Last Audit Sync: <time id="audit-timestamp-val" style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 600;">-</time>
+            </div>
+
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all" id="btn-filter-all">All (6)</button>
+                <button class="filter-btn" data-filter="healthy" id="btn-filter-healthy">Healthy (6)</button>
+                <button class="filter-btn" data-filter="issue" id="btn-filter-issue">Issues (0)</button>
+            </div>
+
+            <div id="audit-grid" class="audit-grid">
+                <!-- Dynamic Sub-Agent Cards Rendered Here -->
+            </div>
+        </section>
+
     </main>
 
     <footer class="animate-entry delay-3">
@@ -833,9 +978,43 @@
             return 'status-pill success';
         }
 
-        // Initialize screen reader support
+        // Global active filter state
+        let currentFilter = 'all';
+
+        function applyFilter(filter) {
+            currentFilter = filter;
+            
+            // Update active state on buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-filter') === filter) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Filter agent cards
+            document.querySelectorAll('.agent-card').forEach(card => {
+                const cardStatus = card.getAttribute('data-status');
+                if (filter === 'all' || cardStatus === filter) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize screen reader support and filter events
         document.addEventListener('DOMContentLoaded', () => {
             initScreenReaderAnnouncer();
+            
+            // Set up filter buttons click handlers using event delegation
+            document.addEventListener('click', (e) => {
+                if (e.target && e.target.classList.contains('filter-btn')) {
+                    const filter = e.target.getAttribute('data-filter');
+                    applyFilter(filter);
+                }
+            });
         });
 
         // Main telemetry sync update loop
@@ -854,6 +1033,10 @@
                 // Toggle active views
                 loader.style.display = 'none';
                 container.style.display = 'grid';
+                const auditSection = document.getElementById('audit-section');
+                if (auditSection) {
+                    auditSection.style.display = 'block';
+                }
                 
                 // Diagnostics values
                 const tier = data.system.tier || 'full';
@@ -1261,6 +1444,100 @@
                     if (syncTimeVal === '-') syncTimeEl.classList.add('empty-state');
                     else syncTimeEl.classList.remove('empty-state');
                 }
+
+                // Parse and render Audit Health & Timestamp
+                const auditData = data.audit;
+                const overallHealth = auditData ? auditData.overall_health : '-';
+                const auditTimestamp = auditData ? auditData.timestamp : '-';
+                const agents = (auditData && auditData.audit) ? auditData.audit : {};
+
+                // Audit Sentinel status in Card 1
+                const auditPill = document.getElementById('audit-pill');
+                if (auditPill) {
+                    auditPill.innerText = String(overallHealth).toUpperCase();
+                    auditPill.className = getStatusPillClass(overallHealth);
+                }
+
+                // Render overall audit health pill in section header
+                const auditHealthPill = document.getElementById('audit-health-pill');
+                if (auditHealthPill) {
+                    auditHealthPill.innerText = String(overallHealth).toUpperCase();
+                    auditHealthPill.className = getStatusPillClass(overallHealth);
+                }
+
+                // Render audit sync timestamp
+                const auditTimeEl = document.getElementById('audit-timestamp-val');
+                if (auditTimeEl) {
+                    auditTimeEl.innerText = auditTimestamp;
+                    if (auditTimestamp === '-') auditTimeEl.classList.add('empty-state');
+                    else auditTimeEl.classList.remove('empty-state');
+                }
+
+                // Render Sub-Agents dynamically
+                const auditGrid = document.getElementById('audit-grid');
+                if (auditGrid) {
+                    auditGrid.innerHTML = '';
+                    
+                    let healthyCount = 0;
+                    let issueCount = 0;
+
+                    for (const [name, info] of Object.entries(agents)) {
+                        const status = info.status || 'UNKNOWN';
+                        const statusClass = getStatusPillClass(status);
+                        const isHealthy = status === 'HEALTHY' || status === 'ONLINE' || status === 'CLOSED' || status === 'NOMINAL';
+                        
+                        if (isHealthy) {
+                            healthyCount++;
+                        } else {
+                            issueCount++;
+                        }
+
+                        // Determine card class for colored border
+                        let cardStatusClass = 'healthy';
+                        if (statusClass.includes('warning')) {
+                            cardStatusClass = 'warning';
+                        } else if (statusClass.includes('danger')) {
+                            cardStatusClass = 'danger';
+                        }
+
+                        const cardHtml = `
+                            <article class="agent-card ${cardStatusClass}" data-status="${isHealthy ? 'healthy' : 'issue'}">
+                                <div class="agent-header">
+                                    <span class="agent-name">${escapeHTML(name)}</span>
+                                    <span class="${statusClass}">${escapeHTML(status)}</span>
+                                </div>
+                                <div class="agent-analysis">
+                                    ${escapeHTML(info.analysis || 'No analysis details provided.')}
+                                </div>
+                                <div class="agent-technical">
+                                    ${escapeHTML(info.technical || 'No technical details provided.')}
+                                </div>
+                            </article>
+                        `;
+                        auditGrid.innerHTML += cardHtml;
+                    }
+
+                    // Update filter counts
+                    const btnAll = document.getElementById('btn-filter-all');
+                    const btnHealthy = document.getElementById('btn-filter-healthy');
+                    const btnIssue = document.getElementById('btn-filter-issue');
+                    
+                    if (btnAll) btnAll.innerText = `All (${Object.keys(agents).length})`;
+                    if (btnHealthy) btnHealthy.innerText = `Healthy (${healthyCount})`;
+                    if (btnIssue) {
+                        btnIssue.innerText = `Issues (${issueCount})`;
+                        if (issueCount > 0) {
+                            btnIssue.style.borderColor = 'var(--state-danger)';
+                            btnIssue.style.color = 'var(--state-danger)';
+                        } else {
+                            btnIssue.style.borderColor = '';
+                            btnIssue.style.color = '';
+                        }
+                    }
+
+                    // Re-apply current active filter
+                    applyFilter(currentFilter);
+                }
                 
                 // Trigger Accessibility Announcement
                 announceToScreenReader('Fray system telemetry state synchronized successfully.');
@@ -1269,6 +1546,10 @@
                 console.error("Fray telemetry fetch failed:", error);
                 loader.style.display = 'none';
                 container.style.display = 'none';
+                const auditSection = document.getElementById('audit-section');
+                if (auditSection) {
+                    auditSection.style.display = 'none';
+                }
                 
                 // Safely render error UI fallback
                 const errDivId = 'dashboard-error-container';
