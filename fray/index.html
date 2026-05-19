@@ -646,6 +646,20 @@
                     </div>
 
                     <div class="metric-row">
+                        <div style="width: 100%;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span class="metric-label">GPU Utilization</span>
+                                <span id="gpu-val" class="metric-value">-</span>
+                            </div>
+                            <div class="gauge-wrapper">
+                                <div class="progress-bar-container" aria-hidden="true">
+                                    <div id="gpu-fill" class="progress-bar-fill"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="metric-row">
                         <span class="metric-label">Physical Memory</span>
                         <span id="memory-val" class="metric-value">-</span>
                     </div>
@@ -836,6 +850,23 @@
                 }
                 document.getElementById('cpu-val').innerText = cpuText;
                 document.getElementById('cpu-fill').style.width = `${cpuPct}%`;
+                
+                // GPU usage details
+                let gpuPct = 0;
+                let gpuText = '-';
+                if (sysMetrics && sysMetrics.gpu_usage !== undefined) {
+                    gpuPct = Math.round(parseFloat(sysMetrics.gpu_usage)) || 0;
+                    gpuText = sysMetrics.gpu_usage;
+                } else if (data.metrics && data.metrics.gpu_usage !== undefined) {
+                    gpuPct = Math.round(parseFloat(data.metrics.gpu_usage)) || 0;
+                    gpuText = data.metrics.gpu_usage;
+                }
+                const gpuValEl = document.getElementById('gpu-val');
+                const gpuFillEl = document.getElementById('gpu-fill');
+                if (gpuValEl && gpuFillEl) {
+                    gpuValEl.innerText = gpuText;
+                    gpuFillEl.style.width = `${gpuPct}%`;
+                }
                 
                 // 3. Physical memory utilization
                 let memText = '-';
