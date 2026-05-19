@@ -382,7 +382,7 @@
 
         /* --- COGNITIVE REFLECTION STYLES --- */
         .reflection-card {
-            grid-column: 1 / -1;
+            grid-column: span 2;
         }
 
         .reflection-box {
@@ -409,6 +409,35 @@
             font-weight: 600;
         }
 
+        /* --- COGNITIVE INSIGHTS CARD --- */
+        .insights-card {
+            grid-column: span 1;
+        }
+
+        .insight-section {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .insight-subtitle {
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .insight-box {
+            background: color-mix(in srgb, var(--primary) 3%, var(--bg-card));
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            line-height: 1.5;
+            border-left: 3px solid var(--accent);
+        }
+
         /* --- SKELETON LOADER GRID --- */
         #dashboard-loader {
             display: block;
@@ -429,8 +458,13 @@
             height: 250px;
         }
 
-        .skeleton-full {
-            grid-column: 1 / -1;
+        .skeleton-two-thirds {
+            grid-column: span 2;
+            height: 180px;
+        }
+
+        .skeleton-one-third {
+            grid-column: span 1;
             height: 180px;
         }
 
@@ -606,6 +640,13 @@
             .audit-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .reflection-card,
+            .insights-card,
+            .skeleton-two-thirds,
+            .skeleton-one-third {
+                grid-column: span 2;
+            }
         }
 
         @media (max-width: 640px) {
@@ -643,6 +684,13 @@
             .skeleton-grid,
             .audit-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .reflection-card,
+            .insights-card,
+            .skeleton-two-thirds,
+            .skeleton-one-third {
+                grid-column: 1;
             }
 
             .card {
@@ -705,10 +753,15 @@
                         <div class="skeleton-line w-80"></div>
                         <div class="skeleton-line w-40"></div>
                     </div>
-                    <div class="skeleton-card skeleton-full">
+                    <div class="skeleton-card skeleton-two-thirds">
                         <div class="skeleton-line w-40"></div>
                         <div class="skeleton-line"></div>
                         <div class="skeleton-line w-80"></div>
+                    </div>
+                    <div class="skeleton-card skeleton-one-third">
+                        <div class="skeleton-line w-60"></div>
+                        <div class="skeleton-line"></div>
+                        <div class="skeleton-line w-40"></div>
                     </div>
                 </div>
                 <!-- Skeleton items for the Audit section -->
@@ -909,6 +962,27 @@
                     
                     <div id="reflection-meta" class="reflection-meta">
                         <!-- Filled dynamically -->
+                    </div>
+                </article>
+
+                <!-- Card 5: Cognitive Insights -->
+                <article class="card insights-card" aria-labelledby="insights-heading">
+                    <h3 id="insights-heading" class="card-title">
+                        💡 Cognitive Insights
+                    </h3>
+                    
+                    <div class="insight-section">
+                        <h4 class="insight-subtitle">Synthesis</h4>
+                        <div id="insights-synthesis" class="insight-box">
+                            Awaiting synthesis...
+                        </div>
+                    </div>
+
+                    <div class="insight-section" style="margin-top: 15px;">
+                        <h4 class="insight-subtitle">Observation</h4>
+                        <div id="insights-observation" class="insight-box">
+                            Awaiting observations...
+                        </div>
                     </div>
                 </article>
 
@@ -1436,6 +1510,20 @@
                 document.getElementById('reflection-content').innerHTML = escapeHTML(reflectionFact);
                 document.getElementById('reflection-meta').innerHTML = reflectionMeta;
                 
+                // Cognitive Insights Binding
+                const insights = (data.audit && data.audit.cognitive_insights) ? data.audit.cognitive_insights : null;
+                const synthesisVal = insights ? (insights.synthesis || 'No synthesis insights recorded.') : 'Awaiting synthesis...';
+                const observationVal = insights ? (insights.observation || 'No observation insights recorded.') : 'Awaiting observations...';
+
+                const synthesisEl = document.getElementById('insights-synthesis');
+                const observationEl = document.getElementById('insights-observation');
+                if (synthesisEl) {
+                    synthesisEl.innerHTML = escapeHTML(synthesisVal);
+                }
+                if (observationEl) {
+                    observationEl.innerHTML = escapeHTML(observationVal);
+                }
+
                 // Sync Timestamps
                 const syncTimeEl = document.getElementById('timestamp-val');
                 if (syncTimeEl) {
