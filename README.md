@@ -10,6 +10,7 @@ This content reflects the repository structure (updated by GitHub Actions):
 |       `-- (Chunked JSON files)
 |-- fray /
 |   |-- dashboard-snapshot.json
+|   |-- index-2.html
 |   `-- index.html
 |-- tracking /
 |   |-- auth.json
