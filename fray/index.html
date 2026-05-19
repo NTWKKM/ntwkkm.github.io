@@ -225,6 +225,7 @@
             flex-direction: column;
             position: relative;
             overflow: hidden;
+            height: 100%; /* Stretches card to fill grid row height for visual balance */
         }
 
         .card:hover {
@@ -274,6 +275,13 @@
             display: flex;
             align-items: center;
             gap: 8px;
+        }
+
+        /* Empty state styling for missing or loading telemetry data */
+        .metric-value.empty-state {
+            color: var(--text-muted);
+            opacity: 0.5;
+            font-weight: 400;
         }
 
         /* --- STATUS PILLS --- */
@@ -342,6 +350,8 @@
             background: linear-gradient(90deg, var(--primary), var(--accent));
             width: 0%;
             transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            /* Glow effect to mimic active telemetry status */
+            box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 40%, transparent);
         }
 
         /* --- PULSING INDICATOR --- */
@@ -857,7 +867,12 @@
                 tierPill.className = getStatusPillClass(tier);
                 
                 // Current Mindset state details
-                document.getElementById('mindset-text').innerText = mindset;
+                const mindsetEl = document.getElementById('mindset-text');
+                if (mindsetEl) {
+                    mindsetEl.innerText = mindset;
+                    if (mindset === '-') mindsetEl.classList.add('empty-state');
+                    else mindsetEl.classList.remove('empty-state');
+                }
                 
                 // Circuit Breaker status
                 const circuitPill = document.getElementById('circuit-pill');
@@ -880,9 +895,11 @@
                     circuitPill.innerHTML = '';
                     circuitPill.className = ''; // Remove status-pill styling from the container
                     circuitPill.style.display = 'flex';
-                    circuitPill.style.flexDirection = 'column';
+                    // Layout adjusted to flex-row with wrap to prevent vertical grid disruption
+                    circuitPill.style.flexDirection = 'row';
+                    circuitPill.style.flexWrap = 'wrap';
+                    circuitPill.style.justifyContent = 'flex-end';
                     circuitPill.style.gap = '6px';
-                    circuitPill.style.alignItems = 'flex-end';
                     
                     for (const [key, val] of Object.entries(breakers)) {
                         if (key.toLowerCase() === 'last_updated' || key.toLowerCase() === 'last_check') continue;
@@ -900,6 +917,8 @@
                         checkTime.style.fontSize = '0.72rem';
                         checkTime.style.color = 'var(--text-muted)';
                         checkTime.style.marginTop = '2px';
+                        checkTime.style.width = '100%';
+                        checkTime.style.textAlign = 'right';
                         checkTime.innerText = `Checked: ${lastCheck}`;
                         circuitPill.appendChild(checkTime);
                     }
@@ -912,6 +931,8 @@
                     // Standard raw string fallback
                     circuitPill.style.display = '';
                     circuitPill.style.flexDirection = '';
+                    circuitPill.style.flexWrap = '';
+                    circuitPill.style.justifyContent = '';
                     circuitPill.style.gap = '';
                     circuitPill.style.alignItems = '';
                     
@@ -994,7 +1015,12 @@
                 } else if (data.metrics && data.metrics.cpu_load) {
                     systemLoad = `${data.metrics.cpu_load}%`;
                 }
-                document.getElementById('system-load-val').innerText = systemLoad;
+                const sysLoadEl = document.getElementById('system-load-val');
+                if (sysLoadEl) {
+                    sysLoadEl.innerText = systemLoad;
+                    if (systemLoad === '-') sysLoadEl.classList.add('empty-state');
+                    else sysLoadEl.classList.remove('empty-state');
+                }
                 
                 // 2. CPU usage details
                 let cpuPct = 0;
@@ -1019,8 +1045,16 @@
                     cpuPct = Math.round(parseFloat(data.metrics.cpu_load)) || 0;
                     cpuText = `${cpuPct}%`;
                 }
-                document.getElementById('cpu-val').innerText = cpuText;
-                document.getElementById('cpu-fill').style.width = `${cpuPct}%`;
+                const cpuValEl = document.getElementById('cpu-val');
+                if (cpuValEl) {
+                    cpuValEl.innerText = cpuText;
+                    if (cpuText === '-') cpuValEl.classList.add('empty-state');
+                    else cpuValEl.classList.remove('empty-state');
+                }
+                const cpuFillEl = document.getElementById('cpu-fill');
+                if (cpuFillEl) {
+                    cpuFillEl.style.width = `${cpuPct}%`;
+                }
                 
                 const cpuUserSysEl = document.getElementById('cpu-user-sys-val');
                 const cpuIdleEl = document.getElementById('cpu-idle-val');
@@ -1049,6 +1083,8 @@
                 const gpuFillEl = document.getElementById('gpu-fill');
                 if (gpuValEl && gpuFillEl) {
                     gpuValEl.innerText = gpuText;
+                    if (gpuText === '-') gpuValEl.classList.add('empty-state');
+                    else gpuValEl.classList.remove('empty-state');
                     gpuFillEl.style.width = `${gpuPct}%`;
                 }
                 
@@ -1089,7 +1125,12 @@
                     memText = `${data.metrics.ram_used_gb} GB used`;
                 }
                 
-                document.getElementById('memory-val').innerText = memText;
+                const memValEl = document.getElementById('memory-val');
+                if (memValEl) {
+                    memValEl.innerText = memText;
+                    if (memText === '-') memValEl.classList.add('empty-state');
+                    else memValEl.classList.remove('empty-state');
+                }
                 
                 const memFillEl = document.getElementById('memory-fill');
                 if (memFillEl) {
@@ -1132,6 +1173,8 @@
                 const diskFillEl = document.getElementById('disk-fill');
                 if (diskValEl && diskFillEl) {
                     diskValEl.innerText = diskText;
+                    if (diskText === '-') diskValEl.classList.add('empty-state');
+                    else diskValEl.classList.remove('empty-state');
                     diskFillEl.style.width = `${diskPct}%`;
                 }
                 
@@ -1151,7 +1194,10 @@
                 // 5. Hardware Sensor Sync Timestamp
                 const metricsTimeEl = document.getElementById('metrics-time-val');
                 if (metricsTimeEl) {
-                    metricsTimeEl.innerText = (sysMetrics && sysMetrics.timestamp) ? sysMetrics.timestamp : '-';
+                    const metricTimeVal = (sysMetrics && sysMetrics.timestamp) ? sysMetrics.timestamp : '-';
+                    metricsTimeEl.innerText = metricTimeVal;
+                    if (metricTimeVal === '-') metricsTimeEl.classList.add('empty-state');
+                    else metricsTimeEl.classList.remove('empty-state');
                 }
                 
                 // 4. Legacy fallbacks (Battery / Network)
@@ -1166,14 +1212,24 @@
                         if (extraText) extraText += ' | ';
                         extraText += `🌐 Network: ${netVal}`;
                     }
-                    document.getElementById('extra-stats-val').innerText = extraText;
+                    const extraStatsValEl = document.getElementById('extra-stats-val');
+                    if (extraStatsValEl) {
+                        extraStatsValEl.innerText = extraText;
+                        if (extraText === '-') extraStatsValEl.classList.add('empty-state');
+                        else extraStatsValEl.classList.remove('empty-state');
+                    }
                 } else {
                     extraStatsRow.style.display = 'none';
                 }
                 
                 // 5. Version / Agent details
                 const agent = data.metadata ? `${data.metadata.agent} v${data.metadata.version}` : 'Fray v1.1';
-                document.getElementById('agent-val').innerText = agent;
+                const agentValEl = document.getElementById('agent-val');
+                if (agentValEl) {
+                    agentValEl.innerText = agent;
+                    if (agent === '-') agentValEl.classList.add('empty-state');
+                    else agentValEl.classList.remove('empty-state');
+                }
                 
                 // Telemetry Reflection
                 const rawReflection = data.system.last_reflection || 'No reflection recorded.';
@@ -1198,7 +1254,13 @@
                 document.getElementById('reflection-meta').innerHTML = reflectionMeta;
                 
                 // Sync Timestamps
-                document.getElementById('timestamp-val').innerText = data.system.timestamp || data.metrics.timestamp || '-';
+                const syncTimeEl = document.getElementById('timestamp-val');
+                if (syncTimeEl) {
+                    const syncTimeVal = data.system.timestamp || data.metrics.timestamp || '-';
+                    syncTimeEl.innerText = syncTimeVal;
+                    if (syncTimeVal === '-') syncTimeEl.classList.add('empty-state');
+                    else syncTimeEl.classList.remove('empty-state');
+                }
                 
                 // Trigger Accessibility Announcement
                 announceToScreenReader('Fray system telemetry state synchronized successfully.');
