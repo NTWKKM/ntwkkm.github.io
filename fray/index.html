@@ -5,1076 +5,1286 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fray Cognitive Observability Core | NTWKKM</title>
-    <meta name="description"
-        content="Fray Mindset and Observability Dashboard. Real-time telemetry, cognitive reflection logs, and system operations metrics.">
-    
-    <!-- Open Graph -->
+    <meta name="description" content="Fray Mindset and Observability Dashboard. Real-time telemetry, cognitive reflection logs, and system operations metrics.">
     <meta property="og:title" content="Fray Cognitive Observability Core | NTWKKM">
-    <meta property="og:description"
-        content="Real-time cognitive mindset logs, circuit breakers, and telemetry updates.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ntwkkm.github.io/fray/">
     <link rel="canonical" href="https://ntwkkm.github.io/fray/">
-    
-    <!-- Icons -->
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23244885'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='white' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
-    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23244885'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='white' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@300;400;500;600&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../shared.css">
-    
+
     <style>
-        /* --- THEME OVERRIDES --- */
+        /* ====================================================
+           THEME TOKENS
+        ==================================================== */
         :root {
             --primary: #244885;
+            --primary-light: #3a65b5;
             --primary-hover: #1a3663;
             --accent: #E63946;
-            --bg-body: #F3F4F6;
+            --accent-soft: rgba(230, 57, 70, 0.12);
+            --bg-body: #F0F2F5;
             --bg-card: #FFFFFF;
-            --text-main: #1F2937;
+            --bg-surface: #F7F8FA;
+            --text-main: #111827;
+            --text-secondary: #374151;
             --text-muted: #6B7280;
+            --text-faint: #9CA3AF;
             --border: #E5E7EB;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --radius: 16px;
+            --border-strong: #D1D5DB;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+            --shadow: 0 4px 16px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.10);
+            --radius: 12px;
+            --radius-sm: 8px;
             --toggle-bg: #E5E7EB;
-            --scrollbar-thumb: #CBD5E1;
+            --state-ok: #059669;
+            --state-ok-bg: rgba(5,150,105,0.1);
+            --state-ok-border: rgba(5,150,105,0.25);
+            --state-warn: #D97706;
+            --state-warn-bg: rgba(217,119,6,0.1);
+            --state-warn-border: rgba(217,119,6,0.25);
+            --state-err: #DC2626;
+            --state-err-bg: rgba(220,38,38,0.1);
+            --state-err-border: rgba(220,38,38,0.25);
+            --state-neutral: #6B7280;
+            --state-neutral-bg: rgba(107,114,128,0.1);
+            --progress-track: #E5E7EB;
         }
 
         [data-theme="dark"] {
-            --primary: #60A5FA;
+            --primary: #5A9FFF;
+            --primary-light: #7ab3ff;
             --primary-hover: #93C5FD;
             --accent: #F87171;
-            --bg-body: #0F172A;
-            --bg-card: #1E293B;
+            --accent-soft: rgba(248,113,113,0.12);
+            --bg-body: #0B1120;
+            --bg-card: #111827;
+            --bg-surface: #1A2333;
             --text-main: #F1F5F9;
+            --text-secondary: #CBD5E1;
             --text-muted: #94A3B8;
-            --border: #334155;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-            --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
-            --toggle-bg: #334155;
-            --scrollbar-thumb: #475569;
+            --text-faint: #64748B;
+            --border: #1E2D3D;
+            --border-strong: #2D3F55;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+            --shadow: 0 4px 16px rgba(0,0,0,0.3);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
+            --toggle-bg: #1E2D3D;
+            --state-ok: #10B981;
+            --state-ok-bg: rgba(16,185,129,0.12);
+            --state-ok-border: rgba(16,185,129,0.3);
+            --state-warn: #FBBF24;
+            --state-warn-bg: rgba(251,191,36,0.12);
+            --state-warn-border: rgba(251,191,36,0.3);
+            --state-err: #F87171;
+            --state-err-bg: rgba(248,113,113,0.12);
+            --state-err-border: rgba(248,113,113,0.3);
+            --state-neutral: #94A3B8;
+            --state-neutral-bg: rgba(148,163,184,0.1);
+            --progress-track: #1E2D3D;
         }
 
+        /* ====================================================
+           BASE
+        ==================================================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
-            font-family: 'Inter', 'Sarabun', -apple-system, sans-serif;
-            background-color: var(--bg-body);
+            font-family: 'Sarabun', -apple-system, sans-serif;
+            background: var(--bg-body);
             color: var(--text-main);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
-            transition: background-color 0.4s ease, color 0.4s ease;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            transition: background 0.35s ease, color 0.35s ease;
         }
 
-        /* --- ANIMATIONS --- */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        h1, h2, h3, h4 { font-family: 'Syne', sans-serif; }
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85em;
         }
 
-        .animate-entry {
-            opacity: 0;
-            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-
-        /* --- LAYOUT --- */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-            width: 100%;
+            padding: 0 24px;
         }
 
-        /* --- HEADER & NAVIGATION --- */
-        header {
-            background: var(--bg-card);
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 30px;
+        a { color: inherit; text-decoration: none; }
+
+        /* ====================================================
+           ANIMATIONS
+        ==================================================== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse-ring {
+            0%   { transform: scale(0.92); box-shadow: 0 0 0 0 rgba(5,150,105,0.6); }
+            70%  { transform: scale(1);    box-shadow: 0 0 0 6px rgba(5,150,105,0); }
+            100% { transform: scale(0.92); box-shadow: 0 0 0 0 rgba(5,150,105,0); }
+        }
+        @keyframes bar-fill {
+            from { width: 0; }
+        }
+        @keyframes sk-pulse {
+            0%, 100% { opacity: 1; }
+            50%      { opacity: 0.5; }
+        }
+
+        .fade-up { animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+        .d1 { animation-delay: 0.05s; }
+        .d2 { animation-delay: 0.12s; }
+        .d3 { animation-delay: 0.20s; }
+        .d4 { animation-delay: 0.28s; }
+
+        /* ====================================================
+           TOP STATUS BANNER
+        ==================================================== */
+        .status-banner {
+            background: var(--primary);
+            padding: 10px 0;
             position: sticky;
             top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            background: color-mix(in srgb, var(--bg-card), transparent 10%);
-            transition: background-color 0.4s ease, border-color 0.4s ease;
+            z-index: 200;
         }
 
-        .header-content {
+        [data-theme="dark"] .status-banner {
+            background: #0D1B2E;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .banner-inner {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
         }
 
-        .brand-group {
+        .banner-left {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 20px;
         }
 
-        .brand-group h1 {
-            font-size: 1.5rem;
+        .banner-logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
             font-weight: 800;
-            color: var(--text-main);
+            color: #fff;
             letter-spacing: -0.5px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .brand-group p {
-            color: var(--text-muted);
-            font-weight: 500;
-            font-size: 0.85rem;
-            letter-spacing: 0.2px;
-        }
-
-        .controls {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
         }
 
-        .nav-highlight {
-            background-color: var(--primary);
-            color: #ffffff !important;
-            padding: 8px 18px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
+        [data-theme="dark"] .banner-logo { color: var(--primary); }
+
+        .banner-logo-dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .banner-status-row {
             display: flex;
             align-items: center;
             gap: 6px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--primary);
         }
 
-        .nav-highlight:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        .banner-pulse {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: #10B981;
+            animation: pulse-ring 2s infinite;
+            flex-shrink: 0;
         }
 
-        /* --- SECTION HEADER --- */
-        .section-header {
-            margin-bottom: 30px;
+        .banner-status-text {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: rgba(255,255,255,0.75);
+            letter-spacing: 0.04em;
+        }
+
+        [data-theme="dark"] .banner-status-text { color: var(--text-muted); }
+
+        .banner-right {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-main);
-            position: relative;
+        .banner-nav-link {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+            padding: 5px 14px;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.18);
+            transition: all 0.2s;
+            letter-spacing: 0.03em;
+        }
+        [data-theme="dark"] .banner-nav-link {
+            color: var(--text-muted);
+            border-color: var(--border);
+        }
+        .banner-nav-link:hover {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
         }
 
-        .section-title::after {
-            content: '';
-            display: inline-block;
-            width: 8px;
-            height: 8px;
+        .banner-nav-link.highlight {
             background: var(--accent);
-            border-radius: 50%;
-            margin-left: 8px;
-            margin-bottom: 2px;
+            color: #fff;
+            border-color: var(--accent);
+        }
+        .banner-nav-link.highlight:hover {
+            background: #c62e3a;
+            border-color: #c62e3a;
         }
 
-        .section-line {
-            height: 1px;
-            background: var(--border);
-            flex-grow: 1;
-            opacity: 0.5;
+        .banner-theme-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.18);
+            width: 32px; height: 32px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.8);
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        [data-theme="dark"] .banner-theme-btn {
+            background: var(--bg-surface);
+            border-color: var(--border);
+            color: var(--text-muted);
+        }
+        .banner-theme-btn:hover { background: rgba(255,255,255,0.2); color: #fff; }
+        .banner-theme-btn svg { width: 15px; height: 15px; fill: currentColor; }
+
+        /* ====================================================
+           PAGE LAYOUT
+        ==================================================== */
+        .page-wrapper {
+            padding: 32px 0 60px;
         }
 
-        /* --- REDESIGNED DASHBOARD CORE --- */
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-bottom: 35px;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            padding: 24px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        /* ====================================================
+           PAGE HEADER ROW
+        ==================================================== */
+        .page-header {
             display: flex;
-            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .page-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.8px;
+            line-height: 1.1;
+        }
+
+        .page-title span {
+            color: var(--primary);
+        }
+
+        .page-sub {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            font-family: 'IBM Plex Mono', monospace;
+        }
+
+        .page-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* ====================================================
+           HEALTH BADGE
+        ==================================================== */
+        .health-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 14px;
+            border-radius: 999px;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 1px solid;
+        }
+
+        .health-badge.ok {
+            background: var(--state-ok-bg);
+            color: var(--state-ok);
+            border-color: var(--state-ok-border);
+        }
+        .health-badge.warn {
+            background: var(--state-warn-bg);
+            color: var(--state-warn);
+            border-color: var(--state-warn-border);
+        }
+        .health-badge.err {
+            background: var(--state-err-bg);
+            color: var(--state-err);
+            border-color: var(--state-err-border);
+        }
+        .health-badge.neutral {
+            background: var(--state-neutral-bg);
+            color: var(--state-neutral);
+            border-color: transparent;
+        }
+        .health-badge .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* ====================================================
+           VITALS STRIP
+        ==================================================== */
+        .vitals-strip {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .vital-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px 20px;
             position: relative;
             overflow: hidden;
-            height: 100%; /* Stretches card to fill grid row height for visual balance */
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
+        .vital-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
             border-color: var(--primary);
         }
 
-        .card-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 16px;
-            color: var(--text-main);
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        .vital-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0;
+            transition: opacity 0.2s;
         }
+        .vital-card:hover::before { opacity: 1; }
 
-        /* --- TELEMETRY ROW ELEMENTS --- */
-        .metric-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 10px 0;
-            border-bottom: 1px dashed var(--border);
-            padding-bottom: 8px;
-        }
-
-        .metric-row:last-of-type {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .metric-label {
-            color: var(--text-muted);
-            font-size: 0.9rem;
+        .vital-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.68rem;
             font-weight: 500;
-        }
-
-        .metric-value {
-            color: var(--text-main);
-            font-weight: 600;
-            font-size: 0.9rem;
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* Empty state styling for missing or loading telemetry data */
-        .metric-value.empty-state {
             color: var(--text-muted);
-            opacity: 0.5;
-            font-weight: 400;
-        }
-
-        /* --- STATUS PILLS --- */
-        .status-pill {
-            padding: 4px 10px;
-            border-radius: 9999px;
-            font-size: 0.7rem;
-            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
         }
 
-        .status-pill.success {
-            background-color: color-mix(in srgb, #10B981 15%, transparent);
-            color: #10B981;
-            border: 1px solid color-mix(in srgb, #10B981 30%, transparent);
+        .vital-value {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1;
+            margin-bottom: 6px;
         }
 
-        [data-theme="dark"] .status-pill.success {
-            background-color: color-mix(in srgb, #34D399 20%, transparent);
-            color: #34D399;
-        }
-
-        .status-pill.danger {
-            background-color: color-mix(in srgb, #EF4444 15%, transparent);
-            color: #EF4444;
-            border: 1px solid color-mix(in srgb, #EF4444 30%, transparent);
-        }
-
-        [data-theme="dark"] .status-pill.danger {
-            background-color: color-mix(in srgb, #F87171 20%, transparent);
-            color: #F87171;
-        }
-
-        .status-pill.warning {
-            background-color: color-mix(in srgb, #F59E0B 15%, transparent);
-            color: #F59E0B;
-            border: 1px solid color-mix(in srgb, #F59E0B 30%, transparent);
-        }
-
-        [data-theme="dark"] .status-pill.warning {
-            background-color: color-mix(in srgb, #FBBF24 20%, transparent);
-            color: #FBBF24;
-        }
-
-        /* --- PROGRESS GAUGES --- */
-        .gauge-wrapper {
+        .vital-bar-track {
             width: 100%;
-            margin-top: 6px;
-        }
-
-        .progress-bar-container {
-            width: 100%;
-            background-color: var(--border);
-            height: 6px;
-            border-radius: 3px;
+            height: 4px;
+            background: var(--progress-track);
+            border-radius: 2px;
             overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .vital-bar-fill {
+            height: 100%;
+            border-radius: 2px;
+            width: 0;
+            animation: bar-fill 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+        }
+
+        .vital-bar-fill.blue  { background: var(--primary); }
+        .vital-bar-fill.red   { background: var(--accent); }
+        .vital-bar-fill.green { background: var(--state-ok); }
+        .vital-bar-fill.amber { background: var(--state-warn); }
+
+        .vital-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
             margin-top: 4px;
         }
 
-        .progress-bar-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            width: 0%;
-            transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-            /* Glow effect to mimic active telemetry status */
-            box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 40%, transparent);
-        }
-
-        /* --- PULSING INDICATOR --- */
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background-color: #10B981;
-            border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-            animation: pulse-animation 2s infinite;
-        }
-
-        @keyframes pulse-animation {
-            0% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-            }
-            70% {
-                transform: scale(1);
-                box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
-            }
-            100% {
-                transform: scale(0.95);
-                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-            }
-        }
-
-        /* --- COGNITIVE REFLECTION STYLES --- */
-        .reflection-card {
-            grid-column: span 2;
-        }
-
-        .reflection-box {
-            background: color-mix(in srgb, var(--primary) 4%, var(--bg-card));
-            padding: 24px;
-            border-radius: 12px;
-            margin-top: 10px;
-            border-left: 4px solid var(--accent);
-            font-style: italic;
-            font-size: 0.95rem;
-            color: var(--text-main);
-            line-height: 1.7;
-        }
-
-        .reflection-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 12px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-weight: 600;
-        }
-
-        /* --- COGNITIVE INSIGHTS CARD --- */
-        .insights-card {
-            grid-column: span 1;
-        }
-
-        .insight-section {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .insight-subtitle {
-            font-size: 0.82rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .insight-box {
-            background: color-mix(in srgb, var(--primary) 3%, var(--bg-card));
-            padding: 12px 16px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            color: var(--text-main);
-            line-height: 1.5;
-            border-left: 3px solid var(--accent);
-        }
-
-        /* --- SKELETON LOADER GRID --- */
-        #dashboard-loader {
-            display: block;
-        }
-
-        #dashboard-container {
-            display: none;
-        }
-
-        .skeleton-grid {
+        /* ====================================================
+           MAIN GRID
+        ==================================================== */
+        .main-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-bottom: 35px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
         }
 
-        .skeleton-block {
-            height: 250px;
+        /* ====================================================
+           PANEL
+        ==================================================== */
+        .panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.2s;
+        }
+        .panel:hover { box-shadow: var(--shadow); }
+
+        .panel-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border);
+            gap: 8px;
         }
 
-        .skeleton-two-thirds {
-            grid-column: span 2;
-            height: 180px;
-        }
-
-        .skeleton-one-third {
-            grid-column: span 1;
-            height: 180px;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            margin-top: auto;
-        }
-
-        footer a {
-            color: var(--text-main);
-            transition: color 0.2s ease;
-        }
-
-        footer a:hover {
-            color: var(--primary);
-        }
-
-        .brand-group h1.dashboard-nav-title {
-            margin: 0;
-            font-size: 1.35rem;
-            font-weight: 800;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .brand-group .dashboard-nav-sync {
+        .panel-title {
+            font-family: 'Syne', sans-serif;
             font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .panel-title-icon {
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+
+        .panel-body { padding: 16px 18px; }
+
+        /* ====================================================
+           DATA ROWS
+        ==================================================== */
+        .data-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 9px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .data-row:first-child { padding-top: 0; }
+
+        .data-label {
+            font-size: 0.82rem;
             color: var(--text-muted);
             font-weight: 500;
-            margin-top: 2px;
+            flex-shrink: 0;
         }
 
-        .nav-btn {
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 50px;
-            border: 1px solid var(--border);
+        .data-val {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.82rem;
+            font-weight: 500;
             color: var(--text-main);
+            text-align: right;
+        }
+
+        /* ====================================================
+           STATUS CHIPS
+        ==================================================== */
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 3px 9px;
+            border-radius: 4px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.68rem;
             font-weight: 600;
-            font-size: 0.85rem;
-            background: var(--bg-card);
-            transition: all 0.2s ease;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            border: 1px solid;
+        }
+        .chip.ok      { background: var(--state-ok-bg);   color: var(--state-ok);   border-color: var(--state-ok-border); }
+        .chip.warn    { background: var(--state-warn-bg); color: var(--state-warn); border-color: var(--state-warn-border); }
+        .chip.err     { background: var(--state-err-bg);  color: var(--state-err);  border-color: var(--state-err-border); }
+        .chip.neutral { background: var(--state-neutral-bg); color: var(--state-neutral); border-color: transparent; }
+        .chip .dot-sm { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+        /* ====================================================
+           SPAN UTILITIES
+        ==================================================== */
+        .span-2 { grid-column: span 2; }
+        .span-3 { grid-column: span 3; }
+
+        /* ====================================================
+           PERFORMANCE ROWS WITH INLINE BARS
+        ==================================================== */
+        .perf-row {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .perf-row:last-child { border-bottom: none; padding-bottom: 0; }
+        .perf-row:first-child { padding-top: 0; }
+
+        .perf-row-top {
             display: flex;
             align-items: center;
-            gap: 6px;
-            box-shadow: var(--shadow);
+            justify-content: space-between;
+            margin-bottom: 5px;
         }
 
-        .nav-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
+        .perf-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
         }
 
-        /* --- STATE COLORS --- */
-        :root {
-            --state-success: #10B981;
-            --state-warning: #F59E0B;
-            --state-danger: #EF4444;
+        .perf-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-main);
         }
 
-        [data-theme="dark"] {
-            --state-success: #34D399;
-            --state-warning: #FBBF24;
-            --state-danger: #F87171;
+        .perf-track {
+            width: 100%;
+            height: 5px;
+            background: var(--progress-track);
+            border-radius: 3px;
+            overflow: hidden;
         }
 
-        /* --- AUDIT GRID & CARDS --- */
-        .audit-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 15px;
-            margin-bottom: 35px;
+        .perf-fill {
+            height: 100%;
+            border-radius: 3px;
+            animation: bar-fill 1s cubic-bezier(0.16,1,0.3,1) both;
         }
 
-        .agent-card {
-            background: var(--bg-card);
-            border-radius: var(--radius);
-            padding: 20px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--border);
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        /* ====================================================
+           REFLECTION / INSIGHT BLOCKS & COMBINED LAYOUT
+        ==================================================== */
+        .combined-reflection-insights {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            gap: 20px;
         }
 
-        .agent-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-hover);
+        .reflection-row {
+            width: 100%;
         }
 
-        .agent-card.healthy { border-left-color: var(--state-success); }
-        .agent-card.warning { border-left-color: var(--state-warning); }
-        .agent-card.danger { border-left-color: var(--state-danger); }
+        .insights-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
 
-        .agent-header {
+        .insight-col {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+        }
+
+        .quote-block {
+            background: var(--bg-surface);
+            border-left: 3px solid var(--primary);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 14px 16px;
+            font-size: 0.88rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .insight-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .insight-block {
+            background: var(--bg-surface);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 12px 14px;
+            font-size: 0.84rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        .reflection-meta-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+
+        .meta-tag {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.68rem;
+            color: var(--text-faint);
+            background: var(--bg-surface);
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        /* ====================================================
+           SECTION DIVIDER
+        ==================================================== */
+        .section-divider {
+            display: flex;
             align-items: center;
-            margin-bottom: 12px;
+            gap: 14px;
+            margin: 32px 0 20px;
+        }
+
+        .section-divider-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .section-divider-line {
+            height: 1px;
+            background: var(--border);
+            flex: 1;
+        }
+
+        /* ====================================================
+           AGENT SENTINEL AUDITS
+        ==================================================== */
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .agent-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .agent-panel:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .agent-panel-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
         }
 
         .agent-name {
-            font-size: 1rem;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.82rem;
             font-weight: 700;
             color: var(--text-main);
+            letter-spacing: 0.02em;
+        }
+
+        .agent-indicator {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .agent-indicator.ok   { background: var(--state-ok); }
+        .agent-indicator.warn { background: var(--state-warn); }
+        .agent-indicator.err  { background: var(--state-err); }
+
+        .agent-panel-body {
+            padding: 12px 14px;
         }
 
         .agent-analysis {
-            font-size: 0.88rem;
-            color: var(--text-main);
-            margin-bottom: 12px;
-            line-height: 1.5;
+            font-size: 0.81rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin-bottom: 10px;
         }
 
         .agent-technical {
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 0.72rem;
-            background: color-mix(in srgb, var(--primary) 4%, var(--bg-body));
-            padding: 8px 12px;
-            border-radius: 8px;
-            border: 1px dashed var(--border);
-            color: var(--text-muted);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.67rem;
+            color: var(--text-faint);
+            background: var(--bg-surface);
+            padding: 7px 10px;
+            border-radius: var(--radius-sm);
             word-break: break-all;
-            margin-top: auto;
-        }
-
-        /* --- FILTER CONTROLS --- */
-        .filter-group {
-            display: flex;
-            gap: 10px;
-            margin: 15px 0 20px 0;
-        }
-
-        .filter-btn {
-            background: var(--bg-card);
+            line-height: 1.5;
             border: 1px solid var(--border);
-            color: var(--text-muted);
-            padding: 6px 14px;
-            border-radius: 50px;
-            font-size: 0.8rem;
+        }
+
+        /* ====================================================
+           FILTER STRIP
+        ==================================================== */
+        .filter-strip {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            align-items: center;
+        }
+
+        .flt-btn {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
             font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-muted);
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.15s;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
         }
-
-        .filter-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .filter-btn.active {
+        .flt-btn:hover { border-color: var(--primary); color: var(--primary); }
+        .flt-btn.active {
             background: var(--primary);
             border-color: var(--primary);
-            color: #ffffff;
+            color: #fff;
         }
 
-        /* --- RESPONSIVE STYLES --- */
-        @media (max-width: 992px) {
-            .dashboard-grid,
-            .skeleton-grid,
-            .audit-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* ====================================================
+           LOADING SKELETON
+        ==================================================== */
+        #dash-loading {
+            display: block;
+        }
+        #dash-content {
+            display: none;
+        }
+        .skel-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+        .skel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            animation: sk-pulse 1.5s ease-in-out infinite;
+        }
+        .skel-tall { height: 110px; }
+        .skel-med  { height: 220px; }
+        .skel-long { height: 260px; }
+        .skel-text {
+            height: 12px;
+            background: var(--border);
+            border-radius: 4px;
+            margin: 14px 14px 0;
+            animation: sk-pulse 1.5s ease-in-out infinite;
+        }
 
-            .reflection-card,
-            .insights-card,
-            .skeleton-two-thirds,
-            .skeleton-one-third {
-                grid-column: span 2;
-            }
+        /* ====================================================
+           FOOTER
+        ==================================================== */
+        footer {
+            text-align: center;
+            padding: 40px 24px;
+            font-size: 0.82rem;
+            color: var(--text-faint);
+            border-top: 1px solid var(--border);
+            margin-top: 48px;
+        }
+
+        footer a { color: var(--text-muted); transition: color 0.15s; }
+        footer a:hover { color: var(--primary); }
+
+        /* ====================================================
+           RESPONSIVE
+        ==================================================== */
+        @media (max-width: 1024px) {
+            .vitals-strip { grid-template-columns: repeat(2, 1fr); }
+            .main-grid    { grid-template-columns: 1fr 1fr; }
+            .span-2       { grid-column: span 2; }
+            .span-3       { grid-column: span 2; }
+            .agent-grid   { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .insights-row { grid-template-columns: 1fr; gap: 14px; }
         }
 
         @media (max-width: 640px) {
-            .brand-group h1.dashboard-nav-title {
-                font-size: 1.05rem;
-            }
+            .vitals-strip { grid-template-columns: repeat(2, 1fr); }
+            .main-grid    { grid-template-columns: 1fr; }
+            .span-2, .span-3 { grid-column: 1; }
+            .agent-grid   { grid-template-columns: 1fr; }
+            .page-title   { font-size: 1.35rem; }
+            .skel-grid    { grid-template-columns: 1fr 1fr; }
+            .banner-left  { gap: 10px; }
+            .banner-nav-link span { display: none; }
+        }
 
-            .brand-group .dashboard-nav-sync {
-                font-size: 0.7rem;
-            }
-
-            .nav-highlight span, .nav-btn span {
-                display: none;
-            }
-
-            .nav-highlight, .nav-btn {
-                padding: 0;
-                width: 36px;
-                height: 36px;
-                justify-content: center;
-                border-radius: 50%;
-            }
-
-            .nav-highlight::after {
-                content: '📝';
-                font-size: 1rem;
-            }
-
-            .nav-btn::after {
-                content: '🏠';
-                font-size: 1rem;
-            }
-
-            .dashboard-grid,
-            .skeleton-grid,
-            .audit-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .reflection-card,
-            .insights-card,
-            .skeleton-two-thirds,
-            .skeleton-one-third {
-                grid-column: 1;
-            }
-
-            .card {
-                padding: 20px;
-            }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
         }
     </style>
 </head>
 
 <body>
 
-    <a href="#observability-section" class="skip-to-content">Skip to content</a>
+    <a href="#main-content" class="skip-to-content">Skip to content</a>
 
-    <header class="animate-entry" role="banner">
-        <nav class="container header-content" aria-label="Main navigation">
-            <div class="brand-group">
-                <h1 class="dashboard-nav-title">Fray Telemetry Dashboard</h1>
-                <div class="dashboard-nav-sync">
-                    Last Telemetry Sync: <time id="timestamp-val" class="metric-value" style="display: inline-block; font-size: 0.78rem; font-weight: 600; font-family: 'JetBrains Mono', 'Courier New', monospace;">-</time>
+    <!-- ============================================================
+         TOP STATUS BANNER
+    ============================================================ -->
+    <div class="status-banner" role="banner">
+        <div class="container banner-inner">
+            <div class="banner-left">
+                <div class="banner-logo">
+                    <div class="banner-logo-dot"></div>
+                    Fray
+                </div>
+                <div class="banner-status-row">
+                    <div class="banner-pulse" aria-hidden="true"></div>
+                    <span class="banner-status-text">
+                        SYNC: <time id="banner-timestamp">—</time>
+                    </span>
                 </div>
             </div>
-
-            <div class="controls">
-                <a href="../index.html" class="nav-btn" aria-label="Go to Home Portal">
-                    <span>🏠 Home</span>
+            <div class="banner-right">
+                <a href="../index.html" class="banner-nav-link" aria-label="Home">
+                    <span>Home</span>
                 </a>
-
-                <a href="../blog.html" class="nav-highlight" aria-label="Read Research Blog">
-                    <span>📝 Research Blog</span>
+                <a href="../blog.html" class="banner-nav-link highlight" aria-label="Research Blog">
+                    <span>Research Blog</span>
                 </a>
-
-                <button class="theme-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
-                </button>
+                <button class="banner-theme-btn" id="theme-toggle" aria-label="Toggle dark mode"></button>
             </div>
-        </nav>
-    </header>
+        </div>
+    </div>
 
-    <main class="container" role="main">
+    <!-- ============================================================
+         MAIN CONTENT
+    ============================================================ -->
+    <main class="page-wrapper" id="main-content">
+        <div class="container">
 
-        <section id="observability-section" class="animate-entry delay-1" aria-label="Fray Observability Core" style="margin-top: 10px;">
-
-            <!-- Loading State (Skeletons) -->
-            <div id="dashboard-loader" aria-hidden="true">
-                <div class="skeleton-grid">
-                    <div class="skeleton-card skeleton-block">
-                        <div class="skeleton-line w-60"></div>
-                        <div class="skeleton-line"></div>
-                        <div class="skeleton-line w-80"></div>
-                        <div class="skeleton-line w-40"></div>
-                    </div>
-                    <div class="skeleton-card skeleton-block">
-                        <div class="skeleton-line w-60"></div>
-                        <div class="skeleton-line"></div>
-                        <div class="skeleton-line w-80"></div>
-                        <div class="skeleton-line w-40"></div>
-                    </div>
-                    <div class="skeleton-card skeleton-block">
-                        <div class="skeleton-line w-60"></div>
-                        <div class="skeleton-line"></div>
-                        <div class="skeleton-line w-80"></div>
-                        <div class="skeleton-line w-40"></div>
-                    </div>
-                    <div class="skeleton-card skeleton-two-thirds">
-                        <div class="skeleton-line w-40"></div>
-                        <div class="skeleton-line"></div>
-                        <div class="skeleton-line w-80"></div>
-                    </div>
-                    <div class="skeleton-card skeleton-one-third">
-                        <div class="skeleton-line w-60"></div>
-                        <div class="skeleton-line"></div>
-                        <div class="skeleton-line w-40"></div>
-                    </div>
+            <!-- Page heading row -->
+            <div class="page-header fade-up">
+                <div>
+                    <h1 class="page-title">Cognitive <span>Observability</span></h1>
+                    <div class="page-sub">Fray-Orchestrator — Real-time system telemetry</div>
                 </div>
-                <!-- Skeleton items for the Audit section -->
-                <div style="margin-top: 40px; margin-bottom: 20px;">
-                    <div class="skeleton-line w-40" style="height: 24px;"></div>
-                </div>
-                <div class="skeleton-grid">
-                    <div class="skeleton-card" style="height: 160px;"></div>
-                    <div class="skeleton-card" style="height: 160px; animation-delay: 0.1s;"></div>
-                    <div class="skeleton-card" style="height: 160px; animation-delay: 0.2s;"></div>
+                <div class="page-meta">
+                    <span id="header-agent-badge" class="health-badge neutral">
+                        <span class="dot"></span>
+                        <span id="header-agent-text">—</span>
+                    </span>
+                    <span id="header-health-badge" class="health-badge ok">
+                        <span class="dot"></span>
+                        <span id="header-health-text">STABLE</span>
+                    </span>
                 </div>
             </div>
 
-            <!-- Active Dashboard Layout -->
-            <div id="dashboard-container" class="dashboard-grid">
-                
-                <!-- Card 1: System Diagnostics -->
-                <article class="card" aria-labelledby="diagnostics-heading">
-                    <h3 id="diagnostics-heading" class="card-title">
-                        🧠 System Diagnostics
-                    </h3>
-                    
-                    <div class="metric-row">
-                        <span class="metric-label">Operational State</span>
-                        <span class="metric-value">
-                            <span class="pulse-dot" aria-hidden="true"></span>
-                            ONLINE
-                        </span>
+            <!-- ================================================
+                 LOADING STATE (SKELETONS)
+            ================================================ -->
+            <div id="dash-loading" aria-hidden="true">
+                <div class="skel-grid">
+                    <div class="skel skel-tall"><div class="skel-text" style="width:55%"></div></div>
+                    <div class="skel skel-tall"><div class="skel-text" style="width:45%"></div></div>
+                    <div class="skel skel-tall"><div class="skel-text" style="width:60%"></div></div>
+                    <div class="skel skel-tall"><div class="skel-text" style="width:35%"></div></div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px;">
+                    <div class="skel skel-med"><div class="skel-text" style="width:50%"></div></div>
+                    <div class="skel skel-med"><div class="skel-text" style="width:60%"></div></div>
+                    <div class="skel skel-med"><div class="skel-text" style="width:40%"></div></div>
+                    <div class="skel skel-long span-3"><div class="skel-text" style="width:70%"></div></div>
+                </div>
+            </div>
+
+            <!-- ================================================
+                 DASHBOARD CONTENT
+            ================================================ -->
+            <div id="dash-content">
+
+                <!-- VITALS STRIP -->
+                <div class="vitals-strip fade-up d1">
+
+                    <!-- CPU Usage -->
+                    <div class="vital-card">
+                        <div class="vital-label">CPU User</div>
+                        <div class="vital-value" id="v-cpu-user">—</div>
+                        <div class="vital-sub" id="v-cpu-sys">sys —</div>
+                        <div class="vital-bar-track">
+                            <div class="vital-bar-fill blue" id="v-cpu-bar" style="width:0"></div>
+                        </div>
                     </div>
 
-                    <div class="metric-row">
-                        <span class="metric-label">Audit Sentinel</span>
-                        <span id="audit-pill" class="status-pill success">-</span>
+                    <!-- GPU Usage -->
+                    <div class="vital-card">
+                        <div class="vital-label">GPU Usage</div>
+                        <div class="vital-value" id="v-gpu">—</div>
+                        <div class="vital-sub">Thermal: <span id="v-thermal">—</span></div>
+                        <div class="vital-bar-track">
+                            <div class="vital-bar-fill green" id="v-gpu-bar" style="width:0"></div>
+                        </div>
                     </div>
 
-                    <div class="metric-row">
-                        <span class="metric-label">Current Mindset</span>
-                        <span id="mindset-text" class="metric-value">-</span>
+                    <!-- Memory -->
+                    <div class="vital-card">
+                        <div class="vital-label">Memory Used</div>
+                        <div class="vital-value" id="v-mem">—</div>
+                        <div class="vital-sub">Free pages: <span id="v-pages">—</span></div>
+                        <div class="vital-bar-track">
+                            <div class="vital-bar-fill red" id="v-mem-bar" style="width:0"></div>
+                        </div>
                     </div>
 
-                    <div class="metric-row">
-                        <span class="metric-label">Circuit Breaker</span>
-                        <span id="circuit-pill" class="status-pill success">CLOSED</span>
+                    <!-- Disk I/O -->
+                    <div class="vital-card">
+                        <div class="vital-label">Disk I/O</div>
+                        <div class="vital-value" id="v-disk-read">—</div>
+                        <div class="vital-sub">TPS: <span id="v-disk-tps">—</span></div>
+                        <div class="vital-bar-track">
+                            <div class="vital-bar-fill amber" id="v-disk-bar" style="width:0"></div>
+                        </div>
                     </div>
 
-                    <div class="metric-row">
-                        <span class="metric-label">Security Gate</span>
-                        <span id="lock-pill" class="status-pill success">UNLOCKED</span>
-                    </div>
+                </div><!-- /vitals-strip -->
 
-                    <div class="metric-row">
-                        <span class="metric-label">Operations Class</span>
-                        <span id="tier-pill" class="status-pill success">FULL</span>
-                    </div>
+                <!-- MAIN 3-COLUMN GRID -->
+                <div class="main-grid fade-up d2">
 
-                    <div class="metric-row">
-                        <span class="metric-label">Network Latency</span>
-                        <span id="network-pill" class="status-pill success">-</span>
-                    </div>
-                </article>
-
-                <!-- Card 2: Stress & Thermals -->
-                <article class="card" aria-labelledby="stress-heading">
-                    <h3 id="stress-heading" class="card-title">
-                        🔥 Stress & Thermals
-                    </h3>
-
-                    <div class="metric-row">
-                        <span class="metric-label">Overall Stress</span>
-                        <span id="stress-overall-pill" class="status-pill success">-</span>
-                    </div>
-
-                    <div class="metric-row">
-                        <span class="metric-label">CPU Stress</span>
-                        <span id="stress-cpu-pill" class="status-pill success">-</span>
-                    </div>
-
-                    <div class="metric-row">
-                        <span class="metric-label">GPU Stress</span>
-                        <span id="stress-gpu-pill" class="status-pill success">-</span>
-                    </div>
-
-                    <div class="metric-row">
-                        <span class="metric-label">Memory Stress</span>
-                        <span id="stress-memory-pill" class="status-pill success">-</span>
-                    </div>
-
-                    <div class="metric-row">
-                        <span class="metric-label">Thermal State</span>
-                        <span id="thermal-pill" class="status-pill success">-</span>
-                    </div>
-                </article>
-
-                <!-- Card 3: Performance Telemetry -->
-                <article class="card" aria-labelledby="hardware-heading">
-                    <h3 id="hardware-heading" class="card-title">
-                        ⚡ Performance Telemetry
-                    </h3>
-
-                    <div class="metric-row">
-                        <span class="metric-label">System Load</span>
-                        <span id="system-load-val" class="metric-value">-</span>
-                    </div>
-
-                    <div class="metric-row">
-                        <div style="width: 100%;">
-                            <div style="display: flex; justify-content: space-between;">
-                                <span class="metric-label">CPU Utilization</span>
-                                <span id="cpu-val" class="metric-value">-</span>
+                    <!-- === Panel: System Status === -->
+                    <div class="panel">
+                        <div class="panel-head">
+                            <div class="panel-title"><span class="panel-title-icon">⬡</span> System Status</div>
+                            <div id="p-system-status-chip" class="chip ok"><span class="dot-sm"></span>ONLINE</div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="data-row">
+                                <span class="data-label">Operational State</span>
+                                <span id="p-op-state" class="data-val">—</span>
                             </div>
-                            <div class="gauge-wrapper">
-                                <div class="progress-bar-container" aria-hidden="true">
-                                    <div id="cpu-fill" class="progress-bar-fill"></div>
+                            <div class="data-row">
+                                <span class="data-label">Tier</span>
+                                <span id="p-tier" class="data-val">—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Mindset</span>
+                                <span id="p-mindset" class="data-val">—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Circuit Breaker</span>
+                                <span id="p-circuit" class="chip ok"><span class="dot-sm"></span>—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Security Gate</span>
+                                <span id="p-security" class="chip ok"><span class="dot-sm"></span>—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Network</span>
+                                <span id="p-network" class="chip neutral"><span class="dot-sm"></span>—</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- === Panel: Hardware Stress === -->
+                    <div class="panel">
+                        <div class="panel-head">
+                            <div class="panel-title"><span class="panel-title-icon">⚡</span> Stress Analysis</div>
+                            <div id="p-stress-chip" class="chip ok"><span class="dot-sm"></span>—</div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="perf-row">
+                                <div class="perf-row-top">
+                                    <span class="perf-label">CPU</span>
+                                    <span class="perf-value" id="s-cpu">—</span>
+                                </div>
+                                <div class="perf-track">
+                                    <div class="perf-fill" id="s-cpu-bar" style="background:var(--primary);width:0"></div>
                                 </div>
                             </div>
-                            <div id="cpu-subtext" style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; display: none;">
-                                <span id="cpu-user-sys-val">-</span>
-                                <span id="cpu-idle-val">-</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="metric-row">
-                        <div style="width: 100%;">
-                            <div style="display: flex; justify-content: space-between;">
-                                <span class="metric-label">GPU Utilization</span>
-                                <span id="gpu-val" class="metric-value">-</span>
-                            </div>
-                            <div class="gauge-wrapper">
-                                <div class="progress-bar-container" aria-hidden="true">
-                                    <div id="gpu-fill" class="progress-bar-fill"></div>
+                            <div class="perf-row">
+                                <div class="perf-row-top">
+                                    <span class="perf-label">GPU</span>
+                                    <span class="perf-value" id="s-gpu">—</span>
+                                </div>
+                                <div class="perf-track">
+                                    <div class="perf-fill" id="s-gpu-bar" style="background:var(--state-ok);width:0"></div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="metric-row">
-                        <div style="width: 100%;">
-                            <div style="display: flex; justify-content: space-between;">
-                                <span class="metric-label">Physical Memory</span>
-                                <span id="memory-val" class="metric-value">-</span>
-                            </div>
-                            <div class="gauge-wrapper">
-                                <div class="progress-bar-container" aria-hidden="true">
-                                    <div id="memory-fill" class="progress-bar-fill"></div>
+                            <div class="perf-row">
+                                <div class="perf-row-top">
+                                    <span class="perf-label">Memory</span>
+                                    <span class="perf-value" id="s-mem">—</span>
+                                </div>
+                                <div class="perf-track">
+                                    <div class="perf-fill" id="s-mem-bar" style="background:var(--accent);width:0"></div>
                                 </div>
                             </div>
-                            <div id="memory-subtext" style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">
-                                <span id="memory-free-val">-</span>
-                                <span id="memory-swap-val">-</span>
+                            <div class="data-row" style="margin-top:12px;">
+                                <span class="data-label">Load Avg (1m / 5m / 15m)</span>
+                                <span class="data-val" id="s-load">—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Swap In / Out</span>
+                                <span class="data-val" id="s-swap">—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">CPU Idle</span>
+                                <span class="data-val" id="s-idle">—</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="metric-row">
-                        <div style="width: 100%;">
-                            <div style="display: flex; justify-content: space-between;">
-                                <span class="metric-label">Disk Storage I/O</span>
-                                <span id="disk-io-val" class="metric-value">-</span>
+                    <!-- === Panel: Agent (metadata) === -->
+                    <div class="panel">
+                        <div class="panel-head">
+                            <div class="panel-title"><span class="panel-title-icon">◈</span> Agent Info</div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="data-row">
+                                <span class="data-label">Agent</span>
+                                <span class="data-val" id="p-agent">—</span>
                             </div>
-                            <div class="gauge-wrapper">
-                                <div class="progress-bar-container" aria-hidden="true">
-                                    <div id="disk-fill" class="progress-bar-fill"></div>
+                            <div class="data-row">
+                                <span class="data-label">Version</span>
+                                <span class="data-val" id="p-version">—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Metrics Status</span>
+                                <span id="p-metrics-status" class="chip neutral"><span class="dot-sm"></span>—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Audit Health</span>
+                                <span id="p-audit-health" class="chip ok"><span class="dot-sm"></span>—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Metrics Timestamp</span>
+                                <span class="data-val" id="p-metrics-ts">—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Audit Timestamp</span>
+                                <span class="data-val" id="p-audit-ts">—</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- === Panel: Combined Cognitive Reflection & Insights (span 3) === -->
+                    <div class="panel span-3">
+                        <div class="panel-head">
+                            <div class="panel-title"><span class="panel-title-icon">🌀</span> Cognitive Reflection & Insights</div>
+                        </div>
+                        <div class="panel-body combined-reflection-insights">
+                            
+                            <!-- Row 1: Cognitive Reflection (1 column) -->
+                            <div class="reflection-row">
+                                <div id="reflection-content" class="quote-block">
+                                    Awaiting synchronization…
+                                </div>
+                                <div id="reflection-meta" class="reflection-meta-row">
+                                    <!-- Filled dynamically -->
                                 </div>
                             </div>
-                            <div id="disk-subtext" style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; display: none;">
-                                <span id="disk-read-val">-</span>
-                                <span id="disk-tps-val">-</span>
+
+                            <!-- Row 2: Synthesis and Observation (2 columns) -->
+                            <div class="insights-row">
+                                <div class="insight-col">
+                                    <div class="insight-label">Synthesis</div>
+                                    <div id="insights-synthesis" class="insight-block">Awaiting…</div>
+                                </div>
+                                <div class="insight-col">
+                                    <div class="insight-label">Observation</div>
+                                    <div id="insights-observation" class="insight-block">Awaiting…</div>
+                                </div>
                             </div>
+
                         </div>
                     </div>
 
-                    <div class="metric-row">
-                        <span class="metric-label">Hardware Sensor Sync</span>
-                        <span id="metrics-time-val" class="metric-value" style="font-size: 0.78rem; font-weight: 600; font-family: 'JetBrains Mono', 'Courier New', monospace;">-</span>
-                    </div>
+                </div><!-- /main-grid -->
 
-                    <div id="extra-stats-row" class="metric-row" style="display: none;">
-                        <span class="metric-label">Local Host Telemetry</span>
-                        <span id="extra-stats-val" class="metric-value">-</span>
-                    </div>
+                <!-- AGENT AUDIT SECTION -->
+                <div class="section-divider fade-up d3">
+                    <span class="section-divider-title">Agent Sentinel Audits</span>
+                    <div class="section-divider-line"></div>
+                    <span id="audit-health-chip" class="chip ok"><span class="dot-sm"></span>STABLE</span>
+                </div>
 
-                    <div class="metric-row">
-                        <span class="metric-label">Telemetry Agent</span>
-                        <span id="agent-val" class="metric-value">-</span>
-                    </div>
-                </article>
+                <div class="filter-strip fade-up d3">
+                    <button class="flt-btn active" data-filter="all" id="btn-filter-all">All</button>
+                    <button class="flt-btn" data-filter="healthy" id="btn-filter-healthy">Healthy</button>
+                    <button class="flt-btn" data-filter="issue" id="btn-filter-issue">Issues</button>
+                </div>
 
-                <!-- Card 3: Cognitive Reflection Log -->
-                <article class="card reflection-card" aria-labelledby="reflection-heading">
-                    <h3 id="reflection-heading" class="card-title">
-                        🦋 Latest Cognitive Reflection
-                    </h3>
-                    
-                    <div id="reflection-content" class="reflection-box">
-                        Awaiting system telemetry synchronization...
-                    </div>
-                    
-                    <div id="reflection-meta" class="reflection-meta">
-                        <!-- Filled dynamically -->
-                    </div>
-                </article>
+                <div id="audit-grid" class="agent-grid fade-up d4">
+                    <!-- Rendered dynamically -->
+                </div>
 
-                <!-- Card 5: Cognitive Insights -->
-                <article class="card insights-card" aria-labelledby="insights-heading">
-                    <h3 id="insights-heading" class="card-title">
-                        💡 Cognitive Insights
-                    </h3>
-                    
-                    <div class="insight-section">
-                        <h4 class="insight-subtitle">Synthesis</h4>
-                        <div id="insights-synthesis" class="insight-box">
-                            Awaiting synthesis...
-                        </div>
-                    </div>
+            </div><!-- /dash-content -->
 
-                    <div class="insight-section" style="margin-top: 15px;">
-                        <h4 class="insight-subtitle">Observation</h4>
-                        <div id="insights-observation" class="insight-box">
-                            Awaiting observations...
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- Section 2: Agent Audits -->
-        <section id="audit-section" class="animate-entry delay-2" style="margin-top: 40px; display: none;">
-            <div class="section-header">
-                <h2 class="section-title">🛡️ Agent Sentinel Audits</h2>
-                <div class="section-line"></div>
-                <span id="audit-health-pill" class="status-pill success">STABLE</span>
-            </div>
-            
-            <div id="audit-sync-time" style="font-size: 0.78rem; color: var(--text-muted); font-weight: 500; margin-top: -15px; margin-bottom: 15px;">
-                Last Audit Sync: <time id="audit-timestamp-val" style="font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 600;">-</time>
-            </div>
-
-            <div class="filter-group">
-                <button class="filter-btn active" data-filter="all" id="btn-filter-all">All (6)</button>
-                <button class="filter-btn" data-filter="healthy" id="btn-filter-healthy">Healthy (6)</button>
-                <button class="filter-btn" data-filter="issue" id="btn-filter-issue">Issues (0)</button>
-            </div>
-
-            <div id="audit-grid" class="audit-grid">
-                <!-- Dynamic Sub-Agent Cards Rendered Here -->
-            </div>
-        </section>
-
+        </div><!-- /container -->
     </main>
 
-    <footer class="animate-entry delay-3">
-        <div style="opacity: 0.9;">
-            &copy; 2025–<span id="footer-year">2026</span> <a href="https://github.com/NTWKKM/" target="_blank"
-                style="color: inherit; text-decoration: none; font-weight: 700; border-bottom: 1px dotted var(--text-muted);">NTWKKM</a>.
+    <!-- FOOTER -->
+    <footer>
+        <div>
+            &copy; 2025–<span id="footer-year">2026</span>
+            <a href="https://github.com/NTWKKM/" target="_blank" rel="noopener">NTWKKM</a>.
             All Rights Reserved.
         </div>
-        <div style="margin-top: 8px; font-size: 0.85rem; opacity: 0.7;">
-            Bridging Clinical Practice with Digital Innovation.
-        </div>
+        <div style="margin-top:6px;font-size:0.78rem;">Bridging Clinical Practice with Digital Innovation.</div>
     </footer>
 
-    <!-- Shared Scripts -->
+    <div id="sr-announcer" role="status" aria-live="polite" aria-atomic="true" class="sr-only"></div>
+
+    <!-- Shared scripts -->
     <script src="../shared.js"></script>
-    
+
     <script>
-        // Helper function to map metrics to accessibility/theme status pill classes
-        function getStatusPillClass(val) {
-            if (!val) return 'status-pill success';
-            const cleanVal = String(val).toUpperCase().trim();
-            if (cleanVal === 'NOMINAL' || cleanVal === 'NOMINAL_STRESS' || cleanVal === 'NOMINAL_TEMP' || cleanVal === 'LOW' || cleanVal === 'NORMAL' || cleanVal === 'CLOSED' || cleanVal === 'UNLOCKED' || cleanVal === 'ACTIVE' || cleanVal === 'ONLINE') {
-                return 'status-pill success';
-            } else if (cleanVal === 'WARNING' || cleanVal === 'MODERATE' || cleanVal === 'DEGRADED' || cleanVal === 'STRESSED') {
-                return 'status-pill warning';
-            } else if (cleanVal === 'CRITICAL' || cleanVal === 'HIGH' || cleanVal === 'TIMEOUT' || cleanVal === 'OVERHEATED' || cleanVal === 'LOCKED' || cleanVal === 'OPEN' || cleanVal === 'OFFLINE' || cleanVal === 'ERROR') {
-                return 'status-pill danger';
-            }
+        // ============================================================
+        // HELPERS
+        // ============================================================
+        function escapeHTML(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function sanitizeURL(url) {
+            if (!url) return '#';
+            try { return ['http:','https:'].includes(new URL(url).protocol) ? url : '#'; }
+            catch { return '#'; }
+        }
+
+        function chipClass(val) {
+            if (!val) return 'neutral';
+            const v = String(val).toUpperCase().trim();
+            const OK_SET   = new Set(['NOMINAL','LOW','NORMAL','CLOSED','UNLOCKED','ACTIVE','ONLINE','HEALTHY','STABLE','FULL','OPEN_GOOD']);
+            const WARN_SET = new Set(['WARNING','MODERATE','DEGRADED','STRESSED']);
+            const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR']);
+            if (OK_SET.has(v))   return 'ok';
+            if (WARN_SET.has(v)) return 'warn';
+            if (ERR_SET.has(v))  return 'err';
+            
             // For custom numeric latencies (e.g. "45ms"), check if it contains "ms"
-            if (cleanVal.includes('MS')) {
-                const num = parseFloat(cleanVal);
+            if (v.includes('MS')) {
+                const num = parseFloat(v);
                 if (!isNaN(num)) {
-                    if (num > 300) return 'status-pill danger';
-                    if (num > 150) return 'status-pill warning';
+                    if (num > 300) return 'err';
+                    if (num > 150) return 'warn';
                 }
-                return 'status-pill success';
+                return 'ok';
             }
+            return 'neutral';
+        }
+
+        function setChip(id, text) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const cls = chipClass(text);
+            el.className = `chip ${cls}`;
+            el.innerHTML = `<span class="dot-sm"></span>${escapeHTML(text)}`;
+        }
+
+        function setVal(id, text) {
+            const el = document.getElementById(id);
+            if (el) el.textContent = text || '—';
+        }
+
+        // Keep setBar smooth and proportional
+        function setBar(id, pct) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            const clamped = Math.min(100, Math.max(0, pct || 0));
+            el.style.width = clamped + '%';
+        }
+
+        // Helper function to map metrics to accessibility/theme status pill classes (retained for backward compatibility if needed)
+        function getStatusPillClass(val) {
+            const cls = chipClass(val);
+            if (cls === 'ok') return 'status-pill success';
+            if (cls === 'warn') return 'status-pill warning';
+            if (cls === 'err') return 'status-pill danger';
             return 'status-pill success';
         }
 
-        // Global active filter state
+        function parsePct(str) {
+            if (!str) return 0;
+            return parseFloat(String(str).replace('%','')) || 0;
+        }
+
+        // ============================================================
+        // FILTER LOGIC
+        // ============================================================
         let currentFilter = 'all';
 
         function applyFilter(filter) {
             currentFilter = filter;
-            
-            // Update active state on buttons
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                if (btn.getAttribute('data-filter') === filter) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
+            document.querySelectorAll('.flt-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.filter === filter);
             });
-
-            // Filter agent cards
-            document.querySelectorAll('.agent-card').forEach(card => {
-                const cardStatus = card.getAttribute('data-status');
-                if (filter === 'all' || cardStatus === filter) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
+            document.querySelectorAll('.agent-panel').forEach(card => {
+                const s = card.dataset.status;
+                card.style.display = (filter === 'all' || s === filter) ? '' : 'none';
             });
         }
 
@@ -1083,562 +1293,38 @@
             initScreenReaderAnnouncer();
             
             // Set up filter buttons click handlers using event delegation
-            document.addEventListener('click', (e) => {
-                if (e.target && e.target.classList.contains('filter-btn')) {
-                    const filter = e.target.getAttribute('data-filter');
-                    applyFilter(filter);
+            document.addEventListener('click', e => {
+                if (e.target && e.target.classList.contains('flt-btn')) {
+                    applyFilter(e.target.dataset.filter);
                 }
             });
         });
 
-        // Main telemetry sync update loop
+        // ============================================================
+        // MAIN UPDATE
+        // ============================================================
         async function updateDashboard() {
-            const container = document.getElementById('dashboard-container');
-            const loader = document.getElementById('dashboard-loader');
-            
+            const loader  = document.getElementById('dash-loading');
+            const content = document.getElementById('dash-content');
+
             try {
-                // Real-time cache-buster for telemetry freshness
+                // Real-time cache-buster for telemetry freshness and robust retry
                 const data = await fetchWithFallback(`dashboard-snapshot.json?v=${Date.now()}`, null, 2);
+                if (!data) throw new Error('Null or invalid payload received.');
                 
-                if (!data) {
-                    throw new Error('Null or invalid payload received.');
-                }
-                
-                // Toggle active views
-                loader.style.display = 'none';
-                container.style.display = 'grid';
-                const auditSection = document.getElementById('audit-section');
-                if (auditSection) {
-                    auditSection.style.display = 'block';
-                }
-                
-                // Diagnostics values
-                const tier = data.system.tier || 'full';
-                const mindset = data.system.mindset || 'Sati-Observation';
-                const circuit = data.system.circuit_breaker || 'CLOSED';
-                const lock = data.system.security_lock;
-                
-                // Operations tier badge
-                const tierPill = document.getElementById('tier-pill');
-                tierPill.innerText = tier.toUpperCase();
-                tierPill.className = getStatusPillClass(tier);
-                
-                // Current Mindset state details
-                const mindsetEl = document.getElementById('mindset-text');
-                if (mindsetEl) {
-                    mindsetEl.innerText = mindset;
-                    if (mindset === '-') mindsetEl.classList.add('empty-state');
-                    else mindsetEl.classList.remove('empty-state');
-                }
-                
-                // Circuit Breaker status
-                const circuitPill = document.getElementById('circuit-pill');
-                let parsedCircuit = null;
-                
-                try {
-                    if (typeof circuit === 'string' && (circuit.startsWith('{') || circuit.startsWith('['))) {
-                        parsedCircuit = JSON.parse(circuit);
-                    } else if (typeof circuit === 'object' && circuit !== null) {
-                        parsedCircuit = circuit;
-                    }
-                } catch (e) {
-                    console.warn("Fray: Failed to parse circuit_breaker JSON:", e);
-                }
+                renderDashboard(data);
 
-                if (parsedCircuit) {
-                    // Support both nested circuit_breakers key and flat format
-                    const breakers = parsedCircuit.circuit_breakers || parsedCircuit;
-                    // Render multi-key circuit breaker status list dynamically
-                    circuitPill.innerHTML = '';
-                    circuitPill.className = ''; // Remove status-pill styling from the container
-                    circuitPill.style.display = 'flex';
-                    // Layout adjusted to flex-row with wrap to prevent vertical grid disruption
-                    circuitPill.style.flexDirection = 'row';
-                    circuitPill.style.flexWrap = 'wrap';
-                    circuitPill.style.justifyContent = 'flex-end';
-                    circuitPill.style.gap = '6px';
-                    
-                    for (const [key, val] of Object.entries(breakers)) {
-                        if (key.toLowerCase() === 'last_updated' || key.toLowerCase() === 'last_check') continue;
-                        
-                        const valStr = String(val).toUpperCase();
-                        const badge = document.createElement('span');
-                        badge.className = getStatusPillClass(val);
-                        badge.innerText = `${key.toUpperCase()}: ${valStr}`;
-                        circuitPill.appendChild(badge);
-                    }
-                    
-                    const lastCheck = breakers.last_check || breakers.last_updated;
-                    if (lastCheck) {
-                        const checkTime = document.createElement('span');
-                        checkTime.style.fontSize = '0.72rem';
-                        checkTime.style.color = 'var(--text-muted)';
-                        checkTime.style.marginTop = '2px';
-                        checkTime.style.width = '100%';
-                        checkTime.style.textAlign = 'right';
-                        checkTime.innerText = `Checked: ${lastCheck}`;
-                        circuitPill.appendChild(checkTime);
-                    }
-                    
-                    if (circuitPill.children.length === 0) {
-                        circuitPill.className = 'status-pill success';
-                        circuitPill.innerText = 'CLOSED';
-                    }
-                } else {
-                    // Standard raw string fallback
-                    circuitPill.style.display = '';
-                    circuitPill.style.flexDirection = '';
-                    circuitPill.style.flexWrap = '';
-                    circuitPill.style.justifyContent = '';
-                    circuitPill.style.gap = '';
-                    circuitPill.style.alignItems = '';
-                    
-                    const circuitStr = String(circuit).toUpperCase();
-                    circuitPill.innerText = circuitStr;
-                    circuitPill.className = getStatusPillClass(circuit);
-                }
-                
-                // Security Lock status
-                const lockPill = document.getElementById('lock-pill');
-                lockPill.innerText = lock ? 'LOCKED' : 'UNLOCKED';
-                lockPill.className = getStatusPillClass(lock ? 'LOCKED' : 'UNLOCKED');
+                // Show content
+                loader.style.display  = 'none';
+                content.style.display = 'block';
 
-                // Core hardware telemetry
-                const sysMetrics = data.metrics ? data.metrics.system_metrics : null;
-
-                // Network Latency status
-                const networkPill = document.getElementById('network-pill');
-                let netLatency = '-';
-                if (sysMetrics && sysMetrics.network_latency !== undefined) {
-                    netLatency = sysMetrics.network_latency;
-                } else if (data.metrics && data.metrics.network_latency !== undefined) {
-                    netLatency = data.metrics.network_latency;
-                }
-                if (networkPill) {
-                    networkPill.innerText = String(netLatency).toUpperCase();
-                    networkPill.className = getStatusPillClass(netLatency);
-                }
-
-                // Stress & Thermals
-                const stressOverallPill = document.getElementById('stress-overall-pill');
-                const stressCpuPill = document.getElementById('stress-cpu-pill');
-                const stressGpuPill = document.getElementById('stress-gpu-pill');
-                const stressMemoryPill = document.getElementById('stress-memory-pill');
-                const thermalPill = document.getElementById('thermal-pill');
-
-                let stressOverall = '-';
-                let stressCpu = '-';
-                let stressGpu = '-';
-                let stressMemory = '-';
-                let thermalState = '-';
-
-                if (sysMetrics) {
-                    if (sysMetrics.stress_analysis) {
-                        stressOverall = sysMetrics.stress_analysis.overall || '-';
-                        stressCpu = sysMetrics.stress_analysis.cpu || '-';
-                        stressGpu = sysMetrics.stress_analysis.gpu || '-';
-                        stressMemory = sysMetrics.stress_analysis.memory || '-';
-                    }
-                    thermalState = sysMetrics.thermal_state || '-';
-                }
-
-                if (stressOverallPill) {
-                    stressOverallPill.innerText = String(stressOverall).toUpperCase();
-                    stressOverallPill.className = getStatusPillClass(stressOverall);
-                }
-                if (stressCpuPill) {
-                    stressCpuPill.innerText = String(stressCpu).toUpperCase();
-                    stressCpuPill.className = getStatusPillClass(stressCpu);
-                }
-                if (stressGpuPill) {
-                    stressGpuPill.innerText = String(stressGpu).toUpperCase();
-                    stressGpuPill.className = getStatusPillClass(stressGpu);
-                }
-                if (stressMemoryPill) {
-                    stressMemoryPill.innerText = String(stressMemory).toUpperCase();
-                    stressMemoryPill.className = getStatusPillClass(stressMemory);
-                }
-                if (thermalPill) {
-                    thermalPill.innerText = String(thermalState).toUpperCase();
-                    thermalPill.className = getStatusPillClass(thermalState);
-                }
-
-                // 1. System Load
-                let systemLoad = '-';
-                if (sysMetrics && sysMetrics.load_avg) {
-                    systemLoad = Array.isArray(sysMetrics.load_avg) ? sysMetrics.load_avg.join(', ') : sysMetrics.load_avg;
-                } else if (data.metrics && data.metrics.system_load) {
-                    systemLoad = data.metrics.system_load;
-                } else if (data.metrics && data.metrics.cpu_load) {
-                    systemLoad = `${data.metrics.cpu_load}%`;
-                }
-                const sysLoadEl = document.getElementById('system-load-val');
-                if (sysLoadEl) {
-                    sysLoadEl.innerText = systemLoad;
-                    if (systemLoad === '-') sysLoadEl.classList.add('empty-state');
-                    else sysLoadEl.classList.remove('empty-state');
-                }
-                
-                // 2. CPU usage details
-                let cpuPct = 0;
-                let cpuText = '-';
-                let cpuUserSysText = '-';
-                let cpuIdleText = '-';
-                if (sysMetrics && sysMetrics.cpu_usage) {
-                    const user = parseFloat(sysMetrics.cpu_usage.user) || 0;
-                    const sys = parseFloat(sysMetrics.cpu_usage.sys) || 0;
-                    cpuPct = Math.round(user + sys);
-                    cpuText = `${cpuPct}%`;
-                    cpuUserSysText = `User: ${sysMetrics.cpu_usage.user} | Sys: ${sysMetrics.cpu_usage.sys}`;
-                    cpuIdleText = `Idle: ${sysMetrics.cpu_usage.idle}`;
-                } else if (data.metrics && data.metrics.cpu_usage) {
-                    const user = parseFloat(data.metrics.cpu_usage.user) || 0;
-                    const sys = parseFloat(data.metrics.cpu_usage.sys) || 0;
-                    cpuPct = Math.round(user + sys);
-                    cpuText = `${cpuPct}%`;
-                    cpuUserSysText = `User: ${data.metrics.cpu_usage.user} | Sys: ${data.metrics.cpu_usage.sys}`;
-                    cpuIdleText = `Idle: ${data.metrics.cpu_usage.idle}`;
-                } else if (data.metrics && data.metrics.cpu_load !== undefined) {
-                    cpuPct = Math.round(parseFloat(data.metrics.cpu_load)) || 0;
-                    cpuText = `${cpuPct}%`;
-                }
-                const cpuValEl = document.getElementById('cpu-val');
-                if (cpuValEl) {
-                    cpuValEl.innerText = cpuText;
-                    if (cpuText === '-') cpuValEl.classList.add('empty-state');
-                    else cpuValEl.classList.remove('empty-state');
-                }
-                const cpuFillEl = document.getElementById('cpu-fill');
-                if (cpuFillEl) {
-                    cpuFillEl.style.width = `${cpuPct}%`;
-                }
-                
-                const cpuUserSysEl = document.getElementById('cpu-user-sys-val');
-                const cpuIdleEl = document.getElementById('cpu-idle-val');
-                const cpuSubEl = document.getElementById('cpu-subtext');
-                if (cpuUserSysEl && cpuIdleEl && cpuSubEl) {
-                    if (cpuUserSysText !== '-' || cpuIdleText !== '-') {
-                        cpuSubEl.style.display = 'flex';
-                        cpuUserSysEl.innerText = cpuUserSysText;
-                        cpuIdleEl.innerText = cpuIdleText;
-                    } else {
-                        cpuSubEl.style.display = 'none';
-                    }
-                }
-                
-                // GPU usage details
-                let gpuPct = 0;
-                let gpuText = '-';
-                if (sysMetrics && sysMetrics.gpu_usage !== undefined) {
-                    gpuPct = Math.round(parseFloat(sysMetrics.gpu_usage)) || 0;
-                    gpuText = sysMetrics.gpu_usage;
-                } else if (data.metrics && data.metrics.gpu_usage !== undefined) {
-                    gpuPct = Math.round(parseFloat(data.metrics.gpu_usage)) || 0;
-                    gpuText = data.metrics.gpu_usage;
-                }
-                const gpuValEl = document.getElementById('gpu-val');
-                const gpuFillEl = document.getElementById('gpu-fill');
-                if (gpuValEl && gpuFillEl) {
-                    gpuValEl.innerText = gpuText;
-                    if (gpuText === '-') gpuValEl.classList.add('empty-state');
-                    else gpuValEl.classList.remove('empty-state');
-                    gpuFillEl.style.width = `${gpuPct}%`;
-                }
-                
-                // 3. Physical memory utilization
-                let memText = '-';
-                let memPct = 0;
-                let memFreeText = '-';
-                let memSwapText = '-';
-                
-                if (sysMetrics && sysMetrics.memory) {
-                    const usedStr = sysMetrics.memory.phys_mem_used || '0M';
-                    const usedMb = parseFloat(usedStr) || 0;
-                    const freePages = sysMetrics.memory.pages_free || 0;
-                    // Standard macOS page size is 16KB on Apple Silicon, 4KB on Intel.
-                    // We assume 16KB page size for calculations since Fray is Apple Silicon based.
-                    const freeMb = (freePages * 16) / 1024;
-                    const totalMb = usedMb + freeMb;
-                    
-                    memPct = totalMb > 0 ? Math.round((usedMb / totalMb) * 100) : 0;
-                    memText = `${usedStr} used (${memPct}%)`;
-                    
-                    memFreeText = `Free: ${freePages.toLocaleString()} pages (~${Math.round(freeMb)}M)`;
-                    
-                    const swapins = sysMetrics.memory.swapins;
-                    const swapouts = sysMetrics.memory.swapouts;
-                    if (swapins !== undefined && swapouts !== undefined) {
-                        const formatPages = (num) => {
-                            if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
-                            if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
-                            return num;
-                        };
-                        memSwapText = `Swap In/Out: ${formatPages(swapins)} / ${formatPages(swapouts)}`;
-                    }
-                } else if (data.metrics && data.metrics.memory) {
-                    memText = `${data.metrics.memory.phys_mem_used} used`;
-                    memFreeText = `Free: ${data.metrics.memory.phys_mem_unused || '-'}`;
-                } else if (data.metrics && data.metrics.ram_used_gb !== undefined) {
-                    memText = `${data.metrics.ram_used_gb} GB used`;
-                }
-                
-                const memValEl = document.getElementById('memory-val');
-                if (memValEl) {
-                    memValEl.innerText = memText;
-                    if (memText === '-') memValEl.classList.add('empty-state');
-                    else memValEl.classList.remove('empty-state');
-                }
-                
-                const memFillEl = document.getElementById('memory-fill');
-                if (memFillEl) {
-                    memFillEl.style.width = `${memPct}%`;
-                }
-                
-                const memFreeEl = document.getElementById('memory-free-val');
-                const memSwapEl = document.getElementById('memory-swap-val');
-                const memSubEl = document.getElementById('memory-subtext');
-                
-                if (memFreeEl && memSwapEl && memSubEl) {
-                    if (memFreeText !== '-' || memSwapText !== '-') {
-                        memSubEl.style.display = 'flex';
-                        memFreeEl.innerText = memFreeText;
-                        memSwapEl.innerText = memSwapText;
-                    } else {
-                        memSubEl.style.display = 'none';
-                    }
-                }
-
-                // 4. Disk Storage I/O utilization
-                let diskPct = 0;
-                let diskText = '-';
-                let diskReadText = '-';
-                let diskTpsText = '-';
-                
-                if (sysMetrics && sysMetrics.disk_io) {
-                    const readMb = parseFloat(sysMetrics.disk_io.read_mb_s) || 0;
-                    const tps = sysMetrics.disk_io.tps || 0;
-                    
-                    // We assume a peak/high reference bandwidth of 200 MB/s to scale the progress bar.
-                    diskPct = Math.min(100, Math.round((readMb / 200) * 100));
-                    diskText = `${readMb.toFixed(2)} MB/s`;
-                    
-                    diskReadText = `Read Speed: ${readMb.toFixed(2)} MB/s`;
-                    diskTpsText = `IOPS / TPS: ${tps.toLocaleString()}`;
-                }
-                
-                const diskValEl = document.getElementById('disk-io-val');
-                const diskFillEl = document.getElementById('disk-fill');
-                if (diskValEl && diskFillEl) {
-                    diskValEl.innerText = diskText;
-                    if (diskText === '-') diskValEl.classList.add('empty-state');
-                    else diskValEl.classList.remove('empty-state');
-                    diskFillEl.style.width = `${diskPct}%`;
-                }
-                
-                const diskReadEl = document.getElementById('disk-read-val');
-                const diskTpsEl = document.getElementById('disk-tps-val');
-                const diskSubEl = document.getElementById('disk-subtext');
-                if (diskReadEl && diskTpsEl && diskSubEl) {
-                    if (diskReadText !== '-' || diskTpsText !== '-') {
-                        diskSubEl.style.display = 'flex';
-                        diskReadEl.innerText = diskReadText;
-                        diskTpsEl.innerText = diskTpsText;
-                    } else {
-                        diskSubEl.style.display = 'none';
-                    }
-                }
-
-                // 5. Hardware Sensor Sync Timestamp
-                const metricsTimeEl = document.getElementById('metrics-time-val');
-                if (metricsTimeEl) {
-                    const metricTimeVal = (sysMetrics && sysMetrics.timestamp) ? sysMetrics.timestamp : '-';
-                    metricsTimeEl.innerText = metricTimeVal;
-                    if (metricTimeVal === '-') metricsTimeEl.classList.add('empty-state');
-                    else metricsTimeEl.classList.remove('empty-state');
-                }
-                
-                // 4. Legacy fallbacks (Battery / Network)
-                const batVal = data.metrics.battery_pct !== undefined ? `${data.metrics.battery_pct}%` : null;
-                const netVal = data.metrics.network_status || null;
-                const extraStatsRow = document.getElementById('extra-stats-row');
-                if (batVal || netVal) {
-                    extraStatsRow.style.display = 'flex';
-                    let extraText = '';
-                    if (batVal) extraText += `⚡ Battery: ${batVal}`;
-                    if (netVal) {
-                        if (extraText) extraText += ' | ';
-                        extraText += `🌐 Network: ${netVal}`;
-                    }
-                    const extraStatsValEl = document.getElementById('extra-stats-val');
-                    if (extraStatsValEl) {
-                        extraStatsValEl.innerText = extraText;
-                        if (extraText === '-') extraStatsValEl.classList.add('empty-state');
-                        else extraStatsValEl.classList.remove('empty-state');
-                    }
-                } else {
-                    extraStatsRow.style.display = 'none';
-                }
-                
-                // 5. Version / Agent details
-                const agent = data.metadata ? `${data.metadata.agent} v${data.metadata.version}` : 'Fray v1.1';
-                const agentValEl = document.getElementById('agent-val');
-                if (agentValEl) {
-                    agentValEl.innerText = agent;
-                    if (agent === '-') agentValEl.classList.add('empty-state');
-                    else agentValEl.classList.remove('empty-state');
-                }
-                
-                // Telemetry Reflection
-                const rawReflection = data.system.last_reflection || 'No reflection recorded.';
-                let reflectionFact = '';
-                let reflectionMeta = '';
-                try {
-                    // Try parsing JSON format if it exists
-                    const parsed = JSON.parse(rawReflection);
-                    reflectionFact = parsed.fact || parsed.reflection || rawReflection;
-                    if (parsed.category || parsed.timestamp) {
-                        reflectionMeta = `
-                            ${parsed.category ? `🏷️ Category: ${escapeHTML(parsed.category)}` : ''}
-                            ${parsed.timestamp ? ` | ⏱️ Fact Date: ${escapeHTML(parsed.timestamp)}` : ''}
-                        `;
-                    }
-                } catch (e) {
-                    // Treat as standard string
-                    reflectionFact = rawReflection;
-                }
-                
-                document.getElementById('reflection-content').innerHTML = escapeHTML(reflectionFact);
-                document.getElementById('reflection-meta').innerHTML = reflectionMeta;
-                
-                // Cognitive Insights Binding
-                const insights = (data.audit && data.audit.cognitive_insights) ? data.audit.cognitive_insights : null;
-                const synthesisVal = insights ? (insights.synthesis || 'No synthesis insights recorded.') : 'Awaiting synthesis...';
-                const observationVal = insights ? (insights.observation || 'No observation insights recorded.') : 'Awaiting observations...';
-
-                const synthesisEl = document.getElementById('insights-synthesis');
-                const observationEl = document.getElementById('insights-observation');
-                if (synthesisEl) {
-                    synthesisEl.innerHTML = escapeHTML(synthesisVal);
-                }
-                if (observationEl) {
-                    observationEl.innerHTML = escapeHTML(observationVal);
-                }
-
-                // Sync Timestamps
-                const syncTimeEl = document.getElementById('timestamp-val');
-                if (syncTimeEl) {
-                    const syncTimeVal = data.system.timestamp || data.metrics.timestamp || '-';
-                    syncTimeEl.innerText = syncTimeVal;
-                    if (syncTimeVal === '-') syncTimeEl.classList.add('empty-state');
-                    else syncTimeEl.classList.remove('empty-state');
-                }
-
-                // Parse and render Audit Health & Timestamp
-                const auditData = data.audit;
-                const overallHealth = auditData ? auditData.overall_health : '-';
-                const auditTimestamp = auditData ? auditData.timestamp : '-';
-                const agents = (auditData && auditData.audit) ? auditData.audit : {};
-
-                // Audit Sentinel status in Card 1
-                const auditPill = document.getElementById('audit-pill');
-                if (auditPill) {
-                    auditPill.innerText = String(overallHealth).toUpperCase();
-                    auditPill.className = getStatusPillClass(overallHealth);
-                }
-
-                // Render overall audit health pill in section header
-                const auditHealthPill = document.getElementById('audit-health-pill');
-                if (auditHealthPill) {
-                    auditHealthPill.innerText = String(overallHealth).toUpperCase();
-                    auditHealthPill.className = getStatusPillClass(overallHealth);
-                }
-
-                // Render audit sync timestamp
-                const auditTimeEl = document.getElementById('audit-timestamp-val');
-                if (auditTimeEl) {
-                    auditTimeEl.innerText = auditTimestamp;
-                    if (auditTimestamp === '-') auditTimeEl.classList.add('empty-state');
-                    else auditTimeEl.classList.remove('empty-state');
-                }
-
-                // Render Sub-Agents dynamically
-                const auditGrid = document.getElementById('audit-grid');
-                if (auditGrid) {
-                    auditGrid.innerHTML = '';
-                    
-                    let healthyCount = 0;
-                    let issueCount = 0;
-
-                    for (const [name, info] of Object.entries(agents)) {
-                        const status = info.status || 'UNKNOWN';
-                        const statusClass = getStatusPillClass(status);
-                        const isHealthy = status === 'HEALTHY' || status === 'ONLINE' || status === 'CLOSED' || status === 'NOMINAL';
-                        
-                        if (isHealthy) {
-                            healthyCount++;
-                        } else {
-                            issueCount++;
-                        }
-
-                        // Determine card class for colored border
-                        let cardStatusClass = 'healthy';
-                        if (statusClass.includes('warning')) {
-                            cardStatusClass = 'warning';
-                        } else if (statusClass.includes('danger')) {
-                            cardStatusClass = 'danger';
-                        }
-
-                        const cardHtml = `
-                            <article class="agent-card ${cardStatusClass}" data-status="${isHealthy ? 'healthy' : 'issue'}">
-                                <div class="agent-header">
-                                    <span class="agent-name">${escapeHTML(name)}</span>
-                                    <span class="${statusClass}">${escapeHTML(status)}</span>
-                                </div>
-                                <div class="agent-analysis">
-                                    ${escapeHTML(info.analysis || 'No analysis details provided.')}
-                                </div>
-                                <div class="agent-technical">
-                                    ${escapeHTML(info.technical || 'No technical details provided.')}
-                                </div>
-                            </article>
-                        `;
-                        auditGrid.innerHTML += cardHtml;
-                    }
-
-                    // Update filter counts
-                    const btnAll = document.getElementById('btn-filter-all');
-                    const btnHealthy = document.getElementById('btn-filter-healthy');
-                    const btnIssue = document.getElementById('btn-filter-issue');
-                    
-                    if (btnAll) btnAll.innerText = `All (${Object.keys(agents).length})`;
-                    if (btnHealthy) btnHealthy.innerText = `Healthy (${healthyCount})`;
-                    if (btnIssue) {
-                        btnIssue.innerText = `Issues (${issueCount})`;
-                        if (issueCount > 0) {
-                            btnIssue.style.borderColor = 'var(--state-danger)';
-                            btnIssue.style.color = 'var(--state-danger)';
-                        } else {
-                            btnIssue.style.borderColor = '';
-                            btnIssue.style.color = '';
-                        }
-                    }
-
-                    // Re-apply current active filter
-                    applyFilter(currentFilter);
-                }
-                
                 // Trigger Accessibility Announcement
                 announceToScreenReader('Fray system telemetry state synchronized successfully.');
-                
-            } catch (error) {
-                console.error("Fray telemetry fetch failed:", error);
+            } catch (err) {
+                console.error('[Fray] fetch error', err);
                 loader.style.display = 'none';
-                container.style.display = 'none';
-                const auditSection = document.getElementById('audit-section');
-                if (auditSection) {
-                    auditSection.style.display = 'none';
-                }
-                
+                content.style.display = 'none';
+
                 // Safely render error UI fallback
                 const errDivId = 'dashboard-error-container';
                 let errDiv = document.getElementById(errDivId);
@@ -1647,16 +1333,283 @@
                     errDiv.id = errDivId;
                     errDiv.style.margin = '2rem auto';
                     errDiv.style.maxWidth = '600px';
-                    container.parentNode.appendChild(errDiv);
+                    loader.parentNode.appendChild(errDiv);
                 }
                 errDiv.innerHTML = createErrorUI('Connection to Fray telemetry endpoint lost.', updateDashboard);
             }
         }
 
-        // Standard 30-second observibility interval
+        function renderDashboard(data) {
+            // ---- SYSTEM ----
+            const sys = data.system || {};
+
+            // Banner timestamp
+            const ts = sys.timestamp || '—';
+            const tsEl = document.getElementById('banner-timestamp');
+            if (tsEl) tsEl.textContent = ts;
+
+            // Header page-meta
+            const agentName = data.metadata ? `${data.metadata.agent} v${data.metadata.version}` : '—';
+            setVal('header-agent-text', agentName);
+            const overallHealth = (data.audit && data.audit.overall_health) ? data.audit.overall_health : 'STABLE';
+            const healthEl = document.getElementById('header-health-badge');
+            if (healthEl) {
+                healthEl.className = `health-badge ${chipClass(overallHealth)}`;
+                healthEl.innerHTML = `<span class="dot"></span>${escapeHTML(overallHealth)}`;
+            }
+
+            // System Status panel
+            setVal('p-op-state',  sys.status || '—');
+            setVal('p-tier',      sys.tier   || '—');
+            setVal('p-mindset',   sys.mindset || '—');
+
+            // Circuit breaker status (detailed parsing from original index.html)
+            const circuitPill = document.getElementById('p-circuit');
+            const circuit = sys.circuit_breaker || 'CLOSED';
+            let parsedCircuit = null;
+
+            try {
+                if (typeof circuit === 'string' && (circuit.startsWith('{') || circuit.startsWith('['))) {
+                    parsedCircuit = JSON.parse(circuit);
+                } else if (typeof circuit === 'object' && circuit !== null) {
+                    parsedCircuit = circuit;
+                }
+            } catch (e) {
+                console.warn("Fray: Failed to parse circuit_breaker JSON:", e);
+            }
+
+            if (parsedCircuit) {
+                const breakers = parsedCircuit.circuit_breakers || parsedCircuit;
+                circuitPill.innerHTML = '';
+                circuitPill.className = ''; 
+                circuitPill.style.display = 'inline-flex';
+                circuitPill.style.flexWrap = 'wrap';
+                circuitPill.style.gap = '4px';
+                
+                for (const [key, val] of Object.entries(breakers)) {
+                    if (key.toLowerCase() === 'last_updated' || key.toLowerCase() === 'last_check') continue;
+                    
+                    const valStr = String(val).toUpperCase();
+                    const badge = document.createElement('span');
+                    badge.className = `chip ${chipClass(val)}`;
+                    badge.innerHTML = `<span class="dot-sm"></span>${key.toUpperCase()}: ${valStr}`;
+                    circuitPill.appendChild(badge);
+                }
+                
+                const lastCheck = breakers.last_check || breakers.last_updated;
+                if (lastCheck) {
+                    const checkTime = document.createElement('span');
+                    checkTime.style.fontSize = '0.72rem';
+                    checkTime.style.color = 'var(--text-muted)';
+                    checkTime.style.marginTop = '2px';
+                    checkTime.style.width = '100%';
+                    checkTime.style.textAlign = 'right';
+                    checkTime.innerText = `Checked: ${lastCheck}`;
+                    circuitPill.appendChild(checkTime);
+                }
+                
+                if (circuitPill.children.length === 0) {
+                    setChip('p-circuit', 'CLOSED');
+                }
+            } else {
+                circuitPill.style.display = '';
+                setChip('p-circuit', circuit);
+            }
+
+            // Security Lock
+            const locked = sys.security_lock;
+            setChip('p-security', locked ? 'LOCKED' : 'UNLOCKED');
+
+            // System Status chip
+            setChip('p-system-status-chip', sys.status || 'ONLINE');
+
+            // ---- METRICS ----
+            const metricsRoot = data.metrics || {};
+            const m = metricsRoot.system_metrics || metricsRoot.metrics || metricsRoot || {};
+
+            // Network chip
+            const netLat = m.network_latency || '—';
+            setChip('p-network', netLat.toUpperCase() === 'TIMEOUT' ? 'TIMEOUT' : netLat);
+
+            // Vitals strip
+            const cpuUser = parsePct(m.cpu_usage && m.cpu_usage.user);
+            const cpuSys  = parsePct(m.cpu_usage && m.cpu_usage.sys);
+            const cpuIdle = parsePct(m.cpu_usage && m.cpu_usage.idle);
+            const gpuPct  = m.gpu_usage ? parsePct(m.gpu_usage) : 0;
+
+            setVal('v-cpu-user',  m.cpu_usage ? m.cpu_usage.user : '—');
+            setVal('v-cpu-sys',   m.cpu_usage ? `sys ${m.cpu_usage.sys}` : 'sys —');
+            setBar('v-cpu-bar',   cpuUser);
+
+            setVal('v-gpu',       m.gpu_usage || 'N/A');
+            setVal('v-thermal',   m.thermal_state || 'N/A');
+            setBar('v-gpu-bar',   gpuPct);
+
+            const memUsed = m.memory ? m.memory.phys_mem_used : '—';
+            const pagesFree = m.memory ? (m.memory.pages_free || m.memory.unused) : '—';
+            setVal('v-mem',       memUsed);
+            setVal('v-pages',     pagesFree);
+            const memPct = memUsed ? Math.round((parseFloat(memUsed) / 16384) * 100) : 0;
+            setBar('v-mem-bar',   memPct);
+
+            let diskReadStr = '—';
+            let diskTpsStr = '—';
+            let diskPct = 0;
+
+            if (m.disk_io) {
+                diskReadStr = `${m.disk_io.read_mb_s} MB/s`;
+                diskTpsStr = m.disk_io.tps || '—';
+                const diskReadVal = m.disk_io.read_mb_s || 0;
+                diskPct = diskReadVal ? Math.min(100, Math.round((diskReadVal / 200) * 100)) : 0;
+            } else if (m.disk) {
+                diskReadStr = `R: ${m.disk.read || '—'}`;
+                diskTpsStr = `W: ${m.disk.written || '—'}`;
+                diskPct = 0;
+            }
+            setVal('v-disk-read', diskReadStr);
+            setVal('v-disk-tps',  diskTpsStr);
+            setBar('v-disk-bar',  diskPct);
+
+            // Stress panel
+            const stress = m.stress_analysis || {};
+            const loadAvg = m.load_avg || [];
+
+            setVal('s-cpu',  stress.cpu  || 'NOMINAL');
+            setVal('s-gpu',  stress.gpu  || 'N/A');
+            setVal('s-mem',  stress.memory || 'NOMINAL');
+            setVal('s-idle', cpuIdle ? `${cpuIdle}%` : '—');
+
+            // Stress bars: NOMINAL = 20%, WARNING = 65%, CRITICAL = 95%
+            const stressToWidth = v => ({ NOMINAL: 20, WARNING: 65, CRITICAL: 95 }[String(v).toUpperCase()] || 20);
+            const stressToColor = v => ({
+                NOMINAL: 'var(--state-ok)', WARNING: 'var(--state-warn)', CRITICAL: 'var(--state-err)'
+            }[String(v).toUpperCase()] || 'var(--primary)');
+
+            ['cpu','gpu','mem'].forEach(k => {
+                const key = k === 'mem' ? 'memory' : k;
+                const val = stress[key] || (key === 'gpu' ? 'N/A' : 'NOMINAL');
+                const barEl = document.getElementById(`s-${k}-bar`);
+                if (barEl) {
+                    if (val === 'N/A') {
+                        barEl.style.width = '0%';
+                        barEl.style.background = 'var(--progress-track)';
+                    } else {
+                        barEl.style.width = stressToWidth(val) + '%';
+                        barEl.style.background = stressToColor(val);
+                    }
+                }
+            });
+
+            setChip('p-stress-chip', stress.overall || 'NOMINAL');
+
+            setVal('s-load', loadAvg.length >= 3 ? `${loadAvg[0]} / ${loadAvg[1]} / ${loadAvg[2]}` : '—');
+            if (m.memory) {
+                setVal('s-swap', `${m.memory.swapins?.toLocaleString() || '—'} / ${m.memory.swapouts?.toLocaleString() || '—'}`);
+            }
+
+            // Agent Info panel
+            if (data.metadata) {
+                setVal('p-agent',   data.metadata.agent   || '—');
+                setVal('p-version', `v${data.metadata.version}` || '—');
+            }
+            setChip('p-metrics-status', metricsRoot.status || '—');
+            setChip('p-audit-health',   overallHealth);
+            setVal('p-metrics-ts', (m.timestamp || metricsRoot.timestamp) || '—');
+            setVal('p-audit-ts',   data.audit  ? data.audit.timestamp : '—');
+
+            // ---- REFLECTION ----
+            const rawRef = sys.last_reflection || 'No reflection recorded.';
+            let refFact = '', refMeta = '';
+            try {
+                const pr = JSON.parse(rawRef);
+                refFact = pr.fact || pr.reflection || rawRef;
+                if (pr.category || pr.timestamp) {
+                    refMeta = [
+                        pr.category  ? `🏷 ${escapeHTML(pr.category)}`  : '',
+                        pr.timestamp ? `⏱ ${escapeHTML(pr.timestamp)}` : ''
+                    ].filter(Boolean).join('  ·  ');
+                }
+            } catch(_) { refFact = rawRef; }
+
+            const refEl = document.getElementById('reflection-content');
+            if (refEl) refEl.textContent = refFact;
+
+            const refMetaEl = document.getElementById('reflection-meta');
+            if (refMetaEl && refMeta) {
+                refMetaEl.innerHTML = refMeta.split('  ·  ')
+                    .filter(Boolean)
+                    .map(t => `<span class="meta-tag">${t}</span>`)
+                    .join('');
+            }
+
+            // ---- INSIGHTS ----
+            const ins = (data.audit && data.audit.cognitive_insights) || {};
+            const synthEl = document.getElementById('insights-synthesis');
+            const obsEl   = document.getElementById('insights-observation');
+            if (synthEl) synthEl.textContent = ins.synthesis   || 'No synthesis recorded.';
+            if (obsEl)   obsEl.textContent   = ins.observation || 'No observations recorded.';
+
+            // ---- AUDIT GRID ----
+            const auditData  = data.audit  || {};
+            const agents     = auditData.audit || {};
+            const auditChipEl = document.getElementById('audit-health-chip');
+            if (auditChipEl) {
+                const cls = chipClass(overallHealth);
+                auditChipEl.className = `chip ${cls}`;
+                auditChipEl.innerHTML = `<span class="dot-sm"></span>${escapeHTML(overallHealth)}`;
+            }
+
+            const auditGrid = document.getElementById('audit-grid');
+            if (auditGrid) {
+                auditGrid.innerHTML = '';
+                let healthy = 0, issues = 0;
+
+                for (const [name, info] of Object.entries(agents)) {
+                    const status = info.status || 'UNKNOWN';
+                    const cls    = chipClass(status);
+                    const isOk   = cls === 'ok';
+                    if (isOk) healthy++; else issues++;
+
+                    const dot = isOk ? 'ok' : (cls === 'warn' ? 'warn' : 'err');
+                    auditGrid.innerHTML += `
+                        <article class="agent-panel" data-status="${isOk ? 'healthy' : 'issue'}">
+                            <div class="agent-panel-head">
+                                <span class="agent-name">${escapeHTML(name)}</span>
+                                <div style="display:flex;align-items:center;gap:8px;">
+                                    <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(status)}</span>
+                                    <span class="agent-indicator ${dot}" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="agent-panel-body">
+                                <div class="agent-analysis">${escapeHTML(info.analysis || 'No analysis details.')}</div>
+                                <div class="agent-technical">${escapeHTML(info.technical || 'No technical details.')}</div>
+                            </div>
+                        </article>`;
+                }
+
+                const btnAll     = document.getElementById('btn-filter-all');
+                const btnHealthy = document.getElementById('btn-filter-healthy');
+                const btnIssue   = document.getElementById('btn-filter-issue');
+                if (btnAll)     btnAll.textContent     = `All (${Object.keys(agents).length})`;
+                if (btnHealthy) btnHealthy.textContent = `Healthy (${healthy})`;
+                if (btnIssue) {
+                    btnIssue.textContent = `Issues (${issues})`;
+                    btnIssue.style.color  = issues > 0 ? 'var(--state-err)' : '';
+                    btnIssue.style.border = issues > 0 ? `1px solid var(--state-err)` : '';
+                }
+
+                applyFilter(currentFilter);
+            }
+        }
+
+        // Footer year
+        const fyEl = document.getElementById('footer-year');
+        if (fyEl) fyEl.textContent = new Date().getFullYear();
+
+        // Standard 30-second observability interval
         setInterval(updateDashboard, 30000);
         updateDashboard();
     </script>
-</body>
 
+</body>
 </html>
