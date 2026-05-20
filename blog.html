@@ -220,7 +220,7 @@
         /* MAIN CONTENT */
         .main-content {
             flex: 1;
-            padding: 24px 64px 48px;
+            padding: clamp(24px, 5vw, 40px) clamp(20px, 8vw, 64px) 48px;
             overflow-y: auto;
             background: var(--bg-body);
             position: relative;
@@ -599,16 +599,27 @@
             box-shadow: var(--shadow-sm);
         }
 
+        @keyframes articleSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .article-view {
             max-width: 800px;
             margin: 0 auto;
             display: none;
-            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
         }
 
         .article-view.visible {
             display: block;
+            animation: articleSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
 
         /* NAV BUTTONS */
@@ -684,8 +695,7 @@
 
         .article-title {
             font-family: 'Inter', 'Sarabun', sans-serif;
-            font-size: 1.25rem;
-            /* Reduced from 2.25rem to be slightly larger than content (1rem) */
+            font-size: clamp(1.5rem, 4vw, 1.8rem);
             font-weight: 800;
             line-height: 1.4;
             margin-bottom: 24px;
@@ -794,12 +804,22 @@
             color: var(--text-secondary);
             text-decoration: none;
             padding: 4px 0;
-            transition: color 0.2s;
+            transition: all 0.2s ease;
             cursor: pointer;
+            border-left: 2px solid transparent;
+            padding-left: 0;
         }
 
         .toc-link:hover {
             color: var(--primary);
+            padding-left: 4px;
+        }
+
+        .toc-link.active {
+            color: var(--primary);
+            font-weight: 700;
+            border-left: 2px solid var(--primary);
+            padding-left: 8px;
         }
 
         /* 2. RELATED PAPERS */
@@ -942,15 +962,6 @@
             .more-tags-dropdown {
                 max-height: 150px;
             }
-
-            .main-content {
-                padding: 40px 32px;
-                min-height: 500px;
-            }
-
-            .article-title {
-                font-size: 1.8rem;
-            }
         }
 
         @media (max-width: 640px) {
@@ -960,14 +971,6 @@
 
             .article-list-item {
                 padding: 12px 16px;
-            }
-
-            .main-content {
-                padding: 24px 20px;
-            }
-
-            .article-title {
-                font-size: 1.5rem;
             }
         }
     </style>
@@ -1105,6 +1108,7 @@
         const itemsPerPage = 10;
         let activeTags = new Set();  // empty = show all (multi-select)
         let currentPostId = null;
+        let tocObserver = null;
 
         const CACHE_KEY = 'research_blog_data';
         const CACHE_DURATION = 1000 * 60 * 5; // 5 minutes
@@ -1165,7 +1169,13 @@
 
             mainContent.addEventListener('scroll', window.updateReadingProgress);
             window.addEventListener('scroll', window.updateReadingProgress);
-            window.addEventListener('resize', window.updateReadingProgress);
+            window.addEventListener('resize', () => {
+                if (window.updateReadingProgress) window.updateReadingProgress();
+                clearTimeout(window.tocResizeTimeout);
+                window.tocResizeTimeout = setTimeout(() => {
+                    generateToC();
+                }, 100);
+            });
         }
 
         // ===========================================================================
@@ -1687,19 +1697,52 @@
 
             const headers = document.querySelectorAll('.sec-header');
 
+            if (tocObserver) {
+                tocObserver.disconnect();
+                tocObserver = null;
+            }
+
             if (headers.length > 0 && window.innerWidth > 1200) {
+                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
                 tocContainer.style.display = 'block';
                 headers.forEach((header, index) => {
                     header.id = `section-${index}`; // Assign ID for anchor
                     const link = document.createElement('a');
                     link.className = 'toc-link';
                     link.textContent = header.textContent;
+                    link.setAttribute('href', `#section-${index}`);
                     link.onclick = (e) => {
                         e.preventDefault();
-                        header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        header.scrollIntoView({ behavior: scrollBehavior, block: 'start' });
+                        document.querySelectorAll('.toc-link').forEach(el => el.classList.remove('active'));
+                        link.classList.add('active');
                     };
                     tocList.appendChild(link);
                 });
+
+                // Setup dynamic intersection observer to track active section while scrolling
+                tocObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const targetId = entry.target.id;
+                            document.querySelectorAll('.toc-link').forEach(link => {
+                                if (link.getAttribute('href') === `#${targetId}`) {
+                                    link.classList.add('active');
+                                    link.scrollIntoView({ behavior: scrollBehavior, block: 'nearest' });
+                                } else {
+                                    link.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                }, {
+                    root: null,
+                    rootMargin: '-80px 0px -70% 0px',
+                    threshold: 0
+                });
+
+                headers.forEach(header => tocObserver.observe(header));
             } else {
                 tocContainer.style.display = 'none';
             }
