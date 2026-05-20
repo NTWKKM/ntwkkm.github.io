@@ -793,13 +793,8 @@
     const WEBHOOK_URL = 'https://ntwkkm-n8n-final.fly.dev/webhook/add-tracking';
 
     // =========================================================================
-    // Security: HTML Sanitization (consistent with shared.js pattern)
+    // Security: HTML Sanitization is imported from shared.js
     // =========================================================================
-    function escapeHTML(str) {
-      if (!str) return '';
-      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-    }
 
     // =========================================================================
     // Status Mapping — Thailand Post status codes to progress steps
@@ -1186,6 +1181,14 @@
         errorEl.textContent = 'Incorrect passcode. Try again.';
         input.value = '';
         input.focus();
+        
+        const authBox = document.querySelector('.auth-box');
+        if (authBox) {
+          authBox.classList.remove('shake');
+          void authBox.offsetWidth; // Force layout reflow
+          authBox.classList.add('shake');
+          setTimeout(() => authBox.classList.remove('shake'), 400);
+        }
       }
 
       btn.disabled = false;

@@ -817,46 +817,112 @@
             // Start Auto Scroll initially
             startAutoScroll();
 
-            // --- MOUSE DRAG LOGIC (CLICK & DRAG) ---
+            // --- MOUSE DRAG LOGIC (CLICK & DRAG WITH INERTIA) ---
             let isDown = false;
             let startX;
             let scrollLeft;
+            let dragged = false;
+            let velocity = 0;
+            let lastX;
+            let lastTime;
+            let rafId = null;
+
+            function trackVelocity(e) {
+                const x = e.pageX - container.offsetLeft;
+                const now = performance.now();
+                if (lastTime !== undefined) {
+                    const dt = now - lastTime;
+                    const dx = x - lastX;
+                    if (dt > 0) {
+                        velocity = dx / dt; // pixels per millisecond
+                    }
+                }
+                lastX = x;
+                lastTime = now;
+            }
+
+            function applyInertia() {
+                if (Math.abs(velocity) < 0.1) {
+                    if (!isDown) {
+                        // Restore snap scroll after scroll comes to a near stop
+                        container.style.scrollSnapType = 'x mandatory';
+                    }
+                    return;
+                }
+                container.scrollLeft -= velocity * 16; // Approx 16ms frame step
+                velocity *= 0.95; // Friction decay
+                rafId = requestAnimationFrame(applyInertia);
+            }
 
             container.addEventListener('mousedown', (e) => {
                 isDown = true;
-                container.classList.add('active'); // Change cursor, remove snap
+                dragged = false;
+                if (rafId) cancelAnimationFrame(rafId);
+                container.style.scrollSnapType = 'none'; // Temporarily disable snap
+                container.classList.add('active');
                 startX = e.pageX - container.offsetLeft;
                 scrollLeft = container.scrollLeft;
+                lastX = e.pageX - container.offsetLeft;
+                lastTime = performance.now();
+                velocity = 0;
 
                 // Stop auto scroll while user is interacting
                 clearInterval(autoScrollInterval);
             });
 
             container.addEventListener('mouseleave', () => {
-                isDown = false;
-                container.classList.remove('active');
-                // Resume auto scroll if user leaves
-                startAutoScroll();
+                if (isDown) {
+                    isDown = false;
+                    container.classList.remove('active');
+                    startAutoScroll();
+                    if (dragged) {
+                        rafId = requestAnimationFrame(applyInertia);
+                    } else {
+                        container.style.scrollSnapType = 'x mandatory';
+                    }
+                }
             });
 
             container.addEventListener('mouseup', () => {
-                isDown = false;
-                container.classList.remove('active');
-                // Resume auto scroll
-                startAutoScroll();
+                if (isDown) {
+                    isDown = false;
+                    container.classList.remove('active');
+                    startAutoScroll();
+                    if (dragged) {
+                        rafId = requestAnimationFrame(applyInertia);
+                    } else {
+                        container.style.scrollSnapType = 'x mandatory';
+                    }
+                }
             });
 
             container.addEventListener('mousemove', (e) => {
                 if (!isDown) return;
                 e.preventDefault();
                 const x = e.pageX - container.offsetLeft;
-                const walk = (x - startX) * 2; // Scroll-fast multiplier
+                const walk = (x - startX) * 1.5; // Scroll multiplier
+                if (Math.abs(x - startX) > 5) {
+                    dragged = true;
+                }
                 container.scrollLeft = scrollLeft - walk;
+                trackVelocity(e);
             });
+
+            // Prevent clicks on links inside the container if we actually dragged
+            container.addEventListener('click', (e) => {
+                if (dragged) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dragged = false; // Reset
+                }
+            }, true); // Intercept in capturing phase
 
             // Touch support is handled natively by CSS (overflow-x: auto), 
             // but we stop auto-scroll on touch too.
-            container.addEventListener('touchstart', () => clearInterval(autoScrollInterval));
+            container.addEventListener('touchstart', () => {
+                if (rafId) cancelAnimationFrame(rafId);
+                clearInterval(autoScrollInterval);
+            });
             container.addEventListener('touchend', () => startAutoScroll());
 
             // Pause auto-scroll when tab is hidden (saves CPU/battery)
