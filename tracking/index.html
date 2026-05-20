@@ -565,9 +565,34 @@
 
     /* --- Responsive --- */
     @media (max-width: 768px) {
-      .header-content { flex-direction: column; gap: 20px; text-align: center; }
-      .brand-group { text-align: center; }
-      .controls { flex-wrap: wrap; justify-content: center; }
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        text-align: left;
+      }
+      .brand-group { text-align: left; }
+      .controls {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 8px;
+      }
+
+      /* Hide text labels — show emoji icons only */
+      .btn span { display: none; }
+
+      .btn {
+        padding: 0;
+        width: 38px;
+        height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 1rem;
+      }
+
       .grid { grid-template-columns: 1fr; }
       .summary { gap: 10px; }
       .summary-item { min-width: 90px; padding: 10px 16px; }
@@ -722,10 +747,10 @@
     </div>
     
     <div class="controls">
-      <button class="btn" onclick="loadData()" id="refreshBtn">🔄 Refresh</button>
-      <button class="btn" onclick="toggleAddForm()" id="addToggleBtn">➕ Add Tracking</button>
+      <button class="btn" onclick="loadData()" id="refreshBtn">🔄<span> Refresh</span></button>
+      <button class="btn" onclick="toggleAddForm()" id="addToggleBtn">➕<span> Add Tracking</span></button>
       <button class="theme-btn" id="theme-toggle" aria-label="Toggle Dark Mode"></button>
-      <a class="btn" href="../" title="Back to homepage" style="text-decoration:none;">🏠 Home</a>
+      <a class="btn" href="../" title="Back to homepage" aria-label="Back to Home" style="text-decoration:none;">🏠<span> Home</span></a>
     </div>
     </nav>
   </header>
@@ -1006,7 +1031,7 @@
     // =========================================================================
     async function loadData() {
       const btn = document.getElementById('refreshBtn');
-      btn.textContent = '⏳ Loading...';
+      btn.innerHTML = '⏳<span> Loading...</span>';
       btn.disabled = true;
 
       try {
@@ -1022,7 +1047,7 @@
           '<p>Make sure <code>status_store.json</code> exists and the workflow has run at least once.</p></div>';
         document.getElementById('lastUpdated').textContent = 'Error loading data';
       } finally {
-        btn.textContent = '🔄 Refresh';
+        btn.innerHTML = '🔄<span> Refresh</span>';
         btn.disabled = false;
       }
     }
