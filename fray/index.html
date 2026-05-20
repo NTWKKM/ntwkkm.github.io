@@ -25,9 +25,9 @@
            THEME TOKENS
         ==================================================== */
         :root {
-            --primary: #244885;
-            --primary-light: #3a65b5;
-            --primary-hover: #1a3663;
+            --primary: #2563eb;
+            --primary-light: #3b82f6;
+            --primary-hover: #1d4ed8;
             --accent: #E63946;
             --accent-soft: rgba(230, 57, 70, 0.12);
             --bg-body: #F3F4F6;
@@ -429,7 +429,7 @@
             opacity: 0;
             transition: opacity 0.2s;
         }
-        .vital-card:hover::before { opacity: 1; }
+        .vital-card:hover::before { opacity: 1; transition: opacity 0.4s ease; }
 
         @keyframes border-glow-warn {
             0%, 100% { box-shadow: var(--shadow-sm); border-color: var(--state-warn); }
@@ -1333,31 +1333,17 @@
 
     <script>
         // ============================================================
-        // HELPERS
+        // HELPERS (escapeHTML and sanitizeURL from shared.js)
         // ============================================================
-        function escapeHTML(str) {
-            if (!str) return '';
-            return String(str)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#39;')
-                .replace(/`/g, '&#96;');
-        }
 
-        function sanitizeURL(url) {
-            if (!url) return '#';
-            try { return ['http:','https:'].includes(new URL(url).protocol) ? url : '#'; }
-            catch { return '#'; }
-        }
+        // Status classification constants (module-level for performance)
+        const OK_SET   = new Set(['OK','NOMINAL','LOW','NORMAL','CLOSED','UNLOCKED','ACTIVE','ONLINE','HEALTHY','STABLE','FULL','OPEN_GOOD']);
+        const WARN_SET = new Set(['WARNING','MODERATE','DEGRADED','STRESSED']);
+        const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR','DOWN','FAILED']);
 
         function chipClass(val) {
             if (!val) return 'neutral';
             const v = String(val).toUpperCase().trim();
-            const OK_SET   = new Set(['OK','NOMINAL','LOW','NORMAL','CLOSED','UNLOCKED','ACTIVE','ONLINE','HEALTHY','STABLE','FULL','OPEN_GOOD']);
-            const WARN_SET = new Set(['WARNING','MODERATE','DEGRADED','STRESSED']);
-            const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR','DOWN','FAILED']);
             if (OK_SET.has(v))   return 'ok';
             if (WARN_SET.has(v)) return 'warn';
             if (ERR_SET.has(v))  return 'err';

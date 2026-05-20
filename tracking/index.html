@@ -12,8 +12,8 @@
   <link rel="stylesheet" href="../shared.css">
   <style>
     :root {
-      --primary: #244885;
-      --primary-hover: #1a3663;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
       --accent: #E63946;
       --bg-body: #F3F4F6;
       --bg-card: #FFFFFF;
@@ -22,6 +22,7 @@
       --text-secondary: #6B7280;
       --text-muted: #9CA3AF;
       --border: #E5E7EB;
+      --border-strong: #D1D5DB;
       --shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
       --shadow-hover: 0 20px 25px -5px rgba(0,0,0,0.1);
       --radius: 16px;
@@ -31,7 +32,7 @@
       --accent-yellow: #D97706;
       --accent-red: #DC2626;
       --accent-blue: #2563EB;
-      --accent-purple: #244885;
+      --accent-purple: #2563eb;
       --input-bg: #F1F5F9;
     }
     [data-theme="dark"] {
@@ -505,35 +506,9 @@
       transform: none;
     }
 
-    /* --- Toast Notification --- */
+    /* Toast styles now in shared.css — page-specific override for tracking */
     .toast {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%) translateY(100px);
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-weight: 500;
-      z-index: 1000;
-      opacity: 0;
-      transition: all 0.4s ease;
-      pointer-events: none;
-      max-width: 90vw;
-    }
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
-    }
-    .toast.success {
-      background: rgba(52, 211, 153, 0.15);
-      border: 1px solid rgba(52, 211, 153, 0.3);
-      color: var(--accent-green);
-    }
-    .toast.error {
-      background: rgba(248, 113, 113, 0.15);
-      border: 1px solid rgba(248, 113, 113, 0.3);
-      color: var(--accent-red);
+      z-index: 10001;
     }
 
     /* --- Animations --- */
@@ -817,19 +792,8 @@
     // =========================================================================
     const WEBHOOK_URL = 'https://ntwkkm-n8n-final.fly.dev/webhook/add-tracking';
 
-    // =========================================================================
-    // Security: HTML Sanitization
-    // =========================================================================
-    function escapeHTML(str) {
-      if (!str) return '';
-      return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;')
-        .replace(/`/g, '&#96;');
-    }
+    // Security: HTML Sanitization — use escapeHTML from shared.js
+    // (No duplicate needed — shared.js loaded above)
 
     // =========================================================================
     // Status Mapping — Thailand Post status codes to progress steps
@@ -1035,9 +999,8 @@
       btn.disabled = true;
 
       try {
-        const res = await fetch('status_store.json?v=' + Date.now());
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        const data = await res.json();
+        const data = await fetchWithFallback('status_store.json?v=' + Date.now(), null, 2);
+        if (!data) throw new Error('No data received');
         renderAll(data);
       } catch (e) {
         console.error('Failed to load tracking data:', e);
@@ -1238,6 +1201,10 @@
     // Allow Enter key to submit barcode
     document.getElementById('inputBarcode').addEventListener('keydown', (e) => {
       if (e.key === 'Enter') submitBarcode();
+    });
+    // Auto-uppercase barcode as user types
+    document.getElementById('inputBarcode').addEventListener('input', (e) => {
+      e.target.value = e.target.value.toUpperCase();
     });
     document.getElementById('inputNote').addEventListener('keydown', (e) => {
       if (e.key === 'Enter') submitBarcode();

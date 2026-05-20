@@ -63,9 +63,9 @@
             --text-secondary: #cbd5e1;
             --text-muted: #64748b;
 
-            --primary: #3b82f6;
+            --primary: #60a5fa;
             /* Lighter blue for dark mode */
-            --primary-dark: #60a5fa;
+            --primary-dark: #93C5FD;
             --primary-light: rgba(59, 130, 246, 0.15);
 
             --border-color: #334155;
@@ -469,8 +469,14 @@
 
         .article-list-item.active {
             background: var(--primary-light);
-            border-left-color: var(--primary);
-            color: var(--primary-dark);
+            border-left: 3px solid var(--primary);
+            font-weight: 600;
+            animation: activeSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes activeSlideIn {
+            from { transform: translateX(-8px); opacity: 0.6; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
         /* 4. SKELETON LOADING */
@@ -597,6 +603,12 @@
             justify-content: center;
             border-radius: 50%;
             box-shadow: var(--shadow-sm);
+            animation: emptyFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes emptyFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
         @keyframes articleSlideUp {
@@ -761,8 +773,10 @@
         .sec-content {
             font-size: 1rem;
             color: var(--text-secondary);
-            line-height: 1.8;
+            line-height: 1.85;
             text-align: justify;
+            hyphens: auto;
+            -webkit-hyphens: auto;
         }
 
         .sec-content strong {
@@ -1110,7 +1124,7 @@
         let currentPostId = null;
         let tocObserver = null;
 
-        const CACHE_KEY = 'research_blog_data';
+        const CACHE_KEY = 'research_blog_data_v2';
         const CACHE_DURATION = 1000 * 60 * 5; // 5 minutes
 
         // Step 1: Tag normalization — merge near-duplicate AI-generated tags
@@ -1421,7 +1435,7 @@
 
 
         function setupEventListeners() {
-            document.getElementById('search-input').addEventListener('input', (e) => handleFilter(e.target.value));
+            document.getElementById('search-input').addEventListener('input', debounce((e) => handleFilter(e.target.value), 300));
             document.getElementById('prev-btn').addEventListener('click', () => changePage(-1));
             document.getElementById('next-btn').addEventListener('click', () => changePage(1));
 
@@ -1569,9 +1583,14 @@
             filteredPosts = allPosts.filter(post => {
                 // Step 4: Multi-select OR logic — matches if ANY active tag is in the post's tags
                 const matchesTag = activeTags.size === 0 || (post.tags && post.tags.some(t => activeTags.has(t)));
+                // Enhanced search: title, ID, summary, objective, method, result, and tags
                 const matchesSearch = fuzzyMatch(lowerQuery, post.title) ||
                     fuzzyMatch(lowerQuery, post.id) ||
-                    fuzzyMatch(lowerQuery, post.summary);
+                    fuzzyMatch(lowerQuery, post.summary) ||
+                    fuzzyMatch(lowerQuery, post.objective) ||
+                    fuzzyMatch(lowerQuery, post.method) ||
+                    fuzzyMatch(lowerQuery, post.result) ||
+                    (post.tags && post.tags.some(t => t.toLowerCase().includes(lowerQuery)));
                 return matchesTag && matchesSearch;
             });
             currentPage = 1;
@@ -1737,7 +1756,7 @@
                         }
                     });
                 }, {
-                    root: null,
+                    root: document.getElementById('article-content-pane'),
                     rootMargin: '-80px 0px -70% 0px',
                     threshold: 0
                 });
