@@ -49,6 +49,7 @@ jobs:
     needs: normalize
     if: ${{ needs.normalize.outputs.pushed == 'true' }}
     uses: ./.github/workflows/pages-build-deployment.yml
+    secrets: inherit
     permissions:
       contents: read
       pages: write
