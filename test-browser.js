@@ -23,6 +23,8 @@ const path = require('path');
     ];
 
     const targets = [
+      'index.html',
+      'blog.html',
       'tracking/index.html',
       'fray/index.html'
     ];
@@ -33,7 +35,7 @@ const path = require('path');
       for (const vp of viewports) {
         console.log(`\n--- Testing ${target} [Viewport: ${vp.name}] ---`);
         await page.setViewport({ width: vp.width, height: vp.height });
-        await page.goto(fileUrl, { waitUntil: 'networkidle0' });
+        await page.goto(fileUrl, { waitUntil: 'networkidle0', timeout: 30000 });
       }
     }
 
