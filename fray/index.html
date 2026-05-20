@@ -183,7 +183,7 @@
         }
 
         .brand-title-row h1 {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
             font-weight: 800;
             color: var(--text-main);
             letter-spacing: -0.5px;
@@ -324,7 +324,7 @@
         }
 
         .page-title {
-            font-size: 1.75rem;
+            font-size: clamp(1.35rem, 5vw, 1.75rem);
             font-weight: 800;
             color: var(--text-main);
             letter-spacing: -0.8px;
@@ -936,10 +936,19 @@
             .vitals-strip { grid-template-columns: repeat(2, 1fr); }
             .main-grid    { grid-template-columns: 1fr; }
             .span-2, .span-3 { grid-column: 1; }
-            .page-title   { font-size: 1.35rem; }
             .skel-grid    { grid-template-columns: 1fr 1fr; }
             .banner-left  { gap: 10px; }
-            .banner-nav-link span { display: none; }
+            .social-link span, .nav-highlight span { display: none; }
+            
+            .social-link, .nav-highlight {
+                padding: 0;
+                width: 44px;
+                height: 44px;
+                justify-content: center;
+                border-radius: 50%;
+            }
+            .social-link::after { content: 'GH'; font-size: 0.8rem; }
+            .nav-highlight::after { content: '📝'; font-size: 1rem; }
         }
 
         @media (prefers-reduced-motion: reduce) {

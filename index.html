@@ -425,8 +425,8 @@
         /* --- PART 2: PORTFOLIO GRID --- */
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+            gap: clamp(15px, 3vw, 25px);
         }
 
         .project-card {
@@ -534,17 +534,20 @@
         /* MOBILE ADJUSTMENTS */
         @media (max-width: 640px) {
             .brand h1 {
-                font-size: 1.3rem;
+                font-size: clamp(1.3rem, 5vw, 1.8rem);
             }
 
             .header-content {
                 flex-direction: row;
+                flex-wrap: wrap;
                 justify-content: space-between;
                 align-items: center;
+                gap: 12px;
             }
 
             .brand-group {
-                max-width: 50%;
+                max-width: 100%;
+                flex: 1 1 auto;
             }
 
             /* Adjusted to fit new button */
@@ -557,13 +560,13 @@
             }
 
             .social-link {
-                padding: 8px;
+                padding: 10px;
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 36px;
-                height: 36px;
+                width: 44px;
+                height: 44px;
             }
 
             .social-link::after {
@@ -586,8 +589,8 @@
 
             .nav-highlight {
                 padding: 0;
-                width: 36px;
-                height: 36px;
+                width: 44px;
+                height: 44px;
                 justify-content: center;
             }
 
