@@ -4,13 +4,54 @@
    Page-specific styles remain in each file's <style> block.
    =================================================================== */
 
-/* --- RESET --- */
+/* --- RESET & BASE --- */
+html {
+    scroll-behavior: smooth;
+}
+
 *,
 *::before,
 *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* --- Custom Scrollbar (cross-browser) --- */
+:root {
+    scrollbar-color: var(--border-strong, #D1D5DB) transparent;
+    scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-strong, #D1D5DB);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted, #6B7280);
+}
+
+[data-theme="dark"]::-webkit-scrollbar-thumb {
+    background: var(--border, #334155);
+}
+
+[data-theme="dark"]::-webkit-scrollbar-thumb:hover {
+    background: var(--text-faint, #64748B);
+}
+
+/* --- Global Link Transition --- */
+a {
+    transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 /* ===========================================================================
@@ -453,10 +494,61 @@ textarea:focus-visible,
 
 /* --- REDUCED MOTION --- */
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
     *,
     *::before,
     *::after {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
     }
+}
+
+/* ===========================================================================
+   TOAST NOTIFICATIONS (Reusable)
+   =========================================================================== */
+
+.toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120%);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    z-index: 10001;
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+    pointer-events: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(12px);
+    max-width: 90vw;
+    text-align: center;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.toast.success {
+    background: rgba(5, 150, 105, 0.95);
+    color: #fff;
+    border: 1px solid rgba(5, 150, 105, 0.3);
+}
+
+.toast.error {
+    background: rgba(220, 38, 38, 0.95);
+    color: #fff;
+    border: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.toast.info {
+    background: rgba(37, 99, 235, 0.95);
+    color: #fff;
+    border: 1px solid rgba(37, 99, 235, 0.3);
 }

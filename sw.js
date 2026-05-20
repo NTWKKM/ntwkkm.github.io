@@ -5,8 +5,9 @@
  */
 
 // CACHE_NAME constant removed as per code review
-const STATIC_CACHE = 'ntwkkm-static-v1';
-const DYNAMIC_CACHE = 'ntwkkm-dynamic-v1';
+const STATIC_CACHE = 'ntwkkm-static-v2';
+const DYNAMIC_CACHE = 'ntwkkm-dynamic-v2';
+const FONTS_CACHE = 'ntwkkm-fonts-v1';
 
 // Static assets to cache on install
 const STATIC_ASSETS = [
@@ -58,7 +59,7 @@ self.addEventListener('activate', (event) => {
             .then((cacheNames) => {
                 return Promise.all(
                     cacheNames
-                        .filter((name) => name !== STATIC_CACHE && name !== DYNAMIC_CACHE)
+                        .filter((name) => name !== STATIC_CACHE && name !== DYNAMIC_CACHE && name !== FONTS_CACHE)
                         .map((name) => {
                             console.log('[SW] Deleting old cache:', name);
                             return caches.delete(name);
@@ -87,7 +88,7 @@ self.addEventListener('fetch', (event) => {
         // Cache Google Fonts
         if (url.includes('fonts.googleapis.com') || url.includes('fonts.gstatic.com')) {
             event.respondWith(
-                caches.open(STATIC_CACHE)
+                caches.open(FONTS_CACHE)
                     .then((cache) => {
                         return cache.match(event.request)
                             .then((cachedResponse) => {

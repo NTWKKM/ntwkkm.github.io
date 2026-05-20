@@ -28,14 +28,15 @@
         /* --- CSS VARIABLES (THEMING) --- */
         :root {
             /* Light Theme (Default) */
-            --primary: #244885;
-            --primary-hover: #1a3663;
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
             --accent: #E63946;
             --bg-body: #F3F4F6;
             --bg-card: #FFFFFF;
             --text-main: #1F2937;
             --text-muted: #6B7280;
             --border: #E5E7EB;
+            --border-strong: #D1D5DB;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             --radius: 16px;
@@ -53,6 +54,7 @@
             --text-main: #F1F5F9;
             --text-muted: #94A3B8;
             --border: #334155;
+            --border-strong: #475569;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
             --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
             --toggle-bg: #334155;
@@ -310,7 +312,7 @@
 
         .paper-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-hover);
+            box-shadow: var(--shadow-hover), 0 0 24px color-mix(in srgb, var(--primary) 15%, transparent);
             border-color: var(--primary);
         }
 
@@ -463,7 +465,7 @@
             justify-content: center;
             color: var(--primary);
             font-size: 1.2rem;
-            transition: background 0.3s, color 0.3s;
+            transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s ease;
         }
 
         .project-card:hover .project-icon {
@@ -512,14 +514,25 @@
             width: 80%;
         }
 
-        /* --- FOOTER --- */
         footer {
             text-align: center;
             padding: 60px 20px;
             color: var(--text-muted);
             font-size: 0.9rem;
-            border-top: 1px solid var(--border);
+            border-top: none;
             margin-top: 50px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(80%, 600px);
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
         }
 
         footer a {
@@ -584,7 +597,7 @@
             }
 
             .paper-card {
-                flex: 0 0 280px;
+                flex: 0 0 260px;
             }
 
             .slider-nav-btn {
@@ -750,6 +763,7 @@
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </a>
                     `;
+                    card.setAttribute('role', 'listitem');
                     container.appendChild(card);
                 });
 
@@ -781,8 +795,12 @@
             };
 
             let autoScrollInterval;
+            let isPapersSectionVisible = true;
 
             function startAutoScroll() {
+                // Guard: don't start if section is off-screen or tab is hidden
+                if (!isPapersSectionVisible || document.hidden) return;
+
                 // Clear existing to avoid duplicates
                 clearInterval(autoScrollInterval);
 
@@ -813,8 +831,23 @@
                 container.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
             });
 
-            // Start Auto Scroll initially
-            startAutoScroll();
+            // Start Auto Scroll initially (with IntersectionObserver to pause when off-screen)
+            const sectionEl = document.getElementById('papers-section');
+            if (sectionEl && 'IntersectionObserver' in window) {
+                const visibilityObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        isPapersSectionVisible = entry.isIntersecting;
+                        if (entry.isIntersecting) {
+                            startAutoScroll();
+                        } else {
+                            clearInterval(autoScrollInterval);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                visibilityObserver.observe(sectionEl);
+            } else {
+                startAutoScroll();
+            }
 
             // --- MOUSE DRAG LOGIC (CLICK & DRAG WITH INERTIA) ---
             let isDown = false;
@@ -961,11 +994,10 @@
                 });
             } catch (error) {
                 console.error("Error loading projects:", error);
-                container.innerHTML = `
-                    <div style="padding:20px; text-align:center; color:var(--text-muted); display:flex; flex-direction:column; align-items:center; gap:10px;">
-                        <span>Failed to load projects.</span>
-                        <button onclick="fetchProjects()" class="social-link" style="cursor:pointer;">Retry ↻</button>
-                    </div>`;
+                container.innerHTML = createErrorUI(
+                    'Failed to load projects. Please check your connection.',
+                    fetchProjects
+                );
             }
         }
 

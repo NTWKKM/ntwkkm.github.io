@@ -1,6 +1,49 @@
 // shared.js
 
 // ===========================================================================
+// UTILITY FUNCTIONS
+// ===========================================================================
+
+/**
+ * Debounce a function call
+ * @param {Function} fn - Function to debounce
+ * @param {number} delay - Delay in milliseconds
+ * @returns {Function} Debounced function
+ */
+function debounce(fn, delay = 300) {
+    let timer;
+    return function (...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn.apply(this, args), delay);
+    };
+}
+
+/**
+ * Format a date string as a human-readable relative time
+ * @param {string|Date} date - Date to format
+ * @returns {string} Relative time string (e.g. "2h ago", "3 days ago")
+ */
+function formatRelativeTime(date) {
+    if (!date) return '';
+    const now = Date.now();
+    const then = new Date(date).getTime();
+    if (isNaN(then)) return '';
+    const diffMs = now - then;
+    const seconds = Math.floor(diffMs / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+    const weeks = Math.floor(days / 7);
+
+    if (seconds < 60) return 'just now';
+    if (minutes < 60) return `${minutes}m ago`;
+    if (hours < 24) return `${hours}h ago`;
+    if (days < 7) return `${days}d ago`;
+    if (weeks < 4) return `${weeks}w ago`;
+    return new Date(then).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+}
+
+// ===========================================================================
 // ERROR HANDLING & RESILIENCE
 // ===========================================================================
 
@@ -150,7 +193,7 @@ function fuzzyMatch(query, text) {
     if (!query) return true;
     if (!text) return false;
     
-    const lowerQuery = query.toLowerCase().replace(/\\s+/g, '');
+    const lowerQuery = query.toLowerCase().replace(/\s+/g, '');
     const lowerText = text.toLowerCase();
     
     let queryIndex = 0;
@@ -171,12 +214,12 @@ function highlightText(text, query) {
     
     const escapedText = escapeHTML(text);
     // Simple word-based highlighting
-    const terms = query.toLowerCase().trim().split(/\\s+/).filter(t => t.length > 0);
+    const terms = query.toLowerCase().trim().split(/\s+/).filter(t => t.length > 0);
     
     if (terms.length === 0) return escapedText;
     
     // Create a regex to match any of the terms
-    const regex = new RegExp(`(${terms.map(t => t.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')).join('|')})`, 'gi');
+    const regex = new RegExp(`(${terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi');
     
     return escapedText.replace(regex, '<span class="search-highlight">$&</span>');
 }
@@ -193,7 +236,9 @@ function initSharedTheme() {
     const sunIcon = `<svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000 1.41.996.996 0 001.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06z"/></svg>`;
     const moonIcon = `<svg viewBox="0 0 24 24"><path d="M9.37 5.51A7.35 7.35 0 009.1 7.5c0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27A7.014 7.014 0 0112 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49zM12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>`;
 
-    const savedTheme = localStorage.getItem('theme') || 'light';
+    // Auto-detect system preference on first visit
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const savedTheme = localStorage.getItem('theme') || (systemPrefersDark ? 'dark' : 'light');
     htmlElement.setAttribute('data-theme', savedTheme);
     toggleBtn.innerHTML = savedTheme === 'dark' ? sunIcon : moonIcon;
 
