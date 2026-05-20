@@ -25,4 +25,4 @@ jobs:
       - name: Run browser tests
         env:
           CI: true
-        run: node test-browser.js
+        run: node .github/scripts/test-browser.js

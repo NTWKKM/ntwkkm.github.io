@@ -30,7 +30,7 @@ const path = require('path');
     ];
 
     for (const target of targets) {
-      const fileUrl = 'file://' + path.resolve(__dirname, target);
+      const fileUrl = 'file://' + path.resolve(__dirname, '../../', target);
       
       for (const vp of viewports) {
         console.log(`\n--- Testing ${target} [Viewport: ${vp.name}] ---`);
