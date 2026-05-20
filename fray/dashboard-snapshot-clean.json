@@ -5,11 +5,11 @@
     "security_lock": false,
     "mindset": "Sati-Observation",
     "last_reflection": "{\"timestamp\": \"2026-05-19\", \"category\": \"system_audit\", \"fact\": \"Daily heartbeats for 2026-05-18 maintained system state snapshots. The Guard sequence completed and verified security telemetry as OK.\"}",
-    "timestamp": "2026-05-20T17:11:01Z",
+    "timestamp": "2026-05-20T18:22:36Z",
     "circuit_breaker": "{\n  \"n8n_connectivity\": \"DOWN\",\n  \"circuit_breaker_status\": \"OPEN\",\n  \"last_check\": \"2026-05-21T00:00:00Z\",\n  \"failure_count\": 1\n}"
   },
   "metrics": {
-    "timestamp": "2026-05-21T00:00:00Z",
+    "timestamp": "2026-05-20T18:22:35.906746Z",
     "telemetry": {
       "cpu": {
         "load_avg_1m": 0,
@@ -26,7 +26,7 @@
       "gpu": {
         "residency_percent": 0,
         "frequency_mhz": 396,
-        "power_mw": 6
+        "power_mw": 67
       },
       "thermal": {
         "pressure_level": "Nominal"
@@ -37,7 +37,7 @@
       }
     },
     "analysis": {
-      "stress_level": "CRITICAL",
+      "stress_level": "NOMINAL",
       "cpu_stress": "NOMINAL",
       "gpu_stress": "NOMINAL",
       "memory_stress": "NOMINAL",
