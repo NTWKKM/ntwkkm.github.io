@@ -1262,8 +1262,24 @@
 
     <script>
         // ============================================================
-        // HELPERS (escapeHTML and sanitizeURL are imported from shared.js)
+        // HELPERS
         // ============================================================
+        function escapeHTML(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;')
+                .replace(/`/g, '&#96;');
+        }
+
+        function sanitizeURL(url) {
+            if (!url) return '#';
+            try { return ['http:','https:'].includes(new URL(url).protocol) ? url : '#'; }
+            catch { return '#'; }
+        }
 
         function chipClass(val) {
             if (!val) return 'neutral';

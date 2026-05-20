@@ -793,8 +793,18 @@
     const WEBHOOK_URL = 'https://ntwkkm-n8n-final.fly.dev/webhook/add-tracking';
 
     // =========================================================================
-    // Security: HTML Sanitization is imported from shared.js
+    // Security: HTML Sanitization
     // =========================================================================
+    function escapeHTML(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/`/g, '&#96;');
+    }
 
     // =========================================================================
     // Status Mapping — Thailand Post status codes to progress steps
