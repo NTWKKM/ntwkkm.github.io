@@ -9,8 +9,8 @@ This content reflects the repository structure (updated by GitHub Actions):
 |   `-- blog /
 |       `-- (Chunked JSON files)
 |-- fray /
+|   |-- dashboard-snapshot-clean.json
 |   |-- dashboard-snapshot.json
-|   |-- index-2.html
 |   `-- index.html
 |-- tracking /
 |   |-- auth.json
