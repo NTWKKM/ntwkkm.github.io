@@ -3,42 +3,35 @@
     "status": "ONLINE",
     "tier": "full",
     "security_lock": false,
-    "circuit_breaker": "CLOSED",
+    "circuit_breaker": "{\n  \"n8n_connectivity\": \"OK\",\n  \"circuit_breaker\": \"CLOSED\",\n  \"last_probe\": \"2026-05-20T08:01:00Z\"\n}",
     "mindset": "Sati-Observation",
     "last_reflection": "{\"timestamp\": \"2026-05-19\", \"category\": \"system_audit\", \"fact\": \"Daily heartbeats for 2026-05-18 maintained system state snapshots. The Guard sequence completed and verified security telemetry as OK.\"}",
-    "timestamp": "2026-05-19T17:11:02Z"
+    "timestamp": "2026-05-20T01:10:26Z"
   },
   "metrics": {
-    "timestamp": "2026-05-20T00:05:00Z",
+    "timestamp": "2026-05-20T08:01:00Z",
     "telemetry": {
-      "cpu": {
-        "load_avg_1m": 2.05,
-        "load_avg_5m": 1.99,
-        "load_avg_15m": 1.95
+      "load_avg": {
+        "1m": 3.56,
+        "5m": 3.88,
+        "15m": 6.24
       },
       "memory": {
-        "pages_free": 7283,
-        "pages_active": 100570,
-        "pages_wired": 108404,
-        "pages_compressed": 576516,
-        "status": "active"
+        "used": "7534M",
+        "unused": "97M"
       },
       "gpu": {
-        "residency_percent": 23.87,
-        "frequency_mhz": 396,
-        "power_mw": 67
+        "residency": "19.84%",
+        "frequency": "396 MHz"
       },
-      "thermal": {
-        "pressure_level": "Nominal"
-      },
-      "network": {
-        "n8n_ttfb": "failed",
-        "connectivity": "DOWN"
-      }
+      "thermal": "Nominal",
+      "network_latency_ttfb": "1.375s"
     },
     "analysis": {
-      "stress_level": "NOMINAL",
-      "notes": "CPU load is stable. Thermal pressure is nominal. Memory pressure is present but within expected bounds. Critical failure in n8n connectivity (DNS resolution failed)."
+      "cpu_stress": "STRESSED",
+      "gpu_stress": "NOMINAL",
+      "memory_stress": "CRITICAL",
+      "overall_stress_level": "STRESSED"
     }
   },
   "audit": {
