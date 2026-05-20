@@ -38,6 +38,9 @@
     },
     "analysis": {
       "stress_level": "NOMINAL",
+      "cpu_stress": "NOMINAL",
+      "gpu_stress": "NOMINAL",
+      "memory_stress": "NOMINAL",
       "notes": "System resources are healthy, but n8n connectivity is offline. Circuit breaker opened."
     }
   },

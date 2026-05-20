@@ -38,6 +38,14 @@ function getNested(obj, ...paths) {
   return current;
 }
 
+function normalizeStressLevel(val) {
+  if (!val) return "NOMINAL";
+  const v = String(val).toUpperCase().trim();
+  if (v === "CRITICAL" || v === "HIGH" || v === "ERROR" || v === "DOWN" || v === "FAILED") return "CRITICAL";
+  if (v === "WARNING" || v === "MODERATE" || v === "DEGRADED" || v === "STRESSED") return "WARNING";
+  return "NOMINAL";
+}
+
 function normalize(input) {
   const result = {
     system: {},
@@ -89,9 +97,11 @@ function normalize(input) {
   const inMetrics = input.metrics || {};
   result.metrics.timestamp = inMetrics.timestamp || getNested(inMetrics, 'system_metrics', 'timestamp') || result.system.timestamp;
 
+  const inAnalysis = inMetrics.analysis || getNested(inMetrics, 'system_metrics', 'stress_analysis') || {};
+
   result.metrics.telemetry = {
     cpu: { load_avg_1m: 0, load_avg_5m: 0, load_avg_15m: 0 },
-    memory: { pages_free: 0, pages_active: 0, pages_wired: 0, pages_compressed: 0, status: "active" },
+    memory: { pages_free: 0, pages_active: 0, pages_wired: 0, pages_compressed: 0, status: (inAnalysis.memory_stress ? normalizeStressLevel(inAnalysis.memory_stress) : "active") },
     gpu: { residency_percent: 0, frequency_mhz: 396, power_mw: 67 },
     thermal: { pressure_level: "Nominal" },
     network: { n8n_ttfb: "failed", connectivity: "DOWN" }
@@ -183,7 +193,7 @@ function normalize(input) {
       result.metrics.telemetry.memory.pages_active = parseNum(inMem.pages_active);
       result.metrics.telemetry.memory.pages_wired = parseNum(inMem.pages_wired);
       result.metrics.telemetry.memory.pages_compressed = parseNum(inMem.pages_compressed);
-      result.metrics.telemetry.memory.status = inMem.status || "active";
+      result.metrics.telemetry.memory.status = inMem.status || (inAnalysis.memory_stress ? normalizeStressLevel(inAnalysis.memory_stress) : "active");
     } else {
       let usedMB = parseMemoryMB(inMem.used || inMem.phys_mem_used || inMem.phys_mem);
       let freeMB = parseMemoryMB(inMem.unused || inMem.free || inMem.pages_free);
@@ -194,7 +204,7 @@ function normalize(input) {
       result.metrics.telemetry.memory.pages_active = Math.round(usedPages * 0.5);
       result.metrics.telemetry.memory.pages_wired = Math.round(usedPages * 0.25);
       result.metrics.telemetry.memory.pages_compressed = Math.round(usedPages * 0.25);
-      result.metrics.telemetry.memory.status = inMem.status || "active";
+      result.metrics.telemetry.memory.status = inMem.status || (inAnalysis.memory_stress ? normalizeStressLevel(inAnalysis.memory_stress) : "active");
     }
   } else {
     // Default values if memory metrics are missing
@@ -203,14 +213,16 @@ function normalize(input) {
       pages_active: 964352,
       pages_wired: 482176,
       pages_compressed: 482176,
-      status: "active"
+      status: (inAnalysis.memory_stress ? normalizeStressLevel(inAnalysis.memory_stress) : "active")
     };
   }
 
   // --- ANALYSIS & STRESS LEVEL ---
-  const inAnalysis = inMetrics.analysis || getNested(inMetrics, 'system_metrics', 'stress_analysis') || {};
   result.metrics.analysis = {
-    stress_level: inAnalysis.overall_stress_level || inAnalysis.stress_level || inAnalysis.overall || "NOMINAL",
+    stress_level: normalizeStressLevel(inAnalysis.overall_stress_level || inAnalysis.stress_level || inAnalysis.overall),
+    cpu_stress: normalizeStressLevel(inAnalysis.cpu_stress),
+    gpu_stress: normalizeStressLevel(inAnalysis.gpu_stress),
+    memory_stress: normalizeStressLevel(inAnalysis.memory_stress),
     notes: inAnalysis.notes || inAnalysis.analysis || "System operates nominally."
   };
 

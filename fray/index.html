@@ -1548,19 +1548,19 @@
             const analysis = metricsRoot.analysis || {};
             const overallStress = analysis.stress_level || 'NOMINAL';
             
-            let cpuStress = 'NOMINAL';
+            let cpuStress = analysis.cpu_stress || 'NOMINAL';
             if (cpuLoad1m > 6.0) cpuStress = 'CRITICAL';
-            else if (cpuLoad1m > 4.0) cpuStress = 'WARNING';
+            else if (cpuLoad1m > 4.0 && cpuStress !== 'CRITICAL') cpuStress = 'WARNING';
             
-            let gpuStress = 'NOMINAL';
+            let gpuStress = analysis.gpu_stress || 'NOMINAL';
             if (m.gpu) {
                 if (m.gpu.residency_percent > 80) gpuStress = 'CRITICAL';
-                else if (m.gpu.residency_percent > 50) gpuStress = 'WARNING';
+                else if (m.gpu.residency_percent > 50 && gpuStress !== 'CRITICAL') gpuStress = 'WARNING';
             } else {
                 gpuStress = 'N/A';
             }
             
-            let memStress = 'NOMINAL';
+            let memStress = analysis.memory_stress || 'NOMINAL';
             if (m.memory) {
                 const memStatus = String(m.memory.status).toUpperCase();
                 if (memStatus === 'CRITICAL' || memStatus === 'HIGH') memStress = 'CRITICAL';
