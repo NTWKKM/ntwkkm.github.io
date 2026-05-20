@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — NTWKKM Personal Website
 
-*Last Updated: 2026-05-17*
+*Last Updated: 2026-05-21*
 
 ## Overview
 
@@ -19,7 +19,8 @@ Static personal website hosted on GitHub Pages (`ntwkkm.github.io`). Serves as a
 | `pl/index.html`        | `[NEW]` NTWKKM Knowledge Vault — Auto-synced from private `NTWKKM/pl` |
 | `manifest.json`        | `[NEW]` PWA manifest — installable web app experience      |
 | `sw.js`                | `[NEW]` Service Worker — offline caching and resilience    |
-| `shared.js`            | `[NEW]` Global utilities (fetch fallbacks, UI, search, a11y)|
+| `shared.js`            | Global utilities (fetch fallbacks, debounce, UI, search, a11y, sanitization) |
+| `shared.css`           | Shared styles (reset, scrollbar, toast, skeleton, a11y, animations) |
 
 ## Data Flow
 
@@ -415,23 +416,33 @@ The NTWKKM Knowledge Vault is an automated, dynamic resource hub and clinical in
 
 All pages use `data-theme="light|dark"` on the `<html>` element with `localStorage.theme` persistence. Theme selection syncs seamlessly across the site.
 
+- **Unified Color Palette:** All pages use `--primary: #2563eb` (light) / `#60A5FA` (dark)
+- **Auto-detection:** First-time visitors inherit `prefers-color-scheme` from their OS
+- **Smooth transitions:** Background and text color transitions on theme toggle
+
 ### Frontend Architecture
 
 **CSS / Styling:**
-- `shared.css` — Common styles (reset, theme toggle, skip-to-content, reduced-motion)
-- `index.html <style>` — Homepage-specific styles (paper slider, portfolio grid, header)
-- `blog.html <style>` — Blog-specific styles (sidebar, article view, search, filters)
+- `shared.css` — Common styles (reset, smooth scroll, custom scrollbar, toast notifications, skeleton loading, theme toggle, skip-to-content, reduced-motion, search highlight, citation modal, error states)
+- `index.html <style>` — Homepage-specific styles (paper slider, portfolio grid, header, gradient footer)
+- `blog.html <style>` — Blog-specific styles (sidebar, article view, search, filters, ToC)
 - `tracking/index.html <style>` — Tracking dashboard styles (passcode gate, status timeline, package grid)
+- `fray/index.html <style>` — Fray dashboard styles (vital cards, audit trail, reflection sections)
 
 **JavaScript (Core):**
-- `shared.js` — Global utilities for error handling (`fetchWithFallback`, `createErrorUI`), search (`fuzzyMatch`), accessibility (`announceToScreenReader`), theming, and input sanitization (`escapeHTML`, `sanitizeURL`).
+- `shared.js` — Global utilities:
+  - **Error Handling:** `fetchWithFallback()` (exponential backoff), `createErrorUI()`, `createSkeletonUI()`
+  - **Utilities:** `debounce()`, `formatRelativeTime()`, `escapeHTML()`, `sanitizeURL()`
+  - **Search:** `fuzzyMatch()`, `highlightText()`
+  - **Accessibility:** `announceToScreenReader()`, `initScreenReaderAnnouncer()`
+  - **Theming:** `initSharedTheme()` (auto-detects OS preference)
 
-## Security
+All JSON data is sanitized before DOM injection via centralized functions in `shared.js`:
 
-All JSON data is sanitized before DOM injection via:
-
-- `escapeHTML(str)` — escapes `<`, `>`, `&`, `"` entities
+- `escapeHTML(str)` — escapes `<`, `>`, `&`, `"`, `'`, `` ` `` entities
 - `sanitizeURL(url)` — validates `http:` / `https:` protocol only
+
+> **Deduplication:** `escapeHTML` and `sanitizeURL` are defined **only** in `shared.js`. All pages (`index.html`, `blog.html`, `tracking/index.html`, `fray/index.html`) import `shared.js` — no page-local duplicates.
 
 ## Tag Filtering (blog.html)
 
@@ -442,11 +453,13 @@ All JSON data is sanitized before DOM injection via:
 
 ## Caching
 
-- JSON fetches include `?v=${Date.now()}` cache-buster to ensure freshness after n8n updates
-- `blog.html` has a 5-minute `localStorage` cache (`research_blog_data`)
-- **Service Worker** (`sw.js`) implements dual caching strategy:
-  - **Static assets**: Cache-first with background refresh
-  - **Dynamic content**: Network-first with cache fallback
+- JSON fetches include `?v=${Date.now()}` or hourly cache-buster to ensure freshness after n8n updates
+- `blog.html` has a 5-minute `localStorage` cache (`research_blog_data_v2`) — version key bumped on schema changes to force invalidation
+- **Service Worker** (`sw.js`) implements a multi-cache strategy:
+  - `ntwkkm-static-v2` — Static assets: cache-first with background refresh
+  - `ntwkkm-dynamic-v2` — Dynamic content: network-first with cache fallback
+  - `ntwkkm-fonts-v1` — Google Fonts: separate long-lived cache (fonts rarely change)
+  - Cache versions are bumped on deployments to force client refresh
   - Offline support for core pages and previously viewed content
 
 ## Enhanced Features (Recent Updates)
@@ -482,8 +495,10 @@ All JSON data is sanitized before DOM injection via:
 
 ### Search Optimization
 
-- `fuzzyMatch(query, text)` — Fuzzy search algorithm for better matching
-- `highlightText(text, query)` — Highlights matched terms in results
+- `fuzzyMatch(query, text)` — Fuzzy search algorithm for character-order matching
+- `highlightText(text, query)` — Highlights matched terms in results with yellow background
+- `debounce(fn, delay)` — Prevents layout thrashing on rapid input (used with 300ms delay on blog search)
+- **Blog search scope:** Matches against title, ID, summary, objective, method, result, **and tags** (not just titles)
 - Search highlights with yellow background for visibility
 
 ### PWA Support
@@ -491,5 +506,6 @@ All JSON data is sanitized before DOM injection via:
 - **Installable**: Users can add to home screen on mobile/desktop
 - **Offline-first**: Core pages cached for offline access
 - **Background sync**: Ready for future offline data synchronization
-- **Theme color**: Matches site branding (#244885)
+- **Theme color**: Matches site branding (#2563eb)
 - **Icons**: SVG-based icons in multiple sizes (32, 192, 512)
+
