@@ -6,36 +6,36 @@
     "circuit_breaker": "{\n  \"n8n_connectivity\": \"DOWN\",\n  \"circuit_breaker_status\": \"OPEN\",\n  \"last_check\": \"2026-05-21T00:00:00Z\",\n  \"failure_count\": 1\n}",
     "mindset": "Sati-Observation",
     "last_reflection": "{\"timestamp\": \"2026-05-19\", \"category\": \"system_audit\", \"fact\": \"Daily heartbeats for 2026-05-18 maintained system state snapshots. The Guard sequence completed and verified security telemetry as OK.\"}",
-    "timestamp": "2026-05-20T17:11:01Z"
+    "timestamp": "2026-05-20T18:22:36Z"
   },
   "metrics": {
     "telemetry": {
       "cpu": {
         "load_avg": [
-          283.59,
-          147.07,
-          60.98
+          2.57,
+          2.27,
+          2.57
         ],
-        "usage_percent": 66.85
+        "usage_percent": 25.7
       },
       "memory": {
-        "used_mb": 7431,
-        "unused_mb": 199
+        "used_mb": 0,
+        "unused_mb": 21.234375
       },
       "gpu": {
-        "active_residency_percent": 2.18,
-        "power_mw": 6
+        "active_residency_percent": 0,
+        "power_mw": 0
       },
       "network": {
         "n8n_ttfb": "N/A",
-        "status": "disconnected"
+        "status": "connected"
       }
     },
     "analysis": {
-      "stress_level": "CRITICAL",
-      "reason": "Extreme CPU load averages and n8n connectivity failure."
+      "stress_level": "NORMAL",
+      "reason": "System operating within nominal parameters."
     },
-    "timestamp": "2026-05-21T00:00:00Z"
+    "timestamp": "2026-05-20T18:22:35.906746Z"
   },
   "audit": {
     "timestamp": "2026-05-19T10:02:54.607051Z",
