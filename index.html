@@ -795,8 +795,12 @@
             };
 
             let autoScrollInterval;
+            let isPapersSectionVisible = true;
 
             function startAutoScroll() {
+                // Guard: don't start if section is off-screen or tab is hidden
+                if (!isPapersSectionVisible || document.hidden) return;
+
                 // Clear existing to avoid duplicates
                 clearInterval(autoScrollInterval);
 
@@ -832,6 +836,7 @@
             if (sectionEl && 'IntersectionObserver' in window) {
                 const visibilityObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
+                        isPapersSectionVisible = entry.isIntersecting;
                         if (entry.isIntersecting) {
                             startAutoScroll();
                         } else {

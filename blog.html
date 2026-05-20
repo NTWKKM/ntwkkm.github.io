@@ -1756,7 +1756,7 @@
                         }
                     });
                 }, {
-                    root: document.getElementById('article-content-pane'),
+                    root: document.querySelector('.main-content') || null,
                     rootMargin: '-80px 0px -70% 0px',
                     threshold: 0
                 });
