@@ -1268,7 +1268,7 @@
         function chipClass(val) {
             if (!val) return 'neutral';
             const v = String(val).toUpperCase().trim();
-            const OK_SET   = new Set(['NOMINAL','LOW','NORMAL','CLOSED','UNLOCKED','ACTIVE','ONLINE','HEALTHY','STABLE','FULL','OPEN_GOOD']);
+            const OK_SET   = new Set(['OK','NOMINAL','LOW','NORMAL','CLOSED','UNLOCKED','ACTIVE','ONLINE','HEALTHY','STABLE','FULL','OPEN_GOOD']);
             const WARN_SET = new Set(['WARNING','MODERATE','DEGRADED','STRESSED']);
             const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR','DOWN','FAILED']);
             if (OK_SET.has(v))   return 'ok';
@@ -1438,7 +1438,7 @@
                 circuitPill.style.gap = '4px';
                 
                 for (const [key, val] of Object.entries(breakers)) {
-                    if (key.toLowerCase() === 'last_updated' || key.toLowerCase() === 'last_check') continue;
+                    if (['last_updated', 'last_check', 'last_probe'].includes(key.toLowerCase())) continue;
                     
                     const valStr = String(val).toUpperCase();
                     const badge = document.createElement('span');
@@ -1447,7 +1447,8 @@
                     circuitPill.appendChild(badge);
                 }
                 
-                const lastCheck = breakers.last_check || breakers.last_updated;
+                const lastCheck = breakers.last_check || breakers.last_updated || breakers.last_probe;
+                const label = breakers.last_probe ? 'LAST_PROBE' : 'Checked';
                 if (lastCheck) {
                     const checkTime = document.createElement('span');
                     checkTime.style.fontSize = '0.72rem';
@@ -1455,7 +1456,7 @@
                     checkTime.style.marginTop = '2px';
                     checkTime.style.width = '100%';
                     checkTime.style.textAlign = 'right';
-                    checkTime.innerText = `Checked: ${lastCheck}`;
+                    checkTime.innerText = `${label}: ${lastCheck}`;
                     circuitPill.appendChild(checkTime);
                 }
                 
