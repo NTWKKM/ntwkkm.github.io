@@ -947,7 +947,7 @@
                 justify-content: center;
                 border-radius: 50%;
             }
-            .social-link::after { content: 'GH'; font-size: 0.8rem; }
+            .social-link::after { content: attr(data-mobile-label); font-size: 0.8rem; font-weight: 700; }
             .nav-highlight::after { content: '📝'; font-size: 1rem; }
         }
 
@@ -979,14 +979,14 @@
                 <p>Last Telemetry Sync: <span id="banner-timestamp">—</span></p>
             </div>
             <div class="controls">
-                <a href="../index.html" class="social-link" aria-label="Home">
+                <a href="../index.html" class="social-link" data-mobile-label="HOME" aria-label="Home">
                     <span>Home</span>
                 </a>
                 <a href="../blog.html" class="nav-highlight" aria-label="Research Blog">
                     <span>📝 Research Blog</span>
                 </a>
                 <button class="theme-btn" id="theme-toggle" aria-label="Toggle Dark Mode"></button>
-                <a href="https://github.com/NTWKKM" target="_blank" class="social-link" aria-label="GitHub Profile">
+                <a href="https://github.com/NTWKKM" target="_blank" class="social-link" data-mobile-label="GH" aria-label="GitHub Profile">
                     <span>GitHub Profile</span>
                 </a>
             </div>

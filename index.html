@@ -614,7 +614,7 @@
             </div>
 
             <div class="controls">
-                <a href="https://ntwkkm.github.io/blog.html" class="nav-highlight">
+                <a href="https://ntwkkm.github.io/blog.html" class="nav-highlight" aria-label="Research Blog">
                     <span>📝 Research Blog</span>
                 </a>
 
@@ -927,6 +927,7 @@
                 clearInterval(autoScrollInterval);
             });
             container.addEventListener('touchend', () => startAutoScroll());
+            container.addEventListener('touchcancel', () => startAutoScroll());
 
             // Pause auto-scroll when tab is hidden (saves CPU/battery)
             document.addEventListener('visibilitychange', () => {
