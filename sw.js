@@ -29,7 +29,7 @@ const DYNAMIC_PATHS = [
     '/tracking/status_store.json',
     '/tracking/auth.json',
     '/tracking/track_list.json',
-    '/fray/dashboard-snapshot.json'
+    '/fray/dashboard-snapshot-clean.json'
 ];
 
 // Install event - cache static assets

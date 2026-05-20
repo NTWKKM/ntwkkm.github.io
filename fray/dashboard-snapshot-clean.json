@@ -1,0 +1,88 @@
+{
+  "system": {
+    "status": "ONLINE",
+    "tier": "full",
+    "security_lock": false,
+    "mindset": "Sati-Observation",
+    "last_reflection": "{\"timestamp\": \"2026-05-19\", \"category\": \"system_audit\", \"fact\": \"Daily heartbeats for 2026-05-18 maintained system state snapshots. The Guard sequence completed and verified security telemetry as OK.\"}",
+    "timestamp": "2026-05-20T01:10:26Z",
+    "circuit_breaker": "{\n  \"n8n_connectivity\": \"OK\",\n  \"circuit_breaker\": \"CLOSED\",\n  \"last_probe\": \"2026-05-20T08:01:00Z\"\n}"
+  },
+  "metrics": {
+    "timestamp": "2026-05-20T08:01:00Z",
+    "telemetry": {
+      "cpu": {
+        "load_avg_1m": 3.56,
+        "load_avg_5m": 3.88,
+        "load_avg_15m": 6.24
+      },
+      "memory": {
+        "pages_free": 24832,
+        "pages_active": 964352,
+        "pages_wired": 482176,
+        "pages_compressed": 482176,
+        "status": "active"
+      },
+      "gpu": {
+        "residency_percent": 19.84,
+        "frequency_mhz": 396,
+        "power_mw": 67
+      },
+      "thermal": {
+        "pressure_level": "Nominal"
+      },
+      "network": {
+        "n8n_ttfb": "1.375s",
+        "connectivity": "OK"
+      }
+    },
+    "analysis": {
+      "stress_level": "STRESSED",
+      "notes": "System operates nominally."
+    }
+  },
+  "audit": {
+    "timestamp": "2026-05-19T10:02:54.607051Z",
+    "overall_health": "STABLE",
+    "audit": {
+      "THE GUARD": {
+        "status": "HEALTHY",
+        "technical": "Found",
+        "analysis": "Normal"
+      },
+      "THE OBSERVER": {
+        "status": "HEALTHY",
+        "technical": "Found",
+        "analysis": "Normal"
+      },
+      "THE HERALD": {
+        "status": "HEALTHY",
+        "technical": "Found",
+        "analysis": "Normal"
+      },
+      "THE COMPANION": {
+        "status": "HEALTHY",
+        "technical": "Found",
+        "analysis": "Normal"
+      },
+      "THE ARCHIVIST": {
+        "status": "HEALTHY",
+        "technical": "Found",
+        "analysis": "Normal"
+      },
+      "THE SAGE": {
+        "status": "HEALTHY",
+        "technical": "Internal",
+        "analysis": "Intact"
+      }
+    },
+    "cognitive_insights": {
+      "synthesis": "System health is STABLE. Core agents are synchronized.",
+      "observation": "P-series tasks running smoothly (1 completions)."
+    }
+  },
+  "metadata": {
+    "agent": "Fray-Orchestrator",
+    "version": "1.1.4"
+  }
+}

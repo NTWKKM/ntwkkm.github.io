@@ -1359,7 +1359,7 @@
 
             try {
                 // Real-time cache-buster for telemetry freshness and robust retry
-                const data = await fetchWithFallback(`dashboard-snapshot.json?v=${Date.now()}`, null, 2);
+                const data = await fetchWithFallback(`dashboard-snapshot-clean.json?v=${Date.now()}`, null, 2);
                 if (!data) throw new Error('Null or invalid payload received.');
                 
                 renderDashboard(data);
