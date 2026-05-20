@@ -3,38 +3,39 @@
     "status": "ONLINE",
     "tier": "full",
     "security_lock": false,
-    "circuit_breaker": "{\n  \"n8n_connectivity\": \"DOWN\",\n  \"circuit_breaker\": \"OPEN\",\n  \"last_probe\": \"2026-05-20T16:01:45Z\"\n}",
+    "circuit_breaker": "{\n  \"n8n_connectivity\": \"DOWN\",\n  \"circuit_breaker_status\": \"OPEN\",\n  \"last_check\": \"2026-05-21T00:00:00Z\",\n  \"failure_count\": 1\n}",
     "mindset": "Sati-Observation",
     "last_reflection": "{\"timestamp\": \"2026-05-19\", \"category\": \"system_audit\", \"fact\": \"Daily heartbeats for 2026-05-18 maintained system state snapshots. The Guard sequence completed and verified security telemetry as OK.\"}",
-    "timestamp": "2026-05-20T09:10:36Z"
+    "timestamp": "2026-05-20T17:11:01Z"
   },
   "metrics": {
-    "timestamp": "2026-05-20T16:01:45Z",
-    "metrics": {
+    "telemetry": {
       "cpu": {
-        "load_avg": "1.76, 1.92, 2.26"
+        "load_avg": [
+          283.59,
+          147.07,
+          60.98
+        ],
+        "usage_percent": 66.85
       },
       "memory": {
-        "pages_free": 4651,
-        "pages_active": 104652,
-        "pages_inactive": 103891,
-        "pages_wired": 90011
+        "used_mb": 7431,
+        "unused_mb": 199
       },
       "gpu": {
-        "active_residency": "11.20%",
-        "power": "10 mW"
-      },
-      "thermal": {
-        "pressure_level": "Nominal"
+        "active_residency_percent": 2.18,
+        "power_mw": 6
       },
       "network": {
-        "n8n_latency_ttfb": "FAIL (DNS/Connection Error)"
+        "n8n_ttfb": "N/A",
+        "status": "disconnected"
       }
     },
     "analysis": {
-      "stress_level": "NOMINAL",
-      "notes": "System resources are healthy, but n8n connectivity is offline. Circuit breaker opened."
-    }
+      "stress_level": "CRITICAL",
+      "reason": "Extreme CPU load averages and n8n connectivity failure."
+    },
+    "timestamp": "2026-05-21T00:00:00Z"
   },
   "audit": {
     "timestamp": "2026-05-19T10:02:54.607051Z",
