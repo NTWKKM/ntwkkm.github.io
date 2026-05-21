@@ -5,16 +5,16 @@
     "security_lock": false,
     "mindset": "Sati-Observation",
     "last_reflection": "{\"timestamp\": \"2026-05-19\", \"category\": \"system_audit\", \"fact\": \"Daily heartbeats for 2026-05-18 maintained system state snapshots. The Guard sequence completed and verified security telemetry as OK.\"}",
-    "timestamp": "2026-05-21T01:22:15Z",
-    "circuit_breaker": "{\n  \"n8n_connectivity\": \"DOWN\",\n  \"circuit_breaker_status\": \"OPEN\",\n  \"last_check\": \"2026-05-21T08:01:00Z\",\n  \"failure_count\": 2\n}"
+    "timestamp": "2026-05-21T01:24:58Z",
+    "circuit_breaker": "{\n  \"n8n_connectivity\": \"DOWN\",\n  \"circuit_breaker_status\": \"OPEN\",\n  \"last_check\": \"2026-05-21T08:22:00Z\",\n  \"failure_count\": 3\n}"
   },
   "metrics": {
-    "timestamp": "2026-05-21T08:01:00Z",
+    "timestamp": "2026-05-21T08:22:00Z",
     "telemetry": {
       "cpu": {
-        "load_avg_1m": 2.59,
-        "load_avg_5m": 2.65,
-        "load_avg_15m": 2.57
+        "load_avg_1m": 3.66,
+        "load_avg_5m": 4.26,
+        "load_avg_15m": 3.38
       },
       "memory": {
         "pages_free": 24832,
