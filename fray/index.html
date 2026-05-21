@@ -759,7 +759,7 @@
             border-collapse: collapse;
             text-align: left;
             font-size: 0.82rem;
-            min-width: 800px;
+            min-width: 700px;
         }
 
         .audit-table th {
@@ -841,34 +841,56 @@
         }
 
         /* ====================================================
-           FILTER STRIP
+           PROCESS LIST
         ==================================================== */
-        .filter-strip {
+        .process-item {
             display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
             align-items: center;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .process-item:last-child { border-bottom: none; }
+        .process-item:first-child { padding-top: 0; }
+
+        .process-name {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-main);
         }
 
-        .flt-btn {
+        .process-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .process-pid {
             font-family: 'JetBrains Mono', 'Courier New', monospace;
             font-size: 0.7rem;
-            font-weight: 600;
-            padding: 5px 12px;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: all 0.15s;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
+            color: var(--text-faint);
         }
-        .flt-btn:hover { border-color: var(--primary); color: var(--primary); }
-        .flt-btn.active {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: #fff;
+
+        /* ====================================================
+           INCIDENTS EMPTY STATE
+        ==================================================== */
+        .incidents-empty {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px;
+            background: var(--state-ok-bg);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--state-ok-border);
+            color: var(--state-ok);
+            font-size: 0.84rem;
+            font-weight: 500;
+        }
+
+        .incidents-empty .icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         /* ====================================================
@@ -1030,7 +1052,7 @@
         <nav class="container header-content" aria-label="Main navigation">
             <div class="brand-group">
                 <div class="brand-title-row">
-                    <h1 id="header-agent-text">Fray-Orchestrator v1.1.4</h1>
+                    <h1 id="header-agent-text">Fray Observability Core</h1>
                     <div class="brand-badges">
                         <span id="header-health-badge" class="health-badge ok">
                             <span class="dot"></span>
@@ -1088,40 +1110,40 @@
                 <div class="vitals-strip fade-up d1">
 
                     <!-- CPU Usage -->
-                    <div class="vital-card">
-                        <div class="vital-label">CPU Load</div>
-                        <div class="vital-value" id="v-cpu-user">—</div>
-                        <div class="vital-sub" id="v-cpu-sys">sys —</div>
+                    <div class="vital-card" id="vc-cpu">
+                        <div class="vital-label">CPU Usage</div>
+                        <div class="vital-value" id="v-cpu">—</div>
+                        <div class="vital-sub" id="v-cpu-sub">Load avg —</div>
                         <div class="vital-bar-track">
                             <div class="vital-bar-fill blue" id="v-cpu-bar" style="width:0"></div>
                         </div>
                     </div>
 
-                    <!-- GPU Usage -->
-                    <div class="vital-card">
-                        <div class="vital-label">GPU Usage</div>
+                    <!-- RAM -->
+                    <div class="vital-card" id="vc-ram">
+                        <div class="vital-label">RAM Used</div>
+                        <div class="vital-value" id="v-ram">—</div>
+                        <div class="vital-sub" id="v-ram-sub">—</div>
+                        <div class="vital-bar-track">
+                            <div class="vital-bar-fill red" id="v-ram-bar" style="width:0"></div>
+                        </div>
+                    </div>
+
+                    <!-- GPU -->
+                    <div class="vital-card" id="vc-gpu">
+                        <div class="vital-label">GPU</div>
                         <div class="vital-value" id="v-gpu">—</div>
-                        <div class="vital-sub">Thermal: <span id="v-thermal">—</span></div>
+                        <div class="vital-sub" id="v-gpu-sub">Thermal: —</div>
                         <div class="vital-bar-track">
                             <div class="vital-bar-fill green" id="v-gpu-bar" style="width:0"></div>
                         </div>
                     </div>
 
-                    <!-- Memory -->
-                    <div class="vital-card">
-                        <div class="vital-label">Memory Used</div>
-                        <div class="vital-value" id="v-mem">—</div>
-                        <div class="vital-sub">Free pages: <span id="v-pages">—</span></div>
-                        <div class="vital-bar-track">
-                            <div class="vital-bar-fill red" id="v-mem-bar" style="width:0"></div>
-                        </div>
-                    </div>
-
-                    <!-- Disk I/O -->
-                    <div class="vital-card">
-                        <div class="vital-label">Disk I/O</div>
-                        <div class="vital-value" id="v-disk-read">—</div>
-                        <div class="vital-sub">TPS: <span id="v-disk-tps">—</span></div>
+                    <!-- Disk Usage -->
+                    <div class="vital-card" id="vc-disk">
+                        <div class="vital-label">Disk Usage</div>
+                        <div class="vital-value" id="v-disk">—</div>
+                        <div class="vital-sub" id="v-disk-sub">Available: —</div>
                         <div class="vital-bar-track">
                             <div class="vital-bar-fill amber" id="v-disk-bar" style="width:0"></div>
                         </div>
@@ -1132,118 +1154,110 @@
                 <!-- MAIN 3-COLUMN GRID -->
                 <div class="main-grid fade-up d2">
 
-                    <!-- === Panel: System Status === -->
-                    <div class="panel">
+                    <!-- === Panel: Observer Status === -->
+                    <div class="panel" id="panel-observer">
                         <div class="panel-head">
-                            <div class="panel-title"><span class="panel-title-icon">⬡</span> System Status</div>
-                            <div id="p-system-status-chip" class="chip ok"><span class="dot-sm"></span>ONLINE</div>
+                            <div class="panel-title"><span class="panel-title-icon">⬡</span> Observer</div>
+                            <div id="p-observer-chip" class="chip ok"><span class="dot-sm"></span>NOMINAL</div>
                         </div>
                         <div class="panel-body">
                             <div class="data-row">
-                                <span class="data-label">Operational State</span>
-                                <span id="p-op-state" class="data-val">—</span>
+                                <span class="data-label">CPU Status</span>
+                                <span id="p-obs-cpu" class="chip ok"><span class="dot-sm"></span>—</span>
                             </div>
                             <div class="data-row">
-                                <span class="data-label">Tier</span>
-                                <span id="p-tier" class="data-val">—</span>
+                                <span class="data-label">RAM Status</span>
+                                <span id="p-obs-ram" class="chip ok"><span class="dot-sm"></span>—</span>
                             </div>
                             <div class="data-row">
-                                <span class="data-label">Mindset</span>
-                                <span id="p-mindset" class="data-val">—</span>
+                                <span class="data-label">GPU Status</span>
+                                <span id="p-obs-gpu" class="chip ok"><span class="dot-sm"></span>—</span>
                             </div>
                             <div class="data-row">
-                                <span class="data-label">Circuit Breaker</span>
-                                <span id="p-circuit" class="chip ok"><span class="dot-sm"></span>—</span>
+                                <span class="data-label">Thermal</span>
+                                <span id="p-obs-thermal" class="chip ok"><span class="dot-sm"></span>—</span>
                             </div>
                             <div class="data-row">
-                                <span class="data-label">Security Gate</span>
-                                <span id="p-security" class="chip ok"><span class="dot-sm"></span>—</span>
+                                <span class="data-label">Stress Level</span>
+                                <span id="p-obs-stress" class="chip neutral"><span class="dot-sm"></span>—</span>
                             </div>
                             <div class="data-row">
-                                <span class="data-label">Network</span>
-                                <span id="p-network" class="chip neutral"><span class="dot-sm"></span>—</span>
+                                <span class="data-label">Disk Usage</span>
+                                <span class="data-val" id="p-obs-disk">—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Observed At</span>
+                                <span class="data-val" id="p-obs-ts">—</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- === Panel: Hardware Stress === -->
-                    <div class="panel">
+                    <!-- === Panel: Sage Cognitive State === -->
+                    <div class="panel" id="panel-sage">
                         <div class="panel-head">
-                            <div class="panel-title"><span class="panel-title-icon">⚡</span> Stress Analysis</div>
-                            <div id="p-stress-chip" class="chip ok"><span class="dot-sm"></span>—</div>
+                            <div class="panel-title"><span class="panel-title-icon">◈</span> The Sage</div>
+                            <div id="p-sage-chip" class="chip ok"><span class="dot-sm"></span>STABLE</div>
                         </div>
                         <div class="panel-body">
-                            <div class="perf-row">
-                                <div class="perf-row-top">
-                                    <span class="perf-label">CPU</span>
-                                    <span class="perf-value" id="s-cpu">—</span>
-                                </div>
-                                <div class="perf-track">
-                                    <div class="perf-fill" id="s-cpu-bar" style="background:var(--primary);width:0"></div>
-                                </div>
-                            </div>
-                            <div class="perf-row">
-                                <div class="perf-row-top">
-                                    <span class="perf-label">GPU</span>
-                                    <span class="perf-value" id="s-gpu">—</span>
-                                </div>
-                                <div class="perf-track">
-                                    <div class="perf-fill" id="s-gpu-bar" style="background:var(--state-ok);width:0"></div>
-                                </div>
-                            </div>
-                            <div class="perf-row">
-                                <div class="perf-row-top">
-                                    <span class="perf-label">Memory</span>
-                                    <span class="perf-value" id="s-mem">—</span>
-                                </div>
-                                <div class="perf-track">
-                                    <div class="perf-fill" id="s-mem-bar" style="background:var(--accent);width:0"></div>
-                                </div>
-                            </div>
-                            <div class="data-row" style="margin-top:12px;">
-                                <span class="data-label">Load Avg (1m / 5m / 15m)</span>
-                                <span class="data-val" id="s-load">—</span>
+                            <div class="data-row">
+                                <span class="data-label">Cognitive State</span>
+                                <span id="p-sage-state" class="chip ok"><span class="dot-sm"></span>—</span>
                             </div>
                             <div class="data-row">
-                                <span class="data-label">Swap In / Out</span>
-                                <span class="data-val" id="s-swap">—</span>
+                                <span class="data-label">Entropy Level</span>
+                                <span id="p-sage-entropy" class="chip ok"><span class="dot-sm"></span>—</span>
                             </div>
                             <div class="data-row">
-                                <span class="data-label">CPU Idle</span>
-                                <span class="data-val" id="s-idle">—</span>
+                                <span class="data-label">Audit Result</span>
+                                <span id="p-sage-audit" class="chip ok"><span class="dot-sm"></span>—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Uptime</span>
+                                <span class="data-val" id="p-sage-uptime">—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">CPU Load Avg</span>
+                                <span class="data-val" id="p-sage-cpu">—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Disk Mount</span>
+                                <span class="data-val" id="p-sage-disk">—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Observed At</span>
+                                <span class="data-val" id="p-sage-ts">—</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- === Panel: Agent (metadata) === -->
-                    <div class="panel">
+                    <!-- === Panel: Archivist Report === -->
+                    <div class="panel" id="panel-archivist">
                         <div class="panel-head">
-                            <div class="panel-title"><span class="panel-title-icon">◈</span> Agent Info</div>
+                            <div class="panel-title"><span class="panel-title-icon">📜</span> Archivist</div>
+                            <div id="p-arch-chip" class="chip ok"><span class="dot-sm"></span>—</div>
                         </div>
                         <div class="panel-body">
                             <div class="data-row">
-                                <span class="data-label">Agent</span>
-                                <span class="data-val" id="p-agent">—</span>
+                                <span class="data-label">Tasks Completed</span>
+                                <span class="data-val" id="p-arch-completed">—</span>
                             </div>
                             <div class="data-row">
-                                <span class="data-label">Version</span>
-                                <span class="data-val" id="p-version">—</span>
+                                <span class="data-label">Tasks Failed</span>
+                                <span class="data-val" id="p-arch-failed">—</span>
                             </div>
                             <div class="data-row">
-                                <span class="data-label">Metrics Status</span>
-                                <span id="p-metrics-status" class="chip neutral"><span class="dot-sm"></span>—</span>
+                                <span class="data-label">Key Incidents</span>
+                                <span class="data-val" id="p-arch-incidents">—</span>
                             </div>
                             <div class="data-row">
-                                <span class="data-label">Audit Health</span>
-                                <span id="p-audit-health" class="chip ok"><span class="dot-sm"></span>—</span>
+                                <span class="data-label">Observed At</span>
+                                <span class="data-val" id="p-arch-ts">—</span>
                             </div>
-                            <div class="data-row">
-                                <span class="data-label">Metrics Timestamp</span>
-                                <span class="data-val" id="p-metrics-ts">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">Audit Timestamp</span>
-                                <span class="data-val" id="p-audit-ts">—</span>
+                            <div class="data-row" style="flex-direction:column;align-items:flex-start;gap:8px;">
+                                <span class="data-label">Task Summary</span>
+                                <div id="p-arch-summary" class="quote-block" style="width:100%;font-style:normal;font-size:0.82rem;">
+                                    Awaiting data…
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1255,7 +1269,7 @@
                         </div>
                         <div class="panel-body combined-reflection-insights">
                             
-                            <!-- Row 1: Cognitive Reflection (1 column) -->
+                            <!-- Row 1: Sage Insights (reflection) -->
                             <div class="reflection-row">
                                 <div id="reflection-content" class="quote-block">
                                     Awaiting synchronization…
@@ -1265,15 +1279,15 @@
                                 </div>
                             </div>
 
-                            <!-- Row 2: Synthesis and Observation (2 columns) -->
+                            <!-- Row 2: Services & Processes (2 columns) -->
                             <div class="insights-row">
                                 <div class="insight-col">
-                                    <div class="insight-label">Synthesis</div>
-                                    <div id="insights-synthesis" class="insight-block">Awaiting…</div>
+                                    <div class="insight-label">Services Status</div>
+                                    <div id="insights-services" class="insight-block">Awaiting…</div>
                                 </div>
                                 <div class="insight-col">
-                                    <div class="insight-label">Observation</div>
-                                    <div id="insights-observation" class="insight-block">Awaiting…</div>
+                                    <div class="insight-label">Critical Processes</div>
+                                    <div id="insights-processes" class="insight-block">Awaiting…</div>
                                 </div>
                             </div>
 
@@ -1282,27 +1296,22 @@
 
                 </div><!-- /main-grid -->
 
-                <!-- AGENT AUDIT SECTION -->
+                <!-- AGENT OVERVIEW SECTION -->
                 <div class="section-divider fade-up d3">
-                    <span class="section-divider-title">Agent Sentinel Audits</span>
+                    <span class="section-divider-title">Fleet Overview</span>
                     <div class="section-divider-line"></div>
-                    <span id="audit-health-chip" class="chip ok"><span class="dot-sm"></span>STABLE</span>
-                </div>
-
-                <div class="filter-strip fade-up d3">
-                    <button class="flt-btn active" data-filter="all" id="btn-filter-all">All</button>
-                    <button class="flt-btn" data-filter="healthy" id="btn-filter-healthy">Healthy</button>
-                    <button class="flt-btn" data-filter="issue" id="btn-filter-issue">Issues</button>
+                    <span id="fleet-health-chip" class="chip ok"><span class="dot-sm"></span>ALL PASS</span>
                 </div>
 
                 <div class="audit-table-wrapper fade-up d4">
                     <table class="audit-table">
                         <thead>
                             <tr>
-                                <th style="width: 18%;">Agent</th>
+                                <th style="width: 16%;">Agent</th>
                                 <th style="width: 12%;">Status</th>
-                                <th style="width: 40%;">Analysis</th>
-                                <th style="width: 30%;">Technical Details</th>
+                                <th style="width: 42%;">Summary</th>
+                                <th style="width: 18%;">Timestamp</th>
+                                <th style="width: 12%;">Details</th>
                             </tr>
                         </thead>
                         <tbody id="audit-table-body">
@@ -1337,9 +1346,9 @@
         // ============================================================
 
         // Status classification constants (module-level for performance)
-        const OK_SET   = new Set(['OK','NOMINAL','LOW','NORMAL','CLOSED','UNLOCKED','ACTIVE','ONLINE','HEALTHY','STABLE','FULL','OPEN_GOOD']);
-        const WARN_SET = new Set(['WARNING','MODERATE','DEGRADED','STRESSED']);
-        const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR','DOWN','FAILED']);
+        const OK_SET   = new Set(['OK','NOMINAL','LOW','NORMAL','CLOSED','UNLOCKED','ACTIVE','ONLINE','HEALTHY','STABLE','FULL','OPEN_GOOD','PASS','RUNNING']);
+        const WARN_SET = new Set(['WARNING','MODERATE','DEGRADED','STRESSED','MEDIUM']);
+        const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR','DOWN','FAILED','UNREACHABLE','FAIL']);
 
         function chipClass(val) {
             if (!val) return 'neutral';
@@ -1391,46 +1400,31 @@
             }
         }
 
-        // Helper function to map metrics to accessibility/theme status pill classes (retained for backward compatibility if needed)
-        function getStatusPillClass(val) {
-            const cls = chipClass(val);
-            if (cls === 'ok') return 'status-pill success';
-            if (cls === 'warn') return 'status-pill warning';
-            if (cls === 'err') return 'status-pill danger';
-            return 'status-pill success';
-        }
-
         function parsePct(str) {
             if (!str) return 0;
             return parseFloat(String(str).replace('%','')) || 0;
         }
 
-        // ============================================================
-        // FILTER LOGIC
-        // ============================================================
-        let currentFilter = 'all';
-
-        function applyFilter(filter) {
-            currentFilter = filter;
-            document.querySelectorAll('.flt-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.filter === filter);
-            });
-            document.querySelectorAll('.agent-row').forEach(row => {
-                const s = row.dataset.status;
-                row.style.display = (filter === 'all' || s === filter) ? '' : 'none';
-            });
+        /**
+         * Format an ISO timestamp to a human-readable local string.
+         * Falls back to the raw string if parsing fails.
+         */
+        function formatTimestamp(ts) {
+            if (!ts) return '—';
+            try {
+                const d = new Date(ts);
+                if (isNaN(d.getTime())) return ts;
+                return d.toLocaleString('en-US', {
+                    year: 'numeric', month: 'short', day: 'numeric',
+                    hour: '2-digit', minute: '2-digit', second: '2-digit',
+                    hour12: false
+                });
+            } catch(_) { return ts; }
         }
 
-        // Initialize screen reader support and filter events
+        // Initialize screen reader support
         document.addEventListener('DOMContentLoaded', () => {
             initScreenReaderAnnouncer();
-            
-            // Set up filter buttons click handlers using event delegation
-            document.addEventListener('click', e => {
-                if (e.target && e.target.classList.contains('flt-btn')) {
-                    applyFilter(e.target.dataset.filter);
-                }
-            });
         });
 
         // ============================================================
@@ -1441,8 +1435,8 @@
             const content = document.getElementById('dash-content');
 
             try {
-                // Real-time cache-buster for telemetry freshness and robust retry
-                const data = await fetchWithFallback(`dashboard-snapshot-clean.json?v=${Date.now()}`, null, 2);
+                // Fetch the raw snapshot directly (no more normalization layer)
+                const data = await fetchWithFallback(`dashboard-snapshot.json?v=${Date.now()}`, null, 2);
                 if (!data) throw new Error('Null or invalid payload received.');
                 
                 renderDashboard(data);
@@ -1473,310 +1467,271 @@
         }
 
         function renderDashboard(data) {
-            // ---- SYSTEM ----
-            const sys = data.system || {};
+            // ---- EXTRACT TOP-LEVEL SECTIONS ----
+            const observer  = data.observer  || {};
+            const sage      = data.sage      || {};
+            const archivist = data.archivist || {};
 
-            // Banner timestamp
-            const ts = sys.timestamp || '—';
-            const tsEl = document.getElementById('banner-timestamp');
-            if (tsEl) tsEl.textContent = ts;
+            // ---- BANNER TIMESTAMP ----
+            const rootTs = data.timestamp || observer.timestamp || sage.timestamp || '—';
+            setVal('banner-timestamp', formatTimestamp(rootTs));
 
-            // Header page-meta
-            const agentName = data.metadata ? `${data.metadata.agent} v${data.metadata.version}` : '—';
-            setVal('header-agent-text', agentName);
-            const overallHealth = (data.audit && data.audit.overall_health) ? data.audit.overall_health : 'STABLE';
+            // ---- HEADER BADGE ----
+            // Derive overall health from sage cognitive state + observer stress + sage audit
+            const cogState   = (sage.cognitive_synthesis && sage.cognitive_synthesis.state) || 'UNKNOWN';
+            const stressLvl  = (observer.metrics && observer.metrics.stress_level) || 'Low';
+            const auditRes   = sage.audit_result || 'UNKNOWN';
+
+            let overallHealth = 'STABLE';
+            if (chipClass(cogState) === 'err' || chipClass(stressLvl) === 'err' || chipClass(auditRes) === 'err') {
+                overallHealth = 'CRITICAL';
+            } else if (chipClass(cogState) === 'warn' || chipClass(stressLvl) === 'warn' || chipClass(auditRes) === 'warn') {
+                overallHealth = 'DEGRADED';
+            } else if (chipClass(cogState) === 'ok' && chipClass(auditRes) === 'ok') {
+                overallHealth = 'STABLE';
+            }
+
+            // Header title
+            const overseerName = sage.overseer || 'Fray Observability Core';
+            setVal('header-agent-text', `Fray — ${overseerName}`);
+
             const healthEl = document.getElementById('header-health-badge');
             if (healthEl) {
                 healthEl.className = `health-badge ${chipClass(overallHealth)}`;
                 healthEl.innerHTML = `<span class="dot"></span>${escapeHTML(overallHealth)}`;
             }
 
-            // System Status panel
-            setVal('p-op-state',  sys.status || '—');
-            setVal('p-tier',      sys.tier   || '—');
-            setVal('p-mindset',   sys.mindset || '—');
+            // ---- VITALS STRIP ----
+            const obsHealth = observer.system_health || {};
 
-            // Circuit breaker status (detailed parsing from original index.html)
-            const circuitPill = document.getElementById('p-circuit');
-            const circuit = sys.circuit_breaker || 'CLOSED';
-            let parsedCircuit = null;
+            // CPU
+            const cpuUsage = (obsHealth.cpu && obsHealth.cpu.usage_percent) || 0;
+            const cpuStatus = (obsHealth.cpu && obsHealth.cpu.status) || 'nominal';
+            setVal('v-cpu', `${Number(cpuUsage).toFixed(1)}%`);
 
-            try {
-                if (typeof circuit === 'string' && (circuit.startsWith('{') || circuit.startsWith('['))) {
-                    parsedCircuit = JSON.parse(circuit);
-                } else if (typeof circuit === 'object' && circuit !== null) {
-                    parsedCircuit = circuit;
-                }
-            } catch (e) {
-                console.warn("Fray: Failed to parse circuit_breaker JSON:", e);
-            }
-
-            if (parsedCircuit) {
-                const breakers = parsedCircuit.circuit_breakers || parsedCircuit;
-                circuitPill.innerHTML = '';
-                circuitPill.className = ''; 
-                circuitPill.style.display = 'flex';
-                circuitPill.style.flexDirection = 'column';
-                circuitPill.style.alignItems = 'flex-end';
-                circuitPill.style.gap = '4px';
-                
-                for (const [key, val] of Object.entries(breakers)) {
-                    if (['last_updated', 'last_check', 'last_probe'].includes(key.toLowerCase())) continue;
-                    
-                    const valStr = String(val).toUpperCase();
-                    const badge = document.createElement('span');
-                    badge.className = `chip ${chipClass(val)}`;
-                    badge.innerHTML = `<span class="dot-sm"></span>${key.toUpperCase()}: ${valStr}`;
-                    circuitPill.appendChild(badge);
-                }
-                
-                const lastCheck = breakers.last_check || breakers.last_updated || breakers.last_probe;
-                const label = breakers.last_probe ? 'LAST_PROBE' : 'Checked';
-                if (lastCheck) {
-                    const checkTime = document.createElement('span');
-                    checkTime.style.fontSize = '0.72rem';
-                    checkTime.style.color = 'var(--text-muted)';
-                    checkTime.style.marginTop = '2px';
-                    checkTime.style.width = '100%';
-                    checkTime.style.textAlign = 'right';
-                    checkTime.innerText = `${label}: ${lastCheck}`;
-                    circuitPill.appendChild(checkTime);
-                }
-                
-                if (circuitPill.children.length === 0) {
-                    setChip('p-circuit', 'CLOSED');
-                }
+            // Parse sage cpu_load string "2.03 2.07 2.14" for load averages
+            const sageCpuLoad = (sage.system_health && sage.system_health.cpu_load) || '';
+            const loadParts = sageCpuLoad.split(/\s+/).map(Number).filter(n => !isNaN(n));
+            if (loadParts.length >= 3) {
+                setVal('v-cpu-sub', `Load avg: ${loadParts[0].toFixed(2)} / ${loadParts[1].toFixed(2)} / ${loadParts[2].toFixed(2)}`);
+            } else if (loadParts.length > 0) {
+                setVal('v-cpu-sub', `Load avg: ${sageCpuLoad}`);
             } else {
-                circuitPill.style.display = '';
-                setChip('p-circuit', circuit);
+                setVal('v-cpu-sub', `Status: ${cpuStatus}`);
             }
+            setBar('v-cpu-bar', cpuUsage);
 
-            // Security Lock
-            const locked = sys.security_lock;
-            setChip('p-security', locked ? 'LOCKED' : 'UNLOCKED');
+            // RAM
+            const ramUsed  = (obsHealth.ram && obsHealth.ram.used_mb) || 0;
+            const ramTotal = (obsHealth.ram && obsHealth.ram.total_mb) || 1;
+            const ramStatus = (obsHealth.ram && obsHealth.ram.status) || 'nominal';
+            const ramPct = Math.round((ramUsed / ramTotal) * 100);
+            const ramUsedGB = (ramUsed / 1024).toFixed(1);
+            const ramTotalGB = (ramTotal / 1024).toFixed(1);
+            setVal('v-ram', `${ramUsedGB} GB`);
+            setVal('v-ram-sub', `${ramTotalGB} GB total · ${ramStatus}`);
+            setBar('v-ram-bar', ramPct);
 
-            // System Status chip
-            setChip('p-system-status-chip', sys.status || 'ONLINE');
+            // GPU
+            const gpuModel  = (obsHealth.gpu && obsHealth.gpu.model) || '—';
+            const gpuStatus = (obsHealth.gpu && obsHealth.gpu.status) || 'nominal';
+            setVal('v-gpu', gpuModel);
+            const thermalStatus = (obsHealth.thermal && obsHealth.thermal.status) || '—';
+            setVal('v-gpu-sub', `Thermal: ${thermalStatus}`);
+            // GPU has no numeric value, so we set bar based on status
+            const gpuBarPct = chipClass(gpuStatus) === 'ok' ? 15 : (chipClass(gpuStatus) === 'warn' ? 55 : 90);
+            setBar('v-gpu-bar', gpuBarPct);
 
-            // ---- METRICS ----
-            const metricsRoot = data.metrics || {};
-            const m = metricsRoot.telemetry || {};
+            // Disk Usage (from sage.system_health.disk_usage)
+            const sageDisk = (sage.system_health && sage.system_health.disk_usage) || {};
+            const diskCapacity = sageDisk.capacity || '—';
+            const diskAvail    = sageDisk.available || '—';
+            const diskMount    = sageDisk.mount || '—';
+            const diskPct = parsePct(diskCapacity);
+            setVal('v-disk', diskCapacity);
+            setVal('v-disk-sub', `Available: ${diskAvail}`);
+            setBar('v-disk-bar', diskPct);
 
-            // Network chip
-            let netLat = '—';
-            if (m.network) {
-                if (m.network.n8n_ttfb && m.network.n8n_ttfb !== 'failed') {
-                    netLat = m.network.n8n_ttfb;
-                } else {
-                    netLat = m.network.connectivity || 'DOWN';
-                }
-            }
-            setChip('p-network', netLat);
+            // ---- OBSERVER PANEL ----
+            setChip('p-observer-chip', cpuStatus);
+            setChip('p-obs-cpu', cpuStatus);
+            setChip('p-obs-ram', ramStatus);
+            setChip('p-obs-gpu', gpuStatus);
+            setChip('p-obs-thermal', thermalStatus);
 
-            // Vitals strip
-            const cpuLoad1m = (m.cpu && m.cpu.load_avg_1m) || 0;
-            const cpuLoad5m = (m.cpu && m.cpu.load_avg_5m) || 0;
-            const cpuLoad15m = (m.cpu && m.cpu.load_avg_15m) || 0;
-            const cpuPct = Math.min(100, Math.round((cpuLoad1m / 8) * 100)); // Assuming 8-core CPU scaling
+            const obsStress = (observer.metrics && observer.metrics.stress_level) || '—';
+            setChip('p-obs-stress', obsStress);
+            setVal('p-obs-disk', `${diskCapacity} (${diskAvail} free)`);
+            setVal('p-obs-ts', formatTimestamp(observer.timestamp));
 
-            setVal('v-cpu-user',  m.cpu ? cpuLoad1m.toFixed(2) : '—');
-            setVal('v-cpu-sys',   m.cpu ? `5m: ${cpuLoad5m.toFixed(2)} · 15m: ${cpuLoad15m.toFixed(2)}` : '5m: — · 15m: —');
-            setBar('v-cpu-bar',   cpuPct);
+            // ---- SAGE PANEL ----
+            setChip('p-sage-chip', cogState);
+            setChip('p-sage-state', cogState);
 
-            let gpuVal = '—';
-            let thermalVal = '—';
-            let gpuPct = 0;
-            if (m.gpu) {
-                gpuVal = `${m.gpu.residency_percent.toFixed(1)}%`;
-                gpuPct = m.gpu.residency_percent;
-            }
-            if (m.thermal) {
-                thermalVal = m.thermal.pressure_level || '—';
-            }
-            setVal('v-gpu',       gpuVal);
-            setVal('v-thermal',   m.thermal && m.gpu ? `${thermalVal} (${m.gpu.power_mw}mW / ${m.gpu.frequency_mhz}MHz)` : thermalVal);
-            setBar('v-gpu-bar',   gpuPct);
+            const entropyLvl = (sage.cognitive_synthesis && sage.cognitive_synthesis.entropy_level) || '—';
+            setChip('p-sage-entropy', entropyLvl);
+            setChip('p-sage-audit', auditRes);
 
-            let memUsedStr = '—';
-            let freePagesStr = '—';
-            let memPct = 0;
-            if (m.memory) {
-                const activePages = m.memory.pages_active || 0;
-                const wiredPages = m.memory.pages_wired || 0;
-                const compressedPages = m.memory.pages_compressed || 0;
-                const freePages = m.memory.pages_free || 0;
-                
-                const activeGB = (activePages * 4096) / (1024 ** 3);
-                const wiredGB = (wiredPages * 4096) / (1024 ** 3);
-                const compGB = (compressedPages * 4096) / (1024 ** 3);
-                const freeGB = (freePages * 4096) / (1024 ** 3);
-                
-                const usedGB = activeGB + wiredGB + compGB;
-                const totalGB = usedGB + freeGB;
-                
-                memUsedStr = `${usedGB.toFixed(2)} GB`;
-                freePagesStr = freePages.toLocaleString();
-                memPct = totalGB > 0 ? Math.round((usedGB / totalGB) * 100) : 0;
-            }
-            setVal('v-mem',       memUsedStr);
-            setVal('v-pages',     freePagesStr);
-            setBar('v-mem-bar',   memPct);
+            const sageUptime = (sage.system_health && sage.system_health.uptime) || '—';
+            setVal('p-sage-uptime', sageUptime);
+            setVal('p-sage-cpu', sageCpuLoad || '—');
+            setVal('p-sage-disk', `${diskMount} (${diskCapacity})`);
+            setVal('p-sage-ts', formatTimestamp(sage.timestamp));
 
-            // Fallback gracefully for Disk I/O since snapshot does not contain disk metrics
-            setVal('v-disk-read', 'N/A');
-            setVal('v-disk-tps',  'N/A');
-            setBar('v-disk-bar',  0);
+            // ---- ARCHIVIST PANEL ----
+            const archCompleted = archivist.total_completed ?? '—';
+            const archFailed    = archivist.total_failed    ?? '—';
+            const archIncidents = archivist.key_incidents    || [];
+            const archSummary   = archivist.summary_of_tasks || 'No task summary available.';
 
-            // Stress panel calculations
-            const analysis = metricsRoot.analysis || {};
-            const overallStress = analysis.stress_level || 'NOMINAL';
-            
-            let cpuStress = analysis.cpu_stress || 'NOMINAL';
-            if (cpuLoad1m > 6.0) cpuStress = 'CRITICAL';
-            else if (cpuLoad1m > 4.0 && cpuStress !== 'CRITICAL') cpuStress = 'WARNING';
-            
-            let gpuStress = analysis.gpu_stress || 'NOMINAL';
-            if (m.gpu) {
-                if (m.gpu.residency_percent > 80) gpuStress = 'CRITICAL';
-                else if (m.gpu.residency_percent > 50 && gpuStress !== 'CRITICAL') gpuStress = 'WARNING';
+            // Archivist chip: pass if 0 failures and 0 incidents, warn if incidents, err if failures
+            let archHealth = 'PASS';
+            if (archFailed > 0) archHealth = 'FAILED';
+            else if (archIncidents.length > 0) archHealth = 'WARNING';
+
+            setChip('p-arch-chip', archHealth);
+            setVal('p-arch-completed', String(archCompleted));
+            setVal('p-arch-failed', String(archFailed));
+
+            // Format incidents
+            if (archIncidents.length === 0) {
+                setVal('p-arch-incidents', 'None');
             } else {
-                gpuStress = 'N/A';
-            }
-            
-            let memStress = analysis.memory_stress || 'NOMINAL';
-            if (m.memory) {
-                const memStatus = String(m.memory.status).toUpperCase();
-                if (memStatus === 'CRITICAL' || memStatus === 'HIGH') memStress = 'CRITICAL';
-                else if (memStatus === 'WARNING' || memStatus === 'STRESSED') memStress = 'WARNING';
+                setVal('p-arch-incidents', archIncidents.join(', '));
             }
 
-            setVal('s-cpu',  cpuStress);
-            setVal('s-gpu',  gpuStress);
-            setVal('s-mem',  memStress);
-            setVal('s-idle', 'N/A');
+            setVal('p-arch-ts', formatTimestamp(archivist.timestamp));
 
-            // Stress bars: NOMINAL = 20%, WARNING = 65%, CRITICAL = 95%
-            const stressToWidth = v => ({ NOMINAL: 20, WARNING: 65, CRITICAL: 95 }[String(v).toUpperCase()] || 20);
-            const stressToColor = v => ({
-                NOMINAL: 'var(--state-ok)', WARNING: 'var(--state-warn)', CRITICAL: 'var(--state-err)'
-            }[String(v).toUpperCase()] || 'var(--primary)');
+            const archSummaryEl = document.getElementById('p-arch-summary');
+            if (archSummaryEl) archSummaryEl.textContent = archSummary;
 
-            ['cpu','gpu','mem'].forEach(k => {
-                const val = k === 'cpu' ? cpuStress : (k === 'gpu' ? gpuStress : memStress);
-                const barEl = document.getElementById(`s-${k}-bar`);
-                if (barEl) {
-                    if (val === 'N/A') {
-                        barEl.style.width = '0%';
-                        barEl.style.background = 'var(--progress-track)';
-                    } else {
-                        barEl.style.width = stressToWidth(val) + '%';
-                        barEl.style.background = stressToColor(val);
-                    }
-                }
-            });
-
-            setChip('p-stress-chip', overallStress);
-
-            setVal('s-load', m.cpu ? `${cpuLoad1m.toFixed(2)} / ${cpuLoad5m.toFixed(2)} / ${cpuLoad15m.toFixed(2)}` : '—');
-            setVal('s-swap', 'N/A');
-
-            // Agent Info panel
-            if (data.metadata) {
-                setVal('p-agent',   data.metadata.agent   || '—');
-                setVal('p-version', `v${data.metadata.version}` || '—');
-            }
-            const metricsStatus = metricsRoot.timestamp ? 'ACTIVE' : 'OFFLINE';
-            setChip('p-metrics-status', metricsStatus);
-            setChip('p-audit-health',   overallHealth);
-            setVal('p-metrics-ts', metricsRoot.timestamp || '—');
-            setVal('p-audit-ts',   data.audit  ? data.audit.timestamp : '—');
-
-            // ---- REFLECTION ----
-            const rawRef = sys.last_reflection || 'No reflection recorded.';
-            let refFact = '', refMeta = '';
-            try {
-                const pr = JSON.parse(rawRef);
-                refFact = pr.fact || pr.reflection || rawRef;
-                if (pr.category || pr.timestamp) {
-                    refMeta = [
-                        pr.category  ? `🏷 ${escapeHTML(pr.category)}`  : '',
-                        pr.timestamp ? `⏱ ${escapeHTML(pr.timestamp)}` : ''
-                    ].filter(Boolean).join('  ·  ');
-                }
-            } catch(_) { refFact = rawRef; }
-
+            // ---- COGNITIVE REFLECTION (from sage) ----
+            const sageInsights = (sage.cognitive_synthesis && sage.cognitive_synthesis.insights)
+                || 'No cognitive insights recorded.';
             const refEl = document.getElementById('reflection-content');
-            if (refEl) refEl.textContent = refFact;
+            if (refEl) refEl.textContent = sageInsights;
 
+            // Meta tags for reflection
             const refMetaEl = document.getElementById('reflection-meta');
-            if (refMetaEl && refMeta) {
-                refMetaEl.innerHTML = refMeta.split('  ·  ')
-                    .filter(Boolean)
+            if (refMetaEl) {
+                const metaTags = [];
+                if (cogState)    metaTags.push(`🧠 State: ${escapeHTML(cogState)}`);
+                if (entropyLvl)  metaTags.push(`⚡ Entropy: ${escapeHTML(entropyLvl)}`);
+                if (auditRes)    metaTags.push(`✅ Audit: ${escapeHTML(auditRes)}`);
+                refMetaEl.innerHTML = metaTags
                     .map(t => `<span class="meta-tag">${t}</span>`)
                     .join('');
             }
 
-            // ---- INSIGHTS ----
-            const ins = (data.audit && data.audit.cognitive_insights) || {};
-            const synthEl = document.getElementById('insights-synthesis');
-            const obsEl   = document.getElementById('insights-observation');
-            if (synthEl) synthEl.textContent = ins.synthesis   || 'No synthesis recorded.';
-            if (obsEl)   obsEl.textContent   = ins.observation || 'No observations recorded.';
+            // ---- INSIGHTS: SERVICES & PROCESSES ----
+            // Services (from observer.services)
+            const services = observer.services || {};
+            const svcEl = document.getElementById('insights-services');
+            if (svcEl) {
+                const svcEntries = Object.entries(services);
+                if (svcEntries.length === 0) {
+                    svcEl.textContent = 'No services monitored.';
+                } else {
+                    svcEl.innerHTML = svcEntries.map(([name, info]) => {
+                        const status = (info && info.status) || 'unknown';
+                        const cls = chipClass(status);
+                        const probe = (info && info.last_probe) ? ` · Last probe: ${formatTimestamp(info.last_probe)}` : '';
+                        return `<div style="display:flex;align-items:center;gap:8px;padding:4px 0;">
+                            <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(status)}</span>
+                            <span style="font-weight:600;font-size:0.82rem;">${escapeHTML(name)}</span>
+                            <span style="font-size:0.72rem;color:var(--text-faint);">${probe}</span>
+                        </div>`;
+                    }).join('');
+                }
+            }
 
-            // ---- AUDIT GRID ----
-            const auditData  = data.audit  || {};
-            const agents     = auditData.audit || {};
-            const auditChipEl = document.getElementById('audit-health-chip');
-            if (auditChipEl) {
-                const cls = chipClass(overallHealth);
-                auditChipEl.className = `chip ${cls}`;
-                auditChipEl.innerHTML = `<span class="dot-sm"></span>${escapeHTML(overallHealth)}`;
+            // Critical Processes (from sage.system_health.critical_processes)
+            const processes = (sage.system_health && sage.system_health.critical_processes) || [];
+            const procEl = document.getElementById('insights-processes');
+            if (procEl) {
+                if (processes.length === 0) {
+                    procEl.textContent = 'No critical processes reported.';
+                } else {
+                    procEl.innerHTML = processes.map(proc => {
+                        const status = proc.status || 'UNKNOWN';
+                        const cls = chipClass(status);
+                        return `<div class="process-item">
+                            <span class="process-name">${escapeHTML(proc.name || 'unknown')}</span>
+                            <div class="process-meta">
+                                <span class="process-pid">PID ${proc.pid || '—'}</span>
+                                <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(status)}</span>
+                            </div>
+                        </div>`;
+                    }).join('');
+                }
+            }
+
+            // ---- FLEET OVERVIEW TABLE ----
+            // Build 3 rows: Observer, Sage, Archivist
+            const fleetData = [
+                {
+                    name: 'Observer',
+                    icon: '⬡',
+                    status: cpuStatus === 'nominal' && ramStatus !== 'stressed' ? 'NOMINAL' : (ramStatus === 'stressed' ? 'STRESSED' : cpuStatus),
+                    summary: `CPU ${cpuUsage}% · RAM ${ramPct}% (${ramStatus}) · Stress: ${obsStress}`,
+                    timestamp: observer.timestamp,
+                    details: `Disk ${diskCapacity}`
+                },
+                {
+                    name: 'The Sage',
+                    icon: '◈',
+                    status: cogState,
+                    summary: sageInsights.length > 120 ? sageInsights.substring(0, 120) + '…' : sageInsights,
+                    timestamp: sage.timestamp,
+                    details: `Audit: ${auditRes} · Entropy: ${entropyLvl}`
+                },
+                {
+                    name: 'Archivist',
+                    icon: '📜',
+                    status: archHealth,
+                    summary: archSummary.length > 120 ? archSummary.substring(0, 120) + '…' : archSummary,
+                    timestamp: archivist.timestamp,
+                    details: `✅ ${archCompleted} completed · ❌ ${archFailed} failed`
+                }
+            ];
+
+            // Fleet health chip
+            const hasIssues = fleetData.some(a => chipClass(a.status) === 'err' || chipClass(a.status) === 'warn');
+            const fleetChip = document.getElementById('fleet-health-chip');
+            if (fleetChip) {
+                const fleetHealth = hasIssues ? 'ISSUES DETECTED' : 'ALL PASS';
+                const fleetCls = hasIssues ? 'warn' : 'ok';
+                fleetChip.className = `chip ${fleetCls}`;
+                fleetChip.innerHTML = `<span class="dot-sm"></span>${escapeHTML(fleetHealth)}`;
             }
 
             const auditTableBody = document.getElementById('audit-table-body');
             if (auditTableBody) {
-                auditTableBody.innerHTML = '';
-                let healthy = 0, issues = 0;
-
-                for (const [name, info] of Object.entries(agents)) {
-                    const status = info.status || 'UNKNOWN';
-                    const cls    = chipClass(status);
-                    const isOk   = cls === 'ok';
-                    if (isOk) healthy++; else issues++;
-
-                    const dot = isOk ? 'ok' : (cls === 'warn' ? 'warn' : 'err');
-                    auditTableBody.innerHTML += `
-                        <tr class="agent-row" data-status="${isOk ? 'healthy' : 'issue'}">
+                auditTableBody.innerHTML = fleetData.map(agent => {
+                    const cls = chipClass(agent.status);
+                    const dot = cls === 'ok' ? 'ok' : (cls === 'warn' ? 'warn' : 'err');
+                    return `
+                        <tr>
                             <td>
                                 <div class="audit-agent-cell">
                                     <span class="agent-indicator ${dot}" aria-hidden="true"></span>
-                                    <span class="agent-name">${escapeHTML(name)}</span>
+                                    <span class="agent-name">${escapeHTML(agent.icon)} ${escapeHTML(agent.name)}</span>
                                 </div>
                             </td>
                             <td>
-                                <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(status)}</span>
+                                <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(agent.status)}</span>
                             </td>
                             <td>
-                                <div class="agent-analysis">${escapeHTML(info.analysis || 'No analysis details.')}</div>
+                                <div class="agent-analysis">${escapeHTML(agent.summary)}</div>
                             </td>
                             <td>
-                                <div class="audit-technical-cell">${escapeHTML(info.technical || 'No technical details.')}</div>
+                                <div class="audit-technical-cell">${formatTimestamp(agent.timestamp)}</div>
+                            </td>
+                            <td>
+                                <div style="font-size:0.78rem;color:var(--text-muted);">${escapeHTML(agent.details)}</div>
                             </td>
                         </tr>`;
-                }
-
-                const btnAll     = document.getElementById('btn-filter-all');
-                const btnHealthy = document.getElementById('btn-filter-healthy');
-                const btnIssue   = document.getElementById('btn-filter-issue');
-                if (btnAll)     btnAll.textContent     = `All (${Object.keys(agents).length})`;
-                if (btnHealthy) btnHealthy.textContent = `Healthy (${healthy})`;
-                if (btnIssue) {
-                    btnIssue.textContent = `Issues (${issues})`;
-                    btnIssue.style.color  = issues > 0 ? 'var(--state-err)' : '';
-                    btnIssue.style.border = issues > 0 ? `1px solid var(--state-err)` : '';
-                }
-
-                applyFilter(currentFilter);
+                }).join('');
             }
         }
 
