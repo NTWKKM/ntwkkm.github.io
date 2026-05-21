@@ -3,79 +3,81 @@
     "status": "ONLINE",
     "tier": "full",
     "security_lock": false,
-    "circuit_breaker": "{\n  \"n8n_connectivity\": \"DOWN\",\n  \"circuit_breaker_status\": \"OPEN\",\n  \"last_check\": \"2026-05-21T00:00:00Z\",\n  \"failure_count\": 1\n}",
+    "circuit_breaker": "{\n  \"n8n_connectivity\": \"DOWN\",\n  \"circuit_breaker_status\": \"OPEN\",\n  \"last_check\": \"2026-05-21T08:01:00Z\",\n  \"failure_count\": 2\n}",
     "mindset": "Sati-Observation",
     "last_reflection": "{\"timestamp\": \"2026-05-19\", \"category\": \"system_audit\", \"fact\": \"Daily heartbeats for 2026-05-18 maintained system state snapshots. The Guard sequence completed and verified security telemetry as OK.\"}",
-    "timestamp": "2026-05-20T18:38:52Z"
+    "timestamp": "2026-05-21T01:20:38Z"
   },
   "metrics": {
-    "telemetry": {
-      "cpu": {
-        "load_avg": [
-          2.57,
-          2.27,
-          2.57
-        ],
-        "usage_percent": 25.7
+    "timestamp": "2026-05-21T08:01:00Z",
+    "metrics": {
+      "load_avg": {
+        "1m": 2.59,
+        "5m": 2.65,
+        "15m": 2.57
       },
       "memory": {
-        "used_mb": 0,
-        "unused_mb": 21.234375
+        "active_pages": 131696,
+        "free_pages": 4827,
+        "compressor_pages": 318420
       },
       "gpu": {
-        "active_residency_percent": 0,
-        "power_mw": 0
+        "active_residency": 9.14,
+        "frequency_mhz": 396
+      },
+      "thermal": {
+        "pressure_level": "Nominal"
       },
       "network": {
-        "n8n_ttfb": "N/A",
-        "status": "connected"
+        "n8n_ttfb": "ERR_HOST_UNRESOLVABLE"
       }
     },
-    "analysis": {
-      "stress_level": "NORMAL",
-      "reason": "System operating within nominal parameters."
-    },
-    "timestamp": "2026-05-20T18:22:35.906746Z"
+    "stress_analysis": {
+      "cpu_stress": "STRESSED",
+      "gpu_stress": "NOMINAL",
+      "memory_stress": "NOMINAL",
+      "overall_status": "STRESSED"
+    }
   },
   "audit": {
-    "timestamp": "2026-05-19T10:02:54.607051Z",
+    "timestamp": "2026-05-20T18:38:54.501522Z",
     "audit": {
       "THE GUARD": {
         "status": "HEALTHY",
-        "technical": "Found",
-        "analysis": "Normal"
+        "technical": "Artifact present: /Users/ntwkkm/hermes/state/security.lock",
+        "analysis": "Normal operational activity."
       },
       "THE OBSERVER": {
         "status": "HEALTHY",
-        "technical": "Found",
-        "analysis": "Normal"
+        "technical": "Artifact present: /Users/ntwkkm/hermes/state/context-snapshot.json",
+        "analysis": "Normal operational activity."
       },
       "THE HERALD": {
         "status": "HEALTHY",
-        "technical": "Found",
-        "analysis": "Normal"
+        "technical": "Command execution successful",
+        "analysis": "Broadcasting channel active."
       },
       "THE COMPANION": {
         "status": "HEALTHY",
-        "technical": "Found",
-        "analysis": "Normal"
+        "technical": "Artifact present: /Users/ntwkkm/hermes/logs/daily-audit.log",
+        "analysis": "Normal operational activity."
       },
       "THE ARCHIVIST": {
         "status": "HEALTHY",
-        "technical": "Found",
-        "analysis": "Normal"
+        "technical": "Artifact present: /Users/ntwkkm/hermes/memory/memory-log.jsonl",
+        "analysis": "Normal operational activity."
       },
       "THE SAGE": {
         "status": "HEALTHY",
-        "technical": "Internal",
-        "analysis": "Intact"
+        "technical": "Self-diagnostic active",
+        "analysis": "Cognitive reflection intact."
       }
     },
-    "overall_health": "STABLE",
+    "overall_health": "OPTIMAL",
     "cognitive_insights": {
-      "synthesis": "System health is STABLE. Core agents are synchronized.",
-      "observation": "P-series tasks running smoothly (1 completions).",
-      "telemetry_note": "GPU: Unknown, Thermal: Nominal, Latency: Timeout"
+      "synthesis": "Core architectural integrity is verified across all Hub-and-Spoke nexus points.",
+      "observation": "Deep research confirms a synchronous flow from Security to Cleaning. Cold-start patience (90s) has stabilized the Herald.",
+      "telemetry_note": "GPU/Thermal state: Nominal. Disk pressure: Low."
     }
   },
   "metadata": {
