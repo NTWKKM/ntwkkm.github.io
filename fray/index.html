@@ -1182,6 +1182,10 @@
                                 <span id="p-obs-stress" class="chip neutral"><span class="dot-sm"></span>—</span>
                             </div>
                             <div class="data-row">
+                                <span class="data-label">n8n Status</span>
+                                <span id="p-obs-n8n" class="chip neutral"><span class="dot-sm"></span>—</span>
+                            </div>
+                            <div class="data-row">
                                 <span class="data-label">Disk Usage</span>
                                 <span class="data-val" id="p-obs-disk">—</span>
                             </div>
@@ -1579,8 +1583,13 @@
             setChip('p-obs-thermal', thermalStatus);
 
             const n8nStatus = (observer.n8n_heartbeat && observer.n8n_heartbeat.status) || 'unknown';
+            const n8nHealth = (observer.n8n_heartbeat && observer.n8n_heartbeat.health) || 'Unknown';
             const obsStress = n8nStatus === 'ok' ? 'nominal' : 'warning';
             setChip('p-obs-stress', obsStress);
+            setChip('p-obs-n8n', n8nStatus === 'ok' ? 'ok' : 'err');
+            const n8nChip = document.getElementById('p-obs-n8n');
+            if(n8nChip) n8nChip.innerHTML = `<span class="dot-sm"></span>${escapeHTML(n8nHealth.toUpperCase())}`;
+
             setVal('p-obs-disk', `${obsDiskCapacity} (${obsDiskAvail} free)`);
             setVal('p-obs-ts', formatTimestamp(observer.timestamp));
 
