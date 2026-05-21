@@ -1,33 +1,27 @@
 {
   "observer": {
-    "timestamp": "2026-05-21T17:11:23Z",
-    "system_health": {
-      "cpu": {
-        "usage_percent": 32.98,
-        "status": "nominal"
+    "timestamp": "2026-05-22T00:00:00Z",
+    "telemetry": {
+      "cpu": "7.75% user, 14.69% sys, 77.55% idle",
+      "memory": {
+        "pages_free": 4209,
+        "pages_active": 109513,
+        "pages_inactive": 108688,
+        "pages_wired": 86614
       },
-      "ram": {
-        "used_mb": 7329,
-        "total_mb": 8192,
-        "status": "stressed"
+      "disk": {
+        "mount": "/",
+        "size": "228Gi",
+        "used": "12Gi",
+        "available": "30Gi",
+        "capacity": "28%"
       },
-      "gpu": {
-        "model": "Apple M1",
-        "status": "nominal"
-      },
-      "thermal": {
-        "status": "unknown"
-      }
+      "network": "192.168.231.231"
     },
-    "services": {
-      "n8n": {
-        "status": "unreachable",
-        "last_probe": "2026-05-21T17:11:23Z"
-      }
-    },
-    "metrics": {
-      "disk_usage_percent": 85,
-      "stress_level": "Medium"
+    "n8n_heartbeat": {
+      "status": "ok",
+      "response": "n8n Webserver is online and responding correctly.",
+      "health": "Healthy"
     }
   },
   "sage": {
@@ -68,5 +62,5 @@
     "total_failed": 0,
     "key_incidents": []
   },
-  "timestamp": "2026-05-21T17:20:48.945535Z"
+  "timestamp": "2026-05-21T17:47:33.600260Z"
 }
