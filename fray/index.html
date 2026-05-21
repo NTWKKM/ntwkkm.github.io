@@ -1501,12 +1501,18 @@
             }
 
             // ---- VITALS STRIP ----
-            const obsHealth = observer.system_health || {};
+            const telemetry = observer.telemetry || {};
 
             // CPU
-            const cpuUsage = (obsHealth.cpu && obsHealth.cpu.usage_percent) || 0;
-            const cpuStatus = (obsHealth.cpu && obsHealth.cpu.status) || 'nominal';
-            setVal('v-cpu', `${Number(cpuUsage).toFixed(1)}%`);
+            // parse: "7.75% user, 14.69% sys, 77.55% idle"
+            const cpuStr = telemetry.cpu || "";
+            let cpuUsage = 0;
+            const idleMatch = cpuStr.match(/([\d.]+)%\s*idle/);
+            if (idleMatch) {
+                cpuUsage = 100 - parseFloat(idleMatch[1]);
+            }
+            const cpuStatus = cpuUsage > 80 ? 'critical' : (cpuUsage > 60 ? 'warning' : 'nominal');
+            setVal('v-cpu', `${cpuUsage.toFixed(1)}%`);
 
             // Parse sage cpu_load string "2.03 2.07 2.14" for load averages
             const sageCpuLoad = (sage.system_health && sage.system_health.cpu_load) || '';
@@ -1521,32 +1527,46 @@
             setBar('v-cpu-bar', cpuUsage);
 
             // RAM
-            const ramUsed  = (obsHealth.ram && obsHealth.ram.used_mb) || 0;
-            const ramTotal = (obsHealth.ram && obsHealth.ram.total_mb) || 1;
-            const ramStatus = (obsHealth.ram && obsHealth.ram.status) || 'nominal';
-            const ramPct = Math.round((ramUsed / ramTotal) * 100);
-            const ramUsedGB = (ramUsed / 1024).toFixed(1);
-            const ramTotalGB = (ramTotal / 1024).toFixed(1);
+            const mem = telemetry.memory || {};
+            const pagesFree = mem.pages_free || 0;
+            const pagesActive = mem.pages_active || 0;
+            const pagesInactive = mem.pages_inactive || 0;
+            const pagesWired = mem.pages_wired || 0;
+            const totalPages = pagesFree + pagesActive + pagesInactive + pagesWired || 1;
+            const usedPages = pagesActive + pagesWired;
+            const ramPct = Math.round((usedPages / totalPages) * 100);
+            
+            // Assume 16KB pages on macOS
+            const ramUsedMB = (usedPages * 16384) / (1024 * 1024);
+            const ramTotalMB = (totalPages * 16384) / (1024 * 1024);
+            const ramStatus = ramPct > 85 ? 'critical' : (ramPct > 70 ? 'warning' : 'nominal');
+            const ramUsedGB = (ramUsedMB / 1024).toFixed(1);
+            const ramTotalGB = (ramTotalMB / 1024).toFixed(1);
             setVal('v-ram', `${ramUsedGB} GB`);
             setVal('v-ram-sub', `${ramTotalGB} GB total · ${ramStatus}`);
             setBar('v-ram-bar', ramPct);
 
-            // GPU
-            const gpuModel  = (obsHealth.gpu && obsHealth.gpu.model) || '—';
-            const gpuStatus = (obsHealth.gpu && obsHealth.gpu.status) || 'nominal';
+            // GPU - Not provided in JSON, default to Apple Silicon
+            const gpuModel  = 'Apple Silicon';
+            const gpuStatus = 'nominal';
             setVal('v-gpu', gpuModel);
-            const thermalStatus = (obsHealth.thermal && obsHealth.thermal.status) || '—';
+            const thermalStatus = 'nominal';
             setVal('v-gpu-sub', `Thermal: ${thermalStatus}`);
-            // GPU has no numeric value, so we set bar based on status
-            const gpuBarPct = chipClass(gpuStatus) === 'ok' ? 15 : (chipClass(gpuStatus) === 'warn' ? 55 : 90);
+            const gpuBarPct = 15;
             setBar('v-gpu-bar', gpuBarPct);
 
-            // Disk Usage (from sage.system_health.disk_usage)
+            // Disk Usage
+            const obsDisk = telemetry.disk || {};
+            const obsDiskCapacity = obsDisk.capacity || '—';
+            const obsDiskAvail    = obsDisk.available || '—';
+
+            // Sage disk usage
             const sageDisk = (sage.system_health && sage.system_health.disk_usage) || {};
-            const diskCapacity = sageDisk.capacity || '—';
-            const diskAvail    = sageDisk.available || '—';
-            const diskMount    = sageDisk.mount || '—';
+            const diskCapacity = sageDisk.capacity || obsDiskCapacity;
+            const diskAvail    = sageDisk.available || obsDiskAvail;
+            const diskMount    = sageDisk.mount || (obsDisk.mount || '—');
             const diskPct = parsePct(diskCapacity);
+            
             setVal('v-disk', diskCapacity);
             setVal('v-disk-sub', `Available: ${diskAvail}`);
             setBar('v-disk-bar', diskPct);
@@ -1558,9 +1578,10 @@
             setChip('p-obs-gpu', gpuStatus);
             setChip('p-obs-thermal', thermalStatus);
 
-            const obsStress = (observer.metrics && observer.metrics.stress_level) || '—';
+            const n8nStatus = (observer.n8n_heartbeat && observer.n8n_heartbeat.status) || 'unknown';
+            const obsStress = n8nStatus === 'ok' ? 'nominal' : 'warning';
             setChip('p-obs-stress', obsStress);
-            setVal('p-obs-disk', `${diskCapacity} (${diskAvail} free)`);
+            setVal('p-obs-disk', `${obsDiskCapacity} (${obsDiskAvail} free)`);
             setVal('p-obs-ts', formatTimestamp(observer.timestamp));
 
             // ---- SAGE PANEL ----
@@ -1671,8 +1692,8 @@
                 {
                     name: 'The Observer',
                     icon: '⬡',
-                    status: cpuStatus === 'nominal' && ramStatus !== 'stressed' ? 'NOMINAL' : (ramStatus === 'stressed' ? 'STRESSED' : cpuStatus),
-                    summary: `CPU ${cpuUsage}% · RAM ${ramPct}% (${ramStatus}) · Stress: ${obsStress}`,
+                    status: cpuStatus === 'nominal' && ramStatus !== 'stressed' && ramStatus !== 'critical' && ramStatus !== 'warning' ? 'NOMINAL' : (ramStatus === 'warning' || ramStatus === 'critical' ? 'STRESSED' : cpuStatus),
+                    summary: `CPU ${cpuUsage.toFixed(1)}% · RAM ${ramPct}% (${ramStatus}) · Stress: ${obsStress}`,
                     timestamp: observer.timestamp,
                     details: `Disk ${diskCapacity}`
                 },
