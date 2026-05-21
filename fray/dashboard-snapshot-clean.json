@@ -4,23 +4,23 @@
     "tier": "full",
     "security_lock": false,
     "mindset": "Sati-Observation",
-    "last_reflection": "{\"timestamp\": \"2026-05-19\", \"category\": \"system_audit\", \"fact\": \"Daily heartbeats for 2026-05-18 maintained system state snapshots. The Guard sequence completed and verified security telemetry as OK.\"}",
-    "timestamp": "2026-05-21T01:24:58Z",
-    "circuit_breaker": "{\n  \"n8n_connectivity\": \"DOWN\",\n  \"circuit_breaker_status\": \"OPEN\",\n  \"last_check\": \"2026-05-21T08:22:00Z\",\n  \"failure_count\": 3\n}"
+    "last_reflection": "",
+    "timestamp": "2026-05-21T04:55:46.818Z",
+    "circuit_breaker": "CLOSED"
   },
   "metrics": {
-    "timestamp": "2026-05-21T08:22:00Z",
+    "timestamp": "2026-05-21T04:55:46.818Z",
     "telemetry": {
       "cpu": {
-        "load_avg_1m": 3.66,
-        "load_avg_5m": 4.26,
-        "load_avg_15m": 3.38
+        "load_avg_1m": 0,
+        "load_avg_5m": 0,
+        "load_avg_15m": 0
       },
       "memory": {
         "pages_free": 24832,
-        "pages_active": 0,
-        "pages_wired": 0,
-        "pages_compressed": 0,
+        "pages_active": 964352,
+        "pages_wired": 482176,
+        "pages_compressed": 482176,
         "status": "active"
       },
       "gpu": {
@@ -45,43 +45,12 @@
     }
   },
   "audit": {
-    "timestamp": "2026-05-20T18:38:54.501522Z",
-    "overall_health": "OPTIMAL",
-    "audit": {
-      "THE GUARD": {
-        "status": "HEALTHY",
-        "technical": "Artifact present: /Users/ntwkkm/hermes/state/security.lock",
-        "analysis": "Normal operational activity."
-      },
-      "THE OBSERVER": {
-        "status": "HEALTHY",
-        "technical": "Artifact present: /Users/ntwkkm/hermes/state/context-snapshot.json",
-        "analysis": "Normal operational activity."
-      },
-      "THE HERALD": {
-        "status": "HEALTHY",
-        "technical": "Command execution successful",
-        "analysis": "Broadcasting channel active."
-      },
-      "THE COMPANION": {
-        "status": "HEALTHY",
-        "technical": "Artifact present: /Users/ntwkkm/hermes/logs/daily-audit.log",
-        "analysis": "Normal operational activity."
-      },
-      "THE ARCHIVIST": {
-        "status": "HEALTHY",
-        "technical": "Artifact present: /Users/ntwkkm/hermes/memory/memory-log.jsonl",
-        "analysis": "Normal operational activity."
-      },
-      "THE SAGE": {
-        "status": "HEALTHY",
-        "technical": "Self-diagnostic active",
-        "analysis": "Cognitive reflection intact."
-      }
-    },
+    "timestamp": "2026-05-21T04:55:46.818Z",
+    "overall_health": "STABLE",
+    "audit": {},
     "cognitive_insights": {
-      "synthesis": "Core architectural integrity is verified across all Hub-and-Spoke nexus points.",
-      "observation": "Deep research confirms a synchronous flow from Security to Cleaning. Cold-start patience (90s) has stabilized the Herald."
+      "synthesis": "No synthesis recorded.",
+      "observation": "No observations recorded."
     }
   },
   "metadata": {
