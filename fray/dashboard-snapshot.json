@@ -1,86 +1,65 @@
 {
-  "system": {
-    "status": "ONLINE",
-    "tier": "full",
-    "security_lock": false,
-    "circuit_breaker": "{\n  \"n8n_connectivity\": \"DOWN\",\n  \"circuit_breaker_status\": \"OPEN\",\n  \"last_check\": \"2026-05-21T08:22:00Z\",\n  \"failure_count\": 3\n}",
-    "mindset": "Sati-Observation",
-    "last_reflection": "{\"timestamp\": \"2026-05-19\", \"category\": \"system_audit\", \"fact\": \"Daily heartbeats for 2026-05-18 maintained system state snapshots. The Guard sequence completed and verified security telemetry as OK.\"}",
-    "timestamp": "2026-05-21T01:24:58Z"
-  },
-  "metrics": {
-    "timestamp": "2026-05-21T08:22:00Z",
-    "metrics": {
-      "load_avg": {
-        "1m": 3.66,
-        "5m": 4.26,
-        "15m": 3.38
+  "observer": {
+    "timestamp": "2026-05-21T12:00:00Z",
+    "system_health": {
+      "cpu": {
+        "usage_percent": 26.25,
+        "status": "nominal"
       },
-      "memory": {
-        "used_mb": 7546,
-        "unused_mb": 87
+      "ram": {
+        "used_mb": 7519,
+        "total_mb": 8192,
+        "status": "stressed"
       },
       "gpu": {
-        "active_residency": 14.47,
-        "frequency_mhz": 396
+        "model": "Apple M1",
+        "status": "nominal"
       },
       "thermal": {
-        "pressure_level": "Nominal"
-      },
-      "network": {
-        "n8n_ttfb": "CONN_FAILED"
+        "status": "nominal"
       }
     },
-    "stress_analysis": {
-      "cpu_stress": "STRESSED",
-      "gpu_stress": "NOMINAL",
-      "memory_stress": "CRITICAL",
-      "overall_status": "STRESSED"
-    }
-  },
-  "audit": {
-    "timestamp": "2026-05-20T18:38:54.501522Z",
-    "audit": {
-      "THE GUARD": {
-        "status": "HEALTHY",
-        "technical": "Artifact present: /Users/ntwkkm/hermes/state/security.lock",
-        "analysis": "Normal operational activity."
-      },
-      "THE OBSERVER": {
-        "status": "HEALTHY",
-        "technical": "Artifact present: /Users/ntwkkm/hermes/state/context-snapshot.json",
-        "analysis": "Normal operational activity."
-      },
-      "THE HERALD": {
-        "status": "HEALTHY",
-        "technical": "Command execution successful",
-        "analysis": "Broadcasting channel active."
-      },
-      "THE COMPANION": {
-        "status": "HEALTHY",
-        "technical": "Artifact present: /Users/ntwkkm/hermes/logs/daily-audit.log",
-        "analysis": "Normal operational activity."
-      },
-      "THE ARCHIVIST": {
-        "status": "HEALTHY",
-        "technical": "Artifact present: /Users/ntwkkm/hermes/memory/memory-log.jsonl",
-        "analysis": "Normal operational activity."
-      },
-      "THE SAGE": {
-        "status": "HEALTHY",
-        "technical": "Self-diagnostic active",
-        "analysis": "Cognitive reflection intact."
+    "services": {
+      "n8n": {
+        "status": "unreachable",
+        "last_probe": "2026-05-21T12:00:00Z"
       }
     },
-    "overall_health": "OPTIMAL",
-    "cognitive_insights": {
-      "synthesis": "Core architectural integrity is verified across all Hub-and-Spoke nexus points.",
-      "observation": "Deep research confirms a synchronous flow from Security to Cleaning. Cold-start patience (90s) has stabilized the Herald.",
-      "telemetry_note": "GPU/Thermal state: Nominal. Disk pressure: Low."
+    "metrics": {
+      "disk_usage_percent": 85,
+      "stress_level": "Medium"
     }
   },
-  "metadata": {
-    "agent": "Fray-Orchestrator",
-    "version": "1.1.4"
-  }
+  "sage": {
+    "timestamp": "2026-05-21T10:57:00Z",
+    "overseer": "THE SAGE",
+    "system_health": {
+      "cpu_load": "2.03 2.07 2.14",
+      "uptime": "4:53",
+      "disk_usage": {
+        "mount": "/System/Volumes/Data",
+        "capacity": "85%",
+        "available": "31Gi"
+      },
+      "critical_processes": [
+        {
+          "name": "hermes-gateway",
+          "pid": 824,
+          "status": "RUNNING"
+        },
+        {
+          "name": "ollama",
+          "pid": 855,
+          "status": "RUNNING"
+        }
+      ]
+    },
+    "cognitive_synthesis": {
+      "state": "STABLE",
+      "insights": "System is operating within normal parameters. Resource contention is low despite high disk utilization (85%). Gateway and LLM backends are healthy.",
+      "entropy_level": "LOW"
+    },
+    "audit_result": "PASS"
+  },
+  "timestamp": "2026-05-21T11:30:00Z"
 }
