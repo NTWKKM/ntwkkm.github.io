@@ -1052,7 +1052,7 @@
         <nav class="container header-content" aria-label="Main navigation">
             <div class="brand-group">
                 <div class="brand-title-row">
-                    <h1 id="header-agent-text">Fray Observability Core</h1>
+                    <h1 id="header-agent-text">FRAY-ORCHESTRATION</h1>
                     <div class="brand-badges">
                         <span id="header-health-badge" class="health-badge ok">
                             <span class="dot"></span>
@@ -1157,7 +1157,7 @@
                     <!-- === Panel: Observer Status === -->
                     <div class="panel" id="panel-observer">
                         <div class="panel-head">
-                            <div class="panel-title"><span class="panel-title-icon">⬡</span> Observer</div>
+                            <div class="panel-title"><span class="panel-title-icon">⬡</span> The Observer</div>
                             <div id="p-observer-chip" class="chip ok"><span class="dot-sm"></span>NOMINAL</div>
                         </div>
                         <div class="panel-body">
@@ -1233,7 +1233,7 @@
                     <!-- === Panel: Archivist Report === -->
                     <div class="panel" id="panel-archivist">
                         <div class="panel-head">
-                            <div class="panel-title"><span class="panel-title-icon">📜</span> Archivist</div>
+                            <div class="panel-title"><span class="panel-title-icon">📜</span> The Archivist</div>
                             <div id="p-arch-chip" class="chip ok"><span class="dot-sm"></span>—</div>
                         </div>
                         <div class="panel-body">
@@ -1492,8 +1492,7 @@
             }
 
             // Header title
-            const overseerName = sage.overseer || 'Fray Observability Core';
-            setVal('header-agent-text', `Fray — ${overseerName}`);
+            setVal('header-agent-text', 'FRAY-ORCHESTRATION');
 
             const healthEl = document.getElementById('header-health-badge');
             if (healthEl) {
@@ -1667,10 +1666,10 @@
             }
 
             // ---- FLEET OVERVIEW TABLE ----
-            // Build 3 rows: Observer, Sage, Archivist
+            // Build 3 rows: The Observer, The Sage, The Archivist
             const fleetData = [
                 {
-                    name: 'Observer',
+                    name: 'The Observer',
                     icon: '⬡',
                     status: cpuStatus === 'nominal' && ramStatus !== 'stressed' ? 'NOMINAL' : (ramStatus === 'stressed' ? 'STRESSED' : cpuStatus),
                     summary: `CPU ${cpuUsage}% · RAM ${ramPct}% (${ramStatus}) · Stress: ${obsStress}`,
@@ -1686,7 +1685,7 @@
                     details: `Audit: ${auditRes} · Entropy: ${entropyLvl}`
                 },
                 {
-                    name: 'Archivist',
+                    name: 'The Archivist',
                     icon: '📜',
                     status: archHealth,
                     summary: archSummary.length > 120 ? archSummary.substring(0, 120) + '…' : archSummary,
