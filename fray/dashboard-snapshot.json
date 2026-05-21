@@ -1,13 +1,13 @@
 {
   "observer": {
-    "timestamp": "2026-05-21T12:00:00Z",
+    "timestamp": "2026-05-21T17:11:23Z",
     "system_health": {
       "cpu": {
-        "usage_percent": 26.25,
+        "usage_percent": 32.98,
         "status": "nominal"
       },
       "ram": {
-        "used_mb": 7519,
+        "used_mb": 7329,
         "total_mb": 8192,
         "status": "stressed"
       },
@@ -16,13 +16,13 @@
         "status": "nominal"
       },
       "thermal": {
-        "status": "nominal"
+        "status": "unknown"
       }
     },
     "services": {
       "n8n": {
         "status": "unreachable",
-        "last_probe": "2026-05-21T12:00:00Z"
+        "last_probe": "2026-05-21T17:11:23Z"
       }
     },
     "metrics": {
@@ -68,5 +68,5 @@
     "total_failed": 0,
     "key_incidents": []
   },
-  "timestamp": "2026-05-21T05:27:39.483144Z"
+  "timestamp": "2026-05-21T17:12:55.898066Z"
 }
