@@ -3,39 +3,38 @@
     "status": "ONLINE",
     "tier": "full",
     "security_lock": false,
-    "circuit_breaker": "{\n  \"n8n_connectivity\": \"DOWN\",\n  \"circuit_breaker_status\": \"OPEN\",\n  \"last_check\": \"2026-05-21T08:01:00Z\",\n  \"failure_count\": 2\n}",
+    "circuit_breaker": "{\n  \"n8n_connectivity\": \"DOWN\",\n  \"circuit_breaker_status\": \"OPEN\",\n  \"last_check\": \"2026-05-21T08:22:00Z\",\n  \"failure_count\": 3\n}",
     "mindset": "Sati-Observation",
     "last_reflection": "{\"timestamp\": \"2026-05-19\", \"category\": \"system_audit\", \"fact\": \"Daily heartbeats for 2026-05-18 maintained system state snapshots. The Guard sequence completed and verified security telemetry as OK.\"}",
-    "timestamp": "2026-05-21T01:22:15Z"
+    "timestamp": "2026-05-21T01:24:58Z"
   },
   "metrics": {
-    "timestamp": "2026-05-21T08:01:00Z",
+    "timestamp": "2026-05-21T08:22:00Z",
     "metrics": {
       "load_avg": {
-        "1m": 2.59,
-        "5m": 2.65,
-        "15m": 2.57
+        "1m": 3.66,
+        "5m": 4.26,
+        "15m": 3.38
       },
       "memory": {
-        "active_pages": 131696,
-        "free_pages": 4827,
-        "compressor_pages": 318420
+        "used_mb": 7546,
+        "unused_mb": 87
       },
       "gpu": {
-        "active_residency": 9.14,
+        "active_residency": 14.47,
         "frequency_mhz": 396
       },
       "thermal": {
         "pressure_level": "Nominal"
       },
       "network": {
-        "n8n_ttfb": "ERR_HOST_UNRESOLVABLE"
+        "n8n_ttfb": "CONN_FAILED"
       }
     },
     "stress_analysis": {
       "cpu_stress": "STRESSED",
       "gpu_stress": "NOMINAL",
-      "memory_stress": "NOMINAL",
+      "memory_stress": "CRITICAL",
       "overall_status": "STRESSED"
     }
   },
