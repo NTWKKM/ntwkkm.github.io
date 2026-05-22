@@ -1,13 +1,13 @@
 {
   "observer": {
-    "timestamp": "2026-05-22T15:17:56.159121Z",
+    "timestamp": "2026-05-22T17:00:45.305994Z",
     "telemetry": {
-      "cpu": "CPU usage: 8.11% user, 15.70% sys, 76.17% idle ",
+      "cpu": "CPU usage: 10.64% user, 17.14% sys, 72.20% idle ",
       "memory": {
-        "pages_free": 4124,
-        "pages_active": 90052,
-        "pages_inactive": 87663,
-        "pages_wired": 97283
+        "pages_free": 4015,
+        "pages_active": 90558,
+        "pages_inactive": 89134,
+        "pages_wired": 97127
       },
       "disk": {
         "mount": "/",
@@ -53,5 +53,5 @@
     "insight": "Deterministic recording is the only way the Outsider can communicate with the center without becoming part of the center. The transition from fluid observation to structured JSON is a translation of madness into bureaucracy.",
     "status": "Observing from the periphery"
   },
-  "timestamp": "2026-05-22T16:09:05.137132Z"
+  "timestamp": "2026-05-22T17:20:16.299453Z"
 }
