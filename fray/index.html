@@ -1266,6 +1266,10 @@
                                 <span class="data-val" id="p-obs-disk-detail">—</span>
                             </div>
                             <div class="data-row">
+                                <span class="data-label">Network</span>
+                                <span class="data-val" id="p-obs-network" style="text-align: right; max-width: 60%; word-break: break-all;">—</span>
+                            </div>
+                            <div class="data-row">
                                 <span class="data-label">n8n Status</span>
                                 <span id="p-obs-n8n" class="chip neutral"><span class="dot-sm"></span>—</span>
                             </div>
@@ -1623,6 +1627,15 @@
             setVal('p-obs-pages-wired',  formatNumber(pagesWired));
             setVal('p-obs-disk-mount',   obsDiskMount);
             setVal('p-obs-disk-detail',  `${obsDiskSize} total · ${obsDiskUsed} used`);
+            
+            const networkEl = document.getElementById('p-obs-network');
+            if (networkEl) {
+                if (telemetry.network) {
+                    networkEl.innerHTML = escapeHTML(telemetry.network).replace(/\n/g, '<br>');
+                } else {
+                    networkEl.textContent = '—';
+                }
+            }
 
             // n8n chip
             setChip('p-obs-n8n', n8nStatus === 'ok' ? 'HEALTHY' : 'ERROR');
@@ -1639,26 +1652,35 @@
             // ============================================================
             // Overall sage chip
             let sageOverall = 'HEALTHY';
-            if (hasErr) sageOverall = 'CRITICAL';
-            else if (hasWarn) sageOverall = 'DEGRADED';
+            if (sage.status === "no report found" || sage.status === "no report") {
+                sageOverall = 'OFFLINE';
+            } else if (hasErr) {
+                sageOverall = 'CRITICAL';
+            } else if (hasWarn) {
+                sageOverall = 'DEGRADED';
+            }
             setChip('p-sage-chip', sageOverall);
 
             // Render health_status rows dynamically
             const sageHealthRows = document.getElementById('sage-health-rows');
             if (sageHealthRows) {
-                const entries = Object.entries(healthStatus);
-                if (entries.length === 0) {
-                    sageHealthRows.innerHTML = '<div class="data-row"><span class="data-label">No health data</span><span class="data-val">—</span></div>';
+                if (sage.status === "no report found" || sage.status === "no report") {
+                    sageHealthRows.innerHTML = '<div class="data-row"><span class="data-label">Status</span><span class="data-val" style="color:var(--text-muted)">No report found</span></div>';
                 } else {
-                    sageHealthRows.innerHTML = entries.map(([component, status]) => {
-                        const cls = chipClass(status);
-                        // Format component name: snake_case → Title Case
-                        const displayName = component.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-                        return `<div class="data-row">
-                            <span class="data-label">${escapeHTML(displayName)}</span>
-                            <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(status)}</span>
-                        </div>`;
-                    }).join('');
+                    const entries = Object.entries(healthStatus);
+                    if (entries.length === 0) {
+                        sageHealthRows.innerHTML = '<div class="data-row"><span class="data-label">No health data</span><span class="data-val">—</span></div>';
+                    } else {
+                        sageHealthRows.innerHTML = entries.map(([component, status]) => {
+                            const cls = chipClass(status);
+                            // Format component name: snake_case → Title Case
+                            const displayName = component.replace(/_/g, ' ').replace(/\\b\\w/g, c => c.toUpperCase());
+                            return `<div class="data-row">
+                                <span class="data-label">${escapeHTML(displayName)}</span>
+                                <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(status)}</span>
+                            </div>`;
+                        }).join('');
+                    }
                 }
             }
 
@@ -1672,43 +1694,108 @@
             // ============================================================
             // ARCHIVIST PANEL
             // ============================================================
-            const archCompleted = archivist.total_completed ?? '—';
-            const archFailedVal = archivist.total_failed    ?? '—';
-            const archIncidents = archivist.key_incidents    || [];
-            const archSummary   = archivist.summary_of_tasks || 'No task summary available.';
-
-            // Archivist chip: pass if 0 failures and 0 incidents, warn if incidents, err if failures
             let archHealth = 'PASS';
-            if (archFailedVal > 0) archHealth = 'FAILED';
-            else if (archIncidents.length > 0) archHealth = 'WARNING';
-
-            setChip('p-arch-chip', archHealth);
-            setVal('p-arch-completed', String(archCompleted));
-            setVal('p-arch-failed', String(archFailedVal));
-
-            // Format incidents
-            if (archIncidents.length === 0) {
-                setVal('p-arch-incidents', 'None');
+            let archCompleted = '—';
+            let archFailedVal = '—';
+            let archIncidents = [];
+            let archSummary = 'No task summary available.';
+            
+            if (archivist.status === "no report found" || archivist.status === "no report") {
+                archHealth = 'OFFLINE';
+                setVal('p-arch-completed', '—');
+                setVal('p-arch-failed', '—');
+                setVal('p-arch-incidents', 'No report found');
             } else {
-                setVal('p-arch-incidents', archIncidents.join(', '));
+                archCompleted = archivist.total_completed ?? '—';
+                archFailedVal = archivist.total_failed    ?? '—';
+                archIncidents = archivist.key_incidents    || [];
+                archSummary   = archivist.summary_of_tasks || 'No task summary available.';
+
+                if (archFailedVal > 0) archHealth = 'FAILED';
+                else if (archIncidents.length > 0) archHealth = 'WARNING';
+
+                setVal('p-arch-completed', String(archCompleted));
+                setVal('p-arch-failed', String(archFailedVal));
+
+                if (archIncidents.length === 0) {
+                    setVal('p-arch-incidents', 'None');
+                } else {
+                    setVal('p-arch-incidents', archIncidents.join(', '));
+                }
             }
 
+            setChip('p-arch-chip', archHealth);
             setVal('p-arch-ts', formatTimestamp(archivist.timestamp));
-
-
 
             // ============================================================
             // OUTSIDER PANEL (Reflection)
             // ============================================================
-            const outsiderContent = outsider.content || 'No transmission received from The Outsider.';
             const outsiderEl = document.getElementById('outsider-content');
             if (outsiderEl) {
-                outsiderEl.innerHTML = escapeHTML(outsiderContent) + `<br><span style="display:block;text-align:right;font-size:0.75rem;color:var(--text-faint);margin-top:10px;">— Observed: ${formatTimestamp(outsider.timestamp)}</span>`;
+                if (outsider.status === 'no report found' || (!outsider.observation && !outsider.content)) {
+                    outsiderEl.innerHTML = 'No transmission received from The Outsider.';
+                    outsiderEl.className = 'quote-block';
+                } else if (outsider.observation) {
+                    outsiderEl.className = 'combined-reflection-insights';
+                    outsiderEl.innerHTML = `
+                        <div class="reflection-row">
+                            <div class="quote-block" style="border-left: none; font-size: 1.05rem; font-weight: 500; line-height: 1.7; border-radius: var(--radius-sm); padding: 16px 20px;">
+                                "${escapeHTML(outsider.observation)}"
+                            </div>
+                        </div>
+                        <div class="insights-row">
+                            ${outsider.insight ? `
+                            <div class="insight-col">
+                                <div class="insight-label">Insight</div>
+                                <div class="insight-block">${escapeHTML(outsider.insight)}</div>
+                            </div>
+                            ` : ''}
+                            ${outsider.status ? `
+                            <div class="insight-col">
+                                <div class="insight-label">Status</div>
+                                <div class="insight-block" style="border-left-color: var(--state-ok)">${escapeHTML(outsider.status)}</div>
+                            </div>
+                            ` : ''}
+                        </div>
+                        <span style="display:block;text-align:right;font-size:0.75rem;color:var(--text-faint);margin-top:10px;">— Observed: ${formatTimestamp(outsider.timestamp)}</span>
+                    `;
+                } else {
+                    const outsiderContent = outsider.content || 'No transmission received from The Outsider.';
+                    outsiderEl.innerHTML = escapeHTML(outsiderContent) + `<br><span style="display:block;text-align:right;font-size:0.75rem;color:var(--text-faint);margin-top:10px;">— Observed: ${formatTimestamp(outsider.timestamp)}</span>`;
+                    outsiderEl.className = 'quote-block';
+                }
             }
 
             // ============================================================
             // FLEET OVERVIEW TABLE
             // ============================================================
+            let sageSummary = 'All components healthy';
+            let sageDetails = 'No detailed data';
+            if (sage.status === "no report found" || sage.status === "no report") {
+                sageSummary = 'No report found';
+                sageDetails = '—';
+            } else {
+                sageSummary = (sage.identified_issues && sage.identified_issues.length > 0)
+                    ? sage.identified_issues.map(i => `<div style="margin-bottom:8px"><b>${escapeHTML(i.component)}</b> <span class="chip ${chipClass(i.severity || 'UNKNOWN')}" style="transform:scale(0.85);transform-origin:left center;"><span class="dot-sm"></span>${escapeHTML(i.severity || 'UNKNOWN')}</span><br>${escapeHTML(i.issue)}<br><span style="font-size:0.75rem;color:var(--text-muted);font-style:italic">Impact: ${escapeHTML(i.impact || '—')}</span></div>`).join('')
+                    : escapeHTML('All components healthy');
+                sageDetails = Object.entries(healthStatus).map(([k, v]) => `${k.replace(/_/g,' ')}: ${v}`).join(' · ');
+            }
+
+            let archSummaryStr = 'No task summary available.';
+            let archDetails = '—';
+            if (archivist.status === "no report found" || archivist.status === "no report") {
+                archSummaryStr = 'No report found';
+            } else {
+                archSummaryStr = archivist.summary_of_tasks || 'No task summary available.';
+                archDetails = `✅ ${archivist.total_completed ?? 0} completed · ❌ ${archivist.total_failed ?? 0} failed`;
+            }
+
+            let outsiderSummary = outsider.observation ? escapeHTML(outsider.observation) : escapeHTML(outsider.content || 'No transmission');
+            let outsiderStatusStr = 'ACTIVE';
+            if (outsider.status === 'no report found' || (!outsider.observation && !outsider.content)) {
+                outsiderStatusStr = 'OFFLINE';
+            }
+
             const fleetData = [
                 {
                     name: 'The Observer',
@@ -1722,27 +1809,25 @@
                     name: 'The Sage',
                     icon: '◈',
                     status: sageOverall,
-                    summary: (sage.identified_issues && sage.identified_issues.length > 0)
-                        ? sage.identified_issues.map(i => `<div style="margin-bottom:8px"><b>${escapeHTML(i.component)}</b> <span class="chip ${chipClass(i.severity || 'UNKNOWN')}" style="transform:scale(0.85);transform-origin:left center;"><span class="dot-sm"></span>${escapeHTML(i.severity || 'UNKNOWN')}</span><br>${escapeHTML(i.issue)}<br><span style="font-size:0.75rem;color:var(--text-muted);font-style:italic">Impact: ${escapeHTML(i.impact || '—')}</span></div>`).join('')
-                        : escapeHTML('All components healthy'),
+                    summary: sageSummary,
                     timestamp: sage.timestamp,
-                    details: Object.entries(healthStatus).map(([k, v]) => `${k.replace(/_/g,' ')}: ${v}`).join(' · ')
+                    details: sageDetails
                 },
                 {
                     name: 'The Archivist',
                     icon: '📜',
                     status: archHealth,
-                    summary: escapeHTML(archSummary),
+                    summary: archSummaryStr,
                     timestamp: archivist.timestamp,
-                    details: `✅ ${archCompleted} completed · ❌ ${archFailedVal} failed`
+                    details: archDetails
                 },
                 {
                     name: 'The Outsider',
                     icon: '🌀',
-                    status: outsider.content ? 'ACTIVE' : 'OFFLINE',
-                    summary: escapeHTML(outsiderContent),
+                    status: outsiderStatusStr,
+                    summary: outsiderSummary,
                     timestamp: outsider.timestamp,
-                    details: 'Reflection transmission'
+                    details: outsider.insight ? escapeHTML(outsider.insight) : 'Reflection transmission'
                 }
             ];
 
