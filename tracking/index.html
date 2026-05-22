@@ -995,13 +995,20 @@
       document.getElementById('summary').style.display = 'flex';
 
       // Confetti logic
-      if (delivered > 0 && !window.confettiFired) {
-          window.confettiFired = true;
-          if (typeof confetti === 'function') {
-              setTimeout(() => {
-                  confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-              }, 500);
+      if (!window.confettiFiredPackages) window.confettiFiredPackages = new Set();
+      let shouldFireConfetti = false;
+      
+      keys.forEach(k => {
+          if (packages[k].is_delivered && !window.confettiFiredPackages.has(k)) {
+              window.confettiFiredPackages.add(k);
+              shouldFireConfetti = true;
           }
+      });
+
+      if (shouldFireConfetti && typeof confetti === 'function') {
+          setTimeout(() => {
+              confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+          }, 500);
       }
 
       // Sort: active first, then delivered; within each group sort by last_status_date desc

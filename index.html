@@ -182,6 +182,14 @@
             50% { border-color: transparent }
         }
 
+        @media (prefers-reduced-motion: reduce) {
+            .brand p {
+                animation: none;
+                border-right: none;
+                max-width: 100%;
+            }
+        }
+
         .controls {
             display: flex;
             align-items: center;
@@ -451,7 +459,7 @@
             border-radius: var(--radius);
             padding: 28px;
             box-shadow: var(--shadow);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.1s;
+            transition: background 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.1s;
             text-decoration: none;
             color: inherit;
             border: 1px solid var(--border);
@@ -461,7 +469,6 @@
             position: relative;
             z-index: 1;
             transform-style: preserve-3d;
-            perspective: 1000px;
         }
 
         .project-card:hover {
@@ -1019,10 +1026,14 @@
 
         // --- 5. 3D TILT EFFECT ---
         function initTiltEffect() {
+            const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
             const container = document.getElementById('projects-container');
             if (!container) return;
             
+            let scheduled = false;
+
             container.addEventListener('mousemove', (e) => {
+                if (mq.matches) return;
                 const card = e.target.closest('.project-card');
                 if (!card) return;
                 
@@ -1030,19 +1041,30 @@
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = ((y - centerY) / centerY) * -5;
-                const rotateY = ((x - centerX) / centerX) * 5;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                if (!scheduled) {
+                    scheduled = true;
+                    requestAnimationFrame(() => {
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        const rotateX = ((y - centerY) / centerY) * -5;
+                        const rotateY = ((x - centerX) / centerX) * 5;
+                        card.style.transform = \`perspective(1000px) rotateX(\${rotateX}deg) rotateY(\${rotateY}deg) scale3d(1.02, 1.02, 1.02)\`;
+                        scheduled = false;
+                    });
+                }
             });
             
             container.addEventListener('mouseout', (e) => {
                 const card = e.target.closest('.project-card');
                 if (!card) return;
+                if (card.contains(e.relatedTarget)) return; // Equivalent to mouseleave
                 card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+
+            mq.addEventListener('change', () => {
+                if (mq.matches) {
+                    container.querySelectorAll('.project-card').forEach(c => c.style.transform = '');
+                }
             });
         }
 

@@ -1916,33 +1916,6 @@
             }
         };
 
-        // --- 6. READING PROGRESS BAR ---
-        const progressContainer = document.createElement('div');
-        progressContainer.className = 'reading-progress';
-        const progressBar = document.createElement('div');
-        progressBar.className = 'reading-progress-bar';
-        progressBar.id = 'reading-progress-bar';
-        progressContainer.appendChild(progressBar);
-        document.body.appendChild(progressContainer);
-
-        const articleMain = document.querySelector('.main-content');
-        articleMain.addEventListener('scroll', () => {
-            if (document.getElementById('article-view').classList.contains('visible')) {
-                progressContainer.style.display = 'block';
-                const totalHeight = articleMain.scrollHeight - articleMain.clientHeight;
-                const progress = totalHeight > 0 ? (articleMain.scrollTop / totalHeight) * 100 : 0;
-                progressBar.style.width = `${progress}%`;
-            } else {
-                progressContainer.style.display = 'none';
-            }
-        });
-        
-        window.updateReadingProgress = () => {
-            const totalHeight = articleMain.scrollHeight - articleMain.clientHeight;
-            const progress = totalHeight > 0 ? (articleMain.scrollTop / totalHeight) * 100 : 0;
-            progressBar.style.width = `${progress}%`;
-        };
-
     </script>
 </body>
 
