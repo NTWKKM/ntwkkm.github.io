@@ -674,6 +674,7 @@
             border-left: none;
             border-radius: var(--radius-sm);
             padding: 16px 20px;
+            background: transparent;
         }
 
         .insight-label {
@@ -1550,22 +1551,14 @@
             const obsBody = document.getElementById('observer-body');
             if (obsBody) {
                 obsBody.innerHTML = `
-                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-                        <div>
-                            <div class="data-row"><span class="data-label">CPU (User/Sys/Idle)</span><span class="data-val">${cpuUser} / ${cpuSys} / ${cpuIdle}</span></div>
-                            <div class="data-row"><span class="data-label">Memory Pages (F/A/I/W)</span><span class="data-val">${formatNumber(pagesFree)} / ${formatNumber(pagesActive)} / ${formatNumber(pagesInactive)} / ${formatNumber(pagesWired)}</span></div>
-                            <div class="data-row"><span class="data-label">Disk Capacity (${escapeHTML(obsDiskMount)})</span><span class="data-val">${escapeHTML(obsDiskSize)} total &middot; ${escapeHTML(obsDiskUsed)} used</span></div>
-                            <div class="data-row"><span class="data-label">n8n Heartbeat</span><span class="chip ${n8nStatus === 'ok' ? 'ok' : 'err'}"><span class="dot-sm"></span>${escapeHTML(n8nHealth)}</span></div>
-                        </div>
-                        <div>
-                            <div class="data-row" style="flex-direction:column; align-items:flex-start; border-bottom:none; padding-bottom:0;">
-                                <span class="data-label" style="margin-bottom:8px;">Network Interface</span>
-                                <pre style="margin:0; width:100%; padding:10px; background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius-sm); font-size:0.75rem; color:var(--text-secondary); overflow-x:auto; font-family:'JetBrains Mono', monospace; white-space:pre-wrap;">${escapeHTML(telemetry.network || '—')}</pre>
-                            </div>
-                            <div class="data-row" style="flex-direction:column; align-items:flex-start; border-bottom:none; margin-top:12px;">
-                                <span class="data-label" style="margin-bottom:8px;">Observer Comment</span>
-                                <div class="quote-block" style="width:100%; margin:0; font-size:0.85rem; border-left-color:var(--text-muted);">${escapeHTML(observer.comment || '—')}</div>
-                            </div>
+                    <div style="display:grid; grid-template-columns: 1fr; gap: 12px;">
+                        <div class="data-row"><span class="data-label">CPU (User/Sys/Idle)</span><span class="data-val">${cpuUser} / ${cpuSys} / ${cpuIdle}</span></div>
+                        <div class="data-row"><span class="data-label">Memory Pages (F/A/I/W)</span><span class="data-val">${formatNumber(pagesFree)} / ${formatNumber(pagesActive)} / ${formatNumber(pagesInactive)} / ${formatNumber(pagesWired)}</span></div>
+                        <div class="data-row"><span class="data-label">Disk Capacity (${escapeHTML(obsDiskMount)})</span><span class="data-val">${escapeHTML(obsDiskSize)} total &middot; ${escapeHTML(obsDiskUsed)} used</span></div>
+                        <div class="data-row"><span class="data-label">n8n Heartbeat</span><span class="chip ${n8nStatus === 'ok' ? 'ok' : 'err'}"><span class="dot-sm"></span>${escapeHTML(n8nHealth)}</span></div>
+                        <div class="data-row" style="flex-direction:column; align-items:flex-start; border-bottom:none; padding-bottom:0;">
+                            <span class="data-label" style="margin-bottom:8px;">Network Interface</span>
+                            <pre style="margin:0; width:100%; padding:10px; background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius-sm); font-size:0.75rem; color:var(--text-secondary); overflow-x:auto; font-family:'JetBrains Mono', monospace; white-space:pre-wrap;">${escapeHTML(telemetry.network || '—')}</pre>
                         </div>
                     </div>
                     <div style="text-align:right; margin-top:16px; font-size:0.75rem; color:var(--text-faint);">Observed At: ${formatTimestamp(observer.timestamp)}</div>
@@ -1587,35 +1580,34 @@
                 
                 const sageBody = document.getElementById('sage-body');
                 sageBody.innerHTML = `
-                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
-                        <div>
-                            <div class="insight-label">Routing Assessment</div>
-                            <div class="issue-card" style="margin-bottom:12px;">
-                                <div class="issue-description"><b>Data Analysis:</b> ${escapeHTML(sage.routing_assessment?.data_analysis || '—')}</div>
-                                <div class="issue-description"><b>Route:</b> ${escapeHTML(sage.routing_assessment?.route_selection || '—')}</div>
-                                <div class="issue-impact">Verification: ${escapeHTML(sage.routing_assessment?.verification || '—')}</div>
-                            </div>
-                            
-                            <div class="insight-label" style="margin-top:16px;">Ground Truth Check</div>
-                            <div class="data-row"><span class="data-label">Snapshot Timestamp</span><span class="data-val">${formatTimestamp(sage.ground_truth_check?.snapshot_timestamp)}</span></div>
-                            <div class="data-row"><span class="data-label">System Health</span><span class="data-val">${escapeHTML(sage.ground_truth_check?.system_health || '—')}</span></div>
-                            <div class="data-row" style="flex-direction:column; align-items:flex-start; border-bottom:none; padding-bottom:0;">
-                                <span class="data-label">Discrepancy Noted</span>
-                                <span class="data-val" style="text-align:left; color:var(--text-secondary); margin-top:4px;">${escapeHTML(sage.ground_truth_check?.discrepancy_noted || '—')}</span>
-                            </div>
-                        </div>
+                    <div style="display:flex; flex-direction:column; gap: 20px;">
+                        <!-- Row 1: Philosophical Reflection -->
                         <div>
                             <div class="insight-label">Philosophical Reflection</div>
-                            <div class="quote-block" style="border-left-color:var(--primary); margin-bottom:16px;">
+                            <div class="quote-block" style="border-left-color:var(--primary); margin-bottom:0;">
                                 <div style="margin-bottom:8px;"><b>Thesis:</b> ${escapeHTML(sage.philosophical_reflection?.thesis || '—')}</div>
                                 <div style="font-size:0.82rem;"><b>Audit Finding:</b> ${escapeHTML(sage.philosophical_reflection?.audit_finding || '—')}</div>
                             </div>
-                            
-                            <div class="insight-label">Outsider Dispatch</div>
-                            <div class="issue-card" style="margin-bottom:0; border-left: 3px solid var(--state-warn);">
-                                <div class="issue-description" style="font-style:italic;">"${escapeHTML(sage.outsider_dispatch?.observation || '—')}"</div>
-                                <div class="issue-impact" style="margin-top:8px;"><b>Insight:</b> ${escapeHTML(sage.outsider_dispatch?.insight || '—')}</div>
-                                <div class="issue-impact" style="margin-top:4px; color:var(--state-ok);"><b>Status:</b> ${escapeHTML(sage.outsider_dispatch?.status || '—')}</div>
+                        </div>
+                        
+                        <!-- Row 2: Ground Truth Check and Routing Assessment -->
+                        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                            <div>
+                                <div class="insight-label">Ground Truth Check</div>
+                                <div class="data-row" style="padding-top:0;"><span class="data-label">Snapshot Timestamp</span><span class="data-val">${formatTimestamp(sage.ground_truth_check?.snapshot_timestamp)}</span></div>
+                                <div class="data-row"><span class="data-label">System Health</span><span class="data-val">${escapeHTML(sage.ground_truth_check?.system_health || '—')}</span></div>
+                                <div class="data-row" style="flex-direction:column; align-items:flex-start; border-bottom:none; padding-bottom:0;">
+                                    <span class="data-label">Discrepancy Noted</span>
+                                    <span class="data-val" style="text-align:left; color:var(--text-secondary); margin-top:4px;">${escapeHTML(sage.ground_truth_check?.discrepancy_noted || '—')}</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="insight-label">Routing Assessment</div>
+                                <div class="issue-card" style="margin-bottom:0; height: 100%;">
+                                    <div class="issue-description"><b>Data Analysis:</b> ${escapeHTML(sage.routing_assessment?.data_analysis || '—')}</div>
+                                    <div class="issue-description"><b>Route:</b> ${escapeHTML(sage.routing_assessment?.route_selection || '—')}</div>
+                                    <div class="issue-impact" style="margin-top:8px;">Verification: ${escapeHTML(sage.routing_assessment?.verification || '—')}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
