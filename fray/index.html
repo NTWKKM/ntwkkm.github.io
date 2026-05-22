@@ -497,7 +497,7 @@
         ==================================================== */
         .main-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 16px;
         }
 
@@ -597,7 +597,6 @@
            SPAN UTILITIES
         ==================================================== */
         .span-2 { grid-column: span 2; }
-        .span-3 { grid-column: span 3; }
 
         /* ====================================================
            PERFORMANCE ROWS WITH INLINE BARS
@@ -988,7 +987,6 @@
             .vitals-strip { grid-template-columns: repeat(2, 1fr); }
             .main-grid    { grid-template-columns: 1fr 1fr; }
             .span-2       { grid-column: span 2; }
-            .span-3       { grid-column: span 2; }
         }
 
         @media (max-width: 768px) {
@@ -1065,7 +1063,7 @@
         @media (max-width: 640px) {
             .vitals-strip { grid-template-columns: repeat(2, 1fr); }
             .main-grid    { grid-template-columns: 1fr; }
-            .span-2, .span-3 { grid-column: 1; }
+            .span-2 { grid-column: 1; }
             .skel-grid    { grid-template-columns: 1fr 1fr; }
             .banner-left  { gap: 10px; }
 
@@ -1310,7 +1308,7 @@
                     </div>
 
                     <!-- === Panel: The Outsider (full-width) === -->
-                    <div class="panel span-3 fade-up d3">
+                    <div class="panel fade-up d3">
                         <div class="panel-head">
                             <div class="panel-title"><span class="panel-title-icon">🌀</span> The Outsider — Reflection</div>
                             <span class="data-val" id="p-outsider-ts" style="font-size:0.72rem;">—</span>
@@ -1745,7 +1743,7 @@
                     name: 'The Archivist',
                     icon: '📜',
                     status: archHealth,
-                    summary: archSummary.length > 120 ? archSummary.substring(0, 117) + '…' : archSummary,
+                    summary: archSummary,
                     timestamp: archivist.timestamp,
                     details: `✅ ${archCompleted} completed · ❌ ${archFailedVal} failed`
                 },
@@ -1753,7 +1751,7 @@
                     name: 'The Outsider',
                     icon: '🌀',
                     status: outsider.content ? 'ACTIVE' : 'OFFLINE',
-                    summary: outsiderContent.length > 120 ? outsiderContent.substring(0, 117) + '…' : outsiderContent,
+                    summary: outsiderContent,
                     timestamp: outsider.timestamp,
                     details: 'Reflection transmission'
                 }
