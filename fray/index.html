@@ -1301,17 +1301,16 @@
                 </div><!-- /main-grid -->
 
                 <!-- AGENT OVERVIEW SECTION -->
-                <div class="section-divider fade-up d3">
-                    <span class="section-divider-title">Fleet Overview</span>
-                    <div class="section-divider-line"></div>
-                    <span id="fleet-health-chip" class="chip ok"><span class="dot-sm"></span>ALL PASS</span>
-                </div>
-
-                <div class="audit-table-wrapper fade-up d4">
+                <div class="audit-table-wrapper fade-up d4" style="margin-top: 32px;">
                     <table class="audit-table">
                         <thead>
                             <tr>
-                                <th style="width: 16%;">Agent</th>
+                                <th style="width: 20%;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <span>Agent</span>
+                                        <span id="fleet-health-chip" class="chip ok"><span class="dot-sm"></span>ALL PASS</span>
+                                    </div>
+                                </th>
                                 <th style="width: 12%;">Status</th>
                                 <th style="width: 42%;">Summary</th>
                                 <th style="width: 18%;">Timestamp</th>
@@ -1710,7 +1709,7 @@
                     name: 'The Sage',
                     icon: '◈',
                     status: cogState,
-                    summary: sageInsights.length > 120 ? sageInsights.substring(0, 120) + '…' : sageInsights,
+                    summary: sageInsights,
                     timestamp: sage.timestamp,
                     details: `Audit: ${auditRes} · Entropy: ${entropyLvl}`
                 },
@@ -1718,7 +1717,7 @@
                     name: 'The Archivist',
                     icon: '📜',
                     status: archHealth,
-                    summary: archSummary.length > 120 ? archSummary.substring(0, 120) + '…' : archSummary,
+                    summary: archSummary,
                     timestamp: archivist.timestamp,
                     details: `✅ ${archCompleted} completed · ❌ ${archFailed} failed`
                 }
