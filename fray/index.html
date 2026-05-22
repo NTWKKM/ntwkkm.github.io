@@ -497,7 +497,7 @@
         ==================================================== */
         .main-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 16px;
         }
 
@@ -600,6 +600,7 @@
            SPAN UTILITIES
         ==================================================== */
         .span-2 { grid-column: span 2; }
+        .span-3 { grid-column: span 3; }
 
         /* ====================================================
            PERFORMANCE ROWS WITH INLINE BARS
@@ -1010,6 +1011,7 @@
             .vitals-strip { grid-template-columns: repeat(2, 1fr); }
             .main-grid    { grid-template-columns: 1fr 1fr; }
             .span-2       { grid-column: span 2; }
+            .span-3       { grid-column: span 2; }
         }
 
         @media (max-width: 768px) {
@@ -1086,7 +1088,7 @@
         @media (max-width: 640px) {
             .vitals-strip { grid-template-columns: repeat(2, 1fr); }
             .main-grid    { grid-template-columns: 1fr; }
-            .span-2 { grid-column: 1; }
+            .span-2, .span-3 { grid-column: 1; }
             .skel-grid    { grid-template-columns: 1fr 1fr; }
             .banner-left  { gap: 10px; }
 
@@ -1217,7 +1219,7 @@
                 <div class="main-grid fade-up d2">
 
                     <!-- === Row 1: The Outsider (full-width) === -->
-                    <div class="panel span-2 fade-up d2" id="panel-outsider">
+                    <div class="panel span-3 fade-up d2" id="panel-outsider">
                         <div class="panel-head">
                             <div class="panel-title"><span class="panel-title-icon">🌀</span> The Outsider — Reflection</div>
                             <span class="data-val" id="p-outsider-ts" style="font-size:0.72rem;">—</span>
@@ -1307,8 +1309,8 @@
                         </div>
                     </div>
 
-                    <!-- === Row 3: The Sage (full-width) === -->
-                    <div class="panel span-2 fade-up d3" id="panel-sage">
+                    <!-- === Row 2: The Sage === -->
+                    <div class="panel fade-up d3" id="panel-sage">
                         <div class="panel-head">
                             <div class="panel-title"><span class="panel-title-icon">◈</span> The Sage</div>
                             <div id="p-sage-chip" class="chip ok"><span class="dot-sm"></span>STABLE</div>
