@@ -431,20 +431,6 @@
         }
         .vital-card:hover::before { opacity: 1; transition: opacity 0.4s ease; }
 
-        @keyframes border-glow-warn {
-            0%, 100% { box-shadow: var(--shadow-sm); border-color: var(--state-warn); }
-            50% { box-shadow: 0 0 12px color-mix(in srgb, var(--state-warn) 30%, transparent); border-color: var(--state-warn); }
-        }
-        @keyframes border-glow-err {
-            0%, 100% { box-shadow: var(--shadow-sm); border-color: var(--accent); }
-            50% { box-shadow: 0 0 16px color-mix(in srgb, var(--accent) 50%, transparent); border-color: var(--accent); }
-        }
-        .vital-card.warning-state {
-            animation: border-glow-warn 2s infinite ease-in-out;
-        }
-        .vital-card.critical-state {
-            animation: border-glow-err 1.5s infinite ease-in-out;
-        }
 
         .vital-label {
             font-family: 'JetBrains Mono', 'Courier New', monospace;
@@ -1178,7 +1164,10 @@
 
                     <!-- CPU Usage -->
                     <div class="vital-card" id="vc-cpu">
-                        <div class="vital-label">CPU Usage</div>
+                        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                            <div class="vital-label" style="margin-bottom:0;">CPU Usage</div>
+                            <div id="v-cpu-badge" class="chip neutral" style="transform:scale(0.85); transform-origin:right top; margin:-4px -4px 0 0;"><span class="dot-sm"></span>—</div>
+                        </div>
                         <div class="vital-value" id="v-cpu">—</div>
                         <div class="vital-sub" id="v-cpu-sub">—</div>
                         <div class="vital-bar-track">
@@ -1188,7 +1177,10 @@
 
                     <!-- RAM -->
                     <div class="vital-card" id="vc-ram">
-                        <div class="vital-label">RAM Used</div>
+                        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                            <div class="vital-label" style="margin-bottom:0;">RAM Used</div>
+                            <div id="v-ram-badge" class="chip neutral" style="transform:scale(0.85); transform-origin:right top; margin:-4px -4px 0 0;"><span class="dot-sm"></span>—</div>
+                        </div>
                         <div class="vital-value" id="v-ram">—</div>
                         <div class="vital-sub" id="v-ram-sub">—</div>
                         <div class="vital-bar-track">
@@ -1198,7 +1190,10 @@
 
                     <!-- Disk Usage -->
                     <div class="vital-card" id="vc-disk">
-                        <div class="vital-label">Disk Usage</div>
+                        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                            <div class="vital-label" style="margin-bottom:0;">Disk Usage</div>
+                            <div id="v-disk-badge" class="chip neutral" style="transform:scale(0.85); transform-origin:right top; margin:-4px -4px 0 0;"><span class="dot-sm"></span>—</div>
+                        </div>
                         <div class="vital-value" id="v-disk">—</div>
                         <div class="vital-sub" id="v-disk-sub">Available: —</div>
                         <div class="vital-bar-track">
@@ -1208,7 +1203,10 @@
 
                     <!-- n8n Heartbeat -->
                     <div class="vital-card" id="vc-n8n">
-                        <div class="vital-label">n8n Heartbeat</div>
+                        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                            <div class="vital-label" style="margin-bottom:0;">n8n Heartbeat</div>
+                            <div id="v-n8n-badge" class="chip neutral" style="transform:scale(0.85); transform-origin:right top; margin:-4px -4px 0 0;"><span class="dot-sm"></span>—</div>
+                        </div>
                         <div class="vital-value" id="v-n8n">—</div>
                         <div class="vital-sub" id="v-n8n-sub">—</div>
                         <div class="vital-bar-track">
@@ -1416,13 +1414,20 @@
             const clamped = Math.min(100, Math.max(0, pct || 0));
             el.style.width = clamped + '%';
             
-            const card = el.closest('.vital-card');
-            if (card) {
-                card.classList.remove('warning-state', 'critical-state');
+            const badgeId = id.replace('-bar', '-badge');
+            if (id === 'v-n8n-bar') {
+                if (clamped >= 50) {
+                    setChip(badgeId, 'HEALTHY');
+                } else {
+                    setChip(badgeId, 'ERROR');
+                }
+            } else {
                 if (clamped >= 80) {
-                    card.classList.add('critical-state');
+                    setChip(badgeId, 'CRITICAL');
                 } else if (clamped >= 50) {
-                    card.classList.add('warning-state');
+                    setChip(badgeId, 'WARNING');
+                } else {
+                    setChip(badgeId, 'NOMINAL');
                 }
             }
         }
