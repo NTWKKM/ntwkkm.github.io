@@ -837,6 +837,16 @@
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .agent-analysis:hover {
+            color: var(--text-main);
+        }
+        .agent-analysis.expanded {
+            display: block;
+            -webkit-line-clamp: unset;
+            overflow: visible;
         }
 
         .audit-technical-cell {
@@ -1760,7 +1770,7 @@
                                 <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(agent.status)}</span>
                             </td>
                             <td>
-                                <div class="agent-analysis">${agent.summary}</div>
+                                <div class="agent-analysis" onclick="this.classList.toggle('expanded')" title="Click to expand/collapse">${agent.summary}</div>
                             </td>
                             <td>
                                 <div class="audit-technical-cell">${formatTimestamp(agent.timestamp)}</div>
