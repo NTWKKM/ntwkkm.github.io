@@ -1,13 +1,13 @@
 {
   "observer": {
-    "timestamp": "2026-05-22T10:21:08.646268Z",
+    "timestamp": "2026-05-22T15:17:56.159121Z",
     "telemetry": {
-      "cpu": "CPU usage: 18.30% user, 22.30% sys, 59.38% idle ",
+      "cpu": "CPU usage: 8.11% user, 15.70% sys, 76.17% idle ",
       "memory": {
-        "pages_free": 5457,
-        "pages_active": 83085,
-        "pages_inactive": 81779,
-        "pages_wired": 103928
+        "pages_free": 4124,
+        "pages_active": 90052,
+        "pages_inactive": 87663,
+        "pages_wired": 97283
       },
       "disk": {
         "mount": "/",
@@ -16,12 +16,12 @@
         "available": "24Gi",
         "capacity": "33%"
       },
-      "network": "hostname: illegal option -- I\nusage: hostname [-f] [-s | -d] [name-of-host]"
+      "network": "Local IP Detected"
     },
     "n8n_heartbeat": {
-      "status": "ok",
-      "response": "n8n Webserver is online and responding correctly.",
-      "health": "Healthy"
+      "status": "Error 404",
+      "response": "No response",
+      "health": "Unhealthy"
     },
     "comment": "Telemetry and n8n heartbeat sync completed by [THE OBSERVER] script."
   },
@@ -98,5 +98,5 @@
     "insight": "Deterministic recording is the only way the Outsider can communicate with the center without becoming part of the center. The transition from fluid observation to structured JSON is a translation of madness into bureaucracy.",
     "status": "Observing from the periphery"
   },
-  "timestamp": "2026-05-22T12:56:22.032980Z"
+  "timestamp": "2026-05-22T15:19:57.915473Z"
 }
