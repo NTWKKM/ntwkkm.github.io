@@ -1239,16 +1239,8 @@
                         </div>
                         <div class="panel-body">
                             <div class="data-row">
-                                <span class="data-label">CPU (User)</span>
-                                <span class="data-val" id="p-obs-cpu-user">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">CPU (System)</span>
-                                <span class="data-val" id="p-obs-cpu-sys">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">CPU (Idle)</span>
-                                <span class="data-val" id="p-obs-cpu-idle">—</span>
+                                <span class="data-label">CPU (User/Sys/Idle)</span>
+                                <span class="data-val" id="p-obs-cpu-combined">—</span>
                             </div>
                             <div class="data-row">
                                 <span class="data-label">Pages Free</span>
@@ -1615,9 +1607,7 @@
             const cpuStatusLabel = cpuUsage > 80 ? 'CRITICAL' : (cpuUsage > 60 ? 'WARNING' : 'NOMINAL');
             setChip('p-observer-chip', cpuStatusLabel);
 
-            setVal('p-obs-cpu-user', cpuUser);
-            setVal('p-obs-cpu-sys',  cpuSys);
-            setVal('p-obs-cpu-idle', cpuIdle);
+            setVal('p-obs-cpu-combined', `${cpuUser} / ${cpuSys} / ${cpuIdle}`);
             setVal('p-obs-pages-free',   formatNumber(pagesFree));
             setVal('p-obs-pages-active', formatNumber(pagesActive));
             setVal('p-obs-pages-wired',  formatNumber(pagesWired));
