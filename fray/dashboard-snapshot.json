@@ -26,40 +26,10 @@
     "comment": "Telemetry and n8n heartbeat sync completed by [THE OBSERVER] script."
   },
   "sage": {
-    "timestamp": "2026-05-22T09:45:00Z",
-    "health_status": {
-      "hermes_gateway": "HEALTHY",
-      "pyright_lsp": "HEALTHY",
-      "telegram_platform": "DEGRADED",
-      "tool_executor": "HEALTHY"
-    },
-    "identified_issues": [
-      {
-        "component": "telegram_platform",
-        "issue": "Intermittent ConnectError (httpx.ConnectError)",
-        "severity": "MEDIUM",
-        "impact": "Occasional failure to send/receive messages; automatic reconnecting is active."
-      },
-      {
-        "component": "tool_executor",
-        "issue": "Recent failures in file access (/Users/ntwkkm/hermes/memory/outsider/ and /Users/ntwkkm/.hermes/scripts/sage_audit.py)",
-        "severity": "LOW",
-        "impact": "Specific tool calls failed due to missing files, potentially indicating missing setup or deprecated paths."
-      },
-      {
-        "component": "memory",
-        "issue": "Buffer limit reached (2,186/2,200 chars)",
-        "severity": "MEDIUM",
-        "impact": "New memory entries cannot be added without pruning existing ones."
-      }
-    ]
+    "status": "no report found"
   },
   "archivist": {
-    "timestamp": "2026-05-22T00:00:00Z",
-    "summary_of_tasks": "Fleet activity for the past 24 hours focused on security maintenance and telemetry synchronization. [THE GUARD] successfully executed identity verification and updated security.lock. Telemetry scripts confirmed system activity and performed routine pruning of old audit logs. No critical failures or breaches detected.",
-    "total_completed": 4,
-    "total_failed": 0,
-    "key_incidents": []
+    "status": "no report found"
   },
   "outsider": {
     "timestamp": "2026-05-22T10:32:42Z",
@@ -67,5 +37,5 @@
     "insight": "Deterministic recording is the only way the Outsider can communicate with the center without becoming part of the center. The transition from fluid observation to structured JSON is a translation of madness into bureaucracy.",
     "status": "Observing from the periphery"
   },
-  "timestamp": "2026-05-22T10:35:10.107309Z"
+  "timestamp": "2026-05-22T10:53:34.746914Z"
 }
