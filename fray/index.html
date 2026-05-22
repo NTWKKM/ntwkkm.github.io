@@ -1220,10 +1220,7 @@
 
                     <!-- === Row 1: The Outsider (full-width) === -->
                     <div class="panel span-3 fade-up d2" id="panel-outsider">
-                        <div class="panel-head">
-                            <div class="panel-title"><span class="panel-title-icon">🌀</span> The Outsider — Reflection</div>
-                            <span class="data-val" id="p-outsider-ts" style="font-size:0.72rem;">—</span>
-                        </div>
+
                         <div class="panel-body">
                             <div id="outsider-content" class="quote-block">
                                 Awaiting synchronization…
@@ -1692,8 +1689,9 @@
             // ============================================================
             const outsiderContent = outsider.content || 'No transmission received from The Outsider.';
             const outsiderEl = document.getElementById('outsider-content');
-            if (outsiderEl) outsiderEl.textContent = outsiderContent;
-            setVal('p-outsider-ts', formatTimestamp(outsider.timestamp));
+            if (outsiderEl) {
+                outsiderEl.innerHTML = escapeHTML(outsiderContent) + `<br><span style="display:block;text-align:right;font-size:0.75rem;color:var(--text-faint);margin-top:10px;">— Observed: ${formatTimestamp(outsider.timestamp)}</span>`;
+            }
 
             // ============================================================
             // FLEET OVERVIEW TABLE
