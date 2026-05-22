@@ -894,6 +894,47 @@
         }
 
         /* ====================================================
+           ISSUE CARD (Sage Identified Issues)
+        ==================================================== */
+        .issue-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 12px 14px;
+            margin-bottom: 10px;
+        }
+        .issue-card:last-child { margin-bottom: 0; }
+
+        .issue-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .issue-component {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .issue-description {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 4px;
+        }
+
+        .issue-impact {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        /* ====================================================
            LOADING SKELETON
         ==================================================== */
         #dash-loading {
@@ -1113,7 +1154,7 @@
                     <div class="vital-card" id="vc-cpu">
                         <div class="vital-label">CPU Usage</div>
                         <div class="vital-value" id="v-cpu">—</div>
-                        <div class="vital-sub" id="v-cpu-sub">Load avg —</div>
+                        <div class="vital-sub" id="v-cpu-sub">—</div>
                         <div class="vital-bar-track">
                             <div class="vital-bar-fill blue" id="v-cpu-bar" style="width:0"></div>
                         </div>
@@ -1129,16 +1170,6 @@
                         </div>
                     </div>
 
-                    <!-- GPU -->
-                    <div class="vital-card" id="vc-gpu">
-                        <div class="vital-label">GPU</div>
-                        <div class="vital-value" id="v-gpu">—</div>
-                        <div class="vital-sub" id="v-gpu-sub">Thermal: —</div>
-                        <div class="vital-bar-track">
-                            <div class="vital-bar-fill green" id="v-gpu-bar" style="width:0"></div>
-                        </div>
-                    </div>
-
                     <!-- Disk Usage -->
                     <div class="vital-card" id="vc-disk">
                         <div class="vital-label">Disk Usage</div>
@@ -1149,12 +1180,22 @@
                         </div>
                     </div>
 
+                    <!-- n8n Heartbeat -->
+                    <div class="vital-card" id="vc-n8n">
+                        <div class="vital-label">n8n Heartbeat</div>
+                        <div class="vital-value" id="v-n8n">—</div>
+                        <div class="vital-sub" id="v-n8n-sub">—</div>
+                        <div class="vital-bar-track">
+                            <div class="vital-bar-fill green" id="v-n8n-bar" style="width:0"></div>
+                        </div>
+                    </div>
+
                 </div><!-- /vitals-strip -->
 
                 <!-- MAIN 3-COLUMN GRID -->
                 <div class="main-grid fade-up d2">
 
-                    <!-- === Panel: Observer Status === -->
+                    <!-- === Panel: Observer Telemetry === -->
                     <div class="panel" id="panel-observer">
                         <div class="panel-head">
                             <div class="panel-title"><span class="panel-title-icon">⬡</span> The Observer</div>
@@ -1162,32 +1203,46 @@
                         </div>
                         <div class="panel-body">
                             <div class="data-row">
-                                <span class="data-label">CPU Status</span>
-                                <span id="p-obs-cpu" class="chip ok"><span class="dot-sm"></span>—</span>
+                                <span class="data-label">CPU (User)</span>
+                                <span class="data-val" id="p-obs-cpu-user">—</span>
                             </div>
                             <div class="data-row">
-                                <span class="data-label">RAM Status</span>
-                                <span id="p-obs-ram" class="chip ok"><span class="dot-sm"></span>—</span>
+                                <span class="data-label">CPU (System)</span>
+                                <span class="data-val" id="p-obs-cpu-sys">—</span>
                             </div>
                             <div class="data-row">
-                                <span class="data-label">GPU Status</span>
-                                <span id="p-obs-gpu" class="chip ok"><span class="dot-sm"></span>—</span>
+                                <span class="data-label">CPU (Idle)</span>
+                                <span class="data-val" id="p-obs-cpu-idle">—</span>
                             </div>
                             <div class="data-row">
-                                <span class="data-label">Thermal</span>
-                                <span id="p-obs-thermal" class="chip ok"><span class="dot-sm"></span>—</span>
+                                <span class="data-label">Pages Free</span>
+                                <span class="data-val" id="p-obs-pages-free">—</span>
                             </div>
                             <div class="data-row">
-                                <span class="data-label">Stress Level</span>
-                                <span id="p-obs-stress" class="chip neutral"><span class="dot-sm"></span>—</span>
+                                <span class="data-label">Pages Active</span>
+                                <span class="data-val" id="p-obs-pages-active">—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Pages Wired</span>
+                                <span class="data-val" id="p-obs-pages-wired">—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Disk (Mount)</span>
+                                <span class="data-val" id="p-obs-disk-mount">—</span>
+                            </div>
+                            <div class="data-row">
+                                <span class="data-label">Disk (Size / Used)</span>
+                                <span class="data-val" id="p-obs-disk-detail">—</span>
                             </div>
                             <div class="data-row">
                                 <span class="data-label">n8n Status</span>
                                 <span id="p-obs-n8n" class="chip neutral"><span class="dot-sm"></span>—</span>
                             </div>
-                            <div class="data-row">
-                                <span class="data-label">Disk Usage</span>
-                                <span class="data-val" id="p-obs-disk">—</span>
+                            <div class="data-row" style="flex-direction:column;align-items:flex-start;gap:6px;">
+                                <span class="data-label">Observer Comment</span>
+                                <div id="p-obs-comment" class="quote-block" style="width:100%;font-style:normal;font-size:0.82rem;">
+                                    Awaiting data…
+                                </div>
                             </div>
                             <div class="data-row">
                                 <span class="data-label">Observed At</span>
@@ -1196,38 +1251,26 @@
                         </div>
                     </div>
 
-                    <!-- === Panel: Sage Cognitive State === -->
+                    <!-- === Panel: Sage Health Status === -->
                     <div class="panel" id="panel-sage">
                         <div class="panel-head">
                             <div class="panel-title"><span class="panel-title-icon">◈</span> The Sage</div>
                             <div id="p-sage-chip" class="chip ok"><span class="dot-sm"></span>STABLE</div>
                         </div>
                         <div class="panel-body">
-                            <div class="data-row">
-                                <span class="data-label">Cognitive State</span>
-                                <span id="p-sage-state" class="chip ok"><span class="dot-sm"></span>—</span>
+                            <!-- Dynamic health_status rows rendered by JS -->
+                            <div id="sage-health-rows">
+                                <!-- Filled dynamically -->
                             </div>
-                            <div class="data-row">
-                                <span class="data-label">Entropy Level</span>
-                                <span id="p-sage-entropy" class="chip ok"><span class="dot-sm"></span>—</span>
+
+                            <!-- Section divider for identified issues -->
+                            <div style="margin: 14px 0 10px; border-top: 1px solid var(--border);"></div>
+                            <div class="insight-label" style="margin-bottom:8px;">Identified Issues</div>
+                            <div id="sage-issues-container">
+                                <!-- Filled dynamically -->
                             </div>
-                            <div class="data-row">
-                                <span class="data-label">Audit Result</span>
-                                <span id="p-sage-audit" class="chip ok"><span class="dot-sm"></span>—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">Uptime</span>
-                                <span class="data-val" id="p-sage-uptime">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">CPU Load Avg</span>
-                                <span class="data-val" id="p-sage-cpu">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">Disk Mount</span>
-                                <span class="data-val" id="p-sage-disk">—</span>
-                            </div>
-                            <div class="data-row">
+
+                            <div class="data-row" style="margin-top:10px;">
                                 <span class="data-label">Observed At</span>
                                 <span class="data-val" id="p-sage-ts">—</span>
                             </div>
@@ -1266,41 +1309,22 @@
                         </div>
                     </div>
 
-                    <!-- === Panel: Combined Cognitive Reflection & Insights (span 3) === -->
-                    <div class="panel span-3">
+                    <!-- === Panel: The Outsider (full-width) === -->
+                    <div class="panel span-3 fade-up d3">
                         <div class="panel-head">
-                            <div class="panel-title"><span class="panel-title-icon">🌀</span> Cognitive Reflection & Insights</div>
+                            <div class="panel-title"><span class="panel-title-icon">🌀</span> The Outsider — Reflection</div>
+                            <span class="data-val" id="p-outsider-ts" style="font-size:0.72rem;">—</span>
                         </div>
-                        <div class="panel-body combined-reflection-insights">
-                            
-                            <!-- Row 1: Sage Insights (reflection) -->
-                            <div class="reflection-row">
-                                <div id="reflection-content" class="quote-block">
-                                    Awaiting synchronization…
-                                </div>
-                                <div id="reflection-meta" class="reflection-meta-row">
-                                    <!-- Filled dynamically -->
-                                </div>
+                        <div class="panel-body">
+                            <div id="outsider-content" class="quote-block">
+                                Awaiting synchronization…
                             </div>
-
-                            <!-- Row 2: Services & Processes (2 columns) -->
-                            <div class="insights-row">
-                                <div class="insight-col">
-                                    <div class="insight-label">Services Status</div>
-                                    <div id="insights-services" class="insight-block">Awaiting…</div>
-                                </div>
-                                <div class="insight-col">
-                                    <div class="insight-label">Critical Processes</div>
-                                    <div id="insights-processes" class="insight-block">Awaiting…</div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
 
                 </div><!-- /main-grid -->
 
-                <!-- AGENT OVERVIEW SECTION -->
+                <!-- FLEET OVERVIEW TABLE -->
                 <div class="audit-table-wrapper fade-up d4" style="margin-top: 32px;">
                     <table class="audit-table">
                         <thead>
@@ -1425,6 +1449,14 @@
             } catch(_) { return ts; }
         }
 
+        /**
+         * Format a number with commas for readability.
+         */
+        function formatNumber(n) {
+            if (n == null || isNaN(n)) return '—';
+            return Number(n).toLocaleString('en-US');
+        }
+
         // Initialize screen reader support
         document.addEventListener('DOMContentLoaded', () => {
             initScreenReaderAnnouncer();
@@ -1474,24 +1506,26 @@
             const observer  = data.observer  || {};
             const sage      = data.sage      || {};
             const archivist = data.archivist || {};
+            const outsider  = data.outsider  || {};
 
             // ---- BANNER TIMESTAMP ----
             const rootTs = data.timestamp || observer.timestamp || sage.timestamp || '—';
             setVal('banner-timestamp', formatTimestamp(rootTs));
 
-            // ---- HEADER BADGE ----
-            // Derive overall health from sage cognitive state + observer stress + sage audit
-            const cogState   = (sage.cognitive_synthesis && sage.cognitive_synthesis.state) || 'UNKNOWN';
-            const stressLvl  = (observer.metrics && observer.metrics.stress_level) || 'Low';
-            const auditRes   = sage.audit_result || 'UNKNOWN';
+            // ============================================================
+            // OVERALL HEALTH — derive from sage.health_status + archivist
+            // ============================================================
+            const healthStatus = sage.health_status || {};
+            const healthValues = Object.values(healthStatus);
+            const hasErr  = healthValues.some(v => chipClass(v) === 'err');
+            const hasWarn = healthValues.some(v => chipClass(v) === 'warn');
+            const archFailed = archivist.total_failed ?? 0;
 
             let overallHealth = 'STABLE';
-            if (chipClass(cogState) === 'err' || chipClass(stressLvl) === 'err' || chipClass(auditRes) === 'err') {
+            if (hasErr || archFailed > 0) {
                 overallHealth = 'CRITICAL';
-            } else if (chipClass(cogState) === 'warn' || chipClass(stressLvl) === 'warn' || chipClass(auditRes) === 'warn') {
+            } else if (hasWarn || (sage.identified_issues && sage.identified_issues.length > 0)) {
                 overallHealth = 'DEGRADED';
-            } else if (chipClass(cogState) === 'ok' && chipClass(auditRes) === 'ok') {
-                overallHealth = 'STABLE';
             }
 
             // Header title
@@ -1503,123 +1537,167 @@
                 healthEl.innerHTML = `<span class="dot"></span>${escapeHTML(overallHealth)}`;
             }
 
-            // ---- VITALS STRIP ----
+            // ============================================================
+            // VITALS STRIP
+            // ============================================================
             const telemetry = observer.telemetry || {};
 
-            // CPU
-            // parse: "7.75% user, 14.69% sys, 77.55% idle"
+            // --- CPU ---
             const cpuStr = telemetry.cpu || "";
             let cpuUsage = 0;
+            let cpuUser = '—', cpuSys = '—', cpuIdle = '—';
+            const userMatch = cpuStr.match(/([\d.]+)%\s*user/);
+            const sysMatch  = cpuStr.match(/([\d.]+)%\s*sys/);
             const idleMatch = cpuStr.match(/([\d.]+)%\s*idle/);
+            if (userMatch) cpuUser = userMatch[1] + '%';
+            if (sysMatch)  cpuSys  = sysMatch[1] + '%';
             if (idleMatch) {
+                cpuIdle  = idleMatch[1] + '%';
                 cpuUsage = 100 - parseFloat(idleMatch[1]);
             }
-            const cpuStatus = cpuUsage > 80 ? 'critical' : (cpuUsage > 60 ? 'warning' : 'nominal');
             setVal('v-cpu', `${cpuUsage.toFixed(1)}%`);
-
-            // Parse sage cpu_load string "2.03 2.07 2.14" for load averages
-            const sageCpuLoad = (sage.system_health && sage.system_health.cpu_load) || '';
-            const loadParts = sageCpuLoad.split(/\s+/).map(Number).filter(n => !isNaN(n));
-            if (loadParts.length >= 3) {
-                setVal('v-cpu-sub', `Load avg: ${loadParts[0].toFixed(2)} / ${loadParts[1].toFixed(2)} / ${loadParts[2].toFixed(2)}`);
-            } else if (loadParts.length > 0) {
-                setVal('v-cpu-sub', `Load avg: ${sageCpuLoad}`);
-            } else {
-                setVal('v-cpu-sub', `Status: ${cpuStatus}`);
-            }
+            setVal('v-cpu-sub', `User: ${cpuUser} · Sys: ${cpuSys}`);
             setBar('v-cpu-bar', cpuUsage);
 
-            // RAM
+            // --- RAM ---
             const mem = telemetry.memory || {};
-            const pagesFree = mem.pages_free || 0;
-            const pagesActive = mem.pages_active || 0;
+            const pagesFree     = mem.pages_free || 0;
+            const pagesActive   = mem.pages_active || 0;
             const pagesInactive = mem.pages_inactive || 0;
-            const pagesWired = mem.pages_wired || 0;
-            const totalPages = pagesFree + pagesActive + pagesInactive + pagesWired || 1;
-            const usedPages = pagesActive + pagesWired;
-            const ramPct = Math.round((usedPages / totalPages) * 100);
+            const pagesWired    = mem.pages_wired || 0;
+            const totalPages    = pagesFree + pagesActive + pagesInactive + pagesWired || 1;
+            const usedPages     = pagesActive + pagesWired;
+            const ramPct        = Math.round((usedPages / totalPages) * 100);
             
             // Assume 16KB pages on macOS
-            const ramUsedMB = (usedPages * 16384) / (1024 * 1024);
+            const ramUsedMB  = (usedPages * 16384) / (1024 * 1024);
             const ramTotalMB = (totalPages * 16384) / (1024 * 1024);
-            const ramStatus = ramPct > 85 ? 'critical' : (ramPct > 70 ? 'warning' : 'nominal');
-            const ramUsedGB = (ramUsedMB / 1024).toFixed(1);
+            const ramUsedGB  = (ramUsedMB / 1024).toFixed(1);
             const ramTotalGB = (ramTotalMB / 1024).toFixed(1);
             setVal('v-ram', `${ramUsedGB} GB`);
-            setVal('v-ram-sub', `${ramTotalGB} GB total · ${ramStatus}`);
+            setVal('v-ram-sub', `${ramTotalGB} GB total · ${ramPct}%`);
             setBar('v-ram-bar', ramPct);
 
-            // GPU - Not provided in JSON, default to Apple Silicon
-            const gpuModel  = 'Apple Silicon';
-            const gpuStatus = 'nominal';
-            setVal('v-gpu', gpuModel);
-            const thermalStatus = 'nominal';
-            setVal('v-gpu-sub', `Thermal: ${thermalStatus}`);
-            const gpuBarPct = 15;
-            setBar('v-gpu-bar', gpuBarPct);
-
-            // Disk Usage
-            const obsDisk = telemetry.disk || {};
+            // --- Disk ---
+            const obsDisk         = telemetry.disk || {};
             const obsDiskCapacity = obsDisk.capacity || '—';
             const obsDiskAvail    = obsDisk.available || '—';
+            const obsDiskSize     = obsDisk.size || '—';
+            const obsDiskUsed     = obsDisk.used || '—';
+            const obsDiskMount    = obsDisk.mount || '—';
+            const diskPct         = parsePct(obsDiskCapacity);
 
-            // Sage disk usage
-            const sageDisk = (sage.system_health && sage.system_health.disk_usage) || {};
-            const diskCapacity = sageDisk.capacity || obsDiskCapacity;
-            const diskAvail    = sageDisk.available || obsDiskAvail;
-            const diskMount    = sageDisk.mount || (obsDisk.mount || '—');
-            const diskPct = parsePct(diskCapacity);
-            
-            setVal('v-disk', diskCapacity);
-            setVal('v-disk-sub', `Available: ${diskAvail}`);
+            setVal('v-disk', obsDiskCapacity);
+            setVal('v-disk-sub', `Available: ${obsDiskAvail}`);
             setBar('v-disk-bar', diskPct);
 
-            // ---- OBSERVER PANEL ----
-            setChip('p-observer-chip', cpuStatus);
-            setChip('p-obs-cpu', cpuStatus);
-            setChip('p-obs-ram', ramStatus);
-            setChip('p-obs-gpu', gpuStatus);
-            setChip('p-obs-thermal', thermalStatus);
+            // --- n8n Heartbeat ---
+            const n8nHb     = observer.n8n_heartbeat || {};
+            const n8nStatus = n8nHb.status || 'unknown';
+            const n8nHealth = n8nHb.health || 'Unknown';
+            const n8nResp   = n8nHb.response || '—';
 
-            const n8nStatus = (observer.n8n_heartbeat && observer.n8n_heartbeat.status) || 'unknown';
-            const n8nHealth = (observer.n8n_heartbeat && observer.n8n_heartbeat.health) || 'Unknown';
-            const obsStress = n8nStatus === 'ok' ? 'nominal' : 'warning';
-            setChip('p-obs-stress', obsStress);
-            setChip('p-obs-n8n', n8nStatus === 'ok' ? 'ok' : 'err');
-            const n8nChip = document.getElementById('p-obs-n8n');
-            if(n8nChip) n8nChip.innerHTML = `<span class="dot-sm"></span>${escapeHTML(n8nHealth.toUpperCase())}`;
+            setVal('v-n8n', n8nHealth);
+            setVal('v-n8n-sub', n8nResp.length > 60 ? n8nResp.substring(0, 57) + '…' : n8nResp);
+            setBar('v-n8n-bar', n8nStatus === 'ok' ? 100 : 0);
 
-            setVal('p-obs-disk', `${obsDiskCapacity} (${obsDiskAvail} free)`);
+            // ============================================================
+            // OBSERVER PANEL (detailed telemetry)
+            // ============================================================
+            const cpuStatusLabel = cpuUsage > 80 ? 'CRITICAL' : (cpuUsage > 60 ? 'WARNING' : 'NOMINAL');
+            setChip('p-observer-chip', cpuStatusLabel);
+
+            setVal('p-obs-cpu-user', cpuUser);
+            setVal('p-obs-cpu-sys',  cpuSys);
+            setVal('p-obs-cpu-idle', cpuIdle);
+            setVal('p-obs-pages-free',   formatNumber(pagesFree));
+            setVal('p-obs-pages-active', formatNumber(pagesActive));
+            setVal('p-obs-pages-wired',  formatNumber(pagesWired));
+            setVal('p-obs-disk-mount',   obsDiskMount);
+            setVal('p-obs-disk-detail',  `${obsDiskSize} total · ${obsDiskUsed} used`);
+
+            // n8n chip
+            setChip('p-obs-n8n', n8nStatus === 'ok' ? 'HEALTHY' : 'ERROR');
+
+            // Observer comment
+            const obsComment = observer.comment || 'No comment available.';
+            const obsCommentEl = document.getElementById('p-obs-comment');
+            if (obsCommentEl) obsCommentEl.textContent = obsComment;
+
             setVal('p-obs-ts', formatTimestamp(observer.timestamp));
 
-            // ---- SAGE PANEL ----
-            setChip('p-sage-chip', cogState);
-            setChip('p-sage-state', cogState);
+            // ============================================================
+            // SAGE PANEL (health_status + identified_issues)
+            // ============================================================
+            // Overall sage chip
+            let sageOverall = 'HEALTHY';
+            if (hasErr) sageOverall = 'CRITICAL';
+            else if (hasWarn) sageOverall = 'DEGRADED';
+            setChip('p-sage-chip', sageOverall);
 
-            const entropyLvl = (sage.cognitive_synthesis && sage.cognitive_synthesis.entropy_level) || '—';
-            setChip('p-sage-entropy', entropyLvl);
-            setChip('p-sage-audit', auditRes);
+            // Render health_status rows dynamically
+            const sageHealthRows = document.getElementById('sage-health-rows');
+            if (sageHealthRows) {
+                const entries = Object.entries(healthStatus);
+                if (entries.length === 0) {
+                    sageHealthRows.innerHTML = '<div class="data-row"><span class="data-label">No health data</span><span class="data-val">—</span></div>';
+                } else {
+                    sageHealthRows.innerHTML = entries.map(([component, status]) => {
+                        const cls = chipClass(status);
+                        // Format component name: snake_case → Title Case
+                        const displayName = component.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                        return `<div class="data-row">
+                            <span class="data-label">${escapeHTML(displayName)}</span>
+                            <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(status)}</span>
+                        </div>`;
+                    }).join('');
+                }
+            }
 
-            const sageUptime = (sage.system_health && sage.system_health.uptime) || '—';
-            setVal('p-sage-uptime', sageUptime);
-            setVal('p-sage-cpu', sageCpuLoad || '—');
-            setVal('p-sage-disk', `${diskMount} (${diskCapacity})`);
+            // Render identified issues
+            const issuesContainer = document.getElementById('sage-issues-container');
+            if (issuesContainer) {
+                const issues = sage.identified_issues || [];
+                if (issues.length === 0) {
+                    issuesContainer.innerHTML = `
+                        <div class="incidents-empty">
+                            <span class="icon">✅</span>
+                            <span>No issues identified. All systems nominal.</span>
+                        </div>`;
+                } else {
+                    issuesContainer.innerHTML = issues.map(issue => {
+                        const severity = issue.severity || 'UNKNOWN';
+                        const cls = chipClass(severity);
+                        return `<div class="issue-card">
+                            <div class="issue-card-header">
+                                <span class="issue-component">${escapeHTML(issue.component || 'Unknown')}</span>
+                                <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(severity)}</span>
+                            </div>
+                            <div class="issue-description">${escapeHTML(issue.issue || '—')}</div>
+                            <div class="issue-impact">Impact: ${escapeHTML(issue.impact || '—')}</div>
+                        </div>`;
+                    }).join('');
+                }
+            }
+
             setVal('p-sage-ts', formatTimestamp(sage.timestamp));
 
-            // ---- ARCHIVIST PANEL ----
+            // ============================================================
+            // ARCHIVIST PANEL
+            // ============================================================
             const archCompleted = archivist.total_completed ?? '—';
-            const archFailed    = archivist.total_failed    ?? '—';
+            const archFailedVal = archivist.total_failed    ?? '—';
             const archIncidents = archivist.key_incidents    || [];
             const archSummary   = archivist.summary_of_tasks || 'No task summary available.';
 
             // Archivist chip: pass if 0 failures and 0 incidents, warn if incidents, err if failures
             let archHealth = 'PASS';
-            if (archFailed > 0) archHealth = 'FAILED';
+            if (archFailedVal > 0) archHealth = 'FAILED';
             else if (archIncidents.length > 0) archHealth = 'WARNING';
 
             setChip('p-arch-chip', archHealth);
             setVal('p-arch-completed', String(archCompleted));
-            setVal('p-arch-failed', String(archFailed));
+            setVal('p-arch-failed', String(archFailedVal));
 
             // Format incidents
             if (archIncidents.length === 0) {
@@ -1633,102 +1711,60 @@
             const archSummaryEl = document.getElementById('p-arch-summary');
             if (archSummaryEl) archSummaryEl.textContent = archSummary;
 
-            // ---- COGNITIVE REFLECTION (from sage) ----
-            const sageInsights = (sage.cognitive_synthesis && sage.cognitive_synthesis.insights)
-                || 'No cognitive insights recorded.';
-            const refEl = document.getElementById('reflection-content');
-            if (refEl) refEl.textContent = sageInsights;
+            // ============================================================
+            // OUTSIDER PANEL (Reflection)
+            // ============================================================
+            const outsiderContent = outsider.content || 'No transmission received from The Outsider.';
+            const outsiderEl = document.getElementById('outsider-content');
+            if (outsiderEl) outsiderEl.textContent = outsiderContent;
+            setVal('p-outsider-ts', formatTimestamp(outsider.timestamp));
 
-            // Meta tags for reflection
-            const refMetaEl = document.getElementById('reflection-meta');
-            if (refMetaEl) {
-                const metaTags = [];
-                if (cogState)    metaTags.push(`🧠 State: ${escapeHTML(cogState)}`);
-                if (entropyLvl)  metaTags.push(`⚡ Entropy: ${escapeHTML(entropyLvl)}`);
-                if (auditRes)    metaTags.push(`✅ Audit: ${escapeHTML(auditRes)}`);
-                refMetaEl.innerHTML = metaTags
-                    .map(t => `<span class="meta-tag">${t}</span>`)
-                    .join('');
-            }
-
-            // ---- INSIGHTS: SERVICES & PROCESSES ----
-            // Services (from observer.services)
-            const services = observer.services || {};
-            const svcEl = document.getElementById('insights-services');
-            if (svcEl) {
-                const svcEntries = Object.entries(services);
-                if (svcEntries.length === 0) {
-                    svcEl.textContent = 'No services monitored.';
-                } else {
-                    svcEl.innerHTML = svcEntries.map(([name, info]) => {
-                        const status = (info && info.status) || 'unknown';
-                        const cls = chipClass(status);
-                        const probe = (info && info.last_probe) ? ` · Last probe: ${formatTimestamp(info.last_probe)}` : '';
-                        return `<div style="display:flex;align-items:center;gap:8px;padding:4px 0;">
-                            <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(status)}</span>
-                            <span style="font-weight:600;font-size:0.82rem;">${escapeHTML(name)}</span>
-                            <span style="font-size:0.72rem;color:var(--text-faint);">${probe}</span>
-                        </div>`;
-                    }).join('');
-                }
-            }
-
-            // Critical Processes (from sage.system_health.critical_processes)
-            const processes = (sage.system_health && sage.system_health.critical_processes) || [];
-            const procEl = document.getElementById('insights-processes');
-            if (procEl) {
-                if (processes.length === 0) {
-                    procEl.textContent = 'No critical processes reported.';
-                } else {
-                    procEl.innerHTML = processes.map(proc => {
-                        const status = proc.status || 'UNKNOWN';
-                        const cls = chipClass(status);
-                        return `<div class="process-item">
-                            <span class="process-name">${escapeHTML(proc.name || 'unknown')}</span>
-                            <div class="process-meta">
-                                <span class="process-pid">PID ${proc.pid || '—'}</span>
-                                <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(status)}</span>
-                            </div>
-                        </div>`;
-                    }).join('');
-                }
-            }
-
-            // ---- FLEET OVERVIEW TABLE ----
-            // Build 3 rows: The Observer, The Sage, The Archivist
+            // ============================================================
+            // FLEET OVERVIEW TABLE
+            // ============================================================
             const fleetData = [
                 {
                     name: 'The Observer',
                     icon: '⬡',
-                    status: cpuStatus === 'nominal' && ramStatus !== 'stressed' && ramStatus !== 'critical' && ramStatus !== 'warning' ? 'NOMINAL' : (ramStatus === 'warning' || ramStatus === 'critical' ? 'STRESSED' : cpuStatus),
-                    summary: `CPU ${cpuUsage.toFixed(1)}% · RAM ${ramPct}% (${ramStatus}) · Stress: ${obsStress}`,
+                    status: cpuStatusLabel,
+                    summary: `CPU ${cpuUsage.toFixed(1)}% · RAM ${ramPct}% (${ramUsedGB}/${ramTotalGB} GB) · Disk ${obsDiskCapacity}`,
                     timestamp: observer.timestamp,
-                    details: `Disk ${diskCapacity}`
+                    details: `n8n: ${n8nHealth} · ${obsDiskAvail} free`
                 },
                 {
                     name: 'The Sage',
                     icon: '◈',
-                    status: cogState,
-                    summary: sageInsights,
+                    status: sageOverall,
+                    summary: (sage.identified_issues && sage.identified_issues.length > 0)
+                        ? `${sage.identified_issues.length} issue(s) identified across ${Object.keys(healthStatus).length} components`
+                        : `All ${Object.keys(healthStatus).length} components healthy`,
                     timestamp: sage.timestamp,
-                    details: `Audit: ${auditRes} · Entropy: ${entropyLvl}`
+                    details: Object.entries(healthStatus).map(([k, v]) => `${k.replace(/_/g,' ')}: ${v}`).join(' · ')
                 },
                 {
                     name: 'The Archivist',
                     icon: '📜',
                     status: archHealth,
-                    summary: archSummary,
+                    summary: archSummary.length > 120 ? archSummary.substring(0, 117) + '…' : archSummary,
                     timestamp: archivist.timestamp,
-                    details: `✅ ${archCompleted} completed · ❌ ${archFailed} failed`
+                    details: `✅ ${archCompleted} completed · ❌ ${archFailedVal} failed`
+                },
+                {
+                    name: 'The Outsider',
+                    icon: '🌀',
+                    status: outsider.content ? 'ACTIVE' : 'OFFLINE',
+                    summary: outsiderContent.length > 120 ? outsiderContent.substring(0, 117) + '…' : outsiderContent,
+                    timestamp: outsider.timestamp,
+                    details: 'Reflection transmission'
                 }
             ];
 
             // Fleet health chip
-            const hasIssues = fleetData.some(a => chipClass(a.status) === 'err' || chipClass(a.status) === 'warn');
+            const hasFleetIssues = fleetData.some(a => chipClass(a.status) === 'err' || chipClass(a.status) === 'warn');
             const fleetChip = document.getElementById('fleet-health-chip');
             if (fleetChip) {
-                const fleetHealth = hasIssues ? 'ISSUES DETECTED' : 'ALL PASS';
-                const fleetCls = hasIssues ? 'warn' : 'ok';
+                const fleetHealth = hasFleetIssues ? 'ISSUES DETECTED' : 'ALL PASS';
+                const fleetCls = hasFleetIssues ? 'warn' : 'ok';
                 fleetChip.className = `chip ${fleetCls}`;
                 fleetChip.innerHTML = `<span class="dot-sm"></span>${escapeHTML(fleetHealth)}`;
             }

@@ -105,7 +105,7 @@ Path D — fray/dashboard-snapshot.json (Workflow 5, every 8h):
 - `tracking/track_list.json` — **Semi-automated.** Add barcodes via dashboard webhook form (n8n Workflow 4) or edit directly. Remove manually.
 - `tracking/status_store.json` — **Auto-generated.** Updated by `tracker.py` via GitHub Actions. Never edit manually.
 - `tracking/auth.json` — **Auto-generated.** SHA-256 hash of the `TRACKING_PASSCODE` GitHub Secret. Used for client-side authentication on the tracking dashboard.
-- `fray/dashboard-snapshot.json` — **Automated.** Observability metric snapshot pushed by Fray/n8n every 8h. Consumed directly by `fray/index.html` (3-section format: `observer`, `sage`, `archivist`).
+- `fray/dashboard-snapshot.json` — **Automated.** Observability metric snapshot pushed by Fray/n8n every 8h. Consumed directly by `fray/index.html` (4-section format: `observer`, `sage`, `archivist`, `outsider`).
 
 > **Deduplication:** The processing script uses a `Map<id, post>` strategy — existing posts are loaded first, then updates are applied on top. If an ID exists in both old data and new updates, the update wins. This eliminates the legacy bug where editing old Notion entries caused duplicates across split files.
 
@@ -342,10 +342,10 @@ graph LR
 
 #### 5. The Presentation (Web Interface)
 * **Tools:** GitHub Pages + `fray/index.html`
-* **Design Rationale:** The frontend consumes `dashboard-snapshot.json` directly without a normalization layer. The JSON format uses a stable 3-section schema (`observer`, `sage`, `archivist`) that the client-side JS maps to the dashboard panels.
+* **Design Rationale:** The frontend consumes `dashboard-snapshot.json` directly without a normalization layer. The JSON format uses a stable 4-section schema (`observer`, `sage`, `archivist`, `outsider`) that the client-side JS maps to the dashboard panels.
 * **Process:**
   1. Once deployed, visitors to the Fray dashboard fetch `dashboard-snapshot.json` with a cache-busting query parameter.
-  2. Client-side JS parses the 3 top-level sections and renders: hardware vitals (observer), cognitive state (sage), and task reports (archivist).
+  2. Client-side JS parses the 4 top-level sections and renders: hardware vitals & n8n heartbeat (observer), component health status & identified issues (sage), task reports (archivist), and philosophical reflections (outsider).
 
 **Architectural Advantages:**
 1. **Enhanced Security:** Operates on a push-only model, eliminating the need to expose local ports to external networks.
