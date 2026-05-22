@@ -1598,6 +1598,16 @@
         }
 
         function renderSidebar() {
+            if (!document.startViewTransition) {
+                _renderSidebarContent();
+                return;
+            }
+            document.startViewTransition(() => {
+                _renderSidebarContent();
+            });
+        }
+
+        function _renderSidebarContent() {
             const listContainer = document.getElementById('sidebar-list');
             listContainer.innerHTML = '';
 
@@ -1613,6 +1623,8 @@
             pageItems.forEach(post => {
                 const item = document.createElement('div');
                 item.className = 'article-list-item';
+                // Assign a unique view-transition-name to each item if possible, but for lists usually a container transition is fine.
+                // We'll rely on the default container cross-fade for now.
                 if (post.id === currentPostId) item.classList.add('active');
                 item.dataset.id = post.id;
                 
@@ -1902,6 +1914,33 @@
                 const post = allPosts.find(p => p.id === event.state.id);
                 if (post) loadArticle(post);
             }
+        };
+
+        // --- 6. READING PROGRESS BAR ---
+        const progressContainer = document.createElement('div');
+        progressContainer.className = 'reading-progress';
+        const progressBar = document.createElement('div');
+        progressBar.className = 'reading-progress-bar';
+        progressBar.id = 'reading-progress-bar';
+        progressContainer.appendChild(progressBar);
+        document.body.appendChild(progressContainer);
+
+        const articleMain = document.querySelector('.main-content');
+        articleMain.addEventListener('scroll', () => {
+            if (document.getElementById('article-view').classList.contains('visible')) {
+                progressContainer.style.display = 'block';
+                const totalHeight = articleMain.scrollHeight - articleMain.clientHeight;
+                const progress = totalHeight > 0 ? (articleMain.scrollTop / totalHeight) * 100 : 0;
+                progressBar.style.width = `${progress}%`;
+            } else {
+                progressContainer.style.display = 'none';
+            }
+        });
+        
+        window.updateReadingProgress = () => {
+            const totalHeight = articleMain.scrollHeight - articleMain.clientHeight;
+            const progress = totalHeight > 0 ? (articleMain.scrollTop / totalHeight) * 100 : 0;
+            progressBar.style.width = `${progress}%`;
         };
 
     </script>

@@ -750,6 +750,28 @@
             overflow: hidden;
             overflow-x: auto;
             box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+
+        .audit-table-wrapper::after {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 2;
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            opacity: 0.6;
+            border-radius: var(--radius);
+        }
+
+        [data-theme="dark"] .audit-table-wrapper::after {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.04));
+            background-size: 100% 4px, 3px 100%;
         }
 
         .audit-table {
