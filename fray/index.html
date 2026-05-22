@@ -1262,12 +1262,7 @@
                                 <span class="data-label">n8n Status</span>
                                 <span id="p-obs-n8n" class="chip neutral"><span class="dot-sm"></span>—</span>
                             </div>
-                            <div class="data-row" style="flex-direction:column;align-items:flex-start;gap:6px;">
-                                <span class="data-label">Observer Comment</span>
-                                <div id="p-obs-comment" class="quote-block" style="width:100%;font-style:normal;font-size:0.82rem;">
-                                    Awaiting data…
-                                </div>
-                            </div>
+
                             <div class="data-row">
                                 <span class="data-label">Observed At</span>
                                 <span class="data-val" id="p-obs-ts">—</span>
@@ -1298,12 +1293,7 @@
                                 <span class="data-label">Observed At</span>
                                 <span class="data-val" id="p-arch-ts">—</span>
                             </div>
-                            <div class="data-row" style="flex-direction:column;align-items:flex-start;gap:8px;">
-                                <span class="data-label">Task Summary</span>
-                                <div id="p-arch-summary" class="quote-block" style="width:100%;font-style:normal;font-size:0.82rem;">
-                                    Awaiting data…
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 
@@ -1319,12 +1309,7 @@
                                 <!-- Filled dynamically -->
                             </div>
 
-                            <!-- Section divider for identified issues -->
-                            <div style="margin: 14px 0 10px; border-top: 1px solid var(--border);"></div>
-                            <div class="insight-label" style="margin-bottom:8px;">Identified Issues</div>
-                            <div id="sage-issues-container">
-                                <!-- Filled dynamically -->
-                            </div>
+
 
                             <div class="data-row" style="margin-top:10px;">
                                 <span class="data-label">Observed At</span>
@@ -1665,30 +1650,9 @@
                 }
             }
 
-            // Render identified issues
-            const issuesContainer = document.getElementById('sage-issues-container');
-            if (issuesContainer) {
-                const issues = sage.identified_issues || [];
-                if (issues.length === 0) {
-                    issuesContainer.innerHTML = `
-                        <div class="incidents-empty">
-                            <span class="icon">✅</span>
-                            <span>No issues identified. All systems nominal.</span>
-                        </div>`;
-                } else {
-                    issuesContainer.innerHTML = issues.map(issue => {
-                        const severity = issue.severity || 'UNKNOWN';
-                        const cls = chipClass(severity);
-                        return `<div class="issue-card">
-                            <div class="issue-card-header">
-                                <span class="issue-component">${escapeHTML(issue.component || 'Unknown')}</span>
-                                <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(severity)}</span>
-                            </div>
-                            <div class="issue-description">${escapeHTML(issue.issue || '—')}</div>
-                            <div class="issue-impact">Impact: ${escapeHTML(issue.impact || '—')}</div>
-                        </div>`;
-                    }).join('');
-                }
+            const sageIssuesContainer = document.getElementById('sage-issues-container');
+            if (sageIssuesContainer) {
+                sageIssuesContainer.innerHTML = '';
             }
 
             setVal('p-sage-ts', formatTimestamp(sage.timestamp));
@@ -1719,8 +1683,7 @@
 
             setVal('p-arch-ts', formatTimestamp(archivist.timestamp));
 
-            const archSummaryEl = document.getElementById('p-arch-summary');
-            if (archSummaryEl) archSummaryEl.textContent = archSummary;
+
 
             // ============================================================
             // OUTSIDER PANEL (Reflection)
@@ -1738,7 +1701,7 @@
                     name: 'The Observer',
                     icon: '⬡',
                     status: cpuStatusLabel,
-                    summary: `CPU ${cpuUsage.toFixed(1)}% · RAM ${ramPct}% (${ramUsedGB}/${ramTotalGB} GB) · Disk ${obsDiskCapacity}`,
+                    summary: escapeHTML(`CPU ${cpuUsage.toFixed(1)}% · RAM ${ramPct}% (${ramUsedGB}/${ramTotalGB} GB) · Disk ${obsDiskCapacity}`) + `<br><span style="color:var(--text-faint); font-style:italic;">Comment: ${escapeHTML(observer.comment || '—')}</span>`,
                     timestamp: observer.timestamp,
                     details: `n8n: ${n8nHealth} · ${obsDiskAvail} free`
                 },
@@ -1747,8 +1710,8 @@
                     icon: '◈',
                     status: sageOverall,
                     summary: (sage.identified_issues && sage.identified_issues.length > 0)
-                        ? `${sage.identified_issues.length} issue(s) identified across ${Object.keys(healthStatus).length} components`
-                        : `All ${Object.keys(healthStatus).length} components healthy`,
+                        ? sage.identified_issues.map(i => `<div style="margin-bottom:8px"><b>${escapeHTML(i.component)}</b> <span class="chip ${chipClass(i.severity || 'UNKNOWN')}" style="transform:scale(0.85);transform-origin:left center;"><span class="dot-sm"></span>${escapeHTML(i.severity || 'UNKNOWN')}</span><br>${escapeHTML(i.issue)}<br><span style="font-size:0.75rem;color:var(--text-muted);font-style:italic">Impact: ${escapeHTML(i.impact || '—')}</span></div>`).join('')
+                        : escapeHTML('All components healthy'),
                     timestamp: sage.timestamp,
                     details: Object.entries(healthStatus).map(([k, v]) => `${k.replace(/_/g,' ')}: ${v}`).join(' · ')
                 },
@@ -1756,7 +1719,7 @@
                     name: 'The Archivist',
                     icon: '📜',
                     status: archHealth,
-                    summary: archSummary,
+                    summary: escapeHTML(archSummary),
                     timestamp: archivist.timestamp,
                     details: `✅ ${archCompleted} completed · ❌ ${archFailedVal} failed`
                 },
@@ -1764,7 +1727,7 @@
                     name: 'The Outsider',
                     icon: '🌀',
                     status: outsider.content ? 'ACTIVE' : 'OFFLINE',
-                    summary: outsiderContent,
+                    summary: escapeHTML(outsiderContent),
                     timestamp: outsider.timestamp,
                     details: 'Reflection transmission'
                 }
@@ -1797,7 +1760,7 @@
                                 <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(agent.status)}</span>
                             </td>
                             <td>
-                                <div class="agent-analysis">${escapeHTML(agent.summary)}</div>
+                                <div class="agent-analysis">${agent.summary}</div>
                             </td>
                             <td>
                                 <div class="audit-technical-cell">${formatTimestamp(agent.timestamp)}</div>
