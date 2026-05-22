@@ -1699,28 +1699,14 @@
                     outsiderEl.innerHTML = 'No transmission received from The Outsider.';
                     outsiderEl.className = 'quote-block';
                 } else if (outsider.observation) {
-                    outsiderEl.className = 'combined-reflection-insights';
+                    outsiderEl.className = 'quote-block';
                     outsiderEl.innerHTML = `
-                        <div class="reflection-row">
-                            <div class="quote-block" style="border-left: none; font-size: 1.05rem; font-weight: 500; line-height: 1.7; border-radius: var(--radius-sm); padding: 16px 20px;">
-                                "${escapeHTML(outsider.observation)}"
-                            </div>
+                        <div style="margin-bottom: 12px; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--text-main);">
+                            "${escapeHTML(outsider.observation)}"
                         </div>
-                        <div class="insights-row">
-                            ${outsider.insight ? `
-                            <div class="insight-col">
-                                <div class="insight-label">Insight</div>
-                                <div class="insight-block">${escapeHTML(outsider.insight)}</div>
-                            </div>
-                            ` : ''}
-                            ${outsider.status ? `
-                            <div class="insight-col">
-                                <div class="insight-label">Status</div>
-                                <div class="insight-block" style="border-left-color: var(--state-ok)">${escapeHTML(outsider.status)}</div>
-                            </div>
-                            ` : ''}
-                        </div>
-                        <span style="display:block;text-align:right;font-size:0.75rem;color:var(--text-faint);margin-top:10px;">&mdash; Observed: ${formatTimestamp(outsider.timestamp)}</span>
+                        ${outsider.insight ? `<div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);"><b>Insight:</b> ${escapeHTML(outsider.insight)}</div>` : ''}
+                        ${outsider.status ? `<div style="margin-bottom: 0; font-size: 0.9rem; color: var(--text-secondary);"><b>Status:</b> ${escapeHTML(outsider.status)}</div>` : ''}
+                        <div style="display:block;text-align:right;font-size:0.75rem;color:var(--text-faint);margin-top:10px;">&mdash; Observed: ${formatTimestamp(outsider.timestamp)}</div>
                     `;
                 } else {
                     const outsiderContent = outsider.content || 'No transmission received from The Outsider.';
