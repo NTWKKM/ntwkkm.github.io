@@ -1537,10 +1537,23 @@
             const n8nStatus = n8nHb.status || 'unknown';
             const n8nHealth = n8nHb.health || 'Unknown';
             const n8nResp   = n8nHb.response || '—';
+            
+            const isN8nOk = String(n8nStatus).toLowerCase().includes('ok') || String(n8nHealth).toLowerCase().includes('healthy');
 
             setVal('v-n8n', n8nHealth);
             setVal('v-n8n-sub', n8nResp.length > 60 ? n8nResp.substring(0, 57) + '…' : n8nResp);
-            setBar('v-n8n-bar', String(n8nStatus).toLowerCase() === 'ok' ? 100 : 0);
+            
+            const n8nBarEl = document.getElementById('v-n8n-bar');
+            if (n8nBarEl) {
+                n8nBarEl.style.width = '100%';
+                if (isN8nOk) {
+                    n8nBarEl.className = 'vital-bar-fill green';
+                    setChip('v-n8n-badge', 'HEALTHY');
+                } else {
+                    n8nBarEl.className = 'vital-bar-fill red';
+                    setChip('v-n8n-badge', 'ERROR');
+                }
+            }
 
             // ============================================================
             // OBSERVER PANEL (detailed telemetry)
@@ -1555,7 +1568,7 @@
                         <div class="data-row"><span class="data-label">CPU (User/Sys/Idle)</span><span class="data-val">${cpuUser} / ${cpuSys} / ${cpuIdle}</span></div>
                         <div class="data-row"><span class="data-label">Memory Pages (F/A/I/W)</span><span class="data-val">${formatNumber(pagesFree)} / ${formatNumber(pagesActive)} / ${formatNumber(pagesInactive)} / ${formatNumber(pagesWired)}</span></div>
                         <div class="data-row"><span class="data-label">Disk Capacity (${escapeHTML(obsDiskMount)})</span><span class="data-val">${escapeHTML(obsDiskSize)} total &middot; ${escapeHTML(obsDiskUsed)} used</span></div>
-                        <div class="data-row"><span class="data-label">n8n Heartbeat</span><span class="chip ${n8nStatus === 'ok' ? 'ok' : 'err'}"><span class="dot-sm"></span>${escapeHTML(n8nHealth)}</span></div>
+                        <div class="data-row"><span class="data-label">n8n Heartbeat</span><span class="chip ${isN8nOk ? 'ok' : 'err'}"><span class="dot-sm"></span>${escapeHTML(n8nHealth)}</span></div>
                         <div class="data-row" style="flex-direction:column; align-items:flex-start; border-bottom:none; padding-bottom:0;">
                             <span class="data-label" style="margin-bottom:8px;">Network Interface</span>
                             <pre style="margin:0; width:100%; padding:10px; background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius-sm); font-size:0.75rem; color:var(--text-secondary); overflow-x:auto; font-family:'JetBrains Mono', monospace; white-space:pre-wrap;">${escapeHTML(telemetry.network || '—')}</pre>
