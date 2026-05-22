@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <link rel="stylesheet" href="../shared.css">
   <style>
     :root {
@@ -400,11 +401,22 @@
     }
 
     /* --- Empty State --- */
+    @keyframes floatEmpty {
+      0% { transform: translateY(0px) rotate3d(1, 1, 0, 0deg); }
+      50% { transform: translateY(-10px) rotate3d(1, 1, 0, 5deg); }
+      100% { transform: translateY(0px) rotate3d(1, 1, 0, 0deg); }
+    }
+
     .empty-state {
       text-align: center;
       padding: 64px 24px;
       max-width: 500px;
       margin: 0 auto;
+      perspective: 1000px;
+    }
+    .empty-state-content {
+      animation: floatEmpty 6s ease-in-out infinite;
+      transform-style: preserve-3d;
     }
     .empty-state .emoji { font-size: 48px; margin-bottom: 16px; }
     .empty-state h2 {
@@ -770,9 +782,11 @@
   <!-- Package Grid -->
   <div class="grid" id="packageGrid">
     <div class="empty-state" id="emptyState">
-      <div class="emoji">📡</div>
-      <h2>Loading Tracking Data...</h2>
-      <p>Fetching latest package statuses.</p>
+      <div class="empty-state-content">
+        <div class="emoji">📡</div>
+        <h2>Loading Tracking Data...</h2>
+        <p>Fetching latest package statuses.</p>
+      </div>
     </div>
   </div>
 
@@ -965,9 +979,9 @@
 
       // Empty state
       if (keys.length === 0) {
-        grid.innerHTML = '<div class="empty-state"><div class="emoji">📭</div>' +
+        grid.innerHTML = '<div class="empty-state"><div class="empty-state-content"><div class="emoji">📭</div>' +
           '<h2>No Packages Tracked</h2>' +
-          '<p>Add barcodes to <code>tracking/track_list.json</code> and trigger the workflow.</p></div>';
+          '<p>Add barcodes to <code>tracking/track_list.json</code> and trigger the workflow.</p></div></div>';
         document.getElementById('summary').style.display = 'none';
         return;
       }
@@ -979,6 +993,23 @@
       document.getElementById('statActive').textContent = active;
       document.getElementById('statDelivered').textContent = delivered;
       document.getElementById('summary').style.display = 'flex';
+
+      // Confetti logic
+      if (!window.confettiFiredPackages) window.confettiFiredPackages = new Set();
+      let shouldFireConfetti = false;
+      
+      keys.forEach(k => {
+          if (packages[k].is_delivered && !window.confettiFiredPackages.has(k)) {
+              window.confettiFiredPackages.add(k);
+              shouldFireConfetti = true;
+          }
+      });
+
+      if (shouldFireConfetti && typeof confetti === 'function') {
+          setTimeout(() => {
+              confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+          }, 500);
+      }
 
       // Sort: active first, then delivered; within each group sort by last_status_date desc
       const sorted = keys.sort((a, b) => {

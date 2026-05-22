@@ -1598,6 +1598,16 @@
         }
 
         function renderSidebar() {
+            if (!document.startViewTransition) {
+                _renderSidebarContent();
+                return;
+            }
+            document.startViewTransition(() => {
+                _renderSidebarContent();
+            });
+        }
+
+        function _renderSidebarContent() {
             const listContainer = document.getElementById('sidebar-list');
             listContainer.innerHTML = '';
 
@@ -1613,6 +1623,8 @@
             pageItems.forEach(post => {
                 const item = document.createElement('div');
                 item.className = 'article-list-item';
+                // Assign a unique view-transition-name to each item if possible, but for lists usually a container transition is fine.
+                // We'll rely on the default container cross-fade for now.
                 if (post.id === currentPostId) item.classList.add('active');
                 item.dataset.id = post.id;
                 
