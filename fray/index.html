@@ -483,8 +483,8 @@
         ==================================================== */
         .main-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 16px;
+            grid-template-columns: 1fr;
+            gap: 24px;
         }
 
         /* ====================================================
@@ -585,8 +585,8 @@
         /* ====================================================
            SPAN UTILITIES
         ==================================================== */
-        .span-2 { grid-column: span 2; }
-        .span-3 { grid-column: span 3; }
+        .span-2 { grid-column: span 1; }
+        .span-3 { grid-column: span 1; }
 
         /* ====================================================
            PERFORMANCE ROWS WITH INLINE BARS
@@ -1222,11 +1222,10 @@
                 </div><!-- /vitals-strip -->
 
                 <!-- MAIN PANEL GRID (2-column) -->
-                <div class="main-grid fade-up d2">
+                                <div class="main-grid fade-up d2">
 
-                    <!-- === Row 1: The Outsider (full-width) === -->
-                    <div class="panel span-3 fade-up d2" id="panel-outsider">
-
+                    <!-- === Row 1: The Outsider === -->
+                    <div class="panel span-2 fade-up d2" id="panel-outsider">
                         <div class="panel-body">
                             <div id="outsider-content" class="quote-block">
                                 Awaiting synchronization…
@@ -1235,97 +1234,35 @@
                     </div>
 
                     <!-- === Row 2: The Observer === -->
-                    <div class="panel" id="panel-observer">
+                    <div class="panel span-2" id="panel-observer">
                         <div class="panel-head">
                             <div class="panel-title"><span class="panel-title-icon">⬡</span> The Observer</div>
                             <div id="p-observer-chip" class="chip ok"><span class="dot-sm"></span>NOMINAL</div>
                         </div>
-                        <div class="panel-body">
-                            <div class="data-row">
-                                <span class="data-label">CPU (User/Sys/Idle)</span>
-                                <span class="data-val" id="p-obs-cpu-combined">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">Pages Free</span>
-                                <span class="data-val" id="p-obs-pages-free">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">Pages Active</span>
-                                <span class="data-val" id="p-obs-pages-active">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">Pages Wired</span>
-                                <span class="data-val" id="p-obs-pages-wired">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">Disk (Mount)</span>
-                                <span class="data-val" id="p-obs-disk-mount">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">Disk (Size / Used)</span>
-                                <span class="data-val" id="p-obs-disk-detail">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">Network</span>
-                                <span class="data-val" id="p-obs-network" style="text-align: right; max-width: 60%; word-break: break-all;">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">n8n Status</span>
-                                <span id="p-obs-n8n" class="chip neutral"><span class="dot-sm"></span>—</span>
-                            </div>
-
-                            <div class="data-row">
-                                <span class="data-label">Observed At</span>
-                                <span class="data-val" id="p-obs-ts">—</span>
-                            </div>
+                        <div class="panel-body" id="observer-body">
+                            <div style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">Awaiting Observer data...</div>
                         </div>
                     </div>
 
-                    <!-- === Row 2: The Archivist === -->
-                    <div class="panel" id="panel-archivist">
+                    <!-- === Row 3: The Archivist === -->
+                    <div class="panel span-2" id="panel-archivist">
                         <div class="panel-head">
                             <div class="panel-title"><span class="panel-title-icon">📜</span> The Archivist</div>
                             <div id="p-arch-chip" class="chip ok"><span class="dot-sm"></span>—</div>
                         </div>
-                        <div class="panel-body">
-                            <div class="data-row">
-                                <span class="data-label">Tasks Completed</span>
-                                <span class="data-val" id="p-arch-completed">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">Tasks Failed</span>
-                                <span class="data-val" id="p-arch-failed">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">Key Incidents</span>
-                                <span class="data-val" id="p-arch-incidents">—</span>
-                            </div>
-                            <div class="data-row">
-                                <span class="data-label">Observed At</span>
-                                <span class="data-val" id="p-arch-ts">—</span>
-                            </div>
-
+                        <div class="panel-body" id="archivist-body">
+                            <div style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">Awaiting Archivist data...</div>
                         </div>
                     </div>
 
-                    <!-- === Row 2: The Sage === -->
-                    <div class="panel fade-up d3" id="panel-sage">
+                    <!-- === Row 4: The Sage === -->
+                    <div class="panel span-2 fade-up d3" id="panel-sage">
                         <div class="panel-head">
                             <div class="panel-title"><span class="panel-title-icon">◈</span> The Sage</div>
                             <div id="p-sage-chip" class="chip ok"><span class="dot-sm"></span>STABLE</div>
                         </div>
-                        <div class="panel-body">
-                            <!-- Dynamic health_status rows rendered by JS -->
-                            <div id="sage-health-rows">
-                                <!-- Filled dynamically -->
-                            </div>
-
-
-
-                            <div class="data-row" style="margin-top:10px;">
-                                <span class="data-label">Observed At</span>
-                                <span class="data-val" id="p-sage-ts">—</span>
-                            </div>
+                        <div class="panel-body" id="sage-body">
+                            <div style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">Awaiting Sage data...</div>
                         </div>
                     </div>
 
@@ -1527,19 +1464,17 @@
             setVal('banner-timestamp', formatTimestamp(rootTs));
 
             // ============================================================
-            // OVERALL HEALTH — derive from sage.health_status + archivist
+            // OVERALL HEALTH — derive from new structure
             // ============================================================
-            const healthStatus = sage.health_status || {};
-            const healthValues = Object.values(healthStatus);
-            const hasErr  = healthValues.some(v => chipClass(v) === 'err');
-            const hasWarn = healthValues.some(v => chipClass(v) === 'warn');
-            const archFailed = archivist.total_failed ?? 0;
-
             let overallHealth = 'STABLE';
-            if (hasErr || archFailed > 0) {
+            if (archivist.final_status) {
+                overallHealth = archivist.final_status.toUpperCase();
+            }
+            if (observer.n8n_heartbeat?.status && String(observer.n8n_heartbeat.status).toLowerCase().includes('error')) {
+                overallHealth = 'ERROR';
+            }
+            if (JSON.stringify(sage).toLowerCase().includes('critical')) {
                 overallHealth = 'CRITICAL';
-            } else if (hasWarn || (sage.identified_issues && sage.identified_issues.length > 0)) {
-                overallHealth = 'DEGRADED';
             }
 
             // Header title
@@ -1613,119 +1548,147 @@
 
             setVal('v-n8n', n8nHealth);
             setVal('v-n8n-sub', n8nResp.length > 60 ? n8nResp.substring(0, 57) + '…' : n8nResp);
-            setBar('v-n8n-bar', n8nStatus === 'ok' ? 100 : 0);
+            setBar('v-n8n-bar', String(n8nStatus).toLowerCase() === 'ok' ? 100 : 0);
 
             // ============================================================
             // OBSERVER PANEL (detailed telemetry)
             // ============================================================
             const cpuStatusLabel = cpuUsage > 80 ? 'CRITICAL' : (cpuUsage > 60 ? 'WARNING' : 'NOMINAL');
             setChip('p-observer-chip', cpuStatusLabel);
-
-            setVal('p-obs-cpu-combined', `${cpuUser} / ${cpuSys} / ${cpuIdle}`);
-            setVal('p-obs-pages-free',   formatNumber(pagesFree));
-            setVal('p-obs-pages-active', formatNumber(pagesActive));
-            setVal('p-obs-pages-wired',  formatNumber(pagesWired));
-            setVal('p-obs-disk-mount',   obsDiskMount);
-            setVal('p-obs-disk-detail',  `${obsDiskSize} total · ${obsDiskUsed} used`);
             
-            const networkEl = document.getElementById('p-obs-network');
-            if (networkEl) {
-                if (telemetry.network) {
-                    networkEl.innerHTML = escapeHTML(telemetry.network).replace(/\n/g, '<br>');
-                } else {
-                    networkEl.textContent = '—';
-                }
+            const obsBody = document.getElementById('observer-body');
+            if (obsBody) {
+                obsBody.innerHTML = `
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                        <div>
+                            <div class="data-row"><span class="data-label">CPU (User/Sys/Idle)</span><span class="data-val">${cpuUser} / ${cpuSys} / ${cpuIdle}</span></div>
+                            <div class="data-row"><span class="data-label">Memory Pages (F/A/I/W)</span><span class="data-val">${formatNumber(pagesFree)} / ${formatNumber(pagesActive)} / ${formatNumber(pagesInactive)} / ${formatNumber(pagesWired)}</span></div>
+                            <div class="data-row"><span class="data-label">Disk Capacity (${escapeHTML(obsDiskMount)})</span><span class="data-val">${escapeHTML(obsDiskSize)} total &middot; ${escapeHTML(obsDiskUsed)} used</span></div>
+                            <div class="data-row"><span class="data-label">n8n Heartbeat</span><span class="chip ${n8nStatus === 'ok' ? 'ok' : 'err'}"><span class="dot-sm"></span>${escapeHTML(n8nHealth)}</span></div>
+                        </div>
+                        <div>
+                            <div class="data-row" style="flex-direction:column; align-items:flex-start; border-bottom:none; padding-bottom:0;">
+                                <span class="data-label" style="margin-bottom:8px;">Network Interface</span>
+                                <pre style="margin:0; width:100%; padding:10px; background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius-sm); font-size:0.75rem; color:var(--text-secondary); overflow-x:auto; font-family:'JetBrains Mono', monospace; white-space:pre-wrap;">${escapeHTML(telemetry.network || '—')}</pre>
+                            </div>
+                            <div class="data-row" style="flex-direction:column; align-items:flex-start; border-bottom:none; margin-top:12px;">
+                                <span class="data-label" style="margin-bottom:8px;">Observer Comment</span>
+                                <div class="quote-block" style="width:100%; margin:0; font-size:0.85rem; border-left-color:var(--text-muted);">${escapeHTML(observer.comment || '—')}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align:right; margin-top:16px; font-size:0.75rem; color:var(--text-faint);">Observed At: ${formatTimestamp(observer.timestamp)}</div>
+                `;
             }
 
-            // n8n chip
-            setChip('p-obs-n8n', n8nStatus === 'ok' ? 'HEALTHY' : 'ERROR');
-
-            // Observer comment
-            const obsComment = observer.comment || 'No comment available.';
-            const obsCommentEl = document.getElementById('p-obs-comment');
-            if (obsCommentEl) obsCommentEl.textContent = obsComment;
-
-            setVal('p-obs-ts', formatTimestamp(observer.timestamp));
-
             // ============================================================
-            // SAGE PANEL (health_status + identified_issues)
+            // SAGE PANEL
             // ============================================================
-            // Overall sage chip
-            let sageOverall = 'HEALTHY';
-            if (sage.status === "no report found" || sage.status === "no report") {
+            let sageOverall = 'STABLE';
+            if (!sage.routing_assessment && !sage.ground_truth_check) {
                 sageOverall = 'OFFLINE';
-            } else if (hasErr) {
-                sageOverall = 'CRITICAL';
-            } else if (hasWarn) {
-                sageOverall = 'DEGRADED';
+                setChip('p-sage-chip', sageOverall);
+                document.getElementById('sage-body').innerHTML = '<div class="quote-block">No Sage report found in snapshot.</div>';
+            } else {
+                if (JSON.stringify(sage).toLowerCase().includes('critical')) sageOverall = 'CRITICAL';
+                if (sage.ground_truth_check?.system_health && sage.ground_truth_check.system_health.toLowerCase().includes('fail')) sageOverall = 'CRITICAL';
+                setChip('p-sage-chip', sageOverall);
+                
+                const sageBody = document.getElementById('sage-body');
+                sageBody.innerHTML = `
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                        <div>
+                            <div class="insight-label">Routing Assessment</div>
+                            <div class="issue-card" style="margin-bottom:12px;">
+                                <div class="issue-description"><b>Data Analysis:</b> ${escapeHTML(sage.routing_assessment?.data_analysis || '—')}</div>
+                                <div class="issue-description"><b>Route:</b> ${escapeHTML(sage.routing_assessment?.route_selection || '—')}</div>
+                                <div class="issue-impact">Verification: ${escapeHTML(sage.routing_assessment?.verification || '—')}</div>
+                            </div>
+                            
+                            <div class="insight-label" style="margin-top:16px;">Ground Truth Check</div>
+                            <div class="data-row"><span class="data-label">Snapshot Timestamp</span><span class="data-val">${formatTimestamp(sage.ground_truth_check?.snapshot_timestamp)}</span></div>
+                            <div class="data-row"><span class="data-label">System Health</span><span class="data-val">${escapeHTML(sage.ground_truth_check?.system_health || '—')}</span></div>
+                            <div class="data-row" style="flex-direction:column; align-items:flex-start; border-bottom:none; padding-bottom:0;">
+                                <span class="data-label">Discrepancy Noted</span>
+                                <span class="data-val" style="text-align:left; color:var(--text-secondary); margin-top:4px;">${escapeHTML(sage.ground_truth_check?.discrepancy_noted || '—')}</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="insight-label">Philosophical Reflection</div>
+                            <div class="quote-block" style="border-left-color:var(--primary); margin-bottom:16px;">
+                                <div style="margin-bottom:8px;"><b>Thesis:</b> ${escapeHTML(sage.philosophical_reflection?.thesis || '—')}</div>
+                                <div style="font-size:0.82rem;"><b>Audit Finding:</b> ${escapeHTML(sage.philosophical_reflection?.audit_finding || '—')}</div>
+                            </div>
+                            
+                            <div class="insight-label">Outsider Dispatch</div>
+                            <div class="issue-card" style="margin-bottom:0; border-left: 3px solid var(--state-warn);">
+                                <div class="issue-description" style="font-style:italic;">"${escapeHTML(sage.outsider_dispatch?.observation || '—')}"</div>
+                                <div class="issue-impact" style="margin-top:8px;"><b>Insight:</b> ${escapeHTML(sage.outsider_dispatch?.insight || '—')}</div>
+                                <div class="issue-impact" style="margin-top:4px; color:var(--state-ok);"><b>Status:</b> ${escapeHTML(sage.outsider_dispatch?.status || '—')}</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
             }
-            setChip('p-sage-chip', sageOverall);
-
-            // Render health_status rows dynamically
-            const sageHealthRows = document.getElementById('sage-health-rows');
-            if (sageHealthRows) {
-                if (sage.status === "no report found" || sage.status === "no report") {
-                    sageHealthRows.innerHTML = '<div class="data-row"><span class="data-label">Status</span><span class="data-val" style="color:var(--text-muted)">No report found</span></div>';
-                } else {
-                    const entries = Object.entries(healthStatus);
-                    if (entries.length === 0) {
-                        sageHealthRows.innerHTML = '<div class="data-row"><span class="data-label">No health data</span><span class="data-val">—</span></div>';
-                    } else {
-                        sageHealthRows.innerHTML = entries.map(([component, status]) => {
-                            const cls = chipClass(status);
-                            // Format component name: snake_case → Title Case
-                            const displayName = component.replace(/_/g, ' ').replace(/\\b\\w/g, c => c.toUpperCase());
-                            return `<div class="data-row">
-                                <span class="data-label">${escapeHTML(displayName)}</span>
-                                <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(status)}</span>
-                            </div>`;
-                        }).join('');
-                    }
-                }
-            }
-
-            const sageIssuesContainer = document.getElementById('sage-issues-container');
-            if (sageIssuesContainer) {
-                sageIssuesContainer.innerHTML = '';
-            }
-
-            setVal('p-sage-ts', formatTimestamp(sage.timestamp));
 
             // ============================================================
             // ARCHIVIST PANEL
             // ============================================================
-            let archHealth = 'PASS';
-            let archCompleted = '—';
-            let archFailedVal = '—';
-            let archIncidents = [];
-            let archSummary = 'No task summary available.';
-            
-            if (archivist.status === "no report found" || archivist.status === "no report") {
+            let archHealth = 'STABLE';
+            if (!archivist.report_type && !archivist.routing_assessment) {
                 archHealth = 'OFFLINE';
-                setVal('p-arch-completed', '—');
-                setVal('p-arch-failed', '—');
-                setVal('p-arch-incidents', 'No report found');
+                setChip('p-arch-chip', archHealth);
+                document.getElementById('archivist-body').innerHTML = '<div class="quote-block">No Archivist report found in snapshot.</div>';
             } else {
-                archCompleted = archivist.total_completed ?? '—';
-                archFailedVal = archivist.total_failed    ?? '—';
-                archIncidents = archivist.key_incidents    || [];
-                archSummary   = archivist.summary_of_tasks || 'No task summary available.';
+                if (archivist.final_status) archHealth = archivist.final_status.toUpperCase();
+                setChip('p-arch-chip', archHealth);
+                
+                const archBody = document.getElementById('archivist-body');
+                const pTasks = (archivist.registry_summary?.pending_tasks || []).map(t => `<li style="margin-bottom:6px;"><span class="chip warn" style="font-size:0.6rem; padding:2px 6px; margin-right:6px;"><span class="dot-sm"></span>${escapeHTML(t.status)}</span> ${escapeHTML(t.task)}</li>`).join('');
+                const cTasks = (archivist.registry_summary?.completed_tasks || []).map(t => `<li style="margin-bottom:6px;"><span class="chip ok" style="font-size:0.6rem; padding:2px 6px; margin-right:6px;"><span class="dot-sm"></span>${escapeHTML(t.status)}</span> ${escapeHTML(t.task)}</li>`).join('');
+                
+                archBody.innerHTML = `
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                        <div>
+                            <div class="insight-label">Routing & Analysis</div>
+                            <div class="issue-card" style="margin-bottom:12px;">
+                                <div class="issue-description"><b>Data Analysis:</b> ${escapeHTML(archivist.routing_assessment?.data_analysis || '—')}</div>
+                                <div class="issue-description"><b>Route:</b> ${escapeHTML(archivist.routing_assessment?.route_selection || '—')}</div>
+                                <div class="issue-impact">Verification: ${escapeHTML(archivist.routing_assessment?.verification || '—')}</div>
+                            </div>
+                            
+                            <div class="insight-label" style="margin-top:16px;">Ground Truth Validation</div>
+                            <div class="data-row"><span class="data-label">n8n Status</span><span class="data-val">${escapeHTML(archivist.ground_truth_validation?.n8n_status || '—')}</span></div>
+                            <div class="data-row" style="flex-direction:column; align-items:flex-start; border-bottom:none; padding-bottom:10px;"><span class="data-label">Status Change</span><span class="data-val" style="text-align:left; color:var(--text-secondary); margin-top:4px;">${escapeHTML(archivist.ground_truth_validation?.status_change || '—')}</span></div>
 
-                if (archFailedVal > 0) archHealth = 'FAILED';
-                else if (archIncidents.length > 0) archHealth = 'WARNING';
-
-                setVal('p-arch-completed', String(archCompleted));
-                setVal('p-arch-failed', String(archFailedVal));
-
-                if (archIncidents.length === 0) {
-                    setVal('p-arch-incidents', 'None');
-                } else {
-                    setVal('p-arch-incidents', archIncidents.join(', '));
-                }
+                            <div class="insight-label" style="margin-top:10px;">System Health Context</div>
+                            <div class="data-row" style="padding-top:4px;"><span class="data-label">CPU Usage</span><span class="data-val">${escapeHTML(archivist.system_health?.cpu_usage || '—')}</span></div>
+                            <div class="data-row"><span class="data-label">Memory Free</span><span class="data-val">${formatNumber(archivist.system_health?.memory_pages_free)} pages</span></div>
+                            <div class="data-row"><span class="data-label">Disk Cap Used</span><span class="data-val">${escapeHTML(archivist.system_health?.disk_capacity_used || '—')}</span></div>
+                            <div class="data-row"><span class="data-label">n8n Heartbeat</span><span class="data-val">${escapeHTML(archivist.system_health?.n8n_heartbeat || '—')}</span></div>
+                        </div>
+                        <div>
+                            <div class="insight-label">Registry Summary</div>
+                            <div class="data-row" style="flex-direction:column; align-items:flex-start; border-bottom:none; margin-bottom:8px; padding-top:0;">
+                                <span class="data-label">Context</span>
+                                <span class="data-val" style="text-align:left; color:var(--text-secondary); margin-top:4px;">${escapeHTML(archivist.registry_summary?.historical_context || '—')}<br/><br/><b>Current:</b> ${escapeHTML(archivist.registry_summary?.current_state || '—')}</span>
+                            </div>
+                            
+                            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:12px;">
+                                <div>
+                                    <span class="data-label" style="font-size:0.75rem; display:block; margin-bottom:8px;">Pending Tasks</span>
+                                    <ul style="margin:0; padding-left:0; font-size:0.8rem; color:var(--text-main); list-style:none;">${pTasks || 'None'}</ul>
+                                </div>
+                                <div>
+                                    <span class="data-label" style="font-size:0.75rem; display:block; margin-bottom:8px;">Completed Tasks</span>
+                                    <ul style="margin:0; padding-left:0; font-size:0.8rem; color:var(--text-main); list-style:none;">${cTasks || 'None'}</ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align:right; margin-top:16px; font-size:0.75rem; color:var(--text-faint);">Report: ${escapeHTML(archivist.report_type || '—')} &middot; Observed At: ${formatTimestamp(archivist.timestamp)}</div>
+                `;
             }
-
-            setChip('p-arch-chip', archHealth);
-            setVal('p-arch-ts', formatTimestamp(archivist.timestamp));
 
             // ============================================================
             // OUTSIDER PANEL (Reflection)
@@ -1757,11 +1720,11 @@
                             </div>
                             ` : ''}
                         </div>
-                        <span style="display:block;text-align:right;font-size:0.75rem;color:var(--text-faint);margin-top:10px;">— Observed: ${formatTimestamp(outsider.timestamp)}</span>
+                        <span style="display:block;text-align:right;font-size:0.75rem;color:var(--text-faint);margin-top:10px;">&mdash; Observed: ${formatTimestamp(outsider.timestamp)}</span>
                     `;
                 } else {
                     const outsiderContent = outsider.content || 'No transmission received from The Outsider.';
-                    outsiderEl.innerHTML = escapeHTML(outsiderContent) + `<br><span style="display:block;text-align:right;font-size:0.75rem;color:var(--text-faint);margin-top:10px;">— Observed: ${formatTimestamp(outsider.timestamp)}</span>`;
+                    outsiderEl.innerHTML = escapeHTML(outsiderContent) + `<br><span style="display:block;text-align:right;font-size:0.75rem;color:var(--text-faint);margin-top:10px;">&mdash; Observed: ${formatTimestamp(outsider.timestamp)}</span>`;
                     outsiderEl.className = 'quote-block';
                 }
             }
@@ -1769,25 +1732,18 @@
             // ============================================================
             // FLEET OVERVIEW TABLE
             // ============================================================
-            let sageSummary = 'All components healthy';
-            let sageDetails = 'No detailed data';
-            if (sage.status === "no report found" || sage.status === "no report") {
-                sageSummary = 'No report found';
-                sageDetails = '—';
-            } else {
-                sageSummary = (sage.identified_issues && sage.identified_issues.length > 0)
-                    ? sage.identified_issues.map(i => `<div style="margin-bottom:8px"><b>${escapeHTML(i.component)}</b> <span class="chip ${chipClass(i.severity || 'UNKNOWN')}" style="transform:scale(0.85);transform-origin:left center;"><span class="dot-sm"></span>${escapeHTML(i.severity || 'UNKNOWN')}</span><br>${escapeHTML(i.issue)}<br><span style="font-size:0.75rem;color:var(--text-muted);font-style:italic">Impact: ${escapeHTML(i.impact || '—')}</span></div>`).join('')
-                    : escapeHTML('All components healthy');
-                sageDetails = Object.entries(healthStatus).map(([k, v]) => `${k.replace(/_/g,' ')}: ${v}`).join(' · ');
+            let sageSummary = 'No report found';
+            let sageDetails = '—';
+            if (sage.routing_assessment) {
+                sageSummary = escapeHTML(sage.routing_assessment.data_analysis || 'Analyzed data');
+                sageDetails = escapeHTML(sage.philosophical_reflection?.thesis || '—');
             }
 
-            let archSummaryStr = 'No task summary available.';
+            let archSummaryStr = 'No report found';
             let archDetails = '—';
-            if (archivist.status === "no report found" || archivist.status === "no report") {
-                archSummaryStr = 'No report found';
-            } else {
-                archSummaryStr = archivist.summary_of_tasks || 'No task summary available.';
-                archDetails = `✅ ${archivist.total_completed ?? 0} completed · ❌ ${archivist.total_failed ?? 0} failed`;
+            if (archivist.report_type) {
+                archSummaryStr = escapeHTML(archivist.registry_summary?.current_state || '—');
+                archDetails = `✅ ${archivist.registry_summary?.completed_tasks?.length || 0} completed &middot; ⏳ ${archivist.registry_summary?.pending_tasks?.length || 0} pending`;
             }
 
             let outsiderSummary = outsider.observation ? escapeHTML(outsider.observation) : escapeHTML(outsider.content || 'No transmission');
@@ -1801,16 +1757,16 @@
                     name: 'The Observer',
                     icon: '⬡',
                     status: cpuStatusLabel,
-                    summary: escapeHTML(`CPU ${cpuUsage.toFixed(1)}% · RAM ${ramPct}% (${ramUsedGB}/${ramTotalGB} GB) · Disk ${obsDiskCapacity}`) + `<br><span style="color:var(--text-faint); font-style:italic;">Comment: ${escapeHTML(observer.comment || '—')}</span>`,
+                    summary: escapeHTML(`CPU ${cpuUsage.toFixed(1)}% &middot; RAM ${ramPct}% (${ramUsedGB}/${ramTotalGB} GB) &middot; Disk ${obsDiskCapacity}`) + `<br><span style="color:var(--text-faint); font-style:italic;">Comment: ${escapeHTML(observer.comment || '—')}</span>`,
                     timestamp: observer.timestamp,
-                    details: `n8n: ${n8nHealth} · ${obsDiskAvail} free`
+                    details: `n8n: ${n8nHealth} &middot; ${obsDiskAvail} free`
                 },
                 {
                     name: 'The Sage',
                     icon: '◈',
                     status: sageOverall,
                     summary: sageSummary,
-                    timestamp: sage.timestamp,
+                    timestamp: sage.timestamp || (sage.ground_truth_check?.snapshot_timestamp),
                     details: sageDetails
                 },
                 {
