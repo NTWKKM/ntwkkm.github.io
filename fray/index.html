@@ -1190,10 +1190,23 @@
 
                 </div><!-- /vitals-strip -->
 
-                <!-- MAIN 3-COLUMN GRID -->
+                <!-- MAIN PANEL GRID (2-column) -->
                 <div class="main-grid fade-up d2">
 
-                    <!-- === Panel: Observer Telemetry === -->
+                    <!-- === Row 1: The Outsider (full-width) === -->
+                    <div class="panel span-2 fade-up d2" id="panel-outsider">
+                        <div class="panel-head">
+                            <div class="panel-title"><span class="panel-title-icon">🌀</span> The Outsider — Reflection</div>
+                            <span class="data-val" id="p-outsider-ts" style="font-size:0.72rem;">—</span>
+                        </div>
+                        <div class="panel-body">
+                            <div id="outsider-content" class="quote-block">
+                                Awaiting synchronization…
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- === Row 2: The Observer === -->
                     <div class="panel" id="panel-observer">
                         <div class="panel-head">
                             <div class="panel-title"><span class="panel-title-icon">⬡</span> The Observer</div>
@@ -1249,33 +1262,7 @@
                         </div>
                     </div>
 
-                    <!-- === Panel: Sage Health Status === -->
-                    <div class="panel" id="panel-sage">
-                        <div class="panel-head">
-                            <div class="panel-title"><span class="panel-title-icon">◈</span> The Sage</div>
-                            <div id="p-sage-chip" class="chip ok"><span class="dot-sm"></span>STABLE</div>
-                        </div>
-                        <div class="panel-body">
-                            <!-- Dynamic health_status rows rendered by JS -->
-                            <div id="sage-health-rows">
-                                <!-- Filled dynamically -->
-                            </div>
-
-                            <!-- Section divider for identified issues -->
-                            <div style="margin: 14px 0 10px; border-top: 1px solid var(--border);"></div>
-                            <div class="insight-label" style="margin-bottom:8px;">Identified Issues</div>
-                            <div id="sage-issues-container">
-                                <!-- Filled dynamically -->
-                            </div>
-
-                            <div class="data-row" style="margin-top:10px;">
-                                <span class="data-label">Observed At</span>
-                                <span class="data-val" id="p-sage-ts">—</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- === Panel: Archivist Report === -->
+                    <!-- === Row 2: The Archivist === -->
                     <div class="panel" id="panel-archivist">
                         <div class="panel-head">
                             <div class="panel-title"><span class="panel-title-icon">📜</span> The Archivist</div>
@@ -1307,15 +1294,28 @@
                         </div>
                     </div>
 
-                    <!-- === Panel: The Outsider (full-width) === -->
-                    <div class="panel fade-up d3">
+                    <!-- === Row 3: The Sage (full-width) === -->
+                    <div class="panel span-2 fade-up d3" id="panel-sage">
                         <div class="panel-head">
-                            <div class="panel-title"><span class="panel-title-icon">🌀</span> The Outsider — Reflection</div>
-                            <span class="data-val" id="p-outsider-ts" style="font-size:0.72rem;">—</span>
+                            <div class="panel-title"><span class="panel-title-icon">◈</span> The Sage</div>
+                            <div id="p-sage-chip" class="chip ok"><span class="dot-sm"></span>STABLE</div>
                         </div>
                         <div class="panel-body">
-                            <div id="outsider-content" class="quote-block">
-                                Awaiting synchronization…
+                            <!-- Dynamic health_status rows rendered by JS -->
+                            <div id="sage-health-rows">
+                                <!-- Filled dynamically -->
+                            </div>
+
+                            <!-- Section divider for identified issues -->
+                            <div style="margin: 14px 0 10px; border-top: 1px solid var(--border);"></div>
+                            <div class="insight-label" style="margin-bottom:8px;">Identified Issues</div>
+                            <div id="sage-issues-container">
+                                <!-- Filled dynamically -->
+                            </div>
+
+                            <div class="data-row" style="margin-top:10px;">
+                                <span class="data-label">Observed At</span>
+                                <span class="data-val" id="p-sage-ts">—</span>
                             </div>
                         </div>
                     </div>
