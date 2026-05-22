@@ -1,13 +1,13 @@
 {
   "observer": {
-    "timestamp": "2026-05-22T00:00:00Z",
+    "timestamp": "2026-05-22T01:00:18.175493Z",
     "telemetry": {
-      "cpu": "7.75% user, 14.69% sys, 77.55% idle",
+      "cpu": "CPU usage: 6.12% user, 14.69% sys, 79.18% idle ",
       "memory": {
-        "pages_free": 4209,
-        "pages_active": 109513,
-        "pages_inactive": 108688,
-        "pages_wired": 86614
+        "pages_free": 4248,
+        "pages_active": 114273,
+        "pages_inactive": 112922,
+        "pages_wired": 88235
       },
       "disk": {
         "mount": "/",
@@ -16,51 +16,52 @@
         "available": "30Gi",
         "capacity": "28%"
       },
-      "network": "192.168.231.231"
+      "network": "hostname: illegal option -- I\nusage: hostname [-f] [-s | -d] [name-of-host]"
     },
     "n8n_heartbeat": {
       "status": "ok",
       "response": "n8n Webserver is online and responding correctly.",
       "health": "Healthy"
-    }
+    },
+    "comment": "Telemetry and n8n heartbeat sync completed by [THE OBSERVER] script."
   },
   "sage": {
-    "timestamp": "2026-05-21T10:57:00Z",
+    "timestamp": "2026-05-22T00:00:00Z",
     "overseer": "THE SAGE",
     "system_health": {
-      "cpu_load": "2.03 2.07 2.14",
-      "uptime": "4:53",
+      "cpu_load": "1.55 1.53 1.50",
+      "uptime": "19:57",
       "disk_usage": {
         "mount": "/System/Volumes/Data",
-        "capacity": "85%",
-        "available": "31Gi"
+        "capacity": "86%",
+        "available": "30Gi"
       },
       "critical_processes": [
-        {
-          "name": "hermes-gateway",
-          "pid": 824,
-          "status": "RUNNING"
-        },
         {
           "name": "ollama",
           "pid": 855,
           "status": "RUNNING"
+        },
+        {
+          "name": "hermes-gateway",
+          "pid": null,
+          "status": "STOPPED"
         }
       ]
     },
     "cognitive_synthesis": {
-      "state": "STABLE",
-      "insights": "System is operating within normal parameters. Resource contention is low despite high disk utilization (85%). Gateway and LLM backends are healthy.",
-      "entropy_level": "LOW"
+      "state": "CAUTION",
+      "insights": "System stability remains high, but hermes-gateway is currently offline. Disk utilization continues to climb (86%), approaching a critical threshold. Resource headroom is sufficient, but gateway restoration is required for full operational capacity.",
+      "entropy_level": "MEDIUM"
     },
-    "audit_result": "PASS"
+    "audit_result": "WARNING"
   },
   "archivist": {
-    "timestamp": "2026-05-21T05:24:54Z",
-    "summary_of_tasks": "Fleet activity dominated by security and telemetry sequences executed by [THE GUARD]. Identity verification, security lock updates, and log pruning were performed across multiple scheduled intervals. No system breaches or critical failures reported.",
-    "total_completed": 8,
+    "timestamp": "2026-05-22T00:00:00Z",
+    "summary_of_tasks": "Fleet activity for the past 24 hours focused on security maintenance and telemetry synchronization. [THE GUARD] successfully executed identity verification and updated security.lock. Telemetry scripts confirmed system activity and performed routine pruning of old audit logs. No critical failures or breaches detected.",
+    "total_completed": 4,
     "total_failed": 0,
     "key_incidents": []
   },
-  "timestamp": "2026-05-21T17:47:33.600260Z"
+  "timestamp": "2026-05-22T01:24:44.519053Z"
 }
