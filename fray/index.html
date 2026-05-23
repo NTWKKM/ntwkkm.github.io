@@ -1571,7 +1571,7 @@
                 } catch(e) {
                     n8nResp = 'Invalid Response format';
                 }
-            } else if (n8nResp === 'n8n Webserver is online and responding correctly.') {
+            } else if (n8nResp.includes('n8n Webserver is online')) {
                 n8nResp = 'Online';
             }
             
