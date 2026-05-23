@@ -1309,7 +1309,7 @@
         // Status classification constants (module-level for performance)
         const OK_SET   = new Set(['OK','NOMINAL','LOW','NORMAL','CLOSED','UNLOCKED','ACTIVE','ONLINE','HEALTHY','STABLE','FULL','OPEN_GOOD','PASS','RUNNING']);
         const WARN_SET = new Set(['WARNING','MODERATE','DEGRADED','STRESSED','MEDIUM']);
-        const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR','DOWN','FAILED','UNREACHABLE','FAIL']);
+        const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR','DOWN','FAILED','UNREACHABLE','FAIL','UNHEALTHY']);
 
         function chipClass(val) {
             if (!val) return 'neutral';
@@ -1538,21 +1538,22 @@
             const n8nHealth = n8nHb.health || 'Unknown';
             const n8nResp   = n8nHb.response || '—';
             
-            const isN8nOk = String(n8nStatus).toLowerCase().includes('ok') || String(n8nHealth).toLowerCase().includes('healthy');
-
             setVal('v-n8n', n8nHealth);
             setVal('v-n8n-sub', n8nResp.length > 60 ? n8nResp.substring(0, 57) + '…' : n8nResp);
             
             const n8nBarEl = document.getElementById('v-n8n-bar');
             if (n8nBarEl) {
                 n8nBarEl.style.width = '100%';
-                if (isN8nOk) {
+                const badgeStatus = String(n8nHealth).toUpperCase();
+                const cls = chipClass(badgeStatus);
+                if (cls === 'ok') {
                     n8nBarEl.className = 'vital-bar-fill green';
-                    setChip('v-n8n-badge', 'HEALTHY');
+                } else if (cls === 'warn') {
+                    n8nBarEl.className = 'vital-bar-fill amber';
                 } else {
                     n8nBarEl.className = 'vital-bar-fill red';
-                    setChip('v-n8n-badge', 'ERROR');
                 }
+                setChip('v-n8n-badge', badgeStatus);
             }
 
             // ============================================================
@@ -1568,7 +1569,7 @@
                         <div class="data-row"><span class="data-label">CPU (User/Sys/Idle)</span><span class="data-val">${cpuUser} / ${cpuSys} / ${cpuIdle}</span></div>
                         <div class="data-row"><span class="data-label">Memory Pages (F/A/I/W)</span><span class="data-val">${formatNumber(pagesFree)} / ${formatNumber(pagesActive)} / ${formatNumber(pagesInactive)} / ${formatNumber(pagesWired)}</span></div>
                         <div class="data-row"><span class="data-label">Disk Capacity (${escapeHTML(obsDiskMount)})</span><span class="data-val">${escapeHTML(obsDiskSize)} total &middot; ${escapeHTML(obsDiskUsed)} used</span></div>
-                        <div class="data-row"><span class="data-label">n8n Heartbeat</span><span class="chip ${isN8nOk ? 'ok' : 'err'}"><span class="dot-sm"></span>${escapeHTML(n8nHealth)}</span></div>
+                        <div class="data-row"><span class="data-label">n8n Heartbeat</span><span class="chip ${chipClass(n8nHealth)}"><span class="dot-sm"></span>${escapeHTML(n8nHealth)}</span></div>
                         <div class="data-row" style="flex-direction:column; align-items:flex-start; border-bottom:none; padding-bottom:0;">
                             <span class="data-label" style="margin-bottom:8px;">Network Interface</span>
                             <pre style="margin:0; width:100%; padding:10px; background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius-sm); font-size:0.75rem; color:var(--text-secondary); overflow-x:auto; font-family:'JetBrains Mono', monospace; white-space:pre-wrap;">${escapeHTML(telemetry.network || '—')}</pre>
@@ -1593,35 +1594,12 @@
                 
                 const sageBody = document.getElementById('sage-body');
                 sageBody.innerHTML = `
-                    <div style="display:flex; flex-direction:column; gap: 20px;">
-                        <!-- Row 1: Philosophical Reflection -->
-                        <div>
-                            <div class="insight-label">Philosophical Reflection</div>
-                            <div class="quote-block" style="border-left-color:var(--primary); margin-bottom:0;">
-                                <div style="margin-bottom:8px;"><b>Thesis:</b> ${escapeHTML(sage.philosophical_reflection?.thesis || '—')}</div>
-                                <div style="font-size:0.82rem;"><b>Audit Finding:</b> ${escapeHTML(sage.philosophical_reflection?.audit_finding || '—')}</div>
-                            </div>
+                    <div style="padding: 0 4px;">
+                        <div style="margin-bottom: 12px; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--text-main);">
+                            "${escapeHTML(sage.audit_report?.philosophical_reflection || '—')}"
                         </div>
-                        
-                        <!-- Row 2: Ground Truth Check and Routing Assessment -->
-                        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-                            <div>
-                                <div class="insight-label">Ground Truth Check</div>
-                                <div class="data-row" style="padding-top:0;"><span class="data-label">Snapshot Timestamp</span><span class="data-val">${formatTimestamp(sage.ground_truth_check?.snapshot_timestamp)}</span></div>
-                                <div class="data-row"><span class="data-label">System Health</span><span class="data-val">${escapeHTML(sage.ground_truth_check?.system_health || '—')}</span></div>
-                                <div class="data-row" style="flex-direction:column; align-items:flex-start; border-bottom:none; padding-bottom:0;">
-                                    <span class="data-label">Discrepancy Noted</span>
-                                    <span class="data-val" style="text-align:left; color:var(--text-secondary); margin-top:4px;">${escapeHTML(sage.ground_truth_check?.discrepancy_noted || '—')}</span>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="insight-label">Routing Assessment</div>
-                                <div class="issue-card" style="margin-bottom:0; height: 100%;">
-                                    <div class="issue-description"><b>Data Analysis:</b> ${escapeHTML(sage.routing_assessment?.data_analysis || '—')}</div>
-                                    <div class="issue-description"><b>Route:</b> ${escapeHTML(sage.routing_assessment?.route_selection || '—')}</div>
-                                    <div class="issue-impact" style="margin-top:8px;">Verification: ${escapeHTML(sage.routing_assessment?.verification || '—')}</div>
-                                </div>
-                            </div>
+                        <div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);">
+                            <b>Conclusion:</b> ${escapeHTML(sage.conclusion || '—')}
                         </div>
                     </div>
                 `;
@@ -1659,9 +1637,8 @@
             // ============================================================
             let sageSummary = 'No report found';
             let sageDetails = '—';
-            if (sage.routing_assessment) {
-                sageSummary = escapeHTML(sage.routing_assessment.data_analysis || 'Analyzed data');
-                sageDetails = escapeHTML(sage.philosophical_reflection?.thesis || '—');
+            if (sage.audit_report?.findings?.vault_cross_reference) {
+                sageSummary = escapeHTML(sage.audit_report.findings.vault_cross_reference);
             }
 
             let outsiderSummary = outsider.observation ? escapeHTML(outsider.observation) : escapeHTML(outsider.content || 'No transmission');
@@ -1675,7 +1652,7 @@
                     name: 'The Observer',
                     icon: '⬡',
                     status: cpuStatusLabel,
-                    summary: escapeHTML(`CPU ${cpuUsage.toFixed(1)}% &middot; RAM ${ramPct}% (${ramUsedGB}/${ramTotalGB} GB) &middot; Disk ${obsDiskCapacity}`) + `<br><span style="color:var(--text-faint); font-style:italic;">Comment: ${escapeHTML(observer.comment || '—')}</span>`,
+                    summary: escapeHTML(observer.comment || '—'),
                     timestamp: observer.timestamp,
                     details: `n8n: ${n8nHealth} &middot; ${obsDiskAvail} free`
                 },
