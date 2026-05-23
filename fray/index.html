@@ -1234,21 +1234,10 @@
                         </div>
                     </div>
 
-                    <!-- === Row 2: The Observer === -->
-                    <div class="panel span-2" id="panel-observer">
-                        <div class="panel-head">
-                            <div class="panel-title"><span class="panel-title-icon">⬡</span> The Observer</div>
-                            <div id="p-observer-chip" class="chip ok"><span class="dot-sm"></span>NOMINAL</div>
-                        </div>
-                        <div class="panel-body" id="observer-body">
-                            <div style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">Awaiting Observer data...</div>
-                        </div>
-                    </div>
-
                     <!-- === Row 3: The Sage === -->
                     <div class="panel span-2 fade-up d3" id="panel-sage">
                         <div class="panel-head">
-                            <div class="panel-title"><span class="panel-title-icon">◈</span> The Sage</div>
+                            <div class="panel-title">The Sage</div>
                             <div id="p-sage-chip" class="chip ok"><span class="dot-sm"></span>STABLE</div>
                         </div>
                         <div class="panel-body" id="sage-body">
@@ -1265,14 +1254,13 @@
                             <tr>
                                 <th style="width: 16%;">Agent</th>
                                 <th style="width: 10%;">Status</th>
-                                <th style="width: 36%;">
+                                <th style="width: 56%;">
                                     <div style="display: flex; align-items: center; gap: 8px;">
                                         <span>Summary</span>
                                         <span id="fleet-health-chip" class="chip ok"><span class="dot-sm"></span>ALL PASS</span>
                                     </div>
                                 </th>
                                 <th style="width: 18%;">Timestamp</th>
-                                <th style="width: 20%;">Details</th>
                             </tr>
                         </thead>
                         <tbody id="audit-table-body">
@@ -1557,27 +1545,9 @@
             }
 
             // ============================================================
-            // OBSERVER PANEL (detailed telemetry)
+            // OBSERVER CPU LABEL FOR FLEET
             // ============================================================
             const cpuStatusLabel = cpuUsage > 80 ? 'CRITICAL' : (cpuUsage > 60 ? 'WARNING' : 'NOMINAL');
-            setChip('p-observer-chip', cpuStatusLabel);
-            
-            const obsBody = document.getElementById('observer-body');
-            if (obsBody) {
-                obsBody.innerHTML = `
-                    <div style="display:grid; grid-template-columns: 1fr; gap: 12px;">
-                        <div class="data-row"><span class="data-label">CPU (User/Sys/Idle)</span><span class="data-val">${cpuUser} / ${cpuSys} / ${cpuIdle}</span></div>
-                        <div class="data-row"><span class="data-label">Memory Pages (F/A/I/W)</span><span class="data-val">${formatNumber(pagesFree)} / ${formatNumber(pagesActive)} / ${formatNumber(pagesInactive)} / ${formatNumber(pagesWired)}</span></div>
-                        <div class="data-row"><span class="data-label">Disk Capacity (${escapeHTML(obsDiskMount)})</span><span class="data-val">${escapeHTML(obsDiskSize)} total &middot; ${escapeHTML(obsDiskUsed)} used</span></div>
-                        <div class="data-row"><span class="data-label">n8n Heartbeat</span><span class="chip ${chipClass(n8nHealth)}"><span class="dot-sm"></span>${escapeHTML(n8nHealth)}</span></div>
-                        <div class="data-row" style="flex-direction:column; align-items:flex-start; border-bottom:none; padding-bottom:0;">
-                            <span class="data-label" style="margin-bottom:8px;">Network Interface</span>
-                            <pre style="margin:0; width:100%; padding:10px; background:var(--bg-surface); border:1px solid var(--border); border-radius:var(--radius-sm); font-size:0.75rem; color:var(--text-secondary); overflow-x:auto; font-family:'JetBrains Mono', monospace; white-space:pre-wrap;">${escapeHTML(telemetry.network || '—')}</pre>
-                        </div>
-                    </div>
-                    <div style="text-align:right; margin-top:16px; font-size:0.75rem; color:var(--text-faint);">Observed At: ${formatTimestamp(observer.timestamp)}</div>
-                `;
-            }
 
             // ============================================================
             // SAGE PANEL
@@ -1650,27 +1620,21 @@
             const fleetData = [
                 {
                     name: 'The Observer',
-                    icon: '⬡',
                     status: cpuStatusLabel,
                     summary: escapeHTML(observer.comment || '—'),
-                    timestamp: observer.timestamp,
-                    details: `n8n: ${n8nHealth} &middot; ${obsDiskAvail} free`
+                    timestamp: observer.timestamp
                 },
                 {
                     name: 'The Sage',
-                    icon: '◈',
                     status: sageOverall,
                     summary: sageSummary,
-                    timestamp: sage.timestamp || (sage.ground_truth_check?.snapshot_timestamp),
-                    details: sageDetails
+                    timestamp: sage.timestamp || (sage.ground_truth_check?.snapshot_timestamp)
                 },
                 {
                     name: 'The Outsider',
-                    icon: '🌀',
                     status: outsiderStatusStr,
                     summary: outsiderSummary,
-                    timestamp: outsider.timestamp,
-                    details: outsider.insight ? escapeHTML(outsider.insight) : 'Reflection transmission'
+                    timestamp: outsider.timestamp
                 }
             ];
 
@@ -1694,7 +1658,7 @@
                             <td>
                                 <div class="audit-agent-cell">
                                     <span class="agent-indicator ${dot}" aria-hidden="true"></span>
-                                    <span class="agent-name">${escapeHTML(agent.icon)} ${escapeHTML(agent.name)}</span>
+                                    <span class="agent-name">${escapeHTML(agent.name)}</span>
                                 </div>
                             </td>
                             <td>
@@ -1705,9 +1669,6 @@
                             </td>
                             <td>
                                 <div class="audit-technical-cell">${formatTimestamp(agent.timestamp)}</div>
-                            </td>
-                            <td>
-                                <div style="font-size:0.78rem;color:var(--text-muted);">${escapeHTML(agent.details)}</div>
                             </td>
                         </tr>`;
                 }).join('');
