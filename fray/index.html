@@ -1389,11 +1389,21 @@
         // Initialize screen reader support
         document.addEventListener('DOMContentLoaded', () => {
             initScreenReaderAnnouncer();
+            
+            // Add a11y attributes to dynamic numbers
+            const a11yElements = ['header-health-badge', 'v-cpu', 'v-ram', 'v-n8n'];
+            a11yElements.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.setAttribute('aria-live', 'polite');
+            });
         });
 
         // ============================================================
         // MAIN UPDATE
         // ============================================================
+        let firstLoad = true;
+        let updateTimeout;
+
         async function updateDashboard() {
             const loader  = document.getElementById('dash-loading');
             const content = document.getElementById('dash-content');
@@ -1406,27 +1416,47 @@
                 renderDashboard(data);
 
                 // Show content
-                loader.style.display  = 'none';
-                content.style.display = 'block';
+                if (firstLoad) {
+                    loader.style.display  = 'none';
+                    content.style.display = 'block';
+                    firstLoad = false;
+                }
 
                 // Trigger Accessibility Announcement
                 announceToScreenReader('Fray system telemetry state synchronized successfully.');
             } catch (err) {
                 console.error('[Fray] fetch error', err);
-                loader.style.display = 'none';
-                content.style.display = 'none';
+                if (firstLoad) {
+                    loader.style.display = 'none';
+                    content.style.display = 'none';
 
-                // Safely render error UI fallback
-                const errDivId = 'dashboard-error-container';
-                let errDiv = document.getElementById(errDivId);
-                if (!errDiv) {
-                    errDiv = document.createElement('div');
-                    errDiv.id = errDivId;
-                    errDiv.style.margin = '2rem auto';
-                    errDiv.style.maxWidth = '600px';
-                    loader.parentNode.appendChild(errDiv);
+                    // Safely render error UI fallback
+                    const errDivId = 'dashboard-error-container';
+                    let errDiv = document.getElementById(errDivId);
+                    if (!errDiv) {
+                        errDiv = document.createElement('div');
+                        errDiv.id = errDivId;
+                        errDiv.style.margin = '2rem auto';
+                        errDiv.style.maxWidth = '600px';
+                        loader.parentNode.appendChild(errDiv);
+                    }
+                    errDiv.innerHTML = createErrorUI('Connection to Fray telemetry endpoint lost.', () => {
+                        firstLoad = true;
+                        if (errDiv) errDiv.remove();
+                        loader.style.display = 'block';
+                        clearTimeout(updateTimeout);
+                        updateDashboard();
+                    });
+                } else {
+                    // Graceful degradation: Keep dashboard, mark offline
+                    setChip('header-health-badge', 'OFFLINE');
+                    setVal('banner-timestamp', 'Connection Lost - Retrying...');
+                    announceToScreenReader('Connection to Fray telemetry endpoint lost.');
                 }
-                errDiv.innerHTML = createErrorUI('Connection to Fray telemetry endpoint lost.', updateDashboard);
+            } finally {
+                // Recursive polling
+                clearTimeout(updateTimeout);
+                updateTimeout = setTimeout(updateDashboard, 30000);
             }
         }
 
@@ -1463,27 +1493,39 @@
             const healthEl = document.getElementById('header-health-badge');
             if (healthEl) {
                 healthEl.className = `health-badge ${chipClass(overallHealth)}`;
-                healthEl.innerHTML = `<span class="dot"></span>${escapeHTML(overallHealth)}`;
+                healthEl.innerHTML = `<span class="dot"></span><span id="header-health-text">${escapeHTML(overallHealth)}</span>`;
             }
 
             // ============================================================
-            // VITALS STRIP
+            // COMPONENTS RENDER
             // ============================================================
             const telemetry = observer.telemetry || {};
+            const cpuUsage = renderVitals(telemetry, observer);
+            renderSagePanel(sage);
+            renderOutsiderPanel(outsider);
+            renderFleetTable(observer, sage, outsider, cpuUsage);
+        }
 
+        function renderVitals(telemetry, observer) {
             // --- CPU ---
             const cpuStr = telemetry.cpu || "";
             let cpuUsage = 0;
             let cpuUser = '—', cpuSys = '—', cpuIdle = '—';
-            const userMatch = cpuStr.match(/([\d.]+)%\s*user/);
-            const sysMatch  = cpuStr.match(/([\d.]+)%\s*sys/);
-            const idleMatch = cpuStr.match(/([\d.]+)%\s*idle/);
-            if (userMatch) cpuUser = userMatch[1] + '%';
-            if (sysMatch)  cpuSys  = sysMatch[1] + '%';
-            if (idleMatch) {
-                cpuIdle  = idleMatch[1] + '%';
-                cpuUsage = 100 - parseFloat(idleMatch[1]);
+            
+            // Safety Check: Parse CPU string safely
+            if (typeof cpuStr === 'string') {
+                const userMatch = cpuStr.match(/([\d.]+)%\s*user/);
+                const sysMatch  = cpuStr.match(/([\d.]+)%\s*sys/);
+                const idleMatch = cpuStr.match(/([\d.]+)%\s*idle/);
+                
+                if (userMatch) cpuUser = userMatch[1] + '%';
+                if (sysMatch)  cpuSys  = sysMatch[1] + '%';
+                if (idleMatch) {
+                    cpuIdle  = idleMatch[1] + '%';
+                    cpuUsage = 100 - parseFloat(idleMatch[1]);
+                }
             }
+
             setVal('v-cpu', `${cpuUsage.toFixed(1)}%`);
             setVal('v-cpu-sub', `User: ${cpuUser} · Sys: ${cpuSys}`);
             setBar('v-cpu-bar', cpuUsage);
@@ -1494,7 +1536,7 @@
             const pagesActive   = mem.pages_active || 0;
             const pagesInactive = mem.pages_inactive || 0;
             const pagesWired    = mem.pages_wired || 0;
-            const totalPages    = pagesFree + pagesActive + pagesInactive + pagesWired || 1;
+            const totalPages    = (pagesFree + pagesActive + pagesInactive + pagesWired) || 1;
             const usedPages     = pagesActive + pagesWired;
             const ramPct        = Math.round((usedPages / totalPages) * 100);
             
@@ -1511,9 +1553,6 @@
             const obsDisk         = telemetry.disk || {};
             const obsDiskCapacity = obsDisk.capacity || '—';
             const obsDiskAvail    = obsDisk.available || '—';
-            const obsDiskSize     = obsDisk.size || '—';
-            const obsDiskUsed     = obsDisk.used || '—';
-            const obsDiskMount    = obsDisk.mount || '—';
             const diskPct         = parsePct(obsDiskCapacity);
 
             setVal('v-disk', obsDiskCapacity);
@@ -1522,9 +1561,19 @@
 
             // --- n8n Heartbeat ---
             const n8nHb     = observer.n8n_heartbeat || {};
-            const n8nStatus = n8nHb.status || 'unknown';
             const n8nHealth = n8nHb.health || 'Unknown';
-            const n8nResp   = n8nHb.response || '—';
+            let n8nResp     = n8nHb.response || '—';
+            
+            // Safety Check for response payload
+            if (typeof n8nResp !== 'string') {
+                try {
+                    n8nResp = JSON.stringify(n8nResp);
+                } catch(e) {
+                    n8nResp = 'Invalid Response format';
+                }
+            } else if (n8nResp === 'n8n Webserver is online and responding correctly.') {
+                n8nResp = 'Online';
+            }
             
             setVal('v-n8n', n8nHealth);
             setVal('v-n8n-sub', n8nResp.length > 60 ? n8nResp.substring(0, 57) + '…' : n8nResp);
@@ -1544,14 +1593,10 @@
                 setChip('v-n8n-badge', badgeStatus);
             }
 
-            // ============================================================
-            // OBSERVER CPU LABEL FOR FLEET
-            // ============================================================
-            const cpuStatusLabel = cpuUsage > 80 ? 'CRITICAL' : (cpuUsage > 60 ? 'WARNING' : 'NOMINAL');
+            return cpuUsage;
+        }
 
-            // ============================================================
-            // SAGE PANEL
-            // ============================================================
+        function renderSagePanel(sage) {
             let sageOverall = 'STABLE';
             if (!sage.routing_assessment && !sage.ground_truth_check) {
                 sageOverall = 'OFFLINE';
@@ -1574,12 +1619,9 @@
                     </div>
                 `;
             }
+        }
 
-
-
-            // ============================================================
-            // OUTSIDER PANEL (Reflection)
-            // ============================================================
+        function renderOutsiderPanel(outsider) {
             const outsiderEl = document.getElementById('outsider-content');
             if (outsiderEl) {
                 if (outsider.status === 'no report found' || (!outsider.observation && !outsider.content)) {
@@ -1601,12 +1643,20 @@
                     outsiderEl.className = 'quote-block';
                 }
             }
+        }
 
-            // ============================================================
-            // FLEET OVERVIEW TABLE
-            // ============================================================
+        function renderFleetTable(observer, sage, outsider, cpuUsage) {
+            const cpuStatusLabel = cpuUsage > 80 ? 'CRITICAL' : (cpuUsage > 60 ? 'WARNING' : 'NOMINAL');
+            
+            let sageOverall = 'STABLE';
+            if (!sage.routing_assessment && !sage.ground_truth_check) {
+                sageOverall = 'OFFLINE';
+            } else {
+                if (JSON.stringify(sage).toLowerCase().includes('critical')) sageOverall = 'CRITICAL';
+                if (sage.ground_truth_check?.system_health && sage.ground_truth_check.system_health.toLowerCase().includes('fail')) sageOverall = 'CRITICAL';
+            }
+
             let sageSummary = 'No report found';
-            let sageDetails = '—';
             if (sage.audit_report?.findings?.vault_cross_reference) {
                 sageSummary = escapeHTML(sage.audit_report.findings.vault_cross_reference);
             }
@@ -1679,8 +1729,7 @@
         const fyEl = document.getElementById('footer-year');
         if (fyEl) fyEl.textContent = new Date().getFullYear();
 
-        // Standard 30-second observability interval
-        setInterval(updateDashboard, 30000);
+        // Start Dashboard Loop
         updateDashboard();
     </script>
 
