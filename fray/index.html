@@ -1483,6 +1483,9 @@
             if (observer.n8n_heartbeat?.status && String(observer.n8n_heartbeat.status).toLowerCase().includes('error')) {
                 overallHealth = 'ERROR';
             }
+            if (sage.audit_report?.findings?.connectivity && sage.audit_report.findings.connectivity.toLowerCase().includes('critical')) {
+                overallHealth = 'CRITICAL';
+            }
             if (JSON.stringify(sage).toLowerCase().includes('critical')) {
                 overallHealth = 'CRITICAL';
             }
