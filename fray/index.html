@@ -1608,16 +1608,39 @@
             } else {
                 if (JSON.stringify(sage).toLowerCase().includes('critical')) sageOverall = 'CRITICAL';
                 if (sage.ground_truth_check?.system_health && sage.ground_truth_check.system_health.toLowerCase().includes('fail')) sageOverall = 'CRITICAL';
+                if (sage.audit_report?.findings?.connectivity && sage.audit_report.findings.connectivity.toLowerCase().includes('critical')) sageOverall = 'CRITICAL';
                 setChip('p-sage-chip', sageOverall);
                 
                 const sageBody = document.getElementById('sage-body');
+                const findings = sage.audit_report?.findings || {};
+                
                 sageBody.innerHTML = `
                     <div style="padding: 0 4px;">
-                        <div style="margin-bottom: 12px; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--text-main);">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                            <span class="insight-label" style="margin-bottom: 0;">Assessment Process:</span>
+                            <span class="mono" style="font-size: 0.75rem; color: var(--text-muted);">${escapeHTML(sage.routing_assessment?.step || '—')}</span>
+                        </div>
+                        <div style="margin-bottom: 20px; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--text-main); font-style: italic;">
                             "${escapeHTML(sage.audit_report?.philosophical_reflection || '—')}"
                         </div>
-                        <div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);">
-                            <b>Conclusion:</b> ${escapeHTML(sage.conclusion || '—')}
+                        <div class="combined-reflection-insights" style="margin-bottom: 20px;">
+                            <div class="insights-row">
+                                <div class="insight-col">
+                                    <div class="insight-label">Connectivity</div>
+                                    <div class="insight-block">${escapeHTML(findings.connectivity || '—')}</div>
+                                </div>
+                                <div class="insight-col">
+                                    <div class="insight-label">Resources</div>
+                                    <div class="insight-block">${escapeHTML(findings.resources || '—')}</div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 12px;">
+                                <div class="insight-label">Vault Cross-Reference</div>
+                                <div class="insight-block">${escapeHTML(findings.vault_cross_reference || '—')}</div>
+                            </div>
+                        </div>
+                        <div style="padding: 12px; background: var(--bg-surface); border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.9rem; color: var(--text-secondary);">
+                            <b style="color: var(--text-main);">Conclusion:</b> ${escapeHTML(sage.conclusion || '—')}
                         </div>
                     </div>
                 `;
