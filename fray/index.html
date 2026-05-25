@@ -1471,23 +1471,14 @@
             setVal('banner-timestamp', formatTimestamp(rootTs));
 
             // ============================================================
-            // OVERALL HEALTH — derive from new structure
+            // OVERALL HEALTH — derive from observer
             // ============================================================
             let overallHealth = 'STABLE';
-            if (sage.ground_truth?.observer_snapshot?.n8n_status) {
-                const sh = sage.ground_truth.observer_snapshot.n8n_status.toLowerCase();
-                if (sh.includes('fail') || sh.includes('error')) {
-                    overallHealth = 'CRITICAL';
-                }
-            }
             if (observer.n8n_heartbeat?.status && String(observer.n8n_heartbeat.status).toLowerCase().includes('error')) {
                 overallHealth = 'ERROR';
             }
-            if (sage.audit_findings?.resource_health && sage.audit_findings.resource_health.toLowerCase().includes('critical')) {
-                overallHealth = 'CRITICAL';
-            }
-            if (JSON.stringify(sage).toLowerCase().includes('critical')) {
-                overallHealth = 'CRITICAL';
+            if (observer.n8n_heartbeat?.health && String(observer.n8n_heartbeat.health).toLowerCase().includes('error')) {
+                overallHealth = 'ERROR';
             }
 
             // Header title
@@ -1601,20 +1592,15 @@
 
         function renderSagePanel(sage) {
             let sageOverall = 'STABLE';
-            if (!sage.audit_findings && !sage.ground_truth) {
+            if (!sage.report_type && !sage.reflection) {
                 sageOverall = 'OFFLINE';
                 setChip('p-sage-chip', sageOverall);
                 document.getElementById('sage-body').innerHTML = '<div class="quote-block">No Sage report found in snapshot.</div>';
             } else {
                 if (JSON.stringify(sage).toLowerCase().includes('critical')) sageOverall = 'CRITICAL';
-                if (sage.ground_truth?.observer_snapshot?.n8n_status && sage.ground_truth.observer_snapshot.n8n_status.toLowerCase().includes('error')) sageOverall = 'CRITICAL';
-                if (sage.audit_findings?.resource_health && sage.audit_findings.resource_health.toLowerCase().includes('critical')) sageOverall = 'CRITICAL';
                 setChip('p-sage-chip', sageOverall);
                 
                 const sageBody = document.getElementById('sage-body');
-                const findings = sage.audit_findings || {};
-                const gt = sage.ground_truth || {};
-                const gtSnap = gt.observer_snapshot || {};
                 
                 sageBody.innerHTML = `
                     <div style="padding: 0 4px;">
@@ -1622,42 +1608,8 @@
                             <span class="insight-label" style="margin-bottom: 0;">Report Type:</span>
                             <span class="mono" style="font-size: 0.75rem; color: var(--text-muted);">${escapeHTML(sage.report_type || '—')}</span>
                         </div>
-                        <div style="margin-bottom: 20px; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--text-main); font-style: italic;">
+                        <div style="margin-bottom: 0; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--text-main); font-style: italic;">
                             "${escapeHTML(sage.reflection || '—')}"
-                        </div>
-                        <div class="combined-reflection-insights" style="margin-bottom: 20px;">
-                            <div class="insights-row">
-                                <div class="insight-col">
-                                    <div class="insight-label">Resource Health</div>
-                                    <div class="insight-block">${escapeHTML(findings.resource_health || '—')}</div>
-                                </div>
-                                <div class="insight-col">
-                                    <div class="insight-label">n8n Heartbeat</div>
-                                    <div class="insight-block">${escapeHTML(findings.n8n_heartbeat || '—')}</div>
-                                </div>
-                            </div>
-                            <div style="margin-top: 12px;">
-                                <div class="insight-label">Critical Discrepancy</div>
-                                <div class="insight-block">${escapeHTML(findings.critical_discrepancy || '—')}</div>
-                            </div>
-                        </div>
-                        <div style="margin-bottom: 20px; padding: 12px; background: var(--bg-surface); border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.85rem; color: var(--text-secondary);">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                <b class="insight-label" style="margin-bottom: 0;">Ground Truth Snapshot</b>
-                                <span class="chip ${chipClass(gtSnap.n8n_status)}" style="font-size: 0.6rem;">${escapeHTML(gtSnap.n8n_status || '—')}</span>
-                            </div>
-                            <div style="line-height: 1.5; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;">
-                                CPU: ${escapeHTML(gtSnap.cpu || '—')}<br>
-                                Memory Free: ${escapeHTML(gtSnap.memory_pages_free || '—')}<br>
-                                Disk Available: ${escapeHTML(gtSnap.disk_available || '—')}
-                            </div>
-                            <div style="text-align: right; font-size: 0.7rem; color: var(--text-faint); margin-top: 8px;">Snapshot: ${formatTimestamp(gtSnap.timestamp)}</div>
-                        </div>
-                        <div style="padding: 12px; background: var(--bg-surface); border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.9rem; color: var(--text-secondary);">
-                            <b style="color: var(--text-main);">Action Items:</b> 
-                            <ul style="margin-top: 8px; padding-left: 20px;">
-                                ${(sage.action_items || []).map(item => `<li>${escapeHTML(item)}</li>`).join('') || '<li>None</li>'}
-                            </ul>
                         </div>
                     </div>
                 `;
@@ -1691,17 +1643,14 @@
             const cpuStatusLabel = cpuUsage > 80 ? 'CRITICAL' : (cpuUsage > 60 ? 'WARNING' : 'NOMINAL');
             
             let sageOverall = sage.status || 'STABLE';
-            if (!sage.audit_findings && !sage.ground_truth) {
+            if (!sage.report_type && !sage.reflection) {
                 sageOverall = 'OFFLINE';
             } else {
                 if (JSON.stringify(sage).toLowerCase().includes('critical')) sageOverall = 'CRITICAL';
-                if (sage.ground_truth?.observer_snapshot?.n8n_status && sage.ground_truth.observer_snapshot.n8n_status.toLowerCase().includes('error')) sageOverall = 'CRITICAL';
             }
 
             let sageSummary = 'No report found';
-            if (sage.audit_findings?.critical_discrepancy) {
-                sageSummary = escapeHTML(sage.audit_findings.critical_discrepancy);
-            } else if (sage.reflection) {
+            if (sage.reflection) {
                 sageSummary = escapeHTML(sage.reflection);
             }
 
