@@ -1613,12 +1613,16 @@
                 
                 const sageBody = document.getElementById('sage-body');
                 const findings = sage.audit_report?.findings || {};
+                const gt = sage.ground_truth_check || {};
                 
                 sageBody.innerHTML = `
                     <div style="padding: 0 4px;">
                         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
                             <span class="insight-label" style="margin-bottom: 0;">Assessment Process:</span>
                             <span class="mono" style="font-size: 0.75rem; color: var(--text-muted);">${escapeHTML(sage.routing_assessment?.step || '—')}</span>
+                        </div>
+                        <div style="margin-bottom: 20px; font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; background: var(--bg-surface); padding: 8px 12px; border-radius: var(--radius-sm); border-left: 2px solid var(--primary);">
+                            <b class="mono" style="color: var(--text-main); font-size: 0.7rem; text-transform: uppercase;">Decision:</b> ${escapeHTML(sage.routing_assessment?.decision || '—')}
                         </div>
                         <div style="margin-bottom: 20px; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--text-main); font-style: italic;">
                             "${escapeHTML(sage.audit_report?.philosophical_reflection || '—')}"
@@ -1638,6 +1642,14 @@
                                 <div class="insight-label">Vault Cross-Reference</div>
                                 <div class="insight-block">${escapeHTML(findings.vault_cross_reference || '—')}</div>
                             </div>
+                        </div>
+                        <div style="margin-bottom: 20px; padding: 12px; background: var(--bg-surface); border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.85rem; color: var(--text-secondary);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <b class="insight-label" style="margin-bottom: 0;">Ground Truth Check</b>
+                                <span class="chip ${chipClass(gt.status)}" style="font-size: 0.6rem;">${escapeHTML(gt.status || '—')}</span>
+                            </div>
+                            <div style="line-height: 1.5;">${escapeHTML(gt.discrepancies || 'No discrepancies detected.')}</div>
+                            <div style="text-align: right; font-size: 0.7rem; color: var(--text-faint); margin-top: 8px;">Snapshot: ${formatTimestamp(gt.snapshot_timestamp)}</div>
                         </div>
                         <div style="padding: 12px; background: var(--bg-surface); border-radius: var(--radius-sm); border: 1px solid var(--border); font-size: 0.9rem; color: var(--text-secondary);">
                             <b style="color: var(--text-main);">Conclusion:</b> ${escapeHTML(sage.conclusion || '—')}
