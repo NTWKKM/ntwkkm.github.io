@@ -2,73 +2,73 @@
   {
     "date": "25 May",
     "title": "Incidence of Cervical Spine Fracture or Other Urgently Actionable Injury in Trauma Patients Who Present to the Emergency Department by Private Vehicle",
-    "comment": "ผู้ป่วย trauma ที่มาเองอาจไม่ low-risk อย่างที่คิด, ทบทวนแนวทาง C-spine clearance.",
+    "comment": "ผู้ป่วย Trauma ที่มาเองด้วยรถส่วนตัวอาจไม่จำเป็นต้องทำ C-spine immobilization เสมอไป",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42183808/"
   },
   {
     "date": "25 May",
     "title": "Developing and validating an artificial intelligence-based electronic triage model for predicting clinical outcomes among cardiac-suspected patients in the emergency department",
-    "comment": "AI อาจช่วยคัดแยกผู้ป่วยโรคหัวใจที่หน้าห้องฉุกเฉินได้แม่นยำและรวดเร็วยิ่งขึ้น.",
+    "comment": "เสนอโมเดล AI สำหรับ Triage ผู้ป่วยที่สงสัยโรคหัวใจใน ER เพื่อทำนายผลลัพธ์และจัดลำดับความสำคัญ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42182049/"
   },
   {
     "date": "25 May",
     "title": "Pitfalls in Echocardiography: Superior Aortic Recess Pericardial Effusion Mimicking Ascending Aorta Dissection",
-    "comment": "POCUS Echo: ต้องแยก Superior Aortic Recess Effusion จาก Aortic Dissection ให้ขาด.",
+    "comment": "POCUS Alert: เตือนจุดบอดในการทำ U/S ที่อาจวินิจฉัย Pericardial Effusion ผิดเป็น Aortic Dissection",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42181925/"
   },
   {
     "date": "25 May",
+    "title": "Central Nervous System Involvement by Novel Clade 2.3.2.1e H5N1 Avian Influenza Virus in a Pediatric Patient",
+    "comment": "รายงานเคสไข้หวัดนก H5N1 ที่มีอาการทางระบบประสาทโดยตรง เป็นสัญญาณเตือนสำคัญของโรคอุบัติใหม่",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42182835/"
+  },
+  {
+    "date": "25 May",
+    "title": "Clinical impact of coinfection with SARS-CoV-2, influenza virus, and respiratory syncytial virus among adults: a multicenter retrospective cohort study [2021-2025]",
+    "comment": "วิเคราะห์ผลกระทบทางคลินิกของการติดเชื้อไวรัสทางเดินหายใจหลายชนิดพร้อมกัน (tripledemic) ที่พบบ่อยใน ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42182769/"
+  },
+  {
+    "date": "25 May",
+    "title": "Patient Information, Motivations, and Behavioral Skills during Early Implementation of Doxy-PEP in New York City",
+    "comment": "Doxy-PEP เพื่อป้องกันโรคติดต่อทางเพศสัมพันธ์: ประสบการณ์และข้อมูลจากการเริ่มใช้จริงที่น่าสนใจ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42183682/"
+  },
+  {
+    "date": "25 May",
+    "title": "A narrative review of the role of AI and machine learning in enhancing cauda equina syndrome diagnosis",
+    "comment": "AI อาจเป็นเครื่องมือใหม่ที่ช่วยวินิจฉัยภาวะ cauda equina syndrome ที่มีความเสี่ยงสูงได้เร็วขึ้น",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42183769/"
+  },
+  {
+    "date": "25 May",
+    "title": "Drug-induced anaphylaxis: Molecular pathophysiology, diagnosis, and management",
+    "comment": "ทบทวนความรู้ล่าสุดเกี่ยวกับการแพ้ยาแบบ Anaphylaxis ตั้งแต่กลไกจนถึงการรักษาในภาวะฉุกเฉิน",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42182606/"
+  },
+  {
+    "date": "25 May",
     "title": "From Rule of Rescue to Distributive Justice: Are Physician-Staffed Ambulances Ethically Justifiable?",
-    "comment": "การใช้แพทย์บนรถพยาบาลคุ้มค่าและยุติธรรมต่อระบบสาธารณสุขโดยรวมหรือไม่?.",
+    "comment": "ตั้งคำถามเชิงจริยธรรมถึงความคุ้มค่าของการใช้แพทย์บนรถพยาบาลในระบบบริการการแพทย์ฉุกเฉิน",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42184078/"
   },
   {
     "date": "25 May",
+    "title": "Synergistic strategies to rescue the last-resort antibiotic colistin",
+    "comment": "สำรวจแนวทางใหม่ในการใช้ยาปฏิชีวนะ colistin เพื่อต่อสู้กับเชื้อดื้อยาในผู้ป่วยวิกฤต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42183845/"
+  },
+  {
+    "date": "25 May",
     "title": "Factors affecting prolonged Emergency Department stays in the over 75s",
-    "comment": "เจาะลึกปัจจัยที่ทำให้ผู้ป่วยสูงอายุต้องอยู่ในห้องฉุกเฉินนานขึ้นเพื่อหาทางแก้ไข.",
+    "comment": "เจาะลึกปัจจัยที่ทำให้ผู้ป่วยสูงอายุต้องนอนค้างใน ER นาน เพื่อหาทางปรับปรุงระบบ",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42183784/"
   },
   {
     "date": "25 May",
     "title": "N-acetylcysteine: reinventing classic pharmacology through skin",
-    "comment": "อนาคตการให้ยาแก้พิษพาราฯ (NAC) อาจเปลี่ยนเป็นรูปแบบยาสำหรับทาที่ผิวหนัง.",
+    "comment": "สำรวจศักยภาพใหม่ของยา NAC ที่เราคุ้นเคย ในรูปแบบการให้ยาผ่านทางผิวหนัง",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42183686/"
-  },
-  {
-    "date": "25 May",
-    "title": "Central Nervous System Involvement by Novel Clade 2.3.2.1e H5N1 Avian Influenza Virus in a Pediatric Patient",
-    "comment": "รายงานเคสไข้หวัดนก H5N1 ขึ้นสมองในเด็ก, อาการทางระบบประสาทต้องนึกถึงเสมอ.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42182835/"
-  },
-  {
-    "date": "25 May",
-    "title": "Effects of extracorporeal membrane oxygenation and/or renal replacement therapy on piperacillin/tazobactam levels in critically ill patients",
-    "comment": "การให้ยาปฏิชีวนะในผู้ป่วยวิกฤตที่ใช้ ECMO/CRRT ต้องปรับขนาดยาอย่างไร?.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42181888/"
-  },
-  {
-    "date": "25 May",
-    "title": "A narrative review of the role of AI and machine learning in enhancing cauda equina syndrome diagnosis",
-    "comment": "AI อาจเป็นเครื่องมือใหม่ที่ช่วยให้เราวินิจฉัย Cauda Equina Syndrome ได้เร็วขึ้น.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42183769/"
-  },
-  {
-    "date": "25 May",
-    "title": "Patient Information, Motivations, and Behavioral Skills during Early Implementation of Doxy-PEP in New York City",
-    "comment": "Doxy-PEP สำหรับป้องกันโรคติดต่อทางเพศสัมพันธ์, ประเด็นใหม่ที่ ER ควรรู้.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42183682/"
-  },
-  {
-    "date": "25 May",
-    "title": "A Prescriptive Model for Protecting Nurses' Dignity and Safety: Understanding Coping Processes in the Face of Workplace Violence",
-    "comment": "โมเดลปกป้องบุคลากรทางการแพทย์จากความรุนแรงในที่ทำงาน, เรื่องที่เราต้องใส่ใจ.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42183657/"
-  },
-  {
-    "date": "25 May",
-    "title": "Clinical impact of coinfection with SARS-CoV-2, influenza virus, and respiratory syncytial virus among adults: a multicenter retrospective cohort study [2021-2025]",
-    "comment": "การติดเชื้อไวรัสหลายชนิดร่วมกัน (COVID, Flu, RSV) เพิ่มความรุนแรงของโรคในผู้ใหญ่.",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42182769/"
   }
 ]
