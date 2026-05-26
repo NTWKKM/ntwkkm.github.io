@@ -1592,12 +1592,17 @@
 
         function renderSagePanel(sage) {
             let sageOverall = 'STABLE';
-            if (!sage.report_type && !sage.reflection) {
+            if (!sage.report_id && !sage.report_type && !sage.reflection) {
                 sageOverall = 'OFFLINE';
                 setChip('p-sage-chip', sageOverall);
                 document.getElementById('sage-body').innerHTML = '<div class="quote-block">No Sage report found in snapshot.</div>';
             } else {
-                if (JSON.stringify(sage).toLowerCase().includes('critical')) sageOverall = 'CRITICAL';
+                const sh = (sage.audit_summary?.system_health || '').toLowerCase();
+                if (sh.includes('fail') || sh.includes('error') || sh.includes('critical')) {
+                    sageOverall = 'CRITICAL';
+                } else if (sh.includes('warn') || sh.includes('degraded')) {
+                    sageOverall = 'WARNING';
+                }
                 setChip('p-sage-chip', sageOverall);
                 
                 const sageBody = document.getElementById('sage-body');
@@ -1605,8 +1610,8 @@
                 sageBody.innerHTML = `
                     <div style="padding: 0 4px;">
                         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
-                            <span class="insight-label" style="margin-bottom: 0;">Report Type:</span>
-                            <span class="mono" style="font-size: 0.75rem; color: var(--text-muted);">${escapeHTML(sage.report_type || '—')}</span>
+                            <span class="insight-label" style="margin-bottom: 0;">Report:</span>
+                            <span class="mono" style="font-size: 0.75rem; color: var(--text-muted);">${escapeHTML(sage.report_type || sage.report_id || '—')}</span>
                         </div>
                         <div style="margin-bottom: 0; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--text-main); font-style: italic;">
                             "${escapeHTML(sage.reflection || '—')}"
@@ -1643,10 +1648,15 @@
             const cpuStatusLabel = cpuUsage > 80 ? 'CRITICAL' : (cpuUsage > 60 ? 'WARNING' : 'NOMINAL');
             
             let sageOverall = sage.status || 'STABLE';
-            if (!sage.report_type && !sage.reflection) {
+            if (!sage.report_id && !sage.report_type && !sage.reflection) {
                 sageOverall = 'OFFLINE';
             } else {
-                if (JSON.stringify(sage).toLowerCase().includes('critical')) sageOverall = 'CRITICAL';
+                const sh = (sage.audit_summary?.system_health || '').toLowerCase();
+                if (sh.includes('fail') || sh.includes('error') || sh.includes('critical')) {
+                    sageOverall = 'CRITICAL';
+                } else if (sh.includes('warn') || sh.includes('degraded')) {
+                    sageOverall = 'WARNING';
+                }
             }
 
             let sageSummary = 'No report found';
