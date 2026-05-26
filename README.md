@@ -20,13 +20,11 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- ARCHITECTURE.md
 |-- blog_index.json
 |-- blog.html
-|-- defer.md
 |-- index.html
 |-- manifest.json
 |-- papers.json
 |-- projects.json
 |-- README.md
-|-- scroll.md
 |-- shared.css
 |-- shared.js
 `-- sw.js
