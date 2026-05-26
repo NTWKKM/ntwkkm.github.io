@@ -243,11 +243,22 @@ function initSharedTheme() {
     toggleBtn.innerHTML = savedTheme === 'dark' ? sunIcon : moonIcon;
 
     toggleBtn.addEventListener('click', () => {
-        const currentTheme = htmlElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        htmlElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        toggleBtn.innerHTML = newTheme === 'dark' ? sunIcon : moonIcon;
+        const toggleTheme = () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            toggleBtn.innerHTML = newTheme === 'dark' ? sunIcon : moonIcon;
+        };
+
+        // Use View Transitions API if supported and user hasn't disabled motion
+        if (!document.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            toggleTheme();
+        } else {
+            document.startViewTransition(() => {
+                toggleTheme();
+            });
+        }
     });
 }
 
@@ -268,4 +279,28 @@ function sanitizeURL(url) {
     catch { return '#'; }
 }
 
-document.addEventListener('DOMContentLoaded', initSharedTheme);
+document.addEventListener('DOMContentLoaded', () => {
+    initSharedTheme();
+    initScrollAnimationFallback();
+});
+
+// ===========================================================================
+// SCROLL ANIMATION FALLBACK
+// ===========================================================================
+function initScrollAnimationFallback() {
+    // Only apply if the browser doesn't support native scroll-driven animations
+    if (window.CSS && CSS.supports && !CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Animate only once
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-entry').forEach(el => {
+            observer.observe(el);
+        });
+    }
+}

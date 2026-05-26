@@ -552,3 +552,45 @@ textarea:focus-visible,
     color: #fff;
     border: 1px solid rgba(37, 99, 235, 0.3);
 }
+
+/* ===========================================================================
+   MODERN WEB GUIDANCE UPGRADES
+   =========================================================================== */
+
+/* 1. Content Visibility (Deferred Rendering) */
+.heavy-section-deferred {
+    content-visibility: auto;
+    contain-intrinsic-size: auto none auto 500px;
+}
+
+/* 2. Scroll-Driven Animations (Native CSS Reveal) */
+@media (prefers-reduced-motion: no-preference) {
+    @supports ((animation-timeline: view()) and (animation-range: entry)) {
+        .animate-entry {
+            opacity: 0; /* Handled by animation backwards fill */
+            animation: fade-up auto cubic-bezier(0.16, 1, 0.3, 1) both;
+            animation-timeline: view(block);
+            animation-range: entry 5% cover 15%;
+        }
+    }
+}
+
+/* Fallback for unsupported browsers (Handled via JS IntersectionObserver) */
+.animate-entry.is-visible {
+    animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    opacity: 1;
+}
+
+/* Initial state for unsupported browsers before JS kicks in */
+@supports not ((animation-timeline: view()) and (animation-range: entry)) {
+    .animate-entry:not(.is-visible) {
+        opacity: 0;
+    }
+}
+
+/* 3. View Transitions API (Dark/Light Mode Crossfade) */
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 0.4s;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
