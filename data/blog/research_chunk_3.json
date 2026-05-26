@@ -1,5 +1,65 @@
 [
   {
+    "id": "2d1ba464-60a7-81b0-a16d-d139cc8539d5",
+    "name": "Early prediction of antibiotic need and bacteremia risk in non-immunocompromised pediatric emergency patients using machine learning",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41387552/",
+    "property_tag_2": "Emergency",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อพัฒนากรอบการทำงานด้วย Machine Learning ในการช่วยตัดสินใจให้ยาปฏิชีวนะและทำนายความเสี่ยงของการติดเชื้อในกระแสเลือดในผู้ป่วยเด็กฉุกเฉินที่ไม่มีภาวะภูมิคุ้มกันบกพร่อง เพื่อเพิ่มความปลอดภัยและลดการใช้ยาเกินความจำเป็น\n- **วิธีการ:** ศึกษาข้อมูลย้อนหลังจากเวชระเบียนอิเล็กทรอนิกส์ของผู้ป่วยเด็ก 5,706 ราย (อายุ 3 เดือน - 17 ปี) จากแผนกฉุกเฉิน 6 แห่ง โดยใช้โมเดล XGBoost สร้างการทำนาย 2 ส่วน คือ การทำนายภาวะทรุดลงทางคลินิกในกลุ่มที่ไม่ได้เริ่มยาปฏิชีวนะ และการทำนายโอกาสพบเชื้อในกระแสเลือดในกลุ่มที่ได้รับยา\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** โมเดลมีประสิทธิภาพสูง โดยแสดงค่าพื้นที่ใต้กราฟ (AUC) ในระดับสูงและมีค่าการทำนายผลลบ (Negative Predictive Value) มากกว่า 96% ปัจจัยสำคัญที่ใช้ในการทำนาย ได้แก่ การใช้ออกซิเจนเสริม ไข้ ระดับความอิ่มตัวของออกซิเจนต่ำ อายุ และค่าทางห้องปฏิบัติการที่ผิดปกติ",
+    "property_tag_3": "AI",
+    "property_tag_1": "Pediatrics",
+    "property_last_edited_time": "2025-12-22T19:11:00.000Z",
+    "property_pmid": "41387552",
+    "property_name": "Early prediction of antibiotic need and bacteremia risk in non-immunocompromised pediatric emergency patients using machine learning"
+  },
+  {
+    "id": "2d1ba464-60a7-8101-84f3-c706fd12b0c5",
+    "name": "A narrative review of the diabetic ketoacidosis and hyperosmolar hyperglycemic state overlap syndrome.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41272457/",
+    "property_tag_2": "Endocrinology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อสังเคราะห์และรวบรวมข้อมูลหลักฐานปัจจุบันเกี่ยวกับระบาดวิทยา พยาธิสรีรวิทยา และการจัดการภาวะคาบเกี่ยวระหว่าง DKA และ HHS ในผู้ป่วยเบาหวานชนิดที่ 1 และ 2 ทั้งในกลุ่มเด็กและผู้ใหญ่\n- **วิธีการ:** เป็นการทบทวนวรรณกรรมแบบบรรยาย (Narrative review) ที่มุ่งเน้นการวิเคราะห์ความท้าทายในการวินิจฉัย การรักษา และผลลัพธ์ทางคลินิกที่แตกต่างกันในแต่ละกลุ่มผู้ป่วย\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ภาวะคาบเกี่ยวนี้มีความเสี่ยงต่อการเสียชีวิตและภาวะแทรกซ้อนรุนแรง (เช่น สมองบวม ลิ่มเลือดอุดตัน ไตวาย) สูงกว่าการเกิด DKA หรือ HHS เพียงอย่างเดียว ปัจจุบันยังไม่มีแนวทางการรักษาที่เป็นมาตรฐานสากล การดูแลรักษาจึงต้องปรับสมดุลการให้สารน้ำ อินซูลิน และเกลือแร่ให้เหมาะสมกับผู้ป่วยแต่ละราย",
+    "property_tag_3": "Pediatrics",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2025-12-22T16:05:00.000Z",
+    "property_pmid": "41272457",
+    "property_name": "A narrative review of the diabetic ketoacidosis and hyperosmolar hyperglycemic state overlap syndrome."
+  },
+  {
+    "id": "2d1ba464-60a7-818d-91bf-d1abe3b2324a",
+    "name": "What are we waiting for? A review of early basal insulin therapy in diabetic ketoacidosis management.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/37531711/",
+    "property_tag_2": "Endocrinology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนวรรณกรรมและประเมินเหตุผลสนับสนุนการเริ่มให้ยา basal insulin ตั้งแต่ระยะแรก (early basal insulin) ในการดูแลรักษาผู้ป่วยภาวะเลือดเป็นกรดจากเบาหวาน (DKA)\n- **วิธีการ:** เป็นบทความทบทวนวรรณกรรม (Review article) ที่เปรียบเทียบแนวทางเวชปฏิบัติปัจจุบันของ American Diabetes Association (ADA) กับแนวทางของ Joint British Society ที่เพิ่งปรับปรุงใหม่เกี่ยวกับการบริหารยาอินซูลิน\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การให้ basal insulin ตั้งแต่ระยะแรกสัมพันธ์กับการลดการเกิดภาวะน้ำตาลในเลือดสูงซ้ำ (rebound hyperglycemia) ช่วยลดระยะเวลาในการหายจากภาวะ DKA ลดปริมาณการใช้อินซูลินทางหลอดเลือดดำ และลดระยะเวลาการนอนโรงพยาบาล โดยไม่เพิ่มความเสี่ยงต่อการเกิดภาวะน้ำตาลในเลือดต่ำหรือโพแทสเซียมในเลือดต่ำ",
+    "property_tag_3": "Pharmacology",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2025-12-22T16:05:00.000Z",
+    "property_pmid": "37531711",
+    "property_name": "What are we waiting for? A review of early basal insulin therapy in diabetic ketoacidosis management."
+  },
+  {
+    "id": "2d1ba464-60a7-811c-a9a3-e483cc61e6ce",
+    "name": "Spin Control: Reframing Dizziness Evaluation in the Emergency Department.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41389047/",
+    "property_tag_2": "Neurology",
+    "property_comment": "- **วัตถุประสงค์:** เนื่องจากบทความนี้เป็นบทบรรณาธิการ (Editorial) จึงไม่มีบทคัดย่อที่ระบุวัตถุประสงค์การวิจัยโดยละเอียด แต่เนื้อหาหลักมุ่งเน้นการนำเสนอแนวคิดใหม่หรือการปรับปรุงกระบวนการประเมินผู้ป่วยที่มีอาการเวียนศีรษะในแผนกฉุกเฉิน\n- **วิธีการ:** ไม่ระบุข้อมูลระเบียบวิธีวิจัยเนื่องจากเป็นบทความประเภทแสดงความคิดเห็นและไม่มีบทคัดย่อ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่ระบุผลการศึกษาหรือข้อมูลทางสถิติเนื่องจากเป็นบทความประเภทแสดงความคิดเห็นและไม่มีบทคัดย่อ",
+    "property_tag_3": "Diagnosis",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2025-12-22T16:04:00.000Z",
+    "property_pmid": "41389047",
+    "property_name": "Spin Control: Reframing Dizziness Evaluation in the Emergency Department."
+  },
+  {
+    "id": "2d1ba464-60a7-816b-86d9-f384ac659648",
+    "name": "Sepsis and septic shock case identification from electronic health records: an open-source workflow and comparison of cohorts by criteria.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41388426/",
+    "property_tag_2": "Infectious Diseases",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อพัฒนาและสร้างกระบวนการทำงานแบบโอเพนซอร์ส (open-source workflow) สำหรับการระบุผู้ป่วยที่มีภาวะติดเชื้อในกระแสเลือด (Sepsis) และภาวะช็อกจากการติดเชื้อ (Septic shock) จากระเบียนสุขภาพอิเล็กทรอนิกส์ (EHR) โดยเปรียบเทียบผลลัพธ์จากการใช้เกณฑ์การวินิจฉัย 3 เกณฑ์ที่แตกต่างกัน\n- **วิธีการ:** ทำการวิเคราะห์ข้อมูลย้อนหลังของผู้ป่วยระหว่างปี 2012 ถึง 2024 ในแผนกฉุกเฉินและโรงพยาบาล 25 แห่ง โดยใช้เกณฑ์ CDC ASE, Sepsis-3 และรหัสโรค ICD ในการคัดกรอง และประเมินความสอดคล้องระหว่างคู่เกณฑ์ด้วยสถิติ Cohen's kappa (κ) และ Jaccard index\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบผู้ป่วย Sepsis 302,112 ราย และ Septic shock 59,043 ราย โดยความสอดคล้องสูงสุดพบระหว่างเกณฑ์ CDC ASE และ Sepsis-3 (Sepsis: κ=0.39, Jaccard=0.31; Septic shock: κ=0.53, Jaccard=0.37) อย่างไรก็ตาม พบว่ามีผู้ป่วยเพียงร้อยละ 35 (สำหรับ Sepsis) และร้อยละ 45 (สำหรับ Septic shock) เท่านั้นที่มีคุณสมบัติตรงตามเกณฑ์การวินิจฉัยมากกว่าหนึ่งเกณฑ์ร่วมกัน",
+    "property_tag_3": "Medical Informatics",
+    "property_tag_1": "Critical Care",
+    "property_last_edited_time": "2025-12-22T16:04:00.000Z",
+    "property_pmid": "41388426",
+    "property_name": "Sepsis and septic shock case identification from electronic health records: an open-source workflow and comparison of cohorts by criteria."
+  },
+  {
     "id": "2d1ba464-60a7-8196-8c4d-cb6eabe77d5c",
     "name": "Diabetic Ketoacidosis: Considerations and Residual Controversies in Management After the 2024 ADA, EASD, JBDS, AACE, and DST Joint Consensus.",
     "url": "https://pubmed.ncbi.nlm.nih.gov/40257014/",
