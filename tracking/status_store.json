@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-26T21:08:56.722826+07:00",
+  "last_updated": "2026-05-27T00:54:41.681547+07:00",
   "packages": {
     "WB257740279TH": {
       "note": "แก้ว ceramic",
@@ -223,12 +223,12 @@
       "note": "กาแฟ gringo",
       "barcode": "JF144275837TH",
       "last_status": "ออกจากที่ทำการ/ศูนย์ไปรษณีย์",
-      "last_status_date": "26/05/2569 20:19:36+07:00",
+      "last_status_date": "26/05/2569 22:12:17+07:00",
       "status_code": "201",
       "is_delivered": false,
-      "location": "มีนบุรี",
+      "location": "EMS",
       "delivery_status": null,
-      "track_count": "2",
+      "track_count": "4",
       "history": [
         {
           "status": "รับฝาก",
@@ -243,6 +243,22 @@
           "status_date": "26/05/2569 20:19:36+07:00",
           "location": "มีนบุรี",
           "post_code": "10510",
+          "status_code": "201",
+          "delivery_status": null
+        },
+        {
+          "status": "รับเข้า ณ ศูนย์คัดแยก",
+          "status_date": "26/05/2569 20:56:45+07:00",
+          "location": "EMS",
+          "post_code": "10020",
+          "status_code": "211",
+          "delivery_status": null
+        },
+        {
+          "status": "ออกจากที่ทำการ/ศูนย์ไปรษณีย์",
+          "status_date": "26/05/2569 22:12:17+07:00",
+          "location": "EMS",
+          "post_code": "10020",
           "status_code": "201",
           "delivery_status": null
         }
