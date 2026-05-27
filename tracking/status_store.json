@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-27T11:16:38.609794+07:00",
+  "last_updated": "2026-05-27T15:42:50.136294+07:00",
   "packages": {
     "WB257740279TH": {
       "note": "แก้ว ceramic",
@@ -222,13 +222,13 @@
     "JF144275837TH": {
       "note": "กาแฟ gringo",
       "barcode": "JF144275837TH",
-      "last_status": "อยู่ระหว่างการนำจ่าย",
-      "last_status_date": "27/05/2569 10:33:22+07:00",
-      "status_code": "301",
-      "is_delivered": false,
+      "last_status": "นำจ่ายสำเร็จ",
+      "last_status_date": "27/05/2569 13:48:12+07:00",
+      "status_code": "501",
+      "is_delivered": true,
       "location": "นครราชสีมา",
-      "delivery_status": null,
-      "track_count": "9",
+      "delivery_status": "S",
+      "track_count": "10",
       "history": [
         {
           "status": "รับฝาก",
@@ -301,6 +301,14 @@
           "post_code": "30000",
           "status_code": "301",
           "delivery_status": null
+        },
+        {
+          "status": "นำจ่ายสำเร็จ",
+          "status_date": "27/05/2569 13:48:12+07:00",
+          "location": "นครราชสีมา",
+          "post_code": "30000",
+          "status_code": "501",
+          "delivery_status": "S"
         }
       ]
     }
