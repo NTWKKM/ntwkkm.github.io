@@ -1592,10 +1592,10 @@
 
         function renderSagePanel(sage) {
             let sageOverall = 'STABLE';
-            if (!sage.report_id && !sage.report_type && !sage.reflection) {
+            if (!sage.audit_summary && !sage.reflections && !sage.reflection) {
                 sageOverall = 'OFFLINE';
                 setChip('p-sage-chip', sageOverall);
-                document.getElementById('sage-body').innerHTML = '<div class="quote-block">No Sage report found in snapshot.</div>';
+                document.getElementById('sage-body').innerHTML = '<div class="quote-block">No Sage data found in snapshot.</div>';
             } else {
                 const sh = (sage.audit_summary?.system_health || '').toLowerCase();
                 if (sh.includes('fail') || sh.includes('error') || sh.includes('critical')) {
@@ -1607,39 +1607,88 @@
                 
                 const sageBody = document.getElementById('sage-body');
                 
-                sageBody.innerHTML = `
-                    <div style="padding: 0 4px;">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
-                            <span class="insight-label" style="margin-bottom: 0;">Report:</span>
-                            <span class="mono" style="font-size: 0.75rem; color: var(--text-muted);">${escapeHTML(sage.report_type || sage.report_id || '—')}</span>
-                        </div>
-                        <div style="margin-bottom: 0; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--text-main); font-style: italic;">
-                            "${escapeHTML(sage.reflection || '—')}"
-                        </div>
+                let html = '<div style="padding: 0 4px;">';
+                
+                const reportTitle = sage.report_type || sage.report_id || sage.role || '—';
+                html += `
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                        <span class="insight-label" style="margin-bottom: 0;">Report:</span>
+                        <span class="mono" style="font-size: 0.75rem; color: var(--text-muted);">${escapeHTML(reportTitle)}</span>
                     </div>
                 `;
+                
+                const reflectionText = sage.reflection || (sage.reflections ? sage.reflections.observation : null);
+                if (reflectionText) {
+                    html += `
+                        <div style="margin-bottom: 12px; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--text-main); font-style: italic;">
+                            "${escapeHTML(reflectionText)}"
+                        </div>
+                    `;
+                }
+
+                if (sage.reflections && sage.reflections.strategic_recommendation) {
+                    html += `
+                        <div style="margin-bottom: 12px; font-size: 0.9rem; color: var(--text-secondary);">
+                            <b>Recommendation:</b> ${escapeHTML(sage.reflections.strategic_recommendation)}
+                        </div>
+                    `;
+                }
+
+                if (sage.audit_summary) {
+                    html += `<div style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">`;
+                    if (sage.audit_summary.system_health) html += `<div style="margin-bottom: 4px;"><b>Health:</b> ${escapeHTML(sage.audit_summary.system_health)}</div>`;
+                    if (sage.audit_summary.log_analysis) html += `<div style="margin-bottom: 4px;"><b>Log Analysis:</b> ${escapeHTML(sage.audit_summary.log_analysis)}</div>`;
+                    if (sage.audit_summary.filesystem_state) html += `<div style="margin-bottom: 4px;"><b>FS State:</b> ${escapeHTML(sage.audit_summary.filesystem_state)}</div>`;
+                    html += `</div>`;
+                }
+
+                html += '</div>';
+                sageBody.innerHTML = html;
             }
         }
 
         function renderOutsiderPanel(outsider) {
             const outsiderEl = document.getElementById('outsider-content');
             if (outsiderEl) {
-                if (!outsider.manifestation && !outsider.observations) {
+                if (!outsider.manifestation && !outsider.observations && !outsider.note) {
                     outsiderEl.innerHTML = 'No transmission received from The Outsider.';
                     outsiderEl.className = 'quote-block';
                 } else {
-                    const obs = outsider.observations || {};
                     outsiderEl.className = 'quote-block';
-                    outsiderEl.innerHTML = `
+                    let html = '';
+                    
+                    const mainText = outsider.manifestation || outsider.note || '—';
+                    html += `
                         <div style="margin-bottom: 12px; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--text-main);">
-                            "${escapeHTML(outsider.manifestation || '—')}"
+                            "${escapeHTML(mainText)}"
                         </div>
-                        ${obs.system_state ? `<div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);"><b>System State:</b> ${escapeHTML(obs.system_state)}</div>` : ''}
-                        ${obs.anomaly_detected ? `<div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);"><b>Anomaly Detected:</b> ${escapeHTML(obs.anomaly_detected)}</div>` : ''}
-                        ${obs.trace_result ? `<div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);"><b>Trace Result:</b> ${escapeHTML(obs.trace_result)}</div>` : ''}
-                        ${outsider.midnight_trace ? `<div style="margin-bottom: 6px; font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-top: 10px;">${escapeHTML(outsider.midnight_trace)}</div>` : ''}
-                        <div style="display:block;text-align:right;font-size:0.75rem;color:var(--text-faint);margin-top:10px;">&mdash; Observed: ${formatTimestamp(outsider.timestamp)}</div>
                     `;
+                    
+                    const obs = outsider.observations;
+                    if (Array.isArray(obs)) {
+                        obs.forEach(o => {
+                            html += `<div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);">&bull; ${escapeHTML(o)}</div>`;
+                        });
+                    } else if (obs && typeof obs === 'object') {
+                        if (obs.system_state) html += `<div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);"><b>System State:</b> ${escapeHTML(obs.system_state)}</div>`;
+                        if (obs.anomaly_detected) html += `<div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);"><b>Anomaly Detected:</b> ${escapeHTML(obs.anomaly_detected)}</div>`;
+                        if (obs.trace_result) html += `<div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);"><b>Trace Result:</b> ${escapeHTML(obs.trace_result)}</div>`;
+                    }
+                    
+                    if (outsider.midnight_trace) {
+                        if (typeof outsider.midnight_trace === 'string') {
+                            html += `<div style="margin-bottom: 6px; font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-top: 10px;">${escapeHTML(outsider.midnight_trace)}</div>`;
+                        } else if (typeof outsider.midnight_trace === 'object') {
+                            html += `<div style="margin-bottom: 6px; font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">`;
+                            if (outsider.midnight_trace.signal_strength) html += `<div><b>Signal:</b> ${escapeHTML(outsider.midnight_trace.signal_strength)}</div>`;
+                            if (outsider.midnight_trace.anomaly_detected) html += `<div><b>Anomaly:</b> ${escapeHTML(outsider.midnight_trace.anomaly_detected)}</div>`;
+                            if (outsider.midnight_trace.conclusion) html += `<div style="font-style: italic; margin-top: 4px;">"${escapeHTML(outsider.midnight_trace.conclusion)}"</div>`;
+                            html += `</div>`;
+                        }
+                    }
+                    
+                    html += `<div style="display:block;text-align:right;font-size:0.75rem;color:var(--text-faint);margin-top:10px;">&mdash; Observed: ${formatTimestamp(outsider.timestamp)}</div>`;
+                    outsiderEl.innerHTML = html;
                 }
             }
         }
@@ -1648,7 +1697,7 @@
             const cpuStatusLabel = cpuUsage > 80 ? 'CRITICAL' : (cpuUsage > 60 ? 'WARNING' : 'NOMINAL');
             
             let sageOverall = sage.status || 'STABLE';
-            if (!sage.report_id && !sage.report_type && !sage.reflection) {
+            if (!sage.audit_summary && !sage.reflections && !sage.reflection) {
                 sageOverall = 'OFFLINE';
             } else {
                 const sh = (sage.audit_summary?.system_health || '').toLowerCase();
@@ -1662,11 +1711,16 @@
             let sageSummary = 'No report found';
             if (sage.reflection) {
                 sageSummary = escapeHTML(sage.reflection);
+            } else if (sage.reflections && sage.reflections.observation) {
+                sageSummary = escapeHTML(sage.reflections.observation);
+            } else if (sage.audit_summary && sage.audit_summary.log_analysis) {
+                sageSummary = escapeHTML(sage.audit_summary.log_analysis);
             }
 
-            let outsiderSummary = outsider.manifestation ? escapeHTML(outsider.manifestation) : escapeHTML('No transmission');
+            let outsiderSummaryText = outsider.manifestation || outsider.note || (Array.isArray(outsider.observations) && outsider.observations.length > 0 ? outsider.observations[0] : 'No transmission');
+            let outsiderSummary = escapeHTML(outsiderSummaryText);
             let outsiderStatusStr = 'ACTIVE';
-            if (!outsider.manifestation && !outsider.observations) {
+            if (!outsider.manifestation && !outsider.observations && !outsider.note) {
                 outsiderStatusStr = 'OFFLINE';
             }
 
