@@ -1,74 +1,74 @@
 [
   {
     "date": "28 May",
-    "title": "Association of Emergency Department Buprenorphine Initiation With Subsequent Pharmacotherapy and Outcomes Among Patients With Opioid Use Disorder",
-    "comment": "การเริ่ม buprenorphine ที่ ER ช่วยลดปัญหา opioid use disorder ได้จริงและกำลังเป็นมาตรฐานใหม่",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42206614/"
-  },
-  {
-    "date": "28 May",
     "title": "Mechanical Thrombectomy for Intermediate- and High-Risk Pulmonary Embolism: A Retrospective Observational Cohort Study",
-    "comment": "ข้อมูลใหม่ของการทำ Mechanical Thrombectomy ในผู้ป่วย PE ซึ่งเป็นประเด็นถกเถียงในกลุ่ม intermediate-risk",
+    "comment": "อัปเดตล่าสุดของการทำ thrombectomy ใน PE กลุ่มที่ไม่ใช่ massive ซึ่งยังเป็นที่ถกเถียง",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42206966/"
   },
   {
     "date": "28 May",
+    "title": "Cardiac Phenotypes in Sepsis: From Descriptive to Prescriptive",
+    "comment": "ก้าวต่อไปของการรักษา sepsis ที่อาจไม่ใช่ one-size-fits-all อีกต่อไป",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42206935/"
+  },
+  {
+    "date": "28 May",
+    "title": "Association of Emergency Department Buprenorphine Initiation With Subsequent Pharmacotherapy and Outcomes Among Patients With Opioid Use Disorder",
+    "comment": "Practice-changing: การเริ่ม buprenorphine ที่ ER ช่วยผู้ป่วย opioid ได้จริง",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42206614/"
+  },
+  {
+    "date": "28 May",
     "title": "Evidence-based, cost-effective management of upper gastrointestinal hemorrhage. An algorithm of the Journal of Trauma and Acute Care Surgery emergency general surgery algorithms work group",
-    "comment": "อัลกอริทึมใหม่ในการจัดการ UGIH ที่เน้นความคุ้มค่าและอิงตามหลักฐานล่าสุดเพื่อนำไปปรับใช้",
+    "comment": "แนวทางจัดการ UGIH ที่เน้นความคุ้มค่าและ evidence-based สำหรับ ER และศัลยแพทย์",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42206861/"
   },
   {
     "date": "28 May",
-    "title": "Clinical utility of the RACE score for differentiating stroke from stroke mimics in the emergency department",
-    "comment": "RACE score เป็นเครื่องมือช่วยแยก stroke จาก stroke mimics ที่ใช้งานง่ายและมีประโยชน์หน้างาน",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42206302/"
-  },
-  {
-    "date": "28 May",
-    "title": "Diaphragm ultrasound and surface electromyography as predictors of clinical deterioration in acute exacerbations of COPD: a prospective observational study",
-    "comment": "ใช้ POCUS ดูการทำงานของกระบังลมเพื่อทำนายการทรุดลงของผู้ป่วย COPD exacerbation",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42206018/"
-  },
-  {
-    "date": "28 May",
-    "title": "Saddle pulmonary embolism detected by transthoracic echocardiography-a case report",
-    "comment": "ย้ำเตือนความสำคัญของ POCUS ที่ข้างเตียงในการวินิจฉัยภาวะฉุกเฉินอย่าง Saddle PE ได้ทันที",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42207192/"
-  },
-  {
-    "date": "28 May",
-    "title": "Clinical utility of metagenomic next-generation sequencing in precision diagnosis of infectious diseases: a retrospective study based on bronchoalveolar lavage fluid, blood, and cerebrospinal fluid",
-    "comment": "เทคโนโลยี mNGS อาจเป็นคำตอบในการวินิจฉัยเชื้อสำหรับเคสติดเชื้อที่ซับซ้อน (CNS, sepsis)",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42207373/"
-  },
-  {
-    "date": "28 May",
-    "title": "Super-resolution deep learning reconstruction achieves low-dose high-resolution imaging in pediatric cardiac computed tomography",
-    "comment": "เทคนิค CT cardiac สำหรับเด็กโดยใช้ AI ช่วยลดรังสีได้มหาศาลแต่ยังได้ภาพคุณภาพสูง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42207261/"
-  },
-  {
-    "date": "28 May",
-    "title": "The use of machine learning approaches for mortality prediction and classification in traumatic brain injury: a literature review",
-    "comment": "ใช้ Machine Learning ทำนายอัตราการเสียชีวิตในผู้ป่วย TBI ซึ่งเป็นแนวทางใหม่ในการพยากรณ์โรค",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42207108/"
-  },
-  {
-    "date": "28 May",
-    "title": "[Legal responsibility in AI-assisted radiological reporting]",
-    "comment": "เมื่อ AI ช่วยอ่าน film ใครจะรับผิดชอบ? ประเด็นทางกฎหมายที่แพทย์ ER ต้องรู้ก่อนถูกฟ้อง",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42207283/"
-  },
-  {
-    "date": "28 May",
     "title": "Learning to dispatch volunteers to out-of-hospital cardiac arrests",
-    "comment": "ใช้ AI และอาสาสมัครช่วยผู้ป่วย OHCA ก่อนรถพยาบาลมาถึง: นวัตกรรมระบบ EMS ที่น่าสนใจ",
+    "comment": "นวัตกรรมใช้ AI ช่วย dispatch คนไปทำ CPR ซึ่งอาจเปลี่ยนระบบการกู้ชีพนอกโรงพยาบาล",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42207329/"
   },
   {
     "date": "28 May",
-    "title": "[Adaptation of healthcare systems to disasters, crises and war : Resilient, robust and secure hospitals and dealing with medical standards]",
-    "comment": "แนวคิดการปรับระบบโรงพยาบาลและมาตรฐานการรักษาเพื่อรับมือภัยพิบัติ วิกฤต และสงคราม",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42207273/"
+    "title": "Clinical utility of metagenomic next-generation sequencing in precision diagnosis of infectious diseases: a retrospective study based on bronchoalveolar lavage fluid, blood, and cerebrospinal fluid",
+    "comment": "เทคโนโลยีใหม่ mNGS อาจเป็นคำตอบในการวินิจฉัยเชื้อในเคสที่ซับซ้อนและหาเชื้อไม่เจอ",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42207373/"
+  },
+  {
+    "date": "28 May",
+    "title": "Traumatic Inflammatory-Coagulation Coactivation Occurs Early After Injury and Impacts Mortality",
+    "comment": "ทำความเข้าใจพยาธิสรีรวิทยาของ trauma coagulopathy ที่เกิดขึ้นเร็วและส่งผลต่อการรอดชีวิต",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42206924/"
+  },
+  {
+    "date": "28 May",
+    "title": "Diaphragm ultrasound and surface electromyography as predictors of clinical deterioration in acute exacerbations of COPD",
+    "comment": "การใช้ POCUS ประเมิน diaphragm อาจช่วยทำนายเคส COPD ที่อาการจะแย่ลงได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42206018/"
+  },
+  {
+    "date": "28 May",
+    "title": "The use of machine learning approaches for mortality prediction and classification in traumatic brain injury: a literature review",
+    "comment": "AI กำลังเข้ามามีบทบาทในการทำนายผลการรักษาผู้ป่วย TBI ซึ่งสำคัญต่อการตัดสินใจที่ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42207108/"
+  },
+  {
+    "date": "28 May",
+    "title": "Effect of high-flow nasal preoxygenation on anesthetic preparation time for general anesthesia in emergency caesarean delivery: a prospective randomized cross-over simulation study",
+    "comment": "การใช้ HFNC เพื่อ preoxygenation ก่อนใส่ท่อในเคสฉุกเฉิน ช่วยยืดเวลา safe apnea ได้",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42206896/"
+  },
+  {
+    "date": "28 May",
+    "title": "Recreational Drug Use Amongst Children and Adolescents Presenting to Australian Emergency Departments With Acute Behavioural Disturbance",
+    "comment": "ภาพรวมปัญหายาเสพติดในวัยรุ่นที่มาด้วยอาการคลุ้มคลั่ง ซึ่งเป็นปัญหาที่พบบ่อยขึ้นที่ ER",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42206869/"
+  },
+  {
+    "date": "28 May",
+    "title": "Perceived Usability, User Experience, and Technology Acceptance of Role-Specific Augmented Reality Decision Support Tools for Cardiac Arrest Resuscitation",
+    "comment": "อนาคตของการกู้ชีพ: การใช้แว่น AR ช่วย decision support ระหว่าง CPR",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42205235/"
   }
 ]
