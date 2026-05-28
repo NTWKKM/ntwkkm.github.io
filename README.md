@@ -20,6 +20,7 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- ARCHITECTURE.md
 |-- blog_index.json
 |-- blog.html
+|-- DESIGN.md
 |-- index.html
 |-- manifest.json
 |-- papers.json
