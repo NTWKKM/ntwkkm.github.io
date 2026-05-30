@@ -97,17 +97,17 @@ Path D — fray/dashboard-snapshot.json (Workflow 5, every 8h):
 
 ### Key Rules
 
-- `latest_updates.json` — **Ephemeral.** Pushed by n8n (Workflow 3), deleted by both `process_blog.js` (in-script) and the GitHub Actions `rm -f` safety step (`if: always()`). Must never be committed long-term.
+- `latest_updates.json` — **Ephemeral.** Pushed by n8n (Workflow 3), deleted by GitHub Actions `rm -f` safety step (`if: always()`). Must never be committed long-term.
 - `data/blog/research_chunk_*.json` — **Auto-generated.** Created by `process_blog.js`. Each file contains ≤200 posts. Never edit manually.
 - `blog_index.json` — **Auto-generated.** Written by `process_blog.js` with relative paths (e.g., `data/blog/research_chunk_1.json`). Never edit manually.
-- `papers.json` — **Automated.** Merged by Workflow 2 (dedup by link, cap 70 items, 2x/day). Do not edit manually.
+- `papers.json` — **Automated.** Merged by Workflow 2 (dedup by link + PMID, cap 70 items, 2x/day). Do not edit manually.
 - `projects.json` — **Manual.** Edit directly to add/remove project cards.
 - `tracking/track_list.json` — **Semi-automated.** Add barcodes via dashboard webhook form (n8n Workflow 4) or edit directly. Remove manually.
 - `tracking/status_store.json` — **Auto-generated.** Updated by `tracker.py` via GitHub Actions. Never edit manually.
 - `tracking/auth.json` — **Auto-generated.** SHA-256 hash of the `TRACKING_PASSCODE` GitHub Secret. Used for client-side authentication on the tracking dashboard.
 - `fray/dashboard-snapshot.json` — **Automated.** Observability metric snapshot pushed by Fray/n8n every 8h. Consumed directly by `fray/index.html` (4-section format: `observer`, `sage`, `archivist`, `outsider`).
 
-> **Deduplication:** The processing script uses a `Map<id, post>` strategy — existing posts are loaded first, then updates are applied on top. If an ID exists in both old data and new updates, the update wins. This eliminates the legacy bug where editing old Notion entries caused duplicates across split files.
+> **Deduplication (Dual-Layer):** The processing script (`process_blog.js`) uses a **primary** `Map<id, post>` strategy (Notion page ID) and a **secondary** `Set<pmid>` check. If a new entry has the same PMID as an existing post but a different Notion ID, it is skipped as duplicate content. This prevents the same PubMed paper from appearing multiple times when it gets re-processed through different Notion pages.
 
 ## n8n Automation Layer (Upstream)
 
@@ -134,18 +134,19 @@ Data chain: WF2 → research n8n → WF1 → Ai-research → WF3 → GitHub
 | Property | Value |
 | --- | --- |
 | Schedule | Daily at 02:15 and 05:15 |
-| AI Model | Gemini 3.1 Flash Lite |
+| AI Model | Gemini 3.5 Flash |
 | Output | Notion Database (`Ai-research`) |
-| Batch Size | 3 papers per run (resource-constrained) |
+| Batch Size | 5 papers per run (resource-constrained) |
+| Source Filter | `pastWeek` date filter on `research n8n` DB (limits query to last 7 days) |
 
 **Pipeline:**
 
 ```text
-research n8n DB (source) → Wait(20s) → Aggregate
-  → Get index reserch DB (log) → Filter Duplicates by PMID (JS, limit 3/run)
+research n8n DB (source, pastWeek filter) → Wait(20s) → Aggregate
+  → Get index reserch DB (log) → Filter Duplicates by PMID (JS, limit 5/run)
   → Loop per paper:
-      PubMed E-Fetch API (abstract XML) → Parse XML to plain text (JS)
-      → Gemini 3.1 Flash Lite (summarize Thai + 3 EN tags) → Clean JSON
+      PubMed E-Fetch API (abstract XML, retryOnFail) → Parse XML to plain text (JS)
+      → Gemini 3.5 Flash (summarize Thai + study design + clinical relevance + 3 EN tags) → Clean JSON
       → n8n Data Table backup → Write to Ai-research DB (output)
       → Wait(15s) → Update index reserch DB (log) → Wait(15s) → Next
   → LINE notification on loop completion
@@ -154,12 +155,14 @@ research n8n DB (source) → Wait(20s) → Aggregate
 **AI Output per Paper:**
 
 1. Extracted title
-2. Thai summary (Objective, Methods, Results & Statistical Analysis)
+2. Thai summary (Objective, Methods, Results & Statistical Analysis, **Study Design**, **Clinical Relevance**)
 3. Three English keyword tags
+
+> **Note:** `study_design` and `clinical_relevance` are embedded within the `Comment` field of `Ai-research` DB to avoid schema changes. Drug/protein/technique names are preserved in English per prompt directive.
 
 **Deduplication:** JS code compares incoming PMIDs against the `index reserch` Notion DB. Only unprocessed PMIDs proceed.
 
-**Rate Limiting:** Wait nodes (15–20s) are inserted between Notion/PubMed API calls to avoid throttling.
+**Rate Limiting:** Wait nodes (15–20s) are inserted between Notion/PubMed API calls to avoid throttling. All HTTP nodes have `retryOnFail: true`.
 
 **Internal Backup:** Each processed paper is also written to an n8n Data Table (`Notion-AI-Research`) before Notion, serving as an audit log.
 
@@ -172,31 +175,33 @@ research n8n DB (source) → Wait(20s) → Aggregate
 | Property | Value |
 | --- | --- |
 | Schedule | Daily at 02:01 and 05:01 |
-| AI Model | Gemini 2.5 Pro (AI Agent) |
-| Search Scope | PubMed E-Search `retmax=300` with `usehistory=y` |
+| AI Model | Gemini 2.5 Pro (AI Agent, `retryOnFail`) |
+| Search Scope | PubMed E-Search `retmax=300`, `retmode=json`, `usehistory=y` |
 | Output | `papers.json` (GitHub) + `research n8n` DB (Notion) |
 | Trigger | Schedule (keyword: `emergency`, 7-day window) **or** LINE chat via sub-workflow |
+| AI Output | **Structured JSON Array** (not freeform text) |
 
 **Pipeline:**
 
 ```text
-Trigger A (Schedule): PubMed E-Search (term="emergency", retmax=300)
-Trigger B (LINE chat): AI Router (Gemini) extracts medical term → E-Search
-  → Parse XML (QueryKey + WebEnv) → Wait(20s) → E-Fetch (titles + PMIDs)
+Trigger A (Schedule): PubMed E-Search (term="emergency", retmax=300, retmode=json)
+Trigger B (LINE chat): AI Router (Gemini) extracts medical term → E-Search (retmode=json)
+  → Parse JSON (querykey + webenv + idlist) → Wait(20s) → E-Fetch (titles + PMIDs, XML)
   → Parse XML → Aggregate into summary text
   → Gemini 2.5 Pro AI Agent (role: Senior EM Consultant)
+      ├── Output: JSON Array [{title, comment, pmid}, ...]
       ├── Select Top 12 Clinical Significance from ~300 candidates
       ├── Criteria: practice-changing, controversial, innovative
-      └── 1-sentence Thai summary per paper + PubMed link
-  → LINE push to user
-  → Parse AI text to JSON (Title, Comment, Link)
-  → GitHub: Get existing papers.json → Merge (dedup by Link, cap 70) → Edit file
+      └── 1-sentence Thai summary per paper
+  → LINE push (auto-formatted from JSON for readability)
+  → JSON.parse AI output → Extract papers with PMID + empty-result guard
+  → GitHub: Get existing papers.json → Merge (dedup by Link + PMID, cap 70) → Edit file
   → Wait(20s) → Notion: Query research n8n DB → Aggregate titles
-  → Wait(20s) → Filter duplicate titles → Loop: Create pages (10s Wait)
+  → Wait(20s) → Filter duplicates (JSON.parse + PMID dedup) → Loop: Create pages (10s Wait)
   → LINE notification on completion
 ```
 
-**Key Detail:** This workflow **merges** new papers with existing `papers.json` (dedup by link URL, cap 70 items). The file is edited directly on `NTWKKM/ntwkkm.github.io` via GitHub API. The LINE chat trigger invokes this workflow as a **sub-workflow** via `executeWorkflowTrigger`.
+**Key Detail:** This workflow uses **structured JSON output** from the AI Agent, parsed via `JSON.parse()` instead of fragile regex. The merge step deduplicates by both **link URL** and **PMID**. Empty AI results short-circuit before GitHub commit. The LINE message auto-formats the JSON array into a readable numbered list.
 
 ---
 
@@ -393,7 +398,7 @@ The NTWKKM Knowledge Vault is an automated, dynamic resource hub and clinical in
 
 | Script | Purpose |
 | --- | --- |
-| `.github/scripts/process_blog.js` | Merge `latest_updates.json` with existing chunks, deduplicate by ID, split into ≤200-post files, update `blog_index.json` |
+| `.github/scripts/process_blog.js` | Merge `latest_updates.json` with existing chunks, deduplicate by Notion ID (primary) + PMID (secondary), split into ≤200-post files, update `blog_index.json` |
 | `.github/scripts/generate_readme.js` | Generate repository file tree for README.md (collapses `data/blog/` to summary) |
 | `.github/scripts/tracker.py` | Authenticate with Thailand Post API, fetch tracking events, diff against `status_store.json`, update on changes |
 

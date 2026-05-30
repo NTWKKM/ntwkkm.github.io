@@ -60,16 +60,55 @@ function run() {
 
     // 5. สร้าง Map เพื่อ Merge ข้อมูล (เอา ID เป็น Key ป้องกันข้อมูลซ้ำ)
     let postMap = new Map();
+
+    // Helper: ดึง PMID จาก property_pmid หรือ property_pubmed URL
+    function extractPmid(post) {
+        // ลองดึงจาก property_pmid ก่อน (ค่าตรงๆ)
+        if (post.property_pmid) {
+            const pmid = String(post.property_pmid).trim();
+            if (/^\d+$/.test(pmid)) return pmid;
+        }
+        // ลองดึงจาก property_pubmed URL (e.g., https://pubmed.ncbi.nlm.nih.gov/12345678/)
+        if (post.property_pubmed) {
+            const match = String(post.property_pubmed).match(/\/(\d+)\/?$/);
+            if (match) return match[1];
+        }
+        return null;
+    }
+
+    // Secondary dedup: PMID-based (ป้องกัน paper เดียวกันที่มี Notion ID ต่างกัน)
+    let pmidSet = new Set();
     
     // ใส่ข้อมูลเก่าลงไปก่อน
     allPosts.forEach(post => {
-        if (post && post.id) postMap.set(post.id, post);
+        if (post && post.id) {
+            postMap.set(post.id, post);
+            const pmid = extractPmid(post);
+            if (pmid) pmidSet.add(pmid);
+        }
     });
     
     // ใส่ข้อมูลใหม่ทับลงไป (ถ้า ID ซ้ำจะถูกอัปเดต ถ้าเป็น ID ใหม่จะถูกเพิ่ม)
+    // PMID dedup: ถ้า PMID ซ้ำแต่ Notion ID ต่างกัน ให้ข้ามเพื่อป้องกัน duplicate content
+    let pmidDuplicatesSkipped = 0;
     updates.forEach(post => {
-        if (post && post.id) postMap.set(post.id, post);
+        if (post && post.id) {
+            const pmid = extractPmid(post);
+            
+            // ถ้า PMID ซ้ำกับของเก่า แต่ Notion ID ต่างกัน → skip (duplicate content)
+            if (pmid && pmidSet.has(pmid) && !postMap.has(post.id)) {
+                pmidDuplicatesSkipped++;
+                return;
+            }
+            
+            postMap.set(post.id, post);
+            if (pmid) pmidSet.add(pmid);
+        }
     });
+    
+    if (pmidDuplicatesSkipped > 0) {
+        console.log(`Skipped ${pmidDuplicatesSkipped} PMID-duplicate entries.`);
+    }
 
     // 6. แปลงกลับเป็น Array และเรียงลำดับตามเวลาอัปเดตล่าสุด (ล่าสุดอยู่บน)
     let mergedPosts = Array.from(postMap.values());
