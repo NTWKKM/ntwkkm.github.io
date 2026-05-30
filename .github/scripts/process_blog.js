@@ -93,8 +93,6 @@ function run() {
     // 8. อัปเดต blog_index.json ให้ชี้ไปที่ Path ไฟล์ใหม่ทั้งหมด
     fs.writeFileSync(INDEX_FILE, JSON.stringify(newIndex, null, 2));
     
-    // 9. ลบไฟล์ latest_updates.json ออก เพื่อความสะอาด
-    fs.unlinkSync(UPDATES_FILE);
 
     console.log(`Successfully processed ${mergedPosts.length} posts into ${newIndex.length} files.`);
 }
