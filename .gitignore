@@ -11,3 +11,6 @@ node_modules/
 
 # n8n ephemeral file (should be consumed by GitHub Actions)
 latest_updates.json
+
+# Local n8n workflow backups (contains sensitive API keys)
+n8n-github-notion_db/
