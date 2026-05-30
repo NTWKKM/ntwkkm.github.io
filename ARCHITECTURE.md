@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — NTWKKM Personal Website
 
-*Last Updated: 2026-05-21*
+**Last Updated:** 2026-05-21
 
 ## Overview
 
@@ -8,18 +8,18 @@ Static personal website hosted on GitHub Pages (`ntwkkm.github.io`). Serves as a
 
 ## Pages & Core Files
 
-| File                   | Purpose                                                    |
-| ---------------------- | ---------------------------------------------------------- |
-| `index.html`           | Homepage — paper slider + project portfolio grid           |
-| `blog.html`            | Research blog reader — sidebar list + article detail view  |
-| `tracking/index.html`  | Package tracking dashboard — Thailand Post status viewer   |
-| `fray/index.html`      | Fray Memory Dashboard — UI visualization for Fray metrics |
+| File | Purpose |
+| --- | --- |
+| `index.html` | Homepage — paper slider + project portfolio grid |
+| `blog.html` | Research blog reader — sidebar list + article detail view |
+| `tracking/index.html` | Package tracking dashboard — Thailand Post status viewer |
+| `fray/index.html` | Fray Memory Dashboard — UI visualization for Fray metrics |
 | `fray/dashboard-snapshot.json` | Observability snapshot from Fray (updated via n8n, consumed directly by frontend) |
-| `pl/index.html`        | `[NEW]` NTWKKM Knowledge Vault — Auto-synced from private `NTWKKM/pl` |
-| `manifest.json`        | `[NEW]` PWA manifest — installable web app experience      |
-| `sw.js`                | `[NEW]` Service Worker — offline caching and resilience    |
-| `shared.js`            | Global utilities (fetch fallbacks, debounce, UI, search, a11y, sanitization) |
-| `shared.css`           | Shared styles (reset, scrollbar, toast, skeleton, a11y, animations) |
+| `pl/index.html` | `[NEW]` NTWKKM Knowledge Vault — Auto-synced from private `NTWKKM/pl` |
+| `manifest.json` | `[NEW]` PWA manifest — installable web app experience |
+| `sw.js` | `[NEW]` Service Worker — offline caching and resilience |
+| `shared.js` | Global utilities (fetch fallbacks, debounce, UI, search, a11y, sanitization) |
+| `shared.css` | Shared styles (reset, scrollbar, toast, skeleton, a11y, animations) |
 
 ## Data Flow
 
@@ -279,7 +279,7 @@ Schedule Overview (Daily):
   05:15  Workflow 2 — Second run (same as above)
 ```
 
-**Data Flow 1: Medical Research Pipeline**
+### Data Flow 1: Medical Research Pipeline
 
 ```mermaid
 graph LR
@@ -295,7 +295,7 @@ graph LR
     G -->|"Triggers"| DEPLOY["GitHub Actions<br/>pages-build-deployment.yml"]
 ```
 
-**Data Flow 2: Package Tracking System**
+### Data Flow 2: Package Tracking System
 
 ```mermaid
 graph LR
@@ -305,7 +305,7 @@ graph LR
     G -->|"Triggers"| DEPLOY["GitHub Actions<br/>pages-build-deployment.yml"]
 ```
 
-**Data Flow 3: Fray Observability Sync (Every 8h)**
+### Data Flow 3: Fray Observability Sync (Every 8h)
 
 This section details the architectural pipeline for the Fray Dashboard, illustrating the data flow from the local macOS environment to the public web interface.
 
@@ -318,41 +318,47 @@ graph LR
 ```
 
 #### 1. The Trigger (OpenClaw Initiation)
-* **Tool:** Fray's `cron/jobs.json`
-* **Process:** Fray interprets the defined cron schedule named `dashboard_push`, executing every **8 hours** (00:00, 08:00, 16:00).
-* **Execution:** Fray triggers a local Bash script: `bash ~/.openclaw/tasks/system/push_dashboard.sh`.
+
+- **Tool:** Fray's `cron/jobs.json`
+- **Process:** Fray interprets the defined cron schedule named `dashboard_push`, executing every **8 hours** (00:00, 08:00, 16:00).
+- **Execution:** Fray triggers a local Bash script: `bash ~/.openclaw/tasks/system/push_dashboard.sh`.
 
 #### 2. Data Consolidation (Local Processing)
-* **Tools:** `push_dashboard.sh` coupled with an embedded Python script.
-* **Process:**
+
+- **Tools:** `push_dashboard.sh` coupled with an embedded Python script.
+- **Process:**
   1. As the system state comprises multiple files excluded from version control (`.gitignore`), the Python script dynamically aggregates real-time data from:
-     * `state/system-health.json` (Status of all 9 Cron Jobs)
-     * `state/circuit-breakers.json` (Operational status of n8n, Ollama, Google APIs)
-     * `memory/heartbeat-state.json` (Timestamp of the latest task)
-     * `memory/memory-log.jsonl` (Validated system memories)
-     * `memory/reflections/*.json` (Calculated Drift Scores)
+     - `state/system-health.json` (Status of all 9 Cron Jobs)
+     - `state/circuit-breakers.json` (Operational status of n8n, Ollama, Google APIs)
+     - `memory/heartbeat-state.json` (Timestamp of the latest task)
+     - `memory/memory-log.jsonl` (Validated system memories)
+     - `memory/reflections/*.json` (Calculated Drift Scores)
   2. This data is consolidated into a singular temporary file located at `/tmp/dashboard-snapshot.json`.
 
 #### 3. The Transport (Cloud Transmission)
-* **Tool:** `curl` (embedded within `push_dashboard.sh`)
-* **Process:** The script executes an HTTP POST request via `curl`, immediately transmitting the `dashboard-snapshot.json` payload from the local environment to the cloud webhook: `https://ntwkkm-n8n-final.fly.dev/webhook/fray-dashboard-sync`.
+
+- **Tool:** `curl` (embedded within `push_dashboard.sh`)
+- **Process:** The script executes an HTTP POST request via `curl`, immediately transmitting the `dashboard-snapshot.json` payload from the local environment to the cloud webhook: `https://ntwkkm-n8n-final.fly.dev/webhook/fray-dashboard-sync`.
 
 #### 4. The Cloud Relay (n8n Orchestration)
-* **Tools:** n8n Workflow (Webhook Node → GitHub Node)
-* **Process:**
+
+- **Tools:** n8n Workflow (Webhook Node → GitHub Node)
+- **Process:**
   1. **Webhook Node:** Intercepts the incoming POST request and extracts the JSON payload.
   2. **GitHub Node:** Functions as a Git client utilizing personal access tokens (PAT/OAuth2) to interface directly with the GitHub API.
   3. Overwrites the destination file `fray/dashboard-snapshot.json` within the `NTWKKM/ntwkkm.github.io` repository.
   4. Commits the changes with the message: *"data: update Fray dashboard snapshot from n8n"*.
 
 #### 5. The Presentation (Web Interface)
-* **Tools:** GitHub Pages + `fray/index.html`
-* **Design Rationale:** The frontend consumes `dashboard-snapshot.json` directly without a normalization layer. The JSON format uses a stable 4-section schema (`observer`, `sage`, `archivist`, `outsider`) that the client-side JS maps to the dashboard panels.
-* **Process:**
+
+- **Tools:** GitHub Pages + `fray/index.html`
+- **Design Rationale:** The frontend consumes `dashboard-snapshot.json` directly without a normalization layer. The JSON format uses a stable 4-section schema (`observer`, `sage`, `archivist`, `outsider`) that the client-side JS maps to the dashboard panels.
+- **Process:**
   1. Once deployed, visitors to the Fray dashboard fetch `dashboard-snapshot.json` with a cache-busting query parameter.
   2. Client-side JS parses the 4 top-level sections and renders: hardware vitals & n8n heartbeat (observer), component health status & identified issues (sage), task reports (archivist), and philosophical reflections (outsider).
 
 **Architectural Advantages:**
+
 1. **Enhanced Security:** Operates on a push-only model, eliminating the need to expose local ports to external networks.
 2. **Cost-Efficiency:** The entire pipeline relies on deterministic scripts (Bash, Python) and n8n, avoiding token consumption associated with LLM calls.
 3. **Version Control Hygiene:** Highly volatile state files are isolated from the primary source code in `openclaw-config`, ensuring a clean and manageable Git history.
@@ -374,11 +380,13 @@ graph LR
 The NTWKKM Knowledge Vault is an automated, dynamic resource hub and clinical informatics dashboard hosted in a separate private repository (`NTWKKM/pl`) and securely aggregated into the main site at build time.
 
 ### System Components
+
 1. **Frontend Interface:** Built with vanilla HTML/CSS/JS, enforcing professional accessibility standards (WCAG 2.1) and dynamic theming. Features passcode authentication securely hashed client-side via Web Crypto API.
 2. **Workflow Visualization:** Client-side viewer rendering automated n8n workflows using Cytoscape.js and Dagre algorithms from JSON payloads.
 3. **Automated Data Pipeline:** Bookmarking and external link management is fully automated via an n8n workflow leveraging Google Gemini for AI formatting and deduplication.
 
 ### Security & Maintenance Protocols
+
 - **Build-Time Aggregation (`pages-build-deployment.yml`):** Utilizes a scoped Personal Access Token (PAT) to clone the private `NTWKKM/pl` repository into the `pl/` subdirectory during the GitHub Actions deployment phase. The frontend UI and code logic function natively at `ntwkkm.github.io/pl/` without exposing the original repository structure.
 - **Cross-Repository Synchronization:** A `trigger-main-repo.yml` workflow in the private `pl` repository sends a `repository_dispatch` payload to this main repository upon any push, triggering an automated rebuild.
 - **Stateless Execution:** Fetches data directly from GitHub infrastructure (Tree API), ensuring real-time accuracy and high availability without a backend database.
@@ -413,6 +421,7 @@ All pages use `data-theme="light|dark"` on the `<html>` element with `localStora
 ### Frontend Architecture
 
 **CSS / Styling:**
+
 - `shared.css` — Common styles (reset, smooth scroll, custom scrollbar, toast notifications, skeleton loading, theme toggle, skip-to-content, reduced-motion, search highlight, citation modal, error states)
 - `index.html <style>` — Homepage-specific styles (paper slider, portfolio grid, header, gradient footer)
 - `blog.html <style>` — Blog-specific styles (sidebar, article view, search, filters, ToC)
@@ -420,6 +429,7 @@ All pages use `data-theme="light|dark"` on the `<html>` element with `localStora
 - `fray/index.html <style>` — Fray dashboard styles (vital cards, observer/sage/archivist panels, reflection sections)
 
 **JavaScript (Core):**
+
 - `shared.js` — Global utilities:
   - **Error Handling:** `fetchWithFallback()` (exponential backoff), `createErrorUI()`, `createSkeletonUI()`
   - **Utilities:** `debounce()`, `formatRelativeTime()`, `escapeHTML()`, `sanitizeURL()`
@@ -498,4 +508,3 @@ All JSON data is sanitized before DOM injection via centralized functions in `sh
 - **Background sync**: Ready for future offline data synchronization
 - **Theme color**: Matches site branding (#2563eb)
 - **Icons**: SVG-based icons in multiple sizes (32, 192, 512)
-

@@ -75,6 +75,19 @@ def validate_barcode(barcode: str) -> bool:
     return bool(BARCODE_PATTERN.match(barcode))
 
 
+def parse_th_date(date_str: str) -> datetime | None:
+    """Parse Thailand Post date format (e.g. '17/05/2569 11:31:29+07:00')."""
+    if not date_str:
+        return None
+    try:
+        base_time = date_str[:19]
+        dt = datetime.strptime(base_time, "%d/%m/%Y %H:%M:%S")
+        dt = dt.replace(year=dt.year - 543)
+        return dt.replace(tzinfo=TH_TZ)
+    except ValueError:
+        return None
+
+
 # ---------------------------------------------------------------------------
 # API Client
 # ---------------------------------------------------------------------------
@@ -291,6 +304,28 @@ def main() -> None:
 
     packages = status_store.get("packages", {})
 
+    changes_made = False
+
+    # --- 4.5. Purge old packages (older than 5 weeks) ---
+    cutoff_date = datetime.now(TH_TZ) - timedelta(days=35)
+    barcodes_to_purge = set()
+
+    for barcode, pkg_data in list(packages.items()):
+        dt = parse_th_date(pkg_data.get("last_status_date", ""))
+        if dt and dt < cutoff_date:
+            log(f"PURGE: {barcode} is older than 5 weeks ({pkg_data.get('last_status_date')})")
+            barcodes_to_purge.add(barcode)
+            del packages[barcode]
+
+    if barcodes_to_purge:
+        original_track_len = len(track_list)
+        track_list = [item for item in track_list if item.get("barcode", "").strip().upper() not in barcodes_to_purge]
+        if len(track_list) < original_track_len:
+            save_json(TRACK_LIST_PATH, track_list)
+        
+        valid_items = [item for item in valid_items if item["barcode"] not in barcodes_to_purge]
+        changes_made = True
+
     # --- 5. Filter out delivered packages ---
     active_items = []
     for item in valid_items:
@@ -318,7 +353,6 @@ def main() -> None:
     # --- 7. Batch and track ---
     active_barcodes = [item["barcode"] for item in active_items]
     notes_map = {item["barcode"]: item["note"] for item in valid_items}
-    changes_made = False
 
     for i in range(0, len(active_barcodes), BATCH_SIZE):
         batch = active_barcodes[i : i + BATCH_SIZE]
