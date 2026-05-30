@@ -137,12 +137,12 @@ Data chain: WF2 → research n8n → WF1 → Ai-research → WF3 → GitHub
 | AI Model | Gemini 3.5 Flash |
 | Output | Notion Database (`Ai-research`) |
 | Batch Size | 5 papers per run (resource-constrained) |
-| Source Filter | `pastWeek` date filter on `research n8n` DB (limits query to last 7 days) |
+| Source Filter | `Limit: 50` + Sort by Date Descending on `research n8n` DB (covers ~2 days of backlog) |
 
 **Pipeline:**
 
 ```text
-research n8n DB (source, pastWeek filter) → Wait(20s) → Aggregate
+research n8n DB (source, limit 50, sort desc) → Wait(20s) → Aggregate
   → Get index reserch DB (log) → Filter Duplicates by PMID (JS, limit 5/run)
   → Loop per paper:
       PubMed E-Fetch API (abstract XML, retryOnFail) → Parse XML to plain text (JS)
