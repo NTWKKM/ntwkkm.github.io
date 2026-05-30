@@ -1,68 +1,86 @@
 [
   {
     "date": "30 May",
-    "title": "Identifying Low-Risk Trauma Patients for Blunt Cerebrovascular Injury",
-    "comment": "อาจช่วยลดการทำ CTA neck ในผู้ป่วย trauma คอ ที่มีความเสี่ยงต่ำได้อย่างปลอดภัย",
+    "title": "Identifying Low-Risk Trauma Patients for Blunt Cerebrovascular Injury: Evidence From the North Carolina Trauma Registry.",
+    "comment": "แนวทางใหม่ช่วยคัดกรองผู้ป่วยความเสี่ยงต่ำสำหรับ BCVI ในเคส trauma เพื่อลดการทำ CTA ที่ไม่จำเป็น",
+    "pmid": "42213865",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42213865/"
   },
   {
     "date": "30 May",
-    "title": "Naloxone in Suspected Opioid-Associated Out-of-Hospital Cardiac Arrests",
-    "comment": "ท้าทายแนวคิดการให้ naloxone ในผู้ป่วย OHCA ที่สงสัย opioid ว่าอาจไม่ช่วย improve outcome",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42213434/"
-  },
-  {
-    "date": "30 May",
-    "title": "Diagnostic Accuracy of Plasma Biomarkers for Mild TBI in Older Adults",
-    "comment": "การใช้ blood test อาจช่วยเลี่ยง CT brain ในผู้สูงอายุที่บาดเจ็บศีรษะเล็กน้อย",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42213433/"
-  },
-  {
-    "date": "30 May",
-    "title": "GLP-1 Receptor Agonists: Implications for Emergency Procedures",
-    "comment": "ยาเบาหวาน/ลดน้ำหนัก GLP-1 เพิ่มความเสี่ยงสำลัก ต้องประเมินก่อนทำหัตถการหรือใส่ท่อ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42213027/"
-  },
-  {
-    "date": "30 May",
-    "title": "Patient-Reported Hunger and Gastric Contents in Acute Abdomen",
-    "comment": "ความรู้สึกหิวอาจบ่งชี้ว่ากระเพาะว่าง ช่วยตัดสินใจเรื่อง NPO status ก่อนทำหัตถการ",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42212182/"
-  },
-  {
-    "date": "30 May",
-    "title": "Safety of Celecoxib in Patients With Sulfonamide Allergies",
-    "comment": "ข้อมูลยืนยัน celecoxib ปลอดภัยในผู้ป่วยที่แพ้ยา sulfa antibiotic สามารถสั่งใช้ได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42212818/"
-  },
-  {
-    "date": "30 May",
-    "title": "Low-risk febrile neutropenia",
-    "comment": "สรุปแนวทางการดูแลผู้ป่วยไข้จากเม็ดเลือดขาวต่ำความเสี่ยงต่ำ อาจพิจารณาให้กลับบ้านได้",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42213511/"
-  },
-  {
-    "date": "30 May",
-    "title": "External Validation of SCARE Score for Predicting MI via Dispatch",
-    "comment": "เครื่องมือช่วยศูนย์สั่งการคัดกรองผู้ป่วย MI ทางโทรศัพท์ เพิ่มความแม่นยำในการส่งทีม EMS",
+    "title": "External Validation of the SCARE Score for Predicting Acute Myocardial Infarction in Patients Calling Emergency Medical Communication Centers: A Prospective Multicenter Study.",
+    "comment": "SCARE score ได้รับการ validate แล้ว ช่วย EMS คัดกรองผู้ป่วย MI แม่นยำขึ้นก่อนถึง ER",
+    "pmid": "42213793",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42213793/"
   },
   {
     "date": "30 May",
-    "title": "Accuracy of Biomarkers for Early Sepsis Identification in the ED",
-    "comment": "เปรียบเทียบ biomarker 3 ตัว (PCT, IL-6, MR-ProADM) เพื่อวินิจฉัย sepsis ในห้องฉุกเฉิน",
+    "title": "Low-risk febrile neutropenia.",
+    "comment": "สรุปหลักการสำคัญในการประเมินและดูแลผู้ป่วย low-risk febrile neutropenia เพื่อการจำหน่ายอย่างปลอดภัย",
+    "pmid": "42213511",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42213511/"
+  },
+  {
+    "date": "30 May",
+    "title": "Naloxone for Out-of-Hospital Cardiac Arrest Due to Opioid Toxicity.",
+    "comment": "ข้อมูลใหม่ Naloxone ใน OHCA จาก Opioid อาจไม่มีประโยชน์อย่างที่คิด กระทบแนวทางกู้ชีพปัจจุบัน",
+    "pmid": "42213441",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42213441/"
+  },
+  {
+    "date": "30 May",
+    "title": "Naloxone and Clinical Outcomes in Suspected Opioid-Associated Out-of-Hospital Cardiac Arrests.",
+    "comment": "อีกหนึ่งงานวิจัยใหญ่เรื่อง Naloxone ใน Cardiac Arrest จาก Opioid ท้าทายแนวปฏิบัติเดิม ต้องติดตาม",
+    "pmid": "42213434",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42213434/"
+  },
+  {
+    "date": "30 May",
+    "title": "Diagnostic Accuracy of Plasma Biomarkers for Mild Traumatic Brain Injury in Older Adults.",
+    "comment": "Biomarker ในเลือดอาจช่วยลดการทำ CT scan ในผู้สูงอายุที่สงสัย mild TBI ได้",
+    "pmid": "42213433",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42213433/"
+  },
+  {
+    "date": "30 May",
+    "title": "Intramuscular Ketamine Pharmacokinetics in Humans: A Review.",
+    "comment": "ทบทวนเภสัชจลนศาสตร์ของ Ketamine IM เพื่อการใช้งานที่เหมาะสมและปลอดภัยยิ่งขึ้นในห้องฉุกเฉิน",
+    "pmid": "42213372",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42213372/"
+  },
+  {
+    "date": "30 May",
+    "title": "Diagnostic accuracy of PCT, IL-6, and MR-ProADM for early identification of sepsis in the emergency department.",
+    "comment": "เปรียบเทียบความแม่นยำของ biomarker หลายตัว (PCT, IL-6) ในการวินิจฉัย sepsis ที่ ER",
+    "pmid": "42213063",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42213063/"
   },
   {
     "date": "30 May",
-    "title": "Guideline Implementation of Nebulized Tranexamic Acid in Post-Tonsillectomy Hemorrhage",
-    "comment": "การใช้ยา TXA พ่นฝอยละอองอาจเป็นทางเลือกใหม่ในการรักษาเลือดออกหลังผ่าตัดทอนซิล",
+    "title": "AANA Journal Course-GLP-1 Receptor Agonists: What CRNAs Need to Know About Their Expanding Role.",
+    "comment": "ข้อควรระวัง: ยา GLP-1 (ยาลดน้ำหนัก) เพิ่มความเสี่ยงสำลักขณะทำ procedural sedation ใน ER",
+    "pmid": "42213027",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42213027/"
+  },
+  {
+    "date": "30 May",
+    "title": "Clinical Care Guideline Implementation of Nebulized Tranexamic Acid in Post-Tonsillectomy Hemorrhage.",
+    "comment": "การใช้ยา TXA แบบพ่นฝอย (nebulized) เพื่อหยุดเลือดในผู้ป่วย post-tonsillectomy bleed ที่ ER",
+    "pmid": "42212485",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42212485/"
   },
   {
     "date": "30 May",
-    "title": "Generalizability of the Emergency Heart Failure Mortality Risk Grade",
-    "comment": "ยืนยันความน่าเชื่อถือของ EHMRG score ในการประเมินความเสี่ยงผู้ป่วย heart failure ใน ER",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42212505/"
+    "title": "The relationship between patient-reported hunger and gastric contents in adult patients with acute surgical abdominal pathology: exploratory prospective observational study.",
+    "comment": "ความรู้สึกหิวของผู้ป่วยอาจใช้ประเมินความเสี่ยง NPO ก่อนทำหัตถการได้ ท้าทายแนวปฏิบัติเดิม",
+    "pmid": "42212182",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42212182/"
+  },
+  {
+    "date": "30 May",
+    "title": "Hyperkalemia and its treatment: real-world evidence and managed care considerations supporting use of potassium binders.",
+    "comment": "ข้อมูล real-world evidence ของยา potassium binders ในการรักษา Hyperkalemia มีประโยชน์ในการเลือกใช้ยา",
+    "pmid": "42213908",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42213908/"
   }
 ]
