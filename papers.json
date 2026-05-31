@@ -1,65 +1,86 @@
 [
   {
     "date": "1 Jun",
-    "title": "Discomfort of noninvasive ventilation, high flow nasal cannula oxygen, and conventional oxygen implemented after extubation in non-COPD patients.",
-    "comment": "เปรียบเทียบความรู้สึกไม่สบายตัวระหว่าง NIV, HFNC และ Oxygen mask หลังถอดท่อช่วยหายใจ",
-    "pmid": "42218528",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42218528/"
-  },
-  {
-    "date": "1 Jun",
-    "title": "Phosphorylated toll-like receptor 4 defines a high-risk sepsis endotype.",
-    "comment": "เสนอมาร์คเกอร์ใหม่ (p-TLR4) สำหรับระบุกลุ่มผู้ป่วย Sepsis ที่มีความเสี่ยงสูง อาจนำไปสู่การรักษาจำเพาะ",
-    "pmid": "42218524",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42218524/"
-  },
-  {
-    "date": "1 Jun",
-    "title": "Combined application of the modified early warning score and the modified hematoma expansion prediction score for predicting hematoma expansion in intracerebral hemorrhage.",
-    "comment": "ใช้ score สองตัวร่วมกัน เพื่อทำนายภาวะ hematoma expansion ในผู้ป่วย ICH ได้ดีขึ้น",
-    "pmid": "42218269",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42218269/"
-  },
-  {
-    "date": "1 Jun",
-    "title": "Ultrasound-guided peripheral nerve blocks versus hematoma block for closed reduction of distal radius fractures in adults: A meta-analysis.",
-    "comment": "Meta-analysis: U/S-guided nerve block อาจดีกว่า hematoma block สำหรับจัดกระดูกข้อมือหัก",
-    "pmid": "42218071",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42218071/"
-  },
-  {
-    "date": "1 Jun",
-    "title": "Tenecteplase Versus Alteplase in Basilar Artery Occlusion Treated with Endovascular Thrombectomy: A Propensity Score-Matched Analysis of 90- and 180-Day Outcomes.",
-    "comment": "เปรียบเทียบ TNK กับ Alteplase ในผู้ป่วย Basilar Artery Occlusion ก่อนทำ thrombectomy",
-    "pmid": "42217837",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42217837/"
-  },
-  {
-    "date": "1 Jun",
-    "title": "Predictors of functional disability in nitrous oxide induced myeloneuropathy: an observational study.",
-    "comment": "ศึกษาปัจจัยพยากรณ์ความพิการในผู้ป่วยไขสันหลังอักเสบจากการใช้ก๊าซหัวเราะ ซึ่งพบบ่อยขึ้นใน ER",
-    "pmid": "42217445",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42217445/"
-  },
-  {
-    "date": "1 Jun",
-    "title": "STS101 nasal powder as a New treatment option for acute migraine with or without aura in adults.",
-    "comment": "ยาพ่นจมูก DHE รูปแบบใหม่ (STS101) เป็นอีกทางเลือกในการรักษาไมเกรนเฉียบพลัน",
-    "pmid": "42217235",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42217235/"
-  },
-  {
-    "date": "1 Jun",
     "title": "Wilderness Medical Society Clinical Practice Guidelines for the Treatment of Pit Viper Envenomations in the United States and Canada: 2026 Update.",
-    "comment": "Guideline ฉบับล่าสุดปี 2026 สำหรับการดูแลผู้ป่วยที่ถูกงูพิษ Pit Viper กัด",
+    "comment": "Guideline ใหม่ล่าสุดสำหรับการดูแลผู้ป่วยถูกงูพิษกัด เป็นมาตรฐานใหม่ที่แพทย์ ER ต้องรู้และนำไปใช้",
     "pmid": "42217172",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42217172/"
   },
   {
     "date": "1 Jun",
-    "title": "Rising incidence of stroke in survivors of severe COVID-19.",
-    "comment": "Safety Signal: ผู้ป่วยที่เคยเป็น COVID-19 รุนแรง มีความเสี่ยง Stroke เพิ่มขึ้นในระยะยาว",
-    "pmid": "42217096",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42217096/"
+    "title": "Tenecteplase Versus Alteplase in Basilar Artery Occlusion Treated with Endovascular Thrombectomy: A Propensity Score-Matched Analysis of 90- and 180-Day Outcomes.",
+    "comment": "เปรียบเทียบ TNK กับ Alteplase ในผู้ป่วยหลอดเลือดสมอง Basilar อุดตัน อาจเปลี่ยนแนวทางการให้ยาละลายลิ่มเลือด",
+    "pmid": "42217837",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42217837/"
+  },
+  {
+    "date": "1 Jun",
+    "title": "Ultrasound-guided peripheral nerve blocks versus hematoma block for closed reduction of distal radius fractures in adults: A meta-analysis.",
+    "comment": "Meta-analysis เปรียบเทียบ nerve block กับ hematoma block สำหรับจัดกระดูกข้อมือหัก ชี้แนวทางลดปวดที่ดีกว่า",
+    "pmid": "42218071",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42218071/"
+  },
+  {
+    "date": "1 Jun",
+    "title": "STS101 nasal powder as a New treatment option for acute migraine with or without aura in adults.",
+    "comment": "ยา DHE รูปแบบพ่นจมูกตัวใหม่สำหรับรักษาไมเกรนเฉียบพลัน เป็นอีกทางเลือกที่มีประสิทธิภาพในห้องฉุกเฉิน",
+    "pmid": "42217235",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42217235/"
+  },
+  {
+    "date": "1 Jun",
+    "title": "Long-Term Sedation Effect of Cipepofol Compared to Dexmedetomidine in Patients Receiving Invasive Mechanical Ventilation: A Multicenter, Randomized, Open-Label, Parallel-Controlled Study.",
+    "comment": "Cipepofol ยาระงับความรู้สึกตัวใหม่ เทียบกับ Dexmedetomidine ในผู้ป่วยใส่ท่อฯ อาจเป็นทางเลือกใหม่ใน ER",
+    "pmid": "42217116",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42217116/"
+  },
+  {
+    "date": "1 Jun",
+    "title": "Combined application of the modified early warning score and the modified hematoma expansion prediction score for predicting hematoma expansion in intracerebral hemorrhage.",
+    "comment": "เสนอเครื่องมือใหม่ทำนายภาวะเลือดออกในสมองขยายขนาด ช่วยคัดแยกผู้ป่วยความเสี่ยงสูงได้ดีขึ้น",
+    "pmid": "42218269",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42218269/"
+  },
+  {
+    "date": "1 Jun",
+    "title": "Clinical Vignette: Piperacillin/tazobactam-associated myoclonic status epilepticus in a patient with end-stage renal failure on hemodialysis.",
+    "comment": "เตือนภัย! ภาวะชักจากยา Pip-Tazo ในผู้ป่วยไตวาย เป็นผลข้างเคียงรุนแรงที่ต้องระวัง",
+    "pmid": "42217173",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42217173/"
+  },
+  {
+    "date": "1 Jun",
+    "title": "Discomfort of noninvasive ventilation, high flow nasal cannula oxygen, and conventional oxygen implemented after extubation in non-COPD patients.",
+    "comment": "เปรียบเทียบความสบายในการใช้ NIV vs HFNC หลังถอดท่อช่วยหายใจ ช่วยในการเลือกอุปกรณ์ที่เหมาะสม",
+    "pmid": "42218528",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42218528/"
+  },
+  {
+    "date": "1 Jun",
+    "title": "Rapid response systems in hospital settings: an umbrella review.",
+    "comment": "Umbrella review สรุปประสิทธิภาพของ Rapid response system (RRS) ซึ่งเกี่ยวโยงโดยตรงกับงานของ ER",
+    "pmid": "42217350",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42217350/"
+  },
+  {
+    "date": "1 Jun",
+    "title": "Acute retinal artery occlusions.",
+    "comment": "ทบทวนภาวะหลอดเลือดจอประสาทตาอุดตันเฉียบพลัน (CRAO) ภาวะฉุกเฉินที่ต้องวินิจฉัยและรักษาเร่งด่วน",
+    "pmid": "42217977",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42217977/"
+  },
+  {
+    "date": "1 Jun",
+    "title": "Analgesic Techniques for Distal Radius Fracture Manipulation.",
+    "comment": "ทบทวนเทคนิคการระงับปวดแบบต่างๆ สำหรับการจัดกระดูกข้อมือหัก เป็นความรู้สำคัญและใช้ได้จริงใน ER",
+    "pmid": "42216591",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42216591/"
+  },
+  {
+    "date": "1 Jun",
+    "title": "Beyond the High: A Narrative Review of the Chronic Complications of Recreational Ketamine Use.",
+    "comment": "สรุปภาวะแทรกซ้อนจากการใช้ Ketamine เพื่อสันทนาการ แพทย์ ER ควรรู้เพื่อวินิจฉัยและให้คำแนะนำ",
+    "pmid": "42216615",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42216615/"
   }
 ]
