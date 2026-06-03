@@ -1295,9 +1295,9 @@
         // ============================================================
 
         // Status classification constants (module-level for performance)
-        const OK_SET   = new Set(['OK','NOMINAL','LOW','NORMAL','CLOSED','UNLOCKED','ACTIVE','ONLINE','HEALTHY','STABLE','FULL','OPEN_GOOD','PASS','RUNNING']);
-        const WARN_SET = new Set(['WARNING','MODERATE','DEGRADED','STRESSED','MEDIUM']);
-        const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR','DOWN','FAILED','UNREACHABLE','FAIL','UNHEALTHY']);
+        const OK_SET   = new Set(['OK','NOMINAL','LOW','NORMAL','CLOSED','UNLOCKED','ACTIVE','ONLINE','HEALTHY','STABLE','FULL','OPEN_GOOD','PASS','RUNNING','CONSISTENT']);
+        const WARN_SET = new Set(['WARNING','MODERATE','DEGRADED','STRESSED','MEDIUM','ALERT','SATURATED','STALE']);
+        const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR','DOWN','FAILED','UNREACHABLE','FAIL','UNHEALTHY','UNAVAILABLE']);
 
         function chipClass(val) {
             if (!val) return 'neutral';
@@ -1493,84 +1493,45 @@
             // ============================================================
             // COMPONENTS RENDER
             // ============================================================
-            const telemetry = observer.telemetry || {};
-            const cpuUsage = renderVitals(telemetry, observer);
+            const cpuUsage = renderVitals(observer);
             renderSagePanel(sage);
             renderOutsiderPanel(outsider);
             renderFleetTable(observer, sage, outsider, cpuUsage);
         }
 
-        function renderVitals(telemetry, observer) {
+        function renderVitals(observer) {
             // --- CPU ---
-            const cpuStr = telemetry.cpu || "";
-            let cpuUsage = 0;
-            let cpuUser = '—', cpuSys = '—', cpuIdle = '—';
-            
-            // Safety Check: Parse CPU string safely
-            if (typeof cpuStr === 'string') {
-                const userMatch = cpuStr.match(/([\d.]+)%\s*user/);
-                const sysMatch  = cpuStr.match(/([\d.]+)%\s*sys/);
-                const idleMatch = cpuStr.match(/([\d.]+)%\s*idle/);
-                
-                if (userMatch) cpuUser = userMatch[1] + '%';
-                if (sysMatch)  cpuSys  = sysMatch[1] + '%';
-                if (idleMatch) {
-                    cpuIdle  = idleMatch[1] + '%';
-                    cpuUsage = 100 - parseFloat(idleMatch[1]);
-                }
-            }
-
+            const cpuUsage = observer.cpu_percent || 0;
             setVal('v-cpu', `${cpuUsage.toFixed(1)}%`);
-            setVal('v-cpu-sub', `User: ${cpuUser} · Sys: ${cpuSys}`);
+            setVal('v-cpu-sub', `System Load: ${cpuUsage.toFixed(1)}%`);
             setBar('v-cpu-bar', cpuUsage);
 
             // --- RAM ---
-            const mem = telemetry.memory || {};
-            const pagesFree     = mem.pages_free || 0;
-            const pagesActive   = mem.pages_active || 0;
-            const pagesInactive = mem.pages_inactive || 0;
-            const pagesWired    = mem.pages_wired || 0;
-            const totalPages    = (pagesFree + pagesActive + pagesInactive + pagesWired) || 1;
-            const usedPages     = pagesActive + pagesWired;
-            const ramPct        = Math.round((usedPages / totalPages) * 100);
-            
-            // Assume 16KB pages on macOS
-            const ramUsedMB  = (usedPages * 16384) / (1024 * 1024);
-            const ramTotalMB = (totalPages * 16384) / (1024 * 1024);
-            const ramUsedGB  = (ramUsedMB / 1024).toFixed(1);
-            const ramTotalGB = (ramTotalMB / 1024).toFixed(1);
-            setVal('v-ram', `${ramUsedGB} GB`);
-            setVal('v-ram-sub', `${ramTotalGB} GB total · ${ramPct}%`);
+            const ramUsedGB  = observer.memory_used_gb || 0;
+            const ramTotalGB = observer.memory_total_gb || 0;
+            const ramPct     = observer.memory_percent || 0;
+            setVal('v-ram', `${ramUsedGB.toFixed(1)} GB`);
+            setVal('v-ram-sub', `${ramTotalGB.toFixed(1)} GB total · ${ramPct}%`);
             setBar('v-ram-bar', ramPct);
 
             // --- Disk ---
-            const obsDisk         = telemetry.disk || {};
-            const obsDiskCapacity = obsDisk.capacity || '—';
-            const obsDiskAvail    = obsDisk.available || '—';
-            const diskPct         = parsePct(obsDiskCapacity);
-
-            setVal('v-disk', obsDiskCapacity);
-            setVal('v-disk-sub', `Available: ${obsDiskAvail}`);
+            const diskUsed    = observer.disk_used || '—';
+            const diskTotal   = observer.disk_total || '—';
+            const diskPctStr  = observer.disk_percent || '0%';
+            const diskPct     = parsePct(diskPctStr);
+            setVal('v-disk', diskPctStr);
+            setVal('v-disk-sub', `Used: ${diskUsed} / ${diskTotal}`);
             setBar('v-disk-bar', diskPct);
 
             // --- n8n Heartbeat ---
             const n8nHb     = observer.n8n_heartbeat || {};
             const n8nHealth = n8nHb.health || 'Unknown';
-            let n8nResp     = n8nHb.response || '—';
-            
-            // Safety Check for response payload
-            if (typeof n8nResp !== 'string') {
-                try {
-                    n8nResp = JSON.stringify(n8nResp);
-                } catch(e) {
-                    n8nResp = 'Invalid Response format';
-                }
-            } else if (n8nResp.includes('n8n Webserver is online')) {
-                n8nResp = 'Online';
-            }
+            const statusCode = n8nHb.status_code ? `Code: ${n8nHb.status_code}` : '';
+            const attempts   = n8nHb.attempts ? `Attempts: ${n8nHb.attempts}` : '';
+            const n8nResp    = [statusCode, attempts].filter(Boolean).join(' · ') || '—';
             
             setVal('v-n8n', n8nHealth);
-            setVal('v-n8n-sub', n8nResp.length > 60 ? n8nResp.substring(0, 57) + '…' : n8nResp);
+            setVal('v-n8n-sub', n8nResp);
             
             const n8nBarEl = document.getElementById('v-n8n-bar');
             if (n8nBarEl) {
@@ -1591,25 +1552,22 @@
         }
 
         function renderSagePanel(sage) {
-            let sageOverall = 'STABLE';
-            if (!sage.audit_summary && !sage.reflections && !sage.reflection) {
-                sageOverall = 'OFFLINE';
-                setChip('p-sage-chip', sageOverall);
-                document.getElementById('sage-body').innerHTML = '<div class="quote-block">No Sage data found in snapshot.</div>';
+            const sageOverall = (sage.status || 'OFFLINE').toUpperCase();
+            setChip('p-sage-chip', sageOverall);
+            
+            const sageBody = document.getElementById('sage-body');
+            if (!sageBody) return;
+            
+            let html = '<div style="padding: 0 4px;">';
+            
+            if (sageOverall === 'OFFLINE' && !sage.audit_summary && !sage.audit_findings && !sage.reflections && !sage.reflection) {
+                html += `
+                    <div style="margin-bottom: 16px; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--text-muted); font-style: italic;">
+                        Sage Agent is currently offline.
+                    </div>
+                `;
             } else {
-                const sh = (sage.audit_summary?.system_health || '').toLowerCase();
-                if (sh.includes('fail') || sh.includes('error') || sh.includes('critical')) {
-                    sageOverall = 'CRITICAL';
-                } else if (sh.includes('warn') || sh.includes('degraded')) {
-                    sageOverall = 'WARNING';
-                }
-                setChip('p-sage-chip', sageOverall);
-                
-                const sageBody = document.getElementById('sage-body');
-                
-                let html = '<div style="padding: 0 4px;">';
-                
-                const reportTitle = sage.report_type || sage.report_id || sage.role || '—';
+                const reportTitle = sage.auditor || sage.report_type || sage.report_id || sage.role || 'System Health Report';
                 html += `
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
                         <span class="insight-label" style="margin-bottom: 0;">Report:</span>
@@ -1625,7 +1583,7 @@
                         </div>
                     `;
                 }
-
+                
                 if (sage.reflections && sage.reflections.strategic_recommendation) {
                     html += `
                         <div style="margin-bottom: 12px; font-size: 0.9rem; color: var(--text-secondary);">
@@ -1633,33 +1591,65 @@
                         </div>
                     `;
                 }
-
-                if (sage.audit_summary) {
-                    html += `<div style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">`;
-                    if (sage.audit_summary.system_health) html += `<div style="margin-bottom: 4px;"><b>Health:</b> ${escapeHTML(sage.audit_summary.system_health)}</div>`;
-                    if (sage.audit_summary.log_analysis) html += `<div style="margin-bottom: 4px;"><b>Log Analysis:</b> ${escapeHTML(sage.audit_summary.log_analysis)}</div>`;
-                    if (sage.audit_summary.filesystem_state) html += `<div style="margin-bottom: 4px;"><b>FS State:</b> ${escapeHTML(sage.audit_summary.filesystem_state)}</div>`;
+            }
+            
+            // Sage status detail metrics
+            html += `<div style="margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);">`;
+            
+            if (sage.system_health) {
+                html += `<div style="margin-bottom: 4px;"><b>System Health:</b> ${escapeHTML(sage.system_health)}</div>`;
+            }
+            
+            if (Array.isArray(sage.active_components)) {
+                const compStr = sage.active_components.length > 0 ? sage.active_components.map(c => typeof c === 'string' ? c : JSON.stringify(c)).join(', ') : 'None';
+                html += `<div style="margin-bottom: 4px;"><b>Active Components:</b> ${escapeHTML(compStr)}</div>`;
+            }
+            
+            if (sage.anomalies) {
+                html += `<div style="margin-bottom: 4px; color: var(--state-warn);"><b>Anomalies:</b> ${escapeHTML(typeof sage.anomalies === 'string' ? sage.anomalies : JSON.stringify(sage.anomalies))}</div>`;
+            }
+            
+            if (Array.isArray(sage.alerts) && sage.alerts.length > 0) {
+                html += `<div style="margin-bottom: 4px; color: var(--state-err);"><b>Alerts:</b></div>`;
+                sage.alerts.forEach(alert => {
+                    html += `<div style="margin-left: 12px; margin-bottom: 2px; color: var(--state-err);">&bull; ${escapeHTML(typeof alert === 'string' ? alert : JSON.stringify(alert))}</div>`;
+                });
+            }
+            
+            if (sage.audit_findings) {
+                for (const [key, value] of Object.entries(sage.audit_findings)) {
+                    const titleKey = key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                    html += `<div style="margin-bottom: 8px;"><b>${escapeHTML(titleKey)}:</b> `;
+                    const cls = chipClass(value.status);
+                    html += `<span class="chip ${cls}" style="margin-left: 4px; transform: scale(0.85); transform-origin: left center;"><span class="dot-sm"></span>${escapeHTML(value.status || 'UNKNOWN')}</span>`;
+                    if (value.notes || value.evidence) {
+                        html += `<div style="margin-top: 2px; color: var(--text-secondary); margin-left: 8px;">${escapeHTML(value.notes || value.evidence)}</div>`;
+                    }
                     html += `</div>`;
                 }
-
-                html += '</div>';
-                sageBody.innerHTML = html;
+            } else if (sage.audit_summary) {
+                if (sage.audit_summary.system_health) html += `<div style="margin-bottom: 4px;"><b>Health:</b> ${escapeHTML(sage.audit_summary.system_health)}</div>`;
+                if (sage.audit_summary.log_analysis) html += `<div style="margin-bottom: 4px;"><b>Log Analysis:</b> ${escapeHTML(sage.audit_summary.log_analysis)}</div>`;
+                if (sage.audit_summary.filesystem_state) html += `<div style="margin-bottom: 4px;"><b>FS State:</b> ${escapeHTML(sage.audit_summary.filesystem_state)}</div>`;
             }
+            
+            html += `</div></div>`;
+            sageBody.innerHTML = html;
         }
 
         function renderOutsiderPanel(outsider) {
             const outsiderEl = document.getElementById('outsider-content');
             if (outsiderEl) {
-                if (!outsider.manifestation && !outsider.observations && !outsider.note) {
+                if (!outsider.quote && !outsider.manifestation && !outsider.observations && !outsider.note && !outsider.insight) {
                     outsiderEl.innerHTML = 'No transmission received from The Outsider.';
                     outsiderEl.className = 'quote-block';
                 } else {
                     outsiderEl.className = 'quote-block';
                     let html = '';
                     
-                    const mainText = outsider.manifestation || outsider.note || '—';
+                    const mainText = outsider.quote || outsider.manifestation || outsider.note || '—';
                     html += `
-                        <div style="margin-bottom: 12px; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--text-main);">
+                        <div style="margin-bottom: 16px; font-size: 1.05rem; font-weight: 500; line-height: 1.7; color: var(--text-main);">
                             "${escapeHTML(mainText)}"
                         </div>
                     `;
@@ -1667,7 +1657,15 @@
                     const obs = outsider.observations;
                     if (Array.isArray(obs)) {
                         obs.forEach(o => {
-                            html += `<div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);">&bull; ${escapeHTML(o)}</div>`;
+                            if (typeof o === 'string') {
+                                html += `<div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);">&bull; ${escapeHTML(o)}</div>`;
+                            } else if (typeof o === 'object') {
+                                if (o.subject && o.insight) {
+                                    html += `<div style="margin-bottom: 8px; font-size: 0.9rem; color: var(--text-secondary);"><b>${escapeHTML(o.subject)}:</b> ${escapeHTML(o.insight)}</div>`;
+                                } else {
+                                    html += `<div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);">&bull; ${escapeHTML(JSON.stringify(o))}</div>`;
+                                }
+                            }
                         });
                     } else if (obs && typeof obs === 'object') {
                         if (obs.system_state) html += `<div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);"><b>System State:</b> ${escapeHTML(obs.system_state)}</div>`;
@@ -1675,6 +1673,16 @@
                         if (obs.trace_result) html += `<div style="margin-bottom: 6px; font-size: 0.9rem; color: var(--text-secondary);"><b>Trace Result:</b> ${escapeHTML(obs.trace_result)}</div>`;
                     }
                     
+                    const insightText = outsider.insight || '';
+                    if (insightText) {
+                        html += `
+                            <div style="margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--border); font-size: 0.9rem; color: var(--text-secondary);">
+                                <span class="insight-label" style="display: block; margin-bottom: 4px;">Outsider Insight:</span>
+                                <b>Insight:</b> ${escapeHTML(insightText)}
+                            </div>
+                        `;
+                    }
+
                     if (outsider.midnight_trace) {
                         if (typeof outsider.midnight_trace === 'string') {
                             html += `<div style="margin-bottom: 6px; font-size: 0.85rem; color: var(--text-muted); font-style: italic; margin-top: 10px;">${escapeHTML(outsider.midnight_trace)}</div>`;
@@ -1694,12 +1702,12 @@
         }
 
         function renderFleetTable(observer, sage, outsider, cpuUsage) {
-            const cpuStatusLabel = cpuUsage > 80 ? 'CRITICAL' : (cpuUsage > 60 ? 'WARNING' : 'NOMINAL');
+            const cpuStatusLabel = observer.status ? observer.status.toUpperCase() : (cpuUsage > 80 ? 'CRITICAL' : (cpuUsage > 60 ? 'WARNING' : 'NOMINAL'));
             
-            let sageOverall = sage.status || 'STABLE';
-            if (!sage.audit_summary && !sage.reflections && !sage.reflection) {
+            let sageOverall = (sage.status || 'STABLE').toUpperCase();
+            if (!sage.audit_summary && !sage.audit_findings && !sage.reflections && !sage.reflection && sage.status === 'offline') {
                 sageOverall = 'OFFLINE';
-            } else {
+            } else if (sage.audit_summary) {
                 const sh = (sage.audit_summary?.system_health || '').toLowerCase();
                 if (sh.includes('fail') || sh.includes('error') || sh.includes('critical')) {
                     sageOverall = 'CRITICAL';
@@ -1715,20 +1723,31 @@
                 sageSummary = escapeHTML(sage.reflections.observation);
             } else if (sage.audit_summary && sage.audit_summary.log_analysis) {
                 sageSummary = escapeHTML(sage.audit_summary.log_analysis);
+            } else if (sage.audit_findings) {
+                sageSummary = 'Audit findings recorded. See The Sage panel for details.';
+            } else if (sage.status === 'offline') {
+                sageSummary = 'Sage Agent is currently offline.';
             }
 
-            let outsiderSummaryText = outsider.manifestation || outsider.note || (Array.isArray(outsider.observations) && outsider.observations.length > 0 ? outsider.observations[0] : 'No transmission');
+            let outsiderSummaryText = outsider.quote || outsider.manifestation || outsider.note || (Array.isArray(outsider.observations) && outsider.observations.length > 0 ? (typeof outsider.observations[0] === 'string' ? outsider.observations[0] : (outsider.observations[0].insight || 'No transmission')) : 'No transmission');
             let outsiderSummary = escapeHTML(outsiderSummaryText);
-            let outsiderStatusStr = 'ACTIVE';
-            if (!outsider.manifestation && !outsider.observations && !outsider.note) {
+            let outsiderStatusStr = (outsider.status || 'ACTIVE').toUpperCase();
+            if (!outsider.quote && !outsider.manifestation && !outsider.observations && !outsider.note) {
                 outsiderStatusStr = 'OFFLINE';
+            }
+
+            let observerSummaryText = '';
+            if (observer.cpu_percent !== undefined) {
+                observerSummaryText = `CPU: ${observer.cpu_percent}% | RAM: ${observer.memory_used_gb}GB / ${observer.memory_total_gb}GB (${observer.memory_percent}%) | Disk: ${observer.disk_used} / ${observer.disk_total} (${observer.disk_percent}) | Network: ${observer.network}`;
+            } else {
+                observerSummaryText = observer.comment || (observer.status === 'unavailable' ? 'Observer telemetry unavailable.' : '—');
             }
 
             const fleetData = [
                 {
                     name: 'The Observer',
                     status: cpuStatusLabel,
-                    summary: escapeHTML(observer.comment || '—'),
+                    summary: escapeHTML(observerSummaryText),
                     timestamp: observer.timestamp
                 },
                 {
