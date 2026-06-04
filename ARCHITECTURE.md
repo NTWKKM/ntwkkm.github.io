@@ -13,7 +13,9 @@ Static personal website hosted on GitHub Pages (`ntwkkm.github.io`). Serves as a
 | `index.html` | Homepage — paper slider + project portfolio grid |
 | `blog.html` | Research blog reader — sidebar list + article detail view |
 | `tracking/index.html` | Package tracking dashboard — Thailand Post status viewer |
-| `fray/index.html` | Fray Memory Dashboard — UI visualization for Fray metrics |
+| `fray/index.html` | Fray Dashboard (HTML Structure) |
+| `fray/fray-dashboard.css` | Fray Dashboard Styles (extracted for performance) |
+| `fray/fray-dashboard.js` | Fray Dashboard Rendering Logic (isolated from HTML) |
 | `fray/dashboard-snapshot.json` | Observability snapshot from Fray (updated via n8n, consumed directly by frontend) |
 | `pl/index.html` | `[NEW]` NTWKKM Knowledge Vault — Auto-synced from private `NTWKKM/pl` |
 | `manifest.json` | `[NEW]` PWA manifest — installable web app experience |
@@ -46,7 +48,9 @@ Static Data:
   └── projects.json          → Project cards (manually maintained)
 
 Observability Data (Auto-Synced):
-  ├── fray/index.html        → Dashboard UI (consumes snapshot data directly)
+  ├── fray/index.html        → Dashboard UI Structure
+  ├── fray/fray-dashboard.css→ Dashboard UI Styles
+  ├── fray/fray-dashboard.js → Dashboard Rendering Logic (consumes snapshot data)
   └── fray/dashboard-snapshot.json → Fray system state metrics (pushed by n8n)
 
 Private Repository Synchronization (pl/):
@@ -426,7 +430,7 @@ All pages use `data-theme="light|dark"` on the `<html>` element with `localStora
 - `index.html <style>` — Homepage-specific styles (paper slider, portfolio grid, header, gradient footer)
 - `blog.html <style>` — Blog-specific styles (sidebar, article view, search, filters, ToC)
 - `tracking/index.html <style>` — Tracking dashboard styles (passcode gate, status timeline, package grid)
-- `fray/index.html <style>` — Fray dashboard styles (vital cards, observer/sage/archivist panels, reflection sections)
+- `fray/fray-dashboard.css` — Fray dashboard styles (vital cards, observer/sage panels, isolated for `content-visibility` optimizations)
 
 **JavaScript (Core):**
 
