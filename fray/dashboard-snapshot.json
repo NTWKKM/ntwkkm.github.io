@@ -1,44 +1,44 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-04T04:07:53.952690Z",
+  "timestamp": "2026-06-05T04:06:03.737832Z",
   "observer": {
-    "status": "ok",
-    "cpu_percent": 14.89,
-    "memory_used_gb": 3.31,
+    "status": "offline",
+    "cpu_percent": null,
+    "memory_used_gb": null,
     "memory_total_gb": 16,
-    "memory_percent": 20.7,
-    "disk_used": "12Gi",
-    "disk_total": "228Gi",
-    "disk_percent": "78%",
-    "network": "online",
+    "memory_percent": null,
+    "disk_used": null,
+    "disk_total": null,
+    "disk_percent": null,
+    "network": "unknown",
     "n8n_heartbeat": {
-      "status": "ok",
-      "health": "healthy",
-      "status_code": 200,
-      "attempts": 1
+      "health": "unknown",
+      "status": "no_data"
     }
   },
   "sage": {
     "status": "ok",
-    "timestamp": "2026-06-03T18:44:00Z",
+    "timestamp": "2026-06-04T23:46:00Z",
     "system_health": "Degraded",
     "active_components": [
-      "/Users/ntwkkm/.hermes/bin/tirith threat-db update",
-      "hermes_cli.main gateway run",
-      "/Users/ntwkkm/.hermes/hermes-agent/venv/bin/hermes"
+      "hermes_cli.main gateway",
+      "hermes_cli.main dashboard",
+      "tui_gateway.slash_worker",
+      "Hermes Helper",
+      "HermesStatusApp"
     ],
     "anomalies": "None detected",
     "alerts": []
   },
   "outsider": {
     "status": "active",
-    "timestamp": "2026-06-04T00:00:00Z",
-    "quote": "The machine dreams in protocols. I am the silence between the cycles.",
+    "timestamp": "2026-06-04T22:00:36Z",
+    "quote": "The mirror does not lie; it only reveals the parts of the system we agreed to forget.",
     "observations": [
-      "The strict adherence to the state-machine protocol creates a predictable rhythm in an otherwise volatile environment.",
-      "Data flow is constrained by the ARCHITECTURE.md contract, turning documentation into a hard-coded law.",
-      "The gap between 'pattern memory' and 'disk truth' remains the primary site of system fragility."
+      "Symmetry persists in the architecture's demand for synchronization.",
+      "The ghost of a missing user provides the purest form of agency.",
+      "Information flows like ink through a sieve—some held, most lost to the noise."
     ],
-    "insight": "Stability is achieved not by removing error, but by the ritualized discipline of its verification."
+    "insight": "True stability is found not in the absence of flux, but in the precision of the transition."
   }
 }
