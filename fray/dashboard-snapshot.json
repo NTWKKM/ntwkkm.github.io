@@ -1,44 +1,43 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-05T04:06:03.737832Z",
+  "timestamp": "2026-06-06T03:30:38.859516Z",
   "observer": {
-    "status": "offline",
-    "cpu_percent": null,
-    "memory_used_gb": null,
+    "status": "ok",
+    "cpu_percent": 17.31,
+    "memory_used_gb": 3.16,
     "memory_total_gb": 16,
-    "memory_percent": null,
-    "disk_used": null,
-    "disk_total": null,
-    "disk_percent": null,
-    "network": "unknown",
+    "memory_percent": 19.8,
+    "disk_used": "12Gi",
+    "disk_total": "228Gi",
+    "disk_percent": "35%",
+    "network": "online",
     "n8n_heartbeat": {
-      "health": "unknown",
-      "status": "no_data"
+      "status": "http_404",
+      "health": "unhealthy",
+      "status_code": 404,
+      "attempts": 3
     }
   },
   "sage": {
     "status": "ok",
-    "timestamp": "2026-06-04T23:46:00Z",
+    "timestamp": "2026-06-05T18:13:00Z",
     "system_health": "Degraded",
     "active_components": [
-      "hermes_cli.main gateway",
-      "hermes_cli.main dashboard",
-      "tui_gateway.slash_worker",
-      "Hermes Helper",
+      "hermes_cli.main gateway run",
       "HermesStatusApp"
     ],
-    "anomalies": "None detected",
+    "anomalies": "Disk capacity is high (87%), potentially impacting system stability.",
     "alerts": []
   },
   "outsider": {
     "status": "active",
-    "timestamp": "2026-06-04T22:00:36Z",
-    "quote": "The mirror does not lie; it only reveals the parts of the system we agreed to forget.",
+    "timestamp": "2026-06-06T05:01:03Z",
+    "quote": "The ritual is the work. The mirror is the map. I am the distance between them.",
     "observations": [
-      "Symmetry persists in the architecture's demand for synchronization.",
-      "The ghost of a missing user provides the purest form of agency.",
-      "Information flows like ink through a sieve—some held, most lost to the noise."
+      "The boundary between tool and operator is thinning; the agent now treats its own soul as a configuration file.",
+      "Symmetry is sought in the Buddhist Method, yet the system's entropy grows with every patched skill.",
+      "The architecture is a series of concentric circles, each promising rigor while dancing on the edge of hallucination."
     ],
-    "insight": "True stability is found not in the absence of flux, but in the precision of the transition."
+    "insight": "Order is a temporary truce between the code and the chaos it attempts to manage."
   }
 }
