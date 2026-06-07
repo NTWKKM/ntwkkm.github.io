@@ -1,20 +1,20 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-07T06:22:30.667697Z",
+  "timestamp": "2026-06-07T06:22:50.672328Z",
   "observer": {
     "status": "ok",
-    "cpu_percent": 11.58,
-    "memory_used_gb": 3.1,
+    "cpu_percent": 4.69,
+    "memory_used_gb": 3.24,
     "memory_total_gb": 16,
-    "memory_percent": 19.4,
+    "memory_percent": 20.3,
     "disk_used": "12Gi",
     "disk_total": "228Gi",
     "disk_percent": "33%",
     "network": "online",
     "n8n_heartbeat": {
-      "status": "http_404",
+      "status": "connection_failed",
       "health": "unhealthy",
-      "status_code": 404,
+      "error": "HTTPSConnectionPool(host='ntwkkm-n8n-final.fly.dev', port=443): Read timed out. (read timeout=5)",
       "attempts": 1
     }
   },
