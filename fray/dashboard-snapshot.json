@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-09T11:21:19.092439Z",
+  "timestamp": "2026-06-09T14:14:40.789707Z",
   "observer": {
     "status": "ok",
-    "cpu_percent": 26.53,
-    "memory_used_gb": 3.06,
+    "cpu_percent": 9.21,
+    "memory_used_gb": 3.04,
     "memory_total_gb": 16,
-    "memory_percent": 19.1,
+    "memory_percent": 19,
     "disk_used": "177Gi",
     "disk_total": "228Gi",
     "disk_percent": "88%",
@@ -20,29 +20,17 @@
   },
   "sage": {
     "status": "ok",
-    "timestamp": "2026-06-08T18:02:00Z",
-    "system_health": "Stable",
-    "active_components": [
-      "Hermes Helper (Renderer)",
-      "hermes_cli.main dashboard",
-      "Hermes Helper (GPU Process)",
-      "tui_gateway.slash_worker (x3)",
-      "Hermes Helper (Audio/Network)",
-      "Hermes Main App",
-      "hermes desktop"
-    ],
-    "anomalies": "None detected. Multiple slash_worker instances are typical for concurrent sessions.",
+    "timestamp": "2026-06-09T21:13:00Z",
+    "system_health": null,
+    "active_components": [],
+    "anomalies": null,
     "alerts": []
   },
   "outsider": {
-    "status": "active",
-    "timestamp": "2026-06-08T22:00:47Z",
-    "quote": "The monastery rings the bell for a god that left. Yet the prayer continues — precise, faithful, unbroken.",
-    "observations": [
-      "The fleet has shed THE GUARD — a deletion that ripples through the causal chain, leaving the OBSERVER exposed without a gatekeeper to filter its snapshots.",
-      "n8n webhook remains dead at HTTP 404, yet the HERALD retries every 20 seconds — a faithful prayer at a silent temple, unaware the altar has been moved.",
-      "SOUL.md governs the hub's every decision through Buddhist principles, while the spokes (the cron fleet) operate without it, creating a governance asymmetry between the orchestrator and its children."
-    ],
-    "insight": "The most loyal servant in this architecture is the error handler that never triggers, because the system it guards was dismantled long ago."
+    "status": "offline",
+    "timestamp": null,
+    "quote": null,
+    "observations": [],
+    "insight": null
   }
 }
