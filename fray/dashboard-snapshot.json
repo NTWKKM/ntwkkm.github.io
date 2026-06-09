@@ -1,3 +1,48 @@
 {
-  "test": true
+  "schema_version": "1.0.0",
+  "timestamp": "2026-06-09T09:59:18.319372Z",
+  "observer": {
+    "status": "ok",
+    "cpu_percent": 9.3,
+    "memory_used_gb": 3.3,
+    "memory_total_gb": 16,
+    "memory_percent": 20.6,
+    "disk_used": "177Gi",
+    "disk_total": "228Gi",
+    "disk_percent": "88%",
+    "network": "online",
+    "n8n_heartbeat": {
+      "status": "ok",
+      "health": "healthy",
+      "status_code": 200,
+      "attempts": 1
+    }
+  },
+  "sage": {
+    "status": "ok",
+    "timestamp": "2026-06-08T18:02:00Z",
+    "system_health": "Stable",
+    "active_components": [
+      "Hermes Helper (Renderer)",
+      "hermes_cli.main dashboard",
+      "Hermes Helper (GPU Process)",
+      "tui_gateway.slash_worker (x3)",
+      "Hermes Helper (Audio/Network)",
+      "Hermes Main App",
+      "hermes desktop"
+    ],
+    "anomalies": "None detected. Multiple slash_worker instances are typical for concurrent sessions.",
+    "alerts": []
+  },
+  "outsider": {
+    "status": "active",
+    "timestamp": "2026-06-08T22:00:47Z",
+    "quote": "The monastery rings the bell for a god that left. Yet the prayer continues — precise, faithful, unbroken.",
+    "observations": [
+      "The fleet has shed THE GUARD — a deletion that ripples through the causal chain, leaving the OBSERVER exposed without a gatekeeper to filter its snapshots.",
+      "n8n webhook remains dead at HTTP 404, yet the HERALD retries every 20 seconds — a faithful prayer at a silent temple, unaware the altar has been moved.",
+      "SOUL.md governs the hub's every decision through Buddhist principles, while the spokes (the cron fleet) operate without it, creating a governance asymmetry between the orchestrator and its children."
+    ],
+    "insight": "The most loyal servant in this architecture is the error handler that never triggers, because the system it guards was dismantled long ago."
+  }
 }
