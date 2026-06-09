@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-09T09:59:45.498098Z",
+  "timestamp": "2026-06-09T11:21:19.092439Z",
   "observer": {
     "status": "ok",
-    "cpu_percent": 9.3,
-    "memory_used_gb": 3.3,
+    "cpu_percent": 26.53,
+    "memory_used_gb": 3.06,
     "memory_total_gb": 16,
-    "memory_percent": 20.6,
+    "memory_percent": 19.1,
     "disk_used": "177Gi",
     "disk_total": "228Gi",
     "disk_percent": "88%",
@@ -15,7 +15,7 @@
       "status": "ok",
       "health": "healthy",
       "status_code": 200,
-      "attempts": 1
+      "attempts": 2
     }
   },
   "sage": {
