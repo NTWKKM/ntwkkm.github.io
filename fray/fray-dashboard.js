@@ -231,6 +231,23 @@
             setVal('v-disk-sub', `Used: ${diskUsed} / ${diskTotal}`);
             setBar('v-disk-bar', diskPct);
 
+            // --- Network ---
+            const networkStatus = observer.network || 'Unknown';
+            setVal('v-network', networkStatus.toUpperCase());
+            setVal('v-network-sub', 'Interface Status');
+            
+            const netBarEl = document.getElementById('v-network-bar');
+            if (netBarEl) {
+                netBarEl.style.width = '100%';
+                if (networkStatus.toLowerCase() === 'online') {
+                    netBarEl.className = 'vital-bar-fill green';
+                    setChip('v-network-badge', 'ONLINE');
+                } else {
+                    netBarEl.className = 'vital-bar-fill red';
+                    setChip('v-network-badge', 'OFFLINE');
+                }
+            }
+
             // --- n8n Heartbeat ---
             const n8nHb     = observer.n8n_heartbeat || {};
             const n8nHealth = n8nHb.health || 'Unknown';
