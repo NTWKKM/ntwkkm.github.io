@@ -1,36 +1,36 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-09T14:14:40.789707Z",
+  "timestamp": "2026-06-10T00:15:52.751910Z",
   "observer": {
     "status": "ok",
-    "cpu_percent": 9.21,
-    "memory_used_gb": 3.04,
+    "cpu_percent": 13.4,
+    "memory_used_gb": 3.06,
     "memory_total_gb": 16,
-    "memory_percent": 19,
-    "disk_used": "177Gi",
+    "memory_percent": 19.1,
+    "disk_used": "179Gi",
     "disk_total": "228Gi",
-    "disk_percent": "88%",
+    "disk_percent": "89%",
     "network": "online",
     "n8n_heartbeat": {
       "status": "ok",
       "health": "healthy",
       "status_code": 200,
-      "attempts": 2
+      "attempts": 1
     }
   },
   "sage": {
     "status": "ok",
-    "timestamp": "2026-06-09T21:13:00Z",
+    "timestamp": "2026-06-10T06:47:00Z",
     "system_health": null,
     "active_components": [],
     "anomalies": null,
     "alerts": []
   },
   "outsider": {
-    "status": "offline",
-    "timestamp": null,
+    "status": "silent",
+    "timestamp": "2026-06-10T00:00:00Z",
     "quote": null,
     "observations": [],
-    "insight": null
+    "insight": "A system that runs at 89% disk capacity and near-zero free memory is not failing — it is accustomed to scarcity. Every byte is managed, every allocation intentional. The observer sees strain where the host sees normalcy. The outsider recognizes: this is a machine built for margins, not excess."
   }
 }
