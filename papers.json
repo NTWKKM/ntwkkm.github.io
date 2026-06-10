@@ -2,85 +2,85 @@
   {
     "date": "11 Jun",
     "title": "Comparative evaluation of generative AI models for chest radiograph report generation in the emergency department.",
-    "comment": "AI ช่วยอ่านผล CXR ใน ER เพิ่มความเร็วและประสิทธิภาพในการวินิจฉัย อาจเป็นเครื่องมือใหม่ในอนาคต",
+    "comment": "ประเมินการใช้ AI ช่วยอ่าน CXR ใน ER อาจกระทบ workflow และการวินิจฉัยในอนาคต",
     "pmid": "42268300",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42268300/"
   },
   {
     "date": "11 Jun",
     "title": "Reducing Blood Culture Contamination Rates in the Emergency Department: A Nurse-Driven Quality Improvement Initiative.",
-    "comment": "แนวทางลด contamination rate ของ blood culture โดยพยาบาล ปรับปรุงคุณภาพการดูแลผู้ป่วย sepsis",
+    "comment": "โครงการ QI ลด blood culture contamination ใน ER นำไปปรับใช้เพื่อลดการใช้ยาปฏิชีวนะที่ไม่จำเป็น",
     "pmid": "42268175",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42268175/"
   },
   {
     "date": "11 Jun",
+    "title": "Hypertension management: is lower always better?",
+    "comment": "Lancet review ทบทวนเป้าหมายความดันโลหิต ตั้งคำถาม \"ยิ่งต่ำยิ่งดี\" ในผู้ป่วยกลุ่มต่างๆ",
+    "pmid": "42268153",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42268153/"
+  },
+  {
+    "date": "11 Jun",
     "title": "High-Dose Intravenous Vitamin C and Mortality and Organ Dysfunction in Severe Burn Injury: The VICTORY Randomized Clinical Trial.",
-    "comment": "RCT: Vitamin C ขนาดสูงในผู้ป่วย burn ไม่ลด mortality หรือ organ dysfunction อาจต้องเปลี่ยนแนวทาง",
+    "comment": "RCT ใน JAMA: วิตามินซีขนาดสูงไม่ช่วยผู้ป่วยแผลไหม้รุนแรง และอาจเพิ่มความเสี่ยง",
     "pmid": "42267875",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42267875/"
   },
   {
     "date": "11 Jun",
     "title": "Droperidol for the Management of the Undifferentiated and Agitated Trauma Patient.",
-    "comment": "การใช้ Droperidol สำหรับผู้ป่วย trauma ที่กระสับกระส่าย เป็นอีกทางเลือกที่มีประสิทธิภาพใน ER",
+    "comment": "ทบทวนการใช้ droperidol เป็นทางเลือกจัดการผู้ป่วย trauma ที่มีภาวะกระสับกระส่าย",
     "pmid": "42267846",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42267846/"
   },
   {
     "date": "11 Jun",
     "title": "Mesenteric Ischemia: 2026 Update-AJR Expert Panel Narrative Review.",
-    "comment": "Expert panel review อัปเดตแนวทางวินิจฉัยและรักษา Mesenteric Ischemia ที่ต้องรู้",
+    "comment": "Expert panel update เรื่อง mesenteric ischemia สรุปแนวทางการวินิจฉัยและจัดการภาวะฉุกเฉินที่สำคัญ",
     "pmid": "42267814",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42267814/"
   },
   {
     "date": "11 Jun",
     "title": "Documenting the Emergence of Xylazine Among People Who Use Drugs in Rhode Island: An Analysis of Dried Blood Apot Samples.",
-    "comment": "เตือนภัย! การระบาดของ Xylazine ในผู้ใช้ยาเสพติด ส่งผลต่อการรักษา overdose ใน ER",
+    "comment": "รายงานการระบาดของ Xylazine ในยาเสพติด สำคัญต่อการดูแลผู้ป่วย overdose ที่ดื้อต่อ naloxone",
     "pmid": "42267633",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42267633/"
   },
   {
     "date": "11 Jun",
     "title": "A simple score to identify the sickest normotensive patients with acute pulmonary embolism.",
-    "comment": "Score ใหม่ช่วยคัดแยกผู้ป่วย PE ที่ความดันปกติแต่มีความเสี่ยงสูง เพื่อการจัดการที่เหมาะสม",
+    "comment": "เสนอ score ใหม่ คัดแยกผู้ป่วย PE ความดันปกติแต่เสี่ยงสูง ช่วยตัดสินใจ disposition",
     "pmid": "42267368",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42267368/"
   },
   {
     "date": "11 Jun",
+    "title": "Beyond Clozapine: Myocarditis and Cardiomyopathy Associated with Antipsychotic Medications-An Updated Narrative Review for Psychiatric Practice.",
+    "comment": "Safety signal: ทบทวนความเสี่ยง myocarditis จากยากลุ่ม antipsychotics อื่นๆ ที่ต้องระวังใน ER",
+    "pmid": "42267232",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42267232/"
+  },
+  {
+    "date": "11 Jun",
     "title": "Bedside Intussusception Diagnosis and Reduction: A Comprehensive Emergency Department Process for Bedside Intussusception Diagnosis and Reduction.",
-    "comment": "POCUS-guided reduction ลำไส้กลืนกันข้างเตียงใน ER เป็นเทคนิคใหม่ ลดขั้นตอนและเวลา",
+    "comment": "เสนอแนวทางใช้ POCUS วินิจฉัยและทำ hydrostatic reduction ภาวะ intussusception ข้างเตียงใน ER",
     "pmid": "42267092",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42267092/"
   },
   {
     "date": "11 Jun",
     "title": "Efficacy and Safety of Tranexamic Acid in Pediatric Trauma: A Systematic Review and Meta-Analysis.",
-    "comment": "Meta-analysis: TXA ปลอดภัยและอาจมีประสิทธิภาพในผู้ป่วยเด็กอุบัติเหตุรุนแรง สนับสนุนการใช้ใน ER",
+    "comment": "Meta-analysis การใช้ TXA ในเด็กอุบัติเหตุ สรุป evidence ล่าสุดสำหรับข้อบ่งชี้ที่เป็นที่ถกเถียง",
     "pmid": "42267071",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42267071/"
   },
   {
     "date": "11 Jun",
     "title": "Comparison of prehospital tidal volume delivery performance between automated transport ventilators and bag-valve devices in out-of-hospital cardiac arrest patients: does the pressure limit matter?",
-    "comment": "เปรียบเทียบเครื่องช่วยหายใจอัตโนมัติกับ BVM ในผู้ป่วย OHCA มีผลต่อการดูแลเมื่อมาถึง ER",
+    "comment": "เปรียบเทียบ ventilator กับ BVM ในผู้ป่วย OHCA ซึ่งมีผลต่อการดูแลต่อเนื่องใน ER",
     "pmid": "42266940",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42266940/"
-  },
-  {
-    "date": "11 Jun",
-    "title": "Machine learning-based triage model for elderly traumatic brain injury patients in Chinese emergency department.",
-    "comment": "Machine learning model ช่วยคัดกรองผู้สูงอายุ TBI ที่เสี่ยงสูงใน ER เพื่อการดูแลเร่งด่วน",
-    "pmid": "42266581",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42266581/"
-  },
-  {
-    "date": "11 Jun",
-    "title": "Incidence, Risk Factors, and Clinico-Radiological Correlations of Early Post-traumatic Seizures: A Prospective Analysis at a Tertiary Care Center in India.",
-    "comment": "ข้อมูลปัจจัยเสี่ยงของการชักหลังบาดเจ็บที่ศีรษะ ช่วยในการวางแผนดูแลและให้ยากันชักใน ER",
-    "pmid": "42266282",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42266282/"
   }
 ]
