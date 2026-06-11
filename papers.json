@@ -1,86 +1,86 @@
 [
   {
     "date": "12 Jun",
-    "title": "Sodium Bicarbonate for In-Hospital Cardiac Arrest: A Randomized Clinical Trial.",
-    "comment": "RCT ใหม่ชี้ Bicarb ไม่ช่วยเพิ่ม ROSC ใน IHCA อาจถึงเวลาเลิกใช้เป็นกิจวัตร",
+    "title": "Sodium Bicarbonate for In-Hospital Cardiac Arrest: A Randomized Clinical Trial",
+    "comment": "RCT ใน JAMA! Bicarbonate ไม่เพิ่มโอกาสรอดชีวิตใน IHCA อาจถึงเวลาเลิกใช้เป็นกิจวัตร",
     "pmid": "42273960",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42273960/"
   },
   {
     "date": "12 Jun",
-    "title": "Vasopressors or Fluids in Early Septic Shock.",
-    "comment": "ทบทวนคำถามสำคัญในการกู้ชีพ Sepsis: ควรเริ่ม Vasopressor เร็วขึ้นหรือไม่",
+    "title": "Vasopressors or Fluids in Early Septic Shock",
+    "comment": "NEJM ชวนคิด: เริ่ม pressor เร็วใน septic shock อาจดีกว่าให้ fluid ปริมาณมากเกินไป",
     "pmid": "42274006",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42274006/"
   },
   {
     "date": "12 Jun",
-    "title": "Reperfusion Therapy and Outcomes in High-Risk Pulmonary Embolism: Multicenter Registry Study From the Tokyo Cardiovascular Care Unit Network.",
-    "comment": "ข้อมูล real-world ของการรักษา high-risk PE ช่วยในการตัดสินใจเลือก reperfusion strategy",
-    "pmid": "42273307",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42273307/"
-  },
-  {
-    "date": "12 Jun",
-    "title": "Clinical Prediction Models for Prognostication After Out-of-Hospital Cardiac Arrest: A Systematic Review and Meta-Analysis.",
-    "comment": "สรุปรวม prediction models สำหรับพยากรณ์โรคผู้ป่วย OHCA ช่วยในการสื่อสารกับญาติ",
+    "title": "Clinical Prediction Models for Prognostication After Out-of-Hospital Cardiac Arrest: A Systematic Review and Meta-Analysis",
+    "comment": "สรุป prediction models ที่ดีที่สุดสำหรับพยากรณ์โรคผู้ป่วย OHCA หลัง ROSC ช่วยคุยกับญาติ",
     "pmid": "42274294",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42274294/"
   },
   {
     "date": "12 Jun",
-    "title": "Aspirin is associated with improved outcomes in sepsis patients with atrial fibrillation: an analysis of the MIMIC-IV and eICU-CRD databases.",
-    "comment": "ข้อมูลฐานข้อมูลใหญ่ชี้ Aspirin อาจมีประโยชน์ในผู้ป่วย Sepsis ร่วมกับ AFib",
-    "pmid": "42273600",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42273600/"
-  },
-  {
-    "date": "12 Jun",
-    "title": "Bile Drainage Improves Survival in Amatoxin-induced Severe Liver Injury: A Prospective Pilot Cohort Study.",
-    "comment": "เสนอการทำ Bile drainage เป็นทางเลือกช่วยชีวิตผู้ป่วยพิษเห็ดรุนแรง",
-    "pmid": "42273384",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42273384/"
+    "title": "Reperfusion Therapy and Outcomes in High-Risk Pulmonary Embolism: Multicenter Registry Study From the Tokyo Cardiovascular Care Unit Network",
+    "comment": "ข้อมูล registry ใหญ่ เปรียบเทียบผลการรักษา high-risk PE ช่วยตัดสินใจให้ reperfusion therapy",
+    "pmid": "42273307",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42273307/"
   },
   {
     "date": "12 Jun",
     "title": "Should Nebulized Ipratropium Bromide Be Added to Standard Treatments of Pediatric Asthma Exacerbations in the Emergency Department?",
-    "comment": "สรุปหลักฐานปัจจุบันของการใช้ Ipratropium ในเด็กหอบหืดที่ ER",
+    "comment": "ถกประเด็นสำคัญ: Ipratropium อาจไม่จำเป็นในหอบหืดเด็กทุกราย ยกเว้นกลุ่ม severe exacerbation",
     "pmid": "42274434",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42274434/"
   },
   {
     "date": "12 Jun",
-    "title": "Vibrating Mesh versus Jet Nebulizers for High-Dose Albuterol in Exacerbations of COPD and Asthma.",
-    "comment": "เปรียบเทียบประสิทธิภาพเครื่องพ่นยา 2 ชนิดที่ใช้บ่อยใน ER สำหรับผู้ป่วยหอบ",
-    "pmid": "42273896",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42273896/"
-  },
-  {
-    "date": "12 Jun",
-    "title": "Role of Tranexamic Acid in Orthopedic Trauma: Current Evidence, Clinical Applications, and Ongoing Controversies.",
-    "comment": "อัปเดตการใช้ TXA ในผู้ป่วยกระดูกหักที่พบบ่อย ช่วยให้ใช้ยาอย่างเหมาะสม",
+    "title": "Role of Tranexamic Acid in Orthopedic Trauma: Current Evidence, Clinical Applications, and Ongoing Controversies",
+    "comment": "ทบทวนการใช้ TXA ใน orthopedic trauma สรุป evidence ปัจจุบันและข้อถกเถียงที่ต้องรู้",
     "pmid": "42273508",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42273508/"
   },
   {
     "date": "12 Jun",
-    "title": "Acute non-alcoholic caffeinated beverage consumption as a trigger for cryptogenic ischemic stroke in the young: findings from the SECRETO study.",
-    "comment": "สัญญาณเตือน: เครื่องดื่มชูกำลังอาจเป็นปัจจัยกระตุ้น stroke ในผู้ป่วยอายุน้อย",
+    "title": "Acute non-alcoholic caffeinated beverage consumption as a trigger for cryptogenic ischemic stroke in the young: findings from the SECRETO study",
+    "comment": "สัญญาณอันตราย: เครื่องดื่มชูกำลังอาจเป็นตัวกระตุ้น stroke ในคนหนุ่มสาว ต้องซักประวัติเพิ่ม",
     "pmid": "42274784",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42274784/"
   },
   {
     "date": "12 Jun",
-    "title": "Influence of frailty on short-term mortality in older patients with multiple trauma in the emergency department.",
-    "comment": "ความเปราะบาง (frailty) เป็นปัจจัยสำคัญในการพยากรณ์โรคผู้ป่วยอุบัติเหตุสูงอายุ",
+    "title": "Influence of frailty on short-term mortality in older patients with multiple trauma in the emergency department",
+    "comment": "Frailty เป็นปัจจัยพยากรณ์การเสียชีวิตที่สำคัญในผู้สูงอายุ multiple trauma ที่ ER ต้องประเมิน",
     "pmid": "42274738",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42274738/"
   },
   {
     "date": "12 Jun",
-    "title": "Prevalence of underlying organic causes in infants presenting with excessive crying: a 2-year follow-up study.",
-    "comment": "ข้อมูลความชุกของโรคร้ายแรงในทารกร้องกวน ช่วยตัดสินใจ workup ได้เหมาะสม",
-    "pmid": "42274798",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42274798/"
+    "title": "Vibrating Mesh versus Jet Nebulizers for High-Dose Albuterol in Exacerbations of COPD and Asthma",
+    "comment": "เปรียบเทียบประสิทธิภาพเครื่องพ่นยา 2 ชนิดที่ใช้บ่อยใน ER มีผลต่อการเลือกใช้อุปกรณ์",
+    "pmid": "42273896",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42273896/"
+  },
+  {
+    "date": "12 Jun",
+    "title": "Bile Drainage Improves Survival in Amatoxin-induced Severe Liver Injury: A Prospective Pilot Cohort Study",
+    "comment": "วิธีการรักษาใหม่สำหรับภาวะพิษจากเห็ด (amatoxin) ที่อาจช่วยชีวิตผู้ป่วยตับวายรุนแรงได้",
+    "pmid": "42273384",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42273384/"
+  },
+  {
+    "date": "12 Jun",
+    "title": "Lactate-to-Albumin Ratio for Predicting Intensive Care Unit Admission in Patients with Diabetic Foot Infection",
+    "comment": "เครื่องมือใหม่ (L/A ratio) ช่วยคัดกรองผู้ป่วยติดเชื้อที่เท้าจากเบาหวานที่เสี่ยงสูงต้องเข้า ICU",
+    "pmid": "42273767",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42273767/"
+  },
+  {
+    "date": "12 Jun",
+    "title": "Macroscopic Pulmonary Fat Embolism Secondary to Intraosseous Line Placement: A Case Report",
+    "comment": "เตือนภัย: ภาวะแทรกซ้อนรุนแรง (Fat Embolism) จากการเปิดเส้นเลือดดำในกระดูก (IO) ที่ต้องระวัง",
+    "pmid": "42273236",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42273236/"
   }
 ]
