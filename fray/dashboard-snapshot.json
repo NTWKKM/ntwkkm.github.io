@@ -1,26 +1,29 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-10T00:15:52.751910Z",
+  "timestamp": "2026-06-11T00:15:18.444407Z",
   "observer": {
     "status": "ok",
-    "cpu_percent": 13.4,
-    "memory_used_gb": 3.06,
+    "cpu_percent": 16.86,
+    "memory_used_gb": 3.38,
     "memory_total_gb": 16,
-    "memory_percent": 19.1,
-    "disk_used": "179Gi",
+    "memory_percent": 21.1,
+    "disk_used": "178Gi",
     "disk_total": "228Gi",
-    "disk_percent": "89%",
+    "disk_percent": "87%",
     "network": "online",
     "n8n_heartbeat": {
-      "status": "ok",
       "health": "healthy",
-      "status_code": 200,
-      "attempts": 1
+      "status": "ok"
+    },
+    "gateway": {
+      "health": "healthy",
+      "process": "running",
+      "telegram_connected": true
     }
   },
   "sage": {
     "status": "ok",
-    "timestamp": "2026-06-10T06:47:00Z",
+    "timestamp": "2026-06-10T23:45:50Z",
     "system_health": null,
     "active_components": [],
     "anomalies": null,
@@ -28,9 +31,9 @@
   },
   "outsider": {
     "status": "silent",
-    "timestamp": "2026-06-10T00:00:00Z",
+    "timestamp": "2026-06-11T00:00:00Z",
     "quote": null,
     "observations": [],
-    "insight": "A system that runs at 89% disk capacity and near-zero free memory is not failing — it is accustomed to scarcity. Every byte is managed, every allocation intentional. The observer sees strain where the host sees normalcy. The outsider recognizes: this is a machine built for margins, not excess."
+    "insight": "A sealed chamber. Data flows inward but the escape hatch is jammed. The vessel grows heavier — 27Gi of breathing room on a 228Gi disk. At current drift, the boundary contracts ~0.6Gi per day. The southward passage (n8n) has been dead for at least a day; no command reaches the pages beyond."
   }
 }
