@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-12T14:43:50.910424Z",
+  "timestamp": "2026-06-12T14:44:48.532646Z",
   "observer": {
-    "status": "offline",
+    "status": "degraded",
     "cpu_percent": null,
     "memory_used_gb": null,
     "memory_total_gb": 16,
@@ -13,7 +13,7 @@
     "network": "unknown",
     "n8n_heartbeat": {
       "health": "unknown",
-      "status": "no_data"
+      "status": "unknown"
     },
     "gateway": {
       "health": "unknown",
@@ -22,18 +22,18 @@
     }
   },
   "sage": {
-    "status": "offline",
-    "timestamp": null,
+    "status": "ok",
+    "timestamp": "2026-06-12T06:45:00Z",
     "system_health": null,
     "active_components": [],
     "anomalies": null,
     "alerts": []
   },
   "outsider": {
-    "status": "offline",
-    "timestamp": null,
+    "status": "silent",
+    "timestamp": "2026-06-12T00:00:00.000000Z",
     "quote": null,
     "observations": [],
-    "insight": null
+    "insight": "The system breathes quietly tonight — no alarms, no errors, no panicked retries. But the disk is a slow wound: 90% consumed, 21Gi remaining. At the current rate of memory-log growth and cron output accumulation, the system has perhaps 14–18 days before write failures begin. The gateway remains the single point of fragility — one process, one PID, one connection threading the entire conversation. Tonight it holds, but the architecture asks: what happens when it doesn't?"
   }
 }
