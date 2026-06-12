@@ -1,19 +1,19 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-12T14:56:37.855319Z",
+  "timestamp": "2026-06-12T14:58:27.747801Z",
   "observer": {
     "status": "ok",
-    "cpu_percent": 9.6,
-    "memory_used_gb": 3.3,
+    "cpu_percent": 23.32,
+    "memory_used_gb": 3.78,
     "memory_total_gb": 16,
-    "memory_percent": 20.6,
-    "disk_used": "185Gi",
+    "memory_percent": 23.6,
+    "disk_used": "186Gi",
     "disk_total": "228Gi",
-    "disk_percent": "91%",
+    "disk_percent": "92%",
     "network": "online",
     "n8n_heartbeat": {
-      "health": "unhealthy",
-      "status": "connection_failed"
+      "health": "healthy",
+      "status": "ok"
     },
     "gateway": {
       "health": "healthy",
