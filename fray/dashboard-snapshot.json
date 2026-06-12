@@ -1,19 +1,19 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-12T14:44:48.532646Z",
+  "timestamp": "2026-06-12T14:45:14.531681Z",
   "observer": {
-    "status": "degraded",
-    "cpu_percent": null,
-    "memory_used_gb": null,
+    "status": "ok",
+    "cpu_percent": 9.37,
+    "memory_used_gb": 3.62,
     "memory_total_gb": 16,
-    "memory_percent": null,
-    "disk_used": null,
-    "disk_total": null,
-    "disk_percent": null,
-    "network": "unknown",
+    "memory_percent": 22.6,
+    "disk_used": "178Gi",
+    "disk_total": "228Gi",
+    "disk_percent": "87%",
+    "network": "online",
     "n8n_heartbeat": {
-      "health": "unknown",
-      "status": "unknown"
+      "health": "healthy",
+      "status": "ok"
     },
     "gateway": {
       "health": "unknown",
