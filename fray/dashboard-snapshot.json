@@ -1,15 +1,15 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-11T00:15:18.444407Z",
+  "timestamp": "2026-06-12T00:15:42.021170Z",
   "observer": {
     "status": "ok",
-    "cpu_percent": 16.86,
-    "memory_used_gb": 3.38,
+    "cpu_percent": 10.47,
+    "memory_used_gb": 3.2,
     "memory_total_gb": 16,
-    "memory_percent": 21.1,
-    "disk_used": "178Gi",
+    "memory_percent": 20,
+    "disk_used": "184Gi",
     "disk_total": "228Gi",
-    "disk_percent": "87%",
+    "disk_percent": "91%",
     "network": "online",
     "n8n_heartbeat": {
       "health": "healthy",
@@ -23,7 +23,7 @@
   },
   "sage": {
     "status": "ok",
-    "timestamp": "2026-06-10T23:45:50Z",
+    "timestamp": "2026-06-12T06:45:00Z",
     "system_health": null,
     "active_components": [],
     "anomalies": null,
@@ -31,9 +31,9 @@
   },
   "outsider": {
     "status": "silent",
-    "timestamp": "2026-06-11T00:00:00Z",
+    "timestamp": "2026-06-12T00:00:00.000000Z",
     "quote": null,
     "observations": [],
-    "insight": "A sealed chamber. Data flows inward but the escape hatch is jammed. The vessel grows heavier — 27Gi of breathing room on a 228Gi disk. At current drift, the boundary contracts ~0.6Gi per day. The southward passage (n8n) has been dead for at least a day; no command reaches the pages beyond."
+    "insight": "The system breathes quietly tonight — no alarms, no errors, no panicked retries. But the disk is a slow wound: 90% consumed, 21Gi remaining. At the current rate of memory-log growth and cron output accumulation, the system has perhaps 14–18 days before write failures begin. The gateway remains the single point of fragility — one process, one PID, one connection threading the entire conversation. Tonight it holds, but the architecture asks: what happens when it doesn't?"
   }
 }
