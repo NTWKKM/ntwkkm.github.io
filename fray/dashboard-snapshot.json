@@ -1,3 +1,39 @@
 {
-  "heartbeat": "test"
+  "schema_version": "1.0.0",
+  "timestamp": "2026-06-12T14:43:10.075897Z",
+  "observer": {
+    "status": "offline",
+    "cpu_percent": null,
+    "memory_used_gb": null,
+    "memory_total_gb": 16,
+    "memory_percent": null,
+    "disk_used": null,
+    "disk_total": null,
+    "disk_percent": null,
+    "network": "unknown",
+    "n8n_heartbeat": {
+      "health": "unknown",
+      "status": "no_data"
+    },
+    "gateway": {
+      "health": "unknown",
+      "process": "unknown",
+      "telegram_connected": false
+    }
+  },
+  "sage": {
+    "status": "offline",
+    "timestamp": null,
+    "system_health": null,
+    "active_components": [],
+    "anomalies": null,
+    "alerts": []
+  },
+  "outsider": {
+    "status": "offline",
+    "timestamp": null,
+    "quote": null,
+    "observations": [],
+    "insight": null
+  }
 }
