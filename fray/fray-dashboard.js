@@ -173,7 +173,8 @@
             const observer   = data.observer   || {};
             const sage       = data.sage       || {};
             const outsider   = data.outsider   || {};
-            const historian  = data.historian   || {};
+            const historian  = data.historian  || {};
+            const archivist  = data.archivist  || {};
             const gateway    = observer.gateway  || {};
 
             // ---- BANNER TIMESTAMP ----
@@ -222,7 +223,8 @@
             const cpuUsage = renderVitals(observer);
             renderSagePanel(sage);
             renderOutsiderPanel(outsider);
-            renderFleetTable(observer, sage, outsider, historian, cpuUsage);
+            renderHistorianPanel(historian);
+            renderFleetTable(archivist);
         }
 
         function renderVitals(observer) {
@@ -472,129 +474,177 @@
             }
         }
 
-        function renderFleetTable(observer, sage, outsider, historian, cpuUsage) {
-            const cpuStatusLabel = observer.status ? observer.status.toUpperCase() : (cpuUsage > 80 ? 'CRITICAL' : (cpuUsage > 60 ? 'WARNING' : 'NOMINAL'));
-            
-            // --- Sage status derivation (supports numeric system_health) ---
-            let sageOverall = (sage.status || 'STABLE').toUpperCase();
-            if (sage.system_health == null && sage.status === 'offline') {
-                sageOverall = 'OFFLINE';
-            } else if (sage.system_health != null) {
-                if (typeof sage.system_health === 'number') {
-                    if (sage.system_health < 50) sageOverall = 'CRITICAL';
-                    else if (sage.system_health < 80) sageOverall = 'WARNING';
-                    else sageOverall = 'OK';
+        function renderHistorianPanel(historian) {
+            const chip = document.getElementById('p-historian-chip');
+            const body = document.getElementById('historian-body');
+            if (!body) return;
+
+            const status = (historian.status || 'offline').toUpperCase();
+            if (chip) setChip('p-historian-chip', status);
+
+            // Offline — show countdown to next Sunday
+            if (status === 'OFFLINE' || !historian.weekly_reflection) {
+                const now = new Date();
+                const dayOfWeek = now.getDay(); // 0=Sun
+                const daysUntilSunday = dayOfWeek === 0 ? 0 : 7 - dayOfWeek;
+                const nextSunday = new Date(now);
+                nextSunday.setDate(now.getDate() + daysUntilSunday);
+                nextSunday.setHours(21, 30, 0, 0); // 21:30 ICT = 14:30 UTC
+                const diffMs = nextSunday - now;
+                const diffH = Math.floor(diffMs / 3600000);
+                const diffM = Math.floor((diffMs % 3600000) / 60000);
+
+                let countdown;
+                if (diffMs <= 0) {
+                    countdown = 'Generating now…';
+                } else if (diffH >= 24) {
+                    const diffD = Math.floor(diffH / 24);
+                    countdown = `Next report in ${diffD} day${diffD > 1 ? 's' : ''}`;
                 } else {
-                    const sh = String(sage.system_health).toLowerCase();
-                    if (sh.includes('fail') || sh.includes('error') || sh.includes('critical')) sageOverall = 'CRITICAL';
-                    else if (sh.includes('warn') || sh.includes('degraded')) sageOverall = 'WARNING';
+                    countdown = `Next report in ${diffH}h ${diffM}m`;
                 }
+
+                body.innerHTML = `
+                    <div style="padding: 20px 16px; text-align: center;">
+                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">
+                            📜 The Historian compiles weekly system chronicles
+                        </div>
+                        <div style="font-size: 0.78rem; color: var(--text-faint);">
+                            ${countdown} · Sunday 21:30 ICT
+                        </div>
+                    </div>
+                `;
+                return;
             }
 
-            // Sage summary
-            let sageSummary = 'No report found';
-            if (sage.system_health != null) {
-                const healthStr = typeof sage.system_health === 'number' ? `${sage.system_health}/100` : sage.system_health;
-                const anomalyStr = sage.anomalies != null ? (typeof sage.anomalies === 'number' ? `${sage.anomalies} detected` : sage.anomalies) : 'None';
-                sageSummary = escapeHTML(`Health: ${healthStr} | Anomalies: ${anomalyStr}`);
-            } else if (sage.status === 'offline') {
-                sageSummary = 'Sage Agent is currently offline.';
+            // Active — render weekly chronicle
+            let html = '<div style="padding: 0 4px;">';
+
+            // Week header
+            if (historian.week || historian.date_range) {
+                html += `<div style="margin-bottom: 12px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">`;
+                html += `<b style="font-size: 0.9rem;">Week ${escapeHTML(String(historian.week || '—'))}</b>`;
+                if (historian.date_range) {
+                    html += `<span style="color: var(--text-faint); font-size: 0.75rem;">${escapeHTML(historian.date_range)}</span>`;
+                }
+                html += `</div>`;
             }
 
-            // --- Outsider ---
-            let outsiderSummaryText = outsider.quote || (Array.isArray(outsider.observations) && outsider.observations.length > 0 ? outsider.observations[0] : 'No transmission');
-            // Truncate for fleet table if very long
-            if (outsiderSummaryText.length > 200) {
-                outsiderSummaryText = outsiderSummaryText.substring(0, 200) + '…';
-            }
-            let outsiderSummary = escapeHTML(outsiderSummaryText);
-            let outsiderStatusStr = (outsider.status || 'ACTIVE').toUpperCase();
-            if (!outsider.quote && !outsider.observations && !outsider.insight) {
-                outsiderStatusStr = 'OFFLINE';
-            }
-
-            // --- Observer ---
-            let observerSummaryText = '';
-            if (observer.cpu_percent !== undefined) {
-                const gwInfo = observer.gateway ? ` | Gateway: ${observer.gateway.health || '—'} (${observer.gateway.process || '—'})` : '';
-                observerSummaryText = `CPU: ${observer.cpu_percent}% | RAM: ${observer.memory_used_gb}GB / ${observer.memory_total_gb}GB (${observer.memory_percent}%) | Disk: ${observer.disk_used} / ${observer.disk_total} (${observer.disk_percent}) | Network: ${observer.network}${gwInfo}`;
-            } else {
-                observerSummaryText = observer.status === 'unavailable' ? 'Observer telemetry unavailable.' : '—';
+            // Disk trend
+            if (historian.disk_trend || historian.disk_delta != null) {
+                const trend = historian.disk_trend || 'stable';
+                const trendIcon = trend === 'rising' ? '📈' : (trend === 'falling' ? '📉' : '➡️');
+                const trendCls = trend === 'rising' ? 'warn' : (trend === 'falling' ? 'ok' : 'neutral');
+                html += `<div style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">`;
+                html += `<b>Disk Trend:</b> <span class="chip ${trendCls}"><span class="dot-sm"></span>${trendIcon} ${escapeHTML(trend.toUpperCase())}</span>`;
+                if (historian.disk_delta != null) {
+                    html += `<span style="color: var(--text-faint); font-size: 0.75rem;">${historian.disk_delta}</span>`;
+                }
+                html += `</div>`;
             }
 
-            // --- Historian ---
-            const historianStatus = (historian.status || 'OFFLINE').toUpperCase();
-            let historianSummary = 'No weekly analysis available.';
+            // Key events
+            if (Array.isArray(historian.key_events) && historian.key_events.length > 0) {
+                html += `<div style="margin-bottom: 8px;"><b>Key Events</b> <span style="color:var(--text-faint);font-size:0.75rem;">(${historian.key_events.length})</span></div>`;
+                html += `<div class="active-components-box" style="margin-bottom: 12px;">`;
+                historian.key_events.forEach(ev => {
+                    html += `<div class="mb-1 text-main">&rsaquo; ${escapeHTML(typeof ev === 'string' ? ev : (ev.message || ev.event || '—'))}</div>`;
+                });
+                html += `</div>`;
+            }
+
+            // Patterns
+            if (Array.isArray(historian.patterns) && historian.patterns.length > 0) {
+                html += `<div style="margin-bottom: 8px;"><b>Patterns Detected</b> <span style="color:var(--text-faint);font-size:0.75rem;">(${historian.patterns.length})</span></div>`;
+                html += `<div class="active-components-box" style="margin-bottom: 12px;">`;
+                historian.patterns.forEach(p => {
+                    html += `<div class="mb-1 text-main">&rsaquo; ${escapeHTML(typeof p === 'string' ? p : (p.name || p.pattern || '—'))}</div>`;
+                });
+                html += `</div>`;
+            }
+
+            // Weekly reflection
             if (historian.weekly_reflection) {
-                historianSummary = escapeHTML(historian.weekly_reflection);
-            } else if (historian.week) {
-                historianSummary = escapeHTML(`Week: ${historian.week} | ${historian.date_range || '—'}`);
-            } else if (historianStatus === 'OFFLINE') {
-                historianSummary = 'Historian Agent is currently offline.';
+                html += `
+                    <div class="outsider-insight-box" style="margin-top: 12px;">
+                        <span class="insight-label" style="display: block; margin-bottom: 4px;">Weekly Reflection:</span>
+                        <b>${escapeHTML(historian.weekly_reflection)}</b>
+                    </div>
+                `;
             }
 
-            const fleetData = [
-                {
-                    name: 'The Observer',
-                    status: cpuStatusLabel,
-                    summary: escapeHTML(observerSummaryText),
-                    timestamp: observer.timestamp
-                },
-                {
-                    name: 'The Sage',
-                    status: sageOverall,
-                    summary: sageSummary,
-                    timestamp: sage.timestamp
-                },
-                {
-                    name: 'The Outsider',
-                    status: outsiderStatusStr,
-                    summary: outsiderSummary,
-                    timestamp: outsider.timestamp
-                },
-                {
-                    name: 'The Historian',
-                    status: historianStatus,
-                    summary: historianSummary,
-                    timestamp: historian.timestamp
-                }
-            ];
-
-            // Fleet health chip
-            const hasFleetIssues = fleetData.some(a => chipClass(a.status) === 'err' || chipClass(a.status) === 'warn');
-            const fleetChip = document.getElementById('fleet-health-chip');
-            if (fleetChip) {
-                const fleetHealth = hasFleetIssues ? 'ISSUES DETECTED' : 'ALL PASS';
-                const fleetCls = hasFleetIssues ? 'warn' : 'ok';
-                fleetChip.className = `chip ${fleetCls}`;
-                fleetChip.innerHTML = `<span class="dot-sm"></span>${escapeHTML(fleetHealth)}`;
+            // Recommendations
+            if (Array.isArray(historian.recommendations) && historian.recommendations.length > 0) {
+                html += `<div style="margin-top: 12px;"><b>Recommendations</b></div>`;
+                html += `<div class="active-components-box">`;
+                historian.recommendations.forEach(r => {
+                    html += `<div class="mb-1 text-main">&rsaquo; ${escapeHTML(typeof r === 'string' ? r : (r.action || r.recommendation || '—'))}</div>`;
+                });
+                html += `</div>`;
             }
 
+            html += `<div style="margin-top: 12px; font-size: 0.72rem; color: var(--text-faint);">&mdash; Compiled: ${formatTimestamp(historian.timestamp)}</div>`;
+            html += `</div>`;
+            body.innerHTML = html;
+        }
+
+        function renderFleetTable(archivist) {
+            const fleet = (archivist && Array.isArray(archivist.fleet)) ? archivist.fleet : [];
             const auditTableBody = document.getElementById('audit-table-body');
-            if (auditTableBody) {
-                auditTableBody.innerHTML = fleetData.map(agent => {
-                    const cls = chipClass(agent.status);
-                    const dot = cls === 'ok' ? 'ok' : (cls === 'warn' ? 'warn' : 'err');
-                    return `
-                        <tr>
-                            <td>
-                                <div class="audit-agent-cell">
-                                    <span class="agent-indicator ${dot}" aria-hidden="true"></span>
-                                    <span class="agent-name">${escapeHTML(agent.name)}</span>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(agent.status)}</span>
-                            </td>
-                            <td>
-                                <div class="agent-analysis" onclick="this.classList.toggle('expanded')" title="Click to expand/collapse">${agent.summary}</div>
-                            </td>
-                            <td>
-                                <div class="audit-technical-cell">${formatTimestamp(agent.timestamp)}</div>
-                            </td>
-                        </tr>`;
-                }).join('');
+            if (!auditTableBody) return;
+
+            if (fleet.length === 0) {
+                auditTableBody.innerHTML = `<tr><td colspan="4" style="padding: 24px; text-align: center; color: var(--text-muted);">No fleet data available — awaiting ARCHIVIST sync</td></tr>`;
+                return;
             }
+
+            // Sort: errors first, then by name
+            const sorted = [...fleet].sort((a, b) => {
+                const aErr = a.status === 'ERROR' || a.status === 'NULL' ? 0 : 1;
+                const bErr = b.status === 'ERROR' || b.status === 'NULL' ? 0 : 1;
+                if (aErr !== bErr) return aErr - bErr;
+                return (a.name || '').localeCompare(b.name || '');
+            });
+
+            auditTableBody.innerHTML = sorted.map(agent => {
+                const statusStr = (agent.status || 'UNKNOWN').toUpperCase();
+                const cls = chipClass(statusStr);
+                const dot = cls === 'ok' ? 'ok' : (cls === 'warn' ? 'warn' : 'err');
+
+                // Clean agent name — strip [THE ...] brackets for display
+                const cleanName = (agent.name || 'Unknown')
+                    .replace(/^\[THE\s+/, '')
+                    .replace(/\]$/, '');
+
+                // Delivery column
+                let deliveryHtml;
+                if (agent.delivery_error) {
+                    const errText = String(agent.delivery_error);
+                    const shortErr = errText.length > 60 ? errText.substring(0, 60) + '…' : errText;
+                    deliveryHtml = `<span class="chip err" style="font-size:0.65rem;" title="${escapeHTML(errText)}"><span class="dot-sm"></span>${escapeHTML(shortErr)}</span>`;
+                } else if (statusStr === 'NULL') {
+                    deliveryHtml = `<span style="color: var(--text-faint); font-size: 0.75rem;">Never executed</span>`;
+                } else {
+                    deliveryHtml = `<span style="color: var(--state-ok); font-size: 0.75rem;">✓ OK</span>`;
+                }
+
+                return `
+                    <tr>
+                        <td>
+                            <div class="audit-agent-cell">
+                                <span class="agent-indicator ${dot}" aria-hidden="true"></span>
+                                <span class="agent-name">${escapeHTML(cleanName)}</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(statusStr)}</span>
+                        </td>
+                        <td>
+                            <div class="audit-technical-cell">${formatTimestamp(agent.last_run)}</div>
+                        </td>
+                        <td>${deliveryHtml}</td>
+                    </tr>`;
+            }).join('');
         }
 
         // Footer year

@@ -170,7 +170,7 @@
                 </div><!-- /vitals-strip -->
 
                 <!-- MAIN PANEL GRID (2-column) -->
-                                <div class="main-grid fade-up d2">
+                <div class="main-grid fade-up d2">
 
                     <!-- === Row 1: The Outsider === -->
                     <div class="panel span-2 fade-up d2" id="panel-outsider">
@@ -181,8 +181,19 @@
                         </div>
                     </div>
 
-                    <!-- === Row 2: The Sage === -->
-                    <div class="panel span-2 fade-up d3 content-deferred" id="panel-sage">
+                    <!-- === Row 2: The Historian === -->
+                    <div class="panel span-2 fade-up d3 content-deferred" id="panel-historian">
+                        <div class="panel-head">
+                            <div class="panel-title">The Historian</div>
+                            <div id="p-historian-chip" class="chip neutral"><span class="dot-sm"></span>OFFLINE</div>
+                        </div>
+                        <div class="panel-body" id="historian-body">
+                            <div style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">Next report: Sunday 21:30 ICT</div>
+                        </div>
+                    </div>
+
+                    <!-- === Row 3: The Sage === -->
+                    <div class="panel span-2 fade-up d4 content-deferred" id="panel-sage">
                         <div class="panel-head">
                             <div class="panel-title">The Sage</div>
                             <div id="p-sage-chip" class="chip ok"><span class="dot-sm"></span>STABLE</div>
@@ -195,23 +206,18 @@
                 </div><!-- /main-grid -->
 
                 <!-- FLEET OVERVIEW TABLE -->
-                <div class="audit-table-wrapper fade-up d4 content-deferred" style="margin-top: 32px;">
+                <div class="audit-table-wrapper fade-up d5 content-deferred" style="margin-top: 32px;">
                     <table class="audit-table">
                         <thead>
                             <tr>
-                                <th style="width: 16%;">Agent</th>
-                                <th style="width: 10%;">Status</th>
-                                <th style="width: 56%;">
-                                    <div style="display: flex; align-items: center; gap: 8px;">
-                                        <span>Summary</span>
-                                        <span id="fleet-health-chip" class="chip ok"><span class="dot-sm"></span>ALL PASS</span>
-                                    </div>
-                                </th>
-                                <th style="width: 18%;">Timestamp</th>
+                                <th style="width: 22%;">Agent</th>
+                                <th style="width: 12%;">Status</th>
+                                <th style="width: 28%;">Last Run</th>
+                                <th style="width: 38%;">Delivery</th>
                             </tr>
                         </thead>
                         <tbody id="audit-table-body">
-                            <!-- Rendered dynamically -->
+                            <!-- Rendered dynamically from ARCHIVIST ledger -->
                         </tbody>
                     </table>
                 </div>
