@@ -1,79 +1,93 @@
 [
   {
     "date": "14 Jun",
-    "title": "A comparative study of targeted end-tidal carbon dioxide versus standard management to guide resuscitation in emergency department cardiac arrest in Thailand: study protocol for a three-arm randomised controlled trial",
-    "comment": "โปรโตคอล RCT การใช้ ETCO2 ไกด์ CPR ใน ER อาจเปลี่ยนแนวทางการกู้ชีพในอนาคต",
-    "pmid": "42286753",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42286753/"
-  },
-  {
-    "date": "14 Jun",
-    "title": "Predictive value of critical illness scores for outcomes of patients with community-acquired pneumonia: analysis of critical care data from the MIMIC-IV database",
-    "comment": "เปรียบเทียบ clinical score ต่างๆ ในการประเมินความเสี่ยงผู้ป่วยปอดอักเสบ ช่วยในการตัดสินใจ admit",
-    "pmid": "42286540",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42286540/"
-  },
-  {
-    "date": "14 Jun",
-    "title": "Diagnostic discordance and differential diagnoses of community-acquired pneumonia in the emergency department",
-    "comment": "ชี้ให้เห็นข้อผิดพลาดในการวินิจฉัย CAP ที่พบบ่อยใน ER ช่วยลด diagnostic error",
-    "pmid": "42286498",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42286498/"
-  },
-  {
-    "date": "14 Jun",
-    "title": "Beta-lactam de-labelling as a core antimicrobial stewardship strategy in the era of the antimicrobial resistance pandemic: a narrative review",
-    "comment": "สนับสนุนการทำ de-labelling ผู้ป่วยที่เคยแพ้ยา beta-lactam เพื่อเพิ่มทางเลือกการใช้ยาปฏิชีวนะ",
+    "title": "Beta-lactam de-labelling as a core antimicrobial stewardship strategy in the era of the antimicrobial resistance pandemic: a narrative review.",
+    "comment": "ทบทวนความสำคัญและวิธี de-labelling การแพ้ penicillin ใน ER เพื่อการใช้ยาปฏิชีวนะที่เหมาะสม",
     "pmid": "42286950",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42286950/"
   },
   {
     "date": "14 Jun",
-    "title": "Automated alert system and collaborative workflow improve treatment adherence and clinical outcomes in emergency care for acute pancreatitis: A quality improvement project",
-    "comment": "ระบบแจ้งเตือนอัตโนมัติช่วยให้การดูแลผู้ป่วยตับอ่อนอักเสบเฉียบพลันดีขึ้น เป็นแนวทางพัฒนาระบบใน ER",
+    "title": "Feasibility of a nurse-led patch-type electroencephalography monitoring protocol with arterial spin labeling in patients with severe traumatic brain injury: a prospective observational study.",
+    "comment": "เสนอ patch-type EEG สำหรับติดตามผู้ป่วย TBI ใน ER เป็นเครื่องมือใหม่ที่ใช้งานง่ายขึ้น",
+    "pmid": "42286780",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42286780/"
+  },
+  {
+    "date": "14 Jun",
+    "title": "A comparative study of targeted end-tidal carbon dioxide versus standard management to guide resuscitation in emergency department cardiac arrest in Thailand: study protocol for a three-arm randomised controlled trial.",
+    "comment": "Protocol การศึกษา RCT สำคัญ เปรียบเทียบ ETCO2-guided CPR ซึ่งอาจเปลี่ยนแนวทาง ACLS ในอนาคต",
+    "pmid": "42286753",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42286753/"
+  },
+  {
+    "date": "14 Jun",
+    "title": "Predictive value of critical illness scores for outcomes of patients with community-acquired pneumonia: analysis of critical care data from the MIMIC-IV database.",
+    "comment": "วิเคราะห์เปรียบเทียบความแม่นยำของ scoring systems ต่างๆ สำหรับ CAP ช่วยในการตัดสินใจ disposition ผู้ป่วย",
+    "pmid": "42286540",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42286540/"
+  },
+  {
+    "date": "14 Jun",
+    "title": "Diagnostic discordance and differential diagnoses of community-acquired pneumonia in the emergency department.",
+    "comment": "CAP เป็นการวินิจฉัยที่ผิดบ่อยใน ER บทความนี้ทบทวนข้อผิดพลาดและ differential diagnosis ที่สำคัญ",
+    "pmid": "42286498",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42286498/"
+  },
+  {
+    "date": "14 Jun",
+    "title": "Real-World Data on the Use of Intravenous Fosfomycin for the Treatment of Central Nervous System Infections: a Subgroup Analysis from the FORTRESS Study.",
+    "comment": "เสนอข้อมูลการใช้ IV fosfomycin รักษา CNS infection เป็นทางเลือกสำคัญในยุคเชื้อดื้อยา",
+    "pmid": "42286374",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42286374/"
+  },
+  {
+    "date": "14 Jun",
+    "title": "An autonomous AI agent for knowledge and data cooperation in ED clinical decision support.",
+    "comment": "นำเสนอ AI agent สำหรับช่วยตัดสินใจทางคลินิกใน ER มีศักยภาพเปลี่ยน workflow ในอนาคต",
+    "pmid": "42286154",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42286154/"
+  },
+  {
+    "date": "14 Jun",
+    "title": "Automated alert system and collaborative workflow improve treatment adherence and clinical outcomes in emergency care for acute pancreatitis: A quality improvement project.",
+    "comment": "ระบบแจ้งเตือนอัตโนมัติและ workflow ที่ดีขึ้น ช่วยเพิ่มคุณภาพการดูแลผู้ป่วย acute pancreatitis ได้จริง",
     "pmid": "42285884",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42285884/"
   },
   {
     "date": "14 Jun",
-    "title": "More than meets the eye: the continuing importance of tertiary trauma survey even in moderate (ISS 9-15) trauma",
-    "comment": "ย้ำเตือนความสำคัญของ tertiary survey แม้ในผู้ป่วย trauma ที่ดูไม่รุนแรง เพื่อป้องกัน missed injury",
+    "title": "More than meets the eye: the continuing importance of tertiary trauma survey even in moderate (ISS 9-15) trauma.",
+    "comment": "ย้ำความสำคัญของ tertiary survey แม้ใน moderate trauma เพื่อลด missed injury ที่เป็นอันตราย",
     "pmid": "42285813",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42285813/"
   },
   {
     "date": "14 Jun",
-    "title": "The Influence of Hypocalcaemia on Trauma Patients Experiencing Post-Induction Hypotension: A Retrospective Observational Study",
-    "comment": "Hypocalcemia สัมพันธ์กับความดันตกหลังใส่ท่อในผู้ป่วย Trauma อาจต้องเช็ค/ให้แคลเซียมก่อน RSI",
+    "title": "The Influence of Hypocalcaemia on Trauma Patients Experiencing Post-Induction Hypotension: A Retrospective Observational Study.",
+    "comment": "Hypocalcemia สัมพันธ์กับ PIH ในผู้ป่วย trauma ควรตรวจและแก้ไขก่อน RSI เพื่อลดความเสี่ยง",
     "pmid": "42285729",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42285729/"
   },
   {
     "date": "14 Jun",
     "title": "How ominous are persistent pain and hypertension for uncomplicated Type B aortic dissections?",
-    "comment": "อาการปวดและความดันสูงต่อเนื่องใน Type B dissection เป็นสัญญาณอันตราย อาจต้องพิจารณา intervention",
+    "comment": "ชี้ว่าอาการปวดและความดันสูงต่อเนื่องใน uTBAD เป็นสัญญาณอันตราย อาจต้องเปลี่ยนแผนการรักษา",
     "pmid": "42285639",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42285639/"
   },
   {
     "date": "14 Jun",
-    "title": "Difficult intravenous access (DIVA) in the adult population: an umbrella review",
-    "comment": "รวบรวมหลักฐานระดับสูงเกี่ยวกับภาวะเปิดเส้นเลือดยาก (DIVA) เพื่อปรับปรุงเทคนิคและการจัดการใน ER",
+    "title": "Difficult intravenous access (DIVA) in the adult population: an umbrella review.",
+    "comment": "สรุปหลักฐานระดับสูงเรื่องการประเมินและจัดการภาวะเปิดเส้นเลือดดำยาก (DIVA) ปัญหาที่พบบ่อยใน ER",
     "pmid": "42285580",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42285580/"
   },
   {
     "date": "14 Jun",
-    "title": "Endovascular intervention for acute stroke in the very late window: A meta-analysis of 90-day mRS and procedural outcomes",
-    "comment": "Meta-analysis ขยายกรอบเวลาการทำ thrombectomy ใน stroke อาจเปลี่ยนเกณฑ์การส่งต่อผู้ป่วย",
+    "title": "Endovascular intervention for acute stroke in the very late window: A meta-analysis of 90-day mRS and procedural outcomes.",
+    "comment": "Meta-analysis ยืนยันประโยชน์ของ thrombectomy ในผู้ป่วย stroke นอก window ปกติ กระทบการคัดกรองผู้ป่วย",
     "pmid": "42284631",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42284631/"
-  },
-  {
-    "date": "14 Jun",
-    "title": "Bispecific antibody therapy in multiple myeloma and risk of progressive multifocal leukoencephalopathy",
-    "comment": "สัญญาณความเสี่ยง (Safety Signal) ของ PML ในผู้ป่วยที่ได้รับยา biologic รุ่นใหม่ แพทย์ ER ควรรู้",
-    "pmid": "42284702",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42284702/"
   }
 ]
