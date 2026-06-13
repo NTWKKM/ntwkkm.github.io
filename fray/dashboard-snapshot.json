@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-13T17:43:50.865233Z",
+  "timestamp": "2026-06-13T17:52:43.853093Z",
   "observer": {
     "status": "ok",
     "cpu_percent": 20.14,
@@ -24,10 +24,11 @@
   "sage": {
     "status": "ok",
     "timestamp": "2026-06-13T06:45:00Z",
-    "system_health": 77,
+    "system_health": 54,
     "active_components": [
       "observer_status",
       "archivist_status",
+      "outsider_status",
       "companion_status",
       "herald_status",
       "curator_status"
@@ -87,5 +88,71 @@
     "key_events": [],
     "weekly_reflection": null,
     "recommendations": []
+  },
+  "archivist": {
+    "status": "ok",
+    "timestamp": "2026-06-12T23:20:40.122661+00:00Z",
+    "fleet": [
+      {
+        "name": "[THE SAGE] System Reflection & Audit",
+        "status": "OK",
+        "last_run": "2026-06-12T06:48:02.864387+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "THE OUTSIDER",
+        "status": "OK",
+        "last_run": "2026-06-13T05:01:37.964984+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE CURATOR] System Sanitization",
+        "status": "OK",
+        "last_run": "2026-06-12T22:01:56.544032+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE SCRIBE] Obsidian Knowledge Sync",
+        "status": "OK",
+        "last_run": "2026-06-12T21:00:07.239254+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE OBSERVER] Health & Metrics Sync",
+        "status": "OK",
+        "last_run": "2026-06-13T06:00:40.625470+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE HERALD] dashboard Sync (Hard-coded)",
+        "status": "OK",
+        "last_run": "2026-06-12T21:46:12.097387+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE WARDEN] System Backup",
+        "status": "OK",
+        "last_run": "2026-06-13T03:01:28.397230+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE ARCHIVIST] Operational Ledger Sync",
+        "status": "OK",
+        "last_run": "2026-06-12T06:20:37.754993+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE COMPANION] Daily Briefing + Coffee Research",
+        "status": "OK",
+        "last_run": "2026-06-12T06:34:02.853285+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE HISTORIAN] Weekly System Chronicle",
+        "status": "NULL",
+        "last_run": null,
+        "delivery_error": null
+      }
+    ]
   }
 }
