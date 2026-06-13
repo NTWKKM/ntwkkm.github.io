@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-13T17:52:43.853093Z",
+  "timestamp": "2026-06-13T18:09:43.113012Z",
   "observer": {
     "status": "ok",
-    "cpu_percent": 20.14,
-    "memory_used_gb": 3.46,
+    "cpu_percent": 19.13,
+    "memory_used_gb": 3.14,
     "memory_total_gb": 16,
-    "memory_percent": 21.6,
+    "memory_percent": 19.7,
     "disk_used": "157Gi",
     "disk_total": "228Gi",
     "disk_percent": "78%",
@@ -18,7 +18,19 @@
     "gateway": {
       "health": "healthy",
       "process": "running",
-      "telegram_connected": true
+      "telegram_connected": true,
+      "log_fresh": true
+    },
+    "token_usage": {
+      "daily_estimate": 3163,
+      "monthly_burn": 3163,
+      "monthly_quota": 2500000,
+      "quota_percent": 0.1
+    },
+    "disk_trend": {
+      "trend": "stable",
+      "delta_gi": null,
+      "previous_used": null
     }
   },
   "sage": {
@@ -154,5 +166,34 @@
         "delivery_error": null
       }
     ]
+  },
+  "companion": {
+    "status": "ok",
+    "timestamp": "2026-06-13T04:00:00Z",
+    "calendar_today": [
+      "R บ (ตลอดวัน)"
+    ],
+    "gmail_summary": "อีเมลที่ยังไม่ได้อ่านใน 24 ชม.ที่ผ่านมา 10 ฉบับ ส่วนใหญ่เป็น newsletter และแจ้งเตือนระบบ — AI Garage Weekly (Hermes Desktop App, Claude Fable), Railway (Docker in Sandboxes, CLI updates), Kilo Team (5 Launches), GitHub (Microsoft OAuth authorized), Microsoft (passkey added), Healthchecks.io (n8n UP), รวมถึงโปรโมชั่น Letterboxd, iHerb, TradingView, Steam ไม่มีอีเมลส่วนตัวที่ต้องตอบกลับ",
+    "coffee_research": [
+      {
+        "title": "Coffee Circle และ Bean Voyage คว้ารางวัล SCA Sustainability Awards 2026",
+        "url": "https://dailycoffeenews.com/2026/04/02/coffee-circle-and-bean-voyage-win-2026-sca-sustainability-awards/",
+        "source": "Daily Coffee News",
+        "summary": "SCA ประกาศผู้ชนะรางวัลความยั่งยืนประจำปี 2026 ในงาน World of Coffee San Diego — Coffee Circle (Berlin) ชนะประเภท for-profit ด้วยเม็ดเงินลงทุนกว่า €5 ล้านในแหล่งปลูกกาแฟตลอด 15 ปี และบริจาค €1 ต่อกิโลกรัมที่ขายเข้าสู่มูลนิธิ ส่วน Bean Voyage (Costa Rica) ชนะประเภท nonprofit โดยเชื่อมต่อเกษตรกรหญิงกว่า 1,300 รายเข้ากับตลาดโดยตรง สร้างรายได้ $1.4 ล้าน"
+      },
+      {
+        "title": "ความท้าทายใหญ่ของอุตสาหกรรมกาแฟพิเศษในปี 2026",
+        "url": "https://coffeegreenbeans.com/blogs/forest-blog/biggest-challenges-for-the-specialty-coffee-industry-in-2026",
+        "source": "Forest Coffee Blog",
+        "summary": "Forest Coffee วิเคราะห์ 8 ความท้าทายหลักที่อุตสาหกรรมกาแฟพิเศษเผชิญในปี 2026 — ความผันผวนของสภาพภูมิอากาศที่ส่งผลต่อผลผลิตและคุณภาพ cup profile ความไม่สอดคล้องของราคา C-market กับต้นทุนการผลิตจริง ต้นทุนปัจจัยการผลิตที่สูงขึ้น ความท้าทายด้านการถ่ายทอดสู่เกษตรกรรุ่นใหม่ ภาวะ consumer fatigue ในตลาด成熟 กฎระเบียบ EU ด้าน sustainability ใหม่ และความสมดุลระหว่างนวัตกรรมการหมักกับ authenticity ของ terroir"
+      },
+      {
+        "title": "งานวิจัยเผย การหมักแบบไม่ใช้ออกซิเจนเปลี่ยนเมล็ดดิบให้เป็นกาแฟ specialty grade",
+        "url": "https://www.foodmanufacturing.com/ingredients/news/22948207/fermentation-method-transforms-unripe-fruits-into-specialty-coffees",
+        "source": "Food Manufacturing",
+        "summary": "นักวิจัยจาก Federal University of Uberlândia ประเทศบราซิล ค้นพบว่าการหมักแบบ self-induced anaerobic fermentation (SIAF) สามารถเปลี่ยนเมล็ดกาแฟดิบ (unripe/green bean) ที่ปกติให้รสฝาดและถูกคัดทิ้ง ให้กลายเป็นกาแฟคุณภาพ specialty coffee ด้วยคะแนนคัพบวกกว่า 80 คะแนน โดยใช้ bioreactor ขนาด 200 ลิตร ควบคุมอุณหภูมิที่ 27°C เป็นเวลา 24-96 ชั่วโมง งานวิจัยนี้ตีพิมพ์ใน Food and Bioprocess Technology และสามารถเพิ่มมูลค่าให้ผลผลิตที่เคยถูกทิ้งเป็น waste"
+      }
+    ],
+    "system_note": "Google Workspace authenticated successfully. Python 3.9 deprecation warnings present (non-blocking, but upgrade to Python 3.10+ recommended). Today is Saturday — calendar shows 1 all-day event (R บ). Gmail: 10 unread, no urgent personal emails."
   }
 }
