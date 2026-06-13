@@ -40,12 +40,15 @@
         }
 
         // Keep setBar smooth and proportional
-        function setBar(id, pct) {
+        // skipBadge: when true, only set bar width — caller handles badge with domain logic
+        function setBar(id, pct, skipBadge) {
             const el = document.getElementById(id);
             if (!el) return;
             const clamped = Math.min(100, Math.max(0, pct || 0));
             el.style.width = clamped + '%';
             
+            if (skipBadge) return;
+
             const badgeId = id.replace('-bar', '-badge');
             if (id === 'v-n8n-bar') {
                 if (clamped >= 50) {
@@ -168,7 +171,7 @@
 
             // Show empty state in panels
             setVal('banner-timestamp', `No data for ${dateStr}`);
-            document.querySelectorAll('.panel-body').forEach(el => {
+            document.querySelectorAll('#dash-content .panel-body').forEach(el => {
                 el.innerHTML = `<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.85rem;">No snapshot available for ${dateStr}</div>`;
             });
             const auditBody = document.getElementById('audit-table-body');
@@ -317,7 +320,6 @@
             const diskPctStr  = observer.disk_percent || '0%';
             const diskPct     = parsePct(diskPctStr);
             setVal('v-disk', diskPctStr);
-            setVal('v-disk-sub', `Used: ${diskUsed} / ${diskTotal}`);
             setBar('v-disk-bar', diskPct);
 
             // --- Network ---
@@ -402,7 +404,15 @@
             const dailyEst = token.daily_estimate || 0;
             setVal('v-token', `${quotaPct.toFixed(1)}%`);
             setVal('v-token-sub', `${formatNumber(monthlyBurn)} / ${formatNumber(token.monthly_quota || 2500000)} · ~${formatNumber(dailyEst)}/day`);
-            setBar('v-token-bar', quotaPct);
+            setBar('v-token-bar', quotaPct, true);
+            // Domain-specific token badge: 33/66% bands
+            if (quotaPct > 66) {
+                setChip('v-token-badge', 'CRITICAL');
+            } else if (quotaPct > 33) {
+                setChip('v-token-badge', 'WARNING');
+            } else {
+                setChip('v-token-badge', 'NOMINAL');
+            }
 
             // --- Disk Trend ---
             const dt = observer.disk_trend || {};
@@ -612,7 +622,7 @@
                     html += `
                         <div class="sage-alert-card" style="margin-bottom: 8px;">
                             <div style="font-weight: 600; margin-bottom: 4px;">
-                                ${url ? `<a href="${escapeHTML(url)}" target="_blank" rel="noopener" style="color: var(--primary);">${escapeHTML(title)}</a>` : escapeHTML(title)}
+                                ${url ? `<a href="${sanitizeURL(url)}" target="_blank" rel="noopener" style="color: var(--primary);">${escapeHTML(title)}</a>` : escapeHTML(title)}
                                 ${source ? `<span style="color: var(--text-faint); font-size: 0.7rem; margin-left: 6px;">— ${escapeHTML(source)}</span>` : ''}
                             </div>
                             <div style="font-size: 0.78rem; color: var(--text-secondary);">${escapeHTML(summary)}</div>

@@ -124,6 +124,8 @@
         .d2 { animation-delay: 0.12s; }
         .d3 { animation-delay: 0.20s; }
         .d4 { animation-delay: 0.28s; }
+        .d5 { animation-delay: 0.36s; }
+        .d6 { animation-delay: 0.44s; }
 
         /* ====================================================
            HEADER & NAV (COMPACT)
@@ -418,7 +420,6 @@
         .day-tab.missing {
             opacity: 0.4;
             cursor: not-allowed;
-            pointer-events: none;
         }
 
         .vital-card {
@@ -1133,7 +1134,7 @@
     margin-top: 10px; font-size: 0.85rem; color: var(--text-muted);
 }
 .active-components-box {
-    background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px 12px; margin-bottom: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; overflow-x: auto; white-space: nowrap;
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px 12px; margin-bottom: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; overflow-x: auto; white-space: normal;
 }
 .alerts-box {
     background: var(--state-err-bg); border: 1px solid var(--state-err-border); border-radius: var(--radius-sm); padding: 8px 12px;
