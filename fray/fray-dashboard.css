@@ -375,7 +375,7 @@
         ==================================================== */
         .vitals-strip {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 14px;
             margin-bottom: 24px;
         }
@@ -980,7 +980,7 @@
            RESPONSIVE
         ==================================================== */
         @media (max-width: 1024px) {
-            .vitals-strip { grid-template-columns: repeat(2, 1fr); }
+            .vitals-strip { grid-template-columns: repeat(3, 1fr); }
             .main-grid    { grid-template-columns: 1fr 1fr; }
             .span-2       { grid-column: span 2; }
             .span-3       { grid-column: span 2; }
@@ -1117,3 +1117,88 @@
 .mb-1 { margin-bottom: 4px; }
 .mb-2 { margin-bottom: 8px; }
 .mt-1 { margin-top: 4px; }
+
+/* ====================================================
+   SAGE HEALTH GAUGE
+==================================================== */
+.sage-health-gauge {
+    margin-bottom: 16px;
+}
+.sage-health-score-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+.sage-health-score {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1;
+}
+.sage-health-label {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-faint);
+    margin-right: 8px;
+}
+
+/* ====================================================
+   SAGE ALERT CARDS
+==================================================== */
+.sage-alerts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+.sage-alerts-list::-webkit-scrollbar {
+    width: 4px;
+}
+.sage-alerts-list::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 2px;
+}
+.sage-alert-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    transition: border-color 0.2s ease;
+}
+.sage-alert-card:hover {
+    border-color: var(--border-strong);
+}
+.sage-alert-critical {
+    border-left: 3px solid var(--state-err);
+    background: var(--state-err-bg);
+}
+.sage-alert-warning {
+    border-left: 3px solid var(--state-warn);
+    background: var(--state-warn-bg);
+}
+.sage-alert-info {
+    border-left: 3px solid var(--state-neutral);
+}
+.sage-alert-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+.sage-alert-component {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-main);
+}
+.sage-alert-msg {
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+}

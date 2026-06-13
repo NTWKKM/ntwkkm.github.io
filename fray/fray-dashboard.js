@@ -5,7 +5,7 @@
         // Status classification constants (module-level for performance)
         const OK_SET   = new Set(['OK','NOMINAL','LOW','NORMAL','CLOSED','UNLOCKED','ACTIVE','ONLINE','HEALTHY','STABLE','FULL','OPEN_GOOD','PASS','RUNNING','CONSISTENT']);
         const WARN_SET = new Set(['WARNING','MODERATE','DEGRADED','STRESSED','MEDIUM','ALERT','SATURATED','STALE']);
-        const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR','DOWN','FAILED','UNREACHABLE','FAIL','UNHEALTHY','UNAVAILABLE']);
+        const ERR_SET  = new Set(['CRITICAL','HIGH','TIMEOUT','OVERHEATED','LOCKED','OPEN','OFFLINE','ERROR','DOWN','FAILED','UNREACHABLE','FAIL','UNHEALTHY','UNAVAILABLE','STOPPED']);
 
         function chipClass(val) {
             if (!val) return 'neutral';
@@ -170,23 +170,41 @@
 
         function renderDashboard(data) {
             // ---- EXTRACT TOP-LEVEL SECTIONS ----
-            const observer  = data.observer  || {};
-            const sage      = data.sage      || {};
-            const outsider  = data.outsider  || {};
+            const observer   = data.observer   || {};
+            const sage       = data.sage       || {};
+            const outsider   = data.outsider   || {};
+            const historian  = data.historian   || {};
+            const gateway    = observer.gateway  || {};
 
             // ---- BANNER TIMESTAMP ----
             const rootTs = data.timestamp || observer.timestamp || sage.timestamp || '—';
             setVal('banner-timestamp', formatTimestamp(rootTs));
 
             // ============================================================
-            // OVERALL HEALTH — derive from observer
+            // OVERALL HEALTH — derive from observer + sage critical alerts
             // ============================================================
             let overallHealth = 'STABLE';
-            if (observer.n8n_heartbeat?.status && String(observer.n8n_heartbeat.status).toLowerCase().includes('error')) {
+
+            // Check n8n heartbeat
+            const n8nStatus = String(observer.n8n_heartbeat?.status || '').toLowerCase();
+            const n8nHealth = String(observer.n8n_heartbeat?.health || '').toLowerCase();
+            if (n8nStatus.includes('error') || n8nHealth.includes('error')) {
                 overallHealth = 'ERROR';
             }
-            if (observer.n8n_heartbeat?.health && String(observer.n8n_heartbeat.health).toLowerCase().includes('error')) {
-                overallHealth = 'ERROR';
+
+            // Check gateway health
+            const gwHealth = String(gateway.health || '').toLowerCase();
+            const gwProcess = String(gateway.process || '').toLowerCase();
+            if (gwHealth.includes('unhealthy') || gwProcess === 'stopped') {
+                overallHealth = 'DEGRADED';
+            }
+
+            // Check sage critical alerts — any critical alert downgrades overall health
+            if (Array.isArray(sage.alerts)) {
+                const hasCritical = sage.alerts.some(a => a && a.severity === 'critical');
+                const hasWarning  = sage.alerts.some(a => a && a.severity === 'warning');
+                if (hasCritical) overallHealth = 'CRITICAL';
+                else if (hasWarning && overallHealth === 'STABLE') overallHealth = 'WARNING';
             }
 
             // Header title
@@ -204,7 +222,7 @@
             const cpuUsage = renderVitals(observer);
             renderSagePanel(sage);
             renderOutsiderPanel(outsider);
-            renderFleetTable(observer, sage, outsider, cpuUsage);
+            renderFleetTable(observer, sage, outsider, historian, cpuUsage);
         }
 
         function renderVitals(observer) {
@@ -251,9 +269,8 @@
             // --- n8n Heartbeat ---
             const n8nHb     = observer.n8n_heartbeat || {};
             const n8nHealth = n8nHb.health || 'Unknown';
-            const statusCode = n8nHb.status_code ? `Code: ${n8nHb.status_code}` : '';
-            const attempts   = n8nHb.attempts ? `Attempts: ${n8nHb.attempts}` : '';
-            const n8nResp    = [statusCode, attempts].filter(Boolean).join(' · ') || '—';
+            const n8nStatus = n8nHb.status || '';
+            const n8nResp   = n8nStatus ? `Status: ${n8nStatus}` : '—';
             
             setVal('v-n8n', n8nHealth);
             setVal('v-n8n-sub', n8nResp);
@@ -273,6 +290,33 @@
                 setChip('v-n8n-badge', badgeStatus);
             }
 
+            // --- Gateway ---
+            const gw = observer.gateway || {};
+            const gwHealthStr = (gw.health || 'Unknown').toUpperCase();
+            const gwProcess   = (gw.process || 'unknown');
+            const gwTelegram  = gw.telegram_connected;
+            const gwSubParts  = [
+                `Process: ${gwProcess}`,
+                gwTelegram != null ? `Telegram: ${gwTelegram ? 'connected' : 'disconnected'}` : ''
+            ].filter(Boolean).join(' · ');
+
+            setVal('v-gateway', gwHealthStr);
+            setVal('v-gateway-sub', gwSubParts || '—');
+
+            const gwBarEl = document.getElementById('v-gateway-bar');
+            if (gwBarEl) {
+                gwBarEl.style.width = '100%';
+                const gwCls = chipClass(gwHealthStr);
+                if (gwCls === 'ok') {
+                    gwBarEl.className = 'vital-bar-fill green';
+                } else if (gwCls === 'warn') {
+                    gwBarEl.className = 'vital-bar-fill amber';
+                } else {
+                    gwBarEl.className = 'vital-bar-fill red';
+                }
+                setChip('v-gateway-badge', gwHealthStr);
+            }
+
             return cpuUsage;
         }
 
@@ -285,56 +329,102 @@
             
             let html = '<div style="padding: 0 4px;">';
             
-            if (sageOverall === 'OFFLINE' && !sage.system_health && !sage.active_components) {
+            if (sageOverall === 'OFFLINE' && sage.system_health == null && !sage.active_components) {
                 html += `
                     <div class="sage-offline-text">
                         Sage Agent is currently offline.
                     </div>
                 `;
             } else {
-                html += `
-                    <div class="sage-header">
-                        <span class="insight-label" class="mb-0">Status:</span>
-                        <span class="mono" style="font-size: 0.75rem; color: var(--text-muted);">System Health Assessment</span>
-                    </div>
-                `;
-                
-                // Sage status detail metrics
-                html += `<div class="sage-metrics">`;
-                
-                if (sage.system_health) {
-                    const healthCls = sage.system_health.toLowerCase().includes('degraded') ? 'warn' : 'ok';
-                    html += `<div class="mb-2"><b>System Health:</b> <span class="chip ${healthCls}" class="chip-scale"><span class="dot-sm"></span>${escapeHTML(sage.system_health)}</span></div>`;
+                // --- System Health (numeric or string) ---
+                const healthVal = sage.system_health;
+                if (healthVal != null) {
+                    if (typeof healthVal === 'number') {
+                        // Numeric health score — render gauge
+                        const healthCls = healthVal >= 80 ? 'ok' : (healthVal >= 50 ? 'warn' : 'err');
+                        const healthLabel = healthVal >= 80 ? 'HEALTHY' : (healthVal >= 50 ? 'DEGRADED' : 'CRITICAL');
+                        html += `
+                            <div class="sage-health-gauge">
+                                <div class="sage-health-score-row">
+                                    <span class="sage-health-score">${healthVal}</span>
+                                    <span class="sage-health-label">/100</span>
+                                    <span class="chip ${healthCls} chip-scale"><span class="dot-sm"></span>${healthLabel}</span>
+                                </div>
+                                <div class="vital-bar-track" style="margin-top: 8px; height: 6px;">
+                                    <div class="vital-bar-fill ${healthCls === 'ok' ? 'green' : (healthCls === 'warn' ? 'amber' : 'red')}" style="width: ${Math.min(100, healthVal)}%"></div>
+                                </div>
+                                <div style="font-size: 0.72rem; color: var(--text-faint); margin-top: 4px;">System Health Score</div>
+                            </div>
+                        `;
+                    } else {
+                        // String-based health (legacy)
+                        const healthCls = String(healthVal).toLowerCase().includes('degraded') ? 'warn' : 'ok';
+                        html += `<div class="mb-2"><b>System Health:</b> <span class="chip ${healthCls} chip-scale"><span class="dot-sm"></span>${escapeHTML(String(healthVal))}</span></div>`;
+                    }
                 }
                 
+                // --- Active Components ---
                 if (Array.isArray(sage.active_components) && sage.active_components.length > 0) {
-                    html += `<div class="mb-2"><b>Active Components:</b></div>`;
+                    html += `<div class="mb-2" style="margin-top: 12px;"><b>Active Components</b> <span style="color:var(--text-faint);font-size:0.75rem;">(${sage.active_components.length})</span></div>`;
                     html += `<div class="active-components-box">`;
                     sage.active_components.forEach(comp => {
-                        html += `<div class="mb-1 text-main">&rsaquo; ${escapeHTML(comp)}</div>`;
+                        const compName = comp.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                        html += `<div class="mb-1 text-main">&rsaquo; ${escapeHTML(compName)}</div>`;
                     });
                     html += `</div>`;
                 } else {
                     html += `<div class="mb-2"><b>Active Components:</b> None</div>`;
                 }
                 
-                if (sage.anomalies) {
-                    const anomalyColor = sage.anomalies.toLowerCase().includes('none') ? 'var(--text-muted)' : 'var(--state-warn)';
-                    html += `<div style="margin-bottom: 8px; color: ${anomalyColor};"><b>Anomalies:</b> ${escapeHTML(sage.anomalies)}</div>`;
+                // --- Anomalies (numeric or string) ---
+                const anomalyVal = sage.anomalies;
+                if (anomalyVal != null) {
+                    const anomalyNum = typeof anomalyVal === 'number' ? anomalyVal : parseInt(anomalyVal, 10);
+                    const isZero = anomalyNum === 0 || String(anomalyVal).toLowerCase().includes('none');
+                    const anomalyColor = isZero ? 'var(--text-muted)' : 'var(--state-warn)';
+                    const anomalyDisplay = typeof anomalyVal === 'number' ? `${anomalyVal} detected` : escapeHTML(String(anomalyVal));
+                    html += `<div style="margin-bottom: 8px; color: ${anomalyColor};"><b>Anomalies:</b> ${anomalyDisplay}</div>`;
                 }
                 
+                // --- Alerts (structured objects or legacy strings) ---
                 if (Array.isArray(sage.alerts) && sage.alerts.length > 0) {
-                    html += `<div style="margin-bottom: 8px; color: var(--state-err);"><b>Alerts:</b></div>`;
-                    html += `<div class="alerts-box">`;
+                    const critCount = sage.alerts.filter(a => a && a.severity === 'critical').length;
+                    const warnCount = sage.alerts.filter(a => a && a.severity === 'warning').length;
+                    const infoCount = sage.alerts.filter(a => a && a.severity === 'info').length;
+                    
+                    html += `<div style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">`;
+                    html += `<b>Alerts</b> <span style="color:var(--text-faint);font-size:0.75rem;">(${sage.alerts.length})</span>`;
+                    if (critCount) html += `<span class="chip err" style="font-size:0.6rem;"><span class="dot-sm"></span>${critCount} Critical</span>`;
+                    if (warnCount) html += `<span class="chip warn" style="font-size:0.6rem;"><span class="dot-sm"></span>${warnCount} Warning</span>`;
+                    if (infoCount) html += `<span class="chip neutral" style="font-size:0.6rem;"><span class="dot-sm"></span>${infoCount} Info</span>`;
+                    html += `</div>`;
+                    
+                    html += `<div class="sage-alerts-list">`;
                     sage.alerts.forEach(alert => {
-                        html += `<div style="margin-bottom: 4px; color: var(--state-err);">&bull; ${escapeHTML(alert)}</div>`;
+                        if (typeof alert === 'string') {
+                            // Legacy string format
+                            html += `<div class="sage-alert-card"><div class="sage-alert-msg">${escapeHTML(alert)}</div></div>`;
+                        } else if (alert && typeof alert === 'object') {
+                            // Structured {severity, component, message}
+                            const sev = (alert.severity || 'info').toLowerCase();
+                            const sevCls = sev === 'critical' ? 'err' : (sev === 'warning' ? 'warn' : 'neutral');
+                            const sevIcon = sev === 'critical' ? '🔴' : (sev === 'warning' ? '🟡' : 'ℹ️');
+                            html += `
+                                <div class="sage-alert-card sage-alert-${sev}">
+                                    <div class="sage-alert-header">
+                                        <span>${sevIcon}</span>
+                                        <span class="sage-alert-component">${escapeHTML(alert.component || 'system')}</span>
+                                        <span class="chip ${sevCls}" style="font-size:0.58rem;"><span class="dot-sm"></span>${escapeHTML(sev.toUpperCase())}</span>
+                                    </div>
+                                    <div class="sage-alert-msg">${escapeHTML(alert.message || '—')}</div>
+                                </div>
+                            `;
+                        }
                     });
                     html += `</div>`;
                 } else {
                     html += `<div style="margin-bottom: 8px; color: var(--text-muted);"><b>Alerts:</b> None</div>`;
                 }
-                
-                html += `</div>`;
             }
             html += `</div>`;
             sageBody.innerHTML = html;
@@ -382,40 +472,65 @@
             }
         }
 
-        function renderFleetTable(observer, sage, outsider, cpuUsage) {
+        function renderFleetTable(observer, sage, outsider, historian, cpuUsage) {
             const cpuStatusLabel = observer.status ? observer.status.toUpperCase() : (cpuUsage > 80 ? 'CRITICAL' : (cpuUsage > 60 ? 'WARNING' : 'NOMINAL'));
             
+            // --- Sage status derivation (supports numeric system_health) ---
             let sageOverall = (sage.status || 'STABLE').toUpperCase();
-            if (!sage.system_health && sage.status === 'offline') {
+            if (sage.system_health == null && sage.status === 'offline') {
                 sageOverall = 'OFFLINE';
-            } else if (sage.system_health) {
-                const sh = sage.system_health.toLowerCase();
-                if (sh.includes('fail') || sh.includes('error') || sh.includes('critical')) {
-                    sageOverall = 'CRITICAL';
-                } else if (sh.includes('warn') || sh.includes('degraded')) {
-                    sageOverall = 'WARNING';
+            } else if (sage.system_health != null) {
+                if (typeof sage.system_health === 'number') {
+                    if (sage.system_health < 50) sageOverall = 'CRITICAL';
+                    else if (sage.system_health < 80) sageOverall = 'WARNING';
+                    else sageOverall = 'OK';
+                } else {
+                    const sh = String(sage.system_health).toLowerCase();
+                    if (sh.includes('fail') || sh.includes('error') || sh.includes('critical')) sageOverall = 'CRITICAL';
+                    else if (sh.includes('warn') || sh.includes('degraded')) sageOverall = 'WARNING';
                 }
             }
 
+            // Sage summary
             let sageSummary = 'No report found';
-            if (sage.system_health) {
-                sageSummary = escapeHTML(`Health: ${sage.system_health} | Anomalies: ${sage.anomalies || 'None'}`);
+            if (sage.system_health != null) {
+                const healthStr = typeof sage.system_health === 'number' ? `${sage.system_health}/100` : sage.system_health;
+                const anomalyStr = sage.anomalies != null ? (typeof sage.anomalies === 'number' ? `${sage.anomalies} detected` : sage.anomalies) : 'None';
+                sageSummary = escapeHTML(`Health: ${healthStr} | Anomalies: ${anomalyStr}`);
             } else if (sage.status === 'offline') {
                 sageSummary = 'Sage Agent is currently offline.';
             }
 
+            // --- Outsider ---
             let outsiderSummaryText = outsider.quote || (Array.isArray(outsider.observations) && outsider.observations.length > 0 ? outsider.observations[0] : 'No transmission');
+            // Truncate for fleet table if very long
+            if (outsiderSummaryText.length > 200) {
+                outsiderSummaryText = outsiderSummaryText.substring(0, 200) + '…';
+            }
             let outsiderSummary = escapeHTML(outsiderSummaryText);
             let outsiderStatusStr = (outsider.status || 'ACTIVE').toUpperCase();
             if (!outsider.quote && !outsider.observations && !outsider.insight) {
                 outsiderStatusStr = 'OFFLINE';
             }
 
+            // --- Observer ---
             let observerSummaryText = '';
             if (observer.cpu_percent !== undefined) {
-                observerSummaryText = `CPU: ${observer.cpu_percent}% | RAM: ${observer.memory_used_gb}GB / ${observer.memory_total_gb}GB (${observer.memory_percent}%) | Disk: ${observer.disk_used} / ${observer.disk_total} (${observer.disk_percent}) | Network: ${observer.network}`;
+                const gwInfo = observer.gateway ? ` | Gateway: ${observer.gateway.health || '—'} (${observer.gateway.process || '—'})` : '';
+                observerSummaryText = `CPU: ${observer.cpu_percent}% | RAM: ${observer.memory_used_gb}GB / ${observer.memory_total_gb}GB (${observer.memory_percent}%) | Disk: ${observer.disk_used} / ${observer.disk_total} (${observer.disk_percent}) | Network: ${observer.network}${gwInfo}`;
             } else {
                 observerSummaryText = observer.status === 'unavailable' ? 'Observer telemetry unavailable.' : '—';
+            }
+
+            // --- Historian ---
+            const historianStatus = (historian.status || 'OFFLINE').toUpperCase();
+            let historianSummary = 'No weekly analysis available.';
+            if (historian.weekly_reflection) {
+                historianSummary = escapeHTML(historian.weekly_reflection);
+            } else if (historian.week) {
+                historianSummary = escapeHTML(`Week: ${historian.week} | ${historian.date_range || '—'}`);
+            } else if (historianStatus === 'OFFLINE') {
+                historianSummary = 'Historian Agent is currently offline.';
             }
 
             const fleetData = [
@@ -436,6 +551,12 @@
                     status: outsiderStatusStr,
                     summary: outsiderSummary,
                     timestamp: outsider.timestamp
+                },
+                {
+                    name: 'The Historian',
+                    status: historianStatus,
+                    summary: historianSummary,
+                    timestamp: historian.timestamp
                 }
             ];
 
