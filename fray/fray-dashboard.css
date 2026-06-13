@@ -375,9 +375,50 @@
         ==================================================== */
         .vitals-strip {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 14px;
             margin-bottom: 24px;
+        }
+
+        /* ====================================================
+           DAY TAB BAR
+        ==================================================== */
+        .day-tabs {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .day-tab {
+            padding: 6px 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-card);
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .day-tab:hover {
+            border-color: var(--primary);
+            color: var(--text-main);
+        }
+
+        .day-tab.active {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            font-weight: 600;
+        }
+
+        .day-tab.missing {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
         }
 
         .vital-card {

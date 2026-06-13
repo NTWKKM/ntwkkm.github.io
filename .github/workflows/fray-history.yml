@@ -1,0 +1,55 @@
+name: Fray Dashboard History
+
+on:
+  push:
+    paths:
+      - 'fray/dashboard-snapshot.json'
+
+jobs:
+  archive-snapshot:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Extract date from snapshot
+        id: extract
+        run: |
+          DATE=$(python3 -c "import json,sys; d=json.load(open('fray/dashboard-snapshot.json')); print(d.get('timestamp','')[:10])")
+          echo "date=$DATE" >> $GITHUB_OUTPUT
+          echo "Extracted date: $DATE"
+
+      - name: Archive snapshot to history
+        run: |
+          mkdir -p fray/history
+          cp fray/dashboard-snapshot.json "fray/history/${{ steps.extract.outputs.date }}.json"
+          echo "Archived: fray/history/${{ steps.extract.outputs.date }}.json"
+
+      - name: Prune history older than 7 days
+        run: |
+          CUTOFF=$(date -d "7 days ago" +%Y-%m-%d)
+          echo "Pruning files older than: $CUTOFF"
+          for f in fray/history/*.json; do
+            [ -e "$f" ] || continue
+            BASENAME=$(basename "$f" .json)
+            if [[ "$BASENAME" < "$CUTOFF" ]]; then
+              echo "Removing stale: $f"
+              rm "$f"
+            fi
+          done
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add fray/history/
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "archive: fray snapshot → history/${{ steps.extract.outputs.date }}.json"
+            git push
+          fi

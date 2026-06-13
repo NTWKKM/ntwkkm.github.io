@@ -86,6 +86,17 @@
             ================================================ -->
             <div id="dash-content">
 
+                <!-- DAY TAB BAR -->
+                <div class="day-tabs fade-up d1" id="day-tabs">
+                    <button class="day-tab active" data-day="live">Today</button>
+                    <button class="day-tab" data-day="1">Yesterday</button>
+                    <button class="day-tab" data-day="2">Day -2</button>
+                    <button class="day-tab" data-day="3">Day -3</button>
+                    <button class="day-tab" data-day="4">Day -4</button>
+                    <button class="day-tab" data-day="5">Day -5</button>
+                    <button class="day-tab" data-day="6">Day -6</button>
+                </div>
+
                 <!-- VITALS STRIP -->
                 <div class="vitals-strip fade-up d1">
 
@@ -167,6 +178,19 @@
                         </div>
                     </div>
 
+                    <!-- Token Usage -->
+                    <div class="vital-card" id="vc-token">
+                        <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:8px;">
+                            <div class="vital-label" style="margin-bottom:0;">Token Usage</div>
+                            <div id="v-token-badge" class="chip neutral" style="transform:scale(0.85); transform-origin:right top; margin:-4px -4px 0 0;"><span class="dot-sm"></span>—</div>
+                        </div>
+                        <div class="vital-value" id="v-token">—</div>
+                        <div class="vital-sub" id="v-token-sub">Monthly quota: 2.5M</div>
+                        <div class="vital-bar-track">
+                            <div class="vital-bar-fill blue" id="v-token-bar" style="width:0"></div>
+                        </div>
+                    </div>
+
                 </div><!-- /vitals-strip -->
 
                 <!-- MAIN PANEL GRID (2-column) -->
@@ -181,8 +205,19 @@
                         </div>
                     </div>
 
-                    <!-- === Row 2: The Historian === -->
-                    <div class="panel span-2 fade-up d3 content-deferred" id="panel-historian">
+                    <!-- === Row 2: The Companion === -->
+                    <div class="panel span-2 fade-up d3 content-deferred" id="panel-companion">
+                        <div class="panel-head">
+                            <div class="panel-title">Today's Briefing</div>
+                            <div id="p-companion-chip" class="chip neutral"><span class="dot-sm"></span>—</div>
+                        </div>
+                        <div class="panel-body" id="companion-body">
+                            <div style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">Awaiting Companion data...</div>
+                        </div>
+                    </div>
+
+                    <!-- === Row 3: The Historian === -->
+                    <div class="panel span-2 fade-up d4 content-deferred" id="panel-historian">
                         <div class="panel-head">
                             <div class="panel-title">The Historian</div>
                             <div id="p-historian-chip" class="chip neutral"><span class="dot-sm"></span>OFFLINE</div>
@@ -192,8 +227,8 @@
                         </div>
                     </div>
 
-                    <!-- === Row 3: The Sage === -->
-                    <div class="panel span-2 fade-up d4 content-deferred" id="panel-sage">
+                    <!-- === Row 4: The Sage === -->
+                    <div class="panel span-2 fade-up d5 content-deferred" id="panel-sage">
                         <div class="panel-head">
                             <div class="panel-title">The Sage</div>
                             <div id="p-sage-chip" class="chip ok"><span class="dot-sm"></span>STABLE</div>

@@ -111,6 +111,69 @@
         // ============================================================
         let firstLoad = true;
         let updateTimeout;
+        let currentDay = 'live';  // 'live' or '1'-'6' for history days
+        let liveData = null;      // cached live snapshot
+
+        // Tab bar click handlers
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.day-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', async () => {
+                    const day = tab.dataset.day;
+                    if (day === currentDay) return;
+
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    currentDay = day;
+
+                    // Fetch and render
+                    if (day === 'live') {
+                        if (liveData) renderDashboard(liveData);
+                    } else {
+                        await loadHistoryDay(parseInt(day));
+                    }
+                });
+            });
+        });
+
+        async function loadHistoryDay(daysAgo) {
+            const date = new Date();
+            date.setDate(date.getDate() - daysAgo);
+            const yyyy = date.getFullYear();
+            const mm = String(date.getMonth() + 1).padStart(2, '0');
+            const dd = String(date.getDate()).padStart(2, '0');
+            const dateStr = `${yyyy}-${mm}-${dd}`;
+
+            try {
+                const data = await fetchWithFallback(`history/${dateStr}.json?v=${Date.now()}`, null, 1);
+                if (data) {
+                    renderDashboard(data);
+                    // Mark tab as available
+                    const tab = document.querySelector(`.day-tab[data-day="${daysAgo}"]`);
+                    if (tab) tab.classList.remove('missing');
+                } else {
+                    showHistoryEmpty(daysAgo, dateStr);
+                }
+            } catch (err) {
+                console.error('[Fray] history fetch error', err);
+                showHistoryEmpty(daysAgo, dateStr);
+            }
+        }
+
+        function showHistoryEmpty(daysAgo, dateStr) {
+            // Gray out tab
+            const tab = document.querySelector(`.day-tab[data-day="${daysAgo}"]`);
+            if (tab) tab.classList.add('missing');
+
+            // Show empty state in panels
+            setVal('banner-timestamp', `No data for ${dateStr}`);
+            document.querySelectorAll('.panel-body').forEach(el => {
+                el.innerHTML = `<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.85rem;">No snapshot available for ${dateStr}</div>`;
+            });
+            const auditBody = document.getElementById('audit-table-body');
+            if (auditBody) auditBody.innerHTML = `<tr><td colspan="4" style="padding: 24px; text-align: center; color: var(--text-muted);">No fleet data for ${dateStr}</td></tr>`;
+        }
 
         async function updateDashboard() {
             const loader  = document.getElementById('dash-loading');
@@ -121,7 +184,8 @@
                 const data = await fetchWithFallback(`dashboard-snapshot.json?v=${Date.now()}`, null, 2);
                 if (!data) throw new Error('Null or invalid payload received.');
                 
-                renderDashboard(data);
+                liveData = data;  // cache for tab switching
+                if (currentDay === 'live') renderDashboard(data);
 
                 // Show content
                 if (firstLoad) {
@@ -175,6 +239,7 @@
             const outsider   = data.outsider   || {};
             const historian  = data.historian  || {};
             const archivist  = data.archivist  || {};
+            const companion  = data.companion  || {};
             const gateway    = observer.gateway  || {};
 
             // ---- BANNER TIMESTAMP ----
@@ -196,7 +261,10 @@
             // Check gateway health
             const gwHealth = String(gateway.health || '').toLowerCase();
             const gwProcess = String(gateway.process || '').toLowerCase();
-            if (gwHealth.includes('unhealthy') || gwProcess === 'stopped') {
+            const gwLogFresh = gateway.log_fresh !== false;
+            if (gwHealth === 'zombie' || !gwLogFresh) {
+                overallHealth = 'CRITICAL';  // zombie = silent Telegram blackout
+            } else if (gwHealth.includes('unhealthy') || gwProcess === 'stopped') {
                 overallHealth = 'DEGRADED';
             }
 
@@ -223,6 +291,7 @@
             const cpuUsage = renderVitals(observer);
             renderSagePanel(sage);
             renderOutsiderPanel(outsider);
+            renderCompanionPanel(companion);
             renderHistorianPanel(historian);
             renderFleetTable(archivist);
         }
@@ -297,9 +366,11 @@
             const gwHealthStr = (gw.health || 'Unknown').toUpperCase();
             const gwProcess   = (gw.process || 'unknown');
             const gwTelegram  = gw.telegram_connected;
+            const gwLogFresh  = gw.log_fresh !== false; // true if missing (backward compat)
             const gwSubParts  = [
                 `Process: ${gwProcess}`,
-                gwTelegram != null ? `Telegram: ${gwTelegram ? 'connected' : 'disconnected'}` : ''
+                gwTelegram != null ? `Telegram: ${gwTelegram ? 'connected' : 'disconnected'}` : '',
+                !gwLogFresh ? '⚠️ ZOMBIE — log stale >60min' : ''
             ].filter(Boolean).join(' · ');
 
             setVal('v-gateway', gwHealthStr);
@@ -309,15 +380,36 @@
             if (gwBarEl) {
                 gwBarEl.style.width = '100%';
                 const gwCls = chipClass(gwHealthStr);
-                if (gwCls === 'ok') {
+                if (gwCls === 'ok' && !gwLogFresh) {
+                    gwBarEl.className = 'vital-bar-fill red'; // zombie override
+                    setChip('v-gateway-badge', 'ZOMBIE');
+                } else if (gwCls === 'ok') {
                     gwBarEl.className = 'vital-bar-fill green';
+                    setChip('v-gateway-badge', gwHealthStr);
                 } else if (gwCls === 'warn') {
                     gwBarEl.className = 'vital-bar-fill amber';
+                    setChip('v-gateway-badge', gwHealthStr);
                 } else {
                     gwBarEl.className = 'vital-bar-fill red';
+                    setChip('v-gateway-badge', gwHealthStr);
                 }
-                setChip('v-gateway-badge', gwHealthStr);
             }
+
+            // --- Token Usage ---
+            const token = observer.token_usage || {};
+            const quotaPct = token.quota_percent || 0;
+            const monthlyBurn = token.monthly_burn || 0;
+            const dailyEst = token.daily_estimate || 0;
+            setVal('v-token', `${quotaPct.toFixed(1)}%`);
+            setVal('v-token-sub', `${formatNumber(monthlyBurn)} / ${formatNumber(token.monthly_quota || 2500000)} · ~${formatNumber(dailyEst)}/day`);
+            setBar('v-token-bar', quotaPct);
+
+            // --- Disk Trend ---
+            const dt = observer.disk_trend || {};
+            const trend = dt.trend || 'stable';
+            const trendIcon = trend === 'rising' ? ' 📈' : (trend === 'falling' ? ' 📉' : '');
+            const deltaStr = dt.delta_gi != null ? ` (${dt.delta_gi > 0 ? '+' : ''}${dt.delta_gi}Gi/24h)` : '';
+            setVal('v-disk-sub', `Used: ${observer.disk_used || '—'} / ${observer.disk_total || '—'}${trendIcon}${deltaStr}`);
 
             return cpuUsage;
         }
@@ -472,6 +564,71 @@
                     outsiderEl.innerHTML = html;
                 }
             }
+        }
+
+        function renderCompanionPanel(companion) {
+            const chip = document.getElementById('p-companion-chip');
+            const body = document.getElementById('companion-body');
+            if (!body) return;
+
+            const status = (companion.status || 'offline').toUpperCase();
+            if (chip) setChip('p-companion-chip', status);
+
+            if (status === 'OFFLINE' || (!companion.calendar_today && !companion.gmail_summary && !companion.coffee_research)) {
+                body.innerHTML = `<div style="padding: 20px 16px; text-align: center; color: var(--text-muted); font-size: 0.85rem;">☕ Awaiting today's briefing…</div>`;
+                return;
+            }
+
+            let html = '<div style="padding: 0 4px;">';
+
+            // Calendar
+            const cal = companion.calendar_today || [];
+            html += `<div style="margin-bottom: 12px;"><b>📅 Calendar</b> <span style="color:var(--text-faint);font-size:0.75rem;">(${cal.length} event${cal.length !== 1 ? 's' : ''})</span></div>`;
+            if (cal.length > 0) {
+                html += `<div class="active-components-box" style="margin-bottom: 12px;">`;
+                cal.forEach(ev => {
+                    html += `<div class="mb-1 text-main">&rsaquo; ${escapeHTML(typeof ev === 'string' ? ev : (ev.summary || ev.title || '—'))}</div>`;
+                });
+                html += `</div>`;
+            } else {
+                html += `<div style="margin-bottom: 12px; color: var(--text-muted); font-size: 0.8rem;">No events today</div>`;
+            }
+
+            // Gmail
+            if (companion.gmail_summary) {
+                html += `<div style="margin-bottom: 8px;"><b>📧 Gmail</b></div>`;
+                html += `<div class="outsider-insight-box" style="margin-bottom: 12px; font-size: 0.82rem;">${escapeHTML(companion.gmail_summary)}</div>`;
+            }
+
+            // Coffee Research
+            const coffee = companion.coffee_research || [];
+            if (coffee.length > 0) {
+                html += `<div style="margin-bottom: 8px;"><b>☕ Coffee Research</b> <span style="color:var(--text-faint);font-size:0.75rem;">(${coffee.length} article${coffee.length !== 1 ? 's' : ''})</span></div>`;
+                coffee.forEach(item => {
+                    const title = item.title || 'Untitled';
+                    const source = item.source || '';
+                    const summary = item.summary || '';
+                    const url = item.url || '';
+                    html += `
+                        <div class="sage-alert-card" style="margin-bottom: 8px;">
+                            <div style="font-weight: 600; margin-bottom: 4px;">
+                                ${url ? `<a href="${escapeHTML(url)}" target="_blank" rel="noopener" style="color: var(--primary);">${escapeHTML(title)}</a>` : escapeHTML(title)}
+                                ${source ? `<span style="color: var(--text-faint); font-size: 0.7rem; margin-left: 6px;">— ${escapeHTML(source)}</span>` : ''}
+                            </div>
+                            <div style="font-size: 0.78rem; color: var(--text-secondary);">${escapeHTML(summary)}</div>
+                        </div>
+                    `;
+                });
+            }
+
+            // System note
+            if (companion.system_note) {
+                html += `<div style="margin-top: 8px; font-size: 0.72rem; color: var(--text-faint);">${escapeHTML(companion.system_note)}</div>`;
+            }
+
+            html += `<div style="margin-top: 8px; font-size: 0.72rem; color: var(--text-faint);">&mdash; Briefing: ${formatTimestamp(companion.timestamp)}</div>`;
+            html += `</div>`;
+            body.innerHTML = html;
         }
 
         function renderHistorianPanel(historian) {
