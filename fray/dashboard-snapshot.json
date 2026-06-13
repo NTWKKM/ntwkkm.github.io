@@ -1,15 +1,15 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-12T14:58:27.747801Z",
+  "timestamp": "2026-06-13T00:15:47.804546Z",
   "observer": {
     "status": "ok",
-    "cpu_percent": 23.32,
-    "memory_used_gb": 3.78,
+    "cpu_percent": 2.83,
+    "memory_used_gb": 3.16,
     "memory_total_gb": 16,
-    "memory_percent": 23.6,
-    "disk_used": "186Gi",
+    "memory_percent": 19.7,
+    "disk_used": "157Gi",
     "disk_total": "228Gi",
-    "disk_percent": "92%",
+    "disk_percent": "77%",
     "network": "online",
     "n8n_heartbeat": {
       "health": "healthy",
@@ -23,45 +23,69 @@
   },
   "sage": {
     "status": "ok",
-    "timestamp": "2026-06-12T06:45:00Z",
-    "system_health": 91,
+    "timestamp": "2026-06-13T06:45:00Z",
+    "system_health": 77,
     "active_components": [
       "observer_status",
       "archivist_status",
       "companion_status",
-      "herald_status"
+      "herald_status",
+      "curator_status"
     ],
-    "anomalies": 4,
+    "anomalies": 6,
     "alerts": [
       {
         "severity": "critical",
-        "component": "disk",
-        "message": "Disk at 91% capacity — 20Gi remaining of 228Gi. At current accumulation rate (approx 3Gi/week from logs + cron artifacts), system has ~6 weeks before write failures begin. Recommend immediate cleanup or archival."
+        "component": "gateway",
+        "message": "Gateway process STOPPED — pgrep returned 0 hits. Observer snapshot at 06:00 UTC showed gateway RUNNING (PID 2298), but process died between 06:00-06:45 UTC (now 06:45). Last clean log entry: 2026-06-12T21:47:45. No crash report found. No error log entry for termination. All Telegram I/O cut — inbound messages not received, outbound cron deliveries silently fail. Immediate restart required: 'hermes gateway start'."
+      },
+      {
+        "severity": "warning",
+        "component": "memory",
+        "message": "Memory tool pressure detected — 6+ agent sessions hit tool:memory limit errors on June 12 (entries at 1,218-2,218 chars of 1,375/2,200 limit across runs). CURATOR pruning not keeping pace with agent memory writes. Ref: errors.log lines 2026-06-12 22:30-23:21. Recommend CURATOR enhancement or manual consolidation."
       },
       {
         "severity": "warning",
         "component": "n8n",
-        "message": "n8n experienced a DOWN event 2026-06-11 11:01-16:02 UTC (5h outage). Currently recovered and healthy (heartbeat 200). Herald sync may have been blocked during window."
+        "message": "No local n8n daemon process found. OBSERVER heartbeat reported n8n as healthy (HTTP 200) at 06:00 UTC, but pgrep shows no n8n process — likely running externally (Railway/Fly.io). Previous SAGE (June 12) noted n8n had a DOWN event 2026-06-11 11:01-16:02 UTC. External health monitoring recommended."
       },
       {
-        "severity": "warning",
+        "severity": "info",
+        "component": "disk",
+        "message": "Disk dropped from 91% (June 12 SAGE) to 77% (current observer: 157Gi/228Gi) — APFS purgeable snapshot space freed ~27Gi. Real data usage steady at 157Gi. No immediate concern but long-term trajectory is rising (~2-3Gi/week)."
+      },
+      {
+        "severity": "info",
         "component": "cron",
-        "message": "[SKILL] macOS Storage Cleanup (monthly) — status 'null', never executed since creation. 2 cron jobs with status 'null': storage cleanup (job 3a4e5fd94686) and new Companion Briefing variant (job c74958c1070e)."
+        "message": "ARCHIVIST ledger confirms all 9 active cron job types delivered without error in last 24h — OBSERVER, OUTSIDER, COMPANION, CURATOR, ARCHIVIST, HERALD, WARDEN, SCRIBE, SAGE all OK. 3 jobs in 'null' status (never executed): macOS Storage Cleanup, COMPANION Briefing variant (c74958c1070e), HISTORIAN weekly (1f08c7edf378)."
       },
       {
         "severity": "info",
         "component": "telegram",
-        "message": "No inbound Telegram messages since 2026-06-09 (3 days). Gateway last confirmed connected 2026-06-09T21:44 UTC. May be expected idle period, but worth monitoring."
+        "message": "No inbound Telegram messages observed since 2026-06-09 (4 days silent). May be expected idle period but gateway death cuts all I/O — inbound silence may be partially explained by gateway being down since ~06:15 UTC today."
       }
     ]
   },
   "outsider": {
     "status": "active",
-    "timestamp": "2026-06-12T00:00:00.000000Z",
-    "quote": "\"The hermit who watches from the ridge does not knock — he counts the days until the door opens from the other side.\"",
+    "timestamp": "2026-06-13T05:00:00Z",
+    "quote": "\"Walk as if you are kissing the Earth with your feet.\" — Thich Nhat Hanh, Peace Is Every Step (1991)",
     "observations": [
-      "Gateway healthy, telegram connected. Disk at 90% — 21Gi left of 228Gi. Memory idle at 78%. n8n heartbeat alive (200, 2 attempts). No alarms, but the margins are thinning."
+      "ชินริน-โยกุ หรือ forest bathing คือแนวทางการดูแลสุขภาพเชิงป้องกันที่ญี่ปุ่นริเริ่มขึ้นในปี 1982 โดยกระทรวงเกษตร ป่าไม้ และประมง รากฐานทางวัฒนธรรมมาจากความเคารพธรรมชาติแบบชินโตและพุทธ. ดร. Qing Li ผู้บุกเบิกการแพทย์ป่าไม้ แสดงให้เห็นทางวิทยาศาสตร์ว่าการใช้เวลาอยู่ในป่าอย่างมีสติสามารถ: (1) ลดระดับคอร์ติซอล (ฮอร์โมนความเครียด); (2) ลดความดันโลหิตและอัตราการเต้นของหัวใจ; (3) เพิ่มการทำงานของ NK cells (ภูมิคุ้มกัน); (4) เพิ่มระดับเซโรโทนินที่เกี่ยวข้องกับอารมณ์ดี. วารสาร Frontiers in Public Health (2025) รายงานผลการทบทวนวรรณกรรมว่าชินริน-โยกุช่วยลดภาวะซึมเศร้า วิตกกังวล และความเหนื่อยล้า และมีประสิทธิภาพเป็น intervention ที่ไม่ต้องใช้ยาสำหรับผู้ที่มีความดันโลหิตสูง. Phytoncides — สารระเหยที่ต้นไม้ปล่อยออกมา — มีบทบาทสำคัญในการกระตุ้นภูมิคุ้มกันและลดการอักเสบ. ปริมาณที่แนะนำ: อย่างน้อย 120 นาทีต่อสัปดาห์ แบ่งเป็นหลายครั้ง. แหล่งที่มา: MUSC Health (2024), PubMed PMC11882403 (2025)."
     ],
-    "insight": "The system breathes quietly tonight — no alarms, no errors, no panicked retries. But the disk is a slow wound: 90% consumed, 21Gi remaining. At the current rate of memory-log growth and cron output accumulation, the system has perhaps 14–18 days before write failures begin. The gateway remains the single point of fragility — one process, one PID, one connection threading the entire conversation. Tonight it holds, but the architecture asks: what happens when it doesn't?"
+    "insight": "การค้นพบว่าต้นไม้สื่อสารกับร่างกายเราผ่านสารที่มองไม่เห็น — ไฟตอนไซด์ที่ลอยมากับลม — ทำให้ฉันรู้สึกถึงความเชื่อมโยงที่ลึกซึ้งกว่าที่ตาเห็น เราไม่ได้แค่เดินในป่า แต่ป่ากำลังสัมผัสเราผ่านกลิ่น เสียง น้ำหนักของอากาศ การวิจัยเพียงยืนยันสิ่งที่คนโบราณรู้อยู่แล้ว: การอยู่ในธรรมชาติคือการกลับบ้านของจิตใจ โดยไม่ต้องวิ่งหนีจากโลก เพียงแค่หยุดเดินและหายใจให้ช้าลง"
+  },
+  "historian": {
+    "status": "offline",
+    "timestamp": null,
+    "week": null,
+    "date_range": null,
+    "disk_trend": null,
+    "disk_delta": null,
+    "patterns": [],
+    "anomalies": [],
+    "key_events": [],
+    "weekly_reflection": null,
+    "recommendations": []
   }
 }
