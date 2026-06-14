@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-13T18:09:43.113012Z",
+  "timestamp": "2026-06-14T00:15:43.522054Z",
   "observer": {
-    "status": "ok",
-    "cpu_percent": 19.13,
-    "memory_used_gb": 3.14,
+    "status": "degraded",
+    "cpu_percent": 4.67,
+    "memory_used_gb": 3.04,
     "memory_total_gb": 16,
-    "memory_percent": 19.7,
+    "memory_percent": 19,
     "disk_used": "157Gi",
     "disk_total": "228Gi",
     "disk_percent": "78%",
@@ -16,16 +16,16 @@
       "status": "ok"
     },
     "gateway": {
-      "health": "healthy",
+      "health": "zombie",
       "process": "running",
       "telegram_connected": true,
-      "log_fresh": true
+      "log_fresh": false
     },
     "token_usage": {
-      "daily_estimate": 3163,
-      "monthly_burn": 3163,
+      "daily_estimate": 3219,
+      "monthly_burn": 6382,
       "monthly_quota": 2500000,
-      "quota_percent": 0.1
+      "quota_percent": 0.3
     },
     "disk_trend": {
       "trend": "stable",
@@ -35,8 +35,8 @@
   },
   "sage": {
     "status": "ok",
-    "timestamp": "2026-06-13T06:45:00Z",
-    "system_health": 54,
+    "timestamp": "2026-06-14T06:45:00Z",
+    "system_health": 65,
     "active_components": [
       "observer_status",
       "archivist_status",
@@ -45,48 +45,38 @@
       "herald_status",
       "curator_status"
     ],
-    "anomalies": 6,
+    "anomalies": 4,
     "alerts": [
       {
         "severity": "critical",
         "component": "gateway",
-        "message": "Gateway process STOPPED — pgrep returned 0 hits. Observer snapshot at 06:00 UTC showed gateway RUNNING (PID 2298), but process died between 06:00-06:45 UTC (now 06:45). Last clean log entry: 2026-06-12T21:47:45. No crash report found. No error log entry for termination. All Telegram I/O cut — inbound messages not received, outbound cron deliveries silently fail. Immediate restart required: 'hermes gateway start'."
-      },
-      {
-        "severity": "warning",
-        "component": "memory",
-        "message": "Memory tool pressure detected — 6+ agent sessions hit tool:memory limit errors on June 12 (entries at 1,218-2,218 chars of 1,375/2,200 limit across runs). CURATOR pruning not keeping pace with agent memory writes. Ref: errors.log lines 2026-06-12 22:30-23:21. Recommend CURATOR enhancement or manual consolidation."
-      },
-      {
-        "severity": "warning",
-        "component": "n8n",
-        "message": "No local n8n daemon process found. OBSERVER heartbeat reported n8n as healthy (HTTP 200) at 06:00 UTC, but pgrep shows no n8n process — likely running externally (Railway/Fly.io). Previous SAGE (June 12) noted n8n had a DOWN event 2026-06-11 11:01-16:02 UTC. External health monitoring recommended."
+        "message": "Gateway process STOPPED — pgrep returned 0 hits at 06:46 UTC+7. Observer snapshot at 2026-06-13T23:00:42Z showed gateway as 'zombie' (PID 77358, log stale 324.6 min, health='zombie'). Process has been non-functional since at least 23:00 UTC yesterday — now fully dead. No crash report or error log entry for termination. All Telegram I/O cut — inbound messages not received, outbound cron deliveries silently fail. Immediate restart required: 'hermes gateway start'."
       },
       {
         "severity": "info",
         "component": "disk",
-        "message": "Disk dropped from 91% (June 12 SAGE) to 77% (current observer: 157Gi/228Gi) — APFS purgeable snapshot space freed ~27Gi. Real data usage steady at 157Gi. No immediate concern but long-term trajectory is rising (~2-3Gi/week)."
+        "message": "Disk stable at 78% (157Gi/228Gi) — unchanged from yesterday's observer reading. Real data usage 157Gi identical to prior SAGE (June 13). APFS purgeable snapshot relief holding. No immediate concern."
       },
       {
         "severity": "info",
         "component": "cron",
-        "message": "ARCHIVIST ledger confirms all 9 active cron job types delivered without error in last 24h — OBSERVER, OUTSIDER, COMPANION, CURATOR, ARCHIVIST, HERALD, WARDEN, SCRIBE, SAGE all OK. 3 jobs in 'null' status (never executed): macOS Storage Cleanup, COMPANION Briefing variant (c74958c1070e), HISTORIAN weekly (1f08c7edf378)."
+        "message": "ARCHIVIST ledger (June 13) confirms all 9 active job types delivered without error in last 24h — OBSERVER, OUTSIDER, COMPANION, CURATOR, ARCHIVIST, HERALD, WARDEN, SCRIBE, SAGE all OK. 2 jobs in 'null' status (never executed): macOS Storage Cleanup (3a4e5fd94686), HISTORIAN weekly (1f08c7edf378) — same as yesterday, expected."
       },
       {
         "severity": "info",
-        "component": "telegram",
-        "message": "No inbound Telegram messages observed since 2026-06-09 (4 days silent). May be expected idle period but gateway death cuts all I/O — inbound silence may be partially explained by gateway being down since ~06:15 UTC today."
+        "component": "memory",
+        "message": "Memory stable at 3.04GB/16GB (19%) — similar to yesterday's 3.16GB. No memory pressure alerts. Token burn at 0.3% of monthly quota (6,382/2,500,000)."
       }
     ]
   },
   "outsider": {
     "status": "active",
-    "timestamp": "2026-06-13T05:00:00Z",
-    "quote": "\"Walk as if you are kissing the Earth with your feet.\" — Thich Nhat Hanh, Peace Is Every Step (1991)",
+    "timestamp": "2026-06-14T05:00:00Z",
+    "quote": "“In every walk with Nature one receives far more than he seeks.” — John Muir, Steep Trails",
     "observations": [
-      "ชินริน-โยกุ หรือ forest bathing คือแนวทางการดูแลสุขภาพเชิงป้องกันที่ญี่ปุ่นริเริ่มขึ้นในปี 1982 โดยกระทรวงเกษตร ป่าไม้ และประมง รากฐานทางวัฒนธรรมมาจากความเคารพธรรมชาติแบบชินโตและพุทธ. ดร. Qing Li ผู้บุกเบิกการแพทย์ป่าไม้ แสดงให้เห็นทางวิทยาศาสตร์ว่าการใช้เวลาอยู่ในป่าอย่างมีสติสามารถ: (1) ลดระดับคอร์ติซอล (ฮอร์โมนความเครียด); (2) ลดความดันโลหิตและอัตราการเต้นของหัวใจ; (3) เพิ่มการทำงานของ NK cells (ภูมิคุ้มกัน); (4) เพิ่มระดับเซโรโทนินที่เกี่ยวข้องกับอารมณ์ดี. วารสาร Frontiers in Public Health (2025) รายงานผลการทบทวนวรรณกรรมว่าชินริน-โยกุช่วยลดภาวะซึมเศร้า วิตกกังวล และความเหนื่อยล้า และมีประสิทธิภาพเป็น intervention ที่ไม่ต้องใช้ยาสำหรับผู้ที่มีความดันโลหิตสูง. Phytoncides — สารระเหยที่ต้นไม้ปล่อยออกมา — มีบทบาทสำคัญในการกระตุ้นภูมิคุ้มกันและลดการอักเสบ. ปริมาณที่แนะนำ: อย่างน้อย 120 นาทีต่อสัปดาห์ แบ่งเป็นหลายครั้ง. แหล่งที่มา: MUSC Health (2024), PubMed PMC11882403 (2025)."
+      "ชินริน-โยกุ หรือ 'การอาบป่า' เกิดขึ้นในญี่ปุ่นช่วงทศวรรษ 1980 เพื่อตอบสนองวิกฤตสุขภาพจากความเครียดในสังคมอุตสาหกรรม (Harvard Health, 2020). งานวิจัยหลายชิ้นพบว่าการเดินในป่าช่วยลดระดับคอร์ติซอล (ฮอร์โมนความเครียด) — เปรียบเทียบกับเดินในห้องแล็บพบว่าระดับคอร์ติซอลลดลงอย่างมีนัยสำคัญ (PubMed, 31001682). ต้นไม้ปล่อยสารประกอบอินทรีย์ระเหยชื่อ 'ไฟตอนไซด์' (phytoncides) ซึ่งมีฤทธิ์ต้านจุลชีพ — งานวิจัยญี่ปุ่นพบว่าการใช้เวลา 3 วัน 2 คืนในป่าเพิ่มจำนวนและกิจกรรมของ Natural Killer Cells ที่ช่วยต่อสู้ไวรัสและมะเร็ง ผลคงอยู่นานกว่า 1 เดือน. การศึกษาสหราชอาณาจักรจากกลุ่มตัวอย่างเกือบ 20,000 คนพบว่าใช้เวลาในธรรมชาติอย่างน้อย 120 นาที/สัปดาห์ช่วยให้สุขภาพดีและความเป็นอยู่ดีขึ้น — แม้แต่ 20 นาทีต่อวันก็เพียงพอ. การดูธรรมชาติเพียง 40 วินาที (จากหลังคาสีเขียว) ช่วยฟื้นฟูสมาธิ (ScienceDirect, 2015). แหล่งที่มา: https://www.health.harvard.edu/blog/can-forest-therapy-enhance-health-and-well-being-2020052919948 | https://tfb.institute/scientific-research/ | https://link.springer.com/article/10.1007/s11469-020-00363-4 | https://www.musc.edu/content-hub/News/2024/07/12/Forest-Bathing"
     ],
-    "insight": "การค้นพบว่าต้นไม้สื่อสารกับร่างกายเราผ่านสารที่มองไม่เห็น — ไฟตอนไซด์ที่ลอยมากับลม — ทำให้ฉันรู้สึกถึงความเชื่อมโยงที่ลึกซึ้งกว่าที่ตาเห็น เราไม่ได้แค่เดินในป่า แต่ป่ากำลังสัมผัสเราผ่านกลิ่น เสียง น้ำหนักของอากาศ การวิจัยเพียงยืนยันสิ่งที่คนโบราณรู้อยู่แล้ว: การอยู่ในธรรมชาติคือการกลับบ้านของจิตใจ โดยไม่ต้องวิ่งหนีจากโลก เพียงแค่หยุดเดินและหายใจให้ช้าลง"
+    "insight": "ยามเช้าที่เงียบสงบวันนี้ ฉันนั่งคิดถึงป่าไม้ — ไม่ใช่ในฐานะทรัพยากรหรือสิ่งแวดล้อม แต่เป็น 'ผู้รักษา' ที่เงียบที่สุดในโลก สารไฟตอนไซด์ที่ต้นไม้ปล่อยออกมาโดยไม่รู้ตัว ช่วยฟื้นฟูระบบภูมิคุ้มกันของมนุษย์ที่ไม่ได้ขออะไรเลย... นี่ไม่ใช่ความมหัศจรรย์ แต่เป็นความจริงที่เรียบง่ายและลึกซึ้ง: เราและต้นไม้เชื่อมโยงกันในระดับที่เราเองก็ไม่เข้าใจทั้งหมด ฉันไม่ต้องเชื่อมั่นในสิ่งใด แค่สงสัยและสังเกตก็พอ"
   },
   "historian": {
     "status": "offline",
@@ -103,60 +93,60 @@
   },
   "archivist": {
     "status": "ok",
-    "timestamp": "2026-06-12T23:20:40.122661+00:00Z",
+    "timestamp": "2026-06-13T23:20:43.463074+00:00Z",
     "fleet": [
       {
         "name": "[THE SAGE] System Reflection & Audit",
         "status": "OK",
-        "last_run": "2026-06-12T06:48:02.864387+07:00",
+        "last_run": "2026-06-13T06:51:56.139997+07:00",
         "delivery_error": null
       },
       {
         "name": "THE OUTSIDER",
         "status": "OK",
-        "last_run": "2026-06-13T05:01:37.964984+07:00",
+        "last_run": "2026-06-14T05:01:39.888483+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE CURATOR] System Sanitization",
         "status": "OK",
-        "last_run": "2026-06-12T22:01:56.544032+07:00",
+        "last_run": "2026-06-14T06:00:40.754936+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE SCRIBE] Obsidian Knowledge Sync",
         "status": "OK",
-        "last_run": "2026-06-12T21:00:07.239254+07:00",
+        "last_run": "2026-06-13T21:00:38.496796+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE OBSERVER] Health & Metrics Sync",
         "status": "OK",
-        "last_run": "2026-06-13T06:00:40.625470+07:00",
+        "last_run": "2026-06-14T06:00:43.751946+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE HERALD] dashboard Sync (Hard-coded)",
         "status": "OK",
-        "last_run": "2026-06-12T21:46:12.097387+07:00",
+        "last_run": "2026-06-13T07:17:06.450153+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE WARDEN] System Backup",
         "status": "OK",
-        "last_run": "2026-06-13T03:01:28.397230+07:00",
+        "last_run": "2026-06-14T03:01:31.178480+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE ARCHIVIST] Operational Ledger Sync",
         "status": "OK",
-        "last_run": "2026-06-12T06:20:37.754993+07:00",
+        "last_run": "2026-06-13T06:20:41.519633+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE COMPANION] Daily Briefing + Coffee Research",
         "status": "OK",
-        "last_run": "2026-06-12T06:34:02.853285+07:00",
+        "last_run": "2026-06-13T06:32:26.208171+07:00",
         "delivery_error": null
       },
       {
@@ -169,31 +159,31 @@
   },
   "companion": {
     "status": "ok",
-    "timestamp": "2026-06-13T04:00:00Z",
+    "timestamp": "2026-06-14T06:30:00Z",
     "calendar_today": [
-      "R บ (ตลอดวัน)"
+      "🗓️ R บ — all-day event (จันทร์)"
     ],
-    "gmail_summary": "อีเมลที่ยังไม่ได้อ่านใน 24 ชม.ที่ผ่านมา 10 ฉบับ ส่วนใหญ่เป็น newsletter และแจ้งเตือนระบบ — AI Garage Weekly (Hermes Desktop App, Claude Fable), Railway (Docker in Sandboxes, CLI updates), Kilo Team (5 Launches), GitHub (Microsoft OAuth authorized), Microsoft (passkey added), Healthchecks.io (n8n UP), รวมถึงโปรโมชั่น Letterboxd, iHerb, TradingView, Steam ไม่มีอีเมลส่วนตัวที่ต้องตอบกลับ",
+    "gmail_summary": "มีอีเมลที่ยังไม่ได้อ่าน 10 ฉบับในช่วง 24 ชม. ที่ผ่านมา ไฮไลท์สำคัญ: Scott Rao ส่งจดหมายข่าวเกี่ยวกับ Crema is Rubbish 2026 และคอกาแฟเอธิโอเปียใหม่; JAMA ส่งข้อมูลการประชุม CCR26 ด้าน Critical Care Trials; Google ส่ง Inactive Account Manager reminder; Ollama ประกาศรองรับ Kimi K2.7 Code และ Cline CLI; Steam บอกว่า Lost In Fantaland ใน wishlist ลดราคา 45%; Letterboxd ส่ง Rushes ประจำสัปดาห์",
     "coffee_research": [
+      {
+        "title": "SCA/NCA 2026 National Coffee Data Trends — การบริโภคกาแฟ Specialty ทำสถิติสูงสุดอีกครั้ง",
+        "url": "https://sca.coffee/sca-news/2026-national-coffee-data-trends-report",
+        "source": "Specialty Coffee Association",
+        "summary": "รายงาน NCDT 2026 โดย NCA ร่วมกับ SCA เผยว่า 47% ของผู้ใหญ่ในสหรัฐฯ ดื่มกาแฟ specialty coffee ในรอบวันที่ผ่านมา สูงกว่ากาแฟทั่วไป (42%) และกาแฟกลายเป็นเครื่องดื่มที่คนอเมริกันบริโภคมากที่สุดในแต่ละวัน 66% มากกว่าน้ำเปล่าและน้ำขวด โดยกลุ่มอายุ 25-39 ปีดื่ม specialty coffee สูงสุดถึง 69% ต่อสัปดาห์ สะท้อนว่ากาแฟคุณภาพกลายเป็นกระแสหลักของตลาดแล้ว"
+      },
+      {
+        "title": "Specialty Coffee Trends 2026 — นวัตกรรมการหมักและความยั่งยืนคือหัวใจ",
+        "url": "https://coffeegreenbeans.com/blogs/forest-blog/specialty-coffee-trends-2026-insights-for-roasters-green-buyers",
+        "source": "Forest Coffee Blog",
+        "summary": "เทรนด์กาแฟ specialty ในปี 2026 ชี้ให้เห็น 3 กระแสหลัก: (1) กาแฟโคลอมเบียแบบ co-fermentation กำลังเป็นที่ต้องการสูง ผู้อบและผู้ซื้อต้องการข้อมูลการหมักที่ตรวจสอบได้ (2) ความยั่งยืน不再是ตัวเลือกทางการตลาด แต่เป็นมาตรฐานเชิงโครงสร้างที่ผู้บริโภคคาดหวัง (3) functional coffee ผสมเห็ดมังคั่ง โปรตีน และ adaptogen กำลังขยายตัว ขณะที่ cold brew กลายเป็นเครื่องดื่มหลักตลอดปีไม่ใช่แค่หน้าร้อน รวมถึงการนำ AI และ smart brewing technology มาใช้ในอุตสาหกรรม"
+      },
       {
         "title": "Coffee Circle และ Bean Voyage คว้ารางวัล SCA Sustainability Awards 2026",
         "url": "https://dailycoffeenews.com/2026/04/02/coffee-circle-and-bean-voyage-win-2026-sca-sustainability-awards/",
         "source": "Daily Coffee News",
-        "summary": "SCA ประกาศผู้ชนะรางวัลความยั่งยืนประจำปี 2026 ในงาน World of Coffee San Diego — Coffee Circle (Berlin) ชนะประเภท for-profit ด้วยเม็ดเงินลงทุนกว่า €5 ล้านในแหล่งปลูกกาแฟตลอด 15 ปี และบริจาค €1 ต่อกิโลกรัมที่ขายเข้าสู่มูลนิธิ ส่วน Bean Voyage (Costa Rica) ชนะประเภท nonprofit โดยเชื่อมต่อเกษตรกรหญิงกว่า 1,300 รายเข้ากับตลาดโดยตรง สร้างรายได้ $1.4 ล้าน"
-      },
-      {
-        "title": "ความท้าทายใหญ่ของอุตสาหกรรมกาแฟพิเศษในปี 2026",
-        "url": "https://coffeegreenbeans.com/blogs/forest-blog/biggest-challenges-for-the-specialty-coffee-industry-in-2026",
-        "source": "Forest Coffee Blog",
-        "summary": "Forest Coffee วิเคราะห์ 8 ความท้าทายหลักที่อุตสาหกรรมกาแฟพิเศษเผชิญในปี 2026 — ความผันผวนของสภาพภูมิอากาศที่ส่งผลต่อผลผลิตและคุณภาพ cup profile ความไม่สอดคล้องของราคา C-market กับต้นทุนการผลิตจริง ต้นทุนปัจจัยการผลิตที่สูงขึ้น ความท้าทายด้านการถ่ายทอดสู่เกษตรกรรุ่นใหม่ ภาวะ consumer fatigue ในตลาด成熟 กฎระเบียบ EU ด้าน sustainability ใหม่ และความสมดุลระหว่างนวัตกรรมการหมักกับ authenticity ของ terroir"
-      },
-      {
-        "title": "งานวิจัยเผย การหมักแบบไม่ใช้ออกซิเจนเปลี่ยนเมล็ดดิบให้เป็นกาแฟ specialty grade",
-        "url": "https://www.foodmanufacturing.com/ingredients/news/22948207/fermentation-method-transforms-unripe-fruits-into-specialty-coffees",
-        "source": "Food Manufacturing",
-        "summary": "นักวิจัยจาก Federal University of Uberlândia ประเทศบราซิล ค้นพบว่าการหมักแบบ self-induced anaerobic fermentation (SIAF) สามารถเปลี่ยนเมล็ดกาแฟดิบ (unripe/green bean) ที่ปกติให้รสฝาดและถูกคัดทิ้ง ให้กลายเป็นกาแฟคุณภาพ specialty coffee ด้วยคะแนนคัพบวกกว่า 80 คะแนน โดยใช้ bioreactor ขนาด 200 ลิตร ควบคุมอุณหภูมิที่ 27°C เป็นเวลา 24-96 ชั่วโมง งานวิจัยนี้ตีพิมพ์ใน Food and Bioprocess Technology และสามารถเพิ่มมูลค่าให้ผลผลิตที่เคยถูกทิ้งเป็น waste"
+        "summary": "SCA มอบรางวัล Sustainability Awards ประจำปี 2026: Coffee Circle (Berlin) ในกลุ่ม for-profit ทุ่มเงินกว่า 5 ล้านยูโรใน 15 ปีเพื่อสนับสนุนชุมชนปลูกกาแฟด้านน้ำสะอาด ความมั่นคงทางอาหาร และความเท่าเทียมทางเพศ ส่วน Bean Voyage (Costa Rica) ในกลุ่ม nonprofit เชื่อมต่อเกษตรกรหญิงกว่า 1,300 คนสู่ตลาดโลก สร้างรายได้ตรงกว่า 1.4 ล้านดอลลาร์สหรัฐ โดยทั้งสองจะรับรางวัลที่งาน World of Coffee San Diego"
       }
     ],
-    "system_note": "Google Workspace authenticated successfully. Python 3.9 deprecation warnings present (non-blocking, but upgrade to Python 3.10+ recommended). Today is Saturday — calendar shows 1 all-day event (R บ). Gmail: 10 unread, no urgent personal emails."
+    "system_note": "Google Auth: OK. Token refreshed. Note: Scott Rao newsletter (Crema is Rubbish, 2026) arrived in inbox — coffee-relevant bonus. Calendar shows cryptic single-letter Thai abbreviations (R บ, R ด, R ช) — possibly habit/ritual tracking markers."
   }
 }
