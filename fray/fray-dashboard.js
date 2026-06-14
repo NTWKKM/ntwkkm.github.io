@@ -117,12 +117,29 @@
         let currentDay = 'live';  // 'live' or '1'-'6' for history days
         let liveData = null;      // cached live snapshot
 
-        // Tab bar click handlers
+        /**
+         * Format a short date label for history tabs (e.g. "Jun 12").
+         */
+        function shortDateLabel(daysAgo) {
+            const d = new Date();
+            d.setDate(d.getDate() - daysAgo);
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        }
+
+        // Tab bar: set date labels + click handlers
         document.addEventListener('DOMContentLoaded', () => {
             const tabs = document.querySelectorAll('.day-tab');
             tabs.forEach(tab => {
+                // Replace generic "Day -N" labels with real dates
+                const day = tab.dataset.day;
+                if (day !== 'live') {
+                    const n = parseInt(day);
+                    tab.textContent = n === 1
+                        ? `Yesterday · ${shortDateLabel(1)}`
+                        : shortDateLabel(n);
+                }
+
                 tab.addEventListener('click', async () => {
-                    const day = tab.dataset.day;
                     if (day === currentDay) return;
 
                     // Update active tab
