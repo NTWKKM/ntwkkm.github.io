@@ -1,92 +1,85 @@
 [
   {
-    "date": "14 Jun",
+    "date": "15 Jun",
     "title": "Beta-lactam de-labelling as a core antimicrobial stewardship strategy in the era of the antimicrobial resistance pandemic: a narrative review.",
-    "comment": "ทบทวนความสำคัญและวิธี de-labelling การแพ้ penicillin ใน ER เพื่อการใช้ยาปฏิชีวนะที่เหมาะสม",
+    "comment": "ย้ำเรื่องการ de-labeling ประวัติแพ้ยา penicillin เพื่อการใช้ยาปฏิชีวนะที่เหมาะสมใน ER",
     "pmid": "42286950",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42286950/"
   },
   {
-    "date": "14 Jun",
-    "title": "Feasibility of a nurse-led patch-type electroencephalography monitoring protocol with arterial spin labeling in patients with severe traumatic brain injury: a prospective observational study.",
-    "comment": "เสนอ patch-type EEG สำหรับติดตามผู้ป่วย TBI ใน ER เป็นเครื่องมือใหม่ที่ใช้งานง่ายขึ้น",
-    "pmid": "42286780",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42286780/"
-  },
-  {
-    "date": "14 Jun",
+    "date": "15 Jun",
     "title": "A comparative study of targeted end-tidal carbon dioxide versus standard management to guide resuscitation in emergency department cardiac arrest in Thailand: study protocol for a three-arm randomised controlled trial.",
-    "comment": "Protocol การศึกษา RCT สำคัญ เปรียบเทียบ ETCO2-guided CPR ซึ่งอาจเปลี่ยนแนวทาง ACLS ในอนาคต",
+    "comment": "Protocol การศึกษา RCT ใหญ่เรื่องการใช้ ETCO2 guide การ CPR ซึ่งอาจเปลี่ยน guideline ในอนาคต",
     "pmid": "42286753",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42286753/"
   },
   {
-    "date": "14 Jun",
+    "date": "15 Jun",
     "title": "Predictive value of critical illness scores for outcomes of patients with community-acquired pneumonia: analysis of critical care data from the MIMIC-IV database.",
-    "comment": "วิเคราะห์เปรียบเทียบความแม่นยำของ scoring systems ต่างๆ สำหรับ CAP ช่วยในการตัดสินใจ disposition ผู้ป่วย",
+    "comment": "เปรียบเทียบ scoring systems สำหรับ CAP เพื่อช่วยตัดสินใจรับผู้ป่วยนอนโรงพยาบาลได้ดีขึ้น",
     "pmid": "42286540",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42286540/"
   },
   {
-    "date": "14 Jun",
+    "date": "15 Jun",
     "title": "Diagnostic discordance and differential diagnoses of community-acquired pneumonia in the emergency department.",
-    "comment": "CAP เป็นการวินิจฉัยที่ผิดบ่อยใน ER บทความนี้ทบทวนข้อผิดพลาดและ differential diagnosis ที่สำคัญ",
+    "comment": "ชี้ให้เห็นการวินิจฉัย CAP ผิดพลาดบ่อย ช่วยให้รอบคอบในการวินิจฉัยแยกโรคมากขึ้น",
     "pmid": "42286498",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42286498/"
   },
   {
-    "date": "14 Jun",
-    "title": "Real-World Data on the Use of Intravenous Fosfomycin for the Treatment of Central Nervous System Infections: a Subgroup Analysis from the FORTRESS Study.",
-    "comment": "เสนอข้อมูลการใช้ IV fosfomycin รักษา CNS infection เป็นทางเลือกสำคัญในยุคเชื้อดื้อยา",
-    "pmid": "42286374",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42286374/"
+    "date": "15 Jun",
+    "title": "Glucose-to-potassium ratio has a non-linear J-shaped association with acute kidney injury risk in traumatic brain injury.",
+    "comment": "เสนอ G:K ratio เป็นตัวทำนายความเสี่ยง AKI ในผู้ป่วย TBI ซึ่งเป็นเครื่องมือง่ายและใช้ได้จริง",
+    "pmid": "42286140",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42286140/"
   },
   {
-    "date": "14 Jun",
-    "title": "An autonomous AI agent for knowledge and data cooperation in ED clinical decision support.",
-    "comment": "นำเสนอ AI agent สำหรับช่วยตัดสินใจทางคลินิกใน ER มีศักยภาพเปลี่ยน workflow ในอนาคต",
-    "pmid": "42286154",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42286154/"
-  },
-  {
-    "date": "14 Jun",
+    "date": "15 Jun",
     "title": "Automated alert system and collaborative workflow improve treatment adherence and clinical outcomes in emergency care for acute pancreatitis: A quality improvement project.",
-    "comment": "ระบบแจ้งเตือนอัตโนมัติและ workflow ที่ดีขึ้น ช่วยเพิ่มคุณภาพการดูแลผู้ป่วย acute pancreatitis ได้จริง",
+    "comment": "ระบบแจ้งเตือนอัตโนมัติช่วยปรับปรุงผลการรักษาตับอ่อนอักเสบเฉียบพลัน สามารถนำไปปรับใช้ได้",
     "pmid": "42285884",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42285884/"
   },
   {
-    "date": "14 Jun",
+    "date": "15 Jun",
     "title": "More than meets the eye: the continuing importance of tertiary trauma survey even in moderate (ISS 9-15) trauma.",
-    "comment": "ย้ำความสำคัญของ tertiary survey แม้ใน moderate trauma เพื่อลด missed injury ที่เป็นอันตราย",
+    "comment": "ย้ำความสำคัญของ tertiary survey แม้ใน trauma ที่ดูไม่รุนแรง เพื่อลดการวินิจฉัยพลาด",
     "pmid": "42285813",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42285813/"
   },
   {
-    "date": "14 Jun",
+    "date": "15 Jun",
     "title": "The Influence of Hypocalcaemia on Trauma Patients Experiencing Post-Induction Hypotension: A Retrospective Observational Study.",
-    "comment": "Hypocalcemia สัมพันธ์กับ PIH ในผู้ป่วย trauma ควรตรวจและแก้ไขก่อน RSI เพื่อลดความเสี่ยง",
+    "comment": "Hypocalcemia สัมพันธ์กับความดันตกหลังใส่ท่อในผู้ป่วย trauma อาจต้องแก้แคลเซียมก่อน RSI",
     "pmid": "42285729",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42285729/"
   },
   {
-    "date": "14 Jun",
+    "date": "15 Jun",
     "title": "How ominous are persistent pain and hypertension for uncomplicated Type B aortic dissections?",
-    "comment": "ชี้ว่าอาการปวดและความดันสูงต่อเนื่องใน uTBAD เป็นสัญญาณอันตราย อาจต้องเปลี่ยนแผนการรักษา",
+    "comment": "ช่วยประเมินความเสี่ยงในผู้ป่วย Type B aortic dissection ที่อาการไม่ดีขึ้นใน ER",
     "pmid": "42285639",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42285639/"
   },
   {
-    "date": "14 Jun",
+    "date": "15 Jun",
     "title": "Difficult intravenous access (DIVA) in the adult population: an umbrella review.",
-    "comment": "สรุปหลักฐานระดับสูงเรื่องการประเมินและจัดการภาวะเปิดเส้นเลือดดำยาก (DIVA) ปัญหาที่พบบ่อยใน ER",
+    "comment": "สรุปหลักฐานระดับสูงสำหรับภาวะเปิดเส้นเลือดดำยาก ปัญหาที่พบบ่อยและสำคัญใน ER ทุกวัน",
     "pmid": "42285580",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42285580/"
   },
   {
-    "date": "14 Jun",
+    "date": "15 Jun",
+    "title": "Bispecific antibody therapy in multiple myeloma and risk of progressive multifocal leukoencephalopathy.",
+    "comment": "แจ้งเตือนความเสี่ยง PML ในยากลุ่มใหม่ ผู้ป่วยอาจมา ER ด้วยอาการทางระบบประสาท",
+    "pmid": "42284702",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42284702/"
+  },
+  {
+    "date": "15 Jun",
     "title": "Endovascular intervention for acute stroke in the very late window: A meta-analysis of 90-day mRS and procedural outcomes.",
-    "comment": "Meta-analysis ยืนยันประโยชน์ของ thrombectomy ในผู้ป่วย stroke นอก window ปกติ กระทบการคัดกรองผู้ป่วย",
+    "comment": "ขยายกรอบเวลาทำ thrombectomy ใน stroke อาจเปลี่ยนแนวทางคัดเลือกผู้ป่วยเพื่อส่งต่อทันที",
     "pmid": "42284631",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42284631/"
   }
