@@ -10,7 +10,8 @@ This content reflects the repository structure (updated by GitHub Actions):
 |       `-- (Chunked JSON files)
 |-- fray /
 |   |-- history /
-|   |   `-- 2026-06-14.json
+|   |   |-- 2026-06-14.json
+|   |   `-- 2026-06-15.json
 |   |-- dashboard-snapshot.json
 |   |-- fray-dashboard.css
 |   |-- fray-dashboard.js
