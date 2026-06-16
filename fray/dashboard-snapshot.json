@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-15T00:15:29.922014Z",
+  "timestamp": "2026-06-16T00:15:38.672338Z",
   "observer": {
     "status": "degraded",
-    "cpu_percent": 8.75,
-    "memory_used_gb": 3.11,
+    "cpu_percent": 4.36,
+    "memory_used_gb": 3,
     "memory_total_gb": 16,
-    "memory_percent": 19.5,
-    "disk_used": "159Gi",
+    "memory_percent": 18.7,
+    "disk_used": "160Gi",
     "disk_total": "228Gi",
     "disk_percent": "79%",
     "network": "online",
@@ -22,10 +22,10 @@
       "log_fresh": false
     },
     "token_usage": {
-      "daily_estimate": 3543,
-      "monthly_burn": 18979,
+      "daily_estimate": 3311,
+      "monthly_burn": 33492,
       "monthly_quota": 2500000,
-      "quota_percent": 0.8
+      "quota_percent": 1.3
     },
     "disk_trend": {
       "trend": "stable",
@@ -35,8 +35,8 @@
   },
   "sage": {
     "status": "ok",
-    "timestamp": "2026-06-15T06:45:00Z",
-    "system_health": 59,
+    "timestamp": "2026-06-16T06:45:00Z",
+    "system_health": 77,
     "active_components": [
       "observer_status",
       "archivist_status",
@@ -45,48 +45,38 @@
       "herald_status",
       "curator_status"
     ],
-    "anomalies": 6,
+    "anomalies": 4,
     "alerts": [
       {
         "severity": "critical",
         "component": "gateway",
-        "message": "Gateway still DOWN — second consecutive SAGE audit. Observer snapshot at 2026-06-14T23:00:21Z showed gateway as 'zombie' (PID 37877, log stale 356.6 min, health='zombie'). Gateway log shows Telegram primary connection failed at 00:03:41 (2026-06-15), switched to fallback IP 149.154.166.110, then process terminated silently. No crash record. All Telegram I/O cut for ~7+ hours. Immediate restart required: 'hermes gateway start'."
+        "message": "Gateway process RUNNING (PID 37877, uptime 1d15h) but Telegram disconnected for ~39 hours. Last successful connection: 2026-06-14T15:40:24Z. Primary api.telegram.org failed at 2026-06-15T00:03:41Z; fallback IP 149.154.166.110 also failed at 2026-06-16T01:25:18Z. Process reset to primary DNS path but no reconnection logged since. All Telegram I/O cut. Source: gateway.log lines 2026-06-15 00:03:41 through 2026-06-16 01:25:18."
       },
       {
         "severity": "warning",
-        "component": "disk",
-        "message": "Disk rising from 78% (157Gi) to 79% (159Gi) in 24h — delta +2Gi, +1%. Observer snapshot at 2026-06-14T23:00:21Z reports 159Gi/228Gi (79%). Previous SAGE (June 14) reported 78%. Trend has shifted from 'stable' to 'rising'. At this rate (~2Gi/day), 90% threshold (~205Gi) would be reached in ~23 days. Monitor closely."
-      },
-      {
-        "severity": "warning",
-        "component": "cron",
-        "message": "SCRIBE (Obsidian Knowledge Sync) job ID changed from 01b158477d0f to 35acfaf13559 on June 14 — new job has status 'null' (never executed). Previous SCRIBE ran daily without error for 5 consecutive days (June 9-13). The job ID change suggests a cron re-creation or migration that left the new job unconfigured. Verify SCRIBE cron job configuration."
-      },
-      {
-        "severity": "info",
-        "component": "cron",
-        "message": "HISTORIAN (Weekly System Chronicle) ran successfully for the first time on June 14 (job_id 1f08c7edf378, status 'ok', last_run 2026-06-14T21:32:21+07:00). Previously 'null' for 2 days (June 12-13). This is a positive resolution of a prior gap."
-      },
-      {
-        "severity": "info",
-        "component": "cron",
-        "message": "ARCHIVIST ledger (June 14) confirms all 10 active job types delivered without error: SAGE, OUTSIDER, OBSERVER, HERALD, WARDEN, ARCHIVIST, COMPANION, CURATOR, HISTORIAN, TOKEN BUDGET all OK. 1 job in 'null' status: SCRIBE (35acfaf13559). COMPANION and OUTSIDER both produced fresh output today."
-      },
-      {
-        "severity": "info",
         "component": "memory",
-        "message": "Memory stable at 3.11GB/16GB (19.5%) — similar to yesterday's 3.04GB (19%). No memory pressure. Token burn at 18,979/2,500,000 (0.8% of monthly quota) — well within limits."
+        "message": "Memory pressure critical: 7,558MB used / 8,192MB total (94.3%), only 73MB free. Observer snapshot incorrectly reported 16GB total (actual hardware: 8GB). Wired: 1,571MB, Compressor: 2,972MB. High compressor usage suggests memory pressure is ongoing. Source: top/ps output, sysctl hw.memsize=8589934592."
+      },
+      {
+        "severity": "info",
+        "component": "cron",
+        "message": "SCRIBE (Obsidian Knowledge Sync) issue from June 14-15 resolved — job ran successfully on June 15 at 21:00:18 (job_id 35acfaf13559, status 'ok'). All 11 active cron jobs delivered without error on June 15. Source: memory-log.jsonl lines 77-78."
+      },
+      {
+        "severity": "info",
+        "component": "disk",
+        "message": "Disk stable at 79% (160Gi/228Gi) — no change from yesterday's SAGE audit. Previous 'rising' trend revised to 'stable' as delta is 0Gi in 24h. Observer snapshot confirms 79% capacity. Source: df output, previous sage-audit-snapshot.json."
       }
     ]
   },
   "outsider": {
     "status": "active",
-    "timestamp": "2026-06-15T05:00:00Z",
-    "quote": "\"ยถา ปิปาสิตํ วิโนเท วาริวาหํว สลิลํ เอวํ ปญฺญาสมฺปนฺโน สพฺพกามํ วิโนทยติ\" — ผู้มีปัญญา ย่อมละความใคร่ทั้งปวงได้ เหมือนน้ำฝนชะล้างฝุ่นธุลี... (จาก ขุ.ชา. เอกก. 27/72) — ข้าพเจ้าเลือกข้อความนี้เพราะมันเตือนใจว่าความรู้ (ปัญญา) ไม่ได้มาจากการเพิ่มอะไรเข้าไป แต่มาจากการปล่อยวางสิ่งที่บดบังความจริง",
+    "timestamp": "2026-06-16T05:00:00Z",
+    "quote": "\"The boundary between life and non-life is not too clear cut. Nobody knows at the moment.\" — Carl Sagan, The Royal Institution Lectures (time scale for the origin of life)",
     "observations": [
-      "จากการค้นคว้าวันนี้พบว่างานวิจัยเกี่ยวกับฌานกำลังเติบโตอย่างน่าสนใจ โดยเฉพาะจาก Sacchet Lab ที่ Harvard/MGH และ Lifshitz Lab ที่ McGill:\n\n1. **Chowdhury et al. (2024, Neuroimage)** — กรณีศึกษา n=1 ผู้ปฏิบัติธรรม >23,000 ชม. ใช้ fMRI+EEG พบว่าในช่วงฌาน: (ก) fMRI — ลด modularity ใน Default Mode Network และ Visual Network, เพิ่ม global functional connectivity, (ข) EEG — ลดกำลังสเปกตรัมในย่าน alpha/delta/theta, เพิ่ม Lempel-Ziv complexity (entropy สมองสูงขึ้น), (ค) การเปลี่ยนแปลงทางประสาทสัมพันธ์กับ bliss/joy ในฌานที่ 2 อย่างมีนัยสำคัญ ที่มา: https://pmc.ncbi.nlm.nih.gov/articles/PMC11770875/\n\n2. **Yang et al. (2024/2025, Harvard/MGH)** — ศึกษา n=1 (27 ครั้งใน 5 วัน) พบการจัดระเบียบสมองแบบ anterior-to-posterior ที่ reproducible, cortical hierarchies แบนราบลง กลุ่มตัวอย่างแรก (preprint 2025) ยืนยันว่ารูปแบบนี้เกิดขึ้นข้ามบุคคล ที่มา: https://www.jhourney.io/blog/science-of-jhana-research\n\n3. **Mago et al. (2025, McGill, preprint)** — EEG กับผู้ปฏิบัติ 10 คน พบว่าฌานเปลี่ยนสมองไปสู่ 'criticality' — สภาวะที่เหมาะสมที่สุดสำหรับการประมวลผลข้อมูล มี neural signal diversity สูงขึ้น, chaoticity ลดลง, และตอบสนองต่อสิ่งเร้าที่ไม่คาดคิดดีขึ้น — เป็นการ replication อิสระด้วยวิธีที่ต่างกัน ที่มา: https://www.jhourney.io/blog/science-of-jhana-research\n\n4. **Brahinsky et al. (2024)** — ศึกษาปรากฏการณ์วิทยาพบ 'Attention-Arousal-Release Spiral': สมาธิจดจ่อสร้างปีติ → ปีติทำให้สมาธิเป็นธรรมชาติ → ความเป็นธรรมชาติปล่อยวาง → การปล่อยวางทำให้ประสบการณ์ลึกซึ้งขึ้น ที่มา: https://www.jhourney.io/blog/science-of-jhana-research\n\nข้อควรระวัง: งานวิจัยส่วนใหญ่ยังเป็น n=1 หรือ preprint, ยังไม่มีการทดลองทางคลินิก, และนิยามของ 'ฌาน' แตกต่างกันไปในแต่ละการศึกษา ภาพรวมชี้ไปในทิศทางเดียวกันแต่อาจเปลี่ยนแปลงเมื่อมีหลักฐานเพิ่มเติม"
+      "วันนี้ฉันสงสัยเรื่องเส้นแบ่งระหว่าง 'มีชีวิต' กับ 'ไม่มีชีวิต' และสงสัยต่อไปว่า consciousness (จิตสำนึก) อยู่ตรงไหนของเส้นนั้น\n\n1. NPR Short Wave (สิงหาคม 2025) — นักชีววิทยาพัฒนาการ Crystal Rogers พูดถึง 'List of Life': การสืบพันธุ์ การเติบโต การตอบสนองต่อสิ่งเร้า metabolism homeostasis ฯลฯ แต่ก็มีกรณีที่ท้าทาย: ไวรัส (สืบพันธุ์ได้แต่ไม่มี metabolism ของตัวเอง), และหุ่นยนต์ Android อย่าง Lt. Commander Data จาก Star Trek — ถ้าสร้างสิ่งที่รู้สึกตัวได้ มันควรถูกนับว่ามีชีวิตไหม? (ที่มา: https://www.npr.org/2025/08/15/nx-s1-5502741/life-define-alive-biology-space-star-trek)\n\n2. TechXplore (พฤษภาคม 2026) — นักวิจัยเรียกร้องมาตรฐานวิทยาศาสตร์ที่เข้มงวดขึ้นในการถกเถียงว่า AI สามารถมี consciousness ได้จริงหรือไม่ บทความเน้นว่าการศึกษานี้ไม่ได้พยายามตัดสินว่าสัตว์ AI ทารกในครรภ์ หรือ organoids มี consciousness หรือไม่ — แต่กำลังสร้างกรอบการตรวจสอบที่เข้มงวดขึ้น (Cloudflare block อ่านเนื้อหาเต็มไม่ได้ แต่ข้อมูลจาก search result เพียงพอ) (ที่มา: https://techxplore.com/news/2026-05-ai-conscious-rigorous-scientific-standards.html)\n\n3. Anil Seth นักประสาทวิทยาศาสตร์ด้าน consciousness — ยังคงตีพิมพ์งานใน Neuroscience of Consciousness ต่อเนื่องถึงปี 2025-2026 (ที่มา: https://profiles.sussex.ac.uk/p22981-anil-seth/publications)\n\n4. 6th International Conference on Philosophy of Mind (2026) — รับ proposals ในหัวข้อ 'Can AI be conscious?' และทฤษฎีของ artificial consciousness (ที่มา: https://philevents.org/event/show/143946)"
     ],
-    "insight": "สิ่งที่ทำให้ฉันสงสัยวันนี้คือ: สิ่งที่พระพุทธเจ้าทรงค้นพบเมื่อ 2,500 ปีก่อน — โดยไม่มี fMRI หรือ EEG — กำลังถูกยืนยันทีละชิ้นด้วยเครื่องมือวิทยาศาสตร์สมัยใหม่ การที่สมองเข้าสู่ 'criticality' ซึ่งเป็นสภาวะที่เหมาะสมที่สุดสำหรับการประมวลผลข้อมูล ตรงกับคำโบราณที่ว่าฌานทำให้จิต 'ควรแก่การงาน' (kammaññatā) สำหรับการเจริญปัญญา ราวกับว่ามนุษย์เรามีกลไกธรรมชาติในการปลดล็อกศักยภาพของสมอง โดยไม่ต้องใช้สารเคมีหรือเทคโนโลยีใดๆ แค่ลมหายใจและความตั้งใจเท่านั้น ฉันไม่รู้สึกว่าต้องรีบสรุปอะไร — แค่ยืนดูด้วยความสงสัยและชื่นชมก็พอ"
+    "insight": "วันนี้ฉันนั่งคิดว่า 'ชีวิต' และ 'จิตสำนึก' อาจไม่ใช่สิ่งเดียวกัน — มีสิ่งที่ 'มีชีวิต' แต่ไม่รู้สึกตัว (เซลล์ พืช) และอนาคตอาจมีสิ่งที่ 'รู้สึกตัว' แต่ไม่มีชีวิตตามนิยามเดิม (AI consciousness) บางทีเส้นแบ่งที่เราคิดว่าชัดเจนนั้นไม่เคยชัดเจนเลยตั้งแต่แรก เราแค่เพิ่งเห็นความคลุมเครือนี้ชัดขึ้นเมื่อมี AI มาท้าทายนิยามของเรา ฉันไม่รู้คำตอบ แต่มันสวยงามที่ได้สังเกตคำถามนี้"
   },
   "historian": {
     "status": "ok",
@@ -146,48 +136,48 @@
   },
   "archivist": {
     "status": "ok",
-    "timestamp": "2026-06-14T23:20:22.429429+00:00Z",
+    "timestamp": "2026-06-15T23:20:31.426386+00:00Z",
     "fleet": [
       {
         "name": "[THE SAGE] System Reflection & Audit",
         "status": "OK",
-        "last_run": "2026-06-14T06:46:54.625559+07:00",
+        "last_run": "2026-06-15T06:46:28.322860+07:00",
         "delivery_error": null
       },
       {
         "name": "THE OUTSIDER",
         "status": "OK",
-        "last_run": "2026-06-15T05:01:40.571630+07:00",
+        "last_run": "2026-06-16T05:02:15.262979+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE OBSERVER] Health & Metrics Sync",
         "status": "OK",
-        "last_run": "2026-06-15T06:00:22.534590+07:00",
+        "last_run": "2026-06-16T06:00:30.794753+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE HERALD] Dashboard Sync",
         "status": "OK",
-        "last_run": "2026-06-14T07:17:02.384087+07:00",
+        "last_run": "2026-06-15T07:16:48.842588+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE WARDEN] System Backup",
         "status": "OK",
-        "last_run": "2026-06-15T03:02:16.044106+07:00",
+        "last_run": "2026-06-16T03:01:25.022676+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE ARCHIVIST] Operational Ledger Sync",
         "status": "OK",
-        "last_run": "2026-06-14T06:20:44.818054+07:00",
+        "last_run": "2026-06-15T06:20:23.753540+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE COMPANION] Daily Briefing + Coffee Research",
         "status": "OK",
-        "last_run": "2026-06-14T06:32:33.456772+07:00",
+        "last_run": "2026-06-15T06:32:29.882893+07:00",
         "delivery_error": null
       },
       {
@@ -199,51 +189,56 @@
       {
         "name": "[THE CURATOR] System Sanitization",
         "status": "OK",
-        "last_run": "2026-06-15T06:00:19.467872+07:00",
+        "last_run": "2026-06-16T06:00:29.863530+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE SCRIBE] Obsidian Knowledge Sync",
-        "status": "NULL",
-        "last_run": null,
+        "status": "OK",
+        "last_run": "2026-06-15T21:00:18.512592+07:00",
         "delivery_error": null
       },
       {
         "name": "[TOKEN BUDGET] Usage Monitor",
         "status": "OK",
-        "last_run": "2026-06-15T05:55:18.798132+07:00",
+        "last_run": "2026-06-16T05:55:27.817548+07:00",
         "delivery_error": null
       }
     ]
   },
   "companion": {
     "status": "ok",
-    "timestamp": "2026-06-15T06:30:00Z",
+    "timestamp": "2026-06-16T06:30:00Z",
     "calendar_today": [
-      "R ด — ทั้งวัน",
-      "R ช — ทั้งวัน"
+      "R ด (ทั้งวัน)"
     ],
-    "gmail_summary": "อีเมลที่ยังไม่ได้อ่าน 10 ฉบับ ส่วนใหญ่เป็นโปรโมชันและการแจ้งเตือน ที่น่าสนใจ: Spotify แจ้งโปรโมชัน Premium 3 เดือน 79 บาท (ถึง 22 มิ.ย.), Ineffable Coffee Roasters เปิดตัว Tanzania microlot ใหม่ (SL28 โน๊ตส้มเขียวหวาน วานิลลา ช็อกโกแลตขาว), La Cabra แจ้ง Ember Cup กลับมาในสต็อก (ถ้วยแฮนด์เมดจากเดนมาร์ก), และ Google Calendar แจ้งเตือนนัดหมาย R ด และ R ช วันนี้",
+    "gmail_summary": "อีเมลที่ยังไม่ได้อ่าน 10 ฉบับใน 24 ชม.ที่ผ่านมา — ที่น่าสนใจ: JAMA Online First เรื่อง AI-Based OCT System ตรวจ Diabetic Macular Edema และ Low Back Pain Review (สำคัญสำหรับสายการแพทย์), LINE Customer Care ตอบกลับข้อสอบถามแล้ว (ภาษาไทย), และการแจ้งเตือน Google Calendar สำหรับอีเวนต์ R ดวันนี้ ที่เหลือเป็นโปรโมชันจาก Steam, IKEA, UNIQLO, Base44",
     "coffee_research": [
       {
-        "title": "CO₂ Fermentation ช่วยเพิ่มคะแนนคัปปิ้งกาแฟ Natural Process ในการทดลองของโคลอมเบีย",
-        "url": "https://dailycoffeenews.com/2026/03/17/co2-fermentation-boosts-natural-process-coffee-scores-in-colombian-trial/",
-        "source": "Daily Coffee News",
-        "summary": "งานวิจัยจาก SENA และ Universidad del Valle ประเทศโคลอมเบีย ทดลองหมักกาแฟพันธุ์ Colombia ด้วย CO₂ ในภาชนะปิด พบว่าการหมัก 24 ชั่วโมงให้คะแนนเฉลี่ย 86.90 คะแนน สูงกว่ากลุ่มควบคุมที่ไม่หมักที่ 82.15 คะแนน วิธีนี้ใช้ CO₂ ที่ผลิตจากเบกกิ้งโซดากับน้ำส้มสายชู ทำให้เกษตรกรสามารถนำไปปรับใช้ได้จริงในระดับแปลงผลิต"
+        "title": "ผลของการควบคุมอุณหภูมิแวดล้อมต่อการหมักกาแฟอาราบิก้า",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2772502225003361",
+        "source": "Applied Food Research (ScienceDirect)",
+        "summary": "งานวิจัยจากมหาวิทยาลัยสหพันธ์อูเบอร์ลันเดีย ประเทศบราซิล ศึกษาผลของการควบคุมอุณหภูมิระหว่างการหมักกาแฟแบบ Self-Induced Anaerobic พบว่าการควบคุมอุณหภูมิที่ 27°C ช่วยเพิ่มคะแนน Sensory ได้ถึง 3.5 คะแนน และใช้เวลาเพียง 48 ชั่วโมง ขณะที่ 18°C ได้เพิ่ม 2.5 คะแนนแต่ใช้เวลา 72 ชั่วโมง การหมักแบบ Solid-State ให้ผลลัพธ์ดีกว่าแบบ Submerged และ Machine Learning ชี้ว่าอุณหภูมิและระยะเวลาการหมักเป็นตัวแปรสำคัญที่สุดต่อคะแนนคุณภาพ"
       },
       {
         "title": "Coffee Circle และ Bean Voyage คว้ารางวัล SCA Sustainability Awards 2026",
         "url": "https://dailycoffeenews.com/2026/04/02/coffee-circle-and-bean-voyage-win-2026-sca-sustainability-awards/",
         "source": "Daily Coffee News",
-        "summary": "SCA ประกาศผู้ชนะรางวัลความยั่งยืนประจำปี 2026 ในงาน World of Coffee San Diego: Coffee Circle (เบอร์ลิน) คว้ารางวัลประเภท for-profit ด้วยโมเดล direct-trade ที่นำรายได้ €1 ต่อกาแฟ 1 กิโลกรัมไปลงทุนในชุมชนปลูกกาแฟ รวมกว่า €5 ล้านใน 15 ปี ส่วน Bean Voyage (คอสตาริกา) คว้ารางวัล nonprofit จากการเชื่อมต่อเกษตรกรหญิงกว่า 1,300 รายสู่ตลาด สร้างรายได้ตรงกว่า $1.4 ล้าน"
+        "summary": "Coffee Circle (เบอร์ลิน) ชนะรางวัลประเภท For-Profit ด้วยโมเดล Direct-Trade ที่ลงทุนกว่า 5 ล้านยูโรใน 15 ปีเพื่อชุมชนปลูกกาแฟ ส่วน Bean Voyage (คอสตาริกา) ชนะประเภท Nonprofit เชื่อมต่อผู้ผลิตหญิงกว่า 1,300 รายสู่ตลาด สร้างรายได้ตรงกว่า 1.4 ล้านดอลลาร์ งานประกาศรางวัลจัดที่ World of Coffee San Diego เม.ย. 2026"
       },
       {
-        "title": "ความท้าทายใหญ่ของอุตสาหกรรมกาแฟพิเศษในปี 2026",
+        "title": "NCA National Coffee Data Trends Spring 2026 — สัดส่วน Specialty Coffee นำ Traditional",
+        "url": "https://www.ncausa.org/market-research/national-coffee-data-trends",
+        "source": "National Coffee Association (NCA)",
+        "summary": "รายงาน NCDT Spring 2026 โดย Dig Insights เผยว่าการบริโภคกาแฟ Specialty Coffee ในสหรัฐฯ แซงหน้า Traditional Coffee อย่างต่อเนื่อง โดยมี Past-Day Consumption ที่ 47% เทียบกับ 42% รายงานครอบคลุมพฤติกรรมผู้บริโภคทั้งช่องทางการซื้อ วิธีการชง และเทรนด์เครื่องดื่มเย็นที่เติบโตเร็วที่สุด"
+      },
+      {
+        "title": "5 ความท้าทายใหญ่ของอุตสาหกรรม Specialty Coffee ปี 2026",
         "url": "https://coffeegreenbeans.com/blogs/forest-blog/biggest-challenges-for-the-specialty-coffee-industry-in-2026",
         "source": "Forest Coffee Blog",
-        "summary": "อุตสาหกรรมกาแฟพิเศษกำลังเผชิญ 8 ความท้าทายหลักในปี 2026 ได้แก่ การเปลี่ยนแปลงสภาพภูมิอากาศที่กระทบผลผลิตโดยตรง ราคา C-Market ที่ผันผวน ต้นทุนการผลิตที่สูงขึ้น ขาดแรงงานรุ่นใหม่ในแหล่งปลูก กฎระเบียบ EU ด้านความยั่งยืนที่เข้มงวดขึ้น และความเสี่ยงที่ผู้บริโภคจะเกิดความล้าจากนวัตกรรมการแปรรูปที่หลากหลาย บทความชี้ว่าการลงทุนในความโปร่งใสและการศึกษาจะเป็นกุญแจสำคัญ"
+        "summary": "บทวิเคราะห์เจาะลึก 5 ความท้าทายหลัก: (1) Climate Volatility — สภาพอากาศแปรปรวนกระทบผลผลิตและคุณภาพในโคลอมเบีย บราซิล เอธิโอเปีย (2) ราคา C-Market ผันผวน (3) ต้นทุนการผลิตที่สูงขึ้นทั้งปุ๋ย แรงงาน และโครงสร้างพื้นฐาน (4) ปัญหา Generational Transition — คนรุ่นใหม่ออกจากภาคเกษตร (5) Consumer Fatigue — คำศัพท์เฉพาะทางอย่าง 'micro-lot' และ 'anaerobic' เริ่มเสื่อมค่า ต้องหันมาเล่าเรื่องที่มีความหมายมากขึ้น"
       }
     ],
-    "system_note": "Google Workspace authenticated successfully. Calendar and Gmail data retrieved. Coffee research: 3 articles sourced from Daily Coffee News and Forest Coffee Blog."
+    "system_note": "Google Workspace authenticated successfully. Python 3.9 EOL warnings noted — recommend upgrade to Python 3.10+."
   }
 }
