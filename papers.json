@@ -2,85 +2,85 @@
   {
     "date": "17 Jun",
     "title": "American Heart Association 2025 Guidelines: Basic life support, advanced cardiovascular life support, pediatric advanced life support, and neonatal resuscitation.",
-    "comment": "อัปเดตแนวทางปฏิบัติการกู้ชีพ AHA 2025 สำหรับ CPR, ACLS, PALS มีผลต่อการปฏิบัติงานโดยตรง",
+    "comment": "เนื้อหาสำคัญจาก AHA Guideline 2025 ที่กำลังจะมาถึง สรุปประเด็นการช่วยชีวิตที่ต้องรู้ล่วงหน้า",
     "pmid": "42299758",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42299758/"
   },
   {
     "date": "17 Jun",
-    "title": "Etomidate Versus Ketamine for Emergency Intubation in Critically Ill Patients: An Updated Meta-Analysis and Systematic Review.",
-    "comment": "Meta-analysis เปรียบเทียบ Etomidate vs Ketamine ในการใส่ท่อช่วยหายใจฉุกเฉิน มีผลต่อการเลือกใช้ยา",
-    "pmid": "42299661",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42299661/"
-  },
-  {
-    "date": "17 Jun",
-    "title": "Resuscitative thoracotomy in traumatic cardiac arrest : Multisociety consensus recommendations for settings with a low prevalence of penetrating injuries.",
-    "comment": "แนวทางปฏิบัติใหม่สำหรับ Resuscitative Thoracotomy ในผู้ป่วยอุบัติเหตุหัวใจหยุดเต้น เพื่อการตัดสินใจที่เหมาะสม",
+    "title": "Resuscitative thoracotomy in traumatic cardiac arrest : Multisociety consensus recommendations for settings with a low prevalence of penetrating injuries.",
+    "comment": "ไกด์ไลน์ใหม่ thoracotomy ในภาวะ traumatic arrest สำหรับศูนย์ฯ ที่ไม่พบบาดแผลเจาะทะลวงบ่อย",
     "pmid": "42301425",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42301425/"
   },
   {
     "date": "17 Jun",
-    "title": "European Interdisciplinary Guidelines on Pain Management in Acute Pancreatitis: UEG, EPC, EDS, ESDO, EAGEN, ESPGHAN, ESGAR, and ESPCG Evidence-Based Recommendations.",
-    "comment": "Guideline ใหม่จากยุโรปสำหรับการจัดการความปวดในผู้ป่วยตับอ่อนอักเสบเฉียบพลัน ซึ่งเป็นภาวะที่พบบ่อย",
-    "pmid": "42299777",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42299777/"
+    "title": "Etomidate Versus Ketamine for Emergency Intubation in Critically Ill Patients: An Updated Meta-Analysis and Systematic Review.",
+    "comment": "Meta-analysis ล่าสุดเทียบ Etomidate vs Ketamine สำหรับใส่ท่อช่วยหายใจในผู้ป่วยวิกฤต ข้อมูลสำคัญประกอบการตัดสินใจ",
+    "pmid": "42299661",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42299661/"
   },
   {
     "date": "17 Jun",
     "title": "Minimal head injury in asymptomatic patients on antithrombotic therapy: is in-hospital observation justified after an initial normal computed tomography scan?",
-    "comment": "ตอบคำถามสำคัญเรื่องการสังเกตอาการผู้ป่วย minor head injury ที่ใช้ยาละลายลิ่มเลือดหลัง CT ปกติ",
+    "comment": "เคส head injury กินยาต้านเกล็ดเลือด/แข็งตัว CT ปกติ จำเป็นต้อง observe หรือไม่? ข้อมูลใหม่อาจเปลี่ยน practice",
     "pmid": "42301359",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42301359/"
   },
   {
     "date": "17 Jun",
+    "title": "European Interdisciplinary Guidelines on Pain Management in Acute Pancreatitis: UEG, EPC, EDS, ESDO, EAGEN, ESPGHAN, ESGAR, and ESPCG Evidence-Based Recommendations.",
+    "comment": "ไกด์ไลน์ใหม่จากยุโรป อัปเดตการจัดการความปวดในผู้ป่วยตับอ่อนอักเสบเฉียบพลัน",
+    "pmid": "42299777",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42299777/"
+  },
+  {
+    "date": "17 Jun",
     "title": "The Analgesic Efficacy and Safety of Intramuscular Hydromorphone Versus Butorphanol for Acute Pain in the Emergency Department: A Randomized Trial.",
-    "comment": "RCT เปรียบเทียบประสิทธิภาพและความปลอดภัยของยาแก้ปวด Hydromorphone vs Butorphanol ในห้องฉุกเฉิน",
+    "comment": "RCT เปรียบเทียบ Hydromorphone vs Butorphanol สำหรับแก้ปวดเฉียบพลันใน ER อาจมีผลต่อการเลือกใช้ยา",
     "pmid": "42299914",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42299914/"
   },
   {
     "date": "17 Jun",
     "title": "Prehospital endotracheal intubation and 30-day survival in severe trauma: a matched cohort study from Navarra, Spain.",
-    "comment": "ข้อมูลใหม่เกี่ยวกับผลลัพธ์ของการใส่ท่อช่วยหายใจก่อนถึงโรงพยาบาลในผู้ป่วยอุบัติเหตุรุนแรง",
+    "comment": "การใส่ท่อช่วยหายใจก่อนถึงโรงพยาบาลในผู้ป่วย severe trauma มีผลต่อการรอดชีวิตหรือไม่ การศึกษาที่น่าสนใจ",
     "pmid": "42301409",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42301409/"
   },
   {
     "date": "17 Jun",
     "title": "Mechanical and manual cardiopulmonary resuscitation in traumatic cardiac arrest: a retrospective observational study.",
-    "comment": "เปรียบเทียบการทำ CPR ด้วยมือกับเครื่องอัตโนมัติในผู้ป่วย Traumatic Arrest มีผลต่อการเลือกใช้อุปกรณ์",
+    "comment": "เทียบประสิทธิภาพการปั๊มหัวใจด้วยมือกับเครื่องอัตโนมัติในผู้ป่วย traumatic cardiac arrest",
     "pmid": "42301408",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42301408/"
   },
   {
     "date": "17 Jun",
-    "title": "Impact of Difficult Laryngoscopy on First-Pass Success and Adverse Events in Pediatric Emergency Department Intubations.",
-    "comment": "ข้อมูลความเสี่ยงและผลลัพธ์การใส่ท่อช่วยหายใจในเด็กที่ประเมินว่ายาก เพื่อการเตรียมตัวที่ดีขึ้น",
-    "pmid": "42300925",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42300925/"
-  },
-  {
-    "date": "17 Jun",
     "title": "Muscle point-of-care ultrasound as a predictor of mortality in older adults with hip fracture.",
-    "comment": "POCUS ประเมินกล้ามเนื้อเพื่อพยากรณ์อัตราตายในผู้สูงอายุกระดูกสะโพกหัก เป็นเครื่องมือประเมินความเสี่ยงใหม่",
+    "comment": "ใช้ POCUS ประเมินกล้ามเนื้อในผู้ป่วยสูงวัยกระดูกสะโพกหัก อาจช่วยพยากรณ์ความเสี่ยงเสียชีวิตได้",
     "pmid": "42301585",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42301585/"
   },
   {
     "date": "17 Jun",
-    "title": "The Impact of Patient Positioning on the Compromised Respiratory System.",
-    "comment": "ทบทวนความสำคัญของการจัดท่าผู้ป่วยที่มีปัญหาระบบหายใจ เป็น intervention พื้นฐานที่ส่งผลต่อการรักษา",
-    "pmid": "42300995",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42300995/"
+    "title": "Predictive Value of the Uric Acid-to-Albumin Ratio for In-Hospital Mortality in Acute Pulmonary Embolism.",
+    "comment": "Biomarker ใหม่จาก lab พื้นฐาน (Uric/Albumin ratio) อาจช่วยพยากรณ์การเสียชีวิตในผู้ป่วย PE ได้",
+    "pmid": "42299515",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42299515/"
   },
   {
     "date": "17 Jun",
-    "title": "Predictive Value of the Uric Acid-to-Albumin Ratio for In-Hospital Mortality in Acute Pulmonary Embolism.",
-    "comment": "เสนอ Uric Acid/Albumin ratio เป็น biomarker ใหม่ในการประเมินความเสี่ยงเสียชีวิตในผู้ป่วย PE",
-    "pmid": "42299515",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42299515/"
+    "title": "Impact of Difficult Laryngoscopy on First-Pass Success and Adverse Events in Pediatric Emergency Department Intubations.",
+    "comment": "การใส่ท่อช่วยหายใจยากในเด็กสัมพันธ์กับ adverse event แค่ไหน ข้อมูลย้ำเตือนความปลอดภัยที่ต้องระวัง",
+    "pmid": "42300925",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42300925/"
+  },
+  {
+    "date": "17 Jun",
+    "title": "Propofol-Associated Hypoxia and Hypotension During Endoscopic Retrograde Cholangiopancreatography: A Systematic Review.",
+    "comment": "รีวิวความเสี่ยงความดันตกและพร่องออกซิเจนจากการใช้ Propofol เตือนให้ระมัดระวังเมื่อให้ยาใน ER",
+    "pmid": "42299731",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42299731/"
   }
 ]
