@@ -673,7 +673,7 @@
                 const daysUntilSunday = dayOfWeek === 0 ? 0 : 7 - dayOfWeek;
                 const nextSunday = new Date(now);
                 nextSunday.setDate(now.getDate() + daysUntilSunday);
-                nextSunday.setHours(21, 30, 0, 0); // 21:30 ICT = 14:30 UTC
+                nextSunday.setHours(20, 55, 0, 0); // 20:55 ICT
                 const diffMs = nextSunday - now;
                 const diffH = Math.floor(diffMs / 3600000);
                 const diffM = Math.floor((diffMs % 3600000) / 60000);
@@ -694,7 +694,7 @@
                             📜 The Historian compiles weekly system chronicles
                         </div>
                         <div style="font-size: 0.78rem; color: var(--text-faint);">
-                            ${countdown} · Sunday 21:30 ICT
+                            ${countdown} · Sunday 20:55 ICT
                         </div>
                     </div>
                 `;
