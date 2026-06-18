@@ -1,86 +1,86 @@
 [
   {
     "date": "19 Jun",
-    "title": "Health Outcomes Following Traumatic Brain Injury: An Umbrella Review.",
-    "comment": "ทบทวนภาพรวม TBI เปลี่ยนแนวทางดูแลผู้ป่วยบาดเจ็บศีรษะได้",
-    "pmid": "42313356",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42313356/"
-  },
-  {
-    "date": "19 Jun",
-    "title": "Trauma as a critical condition in the very old: assessment, care pathways and outcome differences.",
-    "comment": "แนวทางดูแลผู้ป่วยสูงอายุบาดเจ็บฉุกเฉิน จำเป็นสำหรับ ER",
-    "pmid": "42313348",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42313348/"
-  },
-  {
-    "date": "19 Jun",
     "title": "From single to dual platelet inhibition FIBTEM assay: fibrinogen replacement thresholds for critical bleeding after trauma.",
-    "comment": "กำหนดเกณฑ์การให้ Fibrinogen ในการดูแลผู้ป่วย Trauma ที่มีเลือดออกมาก",
+    "comment": "ปรับเกณฑ์ให้ fibrinogen ในผู้ป่วย trauma เลือดออกมาก ช่วยตัดสินใจให้เร็วขึ้น.",
     "pmid": "42313188",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42313188/"
   },
   {
     "date": "19 Jun",
-    "title": "Prolonged tourniquet use in extremity trauma: What you need to know.",
-    "comment": "ข้อมูลสำคัญเกี่ยวกับการใช้ Tourniquet ในการบาดเจ็บรุนแรง",
-    "pmid": "42312871",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42312871/"
+    "title": "Accuracy of Point-of-Care Ultrasound Versus Consultative Echocardiography to Identify Right Ventricular Dysfunction in Emergency Department Patients With Pulmonary Embolism.",
+    "comment": "POCUS ใช้ประเมิน RV dysfunction ในผู้ป่วย PE ได้จริง ทำให้การวินิจฉัย/การดูแลรวดเร็วขึ้น.",
+    "pmid": "42313044",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42313044/"
   },
   {
     "date": "19 Jun",
     "title": "The Effective Dosing Schedule of Sodium Bicarbonate for Improving pH in Patients with Metabolic Acidosis.",
-    "comment": "แนวทางการให้ Sodium Bicarbonate ในภาวะเลือดเป็นกรดเมตาบอลิก",
+    "comment": "การปรับสูตรการให้ Sodium Bicarbonate ในภาวะ metabolic acidosis อาจเปลี่ยนแนวปฏิบัติ ER.",
     "pmid": "42312518",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42312518/"
   },
   {
     "date": "19 Jun",
     "title": "Mechanical CPR Device Use and Cardiac Arrest Survival in EMS Agencies.",
-    "comment": "ประเมินผลเครื่องช่วย CPR ต่ออัตราการรอดชีวิต นำไปปรับใช้ใน EMS",
+    "comment": "การใช้เครื่อง CPR อัตโนมัติส่งผลต่ออัตรารอดผู้ป่วย cardiac arrest ทั้งใน ER และนอก รพ.",
     "pmid": "42312381",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42312381/"
   },
   {
     "date": "19 Jun",
-    "title": "Artificial Intelligence Summarization in the Emergency Department-One Size Does Not Fit All.",
-    "comment": "AI ช่วยสรุปข้อมูลผู้ป่วย ER ประเมินประโยชน์และข้อจำกัดในทางคลินิก",
-    "pmid": "42313388",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42313388/"
-  },
-  {
-    "date": "19 Jun",
-    "title": "Accuracy of Point-of-Care Ultrasound Versus Consultative Echocardiography to Identify Right Ventricular Dysfunction in Emergency Department Patients With Pulmonary Embolism.",
-    "comment": "POCUS วินิจฉัย RV dysfunction ใน ER สำหรับผู้ป่วย PE ได้รวดเร็ว",
-    "pmid": "42313044",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42313044/"
+    "title": "Association Between Emergency Department-to-ICU Transfer Time and Hospital Mortality Across ICU Admission Diagnoses: A Post Hoc Subgroup Analysis.",
+    "comment": "เวลาส่งต่อผู้ป่วยจาก ER ไป ICU ส่งผลต่ออัตราการเสียชีวิต จำเป็นต่อการบริหารจัดการ ER.",
+    "pmid": "42312687",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42312687/"
   },
   {
     "date": "19 Jun",
     "title": "Sex-Consistent Performance of an AI-Enabled ECG for Acute Myocardial Infarction: The ROMIAE Study.",
-    "comment": "AI ช่วยแปลคลื่นไฟฟ้าหัวใจ (ECG) ในภาวะ AMI มีผลดี",
+    "comment": "AI-ECG ช่วยวินิจฉัย STEMI ได้อย่างแม่นยำทุกเพศ ถือเป็นเครื่องมือใหม่ใน ER.",
     "pmid": "42312765",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42312765/"
   },
   {
     "date": "19 Jun",
+    "title": "Improved prediction value of the CURB-65 score combined with the platelet-to-lymphocyte ratio for mortality in emergency department patients with severe community-acquired pneumonia.",
+    "comment": "ปรับปรุงคะแนน CURB-65 ด้วย PLR ช่วยพยากรณ์โรคปอดอักเสบรุนแรงใน ER ได้ดีขึ้น.",
+    "pmid": "42311896",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42311896/"
+  },
+  {
+    "date": "19 Jun",
+    "title": "Predictive value of initial triage vital signs for in-hospital mortality in acute aortic dissection patients: a retrospective study in the emergency department.",
+    "comment": "สัญญาณชีพแรกรับที่ ER ใช้พยากรณ์อัตราเสียชีวิตในผู้ป่วย aortic dissection ได้.",
+    "pmid": "42311889",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42311889/"
+  },
+  {
+    "date": "19 Jun",
+    "title": "Geographic Validation of the SADFUL Scores for Identifying Bacteremia in the Unscheduled Emergency Department Revisit Cohorts.",
+    "comment": "SADFUL score ช่วยระบุภาวะติดเชื้อในกระแสเลือดในผู้ป่วยที่กลับมา ER อีกครั้ง.",
+    "pmid": "42312225",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42312225/"
+  },
+  {
+    "date": "19 Jun",
+    "title": "High-Dose Inhaled Nitric Oxide for Antimicrobial Use: Promise, Caution, and Next Steps.",
+    "comment": "Inhaled Nitric Oxide ขนาดสูง อาจเป็นยาต้านจุลชีพใหม่สำหรับภาวะติดเชื้อรุนแรง.",
+    "pmid": "42312683",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42312683/"
+  },
+  {
+    "date": "19 Jun",
     "title": "Research progress on potential high-risk drugs for Stevens-Johnson syndrome and toxic epidermal necrolysis with insights from adverse drug reaction database mining.",
-    "comment": "ข้อมูลยาที่เพิ่มความเสี่ยง SJS/TEN จำเป็นสำหรับแพทย์ ER",
+    "comment": "ข้อมูลยาที่สัมพันธ์กับ SJS/TEN ช่วยให้แพทย์ระมัดระวังการสั่งยาใน ER.",
     "pmid": "42311404",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42311404/"
   },
   {
     "date": "19 Jun",
-    "title": "Duodenal ulcer perforation presenting as acute appendicitis in a child: a case report and literature review.",
-    "comment": "เตือนภาวะแผลในลำไส้เล็กส่วนต้นแตกในเด็กที่มาด้วยอาการคล้ายไส้ติ่งอักเสบ",
-    "pmid": "42311634",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42311634/"
-  },
-  {
-    "date": "19 Jun",
-    "title": "Predictive value of initial triage vital signs for in-hospital mortality in acute aortic dissection patients: a retrospective study in the emergency department.",
-    "comment": "สัญญาณชีพแรกเข้าช่วยทำนายการเสียชีวิตผู้ป่วย Aortic Dissection ใน ER",
-    "pmid": "42311889",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42311889/"
+    "title": "Preventing Medication Errors in Paediatrics: A Narrative Review.",
+    "comment": "ทบทวนการป้องกันความคลาดเคลื่อนทางยาในเด็ก สำคัญต่อความปลอดภัยผู้ป่วย ER เด็ก.",
+    "pmid": "42311356",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42311356/"
   }
 ]
