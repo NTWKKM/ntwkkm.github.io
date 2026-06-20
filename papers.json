@@ -2,85 +2,85 @@
   {
     "date": "21 Jun",
     "title": "American Heart Association/American Stroke Association 2026 Guideline for the Early Management of Patients with Acute Ischemic Stroke: Pediatric Perspective.",
-    "comment": "แนวทางปฏิบัติใหม่ (ปี 2026) เรื่องโรคหลอดเลือดสมองขาดเลือดในเด็ก ซึ่งมีผลต่อการดูแลผู้ป่วยฉุกเฉิน",
+    "comment": "แนวทางปฏิบัติใหม่สำหรับการดูแลผู้ป่วยหลอดเลือดสมองขาดเลือดในเด็ก ซึ่งสำคัญต่อ ER",
     "pmid": "42319654",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42319654/"
   },
   {
     "date": "21 Jun",
-    "title": "Unintentional fatal overdose of veterinary levamisole in a human subject.",
-    "comment": "เป็นสัญญาณอันตราย (Safety Signal) จากยาในสัตว์ที่ร้ายแรงถึงชีวิต ซึ่งแพทย์ ER ต้องรู้",
-    "pmid": "42321982",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42321982/"
+    "title": "Sepsis Recognition and Management Gaps in Hospitals: A Post&#xa0;Hoc Analysis of a Subset of Data from the European Sepsis Care Survey.",
+    "comment": "เผยช่องว่างการดูแลภาวะติดเชื้อในโรงพยาบาล ช่วยปรับปรุงการวินิจฉัยและจัดการ sepsis ใน ER",
+    "pmid": "42319731",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42319731/"
+  },
+  {
+    "date": "21 Jun",
+    "title": "Differentiating Ischemic From Nonischemic T-Wave Inversion Using a Multimodal Vision-Language Model With Reinforcement Learning (ECG-R1): Development and Validation Study.",
+    "comment": "เครื่องมือ AI ใหม่ช่วยแยก T-wave inversion ที่สำคัญต่อการวินิจฉัยภาวะหัวใจขาดเลือดใน ER",
+    "pmid": "42319812",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42319812/"
+  },
+  {
+    "date": "21 Jun",
+    "title": "PCT-Anchored Machine Learning for Pre-Culture Identification of Gram-Negative Sepsis in Children: A Four-Site Study.",
+    "comment": "เทคนิค AI ใหม่ใช้ PCT ระบุ Gram-Negative Sepsis ในเด็กได้อย่างรวดเร็ว ช่วยการรักษา ER",
+    "pmid": "42320014",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42320014/"
+  },
+  {
+    "date": "21 Jun",
+    "title": "Impact of a Cloud-Based Care Coordination Platform on False Cardiac Catheterization Laboratory Activations and Unnecessary Team Mobilization: Retrospective Cohort Study.",
+    "comment": "ช่วยลดการเรียกทีม Cath Lab โดยไม่จำเป็น ปรับปรุงประสิทธิภาพและประหยัดทรัพยากร ER",
+    "pmid": "42320015",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42320015/"
   },
   {
     "date": "21 Jun",
     "title": "Bleeding risk in patients receiving concurrent treatment with direct oral anticoagulants and corticosteroids: A systematic review.",
-    "comment": "เป็นสัญญาณอันตรายที่สำคัญ: การใช้ DOACs ร่วมกับสเตียรอยด์เพิ่มความเสี่ยงเลือดออกสูงขึ้น แพทย์ ER ต้องระวัง",
+    "comment": "ข้อมูลความปลอดภัยสำคัญเกี่ยวกับความเสี่ยงเลือดออกเมื่อใช้ DOACs ร่วมกับสเตียรอยด์ มีผลต่อการดูแลใน ER",
     "pmid": "42320245",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42320245/"
   },
   {
     "date": "21 Jun",
+    "title": "Frailty stratification in the emergency department using the triage frailty and comorbidity tool.",
+    "comment": "เครื่องมือใหม่สำหรับการคัดกรองภาวะเปราะบางใน ER ช่วยประเมินความเสี่ยงผู้สูงอายุได้อย่างรวดเร็ว",
+    "pmid": "42320418",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42320418/"
+  },
+  {
+    "date": "21 Jun",
     "title": "A comparison of pediatric sepsis definitions based on systemic inflammatory response syndrome and Phoenix criteria: a single-center PICU retrospective study.",
-    "comment": "ช่วยเปรียบเทียบคำจำกัดความภาวะติดเชื้อในเด็ก ซึ่งส่งผลต่อการวินิจฉัยและดูแลผู้ป่วย ER ได้",
+    "comment": "การเปรียบเทียบนิยามภาวะติดเชื้อในเด็กโดย SIRS และ Phoenix Criteria มีผลต่อการวินิจฉัยใน ER",
     "pmid": "42321878",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42321878/"
   },
   {
     "date": "21 Jun",
+    "title": "Unintentional fatal overdose of veterinary levamisole in a human subject.",
+    "comment": "สัญญาณอันตราย: การใช้ยาถ่ายพยาธิ Levamisole เกินขนาดในมนุษย์เป็นพิษร้ายแรง ต้องระวังใน ER",
+    "pmid": "42321982",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42321982/"
+  },
+  {
+    "date": "21 Jun",
+    "title": "Implementation of the kidney protection strategy in critically ill patients with acute kidney injury - a multi-center prospective cohort study.",
+    "comment": "กลยุทธ์ป้องกันไตวายเฉียบพลันในผู้ป่วยวิกฤต เป็นแนวทางปฏิบัติสำคัญสำหรับ ER และ ICU",
+    "pmid": "42321935",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42321935/"
+  },
+  {
+    "date": "21 Jun",
     "title": "Triage effectiveness: a framework for quantifying the effect of emergency triage prioritization.",
-    "comment": "เป็นแนวคิดใหม่ในการประเมินประสิทธิภาพการคัดแยกผู้ป่วยฉุกเฉิน มีผลต่อการปรับปรุงระบบ ER",
+    "comment": "กรอบแนวคิดใหม่วัดผลประสิทธิผลการคัดแยกผู้ป่วยฉุกเฉิน ช่วยปรับปรุงระบบ triage ใน ER",
     "pmid": "42321619",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42321619/"
   },
   {
     "date": "21 Jun",
     "title": "Distinguishing suspected inflicted from accidental falls from a caregiver's arms: a pattern-based analysis of extremity injuries in children.",
-    "comment": "เป็นเครื่องมือช่วยแยกแยะการบาดเจ็บจากการทำร้ายเด็กใน ER ซึ่งสำคัญและมีผลต่อการตัดสินใจ",
+    "comment": "ช่วยแพทย์ ER แยกแยะการบาดเจ็บจากการตกกระแทกโดยบังเอิญกับการทารุณกรรมในเด็ก",
     "pmid": "42321561",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42321561/"
-  },
-  {
-    "date": "21 Jun",
-    "title": "PCT-Anchored Machine Learning for Pre-Culture Identification of Gram-Negative Sepsis in Children: A Four-Site Study.",
-    "comment": "เครื่องมือใหม่: AI ช่วยระบุภาวะติดเชื้อในกระแสเลือดจากเชื้อแกรมลบในเด็กก่อนเพาะเชื้อ มีผลต่อการรักษา ER",
-    "pmid": "42320014",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42320014/"
-  },
-  {
-    "date": "21 Jun",
-    "title": "Differentiating Ischemic From Nonischemic T-Wave Inversion Using a Multimodal Vision-Language Model With Reinforcement Learning (ECG-R1): Development and Validation Study.",
-    "comment": "เครื่องมือ AI ใหม่: ช่วยแยก T-wave inversion จากภาวะขาดเลือดหัวใจ ช่วยวินิจฉัยโรคหัวใจเฉียบพลันใน ER",
-    "pmid": "42319812",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42319812/"
-  },
-  {
-    "date": "21 Jun",
-    "title": "Bundibugyo virus outbreak: when a concerning pathogen meets a humanitarian emergency.",
-    "comment": "เป็นสัญญาณเฝ้าระวังเชื้อโรคอุบัติใหม่และการจัดการภาวะฉุกเฉินทางมนุษยธรรม สำคัญต่อ ER preparedness",
-    "pmid": "42321400",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42321400/"
-  },
-  {
-    "date": "21 Jun",
-    "title": "Nirsevimab Implementation and Primary Management of Lower Respiratory Tract Infections in Infants in Spain: A Quasi-Experimental Study.",
-    "comment": "ยาใหม่ Nirsevimab มีผลต่อการจัดการภาวะติดเชื้อทางเดินหายใจส่วนล่างในทารกใน ER",
-    "pmid": "42319655",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42319655/"
-  },
-  {
-    "date": "21 Jun",
-    "title": "Electronic Phenotype for Detection, Staging, and Subtyping of Acute Kidney Injury.",
-    "comment": "เป็นเครื่องมือใหม่: Electronic phenotype ช่วยตรวจจับและจัดกลุ่มภาวะไตวายเฉียบพลัน ซึ่งมีผลต่อ ER",
-    "pmid": "42320578",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42320578/"
-  },
-  {
-    "date": "21 Jun",
-    "title": "Impact of a Cloud-Based Care Coordination Platform on False Cardiac Catheterization Laboratory Activations and Unnecessary Team Mobilization: Retrospective Cohort Study.",
-    "comment": "เครื่องมือใหม่: แพลตฟอร์มช่วยลดการเรียกทีม Cath lab โดยไม่จำเป็น เพิ่มประสิทธิภาพการดูแลผู้ป่วย STEMI ใน ER",
-    "pmid": "42320015",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42320015/"
   }
 ]
