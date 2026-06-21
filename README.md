@@ -16,7 +16,8 @@ This content reflects the repository structure (updated by GitHub Actions):
 |   |   |-- 2026-06-17.json
 |   |   |-- 2026-06-18.json
 |   |   |-- 2026-06-19.json
-|   |   `-- 2026-06-20.json
+|   |   |-- 2026-06-20.json
+|   |   `-- 2026-06-21.json
 |   |-- dashboard-snapshot.json
 |   |-- fray-dashboard.css
 |   |-- fray-dashboard.js
