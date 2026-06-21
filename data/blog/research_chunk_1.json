@@ -1,5 +1,33 @@
 [
   {
+    "id": "386ba464-60a7-8150-b616-e228d225812e",
+    "name": "American Heart Association/American Stroke Association 2026 Guideline for the Early Management of Patients with Acute Ischemic Stroke: Pediatric Perspective.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42319654/",
+    "property_date": null,
+    "property_tag_2": "Pediatrics",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อนำเสนอและอภิปรายแนวทางเวชปฏิบัติฉบับล่าสุดของ American Heart Association/American Stroke Association สำหรับการดูแลผู้ป่วยเด็กที่เป็นโรคหลอดเลือดสมองตีบเฉียบพลัน (acute ischemic stroke)\n- **วิธีการ:** เป็นการทบทวนและสรุปเนื้อหาจากแนวทางเวชปฏิบัติฉบับล่าสุด โดยเน้นย้ำคำแนะนำใหม่ที่จำเพาะสำหรับผู้ป่วยเด็ก\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** แนวทางเวชปฏิบัติฉบับใหม่ได้รวบรวมคำแนะนำที่อิงตามหลักฐานเชิงประจักษ์สำหรับการประเมินและการรักษาผู้ป่วยเด็กโรคหลอดเลือดสมองตีบเฉียบพลันเป็นครั้งแรก พร้อมทั้งเปรียบเทียบความแตกต่างกับแนวทางอื่น ๆ ที่มีอยู่\n- **Study Design:** Systematic review\n- **Clinical Relevance:** เป็นแนวทางใหม่สำหรับจัดการผู้ป่วยเด็กโรคหลอดเลือดสมองเฉียบพลัน",
+    "property_status": "Not started",
+    "property_tag_3": "Neurology",
+    "property_tag_1": "Stroke",
+    "property_last_edited_time": "2026-06-21T22:10:00.000Z",
+    "property_pmid": "42319654",
+    "property_name": "American Heart Association/American Stroke Association 2026 Guideline for the Early Management of Patients with Acute Ischemic Stroke: Pediatric Perspective."
+  },
+  {
+    "id": "386ba464-60a7-81b1-8f6c-fe481c5fa8d0",
+    "name": "Sepsis Recognition and Management Gaps in Hospitals: A Post Hoc Analysis of a Subset of Data from the European Sepsis Care Survey.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42319731/",
+    "property_date": null,
+    "property_tag_2": "Emergency Medicine",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินสถานการณ์พื้นฐานระดับประเทศเกี่ยวกับการดูแลผู้ป่วยภาวะ sepsis ในโรงพยาบาล และระบุข้อบกพร่องในการวินิจฉัยและการจัดการ\n- **วิธีการ:** วิเคราะห์ข้อมูลจากโรงพยาบาล 55 แห่งในประเทศโปแลนด์ เกี่ยวกับคำจำกัดความ การคัดกรอง การจัดการ โครงสร้างพื้นฐาน และโปรแกรมพัฒนาคุณภาพ (QIPs) สำหรับภาวะ sepsis ในแผนกฉุกเฉิน (EDs) หอผู้ป่วย (wards) และหอผู้ป่วยวิกฤต (ICUs)\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** โรงพยาบาล 44% ใช้เกณฑ์ Sepsis-3 ในแผนกฉุกเฉินมีการคัดกรอง 27% และการจัดการที่เป็นมาตรฐาน 38.2% โรงพยาบาลที่มีโปรแกรมพัฒนาคุณภาพ (QIPs) มีการติดตามตัวชี้วัดที่สำคัญสูงกว่าอย่างมีนัยสำคัญทางสถิติ (p < 0.05) เช่น การติดตามผู้ป่วย sepsis (76.5% vs 41.4%) และอัตราการเสียชีวิต (70.6% vs 20.7%)\n- **Study Design:** Cross-sectional\n- **Clinical Relevance:** โปรแกรมพัฒนาคุณภาพ (QIPs) ช่วยเพิ่มการปฏิบัติตามแนวทางการดูแล sepsis ในห้องฉุกเฉิน",
+    "property_status": "Not started",
+    "property_tag_3": "Quality Improvement",
+    "property_tag_1": "Sepsis",
+    "property_last_edited_time": "2026-06-21T22:10:00.000Z",
+    "property_pmid": "42319731",
+    "property_name": "Sepsis Recognition and Management Gaps in Hospitals: A Post Hoc Analysis of a Subset of Data from the European Sepsis Care Survey."
+  },
+  {
     "id": "386ba464-60a7-817c-8a71-fad838a44e4c",
     "name": "Bleeding risk in patients receiving concurrent treatment with direct oral anticoagulants and corticosteroids: A systematic review.",
     "url": "https://pubmed.ncbi.nlm.nih.gov/42320245/",
@@ -2770,33 +2798,5 @@
     "property_last_edited_time": "2026-05-22T22:09:00.000Z",
     "property_pmid": "42170833",
     "property_name": "Phenotyping and biomarkers in cardiogenic shock"
-  },
-  {
-    "id": "368ba464-60a7-8151-9de6-cacfe709027c",
-    "name": "Effectiveness of an In-Hospital Stroke Bypass System for Endovascular Treatment: A Comparative Study",
-    "url": "https://pubmed.ncbi.nlm.nih.gov/42169782/",
-    "property_date": null,
-    "property_tag_2": "Emergency Medicine",
-    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินประสิทธิภาพของระบบ \"in-hospital stroke bypass\" ซึ่งให้เจ้าหน้าที่กู้ชีพ (EMT) ในแผนกฉุกเฉินคัดกรองภาวะหลอดเลือดใหญ่ในสมองอุดตัน (ELVO) และเรียกทีมรักษาโรคหลอดเลือดสมองผ่านทางโดยตรง เพื่อลดความล่าช้าในการรักษาผู้ป่วยโรคหลอดเลือดสมองขาดเลือดเฉียบพลันที่ไม่ได้ถูกส่งตัวผ่านระบบปกติ\n- **วิธีการ:** ศึกษาย้อนหลังจากผู้ป่วย 140 รายที่เข้ารับการรักษาด้วยการเปิดหลอดเลือดผ่านสายสวนระหว่างเดือนธันวาคม 2019 ถึง 2021 โดยแบ่งเป็นกลุ่ม SSN (94 ราย), กลุ่ม stroke bypass (17 ราย) และกลุ่ม non-SB (29 ราย) เพื่อเปรียบเทียบระยะเวลาการรักษาและผลลัพธ์ทางคลินิก\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** กลุ่ม stroke bypass มีระยะเวลา door-to-puncture และ door-to-reperfusion ที่สั้นกว่ากลุ่ม non-SB อย่างมีนัยสำคัญทางสถิติ (p < 0.01) และมีประสิทธิภาพเทียบเท่ากับกลุ่ม SSN แม้ว่าจะไม่มีความแตกต่างอย่างมีนัยสำคัญในด้านผลลัพธ์ความอิสระในการใช้ชีวิต (mRS 0-2) ระหว่างกลุ่มก็ตาม",
-    "property_status": "Not started",
-    "property_tag_3": "Endovascular Treatment",
-    "property_tag_1": "Stroke",
-    "property_last_edited_time": "2026-05-22T22:08:00.000Z",
-    "property_pmid": "42169782",
-    "property_name": "Effectiveness of an In-Hospital Stroke Bypass System for Endovascular Treatment: A Comparative Study"
-  },
-  {
-    "id": "368ba464-60a7-81eb-985f-e30fb106ccc7",
-    "name": "Improving the safety of emergency tracheal intubation",
-    "url": "https://pubmed.ncbi.nlm.nih.gov/42170830/",
-    "property_date": null,
-    "property_tag_2": "Airway Management",
-    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนหลักฐานทางวิชาการล่าสุดเกี่ยวกับกลยุทธ์ในการเพิ่มความปลอดภัยของการใส่ท่อช่วยหายใจฉุกเฉินในผู้ป่วยวิกฤต\n- **วิธีการ:** รวบรวมและวิเคราะห์ข้อมูลจากการทดลองแบบสุ่มและงานวิจัยพหุศูนย์เกี่ยวกับการจัดการทางเดินหายใจ การเตรียมตัว การใช้อุปกรณ์ และการใช้ยาที่เหมาะสม\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบว่าการใช้วิธีการช่วยหายใจแบบไม่รุกราน (NIV) สำหรับการให้ออกซิเจนก่อนใส่ท่อ, การใช้วิดีโอลาริงโกสโคป และการเลือกใช้ยาเหนี่ยวนำช่วยลดภาวะแทรกซ้อนได้จริง แต่การเลือกใช้ยาหย่อนกล้ามเนื้อชนิดต่างๆ ยังไม่มีความแตกต่างที่ชัดเจนต่อผลลัพธ์ทางคลินิกของผู้ป่วย",
-    "property_status": "Not started",
-    "property_tag_3": "Critical Care",
-    "property_tag_1": "Emergency Medicine",
-    "property_last_edited_time": "2026-05-22T18:10:00.000Z",
-    "property_pmid": "42170830",
-    "property_name": "Improving the safety of emergency tracheal intubation"
   }
 ]
