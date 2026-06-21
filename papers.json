@@ -2,85 +2,85 @@
   {
     "date": "22 Jun",
     "title": "American Heart Association/American Stroke Association 2026 Guideline for the Early Management of Patients with Acute Ischemic Stroke: Pediatric Perspective.",
-    "comment": "แนวทางใหม่สำหรับโรคหลอดเลือดสมองในเด็กปี 2026 โดย AHA/ASA เตรียมเปลี่ยนแนวทางการดูแลใน ER.",
+    "comment": "แนวทางปฏิบัติใหม่จาก AHA/ASA สำหรับการจัดการ stroke ในเด็ก มีผลต่อการดูแลใน ER อย่างมาก.",
     "pmid": "42319654",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42319654/"
   },
   {
     "date": "22 Jun",
-    "title": "Unintentional fatal overdose of veterinary levamisole in a human subject.",
-    "comment": "การได้รับยา Levamisole เกินขนาดในมนุษย์เป็นสัญญาณอันตรายร้ายแรงที่ ER ต้องรู้ เพื่อวินิจฉัยและรักษาพิษยา.",
-    "pmid": "42321982",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42321982/"
-  },
-  {
-    "date": "22 Jun",
     "title": "Bleeding risk in patients receiving concurrent treatment with direct oral anticoagulants and corticosteroids: A systematic review.",
-    "comment": "ทบทวนความเสี่ยงเลือดออกเมื่อใช้ DOACs ร่วมกับ Steroid สิ่งที่แพทย์ ER ต้องระวังยาตีกันสำคัญมาก.",
+    "comment": "ทบทวนความเสี่ยงเลือดออกจากการใช้ DOACs ร่วมกับ corticosteroids เป็นข้อมูลสำคัญสำหรับ ER.",
     "pmid": "42320245",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42320245/"
   },
   {
     "date": "22 Jun",
+    "title": "Unintentional fatal overdose of veterinary levamisole in a human subject.",
+    "comment": "เตือนถึงความเสี่ยงร้ายแรงของ levamisole ซึ่งอาจเป็นสารปนเปื้อนในยาเสพติด.",
+    "pmid": "42321982",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42321982/"
+  },
+  {
+    "date": "22 Jun",
+    "title": "Distinguishing suspected inflicted from accidental falls from a caregiver's arms: a pattern-based analysis of extremity injuries in children.",
+    "comment": "ช่วย ER ในการแยกแยะการบาดเจ็บจากการถูกทำร้ายเด็ก กับอุบัติเหตุพลัดตก ซึ่งยากต่อการวินิจฉัย.",
+    "pmid": "42321561",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42321561/"
+  },
+  {
+    "date": "22 Jun",
     "title": "A comparison of pediatric sepsis definitions based on systemic inflammatory response syndrome and Phoenix criteria: a single-center PICU retrospective study.",
-    "comment": "เปรียบเทียบเกณฑ์วินิจฉัยภาวะติดเชื้อในเด็ก (Sepsis) มีผลต่อการคัดกรองและการดูแลผู้ป่วย ER อย่างมาก.",
+    "comment": "เปรียบเทียบเกณฑ์วินิจฉัย sepsis ในเด็ก (SIRS vs. Phoenix) มีผลต่อการคัดกรองและรักษาใน ER.",
     "pmid": "42321878",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42321878/"
   },
   {
     "date": "22 Jun",
+    "title": "Sepsis Recognition and Management Gaps in Hospitals: A Post&#xa0;Hoc Analysis of a Subset of Data from the European Sepsis Care Survey.",
+    "comment": "ชี้ให้เห็นช่องว่างการวินิจฉัยและจัดการ sepsis ในโรงพยาบาล ซึ่งสำคัญต่อการปรับปรุงคุณภาพ ER.",
+    "pmid": "42319731",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42319731/"
+  },
+  {
+    "date": "22 Jun",
     "title": "PCT-Anchored Machine Learning for Pre-Culture Identification of Gram-Negative Sepsis in Children: A Four-Site Study.",
-    "comment": "เครื่องมือ AI ใหม่ใช้ PCT คัดกรอง Sepsis ในเด็กก่อนเพาะเชื้อ ช่วยให้วินิจฉัยเร็วขึ้นอย่างมีนัยสำคัญ.",
+    "comment": "AI ร่วม PCT ช่วยระบุ sepsis ชนิด Gram-negative ในเด็กตั้งแต่ก่อนเพาะเชื้อ มีผลต่อการดูแลใน ER.",
     "pmid": "42320014",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42320014/"
   },
   {
     "date": "22 Jun",
     "title": "Differentiating Ischemic From Nonischemic T-Wave Inversion Using a Multimodal Vision-Language Model With Reinforcement Learning (ECG-R1): Development and Validation Study.",
-    "comment": "โมเดล AI ใหม่ช่วยแยก T-wave inversion จากภาวะขาดเลือดหัวใจได้แม่นยำขึ้น มีประโยชน์ต่อการวินิจฉัยใน ER.",
+    "comment": "AI model ช่วยแยก T-wave inversion ที่เกิดจาก ischemia vs non-ischemia ได้แม่นยำขึ้น มีผลต่อ ER.",
     "pmid": "42319812",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42319812/"
   },
   {
     "date": "22 Jun",
-    "title": "Distinguishing suspected inflicted from accidental falls from a caregiver's arms: a pattern-based analysis of extremity injuries in children.",
-    "comment": "การวิเคราะห์รูปแบบบาดเจ็บแขนขาช่วยแยกแยะการหกล้มจากอุบัติเหตุหรือการทำร้ายเด็ก สำคัญสำหรับแพทย์ ER.",
-    "pmid": "42321561",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42321561/"
-  },
-  {
-    "date": "22 Jun",
-    "title": "Nirsevimab Implementation and Primary Management of Lower Respiratory Tract Infections in Infants in Spain: A Quasi-Experimental Study.",
-    "comment": "การใช้ Nirsevimab ป้องกัน RSV ในทารกมีผลต่อการจัดการ LRTI ใน ER และช่วยลดภาระงาน.",
-    "pmid": "42319655",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42319655/"
-  },
-  {
-    "date": "22 Jun",
-    "title": "Combined oral contraceptive use as a cause of acute myocardial infarction in a young woman without traditional risk factors: a case report.",
-    "comment": "ยาคุมกำเนิดเป็นสาเหตุ AMI ในหญิงสาวไม่มีปัจจัยเสี่ยง สัญญาณอันตรายที่แพทย์ ER ต้องตระหนัก.",
-    "pmid": "42321896",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42321896/"
+    "title": "Impact of a Cloud-Based Care Coordination Platform on False Cardiac Catheterization Laboratory Activations and Unnecessary Team Mobilization: Retrospective Cohort Study.",
+    "comment": "ระบบ cloud ช่วยลดการเปิด cath lab โดยไม่จำเป็น ลดภาระ ER และเพิ่มประสิทธิภาพ.",
+    "pmid": "42320015",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42320015/"
   },
   {
     "date": "22 Jun",
     "title": "Frailty stratification in the emergency department using the triage frailty and comorbidity tool.",
-    "comment": "เครื่องมือคัดกรอง Frailty ที่ ER ช่วยจัดลำดับความสำคัญและดูแลผู้สูงอายุเปราะบางได้อย่างเหมาะสม.",
+    "comment": "เครื่องมือใหม่ (triage frailty tool) ช่วยประเมินความเปราะบางใน ER มีผลต่อการดูแลผู้สูงอายุ.",
     "pmid": "42320418",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42320418/"
   },
   {
     "date": "22 Jun",
     "title": "Implementation of the kidney protection strategy in critically ill patients with acute kidney injury - a multi-center prospective cohort study.",
-    "comment": "กลยุทธ์ป้องกันไตวายเฉียบพลันในผู้ป่วยวิกฤติ มีผลต่อการดูแลใน ER และผลลัพธ์ของผู้ป่วย.",
+    "comment": "แนวทางป้องกันไตวายเฉียบพลันในผู้ป่วยวิกฤต ซึ่งเริ่มตั้งแต่ ER มีผลต่อการดูแลผู้ป่วย.",
     "pmid": "42321935",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42321935/"
   },
   {
     "date": "22 Jun",
-    "title": "Triggers, clinical spectra and outcomes of pediatric anaphylaxis in a tertiary center: impact of comorbidities and cofactors on severity.",
-    "comment": "การศึกษา anaphylaxis ในเด็กช่วยให้เข้าใจปัจจัยกระตุ้น โรคประจำตัวที่ส่งผลต่อความรุนแรง มีผลต่อ ER.",
-    "pmid": "42321881",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42321881/"
+    "title": "Nirsevimab Implementation and Primary Management of Lower Respiratory Tract Infections in Infants in Spain: A Quasi-Experimental Study.",
+    "comment": "การนำ Nirsevimab มาใช้และการจัดการ LRTI ในทารกมีผลต่อการรับมือ RSV ใน ER.",
+    "pmid": "42319655",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42319655/"
   }
 ]
