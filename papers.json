@@ -1,86 +1,86 @@
 [
   {
-    "date": "21 Jun",
+    "date": "22 Jun",
     "title": "American Heart Association/American Stroke Association 2026 Guideline for the Early Management of Patients with Acute Ischemic Stroke: Pediatric Perspective.",
-    "comment": "แนวทางปฏิบัติใหม่สำหรับการดูแลผู้ป่วยหลอดเลือดสมองขาดเลือดในเด็ก ซึ่งสำคัญต่อ ER",
+    "comment": "แนวทางใหม่สำหรับโรคหลอดเลือดสมองในเด็กปี 2026 โดย AHA/ASA เตรียมเปลี่ยนแนวทางการดูแลใน ER.",
     "pmid": "42319654",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42319654/"
   },
   {
-    "date": "21 Jun",
-    "title": "Sepsis Recognition and Management Gaps in Hospitals: A Post&#xa0;Hoc Analysis of a Subset of Data from the European Sepsis Care Survey.",
-    "comment": "เผยช่องว่างการดูแลภาวะติดเชื้อในโรงพยาบาล ช่วยปรับปรุงการวินิจฉัยและจัดการ sepsis ใน ER",
-    "pmid": "42319731",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42319731/"
-  },
-  {
-    "date": "21 Jun",
-    "title": "Differentiating Ischemic From Nonischemic T-Wave Inversion Using a Multimodal Vision-Language Model With Reinforcement Learning (ECG-R1): Development and Validation Study.",
-    "comment": "เครื่องมือ AI ใหม่ช่วยแยก T-wave inversion ที่สำคัญต่อการวินิจฉัยภาวะหัวใจขาดเลือดใน ER",
-    "pmid": "42319812",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42319812/"
-  },
-  {
-    "date": "21 Jun",
-    "title": "PCT-Anchored Machine Learning for Pre-Culture Identification of Gram-Negative Sepsis in Children: A Four-Site Study.",
-    "comment": "เทคนิค AI ใหม่ใช้ PCT ระบุ Gram-Negative Sepsis ในเด็กได้อย่างรวดเร็ว ช่วยการรักษา ER",
-    "pmid": "42320014",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42320014/"
-  },
-  {
-    "date": "21 Jun",
-    "title": "Impact of a Cloud-Based Care Coordination Platform on False Cardiac Catheterization Laboratory Activations and Unnecessary Team Mobilization: Retrospective Cohort Study.",
-    "comment": "ช่วยลดการเรียกทีม Cath Lab โดยไม่จำเป็น ปรับปรุงประสิทธิภาพและประหยัดทรัพยากร ER",
-    "pmid": "42320015",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42320015/"
-  },
-  {
-    "date": "21 Jun",
-    "title": "Bleeding risk in patients receiving concurrent treatment with direct oral anticoagulants and corticosteroids: A systematic review.",
-    "comment": "ข้อมูลความปลอดภัยสำคัญเกี่ยวกับความเสี่ยงเลือดออกเมื่อใช้ DOACs ร่วมกับสเตียรอยด์ มีผลต่อการดูแลใน ER",
-    "pmid": "42320245",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42320245/"
-  },
-  {
-    "date": "21 Jun",
-    "title": "Frailty stratification in the emergency department using the triage frailty and comorbidity tool.",
-    "comment": "เครื่องมือใหม่สำหรับการคัดกรองภาวะเปราะบางใน ER ช่วยประเมินความเสี่ยงผู้สูงอายุได้อย่างรวดเร็ว",
-    "pmid": "42320418",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42320418/"
-  },
-  {
-    "date": "21 Jun",
-    "title": "A comparison of pediatric sepsis definitions based on systemic inflammatory response syndrome and Phoenix criteria: a single-center PICU retrospective study.",
-    "comment": "การเปรียบเทียบนิยามภาวะติดเชื้อในเด็กโดย SIRS และ Phoenix Criteria มีผลต่อการวินิจฉัยใน ER",
-    "pmid": "42321878",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42321878/"
-  },
-  {
-    "date": "21 Jun",
+    "date": "22 Jun",
     "title": "Unintentional fatal overdose of veterinary levamisole in a human subject.",
-    "comment": "สัญญาณอันตราย: การใช้ยาถ่ายพยาธิ Levamisole เกินขนาดในมนุษย์เป็นพิษร้ายแรง ต้องระวังใน ER",
+    "comment": "การได้รับยา Levamisole เกินขนาดในมนุษย์เป็นสัญญาณอันตรายร้ายแรงที่ ER ต้องรู้ เพื่อวินิจฉัยและรักษาพิษยา.",
     "pmid": "42321982",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42321982/"
   },
   {
-    "date": "21 Jun",
+    "date": "22 Jun",
+    "title": "Bleeding risk in patients receiving concurrent treatment with direct oral anticoagulants and corticosteroids: A systematic review.",
+    "comment": "ทบทวนความเสี่ยงเลือดออกเมื่อใช้ DOACs ร่วมกับ Steroid สิ่งที่แพทย์ ER ต้องระวังยาตีกันสำคัญมาก.",
+    "pmid": "42320245",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42320245/"
+  },
+  {
+    "date": "22 Jun",
+    "title": "A comparison of pediatric sepsis definitions based on systemic inflammatory response syndrome and Phoenix criteria: a single-center PICU retrospective study.",
+    "comment": "เปรียบเทียบเกณฑ์วินิจฉัยภาวะติดเชื้อในเด็ก (Sepsis) มีผลต่อการคัดกรองและการดูแลผู้ป่วย ER อย่างมาก.",
+    "pmid": "42321878",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42321878/"
+  },
+  {
+    "date": "22 Jun",
+    "title": "PCT-Anchored Machine Learning for Pre-Culture Identification of Gram-Negative Sepsis in Children: A Four-Site Study.",
+    "comment": "เครื่องมือ AI ใหม่ใช้ PCT คัดกรอง Sepsis ในเด็กก่อนเพาะเชื้อ ช่วยให้วินิจฉัยเร็วขึ้นอย่างมีนัยสำคัญ.",
+    "pmid": "42320014",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42320014/"
+  },
+  {
+    "date": "22 Jun",
+    "title": "Differentiating Ischemic From Nonischemic T-Wave Inversion Using a Multimodal Vision-Language Model With Reinforcement Learning (ECG-R1): Development and Validation Study.",
+    "comment": "โมเดล AI ใหม่ช่วยแยก T-wave inversion จากภาวะขาดเลือดหัวใจได้แม่นยำขึ้น มีประโยชน์ต่อการวินิจฉัยใน ER.",
+    "pmid": "42319812",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42319812/"
+  },
+  {
+    "date": "22 Jun",
+    "title": "Distinguishing suspected inflicted from accidental falls from a caregiver's arms: a pattern-based analysis of extremity injuries in children.",
+    "comment": "การวิเคราะห์รูปแบบบาดเจ็บแขนขาช่วยแยกแยะการหกล้มจากอุบัติเหตุหรือการทำร้ายเด็ก สำคัญสำหรับแพทย์ ER.",
+    "pmid": "42321561",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42321561/"
+  },
+  {
+    "date": "22 Jun",
+    "title": "Nirsevimab Implementation and Primary Management of Lower Respiratory Tract Infections in Infants in Spain: A Quasi-Experimental Study.",
+    "comment": "การใช้ Nirsevimab ป้องกัน RSV ในทารกมีผลต่อการจัดการ LRTI ใน ER และช่วยลดภาระงาน.",
+    "pmid": "42319655",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42319655/"
+  },
+  {
+    "date": "22 Jun",
+    "title": "Combined oral contraceptive use as a cause of acute myocardial infarction in a young woman without traditional risk factors: a case report.",
+    "comment": "ยาคุมกำเนิดเป็นสาเหตุ AMI ในหญิงสาวไม่มีปัจจัยเสี่ยง สัญญาณอันตรายที่แพทย์ ER ต้องตระหนัก.",
+    "pmid": "42321896",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42321896/"
+  },
+  {
+    "date": "22 Jun",
+    "title": "Frailty stratification in the emergency department using the triage frailty and comorbidity tool.",
+    "comment": "เครื่องมือคัดกรอง Frailty ที่ ER ช่วยจัดลำดับความสำคัญและดูแลผู้สูงอายุเปราะบางได้อย่างเหมาะสม.",
+    "pmid": "42320418",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42320418/"
+  },
+  {
+    "date": "22 Jun",
     "title": "Implementation of the kidney protection strategy in critically ill patients with acute kidney injury - a multi-center prospective cohort study.",
-    "comment": "กลยุทธ์ป้องกันไตวายเฉียบพลันในผู้ป่วยวิกฤต เป็นแนวทางปฏิบัติสำคัญสำหรับ ER และ ICU",
+    "comment": "กลยุทธ์ป้องกันไตวายเฉียบพลันในผู้ป่วยวิกฤติ มีผลต่อการดูแลใน ER และผลลัพธ์ของผู้ป่วย.",
     "pmid": "42321935",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42321935/"
   },
   {
-    "date": "21 Jun",
-    "title": "Triage effectiveness: a framework for quantifying the effect of emergency triage prioritization.",
-    "comment": "กรอบแนวคิดใหม่วัดผลประสิทธิผลการคัดแยกผู้ป่วยฉุกเฉิน ช่วยปรับปรุงระบบ triage ใน ER",
-    "pmid": "42321619",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42321619/"
-  },
-  {
-    "date": "21 Jun",
-    "title": "Distinguishing suspected inflicted from accidental falls from a caregiver's arms: a pattern-based analysis of extremity injuries in children.",
-    "comment": "ช่วยแพทย์ ER แยกแยะการบาดเจ็บจากการตกกระแทกโดยบังเอิญกับการทารุณกรรมในเด็ก",
-    "pmid": "42321561",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42321561/"
+    "date": "22 Jun",
+    "title": "Triggers, clinical spectra and outcomes of pediatric anaphylaxis in a tertiary center: impact of comorbidities and cofactors on severity.",
+    "comment": "การศึกษา anaphylaxis ในเด็กช่วยให้เข้าใจปัจจัยกระตุ้น โรคประจำตัวที่ส่งผลต่อความรุนแรง มีผลต่อ ER.",
+    "pmid": "42321881",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42321881/"
   }
 ]
