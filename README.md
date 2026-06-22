@@ -18,11 +18,11 @@ This content reflects the repository structure (updated by GitHub Actions):
 |   |   |-- 2026-06-20.json
 |   |   |-- 2026-06-21.json
 |   |   `-- 2026-06-22.json
+|   |-- ARCHITECTURE.md
 |   |-- dashboard-snapshot.json
 |   |-- fray-dashboard.css
 |   |-- fray-dashboard.js
-|   |-- index.html
-|   `-- split_dashboard.py
+|   `-- index.html
 |-- tracking /
 |   |-- auth.json
 |   |-- index.html
