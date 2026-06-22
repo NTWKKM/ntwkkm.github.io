@@ -141,6 +141,7 @@
 
                 tab.addEventListener('click', async () => {
                     if (day === currentDay) return;
+                    if (tab.classList.contains('missing')) return;
 
                     // Update active tab
                     tabs.forEach(t => t.classList.remove('active'));
@@ -155,7 +156,30 @@
                     }
                 });
             });
+
+            // Preflight: check which history files exist, gray out missing tabs
+            preflightHistoryTabs();
         });
+
+        async function preflightHistoryTabs() {
+            const historyTabs = document.querySelectorAll('.day-tab:not([data-day="live"])');
+            const checks = Array.from(historyTabs).map(async tab => {
+                const n = parseInt(tab.dataset.day);
+                const date = new Date();
+                date.setDate(date.getDate() - n);
+                const yyyy = date.getFullYear();
+                const mm = String(date.getMonth() + 1).padStart(2, '0');
+                const dd = String(date.getDate()).padStart(2, '0');
+                const dateStr = `${yyyy}-${mm}-${dd}`;
+                try {
+                    const res = await fetch(`history/${dateStr}.json`, { method: 'HEAD' });
+                    if (!res.ok) tab.classList.add('missing');
+                } catch(e) {
+                    tab.classList.add('missing');
+                }
+            });
+            await Promise.all(checks);
+        }
 
         async function loadHistoryDay(daysAgo) {
             const date = new Date();
@@ -198,6 +222,10 @@
         async function updateDashboard() {
             const loader  = document.getElementById('dash-loading');
             const content = document.getElementById('dash-content');
+            const tsEl = document.getElementById('banner-timestamp');
+
+            // Sync indicator: pulse timestamp while fetching
+            if (tsEl) tsEl.classList.add('syncing');
 
             try {
                 // Fetch the raw snapshot directly (no more normalization layer)
@@ -246,6 +274,8 @@
                     announceToScreenReader('Connection to Fray telemetry endpoint lost.');
                 }
             } finally {
+                // Remove sync indicator
+                if (tsEl) tsEl.classList.remove('syncing');
                 // Recursive polling
                 clearTimeout(updateTimeout);
                 updateTimeout = setTimeout(updateDashboard, 30000);
@@ -572,7 +602,7 @@
                     if (Array.isArray(obs)) {
                         obs.forEach(o => {
                             if (typeof o === 'string') {
-                                html += `<div class="mb-1 text-secondary text-base">&bull; ${escapeHTML(o)}</div>`;
+                                html += `<div class="mb-1 text-secondary text-base">&bull; ${escapeHTML(o).replace(/\n/g, '<br>')}</div>`;
                             }
                         });
                     }
@@ -582,7 +612,7 @@
                         html += `
                             <div class="outsider-insight-box">
                                 <span class="insight-label" style="display: block; margin-bottom: 4px;">Outsider Insight:</span>
-                                <b>${escapeHTML(insightText)}</b>
+                                <b>${escapeHTML(insightText).replace(/\n/g, '<br>')}</b>
                             </div>
                         `;
                     }

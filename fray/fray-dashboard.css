@@ -1187,6 +1187,18 @@
 }
 
 /* ====================================================
+   SYNC INDICATOR (timestamp pulse during fetch)
+==================================================== */
+#banner-timestamp.syncing {
+    animation: sync-pulse 1s ease-in-out infinite;
+    color: var(--primary);
+}
+@keyframes sync-pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.4; }
+}
+
+/* ====================================================
    PANEL PLACEHOLDER (loading state)
 ==================================================== */
 .panel-placeholder {
