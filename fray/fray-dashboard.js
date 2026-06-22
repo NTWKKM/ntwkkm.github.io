@@ -90,6 +90,36 @@
         }
 
         /**
+         * Format an ISO timestamp as relative time (e.g. "3m ago", "2h ago").
+         */
+        function formatRelative(ts) {
+            if (!ts) return '—';
+            try {
+                const d = new Date(ts);
+                if (isNaN(d.getTime())) return '';
+                const diffMs = Date.now() - d.getTime();
+                if (diffMs < 0) return ''; // future
+                const mins = Math.floor(diffMs / 60000);
+                if (mins < 1) return 'just now';
+                if (mins < 60) return `${mins}m ago`;
+                const hrs = Math.floor(mins / 60);
+                if (hrs < 24) return `${hrs}h ago`;
+                const days = Math.floor(hrs / 24);
+                if (days < 7) return `${days}d ago`;
+                return '';
+            } catch(_) { return ''; }
+        }
+
+        /**
+         * Combined format: relative time + absolute (e.g. "3m ago · Jun 22, 12:00:00")
+         */
+        function formatTimestampWithRelative(ts) {
+            const abs = formatTimestamp(ts);
+            const rel = formatRelative(ts);
+            return rel ? `${rel} · ${abs}` : abs;
+        }
+
+        /**
          * Format a number with commas for readability.
          */
         function formatNumber(n) {
@@ -159,6 +189,22 @@
 
             // Preflight: check which history files exist, gray out missing tabs
             preflightHistoryTabs();
+
+            // Keyboard shortcuts: ← → to switch day tabs
+            document.addEventListener('keydown', (e) => {
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+                if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+                const allTabs = Array.from(document.querySelectorAll('.day-tab'));
+                const activeIdx = allTabs.findIndex(t => t.classList.contains('active'));
+                if (activeIdx === -1) return;
+                let nextIdx;
+                if (e.key === 'ArrowLeft') nextIdx = Math.max(0, activeIdx - 1);
+                else nextIdx = Math.min(allTabs.length - 1, activeIdx + 1);
+                if (nextIdx === activeIdx) return;
+                const nextTab = allTabs[nextIdx];
+                if (nextTab.classList.contains('missing')) return;
+                nextTab.click();
+            });
         });
 
         async function preflightHistoryTabs() {
@@ -294,7 +340,7 @@
 
             // ---- BANNER TIMESTAMP ----
             const rootTs = data.timestamp || observer.timestamp || sage.timestamp || '—';
-            setVal('banner-timestamp', formatTimestamp(rootTs));
+            setVal('banner-timestamp', formatTimestampWithRelative(rootTs));
 
             // ============================================================
             // OVERALL HEALTH — derive from observer + sage critical alerts
@@ -336,14 +382,23 @@
             }
 
             // ============================================================
-            // COMPONENTS RENDER
+            // COMPONENTS RENDER — each wrapped in try-catch to prevent
+            // one broken panel from blanking the entire dashboard
             // ============================================================
-            const cpuUsage = renderVitals(observer);
-            renderSagePanel(sage);
-            renderOutsiderPanel(outsider);
-            renderCompanionPanel(companion);
-            renderHistorianPanel(historian);
-            renderFleetTable(archivist);
+            const renderFns = [
+                ['vitals',   () => renderVitals(observer)],
+                ['sage',     () => renderSagePanel(sage)],
+                ['outsider', () => renderOutsiderPanel(outsider)],
+                ['companion',() => renderCompanionPanel(companion)],
+                ['historian',() => renderHistorianPanel(historian)],
+                ['fleet',    () => renderFleetTable(archivist)],
+            ];
+            renderFns.forEach(([name, fn]) => {
+                try { fn(); }
+                catch(err) {
+                    console.error(`[Fray] render error in ${name}:`, err);
+                }
+            });
         }
 
         function renderVitals(observer) {
@@ -449,8 +504,19 @@
             const quotaPct = token.quota_percent || 0;
             const monthlyBurn = token.monthly_burn || 0;
             const dailyEst = token.daily_estimate || 0;
+            const monthlyQuota = token.monthly_quota || 2500000;
             setVal('v-token', `${quotaPct.toFixed(1)}%`);
-            setVal('v-token-sub', `${formatNumber(monthlyBurn)} / ${formatNumber(token.monthly_quota || 2500000)} · ~${formatNumber(dailyEst)}/day`);
+            // Projected exhaustion date
+            let tokenSub = `${formatNumber(monthlyBurn)} / ${formatNumber(monthlyQuota)} · ~${formatNumber(dailyEst)}/day`;
+            if (dailyEst > 0) {
+                const remaining = monthlyQuota - monthlyBurn;
+                const daysLeft = Math.floor(remaining / dailyEst);
+                const projDate = new Date();
+                projDate.setDate(projDate.getDate() + daysLeft);
+                const dateStr = projDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                tokenSub += ` · quota in ~${daysLeft}d (${dateStr})`;
+            }
+            setVal('v-token-sub', tokenSub);
             setBar('v-token-bar', quotaPct, true);
             // Domain-specific token badge: 33/66% bands
             if (quotaPct > 66) {
