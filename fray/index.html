@@ -196,8 +196,19 @@
                 <!-- MAIN PANEL GRID (2-column) -->
                 <div class="main-grid fade-up d2">
 
-                    <!-- === Row 1: The Outsider === -->
-                    <div class="panel span-2 fade-up d2" id="panel-outsider">
+                    <!-- === Row 1: The Sage (system health — highest priority) === -->
+                    <div class="panel span-2 fade-up d2 content-deferred" id="panel-sage">
+                        <div class="panel-head">
+                            <div class="panel-title">The Sage</div>
+                            <div id="p-sage-chip" class="chip ok"><span class="dot-sm"></span>STABLE</div>
+                        </div>
+                        <div class="panel-body" id="sage-body">
+                            <div class="panel-placeholder">Awaiting Sage data...</div>
+                        </div>
+                    </div>
+
+                    <!-- === Row 2: The Outsider (minimal quote block — no header by design) === -->
+                    <div class="panel span-2 fade-up d3" id="panel-outsider">
                         <div class="panel-body">
                             <div id="outsider-content" class="quote-block">
                                 Awaiting synchronization…
@@ -205,43 +216,21 @@
                         </div>
                     </div>
 
-                    <!-- === Row 2: The Companion === -->
-                    <div class="panel span-2 fade-up d3 content-deferred" id="panel-companion">
+                    <!-- === Row 3: The Companion === -->
+                    <div class="panel span-2 fade-up d4 content-deferred" id="panel-companion">
                         <div class="panel-head">
                             <div class="panel-title">Today's Briefing</div>
                             <div id="p-companion-chip" class="chip neutral"><span class="dot-sm"></span>—</div>
                         </div>
                         <div class="panel-body" id="companion-body">
-                            <div style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">Awaiting Companion data...</div>
-                        </div>
-                    </div>
-
-                    <!-- === Row 3: The Historian === -->
-                    <div class="panel span-2 fade-up d4 content-deferred" id="panel-historian">
-                        <div class="panel-head">
-                            <div class="panel-title">The Historian</div>
-                            <div id="p-historian-chip" class="chip neutral"><span class="dot-sm"></span>OFFLINE</div>
-                        </div>
-                        <div class="panel-body" id="historian-body">
-                            <div style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">Next report: Sunday 20:55 ICT</div>
-                        </div>
-                    </div>
-
-                    <!-- === Row 4: The Sage === -->
-                    <div class="panel span-2 fade-up d5 content-deferred" id="panel-sage">
-                        <div class="panel-head">
-                            <div class="panel-title">The Sage</div>
-                            <div id="p-sage-chip" class="chip ok"><span class="dot-sm"></span>STABLE</div>
-                        </div>
-                        <div class="panel-body" id="sage-body">
-                            <div style="padding: 16px; color: var(--text-muted); font-size: 0.85rem;">Awaiting Sage data...</div>
+                            <div class="panel-placeholder">Awaiting Companion data...</div>
                         </div>
                     </div>
 
                 </div><!-- /main-grid -->
 
                 <!-- FLEET OVERVIEW TABLE -->
-                <div class="audit-table-wrapper fade-up d5 content-deferred" style="margin-top: 32px;">
+                <div class="audit-table-wrapper fade-up d4 content-deferred" style="margin-top: 32px;">
                     <table class="audit-table">
                         <thead>
                             <tr>
@@ -255,6 +244,19 @@
                             <!-- Rendered dynamically from ARCHIVIST ledger -->
                         </tbody>
                     </table>
+                </div>
+
+                <!-- === Row 4: The Historian (weekly chronicle — lowest priority) === -->
+                <div class="main-grid fade-up d5" style="margin-top: 24px;">
+                    <div class="panel span-2 fade-up d5 content-deferred" id="panel-historian">
+                        <div class="panel-head">
+                            <div class="panel-title">The Historian</div>
+                            <div id="p-historian-chip" class="chip neutral"><span class="dot-sm"></span>OFFLINE</div>
+                        </div>
+                        <div class="panel-body" id="historian-body">
+                            <div class="panel-placeholder">Next report: Sunday 20:55 ICT</div>
+                        </div>
+                    </div>
                 </div>
 
             </div><!-- /dash-content -->

@@ -1187,8 +1187,171 @@
 }
 
 /* ====================================================
-   SAGE ALERT CARDS
+   PANEL PLACEHOLDER (loading state)
 ==================================================== */
+.panel-placeholder {
+    padding: 16px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* ====================================================
+   SAGE PANEL INTERNALS
+==================================================== */
+.sage-alert-count-row {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.sage-alert-count-label {
+    color: var(--text-faint);
+    font-size: 0.75rem;
+}
+.sage-alert-chip {
+    font-size: 0.6rem;
+}
+.sage-anomaly-row {
+    margin-bottom: 8px;
+}
+.sage-anomaly-row.warn { color: var(--state-warn); }
+.sage-anomaly-row.ok { color: var(--text-muted); }
+
+/* ====================================================
+   COMPANION PANEL INTERNALS
+==================================================== */
+.companion-section-label {
+    margin-bottom: 8px;
+}
+.companion-section-count {
+    color: var(--text-faint);
+    font-size: 0.75rem;
+}
+.companion-calendar-box {
+    margin-bottom: 12px;
+}
+.companion-empty {
+    margin-bottom: 12px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+.companion-gmail-box {
+    margin-bottom: 12px;
+    font-size: 0.82rem;
+}
+.companion-coffee-card {
+    margin-bottom: 8px;
+}
+.companion-coffee-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.companion-coffee-source {
+    color: var(--text-faint);
+    font-size: 0.7rem;
+    margin-left: 6px;
+}
+.companion-coffee-summary {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+.companion-system-note {
+    margin-top: 8px;
+    font-size: 0.72rem;
+    color: var(--text-faint);
+}
+.companion-timestamp {
+    margin-top: 8px;
+    font-size: 0.72rem;
+    color: var(--text-faint);
+}
+
+/* ====================================================
+   HISTORIAN PANEL INTERNALS
+==================================================== */
+.historian-week-header {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.historian-week-label {
+    font-size: 0.9rem;
+}
+.historian-date-range {
+    color: var(--text-faint);
+    font-size: 0.75rem;
+}
+.historian-trend-row {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.historian-disk-delta {
+    color: var(--text-faint);
+    font-size: 0.75rem;
+}
+.historian-section-label {
+    margin-bottom: 8px;
+}
+.historian-section-count {
+    color: var(--text-faint);
+    font-size: 0.75rem;
+}
+.historian-events-box {
+    margin-bottom: 12px;
+}
+.historian-reflection-box {
+    margin-top: 12px;
+}
+.historian-recommendations-label {
+    margin-top: 12px;
+}
+.historian-timestamp {
+    margin-top: 12px;
+    font-size: 0.72rem;
+    color: var(--text-faint);
+}
+.historian-offline-card {
+    padding: 20px 16px;
+    text-align: center;
+}
+.historian-offline-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+.historian-offline-countdown {
+    font-size: 0.78rem;
+    color: var(--text-faint);
+}
+
+/* ====================================================
+   FLEET TABLE EMPTY STATE
+==================================================== */
+.fleet-empty {
+    padding: 24px;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+/* ====================================================
+   HISTORY EMPTY STATE
+==================================================== */
+.history-empty {
+    padding: 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+.history-empty-fleet {
+    padding: 24px;
+    text-align: center;
+    color: var(--text-muted);
+}
 .sage-alerts-list {
     display: flex;
     flex-direction: column;

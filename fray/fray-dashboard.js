@@ -189,10 +189,10 @@
             // Show empty state in panels
             setVal('banner-timestamp', `No data for ${dateStr}`);
             document.querySelectorAll('#dash-content .panel-body').forEach(el => {
-                el.innerHTML = `<div style="padding: 20px; text-align: center; color: var(--text-muted); font-size: 0.85rem;">No snapshot available for ${dateStr}</div>`;
+                el.innerHTML = `<div class="history-empty">No snapshot available for ${dateStr}</div>`;
             });
             const auditBody = document.getElementById('audit-table-body');
-            if (auditBody) auditBody.innerHTML = `<tr><td colspan="4" style="padding: 24px; text-align: center; color: var(--text-muted);">No fleet data for ${dateStr}</td></tr>`;
+            if (auditBody) auditBody.innerHTML = `<tr><td colspan="4" class="history-empty-fleet">No fleet data for ${dateStr}</td></tr>`;
         }
 
         async function updateDashboard() {
@@ -494,7 +494,7 @@
                     });
                     html += `</div>`;
                 } else {
-                    html += `<div class="mb-2"><b>Active Components:</b> None</div>`;
+                    html += `<div class="sage-anomaly-row ok"><b>Active Components:</b> None</div>`;
                 }
                 
                 // --- Anomalies (numeric or string) ---
@@ -502,9 +502,9 @@
                 if (anomalyVal != null) {
                     const anomalyNum = typeof anomalyVal === 'number' ? anomalyVal : parseInt(anomalyVal, 10);
                     const isZero = anomalyNum === 0 || String(anomalyVal).toLowerCase().includes('none');
-                    const anomalyColor = isZero ? 'var(--text-muted)' : 'var(--state-warn)';
+                    const anomalyColor = isZero ? 'ok' : 'warn';
                     const anomalyDisplay = typeof anomalyVal === 'number' ? `${anomalyVal} detected` : escapeHTML(String(anomalyVal));
-                    html += `<div style="margin-bottom: 8px; color: ${anomalyColor};"><b>Anomalies:</b> ${anomalyDisplay}</div>`;
+                    html += `<div class="sage-anomaly-row ${anomalyColor}"><b>Anomalies:</b> ${anomalyDisplay}</div>`;
                 }
                 
                 // --- Alerts (structured objects or legacy strings) ---
@@ -513,11 +513,11 @@
                     const warnCount = sage.alerts.filter(a => a && a.severity === 'warning').length;
                     const infoCount = sage.alerts.filter(a => a && a.severity === 'info').length;
                     
-                    html += `<div style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">`;
-                    html += `<b>Alerts</b> <span style="color:var(--text-faint);font-size:0.75rem;">(${sage.alerts.length})</span>`;
-                    if (critCount) html += `<span class="chip err" style="font-size:0.6rem;"><span class="dot-sm"></span>${critCount} Critical</span>`;
-                    if (warnCount) html += `<span class="chip warn" style="font-size:0.6rem;"><span class="dot-sm"></span>${warnCount} Warning</span>`;
-                    if (infoCount) html += `<span class="chip neutral" style="font-size:0.6rem;"><span class="dot-sm"></span>${infoCount} Info</span>`;
+                    html += `<div class="sage-alert-count-row">`;
+                    html += `<b>Alerts</b> <span class="sage-alert-count-label">(${sage.alerts.length})</span>`;
+                    if (critCount) html += `<span class="chip err sage-alert-chip"><span class="dot-sm"></span>${critCount} Critical</span>`;
+                    if (warnCount) html += `<span class="chip warn sage-alert-chip"><span class="dot-sm"></span>${warnCount} Warning</span>`;
+                    if (infoCount) html += `<span class="chip neutral sage-alert-chip"><span class="dot-sm"></span>${infoCount} Info</span>`;
                     html += `</div>`;
                     
                     html += `<div class="sage-alerts-list">`;
@@ -535,7 +535,7 @@
                                     <div class="sage-alert-header">
                                         <span>${sevIcon}</span>
                                         <span class="sage-alert-component">${escapeHTML(alert.component || 'system')}</span>
-                                        <span class="chip ${sevCls}" style="font-size:0.58rem;"><span class="dot-sm"></span>${escapeHTML(sev.toUpperCase())}</span>
+                                        <span class="chip ${sevCls} sage-alert-chip"><span class="dot-sm"></span>${escapeHTML(sev.toUpperCase())}</span>
                                     </div>
                                     <div class="sage-alert-msg">${escapeHTML(alert.message || '—')}</div>
                                 </div>
@@ -544,7 +544,7 @@
                     });
                     html += `</div>`;
                 } else {
-                    html += `<div style="margin-bottom: 8px; color: var(--text-muted);"><b>Alerts:</b> None</div>`;
+                    html += `<div class="sage-anomaly-row ok"><b>Alerts:</b> None</div>`;
                 }
             }
             html += `</div>`;
@@ -602,7 +602,7 @@
             if (chip) setChip('p-companion-chip', status);
 
             if (status === 'OFFLINE' || (!companion.calendar_today && !companion.gmail_summary && !companion.coffee_research)) {
-                body.innerHTML = `<div style="padding: 20px 16px; text-align: center; color: var(--text-muted); font-size: 0.85rem;">☕ Awaiting today's briefing…</div>`;
+                body.innerHTML = `<div class="panel-placeholder" style="text-align: center;">☕ Awaiting today's briefing…</div>`;
                 return;
             }
 
@@ -610,39 +610,39 @@
 
             // Calendar
             const cal = companion.calendar_today || [];
-            html += `<div style="margin-bottom: 12px;"><b>📅 Calendar</b> <span style="color:var(--text-faint);font-size:0.75rem;">(${cal.length} event${cal.length !== 1 ? 's' : ''})</span></div>`;
+            html += `<div class="companion-section-label"><b>📅 Calendar</b> <span class="companion-section-count">(${cal.length} event${cal.length !== 1 ? 's' : ''})</span></div>`;
             if (cal.length > 0) {
-                html += `<div class="active-components-box" style="margin-bottom: 12px;">`;
+                html += `<div class="active-components-box companion-calendar-box">`;
                 cal.forEach(ev => {
                     html += `<div class="mb-1 text-main">&rsaquo; ${escapeHTML(typeof ev === 'string' ? ev : (ev.summary || ev.title || '—'))}</div>`;
                 });
                 html += `</div>`;
             } else {
-                html += `<div style="margin-bottom: 12px; color: var(--text-muted); font-size: 0.8rem;">No events today</div>`;
+                html += `<div class="companion-empty">No events today</div>`;
             }
 
             // Gmail
             if (companion.gmail_summary) {
-                html += `<div style="margin-bottom: 8px;"><b>📧 Gmail</b></div>`;
-                html += `<div class="outsider-insight-box" style="margin-bottom: 12px; font-size: 0.82rem;">${escapeHTML(companion.gmail_summary)}</div>`;
+                html += `<div class="companion-section-label"><b>📧 Gmail</b></div>`;
+                html += `<div class="outsider-insight-box companion-gmail-box">${escapeHTML(companion.gmail_summary)}</div>`;
             }
 
             // Coffee Research
             const coffee = companion.coffee_research || [];
             if (coffee.length > 0) {
-                html += `<div style="margin-bottom: 8px;"><b>☕ Coffee Research</b> <span style="color:var(--text-faint);font-size:0.75rem;">(${coffee.length} article${coffee.length !== 1 ? 's' : ''})</span></div>`;
+                html += `<div class="companion-section-label"><b>☕ Coffee Research</b> <span class="companion-section-count">(${coffee.length} article${coffee.length !== 1 ? 's' : ''})</span></div>`;
                 coffee.forEach(item => {
                     const title = item.title || 'Untitled';
                     const source = item.source || '';
                     const summary = item.summary || '';
                     const url = item.url || '';
                     html += `
-                        <div class="sage-alert-card" style="margin-bottom: 8px;">
-                            <div style="font-weight: 600; margin-bottom: 4px;">
+                        <div class="sage-alert-card companion-coffee-card">
+                            <div class="companion-coffee-title">
                                 ${url ? `<a href="${sanitizeURL(url)}" target="_blank" rel="noopener" style="color: var(--primary);">${escapeHTML(title)}</a>` : escapeHTML(title)}
-                                ${source ? `<span style="color: var(--text-faint); font-size: 0.7rem; margin-left: 6px;">— ${escapeHTML(source)}</span>` : ''}
+                                ${source ? `<span class="companion-coffee-source">— ${escapeHTML(source)}</span>` : ''}
                             </div>
-                            <div style="font-size: 0.78rem; color: var(--text-secondary);">${escapeHTML(summary)}</div>
+                            <div class="companion-coffee-summary">${escapeHTML(summary)}</div>
                         </div>
                     `;
                 });
@@ -650,10 +650,10 @@
 
             // System note
             if (companion.system_note) {
-                html += `<div style="margin-top: 8px; font-size: 0.72rem; color: var(--text-faint);">${escapeHTML(companion.system_note)}</div>`;
+                html += `<div class="companion-system-note">${escapeHTML(companion.system_note)}</div>`;
             }
 
-            html += `<div style="margin-top: 8px; font-size: 0.72rem; color: var(--text-faint);">&mdash; Briefing: ${formatTimestamp(companion.timestamp)}</div>`;
+            html += `<div class="companion-timestamp">&mdash; Briefing: ${formatTimestamp(companion.timestamp)}</div>`;
             html += `</div>`;
             body.innerHTML = html;
         }
@@ -689,11 +689,11 @@
                 }
 
                 body.innerHTML = `
-                    <div style="padding: 20px 16px; text-align: center;">
-                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 8px;">
+                    <div class="historian-offline-card">
+                        <div class="historian-offline-desc">
                             📜 The Historian compiles weekly system chronicles
                         </div>
-                        <div style="font-size: 0.78rem; color: var(--text-faint);">
+                        <div class="historian-offline-countdown">
                             ${countdown} · Sunday 20:55 ICT
                         </div>
                     </div>
@@ -706,10 +706,10 @@
 
             // Week header
             if (historian.week || historian.date_range) {
-                html += `<div style="margin-bottom: 12px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">`;
-                html += `<b style="font-size: 0.9rem;">Week ${escapeHTML(String(historian.week || '—'))}</b>`;
+                html += `<div class="historian-week-header">`;
+                html += `<b class="historian-week-label">Week ${escapeHTML(String(historian.week || '—'))}</b>`;
                 if (historian.date_range) {
-                    html += `<span style="color: var(--text-faint); font-size: 0.75rem;">${escapeHTML(historian.date_range)}</span>`;
+                    html += `<span class="historian-date-range">${escapeHTML(historian.date_range)}</span>`;
                 }
                 html += `</div>`;
             }
@@ -719,18 +719,18 @@
                 const trend = historian.disk_trend || 'stable';
                 const trendIcon = trend === 'rising' ? '📈' : (trend === 'falling' ? '📉' : '➡️');
                 const trendCls = trend === 'rising' ? 'warn' : (trend === 'falling' ? 'ok' : 'neutral');
-                html += `<div style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">`;
+                html += `<div class="historian-trend-row">`;
                 html += `<b>Disk Trend:</b> <span class="chip ${trendCls}"><span class="dot-sm"></span>${trendIcon} ${escapeHTML(trend.toUpperCase())}</span>`;
                 if (historian.disk_delta != null) {
-                    html += `<span style="color: var(--text-faint); font-size: 0.75rem;">${historian.disk_delta}</span>`;
+                    html += `<span class="historian-disk-delta">${historian.disk_delta}</span>`;
                 }
                 html += `</div>`;
             }
 
             // Key events
             if (Array.isArray(historian.key_events) && historian.key_events.length > 0) {
-                html += `<div style="margin-bottom: 8px;"><b>Key Events</b> <span style="color:var(--text-faint);font-size:0.75rem;">(${historian.key_events.length})</span></div>`;
-                html += `<div class="active-components-box" style="margin-bottom: 12px;">`;
+                html += `<div class="historian-section-label"><b>Key Events</b> <span class="historian-section-count">(${historian.key_events.length})</span></div>`;
+                html += `<div class="active-components-box historian-events-box">`;
                 historian.key_events.forEach(ev => {
                     html += `<div class="mb-1 text-main">&rsaquo; ${escapeHTML(typeof ev === 'string' ? ev : (ev.message || ev.event || '—'))}</div>`;
                 });
@@ -739,8 +739,8 @@
 
             // Patterns
             if (Array.isArray(historian.patterns) && historian.patterns.length > 0) {
-                html += `<div style="margin-bottom: 8px;"><b>Patterns Detected</b> <span style="color:var(--text-faint);font-size:0.75rem;">(${historian.patterns.length})</span></div>`;
-                html += `<div class="active-components-box" style="margin-bottom: 12px;">`;
+                html += `<div class="historian-section-label"><b>Patterns Detected</b> <span class="historian-section-count">(${historian.patterns.length})</span></div>`;
+                html += `<div class="active-components-box historian-events-box">`;
                 historian.patterns.forEach(p => {
                     html += `<div class="mb-1 text-main">&rsaquo; ${escapeHTML(typeof p === 'string' ? p : (p.name || p.pattern || '—'))}</div>`;
                 });
@@ -750,7 +750,7 @@
             // Weekly reflection
             if (historian.weekly_reflection) {
                 html += `
-                    <div class="outsider-insight-box" style="margin-top: 12px;">
+                    <div class="outsider-insight-box historian-reflection-box">
                         <span class="insight-label" style="display: block; margin-bottom: 4px;">Weekly Reflection:</span>
                         <b>${escapeHTML(historian.weekly_reflection)}</b>
                     </div>
@@ -759,7 +759,7 @@
 
             // Recommendations
             if (Array.isArray(historian.recommendations) && historian.recommendations.length > 0) {
-                html += `<div style="margin-top: 12px;"><b>Recommendations</b></div>`;
+                html += `<div class="historian-recommendations-label"><b>Recommendations</b></div>`;
                 html += `<div class="active-components-box">`;
                 historian.recommendations.forEach(r => {
                     html += `<div class="mb-1 text-main">&rsaquo; ${escapeHTML(typeof r === 'string' ? r : (r.action || r.recommendation || '—'))}</div>`;
@@ -767,7 +767,7 @@
                 html += `</div>`;
             }
 
-            html += `<div style="margin-top: 12px; font-size: 0.72rem; color: var(--text-faint);">&mdash; Compiled: ${formatTimestamp(historian.timestamp)}</div>`;
+            html += `<div class="historian-timestamp">&mdash; Compiled: ${formatTimestamp(historian.timestamp)}</div>`;
             html += `</div>`;
             body.innerHTML = html;
         }
@@ -778,7 +778,7 @@
             if (!auditTableBody) return;
 
             if (fleet.length === 0) {
-                auditTableBody.innerHTML = `<tr><td colspan="4" style="padding: 24px; text-align: center; color: var(--text-muted);">No fleet data available — awaiting ARCHIVIST sync</td></tr>`;
+                auditTableBody.innerHTML = `<tr><td colspan="4" class="fleet-empty">No fleet data available — awaiting ARCHIVIST sync</td></tr>`;
                 return;
             }
 
@@ -805,9 +805,9 @@
                 if (agent.delivery_error) {
                     const errText = String(agent.delivery_error);
                     const shortErr = errText.length > 60 ? errText.substring(0, 60) + '…' : errText;
-                    deliveryHtml = `<span class="chip err" style="font-size:0.65rem;" title="${escapeHTML(errText)}"><span class="dot-sm"></span>${escapeHTML(shortErr)}</span>`;
+                    deliveryHtml = `<span class="chip err sage-alert-chip" title="${escapeHTML(errText)}"><span class="dot-sm"></span>${escapeHTML(shortErr)}</span>`;
                 } else if (statusStr === 'NULL') {
-                    deliveryHtml = `<span style="color: var(--text-faint); font-size: 0.75rem;">Never executed</span>`;
+                    deliveryHtml = `<span class="historian-disk-delta">Never executed</span>`;
                 } else {
                     deliveryHtml = `<span style="color: var(--state-ok); font-size: 0.75rem;">✓ OK</span>`;
                 }
