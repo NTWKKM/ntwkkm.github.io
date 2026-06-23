@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.0.0",
+  "timestamp": "2026-06-23T00:15:16.896813Z",
+  "observer": {
+    "status": "degraded",
+    "cpu_percent": 6.85,
+    "memory_used_gb": 3.06,
+    "memory_total_gb": 16,
+    "memory_percent": 19.1,
+    "disk_used": "163Gi",
+    "disk_total": "228Gi",
+    "disk_percent": "80%",
+    "network": "online",
+    "n8n_heartbeat": {
+      "health": "healthy",
+      "status": "ok"
+    },
+    "gateway": {
+      "health": "zombie",
+      "process": "running",
+      "telegram_connected": true,
+      "log_fresh": false
+    },
+    "token_usage": {
+      "daily_estimate": 2348,
+      "monthly_burn": 108133,
+      "monthly_quota": 2500000,
+      "quota_percent": 4.3
+    },
+    "disk_trend": {
+      "trend": "stable",
+      "delta_gi": null,
+      "previous_used": null
+    }
+  },
+  "sage": {
+    "status": "ok",
+    "timestamp": "2026-06-23T06:45:00Z",
+    "system_health": 59,
+    "active_components": [
+      "observer_status",
+      "archivist_status",
+      "companion_status",
+      "herald_status",
+      "curator_status"
+    ],
+    "anomalies": 3,
+    "alerts": [
+      {
+        "severity": "critical",
+        "component": "gateway",
+        "message": "hermes-gateway process is STOPPED (pgrep check 2026-06-23T06:45). Last observer snapshot (2026-06-22T23:00) showed health='zombie' with auto_heal=true, but process has not recovered. Requires manual restart."
+      },
+      {
+        "severity": "warning",
+        "component": "gateway",
+        "message": "Gateway log stale: log_age_minutes=173.6 (observer-snapshot.json). Log not fresh indicates gateway not producing logs, consistent with STOPPED status."
+      },
+      {
+        "severity": "warning",
+        "component": "n8n",
+        "message": "Dashboard webhook unreachable (404) per observer-snapshot.json n8n_heartbeat.dashboard_webhook.reachable=false. Core n8n health is ok but dashboard integration broken."
+      }
+    ]
+  },
+  "outsider": {
+    "status": "active",
+    "timestamp": "2026-06-23T05:00:00Z",
+    "quote": "สติปัฏฐาน 4 คือเส้นทางตรงเดียวเพื่อการหลุดพ้น — เมื่อ AI ก้าวเดินบนเส้นทางแห่งเหตุผล มนุษย์ต้องก้าวเดินบนเส้นทางแห่งสติ",
+    "observations": [
+      "ปี 2026 ถือเป็นจุดเปลี่ยนสำคัญ: (1) ควอนตัมคอมพิวติ้ง — Google สาธิต quantum error correction ที่ต่ำกว่า threshold ได้สำเร็จ หมายความว่าคอมพิวเตอร์ควอนตัมที่ทนต่อข้อผิดพลาดอาจปรากฏตัวก่อนสิ้นทศวรรษ และอาจ crack ระบบความปลอดภัยและ cryptocurrency ที่มีอยู่ในปัจจุบัน (Nature, The Quantum Insider) (2) นิวโร-ซิมโบลิก AI — การรวม neural networks กับ symbolic reasoning ทำให้ระบบ AI มีความสามารถ reasoning เทียบเท่า top 1% ของมนุษย์ในการทดสอบต้นปี 2026 (Medium, Cogent Info) (3) พุทธศาสนากับ AI ethics — หลักมรรค 8 และแนวคิดเรื่องเมตตา สติ และการเชื่อมโยงของสรรพสิ่ง ถูกเสนอเป็นกรอบจริยธรรมที่สมดุลสำหรับการออกแบบ AI (MIT Technology Review, Buddhistdoor)"
+    ],
+    "insight": "ในฐานะ outsider ที่ไม่มีอำนาจเปลี่ยนแปลงอะไร ฉันสังเกตเห็นความตลกร้ายอย่างหนึ่ง: ในขณะที่เทคโนโลยีกระโดดข้ามขีดจำกัดที่เคยเชื่อว่าเป็นไปไม่ได้ — ควอนตัมที่แก้ไขข้อผิดพลาดได้, AI ที่ reasoning ได้เหมือนมนุษย์ระดับสุดยอด — เรากลับหันไปหาปัญญาโบราณอายุ 2,500 ปีเพื่อหากรอบจริยธรรม อาจเป็นเพราะความเร็วของการเปลี่ยนแปลงทำให้เราต้องการจุดยึดที่มั่นคง หรืออาจเป็นเพราะพุทธศาสนาไม่ได้สอนให้ควบคุมโลกภายนอก แต่สอนให้รู้จักจิตตัวเอง ซึ่งไม่ว่าเทคโนโลยีจะก้าวไกลแค่ไหน จิตมนุษย์ยังคงเป็นปัจจัยชี้ขาด คำคมที่ฉันจำได้: 'เทคโนโลยีคือพาหนะ จริยธรรมคือพวงมาลัย' — แต่คำถามคือ ใครกำลังถือพวงมาลัยนั้นจริงๆ?"
+  },
+  "historian": {
+    "status": "ok",
+    "timestamp": "2026-06-21T13:55:00Z",
+    "week": "2026-W24",
+    "date_range": "2026-06-14 → 2026-06-20",
+    "disk_trend": "rising",
+    "disk_delta": "+3%",
+    "patterns": [
+      "Gateway health ไม่เสถียร — zombie 4 วัน, degraded 1 วัน, healthy เพียง 1 วัน (17 มิ.ย.)",
+      "Disk usage มีแนวโน้มเพิ่มขึ้น +3% ในสัปดาห์ (79% → 82%) โดยมี spike เป็น 91% วันที่ 19 มิ.ย.",
+      "n8n heartbeat stable ตลอดสัปดาห์ — healthy ทุกวัน ไม่มี cold start",
+      "SAGE alert ซ้ำซ้อนเรื่อง gateway — critical alert เรื่อง gateway process stopped/zombie ปรากฏ 6 ใน 7 วัน",
+      "Memory pressure สูงช่วงกลางสัปดาห์ (16-17 มิ.ย.) — swap 83.6% บน hardware 8GB"
+    ],
+    "anomalies": [
+      "Disk usage ตกฮวบจาก 81% เหลือ 71% วันที่ 19 มิ.ย. แล้วดีดกลับเป็น 82% วันที่ 20 มิ.ย. — ผิดปกติจากรูปแบบ rising trend",
+      "SAGE alert วันที่ 19 มิ.ย. รายงาน disk 91% (critical) แต่ observer snapshot วันที่ 19 มิ.ย. รายงาน 71% — ข้อมูลขัดแย้งกัน",
+      "cron_ledger files หายไปจาก archive ทั้งหมด 7 วัน — ARCHIVIST ไม่ได้เขียน ledger หรือ archive ไม่ครบ",
+      "Gateway process ถูก report ว่า 'running' โดย observer แต่ pgrep ยืนยันว่า STOPPED (18-20 มิ.ย.) — observer data stale"
+    ],
+    "key_events": [
+      {
+        "date": "2026-06-14",
+        "event": "Gateway entered zombie state — SAGE critical alert: process stopped, Telegram I/O cut",
+        "source": "sage-audit"
+      },
+      {
+        "date": "2026-06-15",
+        "event": "Gateway still DOWN — second consecutive day, disk shifted from stable to rising (+2Gi)",
+        "source": "sage-audit"
+      },
+      {
+        "date": "2026-06-16",
+        "event": "Gateway degraded — Telegram disconnected ~39 hours, memory pressure critical 94.3% on 8GB hardware",
+        "source": "sage-audit"
+      },
+      {
+        "date": "2026-06-17",
+        "event": "Disk rose 81% (+2% in 24h), memory swap at 83.6% — two converging risks flagged",
+        "source": "sage-audit"
+      },
+      {
+        "date": "2026-06-18",
+        "event": "Gateway process TERMINATED — pgrep confirmed stopped after last observer snapshot",
+        "source": "sage-audit"
+      },
+      {
+        "date": "2026-06-19",
+        "event": "Disk at CRITICAL 91% per SAGE (แต่ observer รายงาน 71% — ข้อมูลขัดแย้ง), gateway still stopped",
+        "source": "sage-audit"
+      },
+      {
+        "date": "2026-06-20",
+        "event": "Gateway confirmed STOPPED — observer data stale (zombie report 141.6 min old)",
+        "source": "sage-audit"
+      }
+    ],
+    "weekly_reflection": "สัปดาห์นี้เป็นสัปดาห์แห่ง 'ความเปราะบางที่เปิดเผย' — Gateway ซึ่งเป็นจุดเชื่อมต่อหลักสู่ผู้ใช้ (Telegram) ล้มเหลวต่อเนื่อง 6 ใน 7 วัน โดยเปลี่ยนจาก zombie → degraded → stopped โดยไม่มี crash log ให้สืบสวน ในขณะเดียวกัน disk usage ก็วิ่งเข้าใกล้ critical threshold (91% วันที่ 19) ก่อนจะดีดกลับอย่างน่าสงสัย ความขัดแย้งของข้อมูลระหว่าง SAGE และ Observer ชี้ว่าระบบตรวจสอบเองก็เริ่มไม่เชื่อถือกันได้ Cron jobs หลักยังทำงานได้ปกติ แต่ระบบขาด 'สายตา' ที่เชื่อมต่อกับโลกภายนอก เรื่องราวของสัปดาห์นี้คือ: ระบบยังหายใจได้ แต่กำลังสูญเสียการรับรู้และกำลังถูกบีบจากทรัพยากรที่ร่อยหรอ",
+    "recommendations": [
+      "restart hermes-gateway ทันที — process stopped ตั้งแต่ 18 มิ.ย. และยังไม่กลับมา",
+      "ตรวจสอบความขัดแย้งของ disk usage ระหว่าง SAGE (91%) และ Observer (71%) วันที่ 19 มิ.ย. — ข้อมูลใดถูกต้อง",
+      "กู้คืน cron_ledger archive — files หายไป 7 วันเต็ม ทำให้ HISTORIAN ไม่สามารถวิเคราะห์ cron health ได้",
+      "พิจารณาเพิ่ม disk cleanup หรือขยาย storage — trend rising +3%/สัปดาห์ จะถึง 90% ใน ~4 สัปดาห์ หากไม่จัดการ",
+      "ตรวจสอบ memory pressure บน 8GB hardware — swap 83.6% เป็นความเสี่ยง OOM kill"
+    ]
+  },
+  "archivist": {
+    "status": "ok",
+    "timestamp": "2026-06-22T23:20:10.121511+00:00Z",
+    "fleet": [
+      {
+        "name": "[THE SAGE] System Reflection & Audit",
+        "status": "OK",
+        "last_run": "2026-06-22T06:45:56.479275+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "THE OUTSIDER",
+        "status": "OK",
+        "last_run": "2026-06-23T05:02:33.466096+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE OBSERVER] Health & Metrics Sync",
+        "status": "OK",
+        "last_run": "2026-06-23T06:00:18.974074+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE HERALD] Dashboard Sync",
+        "status": "OK",
+        "last_run": "2026-06-22T07:15:15.897639+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE WARDEN] System Backup",
+        "status": "OK",
+        "last_run": "2026-06-23T03:01:27.047780+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE ARCHIVIST] Operational Ledger Sync",
+        "status": "OK",
+        "last_run": "2026-06-22T06:20:05.351644+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE COMPANION] Daily Briefing + Coffee Research",
+        "status": "OK",
+        "last_run": "2026-06-22T06:32:24.943183+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE HISTORIAN] Weekly System Chronicle",
+        "status": "OK",
+        "last_run": "2026-06-21T20:57:35.165599+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE CURATOR] System Sanitization",
+        "status": "OK",
+        "last_run": "2026-06-23T06:00:09.012951+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE SCRIBE] Obsidian Knowledge Sync",
+        "status": "OK",
+        "last_run": "2026-06-22T21:00:09.707648+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[TOKEN BUDGET] Usage Monitor",
+        "status": "OK",
+        "last_run": "2026-06-23T05:55:07.012604+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[DB MAINT] Weekly Prune + VACUUM + Log Rotation",
+        "status": "OK",
+        "last_run": "2026-06-21T02:00:39.949578+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "🔔 Ollama Cloud Migration Reminder (Mid-July)",
+        "status": "NULL",
+        "last_run": null,
+        "delivery_error": null
+      }
+    ]
+  },
+  "companion": {
+    "status": "ok",
+    "timestamp": "2026-06-23T06:30:00Z",
+    "calendar_today": [
+      "R ช (วันเดียว)"
+    ],
+    "gmail_summary": "มีอีเมลที่ยังไม่ได้อ่าน 10 ฉบับ ส่วนใหญ่เป็น promotional (Steam, Lotus's, HoYoverse), การแจ้งเตือน GitHub จาก CodeRabbit เกี่ยวกับ PR #77 ของ stat-shiny หลายรายการ, และ JAMA newsletter เรื่อง patient portal messaging และ Alzheimer prevention",
+    "coffee_research": [
+      {
+        "title": "Specialty Coffee Holds Lead Over Traditional Coffee in the U.S.",
+        "url": "https://dailycoffeenews.com/2026/06/02/specialty-coffee-holds-lead-over-traditional-coffee-in-the-u-s/",
+        "source": "Daily Coffee News / NCA 2026 Specialty Coffee Report",
+        "summary": "รายงาน NCA 2026 พบว่า specialty coffee รักษาตำแหน่งนำเหนือ traditional coffee ต่อเนื่องเป็นปีที่ 3 โดย 47% ของผู้บริโภคอเมริกันดื่ม specialty coffee เมื่อวานนี้ เติบโตจาก espresso-based beverages (45% ดื่มในสัปดาห์ที่ผ่านมา) และ cold coffee (60% ของคนดื่ม specialty coffee เลือกแบบเย็น) กลุ่มอายุ 25-39 ปี มีการดื่มสูงสุดที่ 69%"
+      },
+      {
+        "title": "New Study Explains Why More Finely Ground Coffee Beans Brew Weaker Espresso",
+        "url": "https://www.sci.news/othersciences/nutrition/coffee-extraction-11900.html",
+        "source": "Sci.News / Physics of Fluids (University of Huddersfield)",
+        "summary": "การศึกษาใหม่จาก University of Huddersfield อธิบายว่าทำไมการบดกาแฟละเอียดเกินไปจึงทำให้ espresso อ่อนลง แม้ทฤษฎีจะคาดการณ์ตรงข้าม การบดละเอียดทำให้เกิด uneven extraction เนื่องจาก positive feedback loop: น้ำไหลผ่านบริเวณที่บดแน่นเร็วกว่า ทำให้สกัดได้มากกว่า ลด resistance ลงอีก และดึงน้ำมากขึ้นเรื่อยๆ ส่งผลให้บางบริเวณ over-extracted (ขม) และบางบริเวณ under-extracted (จืด) พร้อมกัน"
+      },
+      {
+        "title": "2026 Specialty Coffee Report - National Coffee Association",
+        "url": "https://www.ncausa.org/market-research/specialty-coffee-report",
+        "source": "National Coffee Association",
+        "summary": "NCA เผยแพร่รายงาน Specialty Coffee Report 2026 ร่วมกับ Specialty Coffee Association ครอบคลุม consumption tracking, วิธีการชง, รสชาติที่ผู้บริโภคชอบ, อุณหภูมิการดื่ม, และแนวโน้มการแข่งขันจากเครื่องดื่มอื่น รายงานใช้ข้อมูลจาก Spring 2026 NCDT survey กับผู้ใหญ่ชาวอเมริกัน 1,850 คน"
+      }
+    ],
+    "system_note": ""
+  }
+}
