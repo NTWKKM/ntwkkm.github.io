@@ -1,5 +1,65 @@
 [
   {
+    "id": "2d1ba464-60a7-817d-bb85-f1ce0b6db0cc",
+    "name": "Time to Vasopressor Initiation Is Not Associated With Increased Mortality in Patients With Septic Shock",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41186550/",
+    "property_tag_2": "Vasopressors",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินความสัมพันธ์ระหว่างระยะเวลาที่เริ่มให้ยา vasopressor กับอัตราการเสียชีวิตในผู้ป่วย septic shock\n- **วิธีการ:** เป็นการศึกษาวิจัยแบบย้อนหลัง (retrospective cohort study) ในผู้ป่วย septic shock โดยรวบรวมข้อมูลจาก OneFlorida Data Trust ประเมินผลลัพธ์หลักคืออัตราการเสียชีวิตใน 90 วัน และผลลัพธ์รองคือจำนวนวันที่ไม่ต้องใช้ vasopressor\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การศึกษาพบว่าระยะเวลาที่เริ่มให้ยา vasopressor ไม่มีความสัมพันธ์กับอัตราการเสียชีวิตใน 90 วัน (OR 1.01; 95% CI 1.00 to 1.02) และไม่ใช่อิสระในการทำนายจำนวนวันที่ไม่ต้องใช้ vasopressor ปัจจัยสำคัญที่ทำนายอัตราการเสียชีวิต ได้แก่ อายุ, การใช้เครื่องช่วยหายใจ, ผลเลือด SOFA score, ระดับ lactate, โรคความดันโลหิตสูงเรื้อรัง, และโรคตับ",
+    "property_tag_3": "Mortality",
+    "property_tag_1": "Septic Shock",
+    "property_last_edited_time": "2025-12-22T14:26:00.000Z",
+    "property_pmid": "41186550",
+    "property_name": "Time to Vasopressor Initiation Is Not Associated With Increased Mortality in Patients With Septic Shock"
+  },
+  {
+    "id": "2d1ba464-60a7-81a6-9f63-dc4b3b414d07",
+    "name": "Awake Prone Positioning in Patients With COVID-19 Respiratory Failure: A Randomized Clinical Trial",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41370078/",
+    "property_tag_2": "Critical Care",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินผลของการจัดท่านอนคว่ำขณะตื่น (Awake Prone Positioning - APP) ต่อความจำเป็นในการใส่ท่อช่วยหายใจหรืออัตราการเสียชีวิตในผู้ป่วยที่มีภาวะหายใจล้มเหลวจากภาวะออกซิเจนในเลือดต่ำจาก COVID-19\n- **วิธีการ:** การศึกษานี้เป็นการทดลองแบบสุ่มและมีกลุ่มควบคุม (Randomized Controlled Trial) ดำเนินการใน 21 โรงพยาบาล (20 แห่งในฝรั่งเศส และ 1 แห่งในเม็กซิโก) ระหว่างเดือนกรกฎาคม 2020 ถึงสิงหาคม 2021 โดยมีผู้ป่วยผู้ใหญ่ที่ไม่ได้รับการใส่ท่อช่วยหายใจซึ่งต้องการออกซิเจนอย่างน้อย 3 ลิตรต่อนาที และได้รับการสุ่มแบ่งเป็น 2 กลุ่ม ในอัตราส่วน 1:1 กลุ่มหนึ่งได้รับการจัดท่านอนคว่ำขณะตื่น (APP) อย่างน้อย 6 ชั่วโมงต่อวัน และอีกกลุ่มได้รับการดูแลตามมาตรฐาน มีการวิเคราะห์ทางสถิติแบบ Intent-to-treat ระหว่างเดือนกันยายนถึงธันวาคม 2024\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** (ข้อมูลผลลัพธ์ยังไม่ปรากฏในบทคัดย่อที่ให้มา การวิเคราะห์ทางสถิติจะดำเนินการในอนาคต)",
+    "property_tag_3": "COVID-19",
+    "property_tag_1": "Pulmonology",
+    "property_last_edited_time": "2025-12-22T14:26:00.000Z",
+    "property_pmid": "41370078",
+    "property_name": "Awake Prone Positioning in Patients With COVID-19 Respiratory Failure: A Randomized Clinical Trial"
+  },
+  {
+    "id": "2d0ba464-60a7-811f-8062-dc8de800200d",
+    "name": "Efficacy of Ultrasound-Guided PENG Block for Acute Pain Relief in Adult Hip Fracture Patients: A Double-Blind Randomized Trial",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41387636/",
+    "property_tag_2": "",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินประสิทธิภาพและความปลอดภัยของการบล็อกเส้นประสาทรอบแคปซูล (PENG) ด้วยการนำทางด้วยอัลตราซาวนด์สำหรับการจัดการความเจ็บปวดเบื้องต้นในผู้ป่วยผู้ใหญ่ที่มีภาวะกระดูกสะโพกหักในห้องฉุกเฉิน\n- **วิธีการ:** การศึกษานี้เป็นการทดลองแบบสุ่ม ปกปิดสองทาง ควบคุม ผู้ป่วยผู้ใหญ่ (อายุ ≥ 18 ปี) ที่มีกระดูกสะโพกหักจากการบาดเจ็บและมีคะแนนความปวดบนมาตรวัดคะแนนตัวเลข (NRS) > 4 ถูกสุ่มเข้าร่วมกลุ่มที่ได้รับการบล็อก PENG ด้วยอัลตราซาวนด์และบิวพีวาเคน หรือกลุ่มที่ได้รับการทำหัตถการหลอก ทั้งสองกลุ่มได้รับการระงับปวดทางหลอดเลือดดำตามมาตรฐาน\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** กลุ่มที่ได้รับการบล็อก PENG มีคะแนนความปวดลดลงอย่างมีนัยสำคัญที่ 30 นาที (MD -3.2), 60 นาที (MD -3.1) และ 120 นาที (MD -2.0) เมื่อเทียบกับกลุ่มที่ได้รับการทำหัตถการหลอก ปริมาณยาแก้ปวดที่ให้เพิ่มเติม (มอร์ฟีนเทียบเท่า) ลดลงอย่างมีนัยสำคัญในกลุ่ม PENG (MD -4.6 mg) ไม่พบเหตุการณ์ไม่พึงประสงค์ที่สำคัญ เช่น เลือดออกในช่อง เช่น รอยฟกช้ำ กล้ามเนื้อควอดริเซ็ปส์อ่อนแรง อาการพิษจากยาชาเฉพาะที่ หรือผลข้างเคียงที่เกี่ยวข้องกับโอปิออยด์อย่างมีนัยสำคัญ",
+    "property_tag_3": "",
+    "property_tag_1": "",
+    "property_last_edited_time": "2025-12-21T19:11:00.000Z",
+    "property_pmid": "41387636",
+    "property_name": "Efficacy of Ultrasound-Guided PENG Block for Acute Pain Relief in Adult Hip Fracture Patients: A Double-Blind Randomized Trial"
+  },
+  {
+    "id": "2d0ba464-60a7-81e6-a2c2-fec94d6e2238",
+    "name": "Outcomes of mechanical thrombectomy using the FlowTriever system for acute pulmonary embolism in Sweden - a national retrospective analysis.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41390104/",
+    "property_tag_2": "",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินประสบการณ์เบื้องต้นของการกำจัดลิ่มเลือดด้วยเครื่องจักร (MT) ในสวีเดน เปรียบเทียบกับวิธีการให้ยาละลายลิ่มเลือด (ST).\n- **วิธีการ:** ศึกษาผู้ป่วยผู้ใหญ่ที่ได้รับการรักษาด้วย MT ขนาดใหญ่ในสวีเดนตั้งแต่เทคนิคเริ่มใช้จนถึงธันวาคม 2566 รวมถึงผู้ป่วยที่ได้รับการรักษาด้วย ST ในโรงพยาบาลเดียวกัน โดยประเมินผลลัพธ์หลักคือการเสียชีวิตในระยะแรก หรือภาวะเลือดออกรุนแรง.\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** ในกลุ่ม MT ด้วย FlowTriever (FT) มีผู้ป่วย 61 ราย และกลุ่ม ST 61 ราย พบเหตุการณ์ตามผลลัพธ์หลัก 6 เหตุการณ์ในกลุ่ม FT และ 17 เหตุการณ์ในกลุ่ม ST (OR ปรับค่าแล้ว 0.19; 95% CI 0.05-0.69) การเสียชีวิตภายใน 30 วัน พบ 5 ราย (8%) ในกลุ่ม FT และ 13 ราย (21%) ในกลุ่ม ST (OR 0.33; 95% CI 0.11-0.99) ภาวะเลือดออกรุนแรงพบ 1 รายในกลุ่ม FT และ 7 รายในกลุ่ม ST (OR 0.18; 95% CI 0.03-1.10).",
+    "property_tag_3": "",
+    "property_tag_1": "",
+    "property_last_edited_time": "2025-12-21T19:11:00.000Z",
+    "property_pmid": "41390104",
+    "property_name": "Outcomes of mechanical thrombectomy using the FlowTriever system for acute pulmonary embolism in Sweden - a national retrospective analysis."
+  },
+  {
+    "id": "2d0ba464-60a7-81ee-9bcb-dfc9110408ce",
+    "name": "Atypical Presentation of Boerhaave Syndrome with Left Shoulder Pain as the Initial Manifestation: A Case Report",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41332122/",
+    "property_tag_2": "",
+    "property_comment": "- **วัตถุประสงค์:** นำเสนอรายงานผู้ป่วยภาวะ Boerhaave syndrome ที่มีอาการปวดไหล่ซ้ายเป็นอาการแสดงเริ่มต้น ซึ่งเป็นการนำเสนอที่ผิดปกติ.\n- **วิธีการ:** รายงานกรณีศึกษาผู้ป่วยรายเดียวที่ได้รับการวินิจฉัยและรักษาภาวะ Boerhaave syndrome โดยเน้นการประเมินอาการและประวัติทางคลินิก.\n- **ผลลัพธ์:** ผู้ป่วยแสดงอาการปวดไหล่ซ้ายอย่างเฉียบพลันโดยไม่มีอาการเจ็บหน้าอกหรือปวดท้องอย่างชัดเจน ซึ่งนำไปสู่การวินิจฉัยที่ล่าช้า แต่สุดท้ายได้รับการรักษาที่เหมาะสม.",
+    "property_tag_3": "",
+    "property_tag_1": "",
+    "property_last_edited_time": "2025-12-21T19:11:00.000Z",
+    "property_pmid": "41332122",
+    "property_name": "Atypical Presentation of Boerhaave Syndrome with Left Shoulder Pain as the Initial Manifestation: A Case Report"
+  },
+  {
     "id": "2d0ba464-60a7-8103-bd4d-c9cfd2d3ad27",
     "name": "Subcutaneous fast-acting insulin analogues ± long-acting insulin vs IV insulin infusion in DKA: updated meta-analysis of randomised trials.",
     "url": "https://pubmed.ncbi.nlm.nih.gov/39414709/",
