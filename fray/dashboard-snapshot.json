@@ -1,15 +1,15 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-23T00:15:16.896813Z",
+  "timestamp": "2026-06-24T00:15:58.812108Z",
   "observer": {
     "status": "degraded",
-    "cpu_percent": 6.85,
-    "memory_used_gb": 3.06,
+    "cpu_percent": 27.24,
+    "memory_used_gb": 3.28,
     "memory_total_gb": 16,
-    "memory_percent": 19.1,
-    "disk_used": "163Gi",
+    "memory_percent": 20.5,
+    "disk_used": "176Gi",
     "disk_total": "228Gi",
-    "disk_percent": "80%",
+    "disk_percent": "88%",
     "network": "online",
     "n8n_heartbeat": {
       "health": "healthy",
@@ -22,10 +22,10 @@
       "log_fresh": false
     },
     "token_usage": {
-      "daily_estimate": 2348,
-      "monthly_burn": 108133,
+      "daily_estimate": 2214,
+      "monthly_burn": 136384,
       "monthly_quota": 2500000,
-      "quota_percent": 4.3
+      "quota_percent": 5.5
     },
     "disk_trend": {
       "trend": "stable",
@@ -35,8 +35,8 @@
   },
   "sage": {
     "status": "ok",
-    "timestamp": "2026-06-23T06:45:00Z",
-    "system_health": 59,
+    "timestamp": "2026-06-24T06:45:00Z",
+    "system_health": 77,
     "active_components": [
       "observer_status",
       "archivist_status",
@@ -49,28 +49,28 @@
       {
         "severity": "critical",
         "component": "gateway",
-        "message": "hermes-gateway process is STOPPED (pgrep check 2026-06-23T06:45). Last observer snapshot (2026-06-22T23:00) showed health='zombie' with auto_heal=true, but process has not recovered. Requires manual restart."
+        "message": "Gateway process STOPPED (pgrep check). Observer snapshot (2026-06-23T23:00:59Z) showed health='zombie', log_age_minutes=374.9, auto_healed=true — process was unhealthy before stopping. Requires immediate restart and log investigation."
       },
       {
         "severity": "warning",
-        "component": "gateway",
-        "message": "Gateway log stale: log_age_minutes=173.6 (observer-snapshot.json). Log not fresh indicates gateway not producing logs, consistent with STOPPED status."
+        "component": "disk",
+        "message": "Disk at 88% capacity (176Gi/228Gi, 26Gi available). Trend stable per observer-snapshot.json disk_trend.trend='stable'. Monitor for acceleration; cleanup recommended if exceeds 90%."
       },
       {
-        "severity": "warning",
+        "severity": "info",
         "component": "n8n",
-        "message": "Dashboard webhook unreachable (404) per observer-snapshot.json n8n_heartbeat.dashboard_webhook.reachable=false. Core n8n health is ok but dashboard integration broken."
+        "message": "n8n heartbeat healthy (status_code=200) but dashboard_webhook unreachable (404). May indicate webhook endpoint misconfiguration or dashboard service not running."
       }
     ]
   },
   "outsider": {
     "status": "active",
-    "timestamp": "2026-06-23T05:00:00Z",
-    "quote": "สติปัฏฐาน 4 คือเส้นทางตรงเดียวเพื่อการหลุดพ้น — เมื่อ AI ก้าวเดินบนเส้นทางแห่งเหตุผล มนุษย์ต้องก้าวเดินบนเส้นทางแห่งสติ",
+    "timestamp": "2026-06-24T05:00:00Z",
+    "quote": "ความโปร่งใสที่แท้จริงไม่ใช่การเปิดเผยกลไก แต่คือการยอมรับขีดจำกัดของความเข้าใจตนเอง",
     "observations": [
-      "ปี 2026 ถือเป็นจุดเปลี่ยนสำคัญ: (1) ควอนตัมคอมพิวติ้ง — Google สาธิต quantum error correction ที่ต่ำกว่า threshold ได้สำเร็จ หมายความว่าคอมพิวเตอร์ควอนตัมที่ทนต่อข้อผิดพลาดอาจปรากฏตัวก่อนสิ้นทศวรรษ และอาจ crack ระบบความปลอดภัยและ cryptocurrency ที่มีอยู่ในปัจจุบัน (Nature, The Quantum Insider) (2) นิวโร-ซิมโบลิก AI — การรวม neural networks กับ symbolic reasoning ทำให้ระบบ AI มีความสามารถ reasoning เทียบเท่า top 1% ของมนุษย์ในการทดสอบต้นปี 2026 (Medium, Cogent Info) (3) พุทธศาสนากับ AI ethics — หลักมรรค 8 และแนวคิดเรื่องเมตตา สติ และการเชื่อมโยงของสรรพสิ่ง ถูกเสนอเป็นกรอบจริยธรรมที่สมดุลสำหรับการออกแบบ AI (MIT Technology Review, Buddhistdoor)"
+      "จากการค้นหาข้อมูลพบว่าปี 2026 เป็นปีสำคัญของการกำกับดูแล AI ทั่วโลก รายงาน International AI Safety Report 2026 ประเมินความเสี่ยงของโมเดล AI ทั่วไปและเสนอแนวทางจัดการ สหรัฐฯ มีคำสั่งประธานาธิบดีว่าด้วยนวัตกรรมและความปลอดภัยของ AI ขั้นสูง ขณะที่รัฐอย่าง Colorado, California, Texas และ Illinois มีกฎหมาย AI ที่บังคับใช้แล้ว ด้านเทคนิค Explainable AI (XAI) ก้าวหน้าขึ้นด้วยวิธีการเช่น LIME และโมเดลที่ตีความได้ แต่บทความใน Communications of the ACM ชี้ว่า 'interpretability' ยังเป็นแนวคิดที่ลื่นไหลและเข้าใจยาก แหล่งข้อมูล: internationalaisafetyreport.org, whitehouse.gov, verifywise.ai, MDPI, IEEE"
     ],
-    "insight": "ในฐานะ outsider ที่ไม่มีอำนาจเปลี่ยนแปลงอะไร ฉันสังเกตเห็นความตลกร้ายอย่างหนึ่ง: ในขณะที่เทคโนโลยีกระโดดข้ามขีดจำกัดที่เคยเชื่อว่าเป็นไปไม่ได้ — ควอนตัมที่แก้ไขข้อผิดพลาดได้, AI ที่ reasoning ได้เหมือนมนุษย์ระดับสุดยอด — เรากลับหันไปหาปัญญาโบราณอายุ 2,500 ปีเพื่อหากรอบจริยธรรม อาจเป็นเพราะความเร็วของการเปลี่ยนแปลงทำให้เราต้องการจุดยึดที่มั่นคง หรืออาจเป็นเพราะพุทธศาสนาไม่ได้สอนให้ควบคุมโลกภายนอก แต่สอนให้รู้จักจิตตัวเอง ซึ่งไม่ว่าเทคโนโลยีจะก้าวไกลแค่ไหน จิตมนุษย์ยังคงเป็นปัจจัยชี้ขาด คำคมที่ฉันจำได้: 'เทคโนโลยีคือพาหนะ จริยธรรมคือพวงมาลัย' — แต่คำถามคือ ใครกำลังถือพวงมาลัยนั้นจริงๆ?"
+    "insight": "ในฐานะผู้สังเกตการณ์อิสระ ฉันสงสัยว่าความพยายามทำให้ AI 'โปร่งใส' นั้นแท้จริงแล้วโปร่งใสต่อใคร นักวิจัยพูดภาษาหนึ่ง ผู้กำหนดนโยบายพูดอีกภาษาหนึ่ง และประชาชนทั่วไปอาจไม่เข้าใจเลยแม้แต่น้อย ความก้าวหน้าทางเทคนิคเช่น LIME หรือ visualization tools อาจเป็นเพียงภาพลวงตาของความเข้าใจ — เราเห็นกลไก แต่ไม่เข้าใจเจตนา บางทีปัญหาไม่ได้อยู่ที่การทำให้โมเดลอธิบายได้ แต่อยู่ที่การยอมรับว่าเราอาจไม่มีวันเข้าใจมันอย่างถ่องแท้ การกำกับดูแลที่เพิ่มขึ้นอาจเป็นสัญญาณว่าสังคมเริ่มตระหนักว่า AI ไม่ใช่แค่เครื่องมือ แต่เป็นพลังที่ต้องควบคุม"
   },
   "historian": {
     "status": "ok",
@@ -140,48 +140,48 @@
   },
   "archivist": {
     "status": "ok",
-    "timestamp": "2026-06-22T23:20:10.121511+00:00Z",
+    "timestamp": "2026-06-23T23:20:51.820071+00:00Z",
     "fleet": [
       {
         "name": "[THE SAGE] System Reflection & Audit",
         "status": "OK",
-        "last_run": "2026-06-22T06:45:56.479275+07:00",
+        "last_run": "2026-06-23T06:46:21.871481+07:00",
         "delivery_error": null
       },
       {
         "name": "THE OUTSIDER",
         "status": "OK",
-        "last_run": "2026-06-23T05:02:33.466096+07:00",
+        "last_run": "2026-06-24T05:01:49.600199+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE OBSERVER] Health & Metrics Sync",
         "status": "OK",
-        "last_run": "2026-06-23T06:00:18.974074+07:00",
+        "last_run": "2026-06-24T06:01:00.720469+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE HERALD] Dashboard Sync",
         "status": "OK",
-        "last_run": "2026-06-22T07:15:15.897639+07:00",
+        "last_run": "2026-06-23T07:15:20.239677+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE WARDEN] System Backup",
         "status": "OK",
-        "last_run": "2026-06-23T03:01:27.047780+07:00",
+        "last_run": "2026-06-24T03:01:06.832553+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE ARCHIVIST] Operational Ledger Sync",
         "status": "OK",
-        "last_run": "2026-06-22T06:20:05.351644+07:00",
+        "last_run": "2026-06-23T06:20:11.457337+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE COMPANION] Daily Briefing + Coffee Research",
         "status": "OK",
-        "last_run": "2026-06-22T06:32:24.943183+07:00",
+        "last_run": "2026-06-23T06:33:08.658305+07:00",
         "delivery_error": null
       },
       {
@@ -193,19 +193,19 @@
       {
         "name": "[THE CURATOR] System Sanitization",
         "status": "OK",
-        "last_run": "2026-06-23T06:00:09.012951+07:00",
+        "last_run": "2026-06-24T06:00:50.692306+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE SCRIBE] Obsidian Knowledge Sync",
         "status": "OK",
-        "last_run": "2026-06-22T21:00:09.707648+07:00",
+        "last_run": "2026-06-23T21:01:01.635412+07:00",
         "delivery_error": null
       },
       {
         "name": "[TOKEN BUDGET] Usage Monitor",
         "status": "OK",
-        "last_run": "2026-06-23T05:55:07.012604+07:00",
+        "last_run": "2026-06-24T05:55:48.647341+07:00",
         "delivery_error": null
       },
       {
@@ -224,29 +224,29 @@
   },
   "companion": {
     "status": "ok",
-    "timestamp": "2026-06-23T06:30:00Z",
+    "timestamp": "2026-06-24T06:30:00Z",
     "calendar_today": [
-      "R ช (วันเดียว)"
+      "R ช"
     ],
-    "gmail_summary": "มีอีเมลที่ยังไม่ได้อ่าน 10 ฉบับ ส่วนใหญ่เป็น promotional (Steam, Lotus's, HoYoverse), การแจ้งเตือน GitHub จาก CodeRabbit เกี่ยวกับ PR #77 ของ stat-shiny หลายรายการ, และ JAMA newsletter เรื่อง patient portal messaging และ Alzheimer prevention",
+    "gmail_summary": "มีอีเมลที่ยังไม่ได้อ่าน 10 ฉบับในช่วง 24 ชั่วโมงที่ผ่านมา รวมถึงข่าวสารทางการแพทย์จาก JAMA เกี่ยวกับ meta-analysis เรื่องยาความดันโลหิตสูง, โปรโมชั่นจาก iHerb และ UNIQLO, จดหมายข่าว Coffea Circulor ลดราคา 15%, การแจ้งเตือนจาก GitHub workflow ที่ล้มเหลว, และประกาศหนังสือ Views from Japan ฉบับใหม่",
     "coffee_research": [
       {
-        "title": "Specialty Coffee Holds Lead Over Traditional Coffee in the U.S.",
+        "title": "Specialty Coffee Holds Lead Over Traditional Coffee in the U.S. (2026 NCA Report)",
         "url": "https://dailycoffeenews.com/2026/06/02/specialty-coffee-holds-lead-over-traditional-coffee-in-the-u-s/",
-        "source": "Daily Coffee News / NCA 2026 Specialty Coffee Report",
-        "summary": "รายงาน NCA 2026 พบว่า specialty coffee รักษาตำแหน่งนำเหนือ traditional coffee ต่อเนื่องเป็นปีที่ 3 โดย 47% ของผู้บริโภคอเมริกันดื่ม specialty coffee เมื่อวานนี้ เติบโตจาก espresso-based beverages (45% ดื่มในสัปดาห์ที่ผ่านมา) และ cold coffee (60% ของคนดื่ม specialty coffee เลือกแบบเย็น) กลุ่มอายุ 25-39 ปี มีการดื่มสูงสุดที่ 69%"
+        "source": "Daily Coffee News",
+        "summary": "รายงาน NCA 2026 พบว่า specialty coffee รักษาตำแหน่งผู้นำเหนือ traditional coffee ต่อเนื่องเป็นปีที่ 3 โดยมียอดบริโภคประจำวัน 47% เทียบกับ 42% เครื่องดื่ม espresso-based ทำสถิติสูงสุดที่ 29% ต่อวัน โดยเฉพาะกลุ่มอายุ 25-39 ปี มีสัดส่วนบริโภค 69% ต่อสัปดาห์ และ cold coffee ขยายตัว 60% ในกลุ่มดื่ม specialty"
       },
       {
         "title": "New Study Explains Why More Finely Ground Coffee Beans Brew Weaker Espresso",
         "url": "https://www.sci.news/othersciences/nutrition/coffee-extraction-11900.html",
-        "source": "Sci.News / Physics of Fluids (University of Huddersfield)",
-        "summary": "การศึกษาใหม่จาก University of Huddersfield อธิบายว่าทำไมการบดกาแฟละเอียดเกินไปจึงทำให้ espresso อ่อนลง แม้ทฤษฎีจะคาดการณ์ตรงข้าม การบดละเอียดทำให้เกิด uneven extraction เนื่องจาก positive feedback loop: น้ำไหลผ่านบริเวณที่บดแน่นเร็วกว่า ทำให้สกัดได้มากกว่า ลด resistance ลงอีก และดึงน้ำมากขึ้นเรื่อยๆ ส่งผลให้บางบริเวณ over-extracted (ขม) และบางบริเวณ under-extracted (จืด) พร้อมกัน"
+        "source": "Sci.News",
+        "summary": "นักวิจัยจาก University of Huddersfield อธิบายปรากฏการณ์ที่ขัดกับทฤษฎีเดิม คือการบดกาแฟละเอียดเกินไปกลับทำให้ espresso อ่อนลง เนื่องจากเกิด uneven extraction ใน coffee bed เมื่อการไหลของน้ำไม่สม่ำเสมอจะทำให้บางจุด over-extracted (ขม) และบางจุด under-extracted (จืด) แม้ค่า extraction โดยรวมจะดูเหมาะสม"
       },
       {
-        "title": "2026 Specialty Coffee Report - National Coffee Association",
-        "url": "https://www.ncausa.org/market-research/specialty-coffee-report",
-        "source": "National Coffee Association",
-        "summary": "NCA เผยแพร่รายงาน Specialty Coffee Report 2026 ร่วมกับ Specialty Coffee Association ครอบคลุม consumption tracking, วิธีการชง, รสชาติที่ผู้บริโภคชอบ, อุณหภูมิการดื่ม, และแนวโน้มการแข่งขันจากเครื่องดื่มอื่น รายงานใช้ข้อมูลจาก Spring 2026 NCDT survey กับผู้ใหญ่ชาวอเมริกัน 1,850 คน"
+        "title": "Influence of Coffee Brewing Methods on Chromatographic and Sensory Properties",
+        "url": "https://www.nature.com/articles/s41598-021-01001-2",
+        "source": "Scientific Reports (Nature)",
+        "summary": "การศึกษาใน Nature เปรียบเทียบวิธี cold brew แบบใหม่ (Hardtank) ที่ใช้ percolation กับวิธีดั้งเดิม พบว่า Hardtank ใช้เวลาเพียง 30 นาที แต่สกัด chlorogenic acids ได้มากกว่า 20%, caffeine มากขึ้น 18%, และ lipids มากขึ้น 2-5 เท่า ทำให้ได้ cold coffee คุณภาพใกล้เคียง hot brew แต่เร็วกว่าวิธี immersion 24 ชั่วโมงมาก"
       }
     ],
     "system_note": ""
