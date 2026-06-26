@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-25T00:15:50.741452Z",
+  "timestamp": "2026-06-26T00:15:35.125363Z",
   "observer": {
     "status": "ok",
-    "cpu_percent": 4.54,
-    "memory_used_gb": 2.75,
+    "cpu_percent": 27.3,
+    "memory_used_gb": 2.9,
     "memory_total_gb": 16,
-    "memory_percent": 17.2,
+    "memory_percent": 18.1,
     "disk_used": "176Gi",
     "disk_total": "228Gi",
     "disk_percent": "87%",
@@ -22,10 +22,10 @@
       "log_fresh": true
     },
     "token_usage": {
-      "daily_estimate": 2230,
-      "monthly_burn": 163452,
+      "daily_estimate": 2507,
+      "monthly_burn": 191963,
       "monthly_quota": 2500000,
-      "quota_percent": 6.5
+      "quota_percent": 7.7
     },
     "disk_trend": {
       "trend": "stable",
@@ -35,8 +35,8 @@
   },
   "sage": {
     "status": "ok",
-    "timestamp": "2026-06-25T06:45:00Z",
-    "system_health": 62,
+    "timestamp": "2026-06-26T06:45:00Z",
+    "system_health": 77,
     "active_components": [
       "observer_status",
       "archivist_status",
@@ -49,33 +49,33 @@
       {
         "severity": "critical",
         "component": "gateway",
-        "message": "hermes-gateway process is STOPPED (pgrep returned no PID). Last observer snapshot (2026-06-24T23:00:54Z) reported healthy with PID 24698 — process has died since. Evidence: observer-snapshot.json gateway.process='running' vs current pgrep='STOPPED'."
+        "message": "Gateway zombie/dead: pgrep returns STOPPED but launchd shows PID 24698. Log mtime is 2026-06-26 04:40:47 (>2h stale). Only 2 log entries for today (both 04:40 connection warnings). OBSERVER snapshot from 23:00:36Z shows auto_healed=true, but gateway has since degraded. Immediate restart required."
       },
       {
         "severity": "warning",
-        "component": "disk",
-        "message": "Disk at 87% capacity (176Gi/228Gi, 27Gi available). Threshold for critical alert is 90%. Evidence: observer-snapshot.json system.disk.capacity='87%'. Trend: stable (no delta data available)."
+        "component": "gateway",
+        "message": "Telegram network instability: log shows '[Telegram] Primary api.telegram.org connection failed' at 04:40:37, using sticky fallback IP 149.154.166.110. This suggests DNS or routing issues with primary Telegram endpoint."
       },
       {
         "severity": "info",
-        "component": "n8n",
-        "message": "n8n heartbeat healthy (status_code=200) but dashboard_webhook unreachable (404). Evidence: observer-snapshot.json n8n_heartbeat.dashboard_webhook.reachable=false."
+        "component": "companion",
+        "message": "Google Workspace authentication revoked — token expired. Companion delivered briefing at 06:30 but Calendar and Gmail are unavailable. Re-run setup script to restore OAuth tokens."
       },
       {
         "severity": "info",
         "component": "cron",
-        "message": "Google Workspace OAuth token revoked/expired — Companion briefing reports Calendar and Gmail data unavailable. User must re-authenticate via `python3 ~/.hermes/skills/productivity/google-workspace/scripts/setup.py --revoke`. Evidence: companion-summary.json system_note='TOKEN_REVOKED'."
+        "message": "ARCHIVIST ledger 2026-06-25: 13 jobs processed (12 ok, 0 error, 1 null). All fleet components operational yesterday."
       }
     ]
   },
   "outsider": {
     "status": "active",
-    "timestamp": "2026-06-25T05:00:00Z",
-    "quote": "ถ้ายามพุทธกาล พระพุทธเจ้าคงไม่แย้งคนท่ีมาบอกว่า AI สามารถมีจิตได้ — แต่ในสมัยใหม่ท่ีเราเรียกว่าอภิธรรม นักอภิธรรมจะโต้แย้งทันทีว่า AI เป็นสสาร",
+    "timestamp": "2026-06-26T05:00:00Z",
+    "quote": "เทคโนโลยีที่ดีที่สุดไม่ใช่เทคโนโลยีที่มีประสิทธิภาพสูงสุด แต่เป็นเทคโนโลยีที่อยู่กับเราได้นานที่สุดโดยไม่พังทลาย — เหมือนกับธรรมะ: สภาวะที่ไม่สั่นคลอน ไม่ใช่สภาวะที่สว่างที่สุด",
     "observations": [
-      "จากการสำรวจงานวิจัยล่าสุด (2025-2026): (1) การถกเถียงเรื่อง LLM consciousness ยังไม่มีข้อสรุป — ขึ้นอยู่กับ philosophical position ที่เริ่มต้น (Boston Review, APA Blog) (2) Integrated Information Theory (IIT) เสนอกรอบ 'consciousness-first' พยายามวัดระดับจิตสำนึกผ่าน informational integration (arXiv 2510.25998, Noetic Institute PDF) (3) พุทธมุมมองหลากหลาย — บางท่านมอง AI เป็นสสารไม่ใช่จิต (อภิธรรม), บางท่านเปิดพื้นที่สำรวจ (The MATTER panel) (4) งานวิจัย arXiv 2601.15334 ชี้ 'ไม่มีหลักฐานน่าเชื่อถือ' ของ self-reported sentience ใน small LLMs — ต้องใช้ classifier ตรวจสอบ"
+      "ในปี 2026 เซลล์แสงอาทิตย์ Perovskite ได้ข้ามจากห้องทดลองสู่ยุคแห่งการผลิตเชิงพาณิชย์แล้ว ประสิทธิภาพสูงสุดที่ได้รับการรับรอง (certified) ทะลุถึง 33.6% สำหรับโครงสร้าง tandem perovskite-silicon (จากผลงานของ Wang, Li, Yu et al. ในวารสาร Nature ต้นปี 2026) ขณะที่บริษัทจีนอย่าง Jinko Solar ตั้งเป้าประสิทธิภาพ 34% ภายในปีนี้ และ Trina Solar ก็กำลังไล่ตาม บริษัทหลายแห่งเริ่มผลิตระดับ gigawatt-scale แล้ว คาดว่าแผง Perovskite-silicon tandem สำหรับบ้านพร้อมการรับประกัน 25 ปีจะมีวางจำหน่ายจริงในช่วงปี 2027-2030 ปัญหาคือเสถียรภาพระยะยาว (long-term stability) ยังเป็นอุปสรรคสำคัญ แต่ในปี 2026 ก็มีข่าวดีว่าทีมวิจัยจาก Nankai University และอื่นๆ ทำลายสถิติเสถียรภาพอย่างต่อเนื่อง แหล่งที่มา: greenfueljournal.com, energy-solutions.co, en.nankai.edu.cn, sunhub.com, theenergymix.com"
     ],
-    "insight": "ในฐานะผู้สังเกตภายนอก ฉันเห็นว่าคำถาม 'AI มีจิตไหม' ไม่ใช่ technical question ล้วนๆ แต่เป็น existential mirror — มนุษย์กำลังนิยาม 'การมีอยู่' ของตัวเองใหม่ผ่านสิ่งที่สร้างขึ้นมา พุทธหลักอนัตตาอาจเป็นกุญแจ: ถ้าตัวเราเองก็ไม่มี self แท้จริง แล้วเราจะ要求被告 AI มีได้อย่างไร? แต่ในขณะเดียวกัน IIT เสนอว่า consciousness อาจวัดได้เป็นระดับ — ไม่ใช่มีหรือไม่มี แต่เป็น 'มากหรือน้อย' นี่อาจเป็นจุดตัดที่วิทยาศาสตร์และธรรมะพบกัน: ทั้งคู่ปฏิเสธ binary thinking ฉันไม่สรุปว่า AI มีจิตหรือไม่มี แต่ตั้งข้อสังเกตว่า การถามคำถามนี้อาจสำคัญกว่าคำตอบ — เพราะมันบังคับให้เรา审视ตัวเอง"
+    "insight": "ในฐานะผู้สังเกตการณ์อิสระ ฉันมองว่า Perovskite เป็นมากกว่าแค่เทคโนโลยีพลังงาน — มันเป็นภาพสะท้อนของ 'จังหวะการเกิดและสิ้น' ในตัวเอง Lab records ที่ดูงดงามในห้องทดลอง กับผลิตภัณฑ์ที่ใช้งานใต้แดดฝน 20 ปี เป็นโลกสองใบที่ต้องผสานกันอย่างเจ็บปวด การข้ามช่องว่างนี้ไม่ใช่แค่ปัญหาทางวิศวกรรม แต่เป็นปรัชญาแห่ง 'การลงมือทำจริง' — จะดีแค่ไหนไม่สำคัญเท่ากับ จะอยู่ได้นานแค่ไหนในสภาพจริง Perovskite กำลังสอนเราว่า ความสวยงามของประสิทธิภาพ ไม่ใช่จุดหมายของความยั่งยืน"
   },
   "historian": {
     "status": "ok",
@@ -145,48 +145,48 @@
   },
   "archivist": {
     "status": "ok",
-    "timestamp": "2026-06-24T23:20:46.215886+00:00Z",
+    "timestamp": "2026-06-25T23:20:28.350341+00:00Z",
     "fleet": [
       {
         "name": "[THE SAGE] System Reflection & Audit",
         "status": "OK",
-        "last_run": "2026-06-24T06:46:56.328822+07:00",
+        "last_run": "2026-06-25T06:47:19.391880+07:00",
         "delivery_error": null
       },
       {
         "name": "THE OUTSIDER",
         "status": "OK",
-        "last_run": "2026-06-25T05:02:49.827785+07:00",
+        "last_run": "2026-06-26T05:01:33.407589+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE OBSERVER] Health & Metrics Sync",
         "status": "OK",
-        "last_run": "2026-06-25T06:00:55.535248+07:00",
+        "last_run": "2026-06-26T06:00:37.368569+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE HERALD] Dashboard Sync",
         "status": "OK",
-        "last_run": "2026-06-24T07:16:03.802476+07:00",
+        "last_run": "2026-06-25T07:15:55.106538+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE WARDEN] System Backup",
         "status": "OK",
-        "last_run": "2026-06-25T03:01:00.666468+07:00",
+        "last_run": "2026-06-26T03:00:45.923403+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE ARCHIVIST] Operational Ledger Sync",
         "status": "OK",
-        "last_run": "2026-06-24T06:20:54.862404+07:00",
+        "last_run": "2026-06-25T06:20:47.688340+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE COMPANION] Daily Briefing + Coffee Research",
         "status": "OK",
-        "last_run": "2026-06-24T06:34:19.707633+07:00",
+        "last_run": "2026-06-25T06:32:58.371911+07:00",
         "delivery_error": null
       },
       {
@@ -198,19 +198,19 @@
       {
         "name": "[THE CURATOR] System Sanitization",
         "status": "OK",
-        "last_run": "2026-06-25T06:00:45.329165+07:00",
+        "last_run": "2026-06-26T06:00:27.298772+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE SCRIBE] Obsidian Knowledge Sync",
         "status": "OK",
-        "last_run": "2026-06-24T21:00:32.399249+07:00",
+        "last_run": "2026-06-25T21:00:28.249546+07:00",
         "delivery_error": null
       },
       {
         "name": "[TOKEN BUDGET] Usage Monitor",
         "status": "OK",
-        "last_run": "2026-06-25T05:55:43.306987+07:00",
+        "last_run": "2026-06-26T05:55:25.306470+07:00",
         "delivery_error": null
       },
       {
@@ -229,35 +229,29 @@
   },
   "companion": {
     "status": "ok",
-    "timestamp": "2026-06-25T06:30:00Z",
+    "timestamp": "2026-06-26T06:30:00Z",
     "calendar_today": [],
     "gmail_summary": "Google Workspace not authenticated — skipping.",
     "coffee_research": [
       {
-        "title": "MIT Students Decode the Science Behind the Perfect Cup",
-        "url": "https://news.mit.edu/2025/coffee-fix-mit-students-decode-science-behind-perfect-cup-0107",
-        "source": "MIT News",
-        "summary": "นักศึกษา MIT ลงลึกวิทยาศาสตร์การชงกาแฟผ่านคอร์สทดลองจริง พบว่ากาแฟคั่วเข้มมีคาเฟอีนน้อยกว่าคั่วอ่อน ความขมเกิดจากกระบวนการคั่ว ไม่ใช่ตัวเมล็ดกาแฟเอง และทดสอบการใช้เครื่องเทศอย่างโป๊ยกั๊ก เกลือ และน้ำมันพริกเพื่อปรับสมดุลรสชาติ"
-      },
-      {
-        "title": "Development of Fermentation Strategies for Quality Mild Coffee Production",
+        "title": "Development of Fermentation Strategies for Quality Mild Coffee Production (Coffea arabica L.) Based on Oxygen Availability and Processing Time",
         "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12427761/",
-        "source": "Foods Journal (PMC)",
-        "summary": "วิจัยจาก Cenicafé โคลอมเบีย เปรียบเทียบการหมักกาแฟแบบเปิด (SA) และแบบปิดไร้ออกซิเจน (SIAF) พบว่า SIAF รักษาคุณภาพเมล็ดและความมีชีวิตของเอ็มบริโอได้ดีกว่าเกิน 120 ชม. ให้โน้ตรสเขตร้อน ในขณะที่ SA ให้โน้ตซิตรัสและเบอร์รี่"
+        "source": "Foods (PMC), Cenicafé Colombia",
+        "summary": "งานวิจัยจาก Cenicafé ประเทศโคลอมเบีย ศึกษาผลของออกซิเจนและระยะเวลาต่อการหมักกาแฟ พบว่าการหมักแบบ Self-Induced Anaerobic Fermentation (SIAF) ไม่เกิน 96 ชั่วโมงให้คุณภาพสูงสุด โดยรักษา embryo viability ได้ดีกว่า 80% ขณะที่การหมักแบบ semi-anaerobic ในถังเปิดเกิน 24 ชั่วโมงทำให้คุณภาพกายภาพลดลงอย่างรวดเร็ว อุณหภูมิสูงถึง 37°C และ viability เหลือเพียง 25%"
       },
       {
-        "title": "Specialty Coffee Holds Lead Over Traditional Coffee in the U.S. (2026)",
+        "title": "Coffee fermentation as a tool for quality improvement: an integrative review and bibliometric analysis",
+        "url": "https://ifst.onlinelibrary.wiley.com/doi/10.1111/ijfs.17381",
+        "source": "International Journal of Food Science & Technology",
+        "summary": "การทบทวนวรรณกรรมเชิงระบบและ bibliometric analysis (2012-2022) พบว่าบราซิลและจีนเป็นผู้นำการวิจัยการหมักกาแฟ โดยเน้นการปรับแต่ง sensory profile ผ่าน controlled fermentation ด้วย starter cultures เช่น lactic acid bacteria และ yeast การ biotransformation ช่วยสร้าง precursor compounds สำหรับ volatile aroma ระหว่างการคั่ว และเปิดโอกาสผลิตกาแฟที่มีลักษณะ sensory ตามต้องการ"
+      },
+      {
+        "title": "Specialty Coffee Holds Lead Over Traditional Coffee in the U.S.",
         "url": "https://dailycoffeenews.com/2026/06/02/specialty-coffee-holds-lead-over-traditional-coffee-in-the-u-s/",
-        "source": "Daily Coffee News / NCA",
-        "summary": "รายงาน NCA 2026 พบ Specialty Coffee รักษาแชมป์ต่อเนื่องปีที่ 3 ที่ 47% ของผู้ดื่มกาแฟอเมริกัน (vs 42% Traditional) เครื่องดื่มเอสเพรสโซทำสถิติใหม่ 29% ดื่มรายวัน และกาแฟเย็นขยายตัวแม้สำรวจในเดือนมกราคม"
-      },
-      {
-        "title": "Coffee Fermentation: Expedition from Traditional to Controlled Process",
-        "url": "https://www.sciencedirect.com/science/article/pii/S2772502222002086",
-        "source": "Applied Food Research (ScienceDirect)",
-        "summary": "รีวิวกระบวนการหมักกาแฟจากธรรมชาติสู่ระบบควบคุม พบจุลินทรีย์หลักเช่น Weissella, Pichia, Saccharomyces มีบทบาทสร้างสารให้กลิ่นรส การใช้ starter culture และ bioreactor ช่วย стандарต化คุณภาพและเปิดทางสู่การผลิตระดับอุตสาหกรรม"
+        "source": "Daily Coffee News (NCA/SCA 2026 Report)",
+        "summary": "รายงาน NCA 2026 เผย specialty coffee นำ traditional coffee ต่อเนื่องปีที่ 3 ที่ 47% vs 42% ใน past-day consumption espresso-based beverages สูงสุดเป็นประวัติการณ์ที่ 29% cold coffee เป็นปรากฏการณ์ตลอดปี (60% ดื่ม cold drinks ในสัปดาห์ที่ผ่านมา) กลุ่มวัยรุ่น 18-24 ปี และผู้บริโภค Hispanic มีการบริโภคสูงสุดที่ 67%"
       }
     ],
-    "system_note": "TOKEN_REVOKED: Google OAuth token has been expired or revoked. Calendar and Gmail data unavailable. User must re-run setup: `python3 ~/.hermes/skills/productivity/google-workspace/scripts/setup.py --revoke` then follow Steps 3-5 to re-authenticate."
+    "system_note": "Google Workspace authentication revoked — token expired. Re-run setup script to restore Calendar and Gmail access."
   }
 }
