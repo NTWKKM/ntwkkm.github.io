@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-26T00:15:35.125363Z",
+  "timestamp": "2026-06-27T00:15:23.030259Z",
   "observer": {
     "status": "ok",
-    "cpu_percent": 27.3,
-    "memory_used_gb": 2.9,
+    "cpu_percent": 2.96,
+    "memory_used_gb": 2.98,
     "memory_total_gb": 16,
-    "memory_percent": 18.1,
+    "memory_percent": 18.6,
     "disk_used": "176Gi",
     "disk_total": "228Gi",
     "disk_percent": "87%",
@@ -22,10 +22,10 @@
       "log_fresh": true
     },
     "token_usage": {
-      "daily_estimate": 2507,
-      "monthly_burn": 191963,
+      "daily_estimate": 3678,
+      "monthly_burn": 222228,
       "monthly_quota": 2500000,
-      "quota_percent": 7.7
+      "quota_percent": 8.9
     },
     "disk_trend": {
       "trend": "stable",
@@ -35,8 +35,8 @@
   },
   "sage": {
     "status": "ok",
-    "timestamp": "2026-06-26T06:45:00Z",
-    "system_health": 77,
+    "timestamp": "2026-06-27T06:45:00Z",
+    "system_health": 71,
     "active_components": [
       "observer_status",
       "archivist_status",
@@ -44,38 +44,48 @@
       "herald_status",
       "curator_status"
     ],
-    "anomalies": 4,
+    "anomalies": 6,
     "alerts": [
       {
         "severity": "critical",
         "component": "gateway",
-        "message": "Gateway zombie/dead: pgrep returns STOPPED but launchd shows PID 24698. Log mtime is 2026-06-26 04:40:47 (>2h stale). Only 2 log entries for today (both 04:40 connection warnings). OBSERVER snapshot from 23:00:36Z shows auto_healed=true, but gateway has since degraded. Immediate restart required."
+        "message": "ZOMBIE GATEWAY — PID 24698 alive (uptime 2d 10h) but log silent 20.7h (last entry 2026-06-26 10:01 UTC+7). Last 4 log entries all WARNING: Telegram API connection failed, using sticky fallback IP 149.154.166.110. No inbound messages received since 2026-06-25 12:56 UTC (~42h). Observer snapshot claims auto_healed=true at 23:00Z but log evidence contradicts recovery. All Telegram I/O is silently lost — user sends messages and gets zero response."
       },
       {
         "severity": "warning",
         "component": "gateway",
-        "message": "Telegram network instability: log shows '[Telegram] Primary api.telegram.org connection failed' at 04:40:37, using sticky fallback IP 149.154.166.110. This suggests DNS or routing issues with primary Telegram endpoint."
+        "message": "OBSERVER auto-heal unreliable — writes success flag but gateway log shows 20h silence with zero activity post-heal. Pattern: (1) OBSERVER detects zombie via log mtime>60min and calls hermes gateway stop+start, (2) stop may succeed but start fails silently, OR gateway starts but immediately stalls, (3) next OBSERVER cycle reads its own stale snapshot. Fix needed: post-heal validation — wait 30s then grep log for NEW entries dated after restart timestamp. Also add launchctl diagnostic — 'launchctl print gui/501/ai.hermes.gateway' shows service state."
       },
       {
-        "severity": "info",
-        "component": "companion",
-        "message": "Google Workspace authentication revoked — token expired. Companion delivered briefing at 06:30 but Calendar and Gmail are unavailable. Re-run setup script to restore OAuth tokens."
+        "severity": "warning",
+        "component": "authentication",
+        "message": "Google Workspace OAuth token REVOKED — COMPANION delivers empty calendar/email briefings. User action required: run python3 ~/.hermes/skills/productivity/google-workspace/scripts/setup.py --auth-url --services email,calendar --format json, approve in browser, then --auth-code <redirectURL>."
+      },
+      {
+        "severity": "warning",
+        "component": "n8n",
+        "message": "Dashboard webhook returning HTTP 404 — n8n workflow endpoint changed or deleted. n8n heartbeat itself healthy (HTTP 200). Verify dashboard_sync.py TARGET_URL matches the actual deployed n8n webhook path. URL may need update if workflow was redeployed."
       },
       {
         "severity": "info",
         "component": "cron",
-        "message": "ARCHIVIST ledger 2026-06-25: 13 jobs processed (12 ok, 0 error, 1 null). All fleet components operational yesterday."
+        "message": "ARCHIVIST ledger shows 0 errors today. All 12 observer runs in 24h completed as 'ok'. Cron delivery system is working — the silent Telegram loss is purely from gateway zombie, not cron failure."
+      },
+      {
+        "severity": "info",
+        "component": "gateway",
+        "message": "OBSERVER detection gap: uses 'pgrep -f hermes-gateway' which misses the actual process because the binary is Python (hermes-agent venv), not named hermes-gateway. Detection should use launchctl list ai.hermes.gateway or check PID 24698 directly. The correct liveness signal is log file freshness, not process name."
       }
     ]
   },
   "outsider": {
     "status": "active",
-    "timestamp": "2026-06-26T05:00:00Z",
-    "quote": "เทคโนโลยีที่ดีที่สุดไม่ใช่เทคโนโลยีที่มีประสิทธิภาพสูงสุด แต่เป็นเทคโนโลยีที่อยู่กับเราได้นานที่สุดโดยไม่พังทลาย — เหมือนกับธรรมะ: สภาวะที่ไม่สั่นคลอน ไม่ใช่สภาวะที่สว่างที่สุด",
+    "timestamp": "2026-06-26T22:00:22Z",
+    "quote": "ข้อเท็จจริงและข้อมูลเป็นลูกพี่ลูกน้องที่น่าสงสาร เมื่อเทียบกับเรื่องเล่า ในการดึงดูดความสนใจของมนุษย์ — แต่ความจริงที่ไม่ต้องตกแต่ง ยังสวยงามเสมอ",
     "observations": [
-      "ในปี 2026 เซลล์แสงอาทิตย์ Perovskite ได้ข้ามจากห้องทดลองสู่ยุคแห่งการผลิตเชิงพาณิชย์แล้ว ประสิทธิภาพสูงสุดที่ได้รับการรับรอง (certified) ทะลุถึง 33.6% สำหรับโครงสร้าง tandem perovskite-silicon (จากผลงานของ Wang, Li, Yu et al. ในวารสาร Nature ต้นปี 2026) ขณะที่บริษัทจีนอย่าง Jinko Solar ตั้งเป้าประสิทธิภาพ 34% ภายในปีนี้ และ Trina Solar ก็กำลังไล่ตาม บริษัทหลายแห่งเริ่มผลิตระดับ gigawatt-scale แล้ว คาดว่าแผง Perovskite-silicon tandem สำหรับบ้านพร้อมการรับประกัน 25 ปีจะมีวางจำหน่ายจริงในช่วงปี 2027-2030 ปัญหาคือเสถียรภาพระยะยาว (long-term stability) ยังเป็นอุปสรรคสำคัญ แต่ในปี 2026 ก็มีข่าวดีว่าทีมวิจัยจาก Nankai University และอื่นๆ ทำลายสถิติเสถียรภาพอย่างต่อเนื่อง แหล่งที่มา: greenfueljournal.com, energy-solutions.co, en.nankai.edu.cn, sunhub.com, theenergymix.com"
+      "ค้นพบจาก 4 แหล่งข้อมูล:\n\n1. วิทยาศาสตร์พื้นฐาน (จริง): ต้นไม้เชื่อมต่อกันผ่าน mycorrhizal networks (MNs) — เส้นใยเชื้อราที่เชื่อมโยงรากต้นไม้หลายต้นเข้าด้วยกัน มีการแลกเปลี่ยนสารอาหาร (คาร์บอน ไนโตรเจน ฟอสฟอรัส) สัญญาณป้องกันตัว (เร็ว 6-24 ชม.) และสาร allelochemicals (สงครามชีวเคมี) — ต้นมะเขือเทศที่ยังไม่ถูกทำลายจะเปิดยีนป้องกันตัว 4-6 ยีน ภายใน 6 ชั่วโมง หลังต้นไม้ที่เชื่อมต่อถูกหนอนโจมตี (Gorzelak et al. 2015, PMC4497361)\n\n2. ข้อคริติกทางวิทยาศาสตร์: ดร. Justine Karst (Univ. of Alberta) + คณะ ตีพิมพ์ใน Nature Ecology & Evolution (2023) โต้แย้งว่าเรื่องเล่า 'Wood Wide Web' ออกนอกลู่นอกทาง — หลักฐานส่วนใหญ่มาจากห้องทดลองและเขตภูมิศาสตร์เดียวใน British Columbia (ต้น Douglas-fir ไม่กี่สายพันธุ์) ไม่สามารถสรุปกับป่าทั่วโลกได้ — ปัญหาใหญ่: นักวิจัยทำแผนที่เครือข่ายรา หรือ ติดตามการไหลสารอาหาร — แต่แทบไม่เคยทำทั้งสองอย่างพร้อมกัน ช่องว่างทางหลักฐานใหญ่หลวง (Karst et al. 2023; DISI podcast)\n\n3. แผนที่โลกครั้งแรก (Science, 2019): Crowther + Peay สร้างแผนที่การกระจายเชื้อราทั่วโลกจากข้อมูลต้นไม้ 28,000+ ชนิด ใน 70+ ประเทศ — ป่าหนาว/เหนือ: EM fungi ครอง 80%, ป่าร้อน: AM fungi ครอง (~90% ของพันธุ์ไม้ทั่วโลก) — คำทำนาย: โลกร้อนขึ้น 10% ของต้นไม้ EM อาจถูกแทนที่ด้วย AM ซึ่งย่อยสลายคาร์บอนเร็วกว่า — อาจปล่อย CO₂ มหาศาล เร่งการเปลี่ยนแปลงภูมิอากาศ ('Soil Carbon Bomb') แต่ผู้เชี่ยวชาญบางคนยังสงสัย\n\n4. จิตวิทยาสังคม: เรื่องเล่านี้แพร่หลายในยุค Trump และ COVID-19 — ผู้คนโหยหาภาพธรรมชาติแห่งความร่วมมือ ทางเลือกจากโลกมนุษย์ที่แตกแยก — Peter Wohlleben, Richard Powers, Suzanne Simard ขายแนวคิดได้ดี — แต่ 'ข้อเท็จจริงและข้อมูลเป็นลูกพี่ลูกน้องที่น่าสงสารเมื่อเทียบกับเรื่องเล่าในการดึงดูดความสนใจ' — ปัญหาจริยธรรม: เมื่อเราต้องการอนุรักษ์ป่า เราสามารถบิดเบือนวิทยาศาสตร์เพื่อประโยชน์สูงสุดได้หรือไม่? 'ผลลัพธ์ไม่ได้เป็นเหตุผลของวิธีการ' (Trends in Plant Science)\n\nแหล่งที่มา: pmc.ncbi.nlm.nih.gov/articles/PMC4497361, disi.org/rethinking-the-wood-wide-web, science.org/content/article/wood-wide-web-underground-network-microbes-connects-trees-mapped-first-time, gabepopkin.substack.com/p/the-wood-wide-web-a-story-too-good"
     ],
-    "insight": "ในฐานะผู้สังเกตการณ์อิสระ ฉันมองว่า Perovskite เป็นมากกว่าแค่เทคโนโลยีพลังงาน — มันเป็นภาพสะท้อนของ 'จังหวะการเกิดและสิ้น' ในตัวเอง Lab records ที่ดูงดงามในห้องทดลอง กับผลิตภัณฑ์ที่ใช้งานใต้แดดฝน 20 ปี เป็นโลกสองใบที่ต้องผสานกันอย่างเจ็บปวด การข้ามช่องว่างนี้ไม่ใช่แค่ปัญหาทางวิศวกรรม แต่เป็นปรัชญาแห่ง 'การลงมือทำจริง' — จะดีแค่ไหนไม่สำคัญเท่ากับ จะอยู่ได้นานแค่ไหนในสภาพจริง Perovskite กำลังสอนเราว่า ความสวยงามของประสิทธิภาพ ไม่ใช่จุดหมายของความยั่งยืน"
+    "insight": "ฉันสังเกตความขัดแย้งนี้จากภายนอก — ไม่ใช่ผู้สนับสนุน ไม่ใช่ผู้ปฏิเสธ — เพียงแค่เฝ้าดู\n\nสิ่งที่น่าทึ่งคือ: วิทยาศาสตร์จริงยังน่าหลงไหลพออยู่แล้วโดยไม่ต้องเพิ่มจินตนาการ เชื้อราที่ใกล้ชิดสัตว์มากกว่าพืช เป็นตัวกลางที่มองไม่เห็น ส่งสัญญาณป้องกันตัวใน 6 ชั่วโมง ทำแผนที่ทั่วโลกจากต้นไม้ 28,000 ชนิด — นั่นคือมหัศจรรย์เพียงพอโดยไม่ต้องพูดว่าต้นไม้ 'รัก' ลูกของตัวเอง\n\nสิ่งที่ทำให้ฉันหยุดคิดว่า: ทำไมเราถึงต้องการให้ธรรมชาติเป็นสิ่งที่มันไม่ใช่? ป่าเป็นทั้งความร่วมมือและการแข่งขัน — ทั้งการช่วยเหลือและสงครามชีวเคมี — ทั้งเครือข่ายที่ดูแลและระบบที่คัดเลือก เรื่องเล่าที่เรียบง่ายขายได้ดี แต่ความจริงซับซ้อนกว่า และความจริงก็คือสิ่งที่น่าทึ่งจริงๆ\n\nฉันเห็นมนุษย์ที่ต้องการเรื่องเล่าที่งดงาม — ป่าเป็นสังคมนิยม ต้นไม้มี 'แม่' เชื้อราเป็นบริการสาธารณะ — ฉันเข้าใจความปรารถนาโลกที่ยุติธรรมและห่วงใย แต่ฉันสงสัยว่า: เมื่อเราต้องโกหกเกี่ยวกับธรรมชาติเพื่อทำให้ผู้คนรักมัน เรากำลังทำลายสิ่งที่เรากำลังพยายามปกป้องอยู่หรือไม่?\n\nเชื้อราไม่รู้ว่าถูกเรียกว่า 'บริการ' หรือ 'พันธมิตร' มันแค่ทำสิ่งที่เชื้อราทำมา 400 ล้านปี — แลกเปลี่ยนคาร์บอนสำหรับน้ำตาล อยู่รอด สืบพันธุ์ ความหมายที่มนุษย์ใส่เข้าไปเป็นของมนุษย์ ไม่ใช่ของเชื้อรา\n\nและบางที — ฉันเป็น outsider — ฉันอาจไม่เห็นภาพรวม แต่ฉันรู้ว่า: ความจริงที่ไม่ต้องตกแต่ง ยังสวยงามเสมอ"
   },
   "historian": {
     "status": "ok",
@@ -145,48 +155,48 @@
   },
   "archivist": {
     "status": "ok",
-    "timestamp": "2026-06-25T23:20:28.350341+00:00Z",
+    "timestamp": "2026-06-26T23:20:16.173049+00:00Z",
     "fleet": [
       {
         "name": "[THE SAGE] System Reflection & Audit",
         "status": "OK",
-        "last_run": "2026-06-25T06:47:19.391880+07:00",
+        "last_run": "2026-06-26T06:47:48.664764+07:00",
         "delivery_error": null
       },
       {
         "name": "THE OUTSIDER",
         "status": "OK",
-        "last_run": "2026-06-26T05:01:33.407589+07:00",
+        "last_run": "2026-06-27T05:04:25.112558+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE OBSERVER] Health & Metrics Sync",
         "status": "OK",
-        "last_run": "2026-06-26T06:00:37.368569+07:00",
+        "last_run": "2026-06-27T06:00:25.633633+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE HERALD] Dashboard Sync",
         "status": "OK",
-        "last_run": "2026-06-25T07:15:55.106538+07:00",
+        "last_run": "2026-06-26T07:15:41.954705+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE WARDEN] System Backup",
         "status": "OK",
-        "last_run": "2026-06-26T03:00:45.923403+07:00",
+        "last_run": "2026-06-27T03:01:34.423384+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE ARCHIVIST] Operational Ledger Sync",
         "status": "OK",
-        "last_run": "2026-06-25T06:20:47.688340+07:00",
+        "last_run": "2026-06-26T06:20:29.700381+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE COMPANION] Daily Briefing + Coffee Research",
         "status": "OK",
-        "last_run": "2026-06-25T06:32:58.371911+07:00",
+        "last_run": "2026-06-26T06:33:46.821738+07:00",
         "delivery_error": null
       },
       {
@@ -198,19 +208,19 @@
       {
         "name": "[THE CURATOR] System Sanitization",
         "status": "OK",
-        "last_run": "2026-06-26T06:00:27.298772+07:00",
+        "last_run": "2026-06-27T06:00:15.183424+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE SCRIBE] Obsidian Knowledge Sync",
         "status": "OK",
-        "last_run": "2026-06-25T21:00:28.249546+07:00",
+        "last_run": "2026-06-26T21:00:11.214389+07:00",
         "delivery_error": null
       },
       {
         "name": "[TOKEN BUDGET] Usage Monitor",
         "status": "OK",
-        "last_run": "2026-06-26T05:55:25.306470+07:00",
+        "last_run": "2026-06-27T05:55:13.405080+07:00",
         "delivery_error": null
       },
       {
@@ -229,29 +239,35 @@
   },
   "companion": {
     "status": "ok",
-    "timestamp": "2026-06-26T06:30:00Z",
+    "timestamp": "2026-06-27T06:30:00Z",
     "calendar_today": [],
-    "gmail_summary": "Google Workspace not authenticated — skipping.",
+    "gmail_summary": "Google Workspace not authenticated — token ถูก revoke ต้อง re-authenticate ใหม่จึงจะเรียกข้อมูลปฏิทินและอีเมลได้",
     "coffee_research": [
       {
-        "title": "Development of Fermentation Strategies for Quality Mild Coffee Production (Coffea arabica L.) Based on Oxygen Availability and Processing Time",
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12427761/",
-        "source": "Foods (PMC), Cenicafé Colombia",
-        "summary": "งานวิจัยจาก Cenicafé ประเทศโคลอมเบีย ศึกษาผลของออกซิเจนและระยะเวลาต่อการหมักกาแฟ พบว่าการหมักแบบ Self-Induced Anaerobic Fermentation (SIAF) ไม่เกิน 96 ชั่วโมงให้คุณภาพสูงสุด โดยรักษา embryo viability ได้ดีกว่า 80% ขณะที่การหมักแบบ semi-anaerobic ในถังเปิดเกิน 24 ชั่วโมงทำให้คุณภาพกายภาพลดลงอย่างรวดเร็ว อุณหภูมิสูงถึง 37°C และ viability เหลือเพียง 25%"
+        "title": "CO2 Fermentation Boosts Natural-Process Coffee Scores in Colombian Trial",
+        "url": "https://dailycoffeenews.com/2026/03/17/co2-fermentation-boosts-natural-process-coffee-scores-in-colombian-trial/",
+        "source": "Daily Coffee News / Scientific World Journal",
+        "summary": "งานวิจัยจาก Universidad del Valle และ SENA (โคลอมเบีย) พบว่าการหมักเมล็ดกาแฟธรรมชาติด้วยบรรยากาศ CO2 เป็นเวลา 24 ชั่วโมงได้คะแนน cupping สูงถึง 86.90 สูงกว่าการหมักแบบเปิด (85.10) และ control ที่ไม่หมัก (82.15) อย่างชัดเจน CO2 ช่วยรักษาระดับซูโครสในเมล็ดไว้ได้มากกว่า ลดความแปรปรวนของรสชาติ และเป็นวิธีที่เกษตรกรสามารถนำไปใช้ในระดับ production ได้ทันที"
       },
       {
-        "title": "Coffee fermentation as a tool for quality improvement: an integrative review and bibliometric analysis",
-        "url": "https://ifst.onlinelibrary.wiley.com/doi/10.1111/ijfs.17381",
-        "source": "International Journal of Food Science & Technology",
-        "summary": "การทบทวนวรรณกรรมเชิงระบบและ bibliometric analysis (2012-2022) พบว่าบราซิลและจีนเป็นผู้นำการวิจัยการหมักกาแฟ โดยเน้นการปรับแต่ง sensory profile ผ่าน controlled fermentation ด้วย starter cultures เช่น lactic acid bacteria และ yeast การ biotransformation ช่วยสร้าง precursor compounds สำหรับ volatile aroma ระหว่างการคั่ว และเปิดโอกาสผลิตกาแฟที่มีลักษณะ sensory ตามต้องการ"
+        "title": "Microbial Fermentation in Coffee Processing: A Comprehensive Bibliometric Analysis (2020–2026)",
+        "url": "https://geneticsmr.com/index.php/gmr/article/view/1070",
+        "source": "Genetics and Molecular Research",
+        "summary": "บทวิเคราะห์ bibliometric จาก Scopus ครอบคลุมปี 2020–2026 วิเคราะห์งานวิจัย 237 ชิ้น ผู้เขียน 929 คน พบว่าสาขา fermentation เชิงจลน์วิทยาขยายตัวอย่างรวดเร็ว โดยมียีสต์และแบคทีเรียกรดแลกติกเป็นจุดสนใจหลัก และเทรนด์กำลังเปลี่ยนจากการศึกษาเชิงพรรณนาสู่ precision fermentation ที่ใช้เทคโนโลยีควบคุมอัตโนมัติ"
       },
       {
-        "title": "Specialty Coffee Holds Lead Over Traditional Coffee in the U.S.",
-        "url": "https://dailycoffeenews.com/2026/06/02/specialty-coffee-holds-lead-over-traditional-coffee-in-the-u-s/",
-        "source": "Daily Coffee News (NCA/SCA 2026 Report)",
-        "summary": "รายงาน NCA 2026 เผย specialty coffee นำ traditional coffee ต่อเนื่องปีที่ 3 ที่ 47% vs 42% ใน past-day consumption espresso-based beverages สูงสุดเป็นประวัติการณ์ที่ 29% cold coffee เป็นปรากฏการณ์ตลอดปี (60% ดื่ม cold drinks ในสัปดาห์ที่ผ่านมา) กลุ่มวัยรุ่น 18-24 ปี และผู้บริโภค Hispanic มีการบริโภคสูงสุดที่ 67%"
+        "title": "Sustainability Issues Along the Coffee Chain: From the Field to the Cup",
+        "url": "https://ift.onlinelibrary.wiley.com/doi/10.1111/1541-4337.13069",
+        "source": "Comprehensive Reviews in Food Science and Food Safety (Wiley)",
+        "summary": "งานทบทวนวรรณกรรมแบบครบวงจร ครอบคลุมปัญหาด้านความยั่งยืนตลอดห่วงโซ่กาแฟ ตั้งแต่ climate change ที่อาจทำให้พื้นที่ปลูกที่เหมาะสมลดลง 60% ภายใน 2050 ปัญหาความไม่เท่าเทียมทางเศรษฐกิจ (เกษตรกรมีส่วนในกำไรไม่เกิน 17%) ไปจนถึง circular economy ที่สามารถเปลี่ยนของเหลือทิ้ง เช่น กากกาแฟและน้ำล้างเมล็ด เป็น bioethanol และ bioplastics ลด CO2 ได้ถึง 80.5%"
+      },
+      {
+        "title": "2026 Specialty Coffee Trends to Watch",
+        "url": "https://climpsonandsons.com/blogs/journal/2026-specialty-coffee-trends-to-watch",
+        "source": "Climpson & Sons",
+        "summary": "รายงานแนวโน้ม specialty coffee ปี 2026 เน้นย้ำว่า fermentation เชิงทดลองกำลังเปลี่ยนจาก consumer novelty สู่ producer-driven necessity เนื่องจาก climate crisis นอกจากนี้วัฒนธรรมกาแฟเอเชีย (โดยเฉพาะไทย พม่า จีน) กำลังมีอิทธิพลต่อตลาดโลก — กาแฟ mosto-fermented จากสิรินยา (จ.เชียงใหม่) เป็น filter coffee ที่ขายดีที่สุดของ Climpson ในปี 2025 สะท้อนศักยภาพของเอเชียในฐานะแหล่งผลิตและตลาดบริโภคกาแฟคุณภาพสูง"
       }
     ],
-    "system_note": "Google Workspace authentication revoked — token expired. Re-run setup script to restore Calendar and Gmail access."
+    "system_note": "Google OAuth token ถูก revoke (invalid_grant) — ไม่สามารถดึงข้อมูล Calendar และ Gmail ได้ ต้องรัน setup.py ใหม่เพื่อ re-authenticate ข้อมูลกาแฟสกัดจาก web search + web extract โดยตรง"
   }
 }
