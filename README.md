@@ -10,14 +10,14 @@ This content reflects the repository structure (updated by GitHub Actions):
 |       `-- (Chunked JSON files)
 |-- fray /
 |   |-- history /
-|   |   |-- 2026-06-19.json
 |   |   |-- 2026-06-20.json
 |   |   |-- 2026-06-21.json
 |   |   |-- 2026-06-22.json
 |   |   |-- 2026-06-23.json
 |   |   |-- 2026-06-24.json
 |   |   |-- 2026-06-25.json
-|   |   `-- 2026-06-26.json
+|   |   |-- 2026-06-26.json
+|   |   `-- 2026-06-27.json
 |   |-- ARCHITECTURE.md
 |   |-- dashboard-snapshot.json
 |   |-- fray-dashboard.css
