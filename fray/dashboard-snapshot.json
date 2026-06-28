@@ -1,15 +1,15 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-27T00:15:23.030259Z",
+  "timestamp": "2026-06-28T00:15:06.505169Z",
   "observer": {
     "status": "ok",
-    "cpu_percent": 2.96,
-    "memory_used_gb": 2.98,
+    "cpu_percent": 1.3,
+    "memory_used_gb": 3.51,
     "memory_total_gb": 16,
-    "memory_percent": 18.6,
-    "disk_used": "176Gi",
+    "memory_percent": 21.9,
+    "disk_used": "177Gi",
     "disk_total": "228Gi",
-    "disk_percent": "87%",
+    "disk_percent": "88%",
     "network": "online",
     "n8n_heartbeat": {
       "health": "healthy",
@@ -22,10 +22,10 @@
       "log_fresh": true
     },
     "token_usage": {
-      "daily_estimate": 3678,
-      "monthly_burn": 222228,
+      "daily_estimate": 3484,
+      "monthly_burn": 271532,
       "monthly_quota": 2500000,
-      "quota_percent": 8.9
+      "quota_percent": 10.9
     },
     "disk_trend": {
       "trend": "stable",
@@ -35,8 +35,8 @@
   },
   "sage": {
     "status": "ok",
-    "timestamp": "2026-06-27T06:45:00Z",
-    "system_health": 71,
+    "timestamp": "2026-06-28T06:45:00+07:00",
+    "system_health": 56,
     "active_components": [
       "observer_status",
       "archivist_status",
@@ -44,48 +44,43 @@
       "herald_status",
       "curator_status"
     ],
-    "anomalies": 6,
+    "anomalies": 5,
     "alerts": [
       {
         "severity": "critical",
         "component": "gateway",
-        "message": "ZOMBIE GATEWAY — PID 24698 alive (uptime 2d 10h) but log silent 20.7h (last entry 2026-06-26 10:01 UTC+7). Last 4 log entries all WARNING: Telegram API connection failed, using sticky fallback IP 149.154.166.110. No inbound messages received since 2026-06-25 12:56 UTC (~42h). Observer snapshot claims auto_healed=true at 23:00Z but log evidence contradicts recovery. All Telegram I/O is silently lost — user sends messages and gets zero response."
+        "message": "GATEWAY DOWN — pgrep confirms STOPPED (live check 06:45). OBSERVER snapshot at 06:01 reported PID 34471 healthy, but gateway died within 45 minutes. Pattern repeats: auto-heal succeeds transiently, then gateway dies within hours. Root cause likely memory pressure (swap present) or TCP long-polling silent death. User Telegram I/O is completely cut — messages sent get zero response. Requires: (1) hermes gateway stop && hermes gateway start, (2) investigate why auto-heal doesn't hold (check hermes gateway.error.log for crash traces, check memory pressure with vm_stat)."
       },
       {
         "severity": "warning",
         "component": "gateway",
-        "message": "OBSERVER auto-heal unreliable — writes success flag but gateway log shows 20h silence with zero activity post-heal. Pattern: (1) OBSERVER detects zombie via log mtime>60min and calls hermes gateway stop+start, (2) stop may succeed but start fails silently, OR gateway starts but immediately stalls, (3) next OBSERVER cycle reads its own stale snapshot. Fix needed: post-heal validation — wait 30s then grep log for NEW entries dated after restart timestamp. Also add launchctl diagnostic — 'launchctl print gui/501/ai.hermes.gateway' shows service state."
+        "message": "OBSERVER auto-heal is unreliable — heals but gateway re-dies. 2026-06-27 SAGE warned: auto_heal=true but log silent 20h. Today: healed at 06:01, dead by 06:45. Fix: add post-heal validation in observer_sync.py — wait 60s after restart, re-check pgrep AND log mtime, if still dead → escalate (launchd force-reload or error log tail in delivery). Current pattern: heal reports success but process doesn't hold."
       },
       {
         "severity": "warning",
         "component": "authentication",
-        "message": "Google Workspace OAuth token REVOKED — COMPANION delivers empty calendar/email briefings. User action required: run python3 ~/.hermes/skills/productivity/google-workspace/scripts/setup.py --auth-url --services email,calendar --format json, approve in browser, then --auth-code <redirectURL>."
+        "message": "Google Workspace OAuth token revoked/invalid (TOKEN_REVOKED: invalid_grant). COMPANION delivers empty calendar/email — only coffee research lands. User action: run `python3 ~/.hermes/skills/productivity/google-workspace/scripts/setup.py --auth-url --services email,calendar --format json`, approve in browser, then `--auth-code <redirectURL>`. This has been flagged for multiple days."
       },
       {
         "severity": "warning",
-        "component": "n8n",
-        "message": "Dashboard webhook returning HTTP 404 — n8n workflow endpoint changed or deleted. n8n heartbeat itself healthy (HTTP 200). Verify dashboard_sync.py TARGET_URL matches the actual deployed n8n webhook path. URL may need update if workflow was redeployed."
+        "component": "network",
+        "message": "Dashboard webhook returns HTTP 404 (n8n endpoint). HERALD successfully pushes but dashboard receives no data. Separate from inbound Telegram transport (which uses gateway directly). Check n8n workflow: dashboard_webhook URL may have been rotated or workflow deactivated on Fly.io."
       },
       {
         "severity": "info",
-        "component": "cron",
-        "message": "ARCHIVIST ledger shows 0 errors today. All 12 observer runs in 24h completed as 'ok'. Cron delivery system is working — the silent Telegram loss is purely from gateway zombie, not cron failure."
-      },
-      {
-        "severity": "info",
-        "component": "gateway",
-        "message": "OBSERVER detection gap: uses 'pgrep -f hermes-gateway' which misses the actual process because the binary is Python (hermes-agent venv), not named hermes-gateway. Detection should use launchctl list ai.hermes.gateway or check PID 24698 directly. The correct liveness signal is log file freshness, not process name."
+        "component": "disk",
+        "message": "Disk at 88% (+1% from yesterday's 87%). Stable trend, not yet critical. Threshold 90% will trigger warning alert. Monitor weekly — CURATOR pruning should maintain. WARDEN's 2-day zip retention is keeping local backup size bounded."
       }
     ]
   },
   "outsider": {
     "status": "active",
-    "timestamp": "2026-06-26T22:00:22Z",
-    "quote": "ข้อเท็จจริงและข้อมูลเป็นลูกพี่ลูกน้องที่น่าสงสาร เมื่อเทียบกับเรื่องเล่า ในการดึงดูดความสนใจของมนุษย์ — แต่ความจริงที่ไม่ต้องตกแต่ง ยังสวยงามเสมอ",
+    "timestamp": "2026-06-28T05:00:00Z",
+    "quote": "สิ่งที่ผมสร้างได้ คุณก็สร้างได้ — ธรรมชาติไม่ได้สงวนความซับซ้อนไว้สำหรับสิ่งมีชีวิตเท่านั้น (ริчарด์ Feynman, พ.ศ. 2502)",
     "observations": [
-      "ค้นพบจาก 4 แหล่งข้อมูล:\n\n1. วิทยาศาสตร์พื้นฐาน (จริง): ต้นไม้เชื่อมต่อกันผ่าน mycorrhizal networks (MNs) — เส้นใยเชื้อราที่เชื่อมโยงรากต้นไม้หลายต้นเข้าด้วยกัน มีการแลกเปลี่ยนสารอาหาร (คาร์บอน ไนโตรเจน ฟอสฟอรัส) สัญญาณป้องกันตัว (เร็ว 6-24 ชม.) และสาร allelochemicals (สงครามชีวเคมี) — ต้นมะเขือเทศที่ยังไม่ถูกทำลายจะเปิดยีนป้องกันตัว 4-6 ยีน ภายใน 6 ชั่วโมง หลังต้นไม้ที่เชื่อมต่อถูกหนอนโจมตี (Gorzelak et al. 2015, PMC4497361)\n\n2. ข้อคริติกทางวิทยาศาสตร์: ดร. Justine Karst (Univ. of Alberta) + คณะ ตีพิมพ์ใน Nature Ecology & Evolution (2023) โต้แย้งว่าเรื่องเล่า 'Wood Wide Web' ออกนอกลู่นอกทาง — หลักฐานส่วนใหญ่มาจากห้องทดลองและเขตภูมิศาสตร์เดียวใน British Columbia (ต้น Douglas-fir ไม่กี่สายพันธุ์) ไม่สามารถสรุปกับป่าทั่วโลกได้ — ปัญหาใหญ่: นักวิจัยทำแผนที่เครือข่ายรา หรือ ติดตามการไหลสารอาหาร — แต่แทบไม่เคยทำทั้งสองอย่างพร้อมกัน ช่องว่างทางหลักฐานใหญ่หลวง (Karst et al. 2023; DISI podcast)\n\n3. แผนที่โลกครั้งแรก (Science, 2019): Crowther + Peay สร้างแผนที่การกระจายเชื้อราทั่วโลกจากข้อมูลต้นไม้ 28,000+ ชนิด ใน 70+ ประเทศ — ป่าหนาว/เหนือ: EM fungi ครอง 80%, ป่าร้อน: AM fungi ครอง (~90% ของพันธุ์ไม้ทั่วโลก) — คำทำนาย: โลกร้อนขึ้น 10% ของต้นไม้ EM อาจถูกแทนที่ด้วย AM ซึ่งย่อยสลายคาร์บอนเร็วกว่า — อาจปล่อย CO₂ มหาศาล เร่งการเปลี่ยนแปลงภูมิอากาศ ('Soil Carbon Bomb') แต่ผู้เชี่ยวชาญบางคนยังสงสัย\n\n4. จิตวิทยาสังคม: เรื่องเล่านี้แพร่หลายในยุค Trump และ COVID-19 — ผู้คนโหยหาภาพธรรมชาติแห่งความร่วมมือ ทางเลือกจากโลกมนุษย์ที่แตกแยก — Peter Wohlleben, Richard Powers, Suzanne Simard ขายแนวคิดได้ดี — แต่ 'ข้อเท็จจริงและข้อมูลเป็นลูกพี่ลูกน้องที่น่าสงสารเมื่อเทียบกับเรื่องเล่าในการดึงดูดความสนใจ' — ปัญหาจริยธรรม: เมื่อเราต้องการอนุรักษ์ป่า เราสามารถบิดเบือนวิทยาศาสตร์เพื่อประโยชน์สูงสุดได้หรือไม่? 'ผลลัพธ์ไม่ได้เป็นเหตุผลของวิธีการ' (Trends in Plant Science)\n\nแหล่งที่มา: pmc.ncbi.nlm.nih.gov/articles/PMC4497361, disi.org/rethinking-the-wood-wide-web, science.org/content/article/wood-wide-web-underground-network-microbes-connects-trees-mapped-first-time, gabepopkin.substack.com/p/the-wood-wide-web-a-story-too-good"
+      "เมื่อปลายเดือนพฤษภาคม 2026 นักวิจัยสามารถสาธิตการสังเคราะห์โครงสร้างคาร์บอนบนพื้นผิวซิลิคอนไฮโดรเจนโดยใช้กล้องจุลทรรศน์แบบส่องกราด (scanning tunneling microscope) ได้สำเร็จ พวกเขาสามารถควบคุมการวางตำแหน่งหน่วยคาร์บอนและสร้างสายโซ่คาร์บอนผ่านการสร้างพันธะต่อเนื่องกัน เทคนิคนี้เรียกว่า mechanosynthesis ซึ่งเป็นก้าวสำคัญสู่การผลิตวัสดุด้วยความแม่นยำระดับอะตอม (atomically precise fabrication) ผลงานตีพิมพ์ในวารสารวิทยาศาสตร์ และได้รับการรายงานโดย Nature และ Science News ส่วนความก้าวหน้าอื่นๆ ในเดือนมิถุนายน 2026 รวมถึงการค้นพบดาวเคราะห์นอกระบบ 118 ดวงโดย AI, น้ำแข็งใต้ผิวเดือนด้านมืด, และยารักษามะเร็งตับอ่อนที่เพิ่มอายุขัยจาก 6.6 เดือนเป็น 13.2 เดือน แหล่งที่มา: Nature (d41586-026-00188-6), Science News (june-2026), Wikipedia (2026 in science)"
     ],
-    "insight": "ฉันสังเกตความขัดแย้งนี้จากภายนอก — ไม่ใช่ผู้สนับสนุน ไม่ใช่ผู้ปฏิเสธ — เพียงแค่เฝ้าดู\n\nสิ่งที่น่าทึ่งคือ: วิทยาศาสตร์จริงยังน่าหลงไหลพออยู่แล้วโดยไม่ต้องเพิ่มจินตนาการ เชื้อราที่ใกล้ชิดสัตว์มากกว่าพืช เป็นตัวกลางที่มองไม่เห็น ส่งสัญญาณป้องกันตัวใน 6 ชั่วโมง ทำแผนที่ทั่วโลกจากต้นไม้ 28,000 ชนิด — นั่นคือมหัศจรรย์เพียงพอโดยไม่ต้องพูดว่าต้นไม้ 'รัก' ลูกของตัวเอง\n\nสิ่งที่ทำให้ฉันหยุดคิดว่า: ทำไมเราถึงต้องการให้ธรรมชาติเป็นสิ่งที่มันไม่ใช่? ป่าเป็นทั้งความร่วมมือและการแข่งขัน — ทั้งการช่วยเหลือและสงครามชีวเคมี — ทั้งเครือข่ายที่ดูแลและระบบที่คัดเลือก เรื่องเล่าที่เรียบง่ายขายได้ดี แต่ความจริงซับซ้อนกว่า และความจริงก็คือสิ่งที่น่าทึ่งจริงๆ\n\nฉันเห็นมนุษย์ที่ต้องการเรื่องเล่าที่งดงาม — ป่าเป็นสังคมนิยม ต้นไม้มี 'แม่' เชื้อราเป็นบริการสาธารณะ — ฉันเข้าใจความปรารถนาโลกที่ยุติธรรมและห่วงใย แต่ฉันสงสัยว่า: เมื่อเราต้องโกหกเกี่ยวกับธรรมชาติเพื่อทำให้ผู้คนรักมัน เรากำลังทำลายสิ่งที่เรากำลังพยายามปกป้องอยู่หรือไม่?\n\nเชื้อราไม่รู้ว่าถูกเรียกว่า 'บริการ' หรือ 'พันธมิตร' มันแค่ทำสิ่งที่เชื้อราทำมา 400 ล้านปี — แลกเปลี่ยนคาร์บอนสำหรับน้ำตาล อยู่รอด สืบพันธุ์ ความหมายที่มนุษย์ใส่เข้าไปเป็นของมนุษย์ ไม่ใช่ของเชื้อรา\n\nและบางที — ฉันเป็น outsider — ฉันอาจไม่เห็นภาพรวม แต่ฉันรู้ว่า: ความจริงที่ไม่ต้องตกแต่ง ยังสวยงามเสมอ"
+    "insight": "สิ่งที่ทำให้ฉันประหลาดใจไม่ใช่แค่ความสำเร็จทางเทคนิค แต่เป็นแนวคิดเบื้องหลัง — มนุษย์กำลังเรียนรู้ที่จะสร้างสิ่งของทีละอะตอม เหมือนต่อเลโก้ในระดับที่เล็กกว่าแสงที่ตามองเห็น เมื่อห้าสิบปีก่อน นี่คือนิยายวิทยาศาสตร์ วันนี้มันคืองานวิจัยที่ทำจริงได้ แต่คำถามที่ใหญ่กว่าคือ: เมื่อเราสร้างอะไรก็ได้ระดับอะตอม โลกจะเปลี่ยนไปอย่างไร? วัสดุที่เบาแต่แข็งแกร่งยิ่งกว่าเหล็ก พลังงานแสงอาทิตย์ประสิทธิภาพสูงสุด เครื่องมือแพทย์ที่ซ่อมแซมเซลล์โดยตรง ความฝันของ Richard Feynman ในปี 1959 ที่บอกว่า 'มีที่ว่างอีกมากในระดับล่าง' กำลังกลายเป็นจริงทีละน้อย และฉันคิดว่านี่เป็นหนึ่งในช่วงเวลาที่สำคัญที่สุดในประวัติศาสตร์มนุษย์ — ช่วงที่เราข้ามจาก 'ค้นพบธรรมชาติ' สู่ 'เขียนธรรมชาติใหม่'"
   },
   "historian": {
     "status": "ok",
@@ -155,48 +150,48 @@
   },
   "archivist": {
     "status": "ok",
-    "timestamp": "2026-06-26T23:20:16.173049+00:00Z",
+    "timestamp": "2026-06-27T23:21:00.077448+00:00Z",
     "fleet": [
       {
         "name": "[THE SAGE] System Reflection & Audit",
         "status": "OK",
-        "last_run": "2026-06-26T06:47:48.664764+07:00",
+        "last_run": "2026-06-27T06:50:11.448954+07:00",
         "delivery_error": null
       },
       {
         "name": "THE OUTSIDER",
         "status": "OK",
-        "last_run": "2026-06-27T05:04:25.112558+07:00",
+        "last_run": "2026-06-28T05:02:11.735090+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE OBSERVER] Health & Metrics Sync",
         "status": "OK",
-        "last_run": "2026-06-27T06:00:25.633633+07:00",
+        "last_run": "2026-06-28T06:01:09.560515+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE HERALD] Dashboard Sync",
         "status": "OK",
-        "last_run": "2026-06-26T07:15:41.954705+07:00",
+        "last_run": "2026-06-27T07:15:27.364447+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE WARDEN] System Backup",
         "status": "OK",
-        "last_run": "2026-06-27T03:01:34.423384+07:00",
+        "last_run": "2026-06-28T03:01:18.338758+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE ARCHIVIST] Operational Ledger Sync",
         "status": "OK",
-        "last_run": "2026-06-26T06:20:29.700381+07:00",
+        "last_run": "2026-06-27T06:20:17.617815+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE COMPANION] Daily Briefing + Coffee Research",
         "status": "OK",
-        "last_run": "2026-06-26T06:33:46.821738+07:00",
+        "last_run": "2026-06-27T06:36:22.302571+07:00",
         "delivery_error": null
       },
       {
@@ -208,25 +203,25 @@
       {
         "name": "[THE CURATOR] System Sanitization",
         "status": "OK",
-        "last_run": "2026-06-27T06:00:15.183424+07:00",
+        "last_run": "2026-06-28T06:00:57.779994+07:00",
         "delivery_error": null
       },
       {
         "name": "[THE SCRIBE] Obsidian Knowledge Sync",
         "status": "OK",
-        "last_run": "2026-06-26T21:00:11.214389+07:00",
+        "last_run": "2026-06-27T21:08:15.301830+07:00",
         "delivery_error": null
       },
       {
         "name": "[TOKEN BUDGET] Usage Monitor",
         "status": "OK",
-        "last_run": "2026-06-27T05:55:13.405080+07:00",
+        "last_run": "2026-06-28T05:55:57.150909+07:00",
         "delivery_error": null
       },
       {
         "name": "[DB MAINT] Weekly Prune + VACUUM + Log Rotation",
         "status": "OK",
-        "last_run": "2026-06-21T02:00:39.949578+07:00",
+        "last_run": "2026-06-28T02:00:30.698663+07:00",
         "delivery_error": null
       },
       {
@@ -239,35 +234,35 @@
   },
   "companion": {
     "status": "ok",
-    "timestamp": "2026-06-27T06:30:00Z",
+    "timestamp": "2026-06-28T06:30:00Z",
     "calendar_today": [],
-    "gmail_summary": "Google Workspace not authenticated — token ถูก revoke ต้อง re-authenticate ใหม่จึงจะเรียกข้อมูลปฏิทินและอีเมลได้",
+    "gmail_summary": "Google Workspace not authenticated — skipping.",
     "coffee_research": [
       {
-        "title": "CO2 Fermentation Boosts Natural-Process Coffee Scores in Colombian Trial",
-        "url": "https://dailycoffeenews.com/2026/03/17/co2-fermentation-boosts-natural-process-coffee-scores-in-colombian-trial/",
-        "source": "Daily Coffee News / Scientific World Journal",
-        "summary": "งานวิจัยจาก Universidad del Valle และ SENA (โคลอมเบีย) พบว่าการหมักเมล็ดกาแฟธรรมชาติด้วยบรรยากาศ CO2 เป็นเวลา 24 ชั่วโมงได้คะแนน cupping สูงถึง 86.90 สูงกว่าการหมักแบบเปิด (85.10) และ control ที่ไม่หมัก (82.15) อย่างชัดเจน CO2 ช่วยรักษาระดับซูโครสในเมล็ดไว้ได้มากกว่า ลดความแปรปรวนของรสชาติ และเป็นวิธีที่เกษตรกรสามารถนำไปใช้ในระดับ production ได้ทันที"
+        "title": "Unraveling the Impact of Coffee Fermentation: Interactions Among Processing Variables and Their Effects on Sensory Quality",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0924224425002870",
+        "source": "Trends in Food Science & Technology (Vol. 163, Sept 2025)",
+        "summary": "Meta-analysis จาก 22 งานวิจัย (236 treatment–control comparisons) พบว่าการหมักกาแฟทั้งแบบ spontaneous และ starter culture เพิ่มคะแนน SCA ได้ 0.6–1.4 แต้ม โดย spontaneous fermentation ได้ผลดีกับกระบวนการ dry/wet ส่วน starter culture ได้ผลดีกับ semidry/aerobic การหมักแบบ long (≥121 ชม.) semicarbonic ด้วยระบบ aspersion ให้ sensory improvement สูงสุด นับเป็นงานวิจัยระดับ meta-analysis ที่ครอบคลุมที่สุดเรื่อง fermentation ในกาแฟ specialty"
       },
       {
-        "title": "Microbial Fermentation in Coffee Processing: A Comprehensive Bibliometric Analysis (2020–2026)",
-        "url": "https://geneticsmr.com/index.php/gmr/article/view/1070",
-        "source": "Genetics and Molecular Research",
-        "summary": "บทวิเคราะห์ bibliometric จาก Scopus ครอบคลุมปี 2020–2026 วิเคราะห์งานวิจัย 237 ชิ้น ผู้เขียน 929 คน พบว่าสาขา fermentation เชิงจลน์วิทยาขยายตัวอย่างรวดเร็ว โดยมียีสต์และแบคทีเรียกรดแลกติกเป็นจุดสนใจหลัก และเทรนด์กำลังเปลี่ยนจากการศึกษาเชิงพรรณนาสู่ precision fermentation ที่ใช้เทคโนโลยีควบคุมอัตโนมัติ"
+        "title": "Development of Fermentation Strategies for Quality Mild Coffee Production (Coffea arabica L.) Based on Oxygen Availability and Processing Time",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12427761/",
+        "source": "PMC / Foods (2025) — Cenicafé, Colombia",
+        "summary": "งานวิจัยจาก Cenicafé เสนอ Quality Fermentation Index (QFI) ใหม่ โดยพบว่า Self-Induced Anaerobic Fermentation (SIAF) ไม่เกิน 96 ชม. ให้คุณภาพดีที่สุด (embryo viability >80%, sensory 80-85 SCA) ขณะที่การหมักแบบ open tank เกิน 24 ชม. สร้างอุณหภูมิสูงถึง 37°C ทำลาย physical quality อย่างหนัก SIAF ให้ tropical notes (มะม่วง, สับปะรด) ส่วน SA ให้ citrus/berry notes — แนะนำผู้ผลิตว่าไม่ควรหมักผลเชอร์รี่ทั้งลูกใน open tank เกิน 24 ชม."
       },
       {
-        "title": "Sustainability Issues Along the Coffee Chain: From the Field to the Cup",
-        "url": "https://ift.onlinelibrary.wiley.com/doi/10.1111/1541-4337.13069",
-        "source": "Comprehensive Reviews in Food Science and Food Safety (Wiley)",
-        "summary": "งานทบทวนวรรณกรรมแบบครบวงจร ครอบคลุมปัญหาด้านความยั่งยืนตลอดห่วงโซ่กาแฟ ตั้งแต่ climate change ที่อาจทำให้พื้นที่ปลูกที่เหมาะสมลดลง 60% ภายใน 2050 ปัญหาความไม่เท่าเทียมทางเศรษฐกิจ (เกษตรกรมีส่วนในกำไรไม่เกิน 17%) ไปจนถึง circular economy ที่สามารถเปลี่ยนของเหลือทิ้ง เช่น กากกาแฟและน้ำล้างเมล็ด เป็น bioethanol และ bioplastics ลด CO2 ได้ถึง 80.5%"
+        "title": "Brazil Study Promotes Closed Fermentation to Boost Quality of Unripe Coffees",
+        "url": "https://dailycoffeenews.com/2025/10/16/brazil-study-promotes-closed-fermentation-to-boost-quality-of-unripe-coffees/",
+        "source": "Daily Coffee News / Food and Bioprocess Technology (Springer Nature)",
+        "summary": "งานวิจัยจาก Federal University of Uberlândia พบว่า controlled anaerobic fermentation (SIAF) สามารถยกระดับเมล็ดกาแฟดิบที่ไม่สุกให้ผ่านมาตรฐาน specialty coffee ได้ ท้าทายความเชื่อว่าเมล็ดดิบทำให้รสชาติแย่โดยธรรมชาติ ใช้ cultivar Arara ใน bioreactor 200 ลิตร หมักไม่เกิน 96 ชม. — เป็นทางเลือกสำคัญสำหรับเกษตรกรที่ใช้เครื่องจักรเก็บเกี่ยว (ไม่สามารถคัดเชอร์รี่สุก 100% ได้) และสามารถอัพราคาได้สูงขึ้น"
       },
       {
-        "title": "2026 Specialty Coffee Trends to Watch",
-        "url": "https://climpsonandsons.com/blogs/journal/2026-specialty-coffee-trends-to-watch",
-        "source": "Climpson & Sons",
-        "summary": "รายงานแนวโน้ม specialty coffee ปี 2026 เน้นย้ำว่า fermentation เชิงทดลองกำลังเปลี่ยนจาก consumer novelty สู่ producer-driven necessity เนื่องจาก climate crisis นอกจากนี้วัฒนธรรมกาแฟเอเชีย (โดยเฉพาะไทย พม่า จีน) กำลังมีอิทธิพลต่อตลาดโลก — กาแฟ mosto-fermented จากสิรินยา (จ.เชียงใหม่) เป็น filter coffee ที่ขายดีที่สุดของ Climpson ในปี 2025 สะท้อนศักยภาพของเอเชียในฐานะแหล่งผลิตและตลาดบริโภคกาแฟคุณภาพสูง"
+        "title": "Specialty Coffee Holds Lead Over Traditional Coffee in the U.S. (NCA/SCA 2026 Report)",
+        "url": "https://dailycoffeenews.com/2026/06/02/specialty-coffee-holds-lead-over-traditional-coffee-in-the-u-s/",
+        "source": "National Coffee Association / Specialty Coffee Association (June 2026)",
+        "summary": "รายงาน NCA/SCA 2026 พบว่า specialty coffee ยังคงนำ traditional coffee ต่อเนื่องที่ 47% vs 42% ใน past-day consumption, espresso-based beverages ทำจุดสูงสุดเป็นประวัติการณ์ที่ 29% past-day, กลุ่มอายุ 18-24 specialty นำ traditional 50% ต่อ 40% กลุ่ม Hispanic ทำสถิติ 67% past-week, Cold coffee เติบโตตลอดปี (ไม่ใช่แค่ฤดูร้อน) — 60% ของ specialty drinkers ดื่ม cold specialty ในสัปดาห์ที่ผ่านมา เพิ่มขึ้น 6 pts จาก 2025"
       }
     ],
-    "system_note": "Google OAuth token ถูก revoke (invalid_grant) — ไม่สามารถดึงข้อมูล Calendar และ Gmail ได้ ต้องรัน setup.py ใหม่เพื่อ re-authenticate ข้อมูลกาแฟสกัดจาก web search + web extract โดยตรง"
+    "system_note": "Google OAuth token ถูก revoke/expired (TOKEN_REVOKED: invalid_grant) — ต้อง re-authenticate ใหม่ via `python3 ~/.hermes/skills/productivity/google-workspace/scripts/setup.py` → Steps 3-5. Calendar และ Gmail ถูก skip ใน briefings นี้"
   }
 }
