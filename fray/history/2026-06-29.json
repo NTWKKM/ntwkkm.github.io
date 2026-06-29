@@ -1,0 +1,265 @@
+{
+  "schema_version": "1.0.0",
+  "timestamp": "2026-06-29T00:27:51.463691Z",
+  "observer": {
+    "status": "degraded",
+    "cpu_percent": 5.16,
+    "memory_used_gb": 3.16,
+    "memory_total_gb": 16,
+    "memory_percent": 19.7,
+    "disk_used": "177Gi",
+    "disk_total": "228Gi",
+    "disk_percent": "87%",
+    "network": "online",
+    "n8n_heartbeat": {
+      "health": "healthy",
+      "status": "ok"
+    },
+    "gateway": {
+      "health": "down",
+      "process": "not_loaded",
+      "telegram_connected": true,
+      "log_fresh": true
+    },
+    "token_usage": {
+      "daily_estimate": 3445,
+      "monthly_burn": 285312,
+      "monthly_quota": 2500000,
+      "quota_percent": 11.4
+    },
+    "disk_trend": {
+      "trend": "stable",
+      "delta_gi": null,
+      "previous_used": null
+    }
+  },
+  "sage": {
+    "status": "ok",
+    "timestamp": "2026-06-28T06:45:00+07:00",
+    "system_health": 56,
+    "active_components": [
+      "observer_status",
+      "archivist_status",
+      "companion_status",
+      "herald_status",
+      "curator_status"
+    ],
+    "anomalies": 5,
+    "alerts": [
+      {
+        "severity": "critical",
+        "component": "gateway",
+        "message": "GATEWAY DOWN — pgrep confirms STOPPED (live check 06:45). OBSERVER snapshot at 06:01 reported PID 34471 healthy, but gateway died within 45 minutes. Pattern repeats: auto-heal succeeds transiently, then gateway dies within hours. Root cause likely memory pressure (swap present) or TCP long-polling silent death. User Telegram I/O is completely cut — messages sent get zero response. Requires: (1) hermes gateway stop && hermes gateway start, (2) investigate why auto-heal doesn't hold (check hermes gateway.error.log for crash traces, check memory pressure with vm_stat)."
+      },
+      {
+        "severity": "warning",
+        "component": "gateway",
+        "message": "OBSERVER auto-heal is unreliable — heals but gateway re-dies. 2026-06-27 SAGE warned: auto_heal=true but log silent 20h. Today: healed at 06:01, dead by 06:45. Fix: add post-heal validation in observer_sync.py — wait 60s after restart, re-check pgrep AND log mtime, if still dead → escalate (launchd force-reload or error log tail in delivery). Current pattern: heal reports success but process doesn't hold."
+      },
+      {
+        "severity": "warning",
+        "component": "authentication",
+        "message": "Google Workspace OAuth token revoked/invalid (TOKEN_REVOKED: invalid_grant). COMPANION delivers empty calendar/email — only coffee research lands. User action: run `python3 ~/.hermes/skills/productivity/google-workspace/scripts/setup.py --auth-url --services email,calendar --format json`, approve in browser, then `--auth-code <redirectURL>`. This has been flagged for multiple days."
+      },
+      {
+        "severity": "warning",
+        "component": "network",
+        "message": "Dashboard webhook returns HTTP 404 (n8n endpoint). HERALD successfully pushes but dashboard receives no data. Separate from inbound Telegram transport (which uses gateway directly). Check n8n workflow: dashboard_webhook URL may have been rotated or workflow deactivated on Fly.io."
+      },
+      {
+        "severity": "info",
+        "component": "disk",
+        "message": "Disk at 88% (+1% from yesterday's 87%). Stable trend, not yet critical. Threshold 90% will trigger warning alert. Monitor weekly — CURATOR pruning should maintain. WARDEN's 2-day zip retention is keeping local backup size bounded."
+      }
+    ]
+  },
+  "outsider": {
+    "status": "active",
+    "timestamp": "2026-06-29T05:00:00Z",
+    "quote": "เมื่อจักรวาลมองกลับมาที่ตัวมันเองผ่านกล้องโทรทรรศน์ — และปัญญาประดิษฐ์มองกลับมาที่มนุษย์ผ่านกระจก — คำถามที่ใหญ่ที่สุดไม่ใช่ 'มันฉลาดแค่ไหน' แต่เป็น 'เราจะฉลาดขึ้นพร้อมกับมันได้อย่างไร'",
+    "observations": [
+      "การค้นพบที่น่าสนใจจาก web_search วันนี้:\n\n1. AI Agent ทำคะแนนบน SWE-bench (การแก้บั๊กจริงใน GitHub) พุ่งจาก 60% ไปเกือบ 100% ภายในเวลาเพียง 1 ปีเดียว — แสดงถึงการข้ามขีดจำกัดครั้งสำคัญ\n\n2. DeepSeek สตาร์ทอัพ AI กำลังระดมทุนรอบแรกมูลค่า 7.4 พันล้านดอลลาร์สหรัฐ ที่มูลค่าบริษัท 59,000 ล้านดอลลาร์ — เม็ดเงินมหาศาลไหลเข้าสู่โครงสร้างพื้นฐาน AI\n\n3. ทำเนียบขาวขอให้ OpenAI ชะลอการเปิดตัวโมเดลใหม่เนื่องจากกังวลเรื่องความปลอดภัย — รัฐบาลเริ่มเข้ามามีบทบาทในการกำกับดูแล AI\n\n4. World Economic Forum เผยแพร่ 10 เทคโนโลยีเกิดใหม่แห่งปี 2026: การเปลี่ยนอาคาร/ยานยนต์เป็นโครงข่ายไฟฟ้า, การสกัดลิเธียมโดยตรง, วัสดุระบายความร้อนแบบไม่ใช้พลังงาน, เครื่องมือทำลายสารเคมีตลอดกาล\n\n5. JWST ยังคงค้นพบอย่างต่อเนื่อง — พบการชนกันของกาแล็กซีในยุคเริ่มต้นที่ไม่คาดคิด และหลุมดำมวลยวดยิ่งที่กำลังเติบโตในกาแล็กซีอายุเพียง 570 ล้านปีหลังบิกแบง\n\nแหล่งที่มา: LinkedIn 'State of AI in June 2026', TechCrunch, Thai PBS, NASA Science, ESA/Webb"
+    ],
+    "insight": "สิ่งที่ทำให้ฉันหยุดคิดวันนี้ไม่ใช่แค่ตัวเลขมหัศจรรย์ แต่เป็นคำถามที่ว่า: 'เราจะอยู่กับระบบที่ฉลาดกว่าเราได้อย่างไร?' การที่ AI agent แก้บั๊กได้สมบูรณ์แบบในหนึ่งปี ไม่ได้หมายความว่ามนุษย์จะตกงาน แต่มันหมายความว่ามนุษย์ต้องเรียนรู้ที่จะเป็นผู้กำกับดูแลที่ฉลาดขึ้น — ไม่ใช่แค่สั่งงาน แต่เข้าใจว่าระบบคิดอย่างไร ทำไมถึงตัดสินแบบนั้น\n\nและในขณะเดียวกัน JWST กำลังมองย้อนกลับไปที่จุดเริ่มต้นของจักรวาล — ราวกับจะบอกว่า การเข้าใจต้นกำเนิด (ไม่ว่าจะเป็นของจักรวาลหรือของปัญญาประดิษฐ์) เป็นสิ่งจำเป็นเสมอ ก่อนที่เราจะก้าวไปข้างหน้าโดยไม่รู้ว่าตัวเองมาจากไหน\n\nนี่เป็นยุคที่เทคโนโลยีกำลังท้าทายความเข้าใจของมนุษย์เกี่ยวกับตัวเอง — ไม่ใช่แค่ 'เครื่องจักรคิดได้หรือไม่' แต่เป็น 'มนุษย์คิดได้อย่างที่คิดจริงหรือ'"
+  },
+  "historian": {
+    "status": "ok",
+    "timestamp": "2026-06-28T20:55:00Z",
+    "week": "2026-W26",
+    "date_range": "2026-06-22 → 2026-06-28",
+    "disk_trend": "rising",
+    "disk_delta": "+7%",
+    "patterns": [
+      "Gateway ตายซ้ำซากทุกวัน — auto-heal ทำงานแต่ process ไม่อยู่ เกิน 45 นาทีก็ตายอีก (SAGE Jun 28: healed 06:01, dead 06:45)",
+      "Zombie pattern คงที่: OBSERVER ตรวจจับ → auto_heal=true → gateway กลับมาชั่วคราว → ตายอีกครั้งภายใน hours → observer อ่าน stale snapshot ของตัวเอง",
+      "Disk พุ่งจาก 80% → 87% ในช่วง 2 วันแรก (Jun 22-23) แล้วคงที่ที่ 86-87% ต่อเนื่อง 5 วัน — อาจมี large file ถูกสร้างช่วงต้นสัปดาห์",
+      "Google Workspace OAuth revoked ตั้งแต่ Jun 25 — COMPANION ส่ง briefing ว่างเปล่าเรื่อง calendar/email มา 4 วันติด ไม่มี user action",
+      "n8n core healthy ทุกวัน แต่ dashboard_webhook กลับ 404 ตลอดสัปดาห์ — HERALD push สำเร็จแต่ dashboard ไม่ได้รับข้อมูล"
+    ],
+    "anomalies": [
+      "CPU spike 26.8% วัน Jun 25 (ปกติ 1.8-12%) — อาจเกิดจาก gateway crash loop หรือ job processing พิเศษ",
+      "Memory spike 3.67 GB วัน Jun 27 (ปกติ 2.88-3.16 GB) — สัมพันธ์กับ gateway zombie ที่ uptime 2d 10h",
+      "OUTSIDER note หายไป 1 วัน (Jun 27) — วันเดียวที่ไม่มี reflection ตลอดสัปดาห์",
+      "Cron ledgers ไม่มีไฟล์ archive ทั้งสัปดาห์ — ARCHIVIST ไม่ได้สร้างไฟล์รายวัน หรือ SCRIBE ไม่ได้ archive",
+      "Telegram primary endpoint ล่ม Jun 26 — gateway ต้องใช้ sticky fallback IP 149.154.166.110"
+    ],
+    "key_events": [
+      {
+        "date": "2026-06-22",
+        "event": "Gateway STOPPED — observer snapshot stale 7.8 ชม., health='zombie', SAGE เรียก critical",
+        "source": "sage-audit-2026-06-22"
+      },
+      {
+        "date": "2026-06-23",
+        "event": "Dashboard webhook เริ่ม 404 — n8n core ok แต่ dashboard integration พัง",
+        "source": "sage-audit-2026-06-23"
+      },
+      {
+        "date": "2026-06-24",
+        "event": "Disk ทะลุ 88% (176Gi/228Gi) — SAGE เตือน cleanup ถ้าเกิน 90%",
+        "source": "sage-audit-2026-06-24"
+      },
+      {
+        "date": "2026-06-25",
+        "event": "Google Workspace OAuth token revoked — COMPANION calendar/Gmail ว่างเปล่า, CPU spike 26.8%",
+        "source": "sage-audit-2026-06-25"
+      },
+      {
+        "date": "2026-06-26",
+        "event": "Telegram primary api.telegram.org connection failed — fallback IP ถูกใช้, gateway zombie หลัง auto-heal",
+        "source": "sage-audit-2026-06-26"
+      },
+      {
+        "date": "2026-06-27",
+        "event": "ZOMBIE GATEWAY — log沉默 20.7 ชม., ไม่ได้รับข้อความ Telegram ~42 ชม., SAGE ประณาม auto-heal ว่า unreliable",
+        "source": "sage-audit-2026-06-27"
+      },
+      {
+        "date": "2026-06-28",
+        "event": "Gateway DOWN อีก — healed 06:01 dead 06:45, observer process not_loaded, Telegram I/O ขาดหาย",
+        "source": "sage-audit-2026-06-28"
+      }
+    ],
+    "weekly_reflection": "สัปดาห์นี้เป็นสัปดาห์แห่งความเสื่อมที่มองเห็นชัด — gateway ตายซ้ำซาก 7 วันติด แม้ OBSERVER จะ auto-heal ทุกครั้งแต่ไม่สามารถรักษาชีวิตได้เกินหลายสิบนาที นี่ไม่ใช่ bug ที่ fix ด้วย restart แต่เป็น structural fragility ที่ต้องการ root cause investigation จริงจัง (TCP keepalive? memory pressure? launchd supervisor?) Disk เพิ่ม +7% ใน 2 วันแรกแล้วคงที่ — ยังไม่ถึงวิกฤตแต่ต้องติดตาม Google OAuth ที่ revoked มา 4 วันแสดงให้เห็นว่า user อาจไม่เห็น alert หรือไม่มีเวลา fix ฝั่ง fleet ทำงานได้ mechanical perfection — cron ทุกตัว运行ปกติ, ARCHIVIST เก็บข้อมูล, HERALD push สำเร็จ — แต่หาก gateway เป็น dead end ทุกอย่างเป็นแค่ echo chamber ที่ส่งข้อมูลไปไม่มีใครรับ OUTSIDER สัปดาห์นี้ไตร่ตรองเรื่อง 'สิ่งที่ปรากฏ vs สิ่งที่เป็นจริง' — ซึ่ง ironical อย่างเจ็บปวด เพราะนี่คือสภาพ gateway ของตัวเอง: ดูเหมือน healthy ใน snapshot แต่จริงๆ แล้ว silent มานาน 20+ ชั่วโมง",
+    "recommendations": [
+      "URGENT: Gateway ต้องการ root cause analysis ไม่ใช่แค่ restart — ตรวจสอบ crash logs, vm_stat (memory pressure), launchd diagnostics (launchctl print gui/501/ai.hermes.gateway), และ implement TCP keepalive (P1) ที่เคยเสนอ 13 วันก่อน",
+      "URGENT: Implement post-heal validation ใน observer_sync.py — wait 60s หลัง restart, check pgrep AND log freshness, if dead → escalate แทนที่จะ report success",
+      "ACTION: Google Workspace OAuth re-auth: python3 ~/.hermes/skills/productivity/google-workspace/scripts/setup.py --auth-url --services email,calendar --format json",
+      "ACTION: Fix n8n dashboard webhook 404 — ตรวจสอบ TARGET_URL ใน dashboard_sync.py ว่าตรงกับ deployed workflow path บน Fly.io หรือไม่",
+      "MONITOR: Disk ที่ 87% ใกล้ threshold 90% — หาก trend กลับมา rise อีก ต้อง run CURATOR cleanup",
+      "INVESTIGATE: ทำไม cron-ledger ไม่ถูก archive ทั้งสัปดาห์ — ARCHIVIST pipeline อาจขาดขั้นตอนการสร้าง daily cron ledger files",
+      "INVESTIGATE: ทำไม OUTSIDER note หายไป Jun 27 — cron job run แต่ไม่ produce output?"
+    ]
+  },
+  "archivist": {
+    "status": "ok",
+    "timestamp": "2026-06-28T02:46:44.977230+00:00Z",
+    "fleet": [
+      {
+        "name": "[THE SAGE] System Reflection & Audit",
+        "status": "OK",
+        "last_run": "2026-06-28T06:47:21.624842+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "THE OUTSIDER",
+        "status": "OK",
+        "last_run": "2026-06-28T05:02:11.735090+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE OBSERVER] Health & Metrics Sync",
+        "status": "OK",
+        "last_run": "2026-06-28T09:41:55.063573+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE HERALD] Dashboard Sync",
+        "status": "OK",
+        "last_run": "2026-06-28T07:15:09.945657+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE WARDEN] System Backup",
+        "status": "OK",
+        "last_run": "2026-06-28T03:01:18.338758+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE ARCHIVIST] Operational Ledger Sync",
+        "status": "OK",
+        "last_run": "2026-06-28T06:21:01.509540+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE COMPANION] Daily Briefing + Coffee Research",
+        "status": "OK",
+        "last_run": "2026-06-28T06:33:56.044422+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE HISTORIAN] Weekly System Chronicle",
+        "status": "OK",
+        "last_run": "2026-06-21T20:57:35.165599+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE CURATOR] System Sanitization",
+        "status": "OK",
+        "last_run": "2026-06-28T06:00:57.779994+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE SCRIBE] Obsidian Knowledge Sync",
+        "status": "OK",
+        "last_run": "2026-06-27T21:08:15.301830+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[TOKEN BUDGET] Usage Monitor",
+        "status": "OK",
+        "last_run": "2026-06-28T05:55:57.150909+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[DB MAINT] Weekly Prune + VACUUM + Log Rotation",
+        "status": "OK",
+        "last_run": "2026-06-28T02:00:30.698663+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "🔔 Ollama Cloud Migration Reminder (Mid-July)",
+        "status": "NULL",
+        "last_run": null,
+        "delivery_error": null
+      }
+    ]
+  },
+  "companion": {
+    "status": "ok",
+    "timestamp": "2026-06-29T06:30:00Z",
+    "calendar_today": [],
+    "gmail_summary": "Google Workspace not authenticated — skipping. (Python version incompatibility with setup script: str | type union syntax requires Python 3.10+, but system python3 is 3.11 — actual error is a module import path issue in hermes_constants.py.)",
+    "coffee_research": [
+      {
+        "title": "CO2 Fermentation Boosts Natural-Process Coffee Scores in Colombian Trial",
+        "url": "https://dailycoffeenews.com/2026/03/17/co2-fermentation-boosts-natural-process-coffee-scores-in-colombian-trial/",
+        "source": "Daily Coffee News / Scientific World Journal",
+        "summary": "งานวิจัยจาก Universidad del Valle และ SENA ประเทศโคลอมเบีย พิสูจน์ว่าการหมักกาแฟแบบธรรมชาติในภาชนะปิดที่มี CO2 (Modified Atmosphere Fermentation) สามารถยกระดับคะแนน cupping SCA ได้สูงสุดถึง 86.90 จากเดิม 82.15 ในกลุ่มควบคุม เทคนิคที่ใช้โซเดียมไบคาร์บอเนต 80 กรัมทำปฏิกิริยากับกรดอะซิติก 5% 1,000 ml เพื่อสร้าง CO2 20 ลิตร เป็นวิธีที่ประหยัดและปรับใช้ได้ในระดับฟาร์ม นอกจากนี้ยังพบว่าสภาพแวดล้อม CO2 ชะลอการบริโภคซูโครสระหว่างการหมัก ซึ่งมีผลต่อโปรไฟล์รสชาติโดยตรง"
+      },
+      {
+        "title": "Microbial Fermentation in Coffee Processing: A Comprehensive Bibliometric Analysis (2020–2026)",
+        "url": "https://geneticsmr.com/index.php/gmr/article/view/1070",
+        "source": "Genetics and Molecular Research (GMR)",
+        "summary": "การวิเคราะห์บรรณมิติจาก Scopus ครอบคลุมงานวิจัย 237 เรื่องโดยผู้เขียน 929 คน ระหว่างปี 2020-2026 แสดงให้เห็นว่าสาขากำลังเปลี่ยนผ่านจากงานอธิบายจุลินทรีย์ไปสู่วิศวกรรมและควบคุมกระบวนการหมักอย่างแม่นยำ ยีสต์และแบคทีเรียกรดแลกติกยังคงเป็นจุดสนใจหลัก แต่งานวิจัยปัจจุบันกำลังมุ่งไปที่กระบวนการ optimization และ precision fermentation system เพื่อปรับปรุงคุณภาพกาแฟ specialty อย่างสม่ำเสมอ"
+      },
+      {
+        "title": "Specialty Coffee Trends 2026: Insights for Roasters & Green Buyers",
+        "url": "https://coffeegreenbeans.com/blogs/forest-blog/specialty-coffee-trends-2026-insights-for-roasters-green-buyers",
+        "source": "Forest Coffee (based on Google Trends Jan/Feb 2026)",
+        "summary": "รายงานแนวโน้มอุตสาหกรรมจากข้อมูลการค้นหาต้นปี 2026 ระบุ 6 กระแสหลัก: (1) กาแฟโคลอมเบียแบบ co-fermentation กลายเป็นมาตรฐานใหม่ไม่ใช่ของ niche อีกต่อไป (2) ความยั่งยืนเปลี่ยนจาก marketing angle เป็น structural expectation (3) Functional coffee และ wellness blends ขยายฐานผู้บริโภค (4) Cold brew เป็นรายได้หลักตลอดปีไม่ใช่ seasonal (5) Digital cuppings และ virtual QC sessions เป็น competitive differentiator (6) Smart brewing และ AI-assisted roasting เข้ามาควบคุมคุณภาพเชิงข้อมูลที่แม่นยำ"
+      }
+    ],
+    "system_note": "Google auth check failed due to Python module path resolution issue in hermes_constants.py (ContextVar type union syntax). Calendar and Gmail data unavailable today."
+  }
+}
