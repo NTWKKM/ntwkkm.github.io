@@ -917,32 +917,72 @@
             /* Hide ToC on smaller screens */
         }
 
+        /* Sidebar Backdrop Overlay for Mobile */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(4px);
+            z-index: 950;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .sidebar-overlay.visible {
+            display: block;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
         @media (max-width: 1024px) {
             .container {
-                flex-direction: column;
-                height: auto;
+                height: 100vh;
+                overflow: hidden;
             }
 
             .sidebar {
-                width: 100%;
-                max-width: none;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-                max-height: 380px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 300px;
+                max-width: 85%;
+                height: 100%;
+                max-height: none;
+                z-index: 1000;
+                border-right: 1px solid var(--border-color);
+                border-bottom: none;
+                box-shadow: var(--shadow-sm);
+                transform: translateX(0);
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
             }
 
+            /* On mobile, collapse translates sidebar to the left */
             .sidebar.collapsed {
-                width: 100%;
-                opacity: 1;
-                transform: none;
+                width: 300px;
+                max-width: 85%;
+                opacity: 0;
+                transform: translateX(-100%);
+                pointer-events: none;
+                border-right: none;
             }
 
+            /* Keep buttons visible */
             .sidebar-open-btn {
-                display: none !important;
+                display: flex !important;
+                position: fixed;
+                top: 16px;
+                left: 16px;
+                z-index: 900;
             }
 
             #sidebar-close-btn {
-                display: none !important;
+                display: flex !important;
             }
 
             .header-actions {
@@ -953,28 +993,53 @@
 
             .sidebar-header {
                 display: flex;
-                align-items: center;
-                flex-wrap: wrap;
-                gap: 10px;
-                padding: 16px 20px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                padding: 16px;
             }
 
             .brand {
-                margin-bottom: 0;
+                margin-bottom: 8px;
                 flex-shrink: 0;
+                max-width: 70%;
             }
 
             .search-container {
                 width: 100%;
-                margin-bottom: 8px;
+                margin-bottom: 4px;
+            }
+
+            .filter-tags-label {
+                margin-bottom: 6px;
+            }
+
+            .filter-tags-wrapper {
+                margin-bottom: 4px;
             }
 
             .filter-tags {
-                max-height: none;
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding-bottom: 8px;
+                gap: 8px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .filter-tags::-webkit-scrollbar {
+                display: none;
             }
 
             .more-tags-dropdown {
                 max-height: 150px;
+            }
+
+            .main-content {
+                padding-top: 72px;
+                height: 100vh;
+                overflow-y: auto;
             }
         }
 
@@ -997,6 +1062,8 @@
         <button id="sidebar-open-btn" class="sidebar-open-btn">
             <span>☰ Show Menu</span>
         </button>
+
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
@@ -1442,16 +1509,23 @@
             // Sidebar Toggle
             const sidebar = document.getElementById('sidebar');
             const container = document.getElementById('app-container');
+            const overlay = document.getElementById('sidebar-overlay');
 
-            document.getElementById('sidebar-close-btn').addEventListener('click', () => {
+            const closeSidebar = () => {
                 sidebar.classList.add('collapsed');
                 container.classList.add('sidebar-hidden');
-            });
+                overlay.classList.remove('visible');
+            };
 
-            document.getElementById('sidebar-open-btn').addEventListener('click', () => {
+            const openSidebar = () => {
                 sidebar.classList.remove('collapsed');
                 container.classList.remove('sidebar-hidden');
-            });
+                overlay.classList.add('visible');
+            };
+
+            document.getElementById('sidebar-close-btn').addEventListener('click', closeSidebar);
+            document.getElementById('sidebar-open-btn').addEventListener('click', openSidebar);
+            overlay.addEventListener('click', closeSidebar);
 
             // Article Nav
             document.getElementById('nav-prev-article').addEventListener('click', () => navigateArticle(-1));
@@ -1718,6 +1792,13 @@
             }, 50);
             document.querySelector('.main-content').scrollTop = 0;
             window.scrollTo(0, 0); // For mobile
+
+            // Auto-collapse sidebar on mobile select
+            if (window.innerWidth <= 1024) {
+                document.getElementById('sidebar').classList.add('collapsed');
+                document.getElementById('app-container').classList.add('sidebar-hidden');
+                document.getElementById('sidebar-overlay').classList.remove('visible');
+            }
         }
 
         /* --- 3. DYNAMIC ToC LOGIC --- */

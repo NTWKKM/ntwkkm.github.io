@@ -454,6 +454,12 @@ All JSON data is sanitized before DOM injection via centralized functions in `sh
 - **Top-N Pills:** Only the top 12 tags (by post count) are shown as filter pills with count badges. Remaining tags are accessible via a "More ▾" dropdown.
 - **Multi-select:** Tags use OR logic — selecting multiple tags shows posts matching **any** active tag. "All" clears selection.
 - **URL State:** Active tags are persisted in `?tag=` query param (comma-separated). Shareable via URL, restored on page load and browser back/forward.
+- **Mobile Scrolling:** On mobile screens (<= 1024px), the filter tags are kept in a single horizontally scrollable row to conserve vertical space and prevent layout overflow.
+
+## Mobile Layout Drawer (blog.html)
+
+- **Drawer Navigation:** Under 1024px, the static sidebar shifts into a sliding overlay drawer (`position: fixed`) with a blurred backdrop (`.sidebar-overlay`).
+- **Auto-dismiss:** Tapping the backdrop overlay closes the sidebar. Selecting a research paper automatically closes the sidebar drawer so the user can read the paper full-screen without layout obstruction.
 
 ## Caching
 

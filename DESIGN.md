@@ -78,7 +78,9 @@ Motion makes the UI feel alive. Do not create static, rigid interfaces.
 - **Progress Bars**: Width transitions should be smooth (`transition: width 0.8s ease`).
 
 ## 6. Accessibility & Responsiveness
-- **Responsive**: Use CSS Grid and Clamp (`clamp(min, val, max)`) functions for fluid typography and layouts. Ensure the layout gracefully stacks to a single column on mobile screens (`max-width: 768px`).
+- **Responsive**: Use CSS Grid and Clamp (`clamp(min, val, max)`) functions for fluid typography and layouts. Ensure the layout gracefully stacks to a single column or drawer on mobile screens (`max-width: 1024px` or `768px`).
+- **Mobile Navigation Drawer**: Use slide-out sliding drawer overlays (`position: fixed`) with a blurred translucent backdrop (`backdrop-filter: blur(4px)`) and a `z-index` layer setup (open button < backdrop < drawer) to maximize reading real-estate on mobile.
+- **Horizontal Tag Lists**: Avoid wrapping large lists of filter tags on mobile. Use `overflow-x: auto` and hide the scrollbar (`scrollbar-width: none` / `::-webkit-scrollbar { display: none }`) to keep them in a clean single row.
 - **Hidden Text**: For icon buttons on mobile, hide text spans rather than removing them completely to maintain screen-reader accessibility.
 
 ## 7. AI Agent Instruction Checklist
@@ -88,4 +90,5 @@ Motion makes the UI feel alive. Do not create static, rigid interfaces.
 3. [ ] "Implement hover lift effects (`translateY`) and shadow increases on interactive cards/buttons."
 4. [ ] "Ensure compatibility with both `[data-theme="light"]` and `[data-theme="dark"]`."
 5. [ ] "Add `fadeUp` entry animations for a smooth loading experience."
-6. [ ] "Ensure mobile responsiveness using CSS Grid and flexbox."
+6. [ ] "Ensure mobile responsiveness using CSS Grid and flexbox (use drawer layouts for complex sidebars)."
+7. [ ] "Use single-row horizontal scrolling containers for lists of filters on mobile viewports."
