@@ -27,13 +27,16 @@ This content reflects the repository structure (updated by GitHub Actions):
 |   |-- auth.json
 |   |-- index.html
 |   |-- status_store.json
-|   `-- track_list.json
+|   |-- track_list.json
+|   `-- tracking.css
 |-- .gitignore
 |-- ARCHITECTURE.md
 |-- blog_index.json
+|-- blog.css
 |-- blog.html
 |-- CONTEXT.md
 |-- DESIGN.md
+|-- index.css
 |-- index.html
 |-- manifest.json
 |-- papers.json
