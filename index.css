@@ -1,0 +1,398 @@
+/* ===================================================================
+   HOMEPAGE SPECIFIC STYLES — index.html
+   =================================================================== */
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+section {
+    margin-bottom: 56px;
+    position: relative;
+}
+
+/* --- HEADER & NAVIGATION --- */
+header {
+    background: var(--bg-card);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    background: color-mix(in srgb, var(--bg-card), transparent 10%);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand h1 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+.brand p {
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.82rem;
+    letter-spacing: 0.1px;
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-highlight {
+    background-color: var(--primary);
+    color: #ffffff !important;
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.82rem;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--primary);
+}
+
+.nav-highlight:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+.social-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 600;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    font-size: 0.8rem;
+    background: var(--bg-card);
+}
+
+.social-link:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+/* --- SECTION HEADER --- */
+.section-header {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'Inter', monospace;
+}
+
+.section-line {
+    height: 1px;
+    background: var(--border);
+    flex-grow: 1;
+}
+
+/* --- LATEST PAPERS SLIDER --- */
+.paper-section-wrapper {
+    position: relative;
+}
+
+.paper-scroll-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 4px 4px 20px 4px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    cursor: grab;
+    user-select: none;
+}
+
+.paper-scroll-container.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+
+.paper-scroll-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.paper-scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.paper-scroll-container::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
+
+.paper-card {
+    flex: 0 0 300px;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid var(--border);
+    -webkit-user-drag: none;
+}
+
+.paper-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.paper-date {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: 'Inter', monospace;
+    font-weight: 600;
+}
+
+.paper-title {
+    font-size: 1.0rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    color: var(--text-main);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.paper-comment {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    flex-grow: 1;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.paper-link {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+    pointer-events: auto;
+}
+
+.paper-scroll-container.active .paper-link {
+    pointer-events: none;
+}
+
+.paper-link:hover {
+    color: var(--primary-hover);
+}
+
+.slider-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.slider-nav-btn:hover {
+    background: var(--bg-surface);
+    border-color: var(--border-strong);
+    color: var(--text-main);
+}
+
+.slider-nav-btn.prev {
+    left: -18px;
+}
+
+.slider-nav-btn.next {
+    right: -18px;
+}
+
+/* --- PROJECTS PORTFOLIO --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.project-icon {
+    margin-bottom: 12px;
+    width: 36px;
+    height: 36px;
+    background: var(--bg-surface);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.1rem;
+    border: 1px solid var(--border);
+}
+
+.project-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-main);
+}
+
+.project-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    margin-top: 40px;
+    border-top: 1px solid var(--border);
+}
+
+footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--primary);
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .controls {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .social-link span,
+    .nav-highlight span { 
+        display: none; 
+    }
+
+    .social-link {
+        padding: 0;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-sm);
+        font-size: 0.95rem;
+    }
+
+    .nav-highlight {
+        padding: 0 12px;
+        height: 36px;
+        border-radius: var(--radius-sm);
+        font-size: 0.82rem;
+    }
+
+    .nav-highlight::after {
+        content: 'Blog';
+    }
+
+    .paper-card {
+        flex: 0 0 250px;
+        padding: 20px;
+    }
+
+    .slider-nav-btn {
+        display: none;
+    }
+}

@@ -1,8 +1,118 @@
 /* ===================================================================
    SHARED STYLES — ntwkkm.github.io
-   Common styles used by both index.html and blog.html.
-   Page-specific styles remain in each file's <style> block.
+   Consolidated styling used across all sub-pages.
    =================================================================== */
+
+:root {
+    /* Light Theme (Default) */
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-dark: #1e40af;
+    --primary-light: #eff6ff;
+    --accent: #e63946;
+    
+    --bg-body: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-sidebar: #ffffff;
+    --bg-paper-list: #f1f5f9;
+    --bg-surface: #f9fafb;
+    --input-bg: #f1f5f9;
+    --toc-bg: rgba(255, 255, 255, 0.85);
+    
+    --text-main: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    
+    --border: #e2e8f0;
+    --border-strong: #cbd5e1;
+    --border-color: #e2e8f0;
+    --border-light: #f1f5f9;
+    
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    
+    --radius: 12px;
+    --radius-sm: 6px;
+    --toggle-bg: #e2e8f0;
+    --scrollbar-thumb: #cbd5e1;
+    
+    /* State / Status Colors */
+    --state-ok: #059669;
+    --state-ok-bg: rgba(5, 150, 105, 0.1);
+    --state-ok-border: rgba(5, 150, 105, 0.2);
+    --state-warn: #d97706;
+    --state-warn-bg: rgba(217, 119, 6, 0.1);
+    --state-warn-border: rgba(217, 119, 6, 0.2);
+    --state-err: #dc2626;
+    --state-err-bg: rgba(220, 38, 38, 0.1);
+    --state-err-border: rgba(220, 38, 38, 0.2);
+    --state-neutral: #6b7280;
+    --state-neutral-bg: rgba(107, 114, 128, 0.1);
+    --state-neutral-border: rgba(107, 114, 128, 0.2);
+    
+    --accent-green: #059669;
+    --accent-yellow: #d97706;
+    --accent-red: #dc2626;
+    --accent-blue: #2563eb;
+    --accent-purple: #2563eb;
+
+    scrollbar-color: var(--scrollbar-thumb) transparent;
+    scrollbar-width: thin;
+}
+
+[data-theme="dark"] {
+    /* Dark Theme */
+    --primary: #60a5fa;
+    --primary-hover: #93c5fd;
+    --primary-dark: #93c5fd;
+    --primary-light: rgba(96, 165, 250, 0.15);
+    --accent: #f87171;
+    
+    --bg-body: #090d16;
+    --bg-card: #131b2e;
+    --bg-sidebar: #131b2e;
+    --bg-paper-list: #1f293d;
+    --bg-surface: #0f172a;
+    --input-bg: #0f172a;
+    --toc-bg: rgba(19, 27, 46, 0.85);
+    
+    --text-main: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    --border: #1e293b;
+    --border-strong: #334155;
+    --border-color: #1e293b;
+    --border-light: #1e293b;
+    
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    
+    --toggle-bg: #1e293b;
+    --scrollbar-thumb: #334155;
+    
+    /* State / Status Colors */
+    --state-ok: #34d399;
+    --state-ok-bg: rgba(52, 211, 153, 0.15);
+    --state-ok-border: rgba(52, 211, 153, 0.2);
+    --state-warn: #fbbf24;
+    --state-warn-bg: rgba(251, 191, 36, 0.15);
+    --state-warn-border: rgba(251, 191, 36, 0.2);
+    --state-err: #f87171;
+    --state-err-bg: rgba(248, 113, 113, 0.15);
+    --state-err-border: rgba(248, 113, 113, 0.2);
+    --state-neutral: #94a3b8;
+    --state-neutral-bg: rgba(148, 163, 184, 0.15);
+    --state-neutral-border: rgba(148, 163, 184, 0.2);
+    
+    --accent-green: #34d399;
+    --accent-yellow: #fbbf24;
+    --accent-red: #f87171;
+    --accent-blue: #60a5fa;
+    --accent-purple: #60a5fa;
+}
 
 /* --- RESET & BASE --- */
 html {
@@ -19,7 +129,7 @@ html {
 
 /* --- Custom Scrollbar (cross-browser) --- */
 :root {
-    scrollbar-color: var(--border-strong, #D1D5DB) transparent;
+    scrollbar-color: var(--scrollbar-thumb) transparent;
     scrollbar-width: thin;
 }
 

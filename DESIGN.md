@@ -5,7 +5,8 @@
 This document serves as the **core design guideline** for any AI agent or developer modifying or creating new interfaces for the NTWKKM project. All UI implementations MUST adhere strictly to these principles to maintain a cohesive, premium, and modern aesthetic across all modules (`index`, `blog`, `tracking`, `fray`).
 
 ## 1. Core Philosophy
-- **Modern & Premium**: Clean lines, subtle gradients, and glassmorphism. Avoid flat, lifeless components.
+- **Minimalist & Clean**: Visual simplification is key. The design uses a clean, monochromatic theme with a single crisp primary blue accent. Avoid visual clutter like text-typing animations, 3D tilt effects, and redundant gradients.
+- **Modern & Premium**: Clean lines, thin borders (`1px solid var(--border)`), solid card containers, and subtle glassmorphic headers.
 - **Cognitive Clarity**: Interfaces must be data-dense but highly readable. Use typography, varied font weights, and spacing to create clear visual hierarchies.
 - **Interactive & Alive**: Elements should respond to user interaction. Use hover lifts, border color changes, and smooth transitions to make the UI feel reactive.
 - **Dark Mode First-Class**: Every component must look stunning in both Light (`data-theme="light"`) and Dark (`data-theme="dark"`) modes. Always rely on CSS variables.

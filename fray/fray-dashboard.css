@@ -2,70 +2,16 @@
            THEME TOKENS
         ==================================================== */
         :root {
-            --primary: #2563eb;
-            --primary-light: #3b82f6;
-            --primary-hover: #1d4ed8;
-            --accent: #E63946;
             --accent-soft: rgba(230, 57, 70, 0.12);
-            --bg-body: #F3F4F6;
-            --bg-card: #FFFFFF;
-            --bg-surface: #F9FAFB;
-            --text-main: #1F2937;
-            --text-secondary: #374151;
-            --text-muted: #6B7280;
             --text-faint: #9CA3AF;
-            --border: #E5E7EB;
-            --border-strong: #D1D5DB;
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --radius: 16px;
-            --radius-sm: 8px;
-            --toggle-bg: #E5E7EB;
-            --state-ok: #059669;
-            --state-ok-bg: rgba(5,150,105,0.1);
-            --state-ok-border: rgba(5,150,105,0.25);
-            --state-warn: #D97706;
-            --state-warn-bg: rgba(217,119,6,0.1);
-            --state-warn-border: rgba(217,119,6,0.25);
-            --state-err: #DC2626;
-            --state-err-bg: rgba(220,38,38,0.1);
-            --state-err-border: rgba(220,38,38,0.25);
-            --state-neutral: #6B7280;
-            --state-neutral-bg: rgba(107,114,128,0.1);
             --progress-track: #E5E7EB;
         }
 
         [data-theme="dark"] {
-            --primary: #60A5FA;
-            --primary-light: #93C5FD;
-            --primary-hover: #93C5FD;
-            --accent: #F87171;
-            --accent-soft: rgba(248,113,113,0.12);
-            --bg-body: #0F172A;
-            --bg-card: #1E293B;
-            --bg-surface: #0F172A;
-            --text-main: #F1F5F9;
-            --text-secondary: #CBD5E1;
-            --text-muted: #94A3B8;
+            --accent-soft: rgba(248, 113, 113, 0.12);
             --text-faint: #64748B;
-            --border: #334155;
-            --border-strong: #475569;
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
-            --toggle-bg: #334155;
-            --state-ok: #10B981;
-            --state-ok-bg: rgba(16,185,129,0.12);
-            --state-ok-border: rgba(16,185,129,0.3);
-            --state-warn: #FBBF24;
-            --state-warn-bg: rgba(251,191,36,0.12);
-            --state-warn-border: rgba(251,191,36,0.3);
-            --state-err: #F87171;
-            --state-err-bg: rgba(248,113,113,0.12);
-            --state-err-border: rgba(248,113,113,0.3);
-            --state-neutral: #94A3B8;
-            --state-neutral-bg: rgba(148,163,184,0.1);
             --progress-track: #334155;
         }
 

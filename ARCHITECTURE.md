@@ -11,17 +11,20 @@ Static personal website hosted on GitHub Pages (`ntwkkm.github.io`). Serves as a
 | File | Purpose |
 | --- | --- |
 | `index.html` | Homepage — paper slider + project portfolio grid |
+| `index.css` | Homepage-specific minimal styling |
 | `blog.html` | Research blog reader — sidebar list + article detail view |
+| `blog.css` | Blog-specific minimal styling |
 | `tracking/index.html` | Package tracking dashboard — Thailand Post status viewer |
+| `tracking/tracking.css` | Package tracker specific minimal styling |
 | `fray/index.html` | Fray Dashboard (HTML Structure) |
-| `fray/fray-dashboard.css` | Fray Dashboard Styles (extracted for performance) |
+| `fray/fray-dashboard.css` | Fray Dashboard Styles (inherits global theme variables) |
 | `fray/fray-dashboard.js` | Fray Dashboard Rendering Logic (isolated from HTML) |
 | `fray/dashboard-snapshot.json` | Observability snapshot from Fray (updated via n8n, consumed directly by frontend) |
 | `pl/index.html` | `[NEW]` NTWKKM Knowledge Vault — Auto-synced from private `NTWKKM/pl` |
 | `manifest.json` | `[NEW]` PWA manifest — installable web app experience |
 | `sw.js` | `[NEW]` Service Worker — offline caching and resilience |
 | `shared.js` | Global utilities (fetch fallbacks, debounce, UI, search, a11y, sanitization) |
-| `shared.css` | Shared styles (reset, scrollbar, toast, skeleton, a11y, animations) |
+| `shared.css` | Shared styles (variables, reset, scrollbar, toast, skeleton, a11y, animations) |
 
 ## Data Flow
 
@@ -426,11 +429,11 @@ All pages use `data-theme="light|dark"` on the `<html>` element with `localStora
 
 **CSS / Styling:**
 
-- `shared.css` — Common styles (reset, smooth scroll, custom scrollbar, toast notifications, skeleton loading, theme toggle, skip-to-content, reduced-motion, search highlight, citation modal, error states)
-- `index.html <style>` — Homepage-specific styles (paper slider, portfolio grid, header, gradient footer)
-- `blog.html <style>` — Blog-specific styles (sidebar, article view, search, filters, ToC)
-- `tracking/index.html <style>` — Tracking dashboard styles (passcode gate, status timeline, package grid)
-- `fray/fray-dashboard.css` — Fray dashboard styles (vital cards, observer/sage panels, isolated for `content-visibility` optimizations)
+- `shared.css` — Common styles (variables, reset, smooth scroll, custom scrollbar, toast notifications, skeleton loading, theme toggle, skip-to-content, reduced-motion, search highlight, citation modal, error states)
+- `index.css` — Homepage-specific minimal styling (paper slider, portfolio grid, buttons)
+- `blog.css` — Blog-specific minimal styling (sidebar, article view, search, filters, ToC)
+- `tracking/tracking.css` — Tracking dashboard specific minimal styling (passcode gate, status timeline, package grid)
+- `fray/fray-dashboard.css` — Fray dashboard styles (vital cards, observer/sage panels, inherits global theme variables)
 
 **JavaScript (Core):**
 

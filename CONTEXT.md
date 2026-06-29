@@ -36,3 +36,8 @@
 - **Context**: The original layout stacked the sidebar above the reading view on mobile viewports. With extensive filter tags, the header took up all the space, pushing the paper list completely out of view and leaving very little room for article reading.
 - **Decision**: Replaced the stacked mobile layout with a slide-out drawer overlay (`position: fixed`) and backdrop overlay, auto-closing upon paper selection. Forced tags to stay in a single horizontally scrollable row.
 - **Consequence**: Restores full screen height for reading, eliminates overlapping bugs, and provides a native-like mobile app experience.
+
+### ADR-004: CSS Modularization & Theme Centralization
+- **Context**: Inline style blocks grew up to 1,000 lines within single HTML files, causing huge codebase redundancy, hard-to-maintain theme styling, and slow cache performance.
+- **Decision**: Centralize all light/dark mode variables and global rules in `shared.css`. Extract page-specific inline styles into external stylesheets (`index.css`, `blog.css`, and `tracking/tracking.css`). Refactor all sub-page stylesheets (like `fray/fray-dashboard.css`) to inherit variables from `shared.css`.
+- **Consequence**: Improves code readability, maintainability, and reusability. External stylesheets are cached by the browser and service worker, reducing page load times and network overhead.
