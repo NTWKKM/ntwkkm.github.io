@@ -32,6 +32,7 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- ARCHITECTURE.md
 |-- blog_index.json
 |-- blog.html
+|-- CONTEXT.md
 |-- DESIGN.md
 |-- index.html
 |-- manifest.json
