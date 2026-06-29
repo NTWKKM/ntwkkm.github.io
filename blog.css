@@ -131,7 +131,7 @@ body {
 /* --- MAIN CONTENT READING VIEW --- */
 .main-content {
     flex: 1;
-    padding: clamp(24px, 5vw, 40px) clamp(20px, 8vw, 64px) 48px;
+    padding: clamp(24px, 5vw, 40px) clamp(16px, 4vw, 32px) 48px;
     overflow-y: auto;
     background: var(--bg-body);
     position: relative;
@@ -446,7 +446,7 @@ body {
 }
 
 .article-view {
-    max-width: 720px;
+    max-width: 900px;
     margin: 0 auto;
     display: none;
     position: relative;
