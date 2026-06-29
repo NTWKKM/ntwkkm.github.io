@@ -1,15 +1,21 @@
 [
   {
+    "title": "Medical Stat Tool",
+    "desc": "Interactive Shiny application for medical statistics and clinical research.",
+    "icon": "🏥",
+    "url": "https://ntwkkm-shinystat.hf.space/"
+  },
+  {
     "title": "Med Statistics",
     "desc": "Easy online calculator for medical stats.",
     "icon": "📊",
     "url": "https://medstat.app/"
   },
   {
-    "title": "Med Statistics (prototype)",
-    "desc": "Easy online calculator for medical stats.",
-    "icon": "📊",
-    "url": "https://medstat.netlify.app/"
+    "title": "Toxico Course Bookmarks",
+    "desc": "Toxicology course bookmarks & reference links.",
+    "icon": "🧪",
+    "url": "https://ntwkkm.github.io/toxico/"
   },
   {
     "title": "Acetaminophen Tox",
@@ -36,12 +42,6 @@
     "url": "https://mnrhrefer.vercel.app/"
   },
   {
-    "title": "Stroke Protocol V4",
-    "desc": "Latest rtPA checklist & calculator.",
-    "icon": "🧠",
-    "url": "https://rt-pa-mnrh-v4.vercel.app/"
-  },
-  {
     "title": "Stroke Protocol V1",
     "desc": "Archive version of rtPA tools.",
     "icon": "🕒",
@@ -64,17 +64,5 @@
     "desc": "Clinical informatics dashboard & automated resource hub.",
     "icon": "🛡️",
     "url": "https://ntwkkm.github.io/pl/"
-  },
-  {
-    "title": "Primordium City",
-    "desc": "Primordium City project.",
-    "icon": "🏙️",
-    "url": "https://ntwkkm.github.io/primordium_city/"
-  },
-  {
-    "title": "Toxico Course Bookmarks",
-    "desc": "Toxicology course bookmarks & reference links.",
-    "icon": "🧪",
-    "url": "https://ntwkkm.github.io/toxico/"
   }
 ]
