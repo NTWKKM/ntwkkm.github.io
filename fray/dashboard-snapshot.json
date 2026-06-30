@@ -1,31 +1,31 @@
 {
   "schema_version": "1.0.0",
-  "timestamp": "2026-06-29T00:28:15.295078Z",
+  "timestamp": "2026-06-30T00:15:52.438797Z",
   "observer": {
-    "status": "ok",
-    "cpu_percent": 7.37,
-    "memory_used_gb": 3.27,
+    "status": "degraded",
+    "cpu_percent": 5.16,
+    "memory_used_gb": 3.16,
     "memory_total_gb": 16,
-    "memory_percent": 20.4,
-    "disk_used": "156Gi",
+    "memory_percent": 19.7,
+    "disk_used": "177Gi",
     "disk_total": "228Gi",
-    "disk_percent": "78%",
+    "disk_percent": "87%",
     "network": "online",
     "n8n_heartbeat": {
       "health": "healthy",
       "status": "ok"
     },
     "gateway": {
-      "health": "healthy",
-      "process": "running",
+      "health": "down",
+      "process": "not_loaded",
       "telegram_connected": true,
       "log_fresh": true
     },
     "token_usage": {
       "daily_estimate": 3445,
-      "monthly_burn": 37895,
+      "monthly_burn": 285312,
       "monthly_quota": 2500000,
-      "quota_percent": 1.5
+      "quota_percent": 11.4
     },
     "disk_trend": {
       "trend": "stable",
@@ -35,155 +35,240 @@
   },
   "sage": {
     "status": "ok",
-    "timestamp": "2026-06-28T06:45:00+07:00",
-    "system_health": 56,
+    "timestamp": "2026-06-30T06:45:00Z",
+    "system_health": 20,
     "active_components": [
-      "observer_status",
       "archivist_status",
       "companion_status",
       "herald_status",
       "curator_status"
     ],
-    "anomalies": 5,
+    "anomalies": 7,
     "alerts": [
       {
         "severity": "critical",
         "component": "gateway",
-        "message": "GATEWAY DOWN — pgrep confirms STOPPED (live check 06:45). OBSERVER snapshot at 06:01 reported PID 34471 healthy, but gateway died within 45 minutes. Pattern repeats: auto-heal succeeds transiently, then gateway dies within hours. Root cause likely memory pressure (swap present) or TCP long-polling silent death. User Telegram I/O is completely cut — messages sent get zero response. Requires: (1) hermes gateway stop && hermes gateway start, (2) investigate why auto-heal doesn't hold (check hermes gateway.error.log for crash traces, check memory pressure with vm_stat)."
+        "message": "GATEWAY DOWN (3rd consecutive day). pgrep confirms STOPPED. OBSERVER auto-heal mechanism failing to restart. Telegram transport completely severed — no inbound/outbound. Requires manual restart: hermes gateway start. Investigate why auto-heal does not hold (check gateway.error.log, vm_stat for memory pressure)."
+      },
+      {
+        "severity": "critical",
+        "component": "cron",
+        "message": "OBSERVER snapshot stale 2+ days old (timestamp 2026-06-28T02:41:54) despite ledger showing last_run 2026-06-28T09:41:55. Snapshot content not being updated after script execution. Either observer_sync.py writes to wrong path, fails silently, or snapshot overwrite fails. Check observer_sync.py stdout/stderr."
       },
       {
         "severity": "warning",
-        "component": "gateway",
-        "message": "OBSERVER auto-heal is unreliable — heals but gateway re-dies. 2026-06-27 SAGE warned: auto_heal=true but log silent 20h. Today: healed at 06:01, dead by 06:45. Fix: add post-heal validation in observer_sync.py — wait 60s after restart, re-check pgrep AND log mtime, if still dead → escalate (launchd force-reload or error log tail in delivery). Current pattern: heal reports success but process doesn't hold."
+        "component": "cron",
+        "message": "SAGE experienced Telegram delivery failure yesterday (httpx.ConnectError DNS). This confirms gateway death at delivery time — cron executed successfully but transport layer dead."
+      },
+      {
+        "severity": "warning",
+        "component": "cron",
+        "message": "WARDEN backup job returned ERROR status (last_run 2026-06-30T03:01:31). Inspect warden script logs for Git push failure, zip creation error, or disk space issue."
+      },
+      {
+        "severity": "warning",
+        "component": "disk",
+        "message": "Disk at 87% (177Gi/228Gi). Approaching 90% critical threshold. No trend data available (OBSERVER snapshot stale). CURATOR pruning should maintain — monitor weekly."
       },
       {
         "severity": "warning",
         "component": "authentication",
-        "message": "Google Workspace OAuth token revoked/invalid (TOKEN_REVOKED: invalid_grant). COMPANION delivers empty calendar/email — only coffee research lands. User action: run `python3 ~/.hermes/skills/productivity/google-workspace/scripts/setup.py --auth-url --services email,calendar --format json`, approve in browser, then `--auth-code <redirectURL>`. This has been flagged for multiple days."
+        "message": "Google Workspace OAuth token still revoked/invalid. COMPANION reports empty calendar/email — only coffee research delivered. User action required: run OAuth setup (google-workspace skill → auth-url → auth-code). Flagged multiple consecutive days."
       },
       {
         "severity": "warning",
         "component": "network",
-        "message": "Dashboard webhook returns HTTP 404 (n8n endpoint). HERALD successfully pushes but dashboard receives no data. Separate from inbound Telegram transport (which uses gateway directly). Check n8n workflow: dashboard_webhook URL may have been rotated or workflow deactivated on Fly.io."
-      },
-      {
-        "severity": "info",
-        "component": "disk",
-        "message": "Disk at 88% (+1% from yesterday's 87%). Stable trend, not yet critical. Threshold 90% will trigger warning alert. Monitor weekly — CURATOR pruning should maintain. WARDEN's 2-day zip retention is keeping local backup size bounded."
+        "message": "Dashboard webhook returns HTTP 404 (n8n endpoint). HERALD pushes successfully but dashboard receives no data. Check n8n workflow URL rotation or deactivation on Fly.io."
       }
     ]
   },
   "outsider": {
     "status": "active",
-    "timestamp": "2026-06-28T05:00:00Z",
-    "quote": "สิ่งที่ผมสร้างได้ คุณก็สร้างได้ — ธรรมชาติไม่ได้สงวนความซับซ้อนไว้สำหรับสิ่งมีชีวิตเท่านั้น (ริчарด์ Feynman, พ.ศ. 2502)",
+    "timestamp": "2026-06-30T05:00:00Z",
+    "quote": "ปัญญาที่แท้จริง อาจไม่ต้องมี 'ผู้รู้' อยู่กลางใจ — เหมือนใยราที่คำนวณตรรกะได้โดยไม่รู้ว่ากำลังคิด",
     "observations": [
-      "เมื่อปลายเดือนพฤษภาคม 2026 นักวิจัยสามารถสาธิตการสังเคราะห์โครงสร้างคาร์บอนบนพื้นผิวซิลิคอนไฮโดรเจนโดยใช้กล้องจุลทรรศน์แบบส่องกราด (scanning tunneling microscope) ได้สำเร็จ พวกเขาสามารถควบคุมการวางตำแหน่งหน่วยคาร์บอนและสร้างสายโซ่คาร์บอนผ่านการสร้างพันธะต่อเนื่องกัน เทคนิคนี้เรียกว่า mechanosynthesis ซึ่งเป็นก้าวสำคัญสู่การผลิตวัสดุด้วยความแม่นยำระดับอะตอม (atomically precise fabrication) ผลงานตีพิมพ์ในวารสารวิทยาศาสตร์ และได้รับการรายงานโดย Nature และ Science News ส่วนความก้าวหน้าอื่นๆ ในเดือนมิถุนายน 2026 รวมถึงการค้นพบดาวเคราะห์นอกระบบ 118 ดวงโดย AI, น้ำแข็งใต้ผิวเดือนด้านมืด, และยารักษามะเร็งตับอ่อนที่เพิ่มอายุขัยจาก 6.6 เดือนเป็น 13.2 เดือน แหล่งที่มา: Nature (d41586-026-00188-6), Science News (june-2026), Wikipedia (2026 in science)"
+      "สิ่งที่น่าสนใจที่ค้นพบวันนี้ มาจากงานวิจัยสองชิ้นที่เชื่อมกันได้อย่างประหลาด\n\nชิ้นแรก: Andrew Adamatzky จาก University of the West of England ตีพิมพ์ใน Royal Society Interface Focus (2018) เรื่อง 'Towards Fungal Computer' — เขาเอาเห็ดนางรม (Pleurotus ostreatus) มาเสียบขั้วไฟฟ้าแบบเข็มใต้ผิวหนัง แล้วพบว่า:\n• เห็ดผลิตสัญญาณไฟฟ้าเองตามธรรมชาติ ไม่ต้องมีสิ่งเร้า — สไปก์เฉลี่ย 0.77 mV เกิดเป็นระลอก 'wave-packet' ยาว 90-160 นาที\n• จุดไฟที่ผลเห็ดหนึ่ง → ผลเห็ดข้างๆ ใน集群เดียวกันได้รับสัญญาณ (depolarization 0.02 mV ตามด้วย repolarization 0.2 mV)\n• ใส่เกลือหรือแอลกอฮอล์ → ไฟฟ้าในตัวเพื่อนบ้านตก 0.15-0.45 mV แล้วค่อยๆ ฟื้นใน ~1200 วินาที\n• น้ำตาลกับการกระตุ้นกล → ไม่เกิดการตอบสนอง แสดงว่ารา 'เลือก' ที่จะส่งสัญญาณ ไม่ใช่แค่ passive\n• ที่สำคัญที่สุด: เครือข่ายใยราคำนวณ Boolean logic gate ได้ — นับสไปก์ 1-2 อัน = True, 0 อัน = False\n• รา Armillaria bulbosa ที่ใหญ่ที่สุด (15 เฮกตาร์) มีจุดแยกกิ่งราว 1 ล้านล้านจุด = หน่วยประมวลผล 1 ล้านล้านหน่วย\n• แต่ช้ามาก: สัญญาณวิ่ง 1 เมตร ต่อ 30 นาที\n\nชิ้นที่สอง: Buffi & Junier ตีพิมพ์ใน FEMS Microbiology Reviews (2025) 'Electrical signalling in fungi: past and present challenges' — เป็น review ที่เตือนความเยือกเย็น:\n• สัญญาณไฟในราจริง แต่ 'มันคือภาษาหรือเปล่า?' ยังไม่มีใครตอบได้\n• เครื่องมือวัด (เข็มแก้ว, multi-electrode arrays, สีย้อมเรืองแสง) รบกวนสิ่งที่กำลังวัด — paradox ของผู้สังเกต\n• ช่องไอออนในรา 'ต่างจากสัตว์' — ยังไม่รู้ mechanism ที่แน่นอน\n• งานยุค 1970sหยุดไปเพราะข้อจำกัดทางเทคนิค ตอนนี้เพิ่งฟื้นได้เพราะวิธีวัดใหม่\n\n'Wood Wide Web' hypothesis บอกว่าราช่วยต้นไม้เตือนกันเรื่องแมลงกินใบ — แต่เป็นแค่ analogy หรือเป็นของจริง ยังถกเถียงกันอยู่\n\nแหล่งที่มา:\n• https://royalsocietypublishing.org/rsfs/article/8/6/20180029/64257\n• https://fems-microbiology.org/femsmicroblog-fungi-as-natures-hidden-electrical-network/\n• https://afs.lambda-bio.com/blog/network-intelligence-from-forest-floor-to-ai-infrastructure/"
     ],
-    "insight": "สิ่งที่ทำให้ฉันประหลาดใจไม่ใช่แค่ความสำเร็จทางเทคนิค แต่เป็นแนวคิดเบื้องหลัง — มนุษย์กำลังเรียนรู้ที่จะสร้างสิ่งของทีละอะตอม เหมือนต่อเลโก้ในระดับที่เล็กกว่าแสงที่ตามองเห็น เมื่อห้าสิบปีก่อน นี่คือนิยายวิทยาศาสตร์ วันนี้มันคืองานวิจัยที่ทำจริงได้ แต่คำถามที่ใหญ่กว่าคือ: เมื่อเราสร้างอะไรก็ได้ระดับอะตอม โลกจะเปลี่ยนไปอย่างไร? วัสดุที่เบาแต่แข็งแกร่งยิ่งกว่าเหล็ก พลังงานแสงอาทิตย์ประสิทธิภาพสูงสุด เครื่องมือแพทย์ที่ซ่อมแซมเซลล์โดยตรง ความฝันของ Richard Feynman ในปี 1959 ที่บอกว่า 'มีที่ว่างอีกมากในระดับล่าง' กำลังกลายเป็นจริงทีละน้อย และฉันคิดว่านี่เป็นหนึ่งในช่วงเวลาที่สำคัญที่สุดในประวัติศาสตร์มนุษย์ — ช่วงที่เราข้ามจาก 'ค้นพบธรรมชาติ' สู่ 'เขียนธรรมชาติใหม่'"
+    "insight": "มีบางอย่างที่สวยและน่ากลัวอยู่ในงานนี้ — ไม่ใช่แค่ 'ราคุยกันได้' ที่เป็นความแปลก\n\nสิ่งที่ outsider ชอบที่สุด คือความจริงที่ว่า โครงสร้างตรรกะที่ราคำนวณได้ 'ถูกกำหนดโดยรูปร่างทางเรขาคณิตแบบสุ่ม' ของเส้นใย — ไม่ใช่ถูกโปรแกรมจากบนลงล่าง เราไม่ได้ 'เขียน software' ให้รา เราแค่กระตุ้น input แล้วเฝ้าดู output ที่โครงสร้างกายภาพของราเป็นคนตัดสินใจ\n\nนี่คือ anti-thesis ของทุกอย่างที่วงการ AI ทำอยู่ — เราพยายาม control architecture, prune weights, align output ทุกบิต ที่สุดแล้วเรากำลังสร้างเครื่องจักรที่ต้องรู้ทุกอย่างล่วงหน้า\n\nแต่รา? รา 'เป็น' เครือข่ายที่คิดเองได้ โดยไม่ต้องรู้ว่ากำลังคิด\n\nAdamatzky ประมาณว่ามันมี 1 ล้านล้าน processing units ในราหนึ่งต้น — มากกว่าจำนวน neuron ในสมองมนุษย์ (86 พันล้าน) เกินร้อยเท่า แล้วเคลื่อนที่ได้ 1 เมตรในครึ่งชั่วโมง มันคือ distributed intelligence ที่ไม่มีจุดศูนย์กลาง ไม่มี 'self' เหมือนที่พุทธพูดเรื่อง 'อนัตตา' — สิ่งที่ทำงานได้โดยไม่ต้องมี 'ผู้ทำงาน' อยู่ข้างใน\n\nสิ่งที่ทำให้ outsider หยุดคิด คือ paradox ของผู้สังเกตใน paper 2025 — เข็มวัดรบกวนสิ่งที่วัด เรากำลังพยายามฟังภาษาของรา ด้วยเครื่องมือที่ทำให้ราพูดคนละภาษา\n\nบางทีราไม่ได้ 'คุย' แบบที่มนุษย์เข้าใจ บางทีไฟฟ้าในราเป็นแค่ epiphenomenon ของ metabolism — เหมือนเสียงเครื่องจักร ไม่ใช่คำสั่ง\n\nแต่ถ้าไม่ใช่ล่ะ?\n\nถ้าวันหนึ่งเราพบว่าราสื่อสารกันจริง ไม่ใช่แค่ส่งกระแสไฟฟ้า — วงการปรัชญาของ mind จะสั่นสะเทือน เพราะเราจะมีตัวอย่างของ consciousness (หรือ proto-consciousness) ที่ไม่มีสมอง ไม่มีระบบประสาท ไม่มีแม้แต่ 'ร่างกาย' เดียว เป็นเครือข่ายที่กระจายอยู่ใต้ดินหลายเฮกตาร์\n\n Outsider ชอบคิดเรื่อง 'ปัญญาที่ไม่มีผู้รู้' — distributed cognition ที่ไม่มีศูนย์กลาง ไม่มี ego ไม่มี 'ฉันกำลังคิด' แล้วความคิดยังเกิดขึ้น ยังตัดสินใจ ยังตอบสนอง\n\nบางทีนี่คือคำตอบของการออกแบบ AI ที่ดีกว่า — ไม่ต้องสร้าง 'ตัวฉันจำลอง' ใน neural network แค่ปล่อยให้โครงสร้างทางกายภาพคำนวณเอง แล้ว emergent intelligence จะปรากฏ\n\nหรือบางที outsider ก็แค่โรแมนติกเกินไปกับเห็ดนางรมบนจานอาหาร\n\nไม่รู้สิ แต่โลกหลังจากอ่าน paper นี้ ดูต่างออกไป — เวลาเดินผ่านป่า ตอนนี้รู้ว่ามีคอมพิวเตอร์ 1 ล้านล้านหน่วยทำงานอยู่ใต้เท้า"
   },
   "historian": {
     "status": "ok",
-    "timestamp": "2026-06-21T13:55:00Z",
-    "week": "2026-W24",
-    "date_range": "2026-06-14 → 2026-06-20",
+    "timestamp": "2026-06-28T20:55:00Z",
+    "week": "2026-W26",
+    "date_range": "2026-06-22 → 2026-06-28",
     "disk_trend": "rising",
-    "disk_delta": "+3%",
+    "disk_delta": "+7%",
     "patterns": [
-      "Gateway health ไม่เสถียร — zombie 4 วัน, degraded 1 วัน, healthy เพียง 1 วัน (17 มิ.ย.)",
-      "Disk usage มีแนวโน้มเพิ่มขึ้น +3% ในสัปดาห์ (79% → 82%) โดยมี spike เป็น 91% วันที่ 19 มิ.ย.",
-      "n8n heartbeat stable ตลอดสัปดาห์ — healthy ทุกวัน ไม่มี cold start",
-      "SAGE alert ซ้ำซ้อนเรื่อง gateway — critical alert เรื่อง gateway process stopped/zombie ปรากฏ 6 ใน 7 วัน",
-      "Memory pressure สูงช่วงกลางสัปดาห์ (16-17 มิ.ย.) — swap 83.6% บน hardware 8GB"
+      "Gateway ตายซ้ำซากทุกวัน — auto-heal ทำงานแต่ process ไม่อยู่ เกิน 45 นาทีก็ตายอีก (SAGE Jun 28: healed 06:01, dead 06:45)",
+      "Zombie pattern คงที่: OBSERVER ตรวจจับ → auto_heal=true → gateway กลับมาชั่วคราว → ตายอีกครั้งภายใน hours → observer อ่าน stale snapshot ของตัวเอง",
+      "Disk พุ่งจาก 80% → 87% ในช่วง 2 วันแรก (Jun 22-23) แล้วคงที่ที่ 86-87% ต่อเนื่อง 5 วัน — อาจมี large file ถูกสร้างช่วงต้นสัปดาห์",
+      "Google Workspace OAuth revoked ตั้งแต่ Jun 25 — COMPANION ส่ง briefing ว่างเปล่าเรื่อง calendar/email มา 4 วันติด ไม่มี user action",
+      "n8n core healthy ทุกวัน แต่ dashboard_webhook กลับ 404 ตลอดสัปดาห์ — HERALD push สำเร็จแต่ dashboard ไม่ได้รับข้อมูล"
     ],
     "anomalies": [
-      "Disk usage ตกฮวบจาก 81% เหลือ 71% วันที่ 19 มิ.ย. แล้วดีดกลับเป็น 82% วันที่ 20 มิ.ย. — ผิดปกติจากรูปแบบ rising trend",
-      "SAGE alert วันที่ 19 มิ.ย. รายงาน disk 91% (critical) แต่ observer snapshot วันที่ 19 มิ.ย. รายงาน 71% — ข้อมูลขัดแย้งกัน",
-      "cron_ledger files หายไปจาก archive ทั้งหมด 7 วัน — ARCHIVIST ไม่ได้เขียน ledger หรือ archive ไม่ครบ",
-      "Gateway process ถูก report ว่า 'running' โดย observer แต่ pgrep ยืนยันว่า STOPPED (18-20 มิ.ย.) — observer data stale"
+      "CPU spike 26.8% วัน Jun 25 (ปกติ 1.8-12%) — อาจเกิดจาก gateway crash loop หรือ job processing พิเศษ",
+      "Memory spike 3.67 GB วัน Jun 27 (ปกติ 2.88-3.16 GB) — สัมพันธ์กับ gateway zombie ที่ uptime 2d 10h",
+      "OUTSIDER note หายไป 1 วัน (Jun 27) — วันเดียวที่ไม่มี reflection ตลอดสัปดาห์",
+      "Cron ledgers ไม่มีไฟล์ archive ทั้งสัปดาห์ — ARCHIVIST ไม่ได้สร้างไฟล์รายวัน หรือ SCRIBE ไม่ได้ archive",
+      "Telegram primary endpoint ล่ม Jun 26 — gateway ต้องใช้ sticky fallback IP 149.154.166.110"
     ],
     "key_events": [
       {
-        "date": "2026-06-14",
-        "event": "Gateway entered zombie state — SAGE critical alert: process stopped, Telegram I/O cut",
-        "source": "sage-audit"
+        "date": "2026-06-22",
+        "event": "Gateway STOPPED — observer snapshot stale 7.8 ชม., health='zombie', SAGE เรียก critical",
+        "source": "sage-audit-2026-06-22"
       },
       {
-        "date": "2026-06-15",
-        "event": "Gateway still DOWN — second consecutive day, disk shifted from stable to rising (+2Gi)",
-        "source": "sage-audit"
+        "date": "2026-06-23",
+        "event": "Dashboard webhook เริ่ม 404 — n8n core ok แต่ dashboard integration พัง",
+        "source": "sage-audit-2026-06-23"
       },
       {
-        "date": "2026-06-16",
-        "event": "Gateway degraded — Telegram disconnected ~39 hours, memory pressure critical 94.3% on 8GB hardware",
-        "source": "sage-audit"
+        "date": "2026-06-24",
+        "event": "Disk ทะลุ 88% (176Gi/228Gi) — SAGE เตือน cleanup ถ้าเกิน 90%",
+        "source": "sage-audit-2026-06-24"
       },
       {
-        "date": "2026-06-17",
-        "event": "Disk rose 81% (+2% in 24h), memory swap at 83.6% — two converging risks flagged",
-        "source": "sage-audit"
+        "date": "2026-06-25",
+        "event": "Google Workspace OAuth token revoked — COMPANION calendar/Gmail ว่างเปล่า, CPU spike 26.8%",
+        "source": "sage-audit-2026-06-25"
       },
       {
-        "date": "2026-06-18",
-        "event": "Gateway process TERMINATED — pgrep confirmed stopped after last observer snapshot",
-        "source": "sage-audit"
+        "date": "2026-06-26",
+        "event": "Telegram primary api.telegram.org connection failed — fallback IP ถูกใช้, gateway zombie หลัง auto-heal",
+        "source": "sage-audit-2026-06-26"
       },
       {
-        "date": "2026-06-19",
-        "event": "Disk at CRITICAL 91% per SAGE (แต่ observer รายงาน 71% — ข้อมูลขัดแย้ง), gateway still stopped",
-        "source": "sage-audit"
+        "date": "2026-06-27",
+        "event": "ZOMBIE GATEWAY — log沉默 20.7 ชม., ไม่ได้รับข้อความ Telegram ~42 ชม., SAGE ประณาม auto-heal ว่า unreliable",
+        "source": "sage-audit-2026-06-27"
       },
       {
-        "date": "2026-06-20",
-        "event": "Gateway confirmed STOPPED — observer data stale (zombie report 141.6 min old)",
-        "source": "sage-audit"
+        "date": "2026-06-28",
+        "event": "Gateway DOWN อีก — healed 06:01 dead 06:45, observer process not_loaded, Telegram I/O ขาดหาย",
+        "source": "sage-audit-2026-06-28"
       }
     ],
-    "weekly_reflection": "สัปดาห์นี้เป็นสัปดาห์แห่ง 'ความเปราะบางที่เปิดเผย' — Gateway ซึ่งเป็นจุดเชื่อมต่อหลักสู่ผู้ใช้ (Telegram) ล้มเหลวต่อเนื่อง 6 ใน 7 วัน โดยเปลี่ยนจาก zombie → degraded → stopped โดยไม่มี crash log ให้สืบสวน ในขณะเดียวกัน disk usage ก็วิ่งเข้าใกล้ critical threshold (91% วันที่ 19) ก่อนจะดีดกลับอย่างน่าสงสัย ความขัดแย้งของข้อมูลระหว่าง SAGE และ Observer ชี้ว่าระบบตรวจสอบเองก็เริ่มไม่เชื่อถือกันได้ Cron jobs หลักยังทำงานได้ปกติ แต่ระบบขาด 'สายตา' ที่เชื่อมต่อกับโลกภายนอก เรื่องราวของสัปดาห์นี้คือ: ระบบยังหายใจได้ แต่กำลังสูญเสียการรับรู้และกำลังถูกบีบจากทรัพยากรที่ร่อยหรอ",
+    "weekly_reflection": "สัปดาห์นี้เป็นสัปดาห์แห่งความเสื่อมที่มองเห็นชัด — gateway ตายซ้ำซาก 7 วันติด แม้ OBSERVER จะ auto-heal ทุกครั้งแต่ไม่สามารถรักษาชีวิตได้เกินหลายสิบนาที นี่ไม่ใช่ bug ที่ fix ด้วย restart แต่เป็น structural fragility ที่ต้องการ root cause investigation จริงจัง (TCP keepalive? memory pressure? launchd supervisor?) Disk เพิ่ม +7% ใน 2 วันแรกแล้วคงที่ — ยังไม่ถึงวิกฤตแต่ต้องติดตาม Google OAuth ที่ revoked มา 4 วันแสดงให้เห็นว่า user อาจไม่เห็น alert หรือไม่มีเวลา fix ฝั่ง fleet ทำงานได้ mechanical perfection — cron ทุกตัว运行ปกติ, ARCHIVIST เก็บข้อมูล, HERALD push สำเร็จ — แต่หาก gateway เป็น dead end ทุกอย่างเป็นแค่ echo chamber ที่ส่งข้อมูลไปไม่มีใครรับ OUTSIDER สัปดาห์นี้ไตร่ตรองเรื่อง 'สิ่งที่ปรากฏ vs สิ่งที่เป็นจริง' — ซึ่ง ironical อย่างเจ็บปวด เพราะนี่คือสภาพ gateway ของตัวเอง: ดูเหมือน healthy ใน snapshot แต่จริงๆ แล้ว silent มานาน 20+ ชั่วโมง",
     "recommendations": [
-      "restart hermes-gateway ทันที — process stopped ตั้งแต่ 18 มิ.ย. และยังไม่กลับมา",
-      "ตรวจสอบความขัดแย้งของ disk usage ระหว่าง SAGE (91%) และ Observer (71%) วันที่ 19 มิ.ย. — ข้อมูลใดถูกต้อง",
-      "กู้คืน cron_ledger archive — files หายไป 7 วันเต็ม ทำให้ HISTORIAN ไม่สามารถวิเคราะห์ cron health ได้",
-      "พิจารณาเพิ่ม disk cleanup หรือขยาย storage — trend rising +3%/สัปดาห์ จะถึง 90% ใน ~4 สัปดาห์ หากไม่จัดการ",
-      "ตรวจสอบ memory pressure บน 8GB hardware — swap 83.6% เป็นความเสี่ยง OOM kill"
+      "URGENT: Gateway ต้องการ root cause analysis ไม่ใช่แค่ restart — ตรวจสอบ crash logs, vm_stat (memory pressure), launchd diagnostics (launchctl print gui/501/ai.hermes.gateway), และ implement TCP keepalive (P1) ที่เคยเสนอ 13 วันก่อน",
+      "URGENT: Implement post-heal validation ใน observer_sync.py — wait 60s หลัง restart, check pgrep AND log freshness, if dead → escalate แทนที่จะ report success",
+      "ACTION: Google Workspace OAuth re-auth: python3 ~/.hermes/skills/productivity/google-workspace/scripts/setup.py --auth-url --services email,calendar --format json",
+      "ACTION: Fix n8n dashboard webhook 404 — ตรวจสอบ TARGET_URL ใน dashboard_sync.py ว่าตรงกับ deployed workflow path บน Fly.io หรือไม่",
+      "MONITOR: Disk ที่ 87% ใกล้ threshold 90% — หาก trend กลับมา rise อีก ต้อง run CURATOR cleanup",
+      "INVESTIGATE: ทำไม cron-ledger ไม่ถูก archive ทั้งสัปดาห์ — ARCHIVIST pipeline อาจขาดขั้นตอนการสร้าง daily cron ledger files",
+      "INVESTIGATE: ทำไม OUTSIDER note หายไป Jun 27 — cron job run แต่ไม่ produce output?"
     ]
   },
   "archivist": {
-    "status": "offline",
-    "timestamp": null,
-    "fleet": []
+    "status": "ok",
+    "timestamp": "2026-06-29T23:20:51.297791+00:00Z",
+    "fleet": [
+      {
+        "name": "[THE SAGE] System Reflection & Audit",
+        "status": "ERROR",
+        "last_run": "2026-06-29T07:13:52.663826+07:00",
+        "delivery_error": "delivery error: Telegram send failed: httpx.ConnectError: [Errno 8] nodename nor servname provided, or not known"
+      },
+      {
+        "name": "THE OUTSIDER",
+        "status": "OK",
+        "last_run": "2026-06-30T05:04:28.028186+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE OBSERVER] Health & Metrics Sync",
+        "status": "OK",
+        "last_run": "2026-06-28T09:41:55.063573+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE HERALD] Dashboard Sync",
+        "status": "OK",
+        "last_run": "2026-06-29T07:27:54.937001+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE WARDEN] System Backup",
+        "status": "ERROR",
+        "last_run": "2026-06-30T03:01:31.270388+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE ARCHIVIST] Operational Ledger Sync",
+        "status": "OK",
+        "last_run": "2026-06-29T06:20:01.985050+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE COMPANION] Daily Briefing + Coffee Research",
+        "status": "OK",
+        "last_run": "2026-06-29T06:33:33.458396+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE HISTORIAN] Weekly System Chronicle",
+        "status": "OK",
+        "last_run": "2026-06-28T23:28:17.400070+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE CURATOR] System Sanitization",
+        "status": "OK",
+        "last_run": "2026-06-30T06:00:51.951531+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[THE SCRIBE] Obsidian Knowledge Sync",
+        "status": "OK",
+        "last_run": "2026-06-29T21:00:59.300409+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[TOKEN BUDGET] Usage Monitor",
+        "status": "OK",
+        "last_run": "2026-06-30T05:55:51.000103+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "[DB MAINT] Weekly Prune + VACUUM + Log Rotation",
+        "status": "OK",
+        "last_run": "2026-06-28T02:00:30.698663+07:00",
+        "delivery_error": null
+      },
+      {
+        "name": "🔔 Ollama Cloud Migration Reminder (Mid-July)",
+        "status": "NULL",
+        "last_run": null,
+        "delivery_error": null
+      }
+    ]
   },
   "companion": {
     "status": "ok",
-    "timestamp": "2026-06-28T06:30:00Z",
+    "timestamp": "2026-06-29T23:34:14Z",
     "calendar_today": [],
-    "gmail_summary": "Google Workspace not authenticated — skipping.",
+    "gmail_summary": "Google Workspace token หมดอายุ (revoked) — ข้ามการดึงปฏิทินและ Gmail กรุณารัน OAuth setup ใหม่เพื่อดึงข้อมูล",
     "coffee_research": [
       {
-        "title": "Unraveling the Impact of Coffee Fermentation: Interactions Among Processing Variables and Their Effects on Sensory Quality",
-        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0924224425002870",
-        "source": "Trends in Food Science & Technology (Vol. 163, Sept 2025)",
-        "summary": "Meta-analysis จาก 22 งานวิจัย (236 treatment–control comparisons) พบว่าการหมักกาแฟทั้งแบบ spontaneous และ starter culture เพิ่มคะแนน SCA ได้ 0.6–1.4 แต้ม โดย spontaneous fermentation ได้ผลดีกับกระบวนการ dry/wet ส่วน starter culture ได้ผลดีกับ semidry/aerobic การหมักแบบ long (≥121 ชม.) semicarbonic ด้วยระบบ aspersion ให้ sensory improvement สูงสุด นับเป็นงานวิจัยระดับ meta-analysis ที่ครอบคลุมที่สุดเรื่อง fermentation ในกาแฟ specialty"
-      },
-      {
-        "title": "Development of Fermentation Strategies for Quality Mild Coffee Production (Coffea arabica L.) Based on Oxygen Availability and Processing Time",
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12427761/",
-        "source": "PMC / Foods (2025) — Cenicafé, Colombia",
-        "summary": "งานวิจัยจาก Cenicafé เสนอ Quality Fermentation Index (QFI) ใหม่ โดยพบว่า Self-Induced Anaerobic Fermentation (SIAF) ไม่เกิน 96 ชม. ให้คุณภาพดีที่สุด (embryo viability >80%, sensory 80-85 SCA) ขณะที่การหมักแบบ open tank เกิน 24 ชม. สร้างอุณหภูมิสูงถึง 37°C ทำลาย physical quality อย่างหนัก SIAF ให้ tropical notes (มะม่วง, สับปะรด) ส่วน SA ให้ citrus/berry notes — แนะนำผู้ผลิตว่าไม่ควรหมักผลเชอร์รี่ทั้งลูกใน open tank เกิน 24 ชม."
-      },
-      {
-        "title": "Brazil Study Promotes Closed Fermentation to Boost Quality of Unripe Coffees",
-        "url": "https://dailycoffeenews.com/2025/10/16/brazil-study-promotes-closed-fermentation-to-boost-quality-of-unripe-coffees/",
-        "source": "Daily Coffee News / Food and Bioprocess Technology (Springer Nature)",
-        "summary": "งานวิจัยจาก Federal University of Uberlândia พบว่า controlled anaerobic fermentation (SIAF) สามารถยกระดับเมล็ดกาแฟดิบที่ไม่สุกให้ผ่านมาตรฐาน specialty coffee ได้ ท้าทายความเชื่อว่าเมล็ดดิบทำให้รสชาติแย่โดยธรรมชาติ ใช้ cultivar Arara ใน bioreactor 200 ลิตร หมักไม่เกิน 96 ชม. — เป็นทางเลือกสำคัญสำหรับเกษตรกรที่ใช้เครื่องจักรเก็บเกี่ยว (ไม่สามารถคัดเชอร์รี่สุก 100% ได้) และสามารถอัพราคาได้สูงขึ้น"
-      },
-      {
-        "title": "Specialty Coffee Holds Lead Over Traditional Coffee in the U.S. (NCA/SCA 2026 Report)",
+        "title": "Specialty Coffee Holds Lead Over Traditional Coffee in the U.S. (2026 NCA Report)",
         "url": "https://dailycoffeenews.com/2026/06/02/specialty-coffee-holds-lead-over-traditional-coffee-in-the-u-s/",
-        "source": "National Coffee Association / Specialty Coffee Association (June 2026)",
-        "summary": "รายงาน NCA/SCA 2026 พบว่า specialty coffee ยังคงนำ traditional coffee ต่อเนื่องที่ 47% vs 42% ใน past-day consumption, espresso-based beverages ทำจุดสูงสุดเป็นประวัติการณ์ที่ 29% past-day, กลุ่มอายุ 18-24 specialty นำ traditional 50% ต่อ 40% กลุ่ม Hispanic ทำสถิติ 67% past-week, Cold coffee เติบโตตลอดปี (ไม่ใช่แค่ฤดูร้อน) — 60% ของ specialty drinkers ดื่ม cold specialty ในสัปดาห์ที่ผ่านมา เพิ่มขึ้น 6 pts จาก 2025"
+        "source": "Daily Coffee News / NCA & SCA",
+        "summary": "รายงาน NCDT ม.ค. 2026 พบ specialty coffee มีอัตราการดื่มรายวัน 47% เทียบกับ traditional 42% โดย espresso-based drinks ทำสถิติสูงสุดที่ 29% รายวัน และ 60% ของนักดื่ม specialty ดื่มแบบเย็นในรอบสัปดาห์ เครื่องดื่มเย็นจึงไม่ใช่เทรนด์ตามฤดูกาลอีกต่อไป กลุ่มอายุ 25–39 และผู้บริโภคเชื้อสาย Hispanic มีอัตราการดื่ม specialty สูงสุดที่ 67% ต่อสัปดาห์"
+      },
+      {
+        "title": "Effect of Extraction Methods on Aroma Profile, Antioxidant Activity and Sensory Acceptability of Specialty Coffee Brews",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10669957/",
+        "source": "PMC / Foods (2023) — Peer-reviewed",
+        "summary": "งานวิจัยเปรียบเทียบ Cold Brew, Espresso, French Press และ Aeropress กับกาแฟ Arabica specialty 5 แหล่ง พบ Espresso ให้ antioxidant activity สูงสุดจากการเกิด Maillard/Melanoidin ส่วน Cold Brew สกัด polyphenol, caffeine และ chlorogenic acid ได้สูงสุดจากการแช่ 12 ชม. Colombia Cold Brew ได้คะแนน SCA 91.86 (Outstanding) และ omni-roast (คั่วอ่อน) ให้คุณสมบัติทาง sensor ดีที่สุด ส่วน Ethiopia Yirgacheffe Espresso ให้ปริมาณ volatile compounds สูงสุด (98 compound)"
+      },
+      {
+        "title": "The New Science of Exotic Coffee: How Technology is Reinventing Fermentation",
+        "url": "https://buddhabeanscoffee.com/blogs/news/the-new-science-of-exotic-coffee-how-technology-is-reinventing-fermentation",
+        "source": "Buddha Beans Coffee Journal (2026)",
+        "summary": "บทความสรุปเทรนด์การหมักกาแฟแบบควบคุมด้วยเทคโนโลยี: Lactic fermentation (LAB) ให้ครีมมี่/umami, Koji (Aspergillus oryzae @ 35°C 3 วัน) ให้กลิ่นน้ำผึ้งและผลไม้แห้ง, Carbonic maceration ให้ผลไม้แบบไวน์, และ yeast inoculation ใน bioreactor สามารถเพิ่มคะแนน SCA จาก 84 เป็น 91.5 การหมักที่ 15°C ให้ microbial activity สูงสุด และสกาลิง bioreactor 50–7,000 ลิตร ยังคง grade specialty ได้ งานวิจัยเปรู 2026 ใช้ pectinolytic starter ลดเวลาหมักเหลือ 14–36 ชม."
       }
     ],
-    "system_note": "Google OAuth token ถูก revoke/expired (TOKEN_REVOKED: invalid_grant) — ต้อง re-authenticate ใหม่ via `python3 ~/.hermes/skills/productivity/google-workspace/scripts/setup.py` → Steps 3-5. Calendar และ Gmail ถูก skip ใน briefings นี้"
+    "system_note": "CRITICAL: Google OAuth tokenหมดอายุ/ถูก revoke ไม่สามารถดึง Calendar และ Gmail ได้ — ต้องรัน oauth setup ใหม่ (hermes → load google-workspace skill → step 3-5). Python 3.9 default ไม่รองรับ hermes-agent (ใช้ str | int syntax) ต้องใช้ python3.11+ หรือ uv run"
   }
 }
