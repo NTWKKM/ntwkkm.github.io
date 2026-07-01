@@ -1,86 +1,86 @@
 [
   {
     "date": "1 Jul",
+    "title": "Direct Oral Anticoagulants in Primary and Secondary Prevention of Thrombotic Events: 2026 ACC Scientific Statement: A Report of the American College of Cardiology.",
+    "comment": "Guideline ล่าสุดสำหรับการใช้ DOAC ป้องกันและรักษาลิ่มเลือดอุดตัน เปลี่ยนแนวปฏิบัติ ER",
+    "pmid": "42377292",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42377292/"
+  },
+  {
+    "date": "1 Jul",
     "title": "Effects of a clinical metagenomics intervention on clinical outcomes, healthcare costs, and health-related quality of life in patients with sepsis or septic shock: results of the randomized-controlled DigiSep trial.",
-    "comment": "RCT สepsis ใช้ metagenomics ช่วยลดต้นทุนและปรับผลลัพธ์ทางคลินิก",
+    "comment": "ใช้ Metagenomics วินิจฉัย sepsis ลดค่าใช้จ่ายและเพิ่มคุณภาพชีวิต เทคโนโลยีใหม่ใน ER",
     "pmid": "42377463",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42377463/"
   },
   {
     "date": "1 Jul",
-    "title": "Extracorporeal Cardiopulmonary Resuscitation Deployment for Cardiac Arrest in the Pediatric Emergency Department Setting: 2000-2023 Report for the American Heart Association's Get With the Guidelines-Resuscitation Investigators.",
-    "comment": "ข้อมูล Registry ECPR ในเด็ก ช่วยกำหนดแนวทางกู้ชีพใน ER",
-    "pmid": "42378432",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42378432/"
-  },
-  {
-    "date": "1 Jul",
-    "title": "Modeling the Cost-Effectiveness of Incorporating Extracorporeal Cardiopulmonary Resuscitation Strategy in Out-of-Hospital Cardiac Arrest Patients.",
-    "comment": "วิเคราะห์ความคุ้มค่า ECPR ใน OHCA ส่งผลต่อนโยบายสาธารณะ",
-    "pmid": "42378681",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42378681/"
-  },
-  {
-    "date": "1 Jul",
     "title": "Efficacy of nebulised vs intravenous tranexamic acid in management of non-massive haemoptysis: A randomised controlled trial.",
-    "comment": "RCT เปรียบเทียบ TXA แบบพ่น vs IV ในไอเป็นเลือด",
+    "comment": "เปลี่ยนแนวปฏิบัติ การพ่นยา TXA มีประสิทธิภาพเทียบเท่า IV ในเลือดออกในทางเดินหายใจ",
     "pmid": "42377174",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42377174/"
   },
   {
     "date": "1 Jul",
+    "title": "Modeling the Cost-Effectiveness of Incorporating Extracorporeal Cardiopulmonary Resuscitation Strategy in Out-of-Hospital Cardiac Arrest Patients.",
+    "comment": "แสดงความคุ้มค่าของ ECPR ในผู้ป่วย OHCA สนับสนุนการขยายบริการใน ER",
+    "pmid": "42378681",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42378681/"
+  },
+  {
+    "date": "1 Jul",
+    "title": "Extracorporeal Cardiopulmonary Resuscitation Deployment for Cardiac Arrest in the Pediatric Emergency Department Setting: 2000-2023 Report for the American Heart Association's Get With the Guidelines-Resuscitation Investigators.",
+    "comment": "ข้อมูลขนาดใหญ่สนับสนุนการใช้ ECPR ในเด็กหัวใจหยุดเต้นที่ ER เป็นแนวปฏิบัติใหม่",
+    "pmid": "42378432",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42378432/"
+  },
+  {
+    "date": "1 Jul",
+    "title": "Automating laboratory developed tests using the panther fusion open access: Analytical and clinical evaluation of assays for the detection of viral causes of meningitis and encephalitis.",
+    "comment": "เครื่องมือใหม่เพิ่มความเร็วและแม่นยำในการตรวจไวรัสที่เป็นสาเหตุของเยื่อหุ้มสมองอักเสบ",
+    "pmid": "42378730",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42378730/"
+  },
+  {
+    "date": "1 Jul",
     "title": "The optimal timing of laparoscopic cholecystectomy for acute cholecystitis according to symptom onset and patient admission: a meta-analysis of randomised controlled trials.",
-    "comment": "Meta-analysis เวลาผ่าตัดถุงน้ำดีเฉียบพลัน ช่วยตัดสินใจส่งปรึกษา",
+    "comment": "บทวิเคราะห์ใหม่ยืนยันช่วงเวลาที่เหมาะสมที่สุดในการผ่าตัดถุงน้ำดีอักเสบเฉียบพลัน",
     "pmid": "42377519",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42377519/"
   },
   {
     "date": "1 Jul",
     "title": "Sepsis Diagnostic Excellence and its Association with Mortality in Adults with Potential Infection.",
-    "comment": "ความแม่นยำวินิจฉัย Sepsis สัมพันธ์อัตราการตาย ปรับปรุงกระบวนการได้",
+    "comment": "ความเร็วและความแม่นยำในการวินิจฉัย Sepsis ส่งผลต่ออัตราการเสียชีวิต ข้อมูลสำคัญสำหรับ ER",
     "pmid": "42376964",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42376964/"
   },
   {
     "date": "1 Jul",
-    "title": "Surveillance for Candida auris - United States, 2022-2024.",
-    "comment": "เฝ้าระวัง Candida auris ในสหรัฐฯ สัญญาณความปลอดภัยที่แพทย์ต้องรู้",
-    "pmid": "42378120",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42378120/"
+    "title": "Ulinastatin Treatment Associated with Lower Sepsis-Associated Encephalopathy Risk in Sepsis Patients: A Multicenter Observational Study.",
+    "comment": "Ulinastatin ลดความเสี่ยงภาวะสมองทำงานผิดปกติจาก sepsis ยาใหม่ที่มีประโยชน์ในผู้ป่วยวิกฤต",
+    "pmid": "42376927",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42376927/"
   },
   {
     "date": "1 Jul",
-    "title": "Automating laboratory developed tests using the panther fusion open access: Analytical and clinical evaluation of assays for the detection of viral causes of meningitis and encephalitis.",
-    "comment": "เครื่องมือใหม่ตรวจไวรัสสาเหตุเยื่อหุ้มสมองอักเสบ รวดเร็วและแม่นยำ",
-    "pmid": "42378730",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42378730/"
+    "title": "Emergency Nursing Recognition of Atypical Acute Myocardial Infarction: Associations With Functional Status and Level of Consciousness-A Retrospective Cohort Study.",
+    "comment": "เตือนภัยการรับรู้อาการ AMI ที่ไม่จำเพาะ ช่วยแพทย์ ER ลดการพลาดการวินิจฉัย",
+    "pmid": "42377288",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42377288/"
   },
   {
     "date": "1 Jul",
-    "title": "A Dizzying Number of Clinical Decision Rules &#x2026; and Do We Need Them?",
-    "comment": "ตั้งคำถามการใช้ Clinical Decision Rules มากเกินไปในทางปฏิบัติ",
-    "pmid": "42377357",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42377357/"
+    "title": "Could anticholinergics accelerate ALS progression? A critical perspective on drug safety and disease vulnerability.",
+    "comment": "Safety Signal: ยา Anticholinergics อาจเร่งการดำเนินโรคของผู้ป่วย ALS ต้องระมัดระวังการสั่งยา",
+    "pmid": "42377311",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42377311/"
   },
   {
     "date": "1 Jul",
-    "title": "Barriers and Facilitators for Medication Safety in Emergency Care Using a SEIPS Model: A Qualitative Study.",
-    "comment": "อุปสรรคความปลอดภัยทางยาใน ER เพื่อปรับปรุงระบบงาน",
-    "pmid": "42377095",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42377095/"
-  },
-  {
-    "date": "1 Jul",
-    "title": "Clinical Usage of High-Flow Nasal Cannula Across Disease Categories and Care Settings: A Nationwide Cohort Study in Japan.",
-    "comment": "แนวโน้มการใช้ HFNC ในโรคต่างๆ ช่วยวางแผนทรัพยากร",
-    "pmid": "42378165",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42378165/"
-  },
-  {
-    "date": "1 Jul",
-    "title": "Community-acquired pneumonia outcome is strongly influenced by early arterial pH.",
-    "comment": "pH เลือดแดงระยะแรก ทำนายผลลัพธ์ปอดบวมชุมชน ช่วยประเมินความรุนแรง",
-    "pmid": "42378820",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42378820/"
+    "title": "Comparative real-world outcomes of tirzepatide vs semaglutide in patients with obesity and type2 diabetes: A retrospective propensity-matched cohort study.",
+    "comment": "ข้อมูลโลกแห่งจริงเปรียบเทียบ Tirzepatide และ Semaglutide ช่วยตัดสินใจเลือกยาใน ER",
+    "pmid": "42376874",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42376874/"
   }
 ]
