@@ -2,85 +2,85 @@
   {
     "date": "2 Jul",
     "title": "Association between fresh frozen plasma transfusion and mortality stratified by Glasgow Coma Scale scores in isolated traumatic brain injury: a nationwide cohort study in Japan.",
-    "comment": "FFPในTBI:ผลต่อmortalityแตกต่างตามGCS อาจเปลี่ยนแนวทางการให้พลาสม่าในเบื้องต้น",
+    "comment": "ชี้ให้เห็นผลเสียของ FFP ใน TBI ระดับความรุนแรงบางกลุ่ม ควรระวังการใช้ใน ER",
     "pmid": "42384186",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42384186/"
   },
   {
     "date": "2 Jul",
     "title": "Overlapping Hyperosmolar Therapy in Patients With Elevated and Refractory Intracranial Pressure.",
-    "comment": "การใช้Hyperosmolar therapyซ้อนทับกรณีICPสูงดื้อ เทคนิคใหม่ที่ใช้ได้จริงในER",
+    "comment": "แนวทางใหม่ในการใช้ Hyperosmolar therapy ซ้อนทับควบคุม ICP ที่ดื้อยาในผู้ป่วยวิกฤต",
     "pmid": "42384053",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42384053/"
   },
   {
     "date": "2 Jul",
-    "title": "Immune checkpoint inhibitor-induced myasthenia gravis and myocarditis: a fatal immune-related adverse event.",
-    "comment": "Immune checkpoint inhibitorก่อmyasthenia gravisและmyocarditisรุนแรง Safety signalที่ERต้องรู้",
-    "pmid": "42384108",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42384108/"
-  },
-  {
-    "date": "2 Jul",
-    "title": "Etomidate in severe hypercortisolism: early cortisol kinetics and clinical outcomes in a real-world cohort.",
-    "comment": "Etomidateในผู้ป่วยhypercortisolismรุนแรง: ปลอดภัยต่อcortisol kinetics ข้อมูลสำคัญให้ER",
-    "pmid": "42384093",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42384093/"
+    "title": "Evidence map of appendicitis - a living systematic review with meta-analyses.",
+    "comment": "ทบทวนหลักฐานล่าสุดเรื่องการวินิจฉัยและรักษา Appendicitis ช่วยอัปเดตแนวทางใน ER",
+    "pmid": "42384223",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42384223/"
   },
   {
     "date": "2 Jul",
     "title": "Development and Validation of Machine Learning Models to Optimize Imaging and Referrals for Dizziness in the Emergency Department.",
-    "comment": "AIช่วยเลือกการสร้างภาพและReferผู้ป่วยDizzinessในER ลดการใช้ทรัพยากร",
+    "comment": "AI ช่วยคัดกรองผู้ป่วย Dizziness เพื่อส่งตรวจภาพถ่ายและลดความคับชั้นใน ER",
     "pmid": "42383526",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42383526/"
   },
   {
     "date": "2 Jul",
-    "title": "Evaluating high-sensitivity troponin levels in people with sickle cell disease in the emergency department.",
-    "comment": "การแปลผลhs-troponinในผู้ป่วยSCDที่ER: ค่ามากอาจไม่ได้แปลว่ามีAMI",
-    "pmid": "42383512",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42383512/"
-  },
-  {
-    "date": "2 Jul",
-    "title": "Multimodal Pain Management in Emergency Medicine: A Narrative Review.",
-    "comment": "แนวทางMultimodal pain managementในER: ทบทวนวิธีลดการใช้opioidและเพิ่มความปลอดภัย",
-    "pmid": "42383452",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42383452/"
-  },
-  {
-    "date": "2 Jul",
     "title": "Vasopressors or fluids for initial resuscitation in septic shock: A matter of clinical judgement.",
-    "comment": "Vasopressors vs Fluidsในseptic shock: ข้อมูลใหม่ช่วยตัดสินใจresuscitationในER",
+    "comment": "บทวิจารณ์เปรียบเทียบข้อดี-ข้อเสีย Vasopressors กับ Fluids ในช่วงแรกของ Septic shock",
     "pmid": "42383098",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42383098/"
   },
   {
     "date": "2 Jul",
-    "title": "Association Between Veno-Venous Extracorporeal Membrane Oxygenation and Right Ventricular Dysfunction in Acute Respiratory Distress Syndrome Patients: A Multicenter Retrospective Propensity-Matched Study.",
-    "comment": "VV-ECMOในARDSเสี่ยงทำให้RV dysfunction ข้อมูลความเสี่ยงที่ต้องพิจารณา",
-    "pmid": "42383791",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42383791/"
-  },
-  {
-    "date": "2 Jul",
-    "title": "Redefining Limits: Extracorporeal Cardiopulmonary Resuscitation in Adult Thrombotic Thrombocytopenic Purpura.",
-    "comment": "การใช้ECPRในผู้ป่วยTTPระยะรุนแรง ขยายขอบเขตเทคนิคการกู้ชีพฉุกเฉิน",
-    "pmid": "42383785",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42383785/"
-  },
-  {
-    "date": "2 Jul",
     "title": "A Retrospective Evaluation of Phenobarbital and Benzodiazepine Monotherapy and Combined Therapy in the Treatment of Alcohol Withdrawal Syndrome in a Canadian Emergency Department.",
-    "comment": "Phenobarbital vs BenzoในAlcohol Withdrawal: ข้อมูลจากERที่อาจเปลี่ยนมาตรฐานการรักษา",
+    "comment": "เปรียบเทียบประสิทธิภาพ Phenobarbital กับ Benzodiazepine ใน Alcohol Withdrawal ใน ER",
     "pmid": "42382870",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42382870/"
   },
   {
     "date": "2 Jul",
+    "title": "Evaluating high-sensitivity troponin levels in people with sickle cell disease in the emergency department.",
+    "comment": "ศึกษาค่า hs-troponin ในผู้ป่วย Sickle cell ช่วยลดการวินิจฉัยหลอดเลือดหัวใจผิดใน ER",
+    "pmid": "42383512",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42383512/"
+  },
+  {
+    "date": "2 Jul",
+    "title": "Risk Prediction Models for Deep Vein Thrombosis in Patients With Spontaneous Intracerebral Hemorrhage: A Systematic Review and Meta-Analysis.",
+    "comment": "โมเดลพยากรณ์ DVT ในผู้ป่วย Stroke เลือดออก ช่วยตัดสินใจให้ยาป้องกันลิ่มเลือดใน ER",
+    "pmid": "42383743",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42383743/"
+  },
+  {
+    "date": "2 Jul",
     "title": "Recommendations for ventriculostomy and cisternostomy in TBI management: Results of the WFNS-Neurotraumatology committee \"Cusco consensus\".",
-    "comment": "Consensusใหม่สำหรับventriculostomy/cisternostomyในTBI อัปเดตแนวทางปฏิบัติทางคลินิก",
+    "comment": "แนวทางฉันทามติล่าสุดเรื่องการระบายน้ำสมองในผู้ป่วย TBI เปลี่ยนแนวทางการรักษา",
     "pmid": "42382655",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42382655/"
+  },
+  {
+    "date": "2 Jul",
+    "title": "Surgical strategies for spontaneous intracerebral hemorrhage: a Bayesian network meta-analysis of randomized controlled trials.",
+    "comment": "วิเคราะห์วิธีผ่าตัดที่ดีที่สุดสำหรับ Stroke เลือดออกในสมอง เพื่อตัดสินใจอ้างอิงใน ER",
+    "pmid": "42383028",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42383028/"
+  },
+  {
+    "date": "2 Jul",
+    "title": "Redefining Limits: Extracorporeal Cardiopulmonary Resuscitation in Adult Thrombotic Thrombocytopenic Purpura.",
+    "comment": "รายงานการใช้ ECPR ช่วยชีวิตในผู้ป่วย TTP ระยะรุนแรง เป็นทางเลือกใหม่ใน ER",
+    "pmid": "42383785",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42383785/"
+  },
+  {
+    "date": "2 Jul",
+    "title": "Immune checkpoint inhibitor-induced myasthenia gravis and myocarditis: a fatal immune-related adverse event.",
+    "comment": "เตือนภัยผลข้างเคียงรุนแรงจากยามะเร็งที่อาจนำส่ง ER ด้วยอาการ myasthenia และ myocarditis",
+    "pmid": "42384108",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42384108/"
   }
 ]
