@@ -34,6 +34,7 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- blog_index.json
 |-- blog.css
 |-- blog.html
+|-- Braun-theme.md
 |-- CONTEXT.md
 |-- DESIGN.md
 |-- index.css
