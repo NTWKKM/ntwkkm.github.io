@@ -179,19 +179,34 @@ header .theme-btn:hover {
     flex: 0 0 300px;
     background: var(--bg-card);
     border-radius: var(--radius);
-    padding: 24px;
+    padding: 24px 24px 24px 21px; /* offset padding for 4px left border sentinel */
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.2s ease;
+    transition: all 0.2s ease;
     border: 1px solid var(--border);
+    border-left: 4px solid transparent;
     -webkit-user-drag: none;
 }
 
 .paper-card:hover {
-    border-color: var(--border-strong);
+    background-color: #49628d;
+    border-color: #49628d;
+    border-left-color: #F0EDE5;
+    color: #F0EDE5;
+}
+
+.paper-card:hover .paper-title,
+.paper-card:hover .paper-comment,
+.paper-card:hover .paper-date,
+.paper-card:hover .paper-link {
+    color: #F0EDE5;
+}
+
+.paper-card:hover .paper-link {
+    border-top-color: rgba(240, 237, 229, 0.2);
 }
 
 .paper-date {
@@ -378,7 +393,8 @@ footer a:hover {
 
     .controls {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-end;
+        gap: 12px;
     }
 
     .social-link span,

@@ -19,15 +19,13 @@ body {
 
 /* --- HEADER & CONTROLS --- */
 .app-header {
-  background: var(--bg-card);
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
   padding: 20px 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(240, 237, 229, 0.1);
   margin-bottom: 40px;
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(12px);
-  background: color-mix(in srgb, var(--bg-card), transparent 10%);
   transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
@@ -46,7 +44,7 @@ body {
   font-size: 1.35rem;
   font-weight: 700;
   margin: 0;
-  color: var(--text-main);
+  color: #F0EDE5 !important;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -59,17 +57,67 @@ body {
 }
 
 .brand-group .subtitle {
-  color: var(--text-secondary);
+  color: #c4bfb0;
   font-size: 0.82rem;
   font-weight: 500;
   margin: 4px 0 0 0;
 }
 
 .brand-group .last-updated {
-  color: var(--text-muted);
+  color: #c4bfb0;
+  opacity: 0.85;
   font-size: 0.72rem;
   margin-top: 4px;
   font-family: 'Inter', monospace;
+}
+
+/* --- HEADER BUTTONS SPECIFIC --- */
+.app-header .btn {
+  background: transparent;
+  color: #F0EDE5 !important;
+  border: 1px solid transparent;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  box-shadow: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.app-header .btn:hover {
+  background-color: #49628d;
+  color: #F0EDE5 !important;
+  border-color: transparent;
+}
+
+.app-header .btn svg {
+  fill: currentColor;
+}
+
+.app-header .theme-btn {
+  background-color: rgba(240, 237, 229, 0.15);
+  color: #F0EDE5;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.app-header .theme-btn:hover {
+  background-color: rgba(240, 237, 229, 0.3);
+  color: #F0EDE5;
+  transform: scale(1.1) rotate(15deg);
 }
 
 /* --- SUMMARY --- */
@@ -582,7 +630,8 @@ body {
   }
   .controls {
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 12px;
   }
 
   .btn span { display: none; }

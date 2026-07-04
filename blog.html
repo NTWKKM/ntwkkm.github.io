@@ -378,6 +378,12 @@
             // Initialize reading progress
             initReadingProgress();
 
+            // Collapse sidebar on page load if mobile
+            if (window.innerWidth <= 1024) {
+                document.getElementById('sidebar').classList.add('collapsed');
+                document.getElementById('app-container').classList.add('sidebar-hidden');
+            }
+
             const loadingEl = document.getElementById('loading-indicator');
             loadingEl.style.display = 'block';
 

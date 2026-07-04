@@ -467,6 +467,12 @@ All JSON data is sanitized before DOM injection via centralized functions in `sh
 
 - **Drawer Navigation:** Under 1024px, the static sidebar shifts into a sliding overlay drawer (`position: fixed`) with a blurred backdrop (`.sidebar-overlay`).
 - **Auto-dismiss:** Tapping the backdrop overlay closes the sidebar. Selecting a research paper automatically closes the sidebar drawer so the user can read the paper full-screen without layout obstruction.
+- **Initial Load Collapse:** On page load under 1024px, the sidebar is initialized in the collapsed state via javascript, and the floating menu button (`.sidebar-open-btn`) is forced visible and interactive.
+
+## Navigation Bar Consistency & Responsive Alignment
+
+- **Unified Colors:** Headers in the `fray` and `tracking` modules are standardized to match the homepage's sticky header gradient (`linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)`) and flat, borderless buttons to present a consistent, premium design theme.
+- **Right-Aligned Controls:** On mobile screens (< 768px), the navigation action controls (links, buttons, toggles) are formatted as compact icon-only buttons and aligned strictly to the right (`justify-content: flex-end; gap: 12px;`) to optimize space.
 
 ## Caching
 

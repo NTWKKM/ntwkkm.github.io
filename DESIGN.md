@@ -62,12 +62,13 @@ Muted tones, applied **text-only** (never as solid background badges).
 ### 4.1. Cards & Panels
 - **Border Radius**: `--radius: 4px` for outer cards, `--radius-sm: 2px` for inner elements, to give a harder industrial edge.
 - **Borders**: Thin `1px solid var(--border)`.
-- **Hover State / Minimal Standout Sentinel:** Cards (such as `.project-card`) do NOT lift or grow shadows. On hover, background changes to `#49628d`, borders are `#49628d`, child text turning `#F0EDE5`, and a left border sentinel is styled as `border-left: 4px solid #F0EDE5;` (with corresponding left padding reduction to prevent layout shift).
+- **Hover State / Minimal Standout Sentinel:** Cards (such as `.project-card` and homepage `.paper-card`) do NOT lift or grow shadows. On hover, background changes to `#49628d`, borders are `#49628d`, child text turning `#F0EDE5`, and a left border sentinel is styled as `border-left: 4px solid #F0EDE5;` (with corresponding left padding reduction to prevent layout shift).
 
 ### 4.2. Navigation Bar
-- The header is the only area permitted a gradient: `linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)`.
+- The header is the only area permitted a gradient: `linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)`. This color scheme is standardized globally across all module headers (Homepage, Fray, and Tracking dashboards) for layout consistency.
 - Navigation text, brand logo, subtitles, and icons are warm off-white (`#F0EDE5`) in both Light and Dark themes to ensure legibility on the dark navy gradient.
-- Buttons and links (e.g. GitHub and Research Blog): Borders are transparent (`none`/`transparent`) to retain a flat, printed-document aesthetic. Hover states use `#49628d` background.
+- Buttons and links (e.g. GitHub, Research Blog, Refresh, and Add Tracking): Borders are transparent (`none`/`transparent`) in their normal state to retain a flat, printed-document aesthetic. Hover states use `#49628d` background.
+- **Mobile Viewport Alignment:** Controls inside the navigation bar (links, toggles, actions) are collapsed to icon-only buttons (with text spans hidden) and aligned strictly to the right side of the screen (`justify-content: flex-end; gap: 12px;`) to optimize finger reachability and space.
 
 ### 4.3. Badges and Chips
 - Muted category colors are applied to text and borders only.
