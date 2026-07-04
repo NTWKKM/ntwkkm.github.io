@@ -304,3 +304,6 @@ function initScrollAnimationFallback() {
         });
     }
 }
+
+// Trigger build: fix workflow deployment configuration
+
