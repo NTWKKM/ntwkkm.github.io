@@ -192,7 +192,9 @@
 
             // Keyboard shortcuts: ← → to switch day tabs
             document.addEventListener('keydown', (e) => {
-                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+                const tag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+                const isInput = tag === 'input' || tag === 'textarea' || tag === 'select' || (document.activeElement && document.activeElement.isContentEditable);
+                if (isInput) return;
                 if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
                 const allTabs = Array.from(document.querySelectorAll('.day-tab'));
                 const activeIdx = allTabs.findIndex(t => t.classList.contains('active'));
@@ -209,6 +211,38 @@
 
         async function preflightHistoryTabs() {
             const historyTabs = document.querySelectorAll('.day-tab:not([data-day="live"])');
+            const now = Date.now();
+            const cacheKey = 'fray_history_preflight_cache';
+            let cached = null;
+            try {
+                const raw = localStorage.getItem(cacheKey);
+                if (raw) {
+                    const parsed = JSON.parse(raw);
+                    if (now - parsed.timestamp < 1000 * 60 * 60) { // 1 hour cache
+                        cached = parsed.data;
+                    }
+                }
+            } catch (e) {
+                console.warn('[Fray] preflight cache read error:', e);
+            }
+
+            if (cached) {
+                Array.from(historyTabs).forEach(tab => {
+                    const n = parseInt(tab.dataset.day);
+                    const date = new Date();
+                    date.setDate(date.getDate() - n);
+                    const yyyy = date.getFullYear();
+                    const mm = String(date.getMonth() + 1).padStart(2, '0');
+                    const dd = String(date.getDate()).padStart(2, '0');
+                    const dateStr = `${yyyy}-${mm}-${dd}`;
+                    if (cached[dateStr] === false) {
+                        tab.classList.add('missing');
+                    }
+                });
+                return;
+            }
+
+            const results = {};
             const checks = Array.from(historyTabs).map(async tab => {
                 const n = parseInt(tab.dataset.day);
                 const date = new Date();
@@ -219,12 +253,23 @@
                 const dateStr = `${yyyy}-${mm}-${dd}`;
                 try {
                     const res = await fetch(`history/${dateStr}.json`, { method: 'HEAD' });
+                    results[dateStr] = res.ok;
                     if (!res.ok) tab.classList.add('missing');
                 } catch(e) {
+                    results[dateStr] = false;
                     tab.classList.add('missing');
                 }
             });
             await Promise.all(checks);
+
+            try {
+                localStorage.setItem(cacheKey, JSON.stringify({
+                    timestamp: now,
+                    data: results
+                }));
+            } catch (e) {
+                console.warn('[Fray] preflight cache write error:', e);
+            }
         }
 
         async function loadHistoryDay(daysAgo) {
@@ -403,15 +448,15 @@
 
         function renderVitals(observer) {
             // --- CPU ---
-            const cpuUsage = observer.cpu_percent || 0;
+            const cpuUsage = Number(observer.cpu_percent) || 0;
             setVal('v-cpu', `${cpuUsage.toFixed(1)}%`);
             setVal('v-cpu-sub', `System Load: ${cpuUsage.toFixed(1)}%`);
             setBar('v-cpu-bar', cpuUsage);
 
             // --- RAM ---
-            const ramUsedGB  = observer.memory_used_gb || 0;
-            const ramTotalGB = observer.memory_total_gb || 0;
-            const ramPct     = observer.memory_percent || 0;
+            const ramUsedGB  = Number(observer.memory_used_gb) || 0;
+            const ramTotalGB = Number(observer.memory_total_gb) || 0;
+            const ramPct     = Number(observer.memory_percent) || 0;
             setVal('v-ram', `${ramUsedGB.toFixed(1)} GB`);
             setVal('v-ram-sub', `${ramTotalGB.toFixed(1)} GB total · ${ramPct}%`);
             setBar('v-ram-bar', ramPct);
@@ -501,10 +546,10 @@
 
             // --- Token Usage ---
             const token = observer.token_usage || {};
-            const quotaPct = token.quota_percent || 0;
-            const monthlyBurn = token.monthly_burn || 0;
-            const dailyEst = token.daily_estimate || 0;
-            const monthlyQuota = token.monthly_quota || 2500000;
+            const quotaPct = Number(token.quota_percent) || 0;
+            const monthlyBurn = Number(token.monthly_burn) || 0;
+            const dailyEst = Number(token.daily_estimate) || 0;
+            const monthlyQuota = Number(token.monthly_quota) || 2500000;
             setVal('v-token', `${quotaPct.toFixed(1)}%`);
             // Projected exhaustion date
             let tokenSub = `${formatNumber(monthlyBurn)} / ${formatNumber(monthlyQuota)} · ~${formatNumber(dailyEst)}/day`;
@@ -818,7 +863,7 @@
                 html += `<div class="historian-trend-row">`;
                 html += `<b>Disk Trend:</b> <span class="chip ${trendCls}"><span class="dot-sm"></span>${trendIcon} ${escapeHTML(trend.toUpperCase())}</span>`;
                 if (historian.disk_delta != null) {
-                    html += `<span class="historian-disk-delta">${historian.disk_delta}</span>`;
+                    html += `<span class="historian-disk-delta">${escapeHTML(String(historian.disk_delta))}</span>`;
                 }
                 html += `</div>`;
             }

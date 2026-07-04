@@ -212,16 +212,22 @@ function fuzzyMatch(query, text) {
 function highlightText(text, query) {
     if (!query || !text) return escapeHTML(text);
     
-    const escapedText = escapeHTML(text);
     // Simple word-based highlighting
     const terms = query.toLowerCase().trim().split(/\s+/).filter(t => t.length > 0);
     
-    if (terms.length === 0) return escapedText;
+    if (terms.length === 0) return escapeHTML(text);
     
     // Create a regex to match any of the terms
     const regex = new RegExp(`(${terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi');
+    const parts = String(text).split(regex);
     
-    return escapedText.replace(regex, '<span class="search-highlight">$&</span>');
+    return parts.map((part, index) => {
+        const escaped = escapeHTML(part);
+        if (index % 2 === 1) {
+            return `<span class="search-highlight">${escaped}</span>`;
+        }
+        return escaped;
+    }).join('');
 }
 
 // ===========================================================================
@@ -263,7 +269,7 @@ function initSharedTheme() {
 }
 
 function escapeHTML(str) {
-    if (!str) return '';
+    if (str === undefined || str === null || str === '') return '';
     return String(str)
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')

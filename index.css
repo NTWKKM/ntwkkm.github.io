@@ -123,14 +123,7 @@ header .theme-btn:hover {
     gap: 16px;
 }
 
-.section-title {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--text-main);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-family: 'Inter', monospace;
-}
+
 
 .section-line {
     height: 1px;

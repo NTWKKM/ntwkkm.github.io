@@ -250,40 +250,7 @@
         /* ====================================================
            PAGE HEADER ROW
         ==================================================== */
-        .page-header {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 16px;
-            margin-bottom: 28px;
-            flex-wrap: wrap;
-        }
 
-        .page-title {
-            font-size: clamp(1.35rem, 5vw, 1.75rem);
-            font-weight: 800;
-            color: var(--text-main);
-            letter-spacing: -0.8px;
-            line-height: 1.1;
-        }
-
-        .page-title span {
-            color: var(--primary);
-        }
-
-        .page-sub {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-            font-family: 'IBM Plex Mono', monospace;
-        }
-
-        .page-meta {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
 
         /* ====================================================
            HEALTH BADGE
@@ -510,31 +477,7 @@
         /* ====================================================
            DATA ROWS
         ==================================================== */
-        .data-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            padding: 9px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .data-row:last-child { border-bottom: none; padding-bottom: 0; }
-        .data-row:first-child { padding-top: 0; }
 
-        .data-label {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            font-weight: 500;
-            flex-shrink: 0;
-        }
-
-        .data-val {
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 0.82rem;
-            font-weight: 500;
-            color: var(--text-main);
-            text-align: right;
-        }
 
         /* ====================================================
            STATUS CHIPS
@@ -561,76 +504,17 @@
         /* ====================================================
            SPAN UTILITIES
         ==================================================== */
-        .span-2 { grid-column: span 1; }
-        .span-3 { grid-column: span 1; }
+
 
         /* ====================================================
            PERFORMANCE ROWS WITH INLINE BARS
         ==================================================== */
-        .perf-row {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .perf-row:last-child { border-bottom: none; padding-bottom: 0; }
-        .perf-row:first-child { padding-top: 0; }
 
-        .perf-row-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-
-        .perf-label {
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-
-        .perf-value {
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .perf-track {
-            width: 100%;
-            height: 5px;
-            background: var(--progress-track);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .perf-fill {
-            height: 100%;
-            border-radius: 3px;
-            transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
 
         /* ====================================================
            REFLECTION / INSIGHT BLOCKS & COMBINED LAYOUT
         ==================================================== */
-        .combined-reflection-insights {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
 
-        .reflection-row {
-            width: 100%;
-        }
-
-        .insights-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .insight-col {
-            display: flex;
-            flex-direction: column;
-        }
 
         .quote-block {
             background: var(--bg-surface);
@@ -653,69 +537,12 @@
             background: transparent;
         }
 
-        .insight-label {
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
 
-        .insight-block {
-            background: var(--bg-surface);
-            border-left: 3px solid var(--accent);
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-            padding: 12px 14px;
-            font-size: 0.84rem;
-            line-height: 1.6;
-            color: var(--text-secondary);
-            margin-bottom: 0;
-        }
-
-        .reflection-meta-row {
-            display: flex;
-            gap: 12px;
-            margin-top: 12px;
-            flex-wrap: wrap;
-        }
-
-        .meta-tag {
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 0.68rem;
-            color: var(--text-faint);
-            background: var(--bg-surface);
-            padding: 3px 8px;
-            border-radius: 4px;
-            border: 1px solid var(--border);
-        }
 
         /* ====================================================
            SECTION DIVIDER
         ==================================================== */
-        .section-divider {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            margin: 32px 0 20px;
-        }
 
-        .section-divider-title {
-            font-family: 'Inter', 'Sarabun', -apple-system, sans-serif;
-            font-size: 0.78rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--text-muted);
-            white-space: nowrap;
-        }
-
-        .section-divider-line {
-            height: 1px;
-            background: var(--border);
-            flex: 1;
-        }
 
         /* ====================================================
            AGENT SENTINEL AUDITS (TABLE VIEW)
@@ -837,96 +664,17 @@
         /* ====================================================
            PROCESS LIST
         ==================================================== */
-        .process-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border);
-        }
-        .process-item:last-child { border-bottom: none; }
-        .process-item:first-child { padding-top: 0; }
 
-        .process-name {
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--text-main);
-        }
-
-        .process-meta {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .process-pid {
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 0.7rem;
-            color: var(--text-faint);
-        }
 
         /* ====================================================
            INCIDENTS EMPTY STATE
         ==================================================== */
-        .incidents-empty {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px;
-            background: var(--state-ok-bg);
-            border-radius: var(--radius-sm);
-            border: 1px solid var(--state-ok-border);
-            color: var(--state-ok);
-            font-size: 0.84rem;
-            font-weight: 500;
-        }
 
-        .incidents-empty .icon {
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
 
         /* ====================================================
            ISSUE CARD (Sage Identified Issues)
         ==================================================== */
-        .issue-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 12px 14px;
-            margin-bottom: 10px;
-        }
-        .issue-card:last-child { margin-bottom: 0; }
 
-        .issue-card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-            margin-bottom: 6px;
-        }
-
-        .issue-component {
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .issue-description {
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            line-height: 1.5;
-            margin-bottom: 4px;
-        }
-
-        .issue-impact {
-            font-size: 0.76rem;
-            color: var(--text-muted);
-            font-style: italic;
-            line-height: 1.4;
-        }
 
         /* ====================================================
            LOADING SKELETON
@@ -950,8 +698,7 @@
             animation: sk-pulse 1.5s ease-in-out infinite;
         }
         .skel-tall { height: 110px; }
-        .skel-med  { height: 220px; }
-        .skel-long { height: 260px; }
+
         .skel-text {
             height: 12px;
             background: var(--border);

@@ -111,7 +111,7 @@ Path D — fray/dashboard-snapshot.json (Workflow 5, every 8h):
 - `projects.json` — **Manual.** Edit directly to add/remove project cards.
 - `tracking/track_list.json` — **Semi-automated.** Add barcodes via dashboard webhook form (n8n Workflow 4) or edit directly. Remove manually.
 - `tracking/status_store.json` — **Auto-generated.** Updated by `tracker.py` via GitHub Actions. Never edit manually.
-- `tracking/auth.json` — **Auto-generated.** SHA-256 hash of the `TRACKING_PASSCODE` GitHub Secret. Used for client-side authentication on the tracking dashboard.
+- `tracking/auth.json` — **Auto-generated.** SHA-256 hash of the `TRACKING_PASSCODE` GitHub Secret. Used for client-side authentication on the tracking dashboard. *Note:* Since the website is hosted on static GitHub Pages, this acts as a client-side visibility gate (security theater) to prevent accidental viewing. The raw tracking status file `status_store.json` remains publicly accessible.
 - `fray/dashboard-snapshot.json` — **Automated.** Observability metric snapshot pushed by Fray/n8n every 8h. Consumed directly by `fray/index.html` (4-section format: `observer`, `sage`, `archivist`, `outsider`).
 
 > **Deduplication (Dual-Layer):** The processing script (`process_blog.js`) uses a **primary** `Map<id, post>` strategy (Notion page ID) and a **secondary** `Set<pmid>` check. If a new entry has the same PMID as an existing post but a different Notion ID, it is skipped as duplicate content. This prevents the same PubMed paper from appearing multiple times when it gets re-processed through different Notion pages.

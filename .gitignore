@@ -14,3 +14,7 @@ latest_updates.json
 
 # Local n8n workflow backups (contains sensitive API keys)
 n8n-github-notion_db/
+
+# Python bytecode
+__pycache__/
+*.pyc
