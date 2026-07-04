@@ -58,7 +58,7 @@ Only ONE accent color (signal orange) exists, and it should be used sparingly.
 - Nav background: deep navy gradient (`#1e3c72` → `#2a5298`)
 - Text/icons on nav: warm off-white `#F0EDE5` in both Light and Dark themes for contrast.
 - Nav buttons/links (e.g. GitHub, Research): Borders are removed (set to `transparent`) to fit the flat aesthetic.
-- Hover state (rows, nav items, project cards): mid-blue `#49628d` background, text/child elements turn `#F0EDE5`, and a `4px` left border sentinel becomes `#F0EDE5`.
+- Hover state (rows, nav items, project cards): mid-blue `#49628d` background, text/child elements turn `#F0EDE5`, and a `4px` left border sentinel becomes `#F0EDE5`. Smooth CSS transitions (0.2s ease) are implemented on both the card container and its children (`.project-title`, `.project-desc`, and `.project-icon`) to ensure a polished interactive feel.
 
 ## 3. Category / Tag Colors
 Muted colors, **text-only** — never used as solid backgrounds. Keeps the UI calm and non-flashy.

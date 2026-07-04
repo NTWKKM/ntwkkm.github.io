@@ -331,6 +331,7 @@ header .theme-btn:hover {
     color: var(--primary);
     font-size: 1.1rem;
     border: 1px solid var(--border);
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
 .project-title {
@@ -338,12 +339,14 @@ header .theme-btn:hover {
     font-weight: 600;
     margin-bottom: 6px;
     color: var(--text-main);
+    transition: color 0.2s ease;
 }
 
 .project-desc {
     font-size: 0.8rem;
     color: var(--text-secondary);
     line-height: 1.5;
+    transition: color 0.2s ease;
 }
 
 /* --- FOOTER --- */
