@@ -3,7 +3,7 @@
    =================================================================== */
 
 body {
-    font-family: 'Inter', -apple-system, sans-serif;
+    font-family: "Inter Tight", "Neue Haas Grotesk", "Sarabun", sans-serif;
     background-color: var(--bg-body);
     color: var(--text-main);
     line-height: 1.6;
@@ -25,15 +25,13 @@ section {
 
 /* --- HEADER & NAVIGATION --- */
 header {
-    background: var(--bg-card);
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     padding: 20px 0;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(240, 237, 229, 0.1);
     margin-bottom: 40px;
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(12px);
-    background: color-mix(in srgb, var(--bg-card), transparent 10%);
     transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
@@ -51,12 +49,12 @@ header {
 .brand h1 {
     font-size: 1.35rem;
     font-weight: 700;
-    color: var(--text-main);
+    color: #F0EDE5;
     letter-spacing: -0.5px;
 }
 
 .brand p {
-    color: var(--text-muted);
+    color: #c4bfb0;
     font-weight: 500;
     font-size: 0.82rem;
     letter-spacing: 0.1px;
@@ -69,8 +67,8 @@ header {
 }
 
 .nav-highlight {
-    background-color: var(--primary);
-    color: #ffffff !important;
+    background-color: transparent;
+    color: #F0EDE5 !important;
     padding: 8px 16px;
     border-radius: var(--radius-sm);
     text-decoration: none;
@@ -80,29 +78,30 @@ header {
     display: flex;
     align-items: center;
     gap: 6px;
-    border: 1px solid var(--primary);
+    border: 1px solid rgba(240, 237, 229, 0.4);
 }
 
 .nav-highlight:hover {
-    background-color: var(--primary-hover);
-    border-color: var(--primary-hover);
+    background-color: #49628d;
+    border-color: #F0EDE5;
 }
 
 .social-link {
     text-decoration: none;
-    color: var(--text-secondary);
+    color: #F0EDE5;
     font-weight: 600;
     padding: 6px 12px;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(240, 237, 229, 0.3);
     border-radius: var(--radius-sm);
     transition: all 0.2s ease;
     font-size: 0.8rem;
-    background: var(--bg-card);
+    background: transparent;
 }
 
 .social-link:hover {
-    border-color: var(--primary);
-    color: var(--primary);
+    border-color: #F0EDE5;
+    background-color: rgba(240, 237, 229, 0.15);
+    color: #F0EDE5;
 }
 
 /* --- SECTION HEADER --- */
@@ -170,21 +169,18 @@ header {
     background: var(--bg-card);
     border-radius: var(--radius);
     padding: 24px;
-    box-shadow: var(--shadow);
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
-    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.2s ease;
     border: 1px solid var(--border);
     -webkit-user-drag: none;
 }
 
 .paper-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
+    border-color: var(--border-strong);
 }
 
 .paper-date {
@@ -193,7 +189,7 @@ header {
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-family: 'Inter', monospace;
+    font-family: "Inter Tight", monospace;
     font-weight: 600;
 }
 
@@ -256,7 +252,6 @@ header {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: var(--shadow);
     z-index: 10;
     transition: all 0.2s ease;
 }
@@ -286,8 +281,7 @@ header {
     background: var(--bg-card);
     border-radius: var(--radius);
     padding: 24px;
-    box-shadow: var(--shadow);
-    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color 0.2s ease;
     text-decoration: none;
     color: inherit;
     border: 1px solid var(--border);
@@ -296,9 +290,7 @@ header {
 }
 
 .project-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
+    border-color: var(--border-strong);
 }
 
 .project-icon {

@@ -3,7 +3,7 @@
    =================================================================== */
 
 body {
-    font-family: 'Sarabun', 'Inter', sans-serif;
+    font-family: "Inter Tight", "Neue Haas Grotesk", "Sarabun", sans-serif;
     background: var(--bg-body);
     color: var(--text-main);
     line-height: 1.6;
@@ -169,7 +169,7 @@ body {
     padding: 10px 12px 10px 36px;
     border: 1px solid var(--border-color);
     border-radius: var(--radius-sm);
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter Tight", sans-serif;
     font-size: 0.88rem;
     background: var(--bg-body);
     color: var(--text-main);
@@ -182,8 +182,8 @@ body {
 }
 
 .search-input:focus {
-    border-color: var(--primary);
-    background: var(--bg-sidebar);
+    border-color: var(--border-strong);
+    background: var(--bg-card);
 }
 
 .search-icon {
@@ -238,16 +238,16 @@ body {
 }
 
 .filter-tag.active {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary);
+    background: var(--text-main);
+    color: var(--bg-card);
+    border-color: var(--text-main);
 }
 
 .tag-count {
     font-size: 0.6rem;
     opacity: 0.7;
     font-weight: 600;
-    font-family: 'Inter', monospace;
+    font-family: "Inter Tight", monospace;
 }
 
 .filter-tag.more-btn {
@@ -264,8 +264,8 @@ body {
 
 .filter-tag.more-btn.open {
     border-style: solid;
-    background: var(--primary-light);
-    color: var(--primary);
+    background: var(--bg-paper-list);
+    color: var(--text-main);
 }
 
 .more-tags-dropdown {
@@ -362,8 +362,8 @@ body {
 }
 
 .article-list-item.active {
-    background: var(--primary-light);
-    border-left: 3px solid var(--primary);
+    background: var(--bg-paper-list);
+    border-left: 3px solid var(--text-main);
     font-weight: 600;
     color: var(--text-main);
 }
@@ -550,20 +550,21 @@ body {
 
 .tag-badge {
     display: inline-block;
-    background: var(--primary-light);
-    color: var(--primary);
+    background: var(--bg-paper-list);
+    color: var(--text-secondary);
     font-size: 0.72rem;
     padding: 4px 10px;
     border-radius: var(--radius-sm);
     font-weight: 600;
-    font-family: 'Inter', sans-serif;
-    border: 1px solid transparent;
+    font-family: "Inter Tight", sans-serif;
+    border: 1px solid var(--border);
     transition: all 0.2s;
     cursor: pointer;
 }
 
 .tag-badge:hover {
-    border-color: var(--primary);
+    border-color: var(--border-strong);
+    color: var(--text-main);
 }
 
 .research-section {
@@ -571,11 +572,11 @@ body {
 }
 
 .sec-header {
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter Tight", sans-serif;
     font-weight: 700;
     font-size: 0.8rem;
     margin-bottom: 12px;
-    color: var(--primary);
+    color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     display: flex;
@@ -608,12 +609,10 @@ body {
     right: 24px;
     top: 96px;
     width: 180px;
-    background: var(--toc-bg);
-    backdrop-filter: blur(10px);
+    background: var(--bg-card);
     padding: 16px;
     border-radius: var(--radius);
     border: 1px solid var(--border-color);
-    box-shadow: var(--shadow-sm);
     display: none;
     z-index: 100;
     max-height: calc(100vh - 140px);
@@ -627,7 +626,7 @@ body {
     color: var(--text-muted);
     margin-bottom: 6px;
     letter-spacing: 0.05em;
-    font-family: 'Inter', monospace;
+    font-family: "Inter Tight", monospace;
 }
 
 .toc-link {
@@ -647,9 +646,9 @@ body {
 }
 
 .toc-link.active {
-    color: var(--primary);
+    color: var(--text-main);
     font-weight: 700;
-    border-left: 2px solid var(--primary);
+    border-left: 2px solid var(--text-main);
     padding-left: 6px;
 }
 
@@ -683,8 +682,7 @@ body {
 }
 
 .related-card:hover {
-    border-color: var(--primary);
-    transform: translateY(-1px);
+    border-color: var(--border-strong);
 }
 
 .related-title {
@@ -702,7 +700,7 @@ body {
 .related-date {
     font-size: 0.7rem;
     color: var(--text-muted);
-    font-family: 'Inter', monospace;
+    font-family: "Inter Tight", monospace;
 }
 
 .pubmed-link {
@@ -710,19 +708,20 @@ body {
     align-items: center;
     gap: 8px;
     margin-top: 36px;
-    color: white;
-    background: var(--primary);
+    color: var(--bg-card);
+    background: var(--text-main);
     padding: 10px 20px;
     border-radius: var(--radius-sm);
     text-decoration: none;
     font-weight: 600;
     font-size: 0.82rem;
     transition: all 0.2s ease;
-    border: 1px solid var(--primary);
+    border: 1px solid var(--text-main);
 }
 
 .pubmed-link:hover {
-    background: var(--primary-dark);
+    background: var(--text-secondary);
+    border-color: var(--text-secondary);
 }
 
 /* --- MOBILE DRAWER LAYOUT --- */

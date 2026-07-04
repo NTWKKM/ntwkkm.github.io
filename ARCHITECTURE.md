@@ -421,9 +421,11 @@ The NTWKKM Knowledge Vault is an automated, dynamic resource hub and clinical in
 
 All pages use `data-theme="light|dark"` on the `<html>` element with `localStorage.theme` persistence. Theme selection syncs seamlessly across the site.
 
-- **Unified Color Palette:** All pages use `--primary: #2563eb` (light) / `#60A5FA` (dark)
+- **Braun-Era Color Palette:**
+  - **Light Theme (Default):** Warm off-white/cream paper background (`#ebe7df`), dark ink primary text (`#1a1a1a`), and graphite secondary text (`#4a4a4a`). Accent is signal orange (`#d84315`). Navigation uses a deep navy gradient.
+  - **Dark Theme (Inverted):** Deep navy background (`#121e36` body, `#1a2744` cards) and warm off-white/cream text (`#ebe7df`). Accent is signal orange (`#ff6f43`).
 - **Auto-detection:** First-time visitors inherit `prefers-color-scheme` from their OS
-- **Smooth transitions:** Background and text color transitions on theme toggle
+- **Smooth transitions:** Background and text transitions on theme toggle
 
 ### Frontend Architecture
 
@@ -519,5 +521,5 @@ All JSON data is sanitized before DOM injection via centralized functions in `sh
 - **Installable**: Users can add to home screen on mobile/desktop
 - **Offline-first**: Core pages cached for offline access
 - **Background sync**: Ready for future offline data synchronization
-- **Theme color**: Matches site branding (#2563eb)
+- **Theme color**: Matches site branding (#ebe7df)
 - **Icons**: SVG-based icons in multiple sizes (32, 192, 512)

@@ -41,3 +41,8 @@
 - **Context**: Inline style blocks grew up to 1,000 lines within single HTML files, causing huge codebase redundancy, hard-to-maintain theme styling, and slow cache performance.
 - **Decision**: Centralize all light/dark mode variables and global rules in `shared.css`. Extract page-specific inline styles into external stylesheets (`index.css`, `blog.css`, and `tracking/tracking.css`). Refactor all sub-page stylesheets (like `fray/fray-dashboard.css`) to inherit variables from `shared.css`.
 - **Consequence**: Improves code readability, maintainability, and reusability. External stylesheets are cached by the browser and service worker, reducing page load times and network overhead.
+
+### ADR-005: Braun-Era Paper-Industrial Theme Migration
+- **Context**: The existing blue-accented glassmorphic and shadow-heavy design was generic and distracted from the medical content. A unique, premium, distraction-free clinical reader aesthetic was desired.
+- **Decision**: Migrate to a paper-industrial theme inspired by 1960s-70s Braun product design (Dieter Rams). Adopt a warm cream/paper background (`#ebe7df`) and near-black text (`#1a1a1a`) with a deep navy nav gradient. Contrast this in dark mode using inverted colors (deep navy background with light cream text). Reduce card radius to a harder industrial edge (`4px`/`2px`), flatten shadows, remove modern transition lifts, and restrict signal orange (`#d84315`) to high-priority items.
+- **Consequence**: Establishes a highly distinct, professional, clinical "printed document" design system with strong typography (`Inter Tight`, `Sarabun`) and excellent readability under unstable hospital lighting conditions.

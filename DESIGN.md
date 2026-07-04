@@ -1,95 +1,91 @@
 # NTWKKM Design System & Guidelines (DESIGN.md)
 
-*Last Updated: 2026-05-28*
+*Last Updated: 2026-07-04*
 
-This document serves as the **core design guideline** for any AI agent or developer modifying or creating new interfaces for the NTWKKM project. All UI implementations MUST adhere strictly to these principles to maintain a cohesive, premium, and modern aesthetic across all modules (`index`, `blog`, `tracking`, `fray`).
+This document serves as the **core design guideline** for any AI agent or developer modifying or creating new interfaces for the NTWKKM project. All UI implementations MUST adhere strictly to these principles to maintain a cohesive, premium, and matte aesthetic across all modules (`index`, `blog`, `tracking`, `fray`).
+
+---
 
 ## 1. Core Philosophy
-- **Minimalist & Clean**: Visual simplification is key. The design uses a clean, monochromatic theme with a single crisp primary blue accent. Avoid visual clutter like text-typing animations, 3D tilt effects, and redundant gradients.
-- **Modern & Premium**: Clean lines, thin borders (`1px solid var(--border)`), solid card containers, and subtle glassmorphic headers.
-- **Cognitive Clarity**: Interfaces must be data-dense but highly readable. Use typography, varied font weights, and spacing to create clear visual hierarchies.
-- **Interactive & Alive**: Elements should respond to user interaction. Use hover lifts, border color changes, and smooth transitions to make the UI feel reactive.
-- **Dark Mode First-Class**: Every component must look stunning in both Light (`data-theme="light"`) and Dark (`data-theme="dark"`) modes. Always rely on CSS variables.
+- **Braun-Era Paper-Industrial**: The design language is inspired by the 1960s-70s Braun product design (Dieter Rams). It has a muted, matte, "printed document" feel. Avoid modern glassmorphic panels, glossy gradients (except navigation), and 3D tilts.
+- **Flat & Solid**: Use thin 1px lines in `--rule` for dividers and borders. Avoid heavy drop shadows or large blurred overlays.
+- **Interactive & Quiet**: Elements should react to user hover but remain quiet. Change border colors or background shades on hover. Avoid moving elements (no `transform: translateY`) or increasing drop shadows.
+- **First-Class Dark Mode (Inverted)**: Both Light and Dark modes are supported. Dark mode is an inversion: using deep navy surfaces (`#121e36` body, `#1a2744` cards) and warm cream/paper text (`#ebe7df`).
+- **Accent Restraint**: Only ONE accent color (`--signal-orange`) exists. It must be used sparingly for high-priority or critical items only (e.g., status errors, highlights). Do not use it decoratively or for standard call-to-actions.
+
+---
 
 ## 2. Typography
-We use a multi-font stack to separate prose, Thai text, and technical data:
-- **Primary Text (UI & English Prose)**: `Inter`, -apple-system, sans-serif
+We use a multi-font stack to separate UI labels, prose, Thai text, and technical data:
+- **Primary Text (UI & English Prose)**: `Inter Tight`, `Neue Haas Grotesk`, sans-serif
 - **Secondary Text (Thai Language)**: `Sarabun`
-- **Technical Data (Metrics, Logs, IDs, Status, Barcodes)**: `JetBrains Mono`, `Courier New`, monospace (or `SF Mono`)
+- **Technical Data (Metrics, Logs, IDs, Status, Barcodes)**: `JetBrains Mono`, `Courier New`, monospace
 
-*Rule of thumb*: Use Monospace for any number, metric, barcode, ID, or system status. Use uppercase with wide letter-spacing (`letter-spacing: 0.05em` to `0.1em`) for small sub-headers or labels.
+```css
+font-family: "Inter Tight", "Neue Haas Grotesk", "Sarabun", sans-serif;
+```
+
+---
 
 ## 3. Color Palette & CSS Variables
 All colors MUST be referenced via CSS variables defined in `:root` and `[data-theme="dark"]`. **Do not hardcode HEX or RGB values** in component styles.
 
-**Brand Colors:**
-- `--primary`: Blue (`#2563eb` light / `#60A5FA` dark)
-- `--accent`: Red (`#E63946` light / `#F87171` dark)
-- **Gradient Text**: Brand titles use a gradient clip: 
-  `background: linear-gradient(90deg, var(--primary), var(--accent)); -webkit-background-clip: text; color: transparent;`
+### 3.1. Light Theme (Default)
+- `--paper`: `#ebe7df` (Main page background — warm cream/off-white)
+- `--ink`: `#1a1a1a` (Primary text color)
+- `--graphite`: `#4a4a4a` (Secondary text)
+- `--rule`: `#d8d4c8` (Dividers, card borders)
+- `--signal-orange`: `#d84315` (Signal accent — high priority only)
+- `--primary`: `#1e3c72` (Deep navy nav background)
+- `--primary-hover`: `#49628d` (Nav item hover background)
 
-**Surface Colors:**
-- `--bg-body`: App background (`#F3F4F6` light / `#0F172A` dark)
-- `--bg-card`: Card/Panel background (`#FFFFFF` light / `#1E293B` dark)
-- `--bg-surface`: Slightly offset background for inner blocks (`#F9FAFB` light / `#0F172A` dark)
+### 3.2. Dark Theme (Inverted)
+- `--bg-body`: `#121e36` (Deep navy body background)
+- `--bg-card`: `#1a2744` (Slightly lighter navy card background)
+- `--text-main`: `#ebe7df` (Warm cream primary text)
+- `--text-secondary`: `#c4bfb0` (Warm greyish secondary text)
+- `--border`: `#233558` (Dark rule/border)
+- `--signal-orange`: `#ff6f43` (Slightly brighter orange for dark contrast)
 
-**State Colors (Vitals/Status):**
-- **OK/Green**: `--state-ok` 
-- **Warning/Amber**: `--state-warn` 
-- **Error/Red**: `--state-err` 
-- **Neutral/Gray**: `--state-neutral` 
-*(Use `--state-*-bg` and `--state-*-border` for translucent backgrounds/borders on badges).*
+### 3.3. Category / Tag Colors
+Muted tones, applied **text-only** (never as solid background badges).
+- Ochre: `#b8873a` (e.g., Neuro)
+- Slate: `#3a5566` (e.g., Cardiac, Pulmonary)
+- Olive: `#5a6b3b` (e.g., Anticoag, Procedural)
+- Brick: `#8a3a2a` (e.g., Tox)
+- Graphite: `#4a4a4a` (e.g., Tools)
+
+---
 
 ## 4. UI Components & Patterns
 
 ### 4.1. Cards & Panels
-Cards are the fundamental building block of the UI.
-- **Border Radius**: `--radius: 16px` for outer cards, `--radius-sm: 8px` for inner elements.
-- **Borders**: `1px solid var(--border)`.
-- **Shadows**: Default to `--shadow`.
-- **Hover State**: Interactive cards MUST lift on hover (`transform: translateY(-2px)` or `-4px`), increase shadow to `--shadow-hover`, and border color should transition to `var(--primary)`.
-- **Decorative Edge**: Consider using a left-edge pseudo-element (`::before`) colored with an accent or state color to give cards a physical feel (e.g., used in tracking cards and papers).
+- **Border Radius**: `--radius: 4px` for outer cards, `--radius-sm: 2px` for inner elements, to give a harder industrial edge.
+- **Borders**: Thin `1px solid var(--border)`.
+- **Hover State**: Cards do NOT lift or grow shadows. On hover, change `border-color` to `var(--border-strong)`.
 
-### 4.2. Glassmorphism Headers
-- Headers use a blurred backdrop for a premium feel.
-- `backdrop-filter: blur(10px)` combined with a semi-transparent background (e.g., `background: color-mix(in srgb, var(--bg-card), transparent 10%)`).
-- Positioned as `sticky` at the top with `z-index: 100`.
+### 4.2. Navigation Bar
+- The header is the only area permitted a gradient: `linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)`.
+- Navigation text and icons are warm off-white (`#F0EDE5`).
+- Hover states use `#49628d` background.
 
 ### 4.3. Badges and Chips
-Used extensively for statuses (e.g., `[OK]`, `[Delivered]`, `[Warning]`).
-- Small uppercase text (`0.68rem - 0.75rem`), bold weight (`600-700`).
-- Monospaced font (`JetBrains Mono`).
-- Rounded corners (`border-radius: 999px` or `4px` depending on context).
-- Solid border + translucent background. Example:
-  `background: var(--state-ok-bg); color: var(--state-ok); border-color: var(--state-ok-border);`
+- Muted category colors are applied to text and borders only.
+- chips use background `var(--bg-paper-list)` and border `var(--border)`.
+- Active filters use high-contrast ink: background `var(--text-main)`, color `var(--bg-card)`.
 
 ### 4.4. Buttons & Controls
-- **Standard Button**: White/Dark background, border, subtle shadow. Hovers to `--primary` border and text.
-- **Primary Button**: Solid `--primary` background, white text, bold. Lifts on hover.
-- **Pill Shape**: Standard buttons generally use `border-radius: 50px`.
+- **Standard Button**: Warm background (`var(--bg-card)`), border `var(--border)`. Hovers to `var(--border-strong)`.
+- **Primary Button**: Solid ink background (`var(--text-main)`), cream text (`var(--bg-card)`), flat with no drop shadow.
+- **Theme Toggle**: Circular button with no shadow. Adjusts fill color to match nav bar background.
 
-### 4.5. Skeleton Loading
-Always implement skeleton loaders for async data to prevent layout shift.
-- Use a base background with a gradient overlay animated via `@keyframes shimmer`.
+---
 
-## 5. Animations & Micro-interactions
-Motion makes the UI feel alive. Do not create static, rigid interfaces.
-- **Entry**: Use `@keyframes fadeUp` (`opacity: 0; transform: translateY(16px)`) for elements entering the DOM. Stagger children using animation delays (`.d1`, `.d2`, etc.).
-- **Hover**: Transitions should be smooth (e.g., `transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)` for bouncy effects, or just `ease`).
-- **Progress Bars**: Width transitions should be smooth (`transition: width 0.8s ease`).
-
-## 6. Accessibility & Responsiveness
-- **Responsive**: Use CSS Grid and Clamp (`clamp(min, val, max)`) functions for fluid typography and layouts. Ensure the layout gracefully stacks to a single column or drawer on mobile screens (`max-width: 1024px` or `768px`).
-- **Mobile Navigation Drawer**: Use slide-out sliding drawer overlays (`position: fixed`) with a blurred translucent backdrop (`backdrop-filter: blur(4px)`) and a `z-index` layer setup (open button < backdrop < drawer) to maximize reading real-estate on mobile.
-- **Horizontal Tag Lists**: Avoid wrapping large lists of filter tags on mobile. Use `overflow-x: auto` and hide the scrollbar (`scrollbar-width: none` / `::-webkit-scrollbar { display: none }`) to keep them in a clean single row.
-- **Hidden Text**: For icon buttons on mobile, hide text spans rather than removing them completely to maintain screen-reader accessibility.
-
-## 7. AI Agent Instruction Checklist
-**When prompting an AI to build a new component or page, strictly enforce these rules:**
-1. [ ] "Use CSS variables from the theme root (`var(--primary)`, `var(--bg-card)`, etc.). Do not hardcode colors."
-2. [ ] "Use `Inter` for standard text and `JetBrains Mono` for data/metrics."
-3. [ ] "Implement hover lift effects (`translateY`) and shadow increases on interactive cards/buttons."
-4. [ ] "Ensure compatibility with both `[data-theme="light"]` and `[data-theme="dark"]`."
-5. [ ] "Add `fadeUp` entry animations for a smooth loading experience."
-6. [ ] "Ensure mobile responsiveness using CSS Grid and flexbox (use drawer layouts for complex sidebars)."
-7. [ ] "Use single-row horizontal scrolling containers for lists of filters on mobile viewports."
+## 5. AI Agent Instruction Checklist
+**When building a new component or page, strictly enforce these rules:**
+1. [ ] "Use the centralized Braun variables from `shared.css` (`var(--paper)`, `var(--ink)`, `var(--rule)`, etc.). No hardcoded HEX/RGB."
+2. [ ] "Use `Inter Tight` for UI/Latin, `Sarabun` for Thai, and monospace for metrics/IDs."
+3. [ ] "Set card border radius to `4px` and small elements to `2px` for harder industrial edges."
+4. [ ] "Do not implement card elevation lifts (`translateY`) or drop shadows on hover. Hover effects must be flat (e.g., border color changes)."
+5. [ ] "Category tags/badges must be text-only colors, never solid colored backgrounds."
+6. [ ] "Ensure the layout is responsive and supports the Inverted Dark Theme color variables."
