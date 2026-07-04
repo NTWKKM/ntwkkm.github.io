@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — NTWKKM Personal Website
 
-**Last Updated:** 2026-05-21
+**Last Updated:** 2026-07-04
 
 ## Overview
 
@@ -424,6 +424,8 @@ All pages use `data-theme="light|dark"` on the `<html>` element with `localStora
 - **Braun-Era Color Palette:**
   - **Light Theme (Default):** Warm off-white/cream paper background (`#ebe7df`), dark ink primary text (`#1a1a1a`), and graphite secondary text (`#4a4a4a`). Accent is signal orange (`#d84315`). Navigation uses a deep navy gradient.
   - **Dark Theme (Inverted):** Deep navy background (`#121e36` body, `#1a2744` cards) and warm off-white/cream text (`#ebe7df`). Accent is signal orange (`#ff6f43`).
+- **Navigation Styling (Homepage):** The sticky header navigation retains its dark theme aesthetics (`#F0EDE5` text/icons) even in Light Theme to ensure optimal contrast on its deep navy gradient background. Borders on social links and highlights are transparent to match the solid flat appearance, and the theme toggle inherits matching translucent colors.
+- **Interactive Standout (Project Cards):** Homepage project cards feature a minimal standout sentinel on hover, matching the `.order-row` slate blue hover (`#49628d` background with a left border sentinel and child text turning `#F0EDE5`).
 - **Auto-detection:** First-time visitors inherit `prefers-color-scheme` from their OS
 - **Smooth transitions:** Background and text transitions on theme toggle
 
