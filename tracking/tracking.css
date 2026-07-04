@@ -35,6 +35,12 @@ body {
   align-items: center;
 }
 
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .brand-group {
   display: flex;
   flex-direction: column;

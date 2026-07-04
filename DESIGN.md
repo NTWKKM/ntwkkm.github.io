@@ -62,7 +62,7 @@ Muted tones, applied **text-only** (never as solid background badges).
 ### 4.1. Cards & Panels
 - **Border Radius**: `--radius: 4px` for outer cards, `--radius-sm: 2px` for inner elements, to give a harder industrial edge.
 - **Borders**: Thin `1px solid var(--border)`.
-- **Hover State / Minimal Standout Sentinel:** Cards (such as `.project-card` and homepage `.paper-card`) do NOT lift or grow shadows. On hover, background changes to `#49628d`, borders are `#49628d`, child text turning `#F0EDE5`, and a left border sentinel is styled as `border-left: 4px solid #F0EDE5;` (with corresponding left padding reduction to prevent layout shift).
+- **Hover State / Minimal Standout Sentinel:** Cards (such as `.project-card` and homepage `.paper-card`) do NOT lift or grow shadows. On hover, background changes to `#49628d`, borders are `#49628d`, child text turning `#F0EDE5`, and a left border sentinel is styled as `border-left: 4px solid #F0EDE5;` (with corresponding left padding reduction to prevent layout shift). Similarly, blog article list items (`.article-list-item`) and related cards (`.related-card`) transition to `#49628d` background, `#F0EDE5` text, and a `3px` left border sentinel on hover.
 
 ### 4.2. Navigation Bar
 - The header is the only area permitted a gradient: `linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)`. This color scheme is standardized globally across all module headers (Homepage, Fray, and Tracking dashboards) for layout consistency.

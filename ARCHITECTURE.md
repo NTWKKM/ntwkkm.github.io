@@ -472,7 +472,7 @@ All JSON data is sanitized before DOM injection via centralized functions in `sh
 ## Navigation Bar Consistency & Responsive Alignment
 
 - **Unified Colors:** Headers in the `fray` and `tracking` modules are standardized to match the homepage's sticky header gradient (`linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)`) and flat, borderless buttons to present a consistent, premium design theme.
-- **Right-Aligned Controls:** On mobile screens (< 768px), the navigation action controls (links, buttons, toggles) are formatted as compact icon-only buttons and aligned strictly to the right (`justify-content: flex-end; gap: 12px;`) to optimize space.
+- **Flex Controls Alignment:** Navigation action controls (links, buttons, toggles) are aligned as a flex container (`display: flex; align-items: center; gap: 12px;`) across both desktop and mobile viewports. On mobile screens (< 768px), they format as compact icon-only buttons (hiding text labels) and align strictly to the right (`justify-content: flex-end;`) to optimize space.
 
 ## Caching
 

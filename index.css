@@ -200,12 +200,13 @@ header .theme-btn:hover {
 
 .paper-card:hover .paper-title,
 .paper-card:hover .paper-comment,
-.paper-card:hover .paper-date,
-.paper-card:hover .paper-link {
+.paper-card:hover .paper-date {
     color: #F0EDE5;
 }
 
-.paper-card:hover .paper-link {
+.paper-card:hover .paper-link,
+.paper-card:hover .paper-link:hover {
+    color: #F0EDE5;
     border-top-color: rgba(240, 237, 229, 0.2);
 }
 

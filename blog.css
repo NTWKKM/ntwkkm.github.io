@@ -357,8 +357,17 @@ body {
 }
 
 .article-list-item:hover {
-    background: var(--bg-paper-list);
-    color: var(--text-main);
+    background-color: #49628d;
+    color: #F0EDE5;
+    border-left-color: #F0EDE5;
+}
+
+.article-list-item:hover .list-title {
+    color: #F0EDE5;
+}
+
+.article-list-item:hover .list-meta {
+    color: #cbd5e1;
 }
 
 .article-list-item.active {
@@ -366,6 +375,20 @@ body {
     border-left: 3px solid var(--text-main);
     font-weight: 600;
     color: var(--text-main);
+}
+
+.article-list-item.active:hover {
+    background-color: #49628d;
+    color: #F0EDE5;
+    border-left-color: #F0EDE5;
+}
+
+.article-list-item.active:hover .list-title {
+    color: #F0EDE5;
+}
+
+.article-list-item.active:hover .list-meta {
+    color: #cbd5e1;
 }
 
 .list-title {
@@ -674,15 +697,24 @@ body {
 
 .related-card {
     background: var(--bg-surface);
-    padding: 16px;
+    padding: 16px 16px 16px 13px; /* offset padding for 3px left border sentinel */
     border-radius: var(--radius-sm);
     cursor: pointer;
     transition: all 0.2s;
     border: 1px solid var(--border);
+    border-left: 3px solid transparent;
 }
 
 .related-card:hover {
-    border-color: var(--border-strong);
+    background-color: #49628d;
+    border-color: #49628d;
+    border-left-color: #F0EDE5;
+    color: #F0EDE5;
+}
+
+.related-card:hover .related-title,
+.related-card:hover .related-date {
+    color: #F0EDE5;
 }
 
 .related-title {
