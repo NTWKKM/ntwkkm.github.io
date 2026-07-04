@@ -23,36 +23,43 @@
 ## Architectural Decision Records (ADRs)
 
 ### ADR-001: Notion-to-GitHub Static Publishing
+
 - **Context**: A database was needed to hold summaries of research papers, but keeping a live server running would incur costs and maintenance overhead.
 - **Decision**: Use Notion as the CMS. An n8n workflow queries Notion database and pushes changes to GitHub. A GitHub Action parses, deduplicates, and splits the data into static JSON chunks (`data/blog/*.json`) that are fetched on demand.
 - **Consequence**: Zero-cost, high-performance static hosting on GitHub Pages, with simple client-side page rendering.
 
 ### ADR-002: Service Worker Cache (Offline-First)
+
 - **Context**: As a clinical reader app used by an ER Physician, network connectivity inside hospitals can be highly unstable.
 - **Decision**: Implement a Service Worker (`sw.js`) with cache-first static caches and network-first dynamic caches, separated by version.
 - **Consequence**: Core files and previously read articles remain fully readable without active internet connection.
 
 ### ADR-003: Mobile Drawer UX for Blog Reader
+
 - **Context**: The original layout stacked the sidebar above the reading view on mobile viewports. With extensive filter tags, the header took up all the space, pushing the paper list completely out of view and leaving very little room for article reading.
 - **Decision**: Replaced the stacked mobile layout with a slide-out drawer overlay (`position: fixed`) and backdrop overlay, auto-closing upon paper selection. Forced tags to stay in a single horizontally scrollable row.
 - **Consequence**: Restores full screen height for reading, eliminates overlapping bugs, and provides a native-like mobile app experience.
 
 ### ADR-004: CSS Modularization & Theme Centralization
+
 - **Context**: Inline style blocks grew up to 1,000 lines within single HTML files, causing huge codebase redundancy, hard-to-maintain theme styling, and slow cache performance.
 - **Decision**: Centralize all light/dark mode variables and global rules in `shared.css`. Extract page-specific inline styles into external stylesheets (`index.css`, `blog.css`, and `tracking/tracking.css`). Refactor all sub-page stylesheets (like `fray/fray-dashboard.css`) to inherit variables from `shared.css`.
 - **Consequence**: Improves code readability, maintainability, and reusability. External stylesheets are cached by the browser and service worker, reducing page load times and network overhead.
 
 ### ADR-005: Braun-Era Paper-Industrial Theme Migration
+
 - **Context**: The existing blue-accented glassmorphic and shadow-heavy design was generic and distracted from the medical content. A unique, premium, distraction-free clinical reader aesthetic was desired.
 - **Decision**: Migrate to a paper-industrial theme inspired by 1960s-70s Braun product design (Dieter Rams). Adopt a warm cream/paper background (`#ebe7df`) and near-black text (`#1a1a1a`) with a deep navy nav gradient. Contrast this in dark mode using inverted colors (deep navy background with light cream text). Reduce card radius to a harder industrial edge (`4px`/`2px`), flatten shadows, remove modern transition lifts, and restrict signal orange (`#d84315`) to high-priority items.
 - **Consequence**: Establishes a highly distinct, professional, clinical "printed document" design system with strong typography (`Inter Tight`, `Sarabun`) and excellent readability under unstable hospital lighting conditions.
 
 ### ADR-006: Navigation Bar Contrast and Card Hover Refinements
+
 - **Context**: The initial navigation bar implementation in Light Theme fallback colors made brand headings illegible on its dark navy background. Additionally, the border styles on action buttons inside the nav looked cluttered, and project cards lacked clear interactive feedback compared to the clean layout used in other components.
 - **Decision**: Locked the header brand text to warm off-white (`#F0EDE5`) and ivory (`#c4bfb0`) across both themes. Removed borders from action buttons to emphasize a flat, solid, matte UI. Applied the "minimal standout" sentinel design from the Standing Order Hub to homepage project cards (`#49628d` background and a `4px` left border sentinel `#F0EDE5` on hover, offset by padding), and implemented smooth CSS transitions (0.2s ease) on child elements (`.project-title`, `.project-desc`, `.project-icon`) to prevent abrupt visual snapping.
 - **Consequence**: Restores perfect contrast readability on the sticky nav header and aligns the portfolio card list with the core design principles of flat, responsive, and tactile interactive responses with smooth, premium transitions.
 
 ### ADR-007: Responsive Nav Right-Alignment and Header Color Standardization
+
 - **Context**: Mobile navigation menus on homepage, Fray, and Tracking pages were disorganized, utilizing varied alignments (some stretched, some left-aligned, some right-aligned). Additionally, the headers in `fray` and `tracking` pages used standard card background variables instead of matching the homepage's deep navy gradient, causing visual inconsistency. On the blog page, the mobile drawer collapsed state was broken on initial load because the sidebar lacked default hidden positions and the menu button was invisible/non-interactive on mobile viewports.
 - **Decision**: Set the mobile layout of navigation controls to `justify-content: flex-end; gap: 12px;` to neatly right-align buttons on mobile screens. Standardized the headers of Fray and Tracking pages to use the homepage's navy gradient background with solid cream text (`#F0EDE5`), removing custom gradient text effects. Forced the `blog.html` sidebar to collapse dynamically on mobile load, modified the mobile CSS to transition the sidebar based on `.collapsed`, and overrode the mobile open button opacity and pointer-events to ensure visibility.
 - **Consequence**: Delivers a fully cohesive, consistent header navigation experience across all sub-apps, solves mobile drawer access, and aligns with the responsive, premium design guidelines.

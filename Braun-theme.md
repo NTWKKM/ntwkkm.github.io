@@ -11,6 +11,7 @@ Only ONE accent color (signal orange) exists, and it should be used sparingly.
 ## 1. Core Palette
 
 ### Light Theme (Default)
+
 ```css
 :root {
     --paper:          #ebe7df; /* main page background — warm off-white/cream */
@@ -24,6 +25,7 @@ Only ONE accent color (signal orange) exists, and it should be used sparingly.
 ```
 
 ### Dark Theme (Inverted)
+
 ```css
 [data-theme="dark"] {
     --paper:          #ebe7df; /* warm off-white/cream — used for text in dark mode */
@@ -33,7 +35,7 @@ Only ONE accent color (signal orange) exists, and it should be used sparingly.
     --signal-orange:  #ff6f43; /* single accent color — slightly brighter for readability */
 
     --theme-color:    #121e36; /* browser/meta theme-color, close to --bg-body */
-    
+
     --bg-body:        #121e36; /* deep navy background */
     --bg-card:        #1a2744; /* slightly lighter navy card */
 }
@@ -61,6 +63,7 @@ Only ONE accent color (signal orange) exists, and it should be used sparingly.
 - Hover state (rows, nav items, project cards): mid-blue `#49628d` background, text/child elements turn `#F0EDE5`, and a `4px` left border sentinel becomes `#F0EDE5`. Smooth CSS transitions (0.2s ease) are implemented on both the card container and its children (`.project-title`, `.project-desc`, and `.project-icon`) to ensure a polished interactive feel.
 
 ## 3. Category / Tag Colors
+
 Muted colors, **text-only** — never used as solid backgrounds. Keeps the UI calm and non-flashy.
 
 ```css
@@ -78,7 +81,7 @@ Muted colors, **text-only** — never used as solid backgrounds. Keeps the UI ca
 ## 4. Typography
 
 | Role | Font | Weights |
-|---|---|---|
+| --- | --- | --- |
 | UI / Latin text | `Inter Tight` | 400, 500, 700 |
 | Thai text | `Sarabun` | 400, 700 |
 | Fallback | `Neue Haas Grotesk, sans-serif` | — |
