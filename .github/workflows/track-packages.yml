@@ -70,7 +70,7 @@ jobs:
           TRACKING_PASSCODE: ${{ secrets.TRACKING_PASSCODE }}
         run: |
           if [ -n "$TRACKING_PASSCODE" ]; then
-            HASH=$(python3 -c "import hashlib, os; print(hashlib.sha256(os.environ['TRACKING_PASSCODE'].strip().encode('utf-8')).hexdigest())")
+            HASH=$(echo -n "$TRACKING_PASSCODE" | sha256sum | awk '{print $1}')
             echo "{\"hash\": \"$HASH\"}" > tracking/auth.json
             echo "Auth hash generated."
           else
