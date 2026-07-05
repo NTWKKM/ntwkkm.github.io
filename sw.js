@@ -215,13 +215,13 @@ self.addEventListener('message', (event) => {
 });
 
 // Background sync for offline actions (future use)
-self.addEventListener('sync', (event) => {
-    if (event.tag === 'sync-data') {
-        event.waitUntil(
-            Promise.resolve().then(() => {
-                // Future: sync offline data when back online
-                console.log('[SW] Background sync triggered');
-            })
-        );
-    }
-});
+// self.addEventListener('sync', (event) => {
+//     if (event.tag === 'sync-data') {
+//         event.waitUntil(
+//             Promise.resolve().then(() => {
+//                 // Future: sync offline data when back online
+//                 console.log('[SW] Background sync triggered');
+//             })
+//         );
+//     }
+// });

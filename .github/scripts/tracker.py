@@ -251,6 +251,43 @@ def process_tracking_events(barcode: str, events: list[dict], note: str, existin
     }
 
 
+def save_status_store(path: str, status_store: dict, passcode: str) -> None:
+    """Save status store, encrypting it if a passcode is provided."""
+    if passcode:
+        log("Encrypting status store before saving...")
+        try:
+            import base64
+            from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+            from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+            from cryptography.hazmat.primitives import hashes
+
+            salt = os.urandom(16)
+            kdf = PBKDF2HMAC(
+                algorithm=hashes.SHA256(),
+                length=32,
+                salt=salt,
+                iterations=100000
+            )
+            key = kdf.derive(passcode.encode("utf-8"))
+            aesgcm = AESGCM(key)
+            iv = os.urandom(12)
+            plaintext_str = json.dumps(status_store, ensure_ascii=False)
+            ciphertext = aesgcm.encrypt(iv, plaintext_str.encode("utf-8"), None)
+
+            encrypted_store = {
+                "encrypted": True,
+                "ciphertext": base64.b64encode(ciphertext).decode("utf-8"),
+                "iv": base64.b64encode(iv).decode("utf-8"),
+                "salt": base64.b64encode(salt).decode("utf-8")
+            }
+            save_json(path, encrypted_store)
+        except Exception as e:
+            log(f"ERROR: Failed to encrypt status store: {e}")
+            sys.exit(1)
+    else:
+        save_json(path, status_store)
+
+
 def main() -> None:
     """Main entry point — orchestrates the tracking pipeline."""
     log("=" * 60)
@@ -296,8 +333,42 @@ def main() -> None:
         sys.exit(0)
 
     # --- 4. Load existing status store ---
+    was_encrypted = False
+    passcode = os.environ.get("TRACKING_PASSCODE", "").strip()
+
     try:
         status_store = load_json(STATUS_STORE_PATH)
+        if isinstance(status_store, dict) and status_store.get("encrypted") is True:
+            was_encrypted = True
+            if not passcode:
+                log("ERROR: status_store.json is encrypted, but TRACKING_PASSCODE environment variable is not set")
+                sys.exit(1)
+            
+            # Decrypt status_store
+            try:
+                import base64
+                from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+                from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+                from cryptography.hazmat.primitives import hashes
+
+                salt = base64.b64decode(status_store["salt"])
+                iv = base64.b64decode(status_store["iv"])
+                ciphertext = base64.b64decode(status_store["ciphertext"])
+
+                kdf = PBKDF2HMAC(
+                    algorithm=hashes.SHA256(),
+                    length=32,
+                    salt=salt,
+                    iterations=100000
+                )
+                key = kdf.derive(passcode.encode("utf-8"))
+                aesgcm = AESGCM(key)
+                plaintext = aesgcm.decrypt(iv, ciphertext, None).decode("utf-8")
+                status_store = json.loads(plaintext)
+                log("Successfully decrypted status store using TRACKING_PASSCODE")
+            except Exception as e:
+                log(f"ERROR: Failed to decrypt status store: {e}")
+                sys.exit(1)
     except (FileNotFoundError, json.JSONDecodeError):
         log("Status store not found or invalid — initializing empty store")
         status_store = {"last_updated": None, "packages": {}}
@@ -342,7 +413,7 @@ def main() -> None:
             if item["barcode"] in packages:
                 packages[item["barcode"]]["note"] = item["note"]
         status_store["packages"] = packages
-        save_json(STATUS_STORE_PATH, status_store)
+        save_status_store(STATUS_STORE_PATH, status_store, passcode)
         sys.exit(0)
 
     log(f"Active (non-delivered) packages: {len(active_items)}")
@@ -411,11 +482,12 @@ def main() -> None:
         del packages[bc]
         changes_made = True
 
-    # --- 10. Save updated store (only if changes detected) ---
-    if changes_made:
+    # --- 10. Save updated store (only if changes detected or migrating to encrypted) ---
+    is_passcode_configured = bool(passcode)
+    if changes_made or (is_passcode_configured and not was_encrypted):
         status_store["last_updated"] = datetime.now(TH_TZ).isoformat()
         status_store["packages"] = packages
-        save_json(STATUS_STORE_PATH, status_store)
+        save_status_store(STATUS_STORE_PATH, status_store, passcode)
     else:
         log("No changes detected — skipping save to avoid unnecessary commit")
 

@@ -181,54 +181,7 @@ function initScreenReaderAnnouncer() {
     }
 }
 
-// ===========================================================================
-// SEARCH OPTIMIZATION
-// ===========================================================================
 
-/**
- * Fuzzy match search query against target text
- * Returns true if characters of query appear in text in the same order
- */
-function fuzzyMatch(query, text) {
-    if (!query) return true;
-    if (!text) return false;
-    
-    const lowerQuery = query.toLowerCase().replace(/\s+/g, '');
-    const lowerText = text.toLowerCase();
-    
-    let queryIndex = 0;
-    for (let i = 0; i < lowerText.length; i++) {
-        if (lowerText[i] === lowerQuery[queryIndex]) {
-            queryIndex++;
-            if (queryIndex === lowerQuery.length) return true;
-        }
-    }
-    return false;
-}
-
-/**
- * Highlight matched terms in text for search results
- */
-function highlightText(text, query) {
-    if (!query || !text) return escapeHTML(text);
-    
-    // Simple word-based highlighting
-    const terms = query.toLowerCase().trim().split(/\s+/).filter(t => t.length > 0);
-    
-    if (terms.length === 0) return escapeHTML(text);
-    
-    // Create a regex to match any of the terms
-    const regex = new RegExp(`(${terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi');
-    const parts = String(text).split(regex);
-    
-    return parts.map((part, index) => {
-        const escaped = escapeHTML(part);
-        if (index % 2 === 1) {
-            return `<span class="search-highlight">${escaped}</span>`;
-        }
-        return escaped;
-    }).join('');
-}
 
 // ===========================================================================
 // 1. DARK MODE LOGIC

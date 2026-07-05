@@ -10,10 +10,17 @@ const fs = require('fs');
 
   try {
     // Start a simple local server to serve static files (resolving CORS issues in Puppeteer tests)
+    const ROOT_DIR = path.resolve(__dirname, '../../');
     server = http.createServer((req, res) => {
-      let filePath = path.join(__dirname, '../../', req.url.split('?')[0]);
-      if (filePath.endsWith('/')) {
-        filePath += 'index.html';
+      let filePath = path.resolve(ROOT_DIR, '.' + req.url.split('?')[0]);
+      if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+        filePath = path.join(filePath, 'index.html');
+      }
+
+      // Security: Prevent directory traversal
+      if (!filePath.startsWith(ROOT_DIR)) {
+        res.writeHead(403, { 'Content-Type': 'text/plain' });
+        return res.end('Forbidden');
       }
 
       fs.readFile(filePath, (err, data) => {
@@ -41,7 +48,7 @@ const fs = require('fs');
     console.log(`Started local static server on http://localhost:${PORT}`);
 
     const launchArgs = process.env.CI ? ['--no-sandbox'] : [];
-    browser = await puppeteer.launch({ headless: 'new', args: launchArgs });
+    browser = await puppeteer.launch({ headless: true, args: launchArgs });
     const page = await browser.newPage();
     
     page.on('console', msg => console.log('CONSOLE:', msg.text()));

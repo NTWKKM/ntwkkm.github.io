@@ -81,3 +81,9 @@
 - **Context**: When visiting the research blog reader directly, the reader pane was left empty, displaying a placeholder telling the user to select a paper. This required an extra click and felt incomplete on initial landing.
 - **Decision**: Update the client-side router (`handleRouting`) and history navigation (`onpopstate`) to automatically select and load the first paper (`filteredPosts[0]`) in the sorted list if no specific ID query parameter is present or found.
 - **Consequence**: Provides a seamless clinical reading experience from the first interaction, automatically highlighting the selected sidebar list item, and ensuring consistent rendering during browser history back/forward navigation.
+
+### ADR-011: Cryptographic Encryption for Client-Side Dashboard Security
+
+- **Context**: The package tracking dashboard runs on static GitHub Pages. The payload (`status_store.json`) was publicly accessible, and the visibility lock screen (checking a passcode hash) was easily bypassable via DevTools or sessionStorage edits.
+- **Decision**: Encrypt `status_store.json` using AES-256-GCM. The key is derived in GitHub Actions (`tracker.py`) using PBKDF2-HMAC-SHA256 from the `TRACKING_PASSCODE` secret. In the browser (`tracking/index.html`), decrypt the fetched payload in-memory using native Web Crypto API (`window.crypto.subtle`) with the passcode entered by the user. If `TRACKING_PASSCODE` is not set, fallback to unencrypted plain text.
+- **Consequence**: Eliminates the client-side bypass vulnerability. The data itself is secure, meaning DOM or session storage edits will only show encrypted garbage without the passcode. It runs 100% serverless and native in the browser without external libraries.

@@ -93,6 +93,12 @@ Muted tones, applied **text-only** (never as solid background badges).
 - **Primary Button**: Solid ink background (`var(--text-main)`), cream text (`var(--bg-card)`), flat with no drop shadow.
 - **Theme Toggle**: Circular button with no shadow. Adjusts fill color to match nav bar background.
 
+### 4.5. Secure Dashboards & Passcode Gate
+
+- **Auth Gate Overlay**: The passcode gate `.auth-gate` covers the entire screen, utilizing standard Rams flexbox layout to center the login container.
+- **Passcode Box Feedback**: If decryption fails, the `.auth-box` is temporarily given a `.shake` class (shaking CSS keyframe animation) triggered by a forced browser reflow (`void authBox.offsetWidth;`) for immediate tactile feedback.
+- **Session Persistence**: Once successfully decrypted, the raw passcode is saved in `sessionStorage` (`tracking_passcode`) so subsequent page reloads do not trigger the auth gate, automatically pre-authenticating the user.
+
 ---
 
 ## 5. AI Agent Instruction Checklist

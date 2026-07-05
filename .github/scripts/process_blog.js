@@ -113,8 +113,8 @@ function run() {
     // 6. แปลงกลับเป็น Array และเรียงลำดับตามเวลาอัปเดตล่าสุด (ล่าสุดอยู่บน)
     let mergedPosts = Array.from(postMap.values());
     mergedPosts.sort((a, b) => {
-        const timeA = new Date(a.property_last_edited_time || 0).getTime();
-        const timeB = new Date(b.property_last_edited_time || 0).getTime();
+        const timeA = new Date(a.property_last_edited_time || 0).getTime() || 0;
+        const timeB = new Date(b.property_last_edited_time || 0).getTime() || 0;
         return timeB - timeA; 
     });
 

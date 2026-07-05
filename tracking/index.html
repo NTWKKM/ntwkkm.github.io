@@ -343,14 +343,27 @@
       try {
         const data = await fetchWithFallback('status_store.json?v=' + Date.now(), null, 2);
         if (!data) throw new Error('No data received');
-        renderAll(data);
+        fetchedData = data;
+
+        if (data && data.encrypted === true) {
+          const passcode = sessionStorage.getItem('tracking_passcode');
+          if (!passcode) {
+            document.getElementById('authGate').classList.remove('hidden');
+            document.getElementById('authGate').style.display = 'flex';
+            document.getElementById('mainContent').style.display = 'none';
+            return;
+          }
+          const decrypted = await decryptData(passcode, data);
+          renderAll(decrypted);
+        } else {
+          renderAll(data);
+        }
       } catch (e) {
         console.error('Failed to load tracking data:', e);
         document.getElementById('packageGrid').innerHTML =
           '<div class="empty-state"><div class="emoji">⚠️</div>' +
-          '<h2>Could Not Load Data</h2>' +
-          '<p>Make sure <code>status_store.json</code> exists and the workflow has run at least once.</p></div>';
-        document.getElementById('lastUpdated').textContent = 'Error loading data';
+          '<h2>Loading Failed</h2>' +
+          '<p>' + escapeHTML(e.message) + '</p></div>';
       } finally {
         btn.innerHTML = '🔄<span> Refresh</span>';
         btn.disabled = false;
@@ -458,9 +471,59 @@
     }
 
     // =========================================================================
-    // Auth Gate — SHA-256 passcode verification
+    // Auth Gate — SHA-256 passcode verification & Option A Decryption
     // =========================================================================
     let authHash = null;
+    let fetchedData = null;
+
+    function base64ToUint8Array(base64) {
+      const binaryString = atob(base64);
+      const bytes = new Uint8Array(binaryString.length);
+      for (let i = 0; i < binaryString.length; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      return bytes;
+    }
+
+    async function decryptData(passcode, encryptedObj) {
+      const salt = base64ToUint8Array(encryptedObj.salt);
+      const iv = base64ToUint8Array(encryptedObj.iv);
+      const ciphertext = base64ToUint8Array(encryptedObj.ciphertext);
+
+      const encoder = new TextEncoder();
+      const passwordKey = await window.crypto.subtle.importKey(
+        "raw",
+        encoder.encode(passcode),
+        { name: "PBKDF2" },
+        false,
+        ["deriveKey"]
+      );
+
+      const aesKey = await window.crypto.subtle.deriveKey(
+        {
+          name: "PBKDF2",
+          salt: salt,
+          iterations: 100000,
+          hash: "SHA-256"
+        },
+        passwordKey,
+        { name: "AES-GCM", length: 256 },
+        false,
+        ["decrypt"]
+      );
+
+      const decryptedBuffer = await window.crypto.subtle.decrypt(
+        {
+          name: "AES-GCM",
+          iv: iv
+        },
+        aesKey,
+        ciphertext
+      );
+
+      const decoder = new TextDecoder();
+      return JSON.parse(decoder.decode(decryptedBuffer));
+    }
 
     async function sha256(text) {
       const encoder = new TextEncoder();
@@ -471,31 +534,54 @@
     }
 
     async function initAuth() {
-      // Check sessionStorage first
-      if (sessionStorage.getItem('tracking_auth') === 'granted') {
-        grantAccess();
-        return;
-      }
-
       try {
-        const res = await fetch('auth.json?v=' + Date.now());
-        if (!res.ok) throw new Error('No auth.json');
-        const data = await res.json();
-        authHash = data.hash;
-        // Show the gate
-        document.getElementById('authGate').style.display = 'flex';
-        document.getElementById('authInput').focus();
-      } catch {
-        // No auth.json = open access (passcode not configured)
-        grantAccess();
+        const res = await fetch('status_store.json?v=' + Date.now());
+        if (!res.ok) throw new Error('No status_store.json');
+        fetchedData = await res.json();
+
+        if (fetchedData && fetchedData.encrypted === true) {
+          const cachedPasscode = sessionStorage.getItem('tracking_passcode');
+          if (cachedPasscode) {
+            try {
+              const decrypted = await decryptData(cachedPasscode, fetchedData);
+              grantAccess(decrypted);
+              return;
+            } catch (e) {
+              console.warn("Cached passcode invalid, clearing");
+              sessionStorage.removeItem('tracking_passcode');
+            }
+          }
+          document.getElementById('authGate').style.display = 'flex';
+          document.getElementById('authInput').focus();
+        } else {
+          grantAccess(fetchedData);
+        }
+      } catch (e) {
+        console.error("Initialization error:", e);
+        try {
+          const res = await fetch('auth.json?v=' + Date.now());
+          if (res.ok) {
+            const data = await res.json();
+            authHash = data.hash;
+            document.getElementById('authGate').style.display = 'flex';
+            document.getElementById('authInput').focus();
+          } else {
+            grantAccess(null);
+          }
+        } catch {
+          grantAccess(null);
+        }
       }
     }
 
-    function grantAccess() {
+    function grantAccess(decrypted) {
       document.getElementById('authGate').classList.add('hidden');
       document.getElementById('mainContent').style.display = 'block';
-      sessionStorage.setItem('tracking_auth', 'granted');
-      loadData();
+      if (decrypted) {
+        renderAll(decrypted);
+      } else {
+        loadData();
+      }
     }
 
     async function verifyPasscode() {
@@ -513,11 +599,34 @@
       btn.disabled = true;
       btn.textContent = 'Verifying...';
 
-      const inputHash = await sha256(passcode);
-
-      if (inputHash === authHash) {
-        grantAccess();
-      } else {
+      try {
+        if (fetchedData && fetchedData.encrypted === true) {
+          const decrypted = await decryptData(passcode, fetchedData);
+          sessionStorage.setItem('tracking_passcode', passcode);
+          grantAccess(decrypted);
+        } else {
+          if (!authHash) {
+            try {
+              const res = await fetch('auth.json?v=' + Date.now());
+              if (res.ok) {
+                const data = await res.json();
+                authHash = data.hash;
+              }
+            } catch {}
+          }
+          if (authHash) {
+            const inputHash = await sha256(passcode);
+            if (inputHash === authHash) {
+              sessionStorage.setItem('tracking_auth', 'granted');
+              grantAccess(null);
+            } else {
+              throw new Error('Incorrect passcode');
+            }
+          } else {
+            grantAccess(null);
+          }
+        }
+      } catch (e) {
         errorEl.textContent = 'Incorrect passcode. Try again.';
         input.value = '';
         input.focus();
@@ -529,10 +638,10 @@
           authBox.classList.add('shake');
           setTimeout(() => authBox.classList.remove('shake'), 400);
         }
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Unlock';
       }
-
-      btn.disabled = false;
-      btn.textContent = 'Unlock';
     }
 
     // Enter key on auth input
