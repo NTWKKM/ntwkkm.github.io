@@ -5,11 +5,6 @@
 This content reflects the repository structure (updated by GitHub Actions):
 
 ```text
-|-- .kilo /
-|   |-- worktrees /
-|   |   `-- .metadata_never_index
-|   |-- .gitignore
-|   `-- agent-manager.json
 |-- data /
 |   `-- blog /
 |       `-- (Chunked JSON files)
@@ -21,10 +16,6 @@ This content reflects the repository structure (updated by GitHub Actions):
 |   |-- fray-dashboard.css
 |   |-- fray-dashboard.js
 |   `-- index.html
-|-- n8n-github-notion_db /
-|   |-- notion-github-blog.json
-|   |-- pubmed-ai-web-notion.json
-|   `-- research-ai-notion.json
 |-- soul /
 |   `-- audit_and_fix.md
 |-- tracking /
@@ -34,7 +25,6 @@ This content reflects the repository structure (updated by GitHub Actions):
 |   |-- track_list.json
 |   `-- tracking.css
 |-- _config.yml
-|-- .DS_Store
 |-- .gitignore
 |-- ARCHITECTURE.md
 |-- blog_index.json
@@ -46,7 +36,6 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- index.css
 |-- index.html
 |-- manifest.json
-|-- ntwkkm-github-io-audit-2026-07-05.md
 |-- papers.json
 |-- projects.json
 |-- README.md
