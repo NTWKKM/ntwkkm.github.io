@@ -464,6 +464,11 @@ All JSON data is sanitized before DOM injection via centralized functions in `sh
 - **URL State:** Active tags are persisted in `?tag=` query param (comma-separated). Shareable via URL, restored on page load and browser back/forward.
 - **Mobile Scrolling:** On mobile screens (<= 1024px), the filter tags are kept in a single horizontally scrollable row to conserve vertical space and prevent layout overflow.
 
+## Default Routing & Paper Loading (blog.html)
+
+- **Default Loading:** If the blog reader is entered without an `id` query parameter in the URL, it automatically loads the first (latest) paper in the current filtered/sorted list of posts (`filteredPosts[0]`).
+- **History Synchronization:** The `onpopstate` listener coordinates with history navigation. If the user navigates back to the root blog URL (no `id` state), it automatically loads the latest paper instead of showing the blank empty state, delivering a seamless clinical reading experience.
+
 ## Mobile Layout Drawer (blog.html)
 
 - **Drawer Navigation:** Under 1024px, the static sidebar shifts into a sliding overlay drawer (`position: fixed`) with a blurred backdrop (`.sidebar-overlay`).

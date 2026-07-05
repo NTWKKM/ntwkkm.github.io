@@ -968,11 +968,17 @@
                 handleFilter('');
             }
 
-            // Load specific article if ID present
+            // Load specific article if ID present, otherwise load the latest one
             const id = params.get('id');
             if (id && allPosts.length > 0) {
                 const post = allPosts.find(p => p.id === id);
-                if (post) loadArticle(post, false);
+                if (post) {
+                    loadArticle(post, false);
+                } else if (filteredPosts.length > 0) {
+                    loadArticle(filteredPosts[0], false);
+                }
+            } else if (filteredPosts.length > 0) {
+                loadArticle(filteredPosts[0], false);
             }
         }
 
@@ -1005,11 +1011,26 @@
                 const post = allPosts.find(p => p.id === event.state.id);
                 if (post) {
                     loadArticle(post, false);
+                } else if (filteredPosts.length > 0) {
+                    loadArticle(filteredPosts[0], false);
                 } else {
                     clearArticle();
                 }
             } else {
-                clearArticle();
+                // If there's an id in URL parameters
+                const id = params.get('id');
+                if (id) {
+                    const post = allPosts.find(p => p.id === id);
+                    if (post) {
+                        loadArticle(post, false);
+                        return;
+                    }
+                }
+                if (filteredPosts.length > 0) {
+                    loadArticle(filteredPosts[0], false);
+                } else {
+                    clearArticle();
+                }
             }
         };
 

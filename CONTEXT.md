@@ -76,3 +76,10 @@
 - **Decision**: Introduce a `_config.yml` at the repository root containing an `exclude` list that covers these core documentation files at the root level, and also within the private `pl/` subdirectory checkout directory.
 - **Consequence**: Prevent accidental public exposure of raw internal design, logic, and workflow context, ensuring those remain strictly confidential.
 
+### ADR-010: Default to Latest Paper in Blog Reader
+
+- **Context**: When visiting the research blog reader directly, the reader pane was left empty, displaying a placeholder telling the user to select a paper. This required an extra click and felt incomplete on initial landing.
+- **Decision**: Update the client-side router (`handleRouting`) and history navigation (`onpopstate`) to automatically select and load the first paper (`filteredPosts[0]`) in the sorted list if no specific ID query parameter is present or found.
+- **Consequence**: Provides a seamless clinical reading experience from the first interaction, automatically highlighting the selected sidebar list item, and ensuring consistent rendering during browser history back/forward navigation.
+
+
