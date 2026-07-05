@@ -23,6 +23,7 @@ Static personal website hosted on GitHub Pages (`ntwkkm.github.io`). Serves as a
 | `pl/index.html` | `[NEW]` NTWKKM Knowledge Vault — Auto-synced from private `NTWKKM/pl` |
 | `manifest.json` | `[NEW]` PWA manifest — installable web app experience |
 | `sw.js` | `[NEW]` Service Worker — offline caching and resilience |
+| `_config.yml` | `[NEW]` Jekyll build config — excludes internal docs and metadata |
 | `shared.js` | Global utilities (fetch fallbacks, debounce, UI, search, a11y, sanitization) |
 | `shared.css` | Shared styles (variables, reset, scrollbar, toast, skeleton, a11y, animations) |
 

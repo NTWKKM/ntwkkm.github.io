@@ -91,3 +91,5 @@ Muted tones, applied **text-only** (never as solid background badges).
 4. [ ] "Do not implement card elevation lifts (`translateY`) or drop shadows on hover. Hover effects must be flat (e.g., border color changes)."
 5. [ ] "Category tags/badges must be text-only colors, never solid colored backgrounds."
 6. [ ] "Ensure the layout is responsive and supports the Inverted Dark Theme color variables."
+7. [ ] "Every anchor link that opens in a new tab (`target="_blank"`) MUST strictly define `rel="noopener noreferrer"` to prevent tabnabbing security vulnerabilities."
+

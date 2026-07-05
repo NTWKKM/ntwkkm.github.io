@@ -780,7 +780,7 @@
                     html += `
                         <div class="sage-alert-card companion-coffee-card">
                             <div class="companion-coffee-title">
-                                ${url ? `<a href="${sanitizeURL(url)}" target="_blank" rel="noopener" style="color: var(--primary);">${escapeHTML(title)}</a>` : escapeHTML(title)}
+                                ${url ? `<a href="${sanitizeURL(url)}" target="_blank" rel="noopener noreferrer" style="color: var(--primary);">${escapeHTML(title)}</a>` : escapeHTML(title)}
                                 ${source ? `<span class="companion-coffee-source">— ${escapeHTML(source)}</span>` : ''}
                             </div>
                             <div class="companion-coffee-summary">${escapeHTML(summary)}</div>
@@ -908,7 +908,7 @@
                 html += `</div>`;
             }
 
-            html += `<div class="historian-timestamp">&mdash; Compiled: ${formatTimestamp(historian.timestamp)}</div>`;
+            html += `<div class="historian-timestamp">&mdash; Compiled: ${escapeHTML(formatTimestamp(historian.timestamp))}</div>`;
             html += `</div>`;
             body.innerHTML = html;
         }
@@ -965,7 +965,7 @@
                             <span class="chip ${cls}"><span class="dot-sm"></span>${escapeHTML(statusStr)}</span>
                         </td>
                         <td>
-                            <div class="audit-technical-cell">${formatTimestamp(agent.last_run)}</div>
+                            <div class="audit-technical-cell">${escapeHTML(formatTimestamp(agent.last_run))}</div>
                         </td>
                         <td>${deliveryHtml}</td>
                     </tr>`;

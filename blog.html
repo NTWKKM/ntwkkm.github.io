@@ -135,7 +135,7 @@
                     <div id="related-grid" class="related-grid"></div>
                 </div>
 
-                <a href="#" target="_blank" id="post-link" class="pubmed-link">
+                <a href="#" target="_blank" rel="noopener noreferrer" id="post-link" class="pubmed-link">
                     📖 View Full Paper
                 </a>
             </article>
@@ -777,7 +777,7 @@
                 linkBtn.innerHTML = `📖 View on PubMed`;
                 linkBtn.style.display = 'inline-flex';
             } else if (post.link) {
-                linkBtn.href = post.link;
+                linkBtn.href = sanitizeURL(post.link);
                 linkBtn.innerHTML = `📖 Read Source`;
                 linkBtn.style.display = 'inline-flex';
             } else {

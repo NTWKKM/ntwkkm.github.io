@@ -1,0 +1,20 @@
+# Jekyll build config for ntwkkm.github.io
+# เพิ่มเข้ามาเพื่อกันเอกสาร internal (architecture/context/design notes)
+# ไม่ให้ถูก publish เป็นไฟล์ raw บนเว็บสาธารณะ — ทั้งชุดที่ root และชุดที่อยู่ใต้ pl/
+
+exclude:
+  # --- root ของ ntwkkm.github.io ---
+  - ARCHITECTURE.md
+  - CONTEXT.md
+  - DESIGN.md
+  - Braun-theme.md
+  - README.md
+  - PLAN-pages-config-audit-fixes-2026-07-05.md
+  # --- เอกสารชุดเดียวกันที่อยู่ใน private repo pl/ (หลัง checkout) ---
+  - pl/ARCHITECTURE.md
+  - pl/CONTEXT.md
+  - pl/DESIGN.md
+  - pl/Braun-theme.md
+  - pl/README.md
+  - pl/soul
+  - n8n-github-notion_db

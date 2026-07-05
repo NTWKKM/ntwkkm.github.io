@@ -4,7 +4,6 @@
  * and network-first with cache fallback for dynamic content.
  */
 
-// CACHE_NAME constant removed as per code review
 const STATIC_CACHE = 'ntwkkm-static-v2';
 const DYNAMIC_CACHE = 'ntwkkm-dynamic-v2';
 const FONTS_CACHE = 'ntwkkm-fonts-v1';

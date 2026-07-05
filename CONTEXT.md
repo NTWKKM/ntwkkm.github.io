@@ -69,3 +69,10 @@
 - **Context**: Several sub-pages (tracking and fray dashboards) lacked `<meta name="theme-color">` and did not register the PWA Service Worker (`sw.js`). Favicons were using an outdated bright blue color. Furthermore, Fray page load triggered 6 simultaneous `HEAD` checks for history days on every refresh, risking network failure or rate limits. Vitals formatting threw TypeErrors if data schema drifted to string values.
 - **Decision**: Synchronized the theme-color meta tag and SVGs (to match the Rams navy gradient and cream palette) globally across all sub-pages. Registered the Service Worker in all dashboard entrypoints. Implemented a 1-hour `localStorage` cache for historical file preflight checks, and type-cast vital parameters using `Number` before running `.toFixed()`.
 - **Consequence**: Ensures robust offline loading and PWA support across all core pages, prevents dashboard crashes from schema drifts, and optimizes loading speed by caching preflight checks.
+
+### ADR-009: Jekyll Build Document Exclusions
+
+- **Context**: Internal documents (`ARCHITECTURE.md`, `CONTEXT.md`, `DESIGN.md`, `Braun-theme.md`, `README.md`) contain private architectural diagrams, system specifications, and sensitive design mappings. When Jekyll runs, it copies these files by default into the `_site/` directory, exposing them as public raw text files.
+- **Decision**: Introduce a `_config.yml` at the repository root containing an `exclude` list that covers these core documentation files at the root level, and also within the private `pl/` subdirectory checkout directory.
+- **Consequence**: Prevent accidental public exposure of raw internal design, logic, and workflow context, ensuring those remain strictly confidential.
+
