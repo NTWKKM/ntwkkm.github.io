@@ -9,7 +9,6 @@ exclude:
   - DESIGN.md
   - Braun-theme.md
   - README.md
-  - PLAN-pages-config-audit-fixes-2026-07-05.md
   # --- เอกสารชุดเดียวกันที่อยู่ใน private repo pl/ (หลัง checkout) ---
   - pl/ARCHITECTURE.md
   - pl/CONTEXT.md
@@ -18,5 +17,5 @@ exclude:
   - pl/README.md
   - pl/soul
   - n8n-github-notion_db
-  - pl/tree.jso[n]
-  - pl/external_link[s].json
+  - pl/tree.json
+  - pl/external_links.json

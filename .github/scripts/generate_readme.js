@@ -48,9 +48,11 @@ function buildTree(dir, prefix = '') {
         
         if (isDir) {
             treeStr += `${prefix}${pointer}${file} /\n`;
-            // ถ้าโฟลเดอร์นั้นคือ data/blog ไม่ต้องเจาะลึกลงไปโชว์ไฟล์ย่อยๆ ทุกไฟล์ เพื่อไม่ให้ Tree รก
+            // ถ้าโฟลเดอร์นั้นคือ data/blog หรือ fray/history ไม่ต้องเจาะลึกลงไปโชว์ไฟล์ย่อยๆ ทุกไฟล์ เพื่อไม่ให้ Tree รก
             if (file === 'blog' && fullPath.includes('data')) {
                  treeStr += `${prefix + (isLast ? '    ' : '|   ')}\`-- (Chunked JSON files)\n`;
+            } else if (file === 'history' && fullPath.includes('fray')) {
+                 treeStr += `${prefix + (isLast ? '    ' : '|   ')}\`-- (Daily snapshots)\n`;
             } else {
                  treeStr += buildTree(fullPath, prefix + (isLast ? '    ' : '|   '));
             }

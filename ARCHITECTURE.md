@@ -489,7 +489,7 @@ All JSON data is sanitized before DOM injection via centralized functions in `sh
   - `ntwkkm-dynamic-v2` — Dynamic content: network-first with cache fallback
   - `ntwkkm-fonts-v1` — Google Fonts: separate long-lived cache (fonts rarely change)
   - Cache versions are bumped on deployments to force client refresh
-  - Offline support for core pages and previously viewed content
+  - Offline support for core pages, with path-aware document fallbacks (`/tracking/`, `/fray/`, `/blog.html`) instead of blanket redirection to home.
 
 ## Enhanced Features (Recent Updates)
 
@@ -536,4 +536,4 @@ All JSON data is sanitized before DOM injection via centralized functions in `sh
 - **Offline-first**: Core pages cached for offline access
 - **Background sync**: Ready for future offline data synchronization
 - **Theme color**: Matches site branding (#ebe7df)
-- **Icons**: SVG-based icons in multiple sizes (32, 192, 512)
+- **Icons**: SVG-based icons in multiple sizes (32, 192, 512) with dedicated, full-bleed configurations for maskable purpose (complying with PWA 80% safe zone specs).

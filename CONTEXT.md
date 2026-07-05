@@ -32,7 +32,7 @@
 
 - **Context**: As a clinical reader app used by an ER Physician, network connectivity inside hospitals can be highly unstable.
 - **Decision**: Implement a Service Worker (`sw.js`) with cache-first static caches and network-first dynamic caches, separated by version.
-- **Consequence**: Core files and previously read articles remain fully readable without active internet connection.
+- **Consequence**: Core files and previously read articles remain fully readable without active internet connection. Offline page requests fallback to path-appropriate directory index caches (e.g. `/tracking/` or `/fray/`) instead of blindly routing to `/index.html`.
 
 ### ADR-003: Mobile Drawer UX for Blog Reader
 
@@ -74,7 +74,7 @@
 
 - **Context**: Internal documents (`ARCHITECTURE.md`, `CONTEXT.md`, `DESIGN.md`, `Braun-theme.md`, `README.md`) contain private architectural diagrams, system specifications, and sensitive design mappings. When Jekyll runs, it copies these files by default into the `_site/` directory, exposing them as public raw text files.
 - **Decision**: Introduce a `_config.yml` at the repository root containing an `exclude` list that covers these core documentation files at the root level, and also within the private `pl/` subdirectory checkout directory.
-- **Consequence**: Prevent accidental public exposure of raw internal design, logic, and workflow context, ensuring those remain strictly confidential.
+- **Consequence**: Prevent accidental public exposure of raw internal design, logic, and workflow context, ensuring those remain strictly confidential. Exclusions are defined with literal file names (`pl/tree.json` and `pl/external_links.json`) to prevent syntax ambiguity in the Jekyll compiler.
 
 ### ADR-010: Default to Latest Paper in Blog Reader
 
@@ -86,4 +86,4 @@
 
 - **Context**: The package tracking dashboard runs on static GitHub Pages. The payload (`status_store.json`) was publicly accessible, and the visibility lock screen (checking a passcode hash) was easily bypassable via DevTools or sessionStorage edits.
 - **Decision**: Encrypt `status_store.json` using AES-256-GCM. The key is derived in GitHub Actions (`tracker.py`) using PBKDF2-HMAC-SHA256 from the `TRACKING_PASSCODE` secret. In the browser (`tracking/index.html`), decrypt the fetched payload in-memory using native Web Crypto API (`window.crypto.subtle`) with the passcode entered by the user. If `TRACKING_PASSCODE` is not set, fallback to unencrypted plain text.
-- **Consequence**: Eliminates the client-side bypass vulnerability. The data itself is secure, meaning DOM or session storage edits will only show encrypted garbage without the passcode. It runs 100% serverless and native in the browser without external libraries.
+- **Consequence**: Eliminates the client-side bypass vulnerability. The data itself is secure, meaning DOM or session storage edits will only show encrypted garbage without the passcode. It runs 100% serverless and native in the browser without external libraries. Passcode whitespaces are stripped consistently (`.strip()`) in both GitHub Actions hash generation, Python encryption, and client-side passcode input validation.

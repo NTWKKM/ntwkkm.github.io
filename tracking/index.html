@@ -222,11 +222,11 @@
       return html;
     }
 
-    function renderTimeline(history) {
+    function renderTimeline(history, timelineId) {
       if (!history || history.length === 0) return '';
       // Reverse to show newest first
       const reversed = [...history].reverse();
-      let html = '<div class="timeline" id="tl-' + Math.random().toString(36).slice(2) + '">';
+      let html = '<div class="timeline" id="' + timelineId + '">';
       for (const ev of reversed) {
         html += '<div class="timeline-item">';
         html += '<div class="tl-status">' + escapeHTML(ev.status) + '</div>';
@@ -262,16 +262,7 @@
       // Timeline toggle
       if (pkg.history && pkg.history.length > 0) {
         html += '<button class="timeline-toggle" onclick="toggleTimeline(\'' + timelineId + '\', this)">▶ Show history (' + pkg.history.length + ' events)</button>';
-        html += '<div class="timeline" id="' + timelineId + '">';
-        const reversed = [...pkg.history].reverse();
-        for (const ev of reversed) {
-          html += '<div class="timeline-item">';
-          html += '<div class="tl-status">' + escapeHTML(ev.status) + '</div>';
-          html += '<div class="tl-meta">' + formatDate(ev.status_date);
-          if (ev.location) html += ' &middot; ' + escapeHTML(ev.location);
-          html += '</div></div>';
-        }
-        html += '</div>';
+        html += renderTimeline(pkg.history, timelineId);
       }
 
       html += '</div>';
@@ -660,7 +651,7 @@
         }
       } finally {
         btn.disabled = false;
-        btn.textContent = 'Unlock';
+        btn.textContent = 'Unlock Dashboard';
       }
     }
 

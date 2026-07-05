@@ -141,6 +141,15 @@ self.addEventListener('fetch', (event) => {
 
                             // Return offline page for HTML requests
                             if (event.request.destination === 'document') {
+                                if (pathname.includes('/tracking')) {
+                                    return caches.match('/tracking/') || caches.match('/index.html');
+                                }
+                                if (pathname.includes('/fray')) {
+                                    return caches.match('/fray/') || caches.match('/index.html');
+                                }
+                                if (pathname.includes('/blog')) {
+                                    return caches.match('/blog.html') || caches.match('/index.html');
+                                }
                                 return caches.match('/index.html');
                             }
 
@@ -189,6 +198,15 @@ self.addEventListener('fetch', (event) => {
                         .catch(() => {
                             // Return offline page for HTML requests
                             if (event.request.destination === 'document') {
+                                if (pathname.includes('/tracking')) {
+                                    return caches.match('/tracking/') || caches.match('/index.html');
+                                }
+                                if (pathname.includes('/fray')) {
+                                    return caches.match('/fray/') || caches.match('/index.html');
+                                }
+                                if (pathname.includes('/blog')) {
+                                    return caches.match('/blog.html') || caches.match('/index.html');
+                                }
                                 return caches.match('/index.html');
                             }
 

@@ -77,7 +77,7 @@ Muted tones, applied **text-only** (never as solid background badges).
 
 - The header is the only area permitted a gradient: `linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)`. This color scheme is standardized globally across all module headers (Homepage, Fray, and Tracking dashboards) for layout consistency.
 - Navigation text, brand logo, subtitles, and icons are warm off-white (`#F0EDE5`) in both Light and Dark themes to ensure legibility on the dark navy gradient.
-- **Favicons / Icons:** SVGs used in favicons are standardized to the Rams color palette (background `#1e3c72`, rounded corners `rx="4"`, and warm off-white text `#F0EDE5`), ensuring brand alignment down to the browser tab indicator.
+- **Favicons / Icons:** SVGs used in favicons are standardized to the Rams color palette (background `#1e3c72`, rounded corners `rx="4"`, and warm off-white text `#F0EDE5`), ensuring brand alignment down to the browser tab indicator. Standard PWA icons retain rounded corners (`rx`), while maskable PWA icons use flat, full-bleed squares (`rx="0"`) with scaled-down text to prevent clipping in circular/squircle shapes.
 - Buttons and links (e.g. GitHub, Research Blog, Refresh, and Add Tracking): Borders are transparent (`none`/`transparent`) in their normal state to retain a flat, printed-document aesthetic. Hover states use `#49628d` background.
 - **Mobile Viewport Alignment:** Controls inside the navigation bar (links, toggles, actions) are collapsed to icon-only buttons (with text spans hidden) and aligned strictly to the right side of the screen (`justify-content: flex-end; gap: 12px;`) to optimize finger reachability and space.
 

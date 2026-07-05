@@ -399,7 +399,7 @@
                     card.target = '_blank';
                     card.rel = 'noopener noreferrer';
                     card.className = 'project-card';
-                    card.setAttribute('aria-label', escapeHTML(project.title));
+                    card.setAttribute('aria-label', project.title);
                     card.innerHTML = `
                         <div class="project-icon" aria-hidden="true">${escapeHTML(project.icon)}</div>
                         <div class="project-title">${escapeHTML(project.title)}</div>
