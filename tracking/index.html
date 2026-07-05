@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#ebe7df">
   <title>📦 Package Tracker — NTWKKM</title>
   <meta name="description" content="Real-time Thailand Post package tracking dashboard.">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231e3c72'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='%23F0EDE5' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231e3c72'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='%23F0EDE5' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,15 +16,17 @@
   <link rel="stylesheet" href="../shared.css">
   <link rel="stylesheet" href="tracking.css">
 </head>
+
 <body>
 
   <!-- Auth Gate -->
   <div class="auth-gate" id="authGate">
     <div class="auth-box">
       <div class="auth-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="auth-svg">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          <path d="m9 12 2 2 4-4"/>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round" class="auth-svg">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          <path d="m9 12 2 2 4-4" />
         </svg>
       </div>
       <h2>Access Required</h2>
@@ -36,78 +40,84 @@
   <!-- Main Content (hidden until auth) -->
   <div id="mainContent" style="display:none;">
 
-  <header class="app-header animate-entry" role="banner">
-    <nav class="container header-content">
-    <div class="brand-group">
-      <h1><span class="emoji-icon">📦</span><span class="gradient-text">Package Tracker</span></h1>
-      <div class="subtitle">Thailand Post — Real-time Tracking Dashboard</div>
-      <div class="last-updated" id="lastUpdated">Loading...</div>
-    </div>
-    
-    <div class="controls">
-      <button class="btn" onclick="loadData()" id="refreshBtn">🔄<span> Refresh</span></button>
-      <button class="btn" onclick="toggleAddForm()" id="addToggleBtn">➕<span> Add Tracking</span></button>
-      <button class="theme-btn" id="theme-toggle" aria-label="Toggle Dark Mode"></button>
-      <a class="btn" href="../" title="Back to homepage" aria-label="Back to Home" style="text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></a>
-    </div>
-    </nav>
-  </header>
+    <header class="app-header animate-entry" role="banner">
+      <nav class="container header-content">
+        <div class="brand-group">
+          <h1><span class="emoji-icon">📦</span><span class="gradient-text">Package Tracker</span></h1>
+          <div class="subtitle">Thailand Post — Real-time Tracking Dashboard</div>
+          <div class="last-updated" id="lastUpdated">Loading...</div>
+        </div>
 
-  <main class="container">
+        <div class="controls">
+          <button class="btn" onclick="loadData()" id="refreshBtn">🔄<span> Refresh</span></button>
+          <button class="btn" onclick="toggleAddForm()" id="addToggleBtn">➕<span> Add Tracking</span></button>
+          <button class="theme-btn" id="theme-toggle" aria-label="Toggle Dark Mode"></button>
+          <a class="btn" href="../" title="Back to homepage" aria-label="Back to Home"
+            style="text-decoration:none;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+              viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+            </svg></a>
+        </div>
+      </nav>
+    </header>
 
-  <!-- Summary Stats -->
-  <div class="summary" id="summary" style="display:none;">
-    <div class="summary-item">
-      <div class="summary-num" id="statTotal" style="color:var(--primary)">0</div>
-      <div class="summary-label">Total</div>
-    </div>
-    <div class="summary-item">
-      <div class="summary-num" id="statActive" style="color:var(--accent-yellow)">0</div>
-      <div class="summary-label">Active</div>
-    </div>
-    <div class="summary-item">
-      <div class="summary-num" id="statDelivered" style="color:var(--accent-green)">0</div>
-      <div class="summary-label">Delivered</div>
-    </div>
-  </div>
+    <main class="container">
 
-  <!-- Add Package Form -->
-  <div class="add-form" id="addForm" style="display:none;">
-    <div class="add-form-title">📝 Add New Tracking Number</div>
-    <div class="add-form-row">
-      <div class="add-form-field" style="flex:1.2;">
-        <label for="inputBarcode">Barcode</label>
-        <input type="text" id="inputBarcode" placeholder="EF123456789TH" maxlength="13" autocomplete="off" spellcheck="false">
+      <!-- Summary Stats -->
+      <div class="summary" id="summary" style="display:none;">
+        <div class="summary-item">
+          <div class="summary-num" id="statTotal" style="color:var(--primary)">0</div>
+          <div class="summary-label">Total</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-num" id="statActive" style="color:var(--accent-yellow)">0</div>
+          <div class="summary-label">Active</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-num" id="statDelivered" style="color:var(--accent-green)">0</div>
+          <div class="summary-label">Delivered</div>
+        </div>
       </div>
-      <div class="add-form-field">
-        <label for="inputNote">Note (optional)</label>
-        <input type="text" id="inputNote" placeholder="e.g. Computer parts" maxlength="100" autocomplete="off">
+
+      <!-- Add Package Form -->
+      <div class="add-form" id="addForm" style="display:none;">
+        <div class="add-form-title">📝 Add New Tracking Number</div>
+        <div class="add-form-row">
+          <div class="add-form-field" style="flex:1.2;">
+            <label for="inputBarcode">Barcode</label>
+            <input type="text" id="inputBarcode" placeholder="EF123456789TH" maxlength="13" autocomplete="off"
+              spellcheck="false">
+          </div>
+          <div class="add-form-field">
+            <label for="inputNote">Note (optional)</label>
+            <input type="text" id="inputNote" placeholder="e.g. Computer parts" maxlength="100" autocomplete="off">
+          </div>
+          <button class="btn-add" id="addBtn" onclick="submitBarcode()">Add</button>
+        </div>
       </div>
-      <button class="btn-add" id="addBtn" onclick="submitBarcode()">Add</button>
-    </div>
-  </div>
 
-  <!-- Toast -->
-  <div class="toast" id="toast"></div>
+      <!-- Toast -->
+      <div class="toast" id="toast"></div>
 
-  <!-- Package Grid -->
-  <div class="grid" id="packageGrid">
-    <div class="empty-state" id="emptyState">
-      <div class="empty-state-content">
-        <div class="emoji">📡</div>
-        <h2>Loading Tracking Data...</h2>
-        <p>Fetching latest package statuses.</p>
+      <!-- Package Grid -->
+      <div class="grid" id="packageGrid">
+        <div class="empty-state" id="emptyState">
+          <div class="empty-state-content">
+            <div class="emoji">📡</div>
+            <h2>Loading Tracking Data...</h2>
+            <p>Fetching latest package statuses.</p>
+          </div>
+        </div>
       </div>
+
+    </main><!-- /.container -->
+
+    <!-- Footer -->
+    <div class="footer">
+      Powered by <a href="https://track.thailandpost.co.th" target="_blank" rel="noopener noreferrer">Thailand Post
+        API</a> &middot;
+      Auto-updated via GitHub Actions
     </div>
-  </div>
-
-  </main><!-- /.container -->
-
-  <!-- Footer -->
-  <div class="footer">
-    Powered by <a href="https://track.thailandpost.co.th" target="_blank" rel="noopener noreferrer">Thailand Post API</a> &middot;
-    Auto-updated via GitHub Actions
-  </div>
 
   </div><!-- /#mainContent -->
 
@@ -167,7 +177,7 @@
     }
 
     function getBadgeClass(type) {
-      switch(type) {
+      switch (type) {
         case 'delivered': return 'badge-green';
         case 'in-transit': return 'badge-yellow';
         case 'exception': return 'badge-red';
@@ -176,7 +186,7 @@
     }
 
     function getBadgeLabel(type) {
-      switch(type) {
+      switch (type) {
         case 'delivered': return 'Delivered';
         case 'in-transit': return 'In Transit';
         case 'exception': return 'Exception';
@@ -308,18 +318,18 @@
       // Confetti logic
       if (!window.confettiFiredPackages) window.confettiFiredPackages = new Set();
       let shouldFireConfetti = false;
-      
+
       keys.forEach(k => {
-          if (packages[k].is_delivered && !window.confettiFiredPackages.has(k)) {
-              window.confettiFiredPackages.add(k);
-              shouldFireConfetti = true;
-          }
+        if (packages[k].is_delivered && !window.confettiFiredPackages.has(k)) {
+          window.confettiFiredPackages.add(k);
+          shouldFireConfetti = true;
+        }
       });
 
       if (shouldFireConfetti && typeof confetti === 'function') {
-          setTimeout(() => {
-              confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-          }, 500);
+        setTimeout(() => {
+          confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+        }, 500);
       }
 
       // Sort: active first, then delivered; within each group sort by last_status_date desc
@@ -391,9 +401,9 @@
         // Send a no-cors GET request to the root/healthz to trigger Fly.io cold start
         if (WEBHOOK_URL.includes('fly.dev')) {
           const url = new URL(WEBHOOK_URL);
-          fetch(url.origin + '/healthz', { method: 'GET', mode: 'no-cors' }).catch(() => {});
+          fetch(url.origin + '/healthz', { method: 'GET', mode: 'no-cors' }).catch(() => { });
         }
-      } catch (e) {}
+      } catch (e) { }
     }
 
     function showToast(message, type) {
@@ -440,12 +450,12 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ barcode, note }),
         });
-        
+
         clearTimeout(slowWarning);
-        
+
         // Parse JSON to read backend message if available
         const data = await res.json().catch(() => null);
-        
+
         if (!res.ok) {
           // Handle 409 Duplicate specifically
           if (res.status === 409 && data && data.message) {
@@ -536,40 +546,50 @@
     async function initAuth() {
       try {
         const res = await fetch('status_store.json?v=' + Date.now());
-        if (!res.ok) throw new Error('No status_store.json');
-        fetchedData = await res.json();
-
-        if (fetchedData && fetchedData.encrypted === true) {
-          const cachedPasscode = sessionStorage.getItem('tracking_passcode');
-          if (cachedPasscode) {
-            try {
-              const decrypted = await decryptData(cachedPasscode, fetchedData);
-              grantAccess(decrypted);
-              return;
-            } catch (e) {
-              console.warn("Cached passcode invalid, clearing");
-              sessionStorage.removeItem('tracking_passcode');
-            }
-          }
-          document.getElementById('authGate').style.display = 'flex';
-          document.getElementById('authInput').focus();
-        } else {
-          grantAccess(fetchedData);
+        if (res.ok) {
+          fetchedData = await res.json();
         }
       } catch (e) {
-        console.error("Initialization error:", e);
+        console.warn("Could not load status_store.json initially");
+      }
+
+      if (fetchedData && fetchedData.encrypted === true) {
+        const cachedPasscode = sessionStorage.getItem('tracking_passcode');
+        if (cachedPasscode) {
+          try {
+            const decrypted = await decryptData(cachedPasscode, fetchedData);
+            grantAccess(decrypted);
+            return;
+          } catch (e) {
+            console.warn("Cached passcode invalid, clearing");
+            sessionStorage.removeItem('tracking_passcode');
+          }
+        }
+        // ต้องการรหัสผ่านสำหรับถอดรหัส
+        document.getElementById('authGate').style.display = 'flex';
+        document.getElementById('authInput').focus();
+      } else {
+        // กรณีข้อมูลไม่เข้ารหัส ให้ตรวจสอบ auth.json เสมอก่อนอนุญาต
         try {
           const res = await fetch('auth.json?v=' + Date.now());
           if (res.ok) {
             const data = await res.json();
             authHash = data.hash;
-            document.getElementById('authGate').style.display = 'flex';
-            document.getElementById('authInput').focus();
+
+            // ตรวจสอบว่าเคยยืนยันตัวตนผ่าน SHA-256 ไปแล้วหรือไม่
+            if (sessionStorage.getItem('tracking_auth') === 'granted') {
+              grantAccess(fetchedData);
+            } else {
+              document.getElementById('authGate').style.display = 'flex';
+              document.getElementById('authInput').focus();
+            }
           } else {
-            grantAccess(null);
+            // หากไม่มีไฟล์ auth.json แสดงว่าตั้งใจเปิดเป็น Public
+            grantAccess(fetchedData);
           }
         } catch {
-          grantAccess(null);
+          // อนุญาตให้เข้าถึงหากเซิร์ฟเวอร์ไม่มีระบบตรวจสอบรหัสผ่าน
+          grantAccess(fetchedData);
         }
       }
     }
@@ -612,7 +632,7 @@
                 const data = await res.json();
                 authHash = data.hash;
               }
-            } catch {}
+            } catch { }
           }
           if (authHash) {
             const inputHash = await sha256(passcode);
@@ -630,7 +650,7 @@
         errorEl.textContent = 'Incorrect passcode. Try again.';
         input.value = '';
         input.focus();
-        
+
         const authBox = document.querySelector('.auth-box');
         if (authBox) {
           authBox.classList.remove('shake');
@@ -666,16 +686,17 @@
 
     // Register Service Worker for PWA offline support
     if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js')
-                .then((registration) => {
-                    console.log('[PWA] ServiceWorker registered:', registration.scope);
-                })
-                .catch((error) => {
-                    console.log('[PWA] ServiceWorker registration failed:', error);
-                });
-        });
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then((registration) => {
+            console.log('[PWA] ServiceWorker registered:', registration.scope);
+          })
+          .catch((error) => {
+            console.log('[PWA] ServiceWorker registration failed:', error);
+          });
+      });
     }
   </script>
 </body>
+
 </html>
