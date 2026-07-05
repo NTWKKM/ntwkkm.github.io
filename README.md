@@ -29,6 +29,7 @@ This content reflects the repository structure (updated by GitHub Actions):
 |   |-- status_store.json
 |   |-- track_list.json
 |   `-- tracking.css
+|-- _config.yml
 |-- .gitignore
 |-- ARCHITECTURE.md
 |-- blog_index.json
