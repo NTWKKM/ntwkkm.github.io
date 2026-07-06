@@ -396,7 +396,7 @@ The NTWKKM Knowledge Vault is an automated, dynamic resource hub and clinical in
 ### Security & Maintenance Protocols
 
 - **Build-Time Aggregation (`pages-build-deployment.yml`):** Utilizes a scoped Personal Access Token (PAT) to clone the private `NTWKKM/pl` repository into the `pl/` subdirectory during the GitHub Actions deployment phase. The frontend UI and code logic function natively at `ntwkkm.github.io/pl/` without exposing the original repository structure.
-- **Cross-Repository Synchronization:** A `trigger-main-repo.yml` workflow in the private `pl` repository sends a `repository_dispatch` payload to this main repository upon any push, triggering an automated rebuild.
+- **Cross-Repository Synchronization:** The `trigger-main-website-and-process-auth.yml` workflow in the private `pl` repository sends a `repository_dispatch` payload to this main repository upon any push, triggering an automated rebuild.
 - **Stateless Execution:** Fetches data directly from GitHub infrastructure (Tree API), ensuring real-time accuracy and high availability without a backend database.
 
 ## CI/CD Workflows

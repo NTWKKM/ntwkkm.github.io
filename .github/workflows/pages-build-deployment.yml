@@ -34,8 +34,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ดึงข้อมูลจาก Private Repository มาวางไว้ในโฟลเดอร์ pl/ 
-      # (ไฟล์ tree.json.enc และ external_links.json.enc จะติดมาด้วยอัตโนมัติ)
+      # ดึงข้อมูลจาก Private Repository มาวางไว้ในโฟลเดอร์ pl/
+      # ไฟล์ tree_encrypted.json และ external_links_encrypted.json ถูกสร้างใน pl repo แล้ว
       - name: Checkout private pl repository
         uses: actions/checkout@v4
         with:
