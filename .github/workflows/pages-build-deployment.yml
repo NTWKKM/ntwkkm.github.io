@@ -34,39 +34,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # เพิ่มขั้นตอน: ดึงข้อมูลจาก Private Repository มาวางไว้ในโฟลเดอร์ pl/
+      # ดึงข้อมูลจาก Private Repository มาวางไว้ในโฟลเดอร์ pl/ 
+      # (ไฟล์ tree.json.enc และ external_links.json.enc จะติดมาด้วยอัตโนมัติ)
       - name: Checkout private pl repository
         uses: actions/checkout@v4
         with:
           repository: NTWKKM/pl
           token: ${{ secrets.PAT_FOR_PL }}
           path: pl
-
-      # เพิ่ม Step นี้เข้าไปเพื่อสร้างไฟล์สารบัญ tree.json ไว้ในโฟลเดอร์ pl
-      - name: Generate file tree for pl
-        run: |
-          cd pl
-          node -e "
-          const fs = require('fs');
-          const path = require('path');
-          function walk(dir, fileList = [], baseDir = '') {
-            const files = fs.readdirSync(dir);
-            for (const file of files) {
-              if (['.git', '.github', 'node_modules'].includes(file)) continue;
-              const filePath = path.join(dir, file);
-              const relPath = baseDir ? baseDir + '/' + file : file;
-              const stat = fs.statSync(filePath);
-              if (stat.isDirectory()) {
-                fileList.push({ path: relPath, type: 'tree' });
-                walk(filePath, fileList, relPath);
-              } else {
-                fileList.push({ path: relPath, type: 'blob' });
-              }
-            }
-            return fileList;
-          }
-          fs.writeFileSync('tree.json', JSON.stringify({ tree: walk('.') }));
-          "
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
