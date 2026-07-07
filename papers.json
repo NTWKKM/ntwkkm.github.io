@@ -2,85 +2,85 @@
   {
     "date": "7 Jul",
     "title": "Mortality effect of albumin fluid resuscitation in adults with septic shock: a systematic review and dual frequentist-bayesian meta-analysis of randomised trials.",
-    "comment": "เปลี่ยนแนวทางการเลือก fluid ใน septic shock ซึ่งมีผลต่อ mortality โดยตรง",
+    "comment": "ข้อมูลสำคัญเรื่องการใช้ Albumin ใน Septic Shock เพื่อลดอัตราตาย",
     "pmid": "42410446",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42410446/"
   },
   {
     "date": "7 Jul",
-    "title": "Is earlier better? Re-examining the timing of double sequential external defibrillation.",
-    "comment": "ทบทวน timing ของ DSED ใน cardiac arrest ซึ่งอาจเปลี่ยน standard of care",
-    "pmid": "42409617",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42409617/"
-  },
-  {
-    "date": "7 Jul",
-    "title": "Consensus Recommendations for Clinical Pharmacist Integration into the Acute Stroke Care Team: Endorsed by the American College of Clinical Pharmacy, Neurocritical Care Society, Society for Academic Emergency Medicine, and Society of Critical Care Medicine, and affirmed by the American Academy of Neurology.",
-    "comment": "แนวทางปฏิบัติใหม่ในการจัดการ stroke ใน ER โดยใช้ทีมสหวิชาชีพ",
-    "pmid": "42409761",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42409761/"
-  },
-  {
-    "date": "7 Jul",
     "title": "Respiratory Support in the Emergency Department: An Updated Systematic Review and Meta-Analysis.",
-    "comment": "อัปเดต evidence การใช้เครื่องช่วยหายใจใน ER เพื่อปรับปรุงแนวทางการดูแล",
+    "comment": "อัปเดตแนวทางการช่วยหายใจใน ER ซึ่งมีผลต่อการตัดสินใจทางคลินิกสูง",
     "pmid": "42410869",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42410869/"
   },
   {
     "date": "7 Jul",
+    "title": "Is earlier better? Re-examining the timing of double sequential external defibrillation.",
+    "comment": "หักล้างหรือทบทวน timing ของ DSED ในการกู้ชีพหัวใจหยุดเต้น",
+    "pmid": "42409617",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42409617/"
+  },
+  {
+    "date": "7 Jul",
     "title": "qREDS score compared with the REDS and NEWS2 scores to risk-stratify emergency department suspected sepsis patients for in-hospital mortality and 168-hour survival probability: a retrospective cohort study.",
-    "comment": "เปรียบเทียบ tool ในการคัดกรอง sepsis เพื่อหาตัวทำนายการรอดชีวิตที่แม่นยำกว่า",
+    "comment": "เปรียบเทียบ scoring system ในการคัดกรอง Sepsis เพื่อทำนายอัตราตายใน ER",
     "pmid": "42409421",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42409421/"
   },
   {
     "date": "7 Jul",
     "title": "Integrating ISAR and CIRS with ED triage to predict 30-day adverse outcomes in older adults: Development and internal validation of a dual-scale model.",
-    "comment": "เครื่องมือใหม่ช่วยคัดกรองความเสี่ยงในผู้สูงอายุที่มา ER เพื่อลด adverse outcomes",
+    "comment": "เครื่องมือคัดกรองผู้สูงอายุใน ER เพื่อทำนายผลลัพธ์เลวร้ายใน 30 วัน",
     "pmid": "42410788",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42410788/"
   },
   {
     "date": "7 Jul",
     "title": "Triage for upper gastrointestinal bleeding in the emergency department: a comparison of risk scoring systems.",
-    "comment": "เปรียบเทียบระบบ scoring สำหรับ UGIB เพื่อให้เลือกใช้ตัวที่แม่นยำที่สุดใน ER",
+    "comment": "เปรียบเทียบ score ในการคัดกรอง UGIB เพื่อปรับปรุงการ Triage ใน ER",
     "pmid": "42410360",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42410360/"
   },
   {
     "date": "7 Jul",
     "title": "Ceftazidime-Avibactam Effectiveness in Carbapenem-Resistant Enterobacterales Bacteremia: A Retrospective Cohort Study in Korea.",
-    "comment": "ข้อมูลประสิทธิภาพยาใหม่ในเชื้อดื้อยา CRE ซึ่งสำคัญต่อการเลือก Empiric antibiotic",
+    "comment": "ข้อมูลการใช้ยาใหม่รักษาเชื้อดื้อยาในภาวะ Bacteremia ที่พบบ่อยใน ER/ICU",
     "pmid": "42411238",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42411238/"
   },
   {
     "date": "7 Jul",
     "title": "Chronic Treatment with Renin-Angiotensin System Inhibitors at Hospital Admission is Associated with Improved Reperfusion and Mortality Among STEMI Patients Undergoing Mechanical Reperfusion: Insight from the ISACS-STEMI COVID-19 Registry.",
-    "comment": "พบว่าการใช้ RAS inhibitors มีผลดีต่อ mortality ในผู้ป่วย STEMI",
+    "comment": "ผลของยา RAS inhibitors ต่อการรอดชีวิตและ Reperfusion ในผู้ป่วย STEMI",
     "pmid": "42411222",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42411222/"
   },
   {
     "date": "7 Jul",
-    "title": "Implementation of an ai-enabled multimodal emergency care system is associated with improved sudden cardiac death rescue outcomes in anyang.",
-    "comment": "การใช้ AI ในระบบ emergency care ช่วยเพิ่มอัตราการรอดชีวิตจาก SCD",
+    "title": "Consensus Recommendations for Clinical Pharmacist Integration into the Acute Stroke Care Team: Endorsed by the American College of Clinical Pharmacy, Neurocritical Care Society, Society for Academic Emergency Medicine, and Society of Critical Care Medicine, and affirmed by the American Academy of Neurology.",
+    "comment": "แนวทางมาตรฐานการทำงานร่วมกับเภสัชกรในการดูแลผู้ป่วย Stroke ระยะเฉียบพลัน",
+    "pmid": "42409761",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42409761/"
+  },
+  {
+    "date": "7 Jul",
+    "title": "Implementing an ai-enabled multimodal emergency care system is associated with improved sudden cardiac death rescue outcomes in anyang.",
+    "comment": "การใช้ AI ช่วยเพิ่มอัตราการรอดชีวิตจาก Sudden Cardiac Death ในระบบฉุกเฉิน",
     "pmid": "42410010",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42410010/"
   },
   {
     "date": "7 Jul",
-    "title": "Can resident-performed POCUS and clinical predictors effectively risk-stratify emergency department patients with confirmed renal colic?",
-    "comment": "ใช้ POCUS โดย resident ในการแบ่งกลุ่มความเสี่ยงผู้ป่วย renal colic ใน ER",
-    "pmid": "42410334",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42410334/"
+    "title": "DeepTriage-CN: integrating clinical text with vital signs for emergency department admission prediction in an aging population.",
+    "comment": "นวัตกรรม AI ช่วยทำนายการรับผู้ป่วยใน (Admission) สำหรับผู้สูงอายุใน ER",
+    "pmid": "42410187",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42410187/"
   },
   {
     "date": "7 Jul",
-    "title": "Bilateral radial arterial pressure concordance as a real-time bedside marker of native cardiac recovery during peripheral VA-ECMO weaning.",
-    "comment": "เทคนิค bedside marker ใหม่ในการประเมินการหย่า ECMO ในผู้ป่วยวิกฤต",
-    "pmid": "42410631",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42410631/"
+    "title": "Can resident-performed POCUS and clinical predictors effectively risk-stratify emergency department patients with confirmed renal colic?",
+    "comment": "การใช้ POCUS โดยแพทย์ประจำบ้านเพื่อแบ่งกลุ่มความเสี่ยงในผู้ป่วย Renal colic",
+    "pmid": "42410334",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42410334/"
   }
 ]
