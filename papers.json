@@ -1,86 +1,86 @@
 [
   {
-    "date": "20 Jul",
+    "date": "21 Jul",
+    "title": "Exploring Between-Study Heterogeneity in Extended-Window IV Thrombolysis for Acute Ischemic Stroke: A Meta-Analysis of 18 Randomized Controlled Trials.",
+    "comment": "วิเคราะห์ความหลากหลายของการให้ยาละลายลิ่มเลือดใน Stroke ระยะ extended-window",
+    "pmid": "42475651",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42475651/"
+  },
+  {
+    "date": "21 Jul",
+    "title": "[Mild Traumatic Brain Injury: National Consensus Clinical Recommendations].",
+    "comment": "แนวทางเวชปฏิบัติใหม่ล่าสุดสำหรับการจัดการผู้ป่วย Mild TBI",
+    "pmid": "42475131",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42475131/"
+  },
+  {
+    "date": "21 Jul",
+    "title": "Predicting Renal Replacement Therapy Requirement In Sepsis-Associated Acute Kidney Injury Using Furosemide Stress Testing and Urinary Biomarkers.",
+    "comment": "การใช้ FST และ biomarker ทำนายความต้องการ RRT ในผู้ป่วย Sepsis-AKI",
+    "pmid": "42475281",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42475281/"
+  },
+  {
+    "date": "21 Jul",
+    "title": "A Global and Local SHAP-Driven Interpretable Framework for Early Hospital Admission Prediction With Machine Learning at Emergency Department Triage.",
+    "comment": "โมเดล AI ช่วยทำนายความจำเป็นในการ Admit ตั้งแต่ขั้นตอน Triage",
+    "pmid": "42473479",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42473479/"
+  },
+  {
+    "date": "21 Jul",
     "title": "Clinical Use of N-terminal Pro-B-Type Natriuretic Peptide (NT-proBNP) in Diagnosing Acute Heart Failure in Emergency Settings: A Systematic Review",
-    "comment": "ทบทวนการใช้ NT-proBNP วินิจฉัยภาวะหัวใจล้มเหลวเฉียบพลันใน ER",
+    "comment": "ทบทวนการใช้ NT-proBNP เพื่อวินิจฉัย Acute HF ใน ER",
     "pmid": "42473520",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42473520/"
   },
   {
-    "date": "20 Jul",
-    "title": "Assessment of respiratory rate - oxygenation index (ROX), HACOR score and the C-reactive protein for prediction of mechanical ventilation and mortality in acutely intoxicated patients",
-    "comment": "ทำนายการใช้เครื่องช่วยหายใจและอัตราตายในผู้ป่วยได้รับสารพิษ",
-    "pmid": "42473302",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42473302/"
+    "date": "21 Jul",
+    "title": "De-Implementation of Routine Radiographs in the Follow-up of Wrist and Ankle Fractures in Dutch Hospitals.",
+    "comment": "การลดการส่ง X-ray ซ้ำซ้อนในกระดูกข้อมือและข้อเท้าหัก",
+    "pmid": "42475598",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42475598/"
   },
   {
-    "date": "20 Jul",
-    "title": "Imaging suspected posterior circulation stroke in the emergency department: a practical modality-based review",
-    "comment": "แนวทางเลือกใช้ imaging สำหรับวินิจฉัย posterior circulation stroke",
-    "pmid": "42472769",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42472769/"
+    "date": "21 Jul",
+    "title": "A chemometrically validated, field-portable wet-chemical protocol for rapid triage of 15 white powder substances.",
+    "comment": "โปรโตคอลพกพาสำหรับคัดกรองสารเคมีชนิดผงอย่างรวดเร็ว",
+    "pmid": "42474757",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42474757/"
   },
   {
-    "date": "20 Jul",
-    "title": "Impact of Artificial Intelligence Assistance on Diagnosing Traumatic Pneumothorax: A Comparison of Specialist and Non-Specialist Emergency Physicians",
-    "comment": "การใช้ AI ช่วยเพิ่มความแม่นยำวินิจฉัย traumatic pneumothorax",
-    "pmid": "42471848",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42471848/"
+    "date": "21 Jul",
+    "title": "Incidental findings identified by universal screening for BCVI using CT angiography.",
+    "comment": "การตรวจพบ BCVI จาก CT angiography ซึ่งสำคัญมากใน Trauma",
+    "pmid": "42474692",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42474692/"
   },
   {
-    "date": "20 Jul",
-    "title": "Serum Magnesium Levels as a Prognostic Marker in Emergency Department Admissions: A Landmark Retrospective Cohort Study",
-    "comment": "ระดับ Magnesium ช่วยทำนายผลลัพธ์ผู้ป่วยเมื่อรับเข้า ER",
-    "pmid": "42472002",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42472002/"
+    "date": "21 Jul",
+    "title": "Acute Kidney Injury in Adults Exposed to Commonly Used Nephrotoxic Medications and Iodinated Contrast: Frequency, Associated Factors, and Early Outcomes",
+    "comment": "ความเสี่ยงและอุบัติการณ์ของ AKI จากยาและสารทึบรังสี",
+    "pmid": "42473493",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42473493/"
   },
   {
-    "date": "20 Jul",
-    "title": "Diagnostic Performance of the BE-FAST-V Scale for Detecting Strokes in the Emergency Department: A Prospective Cohort Study",
-    "comment": "ประสิทธิภาพของ BE-FAST-V scale ในการตรวจหา stroke",
-    "pmid": "42471985",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42471985/"
-  },
-  {
-    "date": "20 Jul",
-    "title": "Radiological mass effect and neurological status are associated with mortality after burr-hole drainage for chronic subdural hematoma: a 10-year cohort study",
-    "comment": "ปัจจัยทำนายอัตราตายหลังเจาะระบายเลือดในสมอง (SDH)",
-    "pmid": "42472980",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42472980/"
-  },
-  {
-    "date": "20 Jul",
+    "date": "21 Jul",
     "title": "Machine learning for diagnosing non-ST-segment elevation myocardial infarction: a derivation and validation study",
     "comment": "การใช้ Machine learning ช่วยวินิจฉัย NSTEMI",
     "pmid": "42473534",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42473534/"
   },
   {
-    "date": "20 Jul",
-    "title": "Continuous Infusion and Sequential Nephron Blockade Versus Bolus Furosemide in Acute Heart Failure: A Systematic Review",
-    "comment": "เปรียบเทียบการให้ Furosemide ในภาวะหัวใจล้มเหลวเฉียบพลัน",
-    "pmid": "42472171",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42472171/"
+    "date": "21 Jul",
+    "title": "Pericarditis/Myopericarditis/Pericardial Effusion: A Contemporary Approach to Diagnosis and Management.",
+    "comment": "แนวทางการวินิจฉัยและจัดการ Pericarditis/Effusion แบบร่วมสมัย",
+    "pmid": "42474019",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42474019/"
   },
   {
-    "date": "20 Jul",
-    "title": "Oral food challenges in FPIES: A narrative review and proposals for emergency and home-based management of acute FPIES reaction",
-    "comment": "แนวทางการจัดการภาวะ acute FPIES ในแผนกฉุกเฉิน",
-    "pmid": "42473072",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42473072/"
-  },
-  {
-    "date": "20 Jul",
-    "title": "A Global and Local SHAP-Driven Interpretable Framework for Early Hospital Admission Prediction With Machine Learning at Emergency Department Triage",
-    "comment": "ใช้ AI ทำนายโอกาสรับผู้ป่วยไว้ในโรงพยาบาลที่จุด triage",
-    "pmid": "42473479",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42473479/"
-  },
-  {
-    "date": "20 Jul",
-    "title": "Agreement between emergency medicine residents and a radiologist in ultrasonographic detection and grading of hydronephrosis in patients with suspected renal colic: a prospective study",
-    "comment": "ความแม่นยำของ ultrasound ในการวินิจฉัย renal colic",
-    "pmid": "42472770",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42472770/"
+    "date": "21 Jul",
+    "title": "Interpreting driving pressure and mechanical power during one-lung ventilation.",
+    "comment": "การตีความ driving pressure และ mechanical power ในการทำ one-lung ventilation",
+    "pmid": "42475788",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42475788/"
   }
 ]
