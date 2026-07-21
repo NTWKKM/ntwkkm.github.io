@@ -1,5 +1,65 @@
 [
   {
+    "id": "2d0ba464-60a7-81b8-83f4-d869040c2688",
+    "name": "Trick or Treat(ment): Should We Still Fear Reperfusion Therapy in Anticoagulated Stroke Patients?-Comparable 90-Day Outcomes in a Propensity-Score-Matched Registry Study",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41303182/",
+    "property_tag_2": "",
+    "property_comment": "- วัตถุประสงค์: เพื่อศึกษาความสัมพันธ์ระหว่างการใช้ยาต้านการแข็งตัวของเลือด (Anticoagulation) มาก่อนกับการฟื้นตัวในระยะเวลา 90 วัน ในผู้ป่วยโรคหลอดเลือดสมองตีบเฉียบพลันที่ได้รับการรักษาด้วยวิธีเปิดหลอดเลือด (Reperfusion Therapy)\n- วิธีการ: เป็นการศึกษาแบบย้อนหลัง (Retrospective cohort) โดยใช้ข้อมูลจากทะเบียนผู้ป่วยระหว่างปี 2023-2025 และใช้วิธี Propensity Score Matching (1:1) เพื่อเปรียบเทียบผู้ป่วยที่ใช้ยาต้านการแข็งตัวของเลือด 126 รายกับกลุ่มควบคุมที่ไม่ใช้ยา โดยปรับปัจจัยพื้นฐาน เช่น อายุ เพศ ความรุนแรงของโรค (NIHSS) และสถานะร่างกายก่อนป่วยให้เท่าเทียมกัน\n- ผลลัพธ์และผลวิเคราะห์ทางสถิติ: แม้ก่อนการจับคู่กลุ่มที่ใช้ยาจะมีผลลัพธ์ทางคลินิกที่ด้อยกว่า แต่หลังการจับคู่พบว่าไม่มีความแตกต่างอย่างมีนัยสำคัญทางสถิติทั้งในด้านการฟื้นตัวสู่สภาวะปกติ (mRS ≤ 2) และอัตราการเสียชีวิต โดยพบว่าปัจจัยสำคัญที่เป็นตัวพยากรณ์ผลลัพธ์คือความรุนแรงของอาการเริ่มแรก ไม่ใช่การได้รับยาต้านการแข็งตัวของเลือดมาก่อน",
+    "property_tag_3": "",
+    "property_tag_1": "",
+    "property_last_edited_time": "2025-12-21T01:20:00.000Z",
+    "property_pmid": "41303182",
+    "property_name": "Trick or Treat(ment): Should We Still Fear Reperfusion Therapy in Anticoagulated Stroke Patients?-Comparable 90-Day Outcomes in a Propensity-Score-Matched Registry Study"
+  },
+  {
+    "id": "2d0ba464-60a7-81bb-8ca0-fdcb4ba36e6d",
+    "name": "Integrating Continuous Dual Glucose-Ketone Monitoring into Clinical Practice",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41267371/",
+    "property_tag_2": "",
+    "property_comment": "- วัตถุประสงค์: เพื่อนำเสนอแนวทางและการบูรณาการระบบตรวจวัดระดับน้ำตาลและคีโตนแบบต่อเนื่อง (Continuous Dual Glucose-Ketone Monitoring) เข้าสู่การดูแลผู้ป่วยเบาหวานในระดับปฐมภูมิ เพื่อช่วยป้องกันและลดความรุนแรงของภาวะเลือดเป็นกรดจากคีโตน (DKA)\n- วิธีการ: บทความอธิบายถึงความสำคัญของภาวะ DKA และ euglycemic DKA (euDKA) ที่เพิ่มขึ้นจากการใช้ยา SGLT2 inhibitors พร้อมทั้งวิเคราะห์ข้อจำกัดของวิธีการตรวจวัดคีโตนในปัจจุบัน และแนะนำเทคโนโลยีใหม่จาก Abbott ที่ใช้เซนเซอร์เดี่ยวในการวัดระดับกลูโคสและเบต้า-ไฮดรอกซีบิวทีเรต (β-hydroxybutyrate) ในน้ำระหว่างเซลล์แบบต่อเนื่อง\n- ผลลัพธ์และผลวิเคราะห์ทางสถิติ: บทสรุปชี้ให้เห็นว่าการใช้ระบบตรวจวัดแบบคู่นี้จะช่วยให้ระบุภาวะคีโตนสูงได้ตั้งแต่ระยะเริ่มต้น ทำให้ผู้ป่วยและบุคลากรทางการแพทย์สามารถปรับการรักษาได้ทันท่วงทีเพื่อป้องกันการเข้าโรงพยาบาล (บทความนี้เป็นลักษณะการนำเสนอแนวทางเวชปฏิบัติ จึงไม่มีการระบุข้อมูลทางสถิติเชิงตัวเลขในบทคัดย่อ)",
+    "property_tag_3": "",
+    "property_tag_1": "",
+    "property_last_edited_time": "2025-12-21T01:20:00.000Z",
+    "property_pmid": "41267371",
+    "property_name": "Integrating Continuous Dual Glucose-Ketone Monitoring into Clinical Practice"
+  },
+  {
+    "id": "2cfba464-60a7-816b-a4fe-f5e06ebc17a8",
+    "name": "Balanced multi-electrolyte solution versus normal saline for fluid therapy in aneurysmal subarachnoid hemorrhage: an influence on fluid and electrolytes balance and outcome",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41384111/",
+    "property_tag_2": "",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อเปรียบเทียบอุบัติการณ์ของภาวะคลอไรด์ในเลือดสูง (hyperchloremia) ระหว่างการใช้สารละลายอิเล็กโทรไลต์แบบสมดุล (BMES) เทียบกับน้ำเกลือปกติ (NS) ในผู้ป่วยที่มีภาวะเลือดออกใต้เยื่อหุ้มสมองชั้นกลางจากหลอดเลือดสมองโป่งพอง (aSAH) รวมถึงประเมินความเป็นไปได้และความปลอดภัยในการรักษา\n- **วิธีการ:** การศึกษาทางคลินิกแบบสุ่มและมีกลุ่มควบคุมระยะนำร่อง (pilot study) ในศูนย์การแพทย์แห่งเดียว โดยสุ่มผู้ป่วยจำนวน 60 ราย (แบ่งกลุ่มละ 30 ราย) ให้ได้รับสารละลาย BMES หรือ NS เป็นเวลา 3 วันในช่วงที่พักรักษาตัวในหอผู้ป่วยวิกฤต (ICU)\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** ภายใน 3 วันของการสุ่ม ไม่พบความแตกต่างอย่างมีนัยสำคัญทางสถิติของอุบัติการณ์ภาวะคลอไรด์ในเลือดสูงระหว่างสองกลุ่ม (BMES 60% vs. NS 76.7%, p=0.165) อย่างไรก็ตาม ในวันที่ 1 ของการทดลองพบว่ากลุ่ม BMES มีอุบัติการณ์ภาวะคลอไรด์ในเลือดสูงและภาวะกรดจากคลอไรด์สูงน้อยกว่ากลุ่ม NS อย่างมีนัยสำคัญ (36.7% vs. 63.3%, p=0.039) โดยไม่พบความแตกต่างในด้านระดับครีอะตินีน อุบัติการณ์การบาดเจ็บของไตเฉียบพลัน หรือระยะเวลาการพำนักในโรงพยาบาล",
+    "property_tag_3": "",
+    "property_tag_1": "",
+    "property_last_edited_time": "2025-12-20T19:10:00.000Z",
+    "property_pmid": "41384111",
+    "property_name": "Balanced multi-electrolyte solution versus normal saline for fluid therapy in aneurysmal subarachnoid hemorrhage: an influence on fluid and electrolytes balance and outcome"
+  },
+  {
+    "id": "2cfba464-60a7-8189-808c-e7385d9704f2",
+    "name": "Biological Sex Is Associated with Pre-Tibial Subcutaneous Tissue Depth for Intraosseous Catheter Insertion",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41380068/",
+    "property_tag_2": "",
+    "property_comment": "- วัตถุประสงค์: เพื่อศึกษาความสัมพันธ์ระหว่างลักษณะเฉพาะของผู้ป่วยกับความหนาของเนื้อเยื่ออ่อนบริเวณจุดใส่เข็มเจาะไขกระดูก (IO) ที่กระดูกหน้าแข้งส่วนบน เพื่อระบุกลุ่มเสี่ยงที่มีความหนาของเนื้อเยื่อมากเกินไปซึ่งอาจส่งผลต่อความล้มเหลวในการใส่เข็ม\n- วิธีการ: ศึกษาย้อนหลังในผู้ป่วยผู้ใหญ่ 368 รายที่ได้รับการทำเอกซเรย์คอมพิวเตอร์ (CT) บริเวณขา โดยวัดความหนาของเนื้อเยื่อจากภาพ CT และวิเคราะห์ข้อมูลปัจจัยต่างๆ เช่น เพศ, อายุ, BMI และโรคประจำตัว\n- ผลลัพธ์และผลวิเคราะห์ทางสถิติ: พบว่าเพศหญิง, ส่วนสูงที่น้อย และน้ำหนักหรือ BMI ที่เพิ่มขึ้น มีความสัมพันธ์กับการเพิ่มขึ้นของความหนาเนื้อเยื่ออย่างมีนัยสำคัญทางสถิติ โดยเฉพาะเพศหญิงมีความหนาของเนื้อเยื่อมากกว่าเพศชายที่มี BMI เท่ากัน ในขณะที่โรคประจำตัวอื่นๆ ไม่มีความสัมพันธ์กับความหนาของเนื้อเยื่ออย่างมีนัยสำคัญ",
+    "property_tag_3": "",
+    "property_tag_1": "",
+    "property_last_edited_time": "2025-12-20T17:51:00.000Z",
+    "property_pmid": "41380068",
+    "property_name": "Biological Sex Is Associated with Pre-Tibial Subcutaneous Tissue Depth for Intraosseous Catheter Insertion"
+  },
+  {
+    "id": "2cfba464-60a7-8113-917d-cb2e5e1baf15",
+    "name": "Abdominal ultrasound (FAST) in hemodynamically stable children with blunt abdominal trauma: study protocol for a randomized controlled trial",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41388553/",
+    "property_tag_2": "",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาผลกระทบของการตรวจอัลตราซาวด์หน้าท้อง (FAST) ในการลดการใช้การตรวจเอกซเรย์คอมพิวเตอร์ (CT scan) อย่างปลอดภัยในเด็กที่ได้รับบาดเจ็บที่หน้าท้องแต่มีสัญญาณชีพคงตัว และประเมินว่าควรนำการตรวจ FAST มาใช้เป็นมาตรฐานในการตรวจเบื้องต้นหรือไม่\n- **วิธีการ:** เป็นการศึกษาวิจัยแบบสุ่มและมีกลุ่มควบคุม (Randomized Controlled Trial) แบบพหุสถาบัน โดยสุ่มเด็กผู้เข้าร่วมจำนวน 3,194 ถึง 4,346 ราย ออกเป็น 2 กลุ่ม ได้แก่ กลุ่มที่ได้รับการตรวจ FAST ร่วมกับการดูแลตามปกติ และกลุ่มที่ได้รับการดูแลตามปกติเพียงอย่างเดียว ในศูนย์การแพทย์ 6 แห่ง\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** ตัวชี้วัดหลักคือสัดส่วนการใช้ CT scan ภายใน 24 ชั่วโมงแรก และอัตราการวินิจฉัยภาวะบาดเจ็บในช่องท้องที่ผิดพลาดหรือล่าช้า นอกจากนี้จะมีการวิเคราะห์ผลรอง เช่น ระยะเวลาที่อยู่ในแผนกฉุกเฉิน อัตราการนอนโรงพยาบาล และอัตราการผ่าตัดเปิดช่องท้อง",
+    "property_tag_3": "",
+    "property_tag_1": "",
+    "property_last_edited_time": "2025-12-20T17:50:00.000Z",
+    "property_pmid": "41388553",
+    "property_name": "Abdominal ultrasound (FAST) in hemodynamically stable children with blunt abdominal trauma: study protocol for a randomized controlled trial"
+  },
+  {
     "id": "2cfba464-60a7-814d-8c0a-d09c76f09f5d",
     "name": "Clinical significance of pyuria in pediatric diabetic ketoacidosis: evidence against empirical antibiotic use",
     "url": "https://pubmed.ncbi.nlm.nih.gov/41229253/",
