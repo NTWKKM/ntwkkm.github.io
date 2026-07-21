@@ -1,16 +1,21 @@
 # ARCHITECTURE.md — NTWKKM Personal Website
 
-**Last Updated:** 2026-07-04
+**Last Updated:** 2026-07-21
 
 ## Overview
 
-Static personal website hosted on GitHub Pages (`ntwkkm.github.io`). Serves as a professional portfolio for an Emergency Medicine physician & Clinical Informatics developer.
+Static personal website hosted on GitHub Pages (`ntwkkm.github.io`). Serves as a professional portfolio for an Emergency Medicine physician & Clinical Informatics developer, featuring the Lithos geology brand hero section built with React 18, TypeScript 5.9, Vite, and Tailwind CSS.
 
 ## Pages & Core Files
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Homepage — paper slider + project portfolio grid |
+| `index.html` | Homepage entry point — Lithos Geology Brand React 18 + Vite root container |
+| `src/App.tsx` | Main Lithos React application container |
+| `src/components/HeroSection.tsx` | Full-screen hero section (`100dvh`) with cursor smooth lerp physics |
+| `src/components/RevealLayer.tsx` | Canvas spotlight radial gradient mask reveal component |
+| `src/components/Navbar.tsx` | Fixed navigation bar with Lithos SVG mark and mobile menu |
+| `src/index.css` | Typography (Inter & Playfair Display), Tailwind directives & hero keyframes |
 | `index.css` | Homepage-specific minimal styling |
 | `blog.html` | Research blog reader — sidebar list + article detail view |
 | `blog.css` | Blog-specific minimal styling |
