@@ -43,17 +43,22 @@ jobs:
           token: ${{ secrets.PAT_FOR_PL }}
           path: pl
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          source: ./
-          destination: ./_site
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies & Build Vite App
+        run: |
+          npm ci
+          npm run build
+          if [ -d "pl" ]; then cp -r pl dist/pl; fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./dist
 
   deploy:
     environment:

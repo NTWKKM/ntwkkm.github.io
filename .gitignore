@@ -8,6 +8,8 @@ Thumbs.db
 
 # Node.js (CI-only dependencies)
 node_modules/
+dist/
+
 
 # n8n ephemeral file (should be consumed by GitHub Actions)
 latest_updates.json
