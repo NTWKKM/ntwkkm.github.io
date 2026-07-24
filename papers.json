@@ -1,30 +1,86 @@
 [
   {
     "date": "24 Jul",
-    "title": "Persistent tissue hypoperfusion improves risk stratification beyond vasopressor dose in refractory septic shock: a secondary analysis of the ANDROMEDA-SHOCK-2 trial.",
-    "comment": "ใช้ประเมินความเสี่ยงใน septic shock ได้แม่นยำกว่าการดูปริมาณ vasopressor",
-    "pmid": "42467247",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42467247/"
+    "title": "Association between serum lactate/albumin ratio and all-cause mortality in critically ill patients: a meta-analysis",
+    "comment": "Lactate/albumin ratio ช่วยทำนายอัตราตายในผู้ป่วยวิกฤต",
+    "pmid": "42495757",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42495757/"
   },
   {
     "date": "24 Jul",
-    "title": "The usual suspects: a pragmatic framework to identify and address reversible contributors in apparent refractory septic shock.",
-    "comment": "กรอบแนวทางปฏิบัติเพื่อค้นหาสาเหตุที่แก้ไขได้ในผู้ป่วย refractory septic shock",
-    "pmid": "42469837",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42469837/"
+    "title": "Acute Kidney Injury After Intensive Blood Pressure Lowering Following Successful Endovascular Thrombectomy",
+    "comment": "ความเสี่ยง AKI หลังลดความดันอย่างรวดเร็วในผู้ป่วย Thrombectomy",
+    "pmid": "42495732",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42495732/"
   },
   {
     "date": "24 Jul",
-    "title": "Endotoxin Activity Assay-guided Polymyxin B Hemoperfusion: From Failed Trials to Biological Enrichment.",
-    "comment": "การใช้ assay นำทางการทำ hemoperfusion เพื่อเพิ่มประสิทธิภาพการรักษา sepsis",
-    "pmid": "42488017",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42488017/"
+    "title": "Medical Treatment or Intervention for Asymptomatic Carotid Stenosis? Interpreting CREST-2",
+    "comment": "ประเมินการรักษา Carotid stenosis แบบใช้ยาเทียบกับการผ่าตัด",
+    "pmid": "42495730",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42495730/"
   },
   {
     "date": "24 Jul",
-    "title": "Selective digestive decontamination and antimicrobial resistance: defining thresholds before global implementation.",
-    "comment": "ข้อควรระวังเรื่องการดื้อยาจากการทำ selective digestive decontamination",
-    "pmid": "42479035",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42479035/"
+    "title": "Catheter Ablation Outcomes in Electrical Storm Versus Non-Electrical Storm Ventricular Tachycardia: A Systematic Review and Meta-Analysis",
+    "comment": "ผลการรักษา VT ในภาวะ Electrical storm เมื่อเทียบกับกรณีทั่วไป",
+    "pmid": "42495726",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42495726/"
+  },
+  {
+    "date": "24 Jul",
+    "title": "Early prediction of severe autoimmune encephalitis: development and validation of a model incorporating readily available lactate dehydrogenase",
+    "comment": "ใช้ค่า LDH ทำนายความรุนแรงของ autoimmune encephalitis ได้รวดเร็ว",
+    "pmid": "42495617",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42495617/"
+  },
+  {
+    "date": "24 Jul",
+    "title": "Uncovering the pivotal role of MYO6 in myocardial infarction: a multimodally validated diagnostic biomarker and immunotherapeutic target",
+    "comment": "MYO6 เป็นตัวบ่งชี้ใหม่สำหรับการวินิจฉัย myocardial infarction",
+    "pmid": "42495634",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42495634/"
+  },
+  {
+    "date": "24 Jul",
+    "title": "Clinical efficacy and cost per improved outcome of treatments for generalized myasthenia gravis: evidence from a network meta-analysis and cost-per-responder analysis",
+    "comment": "วิเคราะห์ประสิทธิภาพและต้นทุนการรักษา Generalized myasthenia gravis",
+    "pmid": "42495790",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42495790/"
+  },
+  {
+    "date": "24 Jul",
+    "title": "Adrenergic receptors: a key determinant of outcomes in bacterial pneumonia and bacterial sepsis-associated acute lung injury/acute respiratory distress syndrome through participation in pulmonary innate immune response",
+    "comment": "บทบาท Adrenergic receptor ต่อผลลัพธ์ใน Sepsis และ ARDS",
+    "pmid": "42495636",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42495636/"
+  },
+  {
+    "date": "24 Jul",
+    "title": "Delayed Recognition and Stroke-Predominant Presentation in Down Syndrome-Associated Moyamoya Syndrome",
+    "comment": "ความเสี่ยงในการวินิจฉัย Moyamoya syndrome ล่าช้าใน Down syndrome",
+    "pmid": "42495733",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42495733/"
+  },
+  {
+    "date": "24 Jul",
+    "title": "Attenuated C-reactive protein response to infection in newborns and neonates: an age-stratified analysis in children with sepsis",
+    "comment": "การตอบสนองของ CRP ในเด็กที่เป็น sepsis อาจไม่ชัดเจน",
+    "pmid": "42495616",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42495616/"
+  },
+  {
+    "date": "24 Jul",
+    "title": "Complement receptor 2 downregulation is associated with mortality in Staphylococcus aureus sepsis in both mice and humans",
+    "comment": "Complement receptor 2 ลดลงสัมพันธ์กับอัตราตายใน S. aureus sepsis",
+    "pmid": "42495651",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42495651/"
+  },
+  {
+    "date": "24 Jul",
+    "title": "Liver Function Abnormalities in Acute Heart Failure: A State-of-the-art Review from an International Expert Group",
+    "comment": "อัปเดตความผิดปกติของตับในภาวะ Acute heart failure",
+    "pmid": "42495596",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42495596/"
   }
 ]
