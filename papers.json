@@ -1,86 +1,30 @@
 [
   {
-    "date": "23 Jul",
-    "title": "AI-ECG Risk Stratification for Atrial Fibrillation: Real-World Performance and Explainability.",
-    "comment": "AI ช่วยคัดกรอง AF ในสถานการณ์จริง เพิ่มความแม่นยำในการ triage",
-    "pmid": "42485714",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42485714/"
+    "date": "24 Jul",
+    "title": "Persistent tissue hypoperfusion improves risk stratification beyond vasopressor dose in refractory septic shock: a secondary analysis of the ANDROMEDA-SHOCK-2 trial.",
+    "comment": "ใช้ประเมินความเสี่ยงใน septic shock ได้แม่นยำกว่าการดูปริมาณ vasopressor",
+    "pmid": "42467247",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42467247/"
   },
   {
-    "date": "23 Jul",
-    "title": "Systolic blood pressure before reperfusion and infarct growth in patients with acute stroke treated with thrombectomy.",
-    "comment": "ความดัน systolic ก่อน reperfusion ส่งผลต่อขนาด infarct ในผู้ป่วย stroke",
-    "pmid": "42485258",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42485258/"
+    "date": "24 Jul",
+    "title": "The usual suspects: a pragmatic framework to identify and address reversible contributors in apparent refractory septic shock.",
+    "comment": "กรอบแนวทางปฏิบัติเพื่อค้นหาสาเหตุที่แก้ไขได้ในผู้ป่วย refractory septic shock",
+    "pmid": "42469837",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42469837/"
   },
   {
-    "date": "23 Jul",
-    "title": "Prehospital Management of Suicide Attempts and Predictive Factors of Mortality Identified During Medical Dispatching.",
-    "comment": "ปัจจัยเสี่ยงการตายจากการพยายามฆ่าตัวตาย ช่วยประเมินความเสี่ยงระยะ prehospital",
-    "pmid": "42485249",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42485249/"
+    "date": "24 Jul",
+    "title": "Endotoxin Activity Assay-guided Polymyxin B Hemoperfusion: From Failed Trials to Biological Enrichment.",
+    "comment": "การใช้ assay นำทางการทำ hemoperfusion เพื่อเพิ่มประสิทธิภาพการรักษา sepsis",
+    "pmid": "42488017",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42488017/"
   },
   {
-    "date": "23 Jul",
-    "title": "Development and evaluation of a technology-enhanced simulation to measure physician decision making in trauma triage.",
-    "comment": "การจำลองสถานการณ์ช่วยพัฒนาทักษะการตัดสินใจใน trauma triage",
-    "pmid": "42485348",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42485348/"
-  },
-  {
-    "date": "23 Jul",
-    "title": "Aggressive Versus Conservative Blood Pressure Reduction in Acute Intracerebral Hemorrhage: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
-    "comment": "เปรียบเทียบการลด BP ใน ICH เพื่อช่วยตัดสินใจระดับความดันที่เหมาะสม",
-    "pmid": "42484370",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42484370/"
-  },
-  {
-    "date": "23 Jul",
-    "title": "Mayday checklists in emergency medicine: a human factors proposal for cognitive offloading during resuscitation.",
-    "comment": "ใช้ checklist ลดภาระทางความคิดและลดความผิดพลาดขณะกู้ชีพ",
-    "pmid": "42484944",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42484944/"
-  },
-  {
-    "date": "23 Jul",
-    "title": "Point-of-care biomarkers for mild traumatic brain injury: implications for Canadian emergency departments.",
-    "comment": "Biomarker หน้างานช่วยวินิจฉัย mild TBI ใน ER ได้รวดเร็ว",
-    "pmid": "42484943",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42484943/"
-  },
-  {
-    "date": "23 Jul",
-    "title": "Headache in the emergency department: Sex differences in triage, diagnostic evaluation, and treatment.",
-    "comment": "ความแตกต่างทางเพศในการคัดแยกและรักษาอาการปวดศีรษะใน ER",
-    "pmid": "42484557",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42484557/"
-  },
-  {
-    "date": "23 Jul",
-    "title": "Evaluation of the feasibility and safety of cangrelor in out-of-hospital cardiac arrest undergoing percutaneous coronary intervention.",
-    "comment": "ความปลอดภัยของ cangrelor ในผู้ป่วย OHCA ที่จะทำ PCI",
-    "pmid": "42484000",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42484000/"
-  },
-  {
-    "date": "23 Jul",
-    "title": "Screening Adult Patients in Emergency Departments (EDs) for Risk Factors of Child Maltreatment. A Swedish Pilot Study.",
-    "comment": "การคัดกรองความเสี่ยงทารุณกรรมเด็กในผู้ป่วยที่มาห้องฉุกเฉิน",
-    "pmid": "42485004",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42485004/"
-  },
-  {
-    "date": "23 Jul",
-    "title": "Intra- and Peri-Operative Cardiac Arrest in Pediatric Patients: Epidemiology, Risk Factors, Mechanisms, and Management Strategies.",
-    "comment": "ข้อมูลสำคัญในการจัดการภาวะหัวใจหยุดเต้นในผู้ป่วยเด็ก",
-    "pmid": "42484292",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42484292/"
-  },
-  {
-    "date": "23 Jul",
-    "title": "Simulation of AI-driven CT Imaging Queue Prioritization in the Emergency Department.",
-    "comment": "การใช้ AI จัดคิว CT ช่วยเพิ่มความรวดเร็วใน ER",
-    "pmid": "42484446",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42484446/"
+    "date": "24 Jul",
+    "title": "Selective digestive decontamination and antimicrobial resistance: defining thresholds before global implementation.",
+    "comment": "ข้อควรระวังเรื่องการดื้อยาจากการทำ selective digestive decontamination",
+    "pmid": "42479035",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42479035/"
   }
 ]
