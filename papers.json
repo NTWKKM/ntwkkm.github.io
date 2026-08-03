@@ -1,86 +1,86 @@
 [
   {
-    "date": "2 Aug",
-    "title": "Diagnostic Validation of PERC and Resource Utilization in Suspected Acute Pulmonary Embolism: A Systematic Review and Meta-Analysis",
-    "comment": "ยืนยันความแม่นยำของ PERC rule ในการลดการตรวจไม่จำเป็นในผู้ป่วยสงสัย PE",
-    "pmid": "42541393",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42541393/"
+    "date": "3 Aug",
+    "title": "Standard Antiplatelet Therapy Versus Thrombolysis in Acute Spontaneous Spinal Cord Infarction: A Propensity Score-Matched Analysis",
+    "comment": "เปรียบเทียบการให้ยาต้านเกล็ดเลือดกับยาละลายลิ่มเลือดในภาวะ Spinal Cord Infarction",
+    "pmid": "42544504",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42544504/"
   },
   {
-    "date": "2 Aug",
+    "date": "3 Aug",
+    "title": "Emergency department-initiated interventions to reduce risk of recurrent falls in older adults: a systematic review and meta-analysis",
+    "comment": "แนวทางลดการหกล้มซ้ำในผู้สูงอายุที่เริ่มดำเนินการจากห้องฉุกเฉิน",
+    "pmid": "42544467",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42544467/"
+  },
+  {
+    "date": "3 Aug",
+    "title": "Adverse Events Associated with Incretin-Based Therapies: A Narrative Review on Mechanisms, Clinical Management, and Risk Mitigation",
+    "comment": "ผลข้างเคียงและการจัดการยากลุ่ม Incretin (GLP-1) ที่แพทย์ ER ต้องระวัง",
+    "pmid": "42544311",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42544311/"
+  },
+  {
+    "date": "3 Aug",
+    "title": "Evaluation of Presepsin as an Early Biomarker of Sepsis in Elderly Patients with Community-acquired Pneumonia",
+    "comment": "ใช้ Presepsin ช่วยวินิจฉัย Sepsis ระยะแรกในผู้สูงอายุที่เป็น CAP",
+    "pmid": "42543988",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42543988/"
+  },
+  {
+    "date": "3 Aug",
+    "title": "Reliability of Arterial Blood Gas Analyzer for Electrolyte and Hemoglobin Measurement: A Method Comparison Study",
+    "comment": "ตรวจสอบความแม่นยำของค่า Electrolyte และ Hgb จากเครื่อง ABG เพื่อการตัดสินใจทางคลินิก",
+    "pmid": "42543952",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42543952/"
+  },
+  {
+    "date": "3 Aug",
+    "title": "AI-powered ECG Interpretation System for Arrhythmia Prediction and Hyperkalemia Detection Using Machine Learning",
+    "comment": "ใช้ AI ช่วยตรวจคลื่นไฟฟ้าหัวใจเพื่อทำนาย Arrhythmia และ Hyperkalemia ได้รวดเร็วขึ้น",
+    "pmid": "42543928",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42543928/"
+  },
+  {
+    "date": "3 Aug",
+    "title": "Guides, algorithms and other support tools to improve neonatal and pediatric venous access care: A scoping review",
+    "comment": "รวบรวม Guideline และ Algorithm การเปิดเส้นเลือดในเด็กและทารกที่ใช้ได้จริง",
+    "pmid": "42543878",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42543878/"
+  },
+  {
+    "date": "3 Aug",
+    "title": "Evidence for Electrocardiographic Patterns Identifying Acute Coronary Occlusion in Non-ST-Elevation Acute Coronary Syndromes: A Scoping Review",
+    "comment": "รูปแบบ ECG ที่ช่วยระบุภาวะ Coronary Occlusion ในกลุ่ม NSTEMI เพื่อการรักษาที่เร็วขึ้น",
+    "pmid": "42543734",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42543734/"
+  },
+  {
+    "date": "3 Aug",
+    "title": "Association Between Initial Admission Ward and In-Hospital Mortality Among Patients Hospitalized for Cardiovascular Emergencies - A Nationwide Study Using the JROAD-DPC Database",
+    "comment": "ผลของการเลือกวอร์ดแรกรับต่ออัตราการเสียชีวิตในผู้ป่วยฉุกเฉินทางหัวใจ",
+    "pmid": "42543601",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42543601/"
+  },
+  {
+    "date": "3 Aug",
+    "title": "Computed Tomography-Proven Active Bleeding with Negative Emergency Angiography: Early Mortality Predictors and Development of the Negative Angiography Bleeding-Lethality Score",
+    "comment": "คะแนนประเมินความเสี่ยงการเสียชีวิตในรายที่ CT พบเลือดออกแต่ Angiography เป็นลบ",
+    "pmid": "42543401",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42543401/"
+  },
+  {
+    "date": "3 Aug",
+    "title": "Comparison of Alvarado, RIPASA, AIR and Tzanakis Scores in Acute Appendicitis: Prediction of Complicated Disease",
+    "comment": "เปรียบเทียบ Score ต่างๆ ในการทำนายภาวะไส้ติ่งอักเสบชนิดรุนแรง",
+    "pmid": "42543190",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42543190/"
+  },
+  {
+    "date": "3 Aug",
     "title": "Non-operative management of uncomplicated appendicitis in children: Where do we stand?",
-    "comment": "ทบทวนแนวทางการรักษาไส้ติ่งอักเสบแบบไม่ผ่าตัดในเด็ก ซึ่งอาจเปลี่ยน standard of care",
+    "comment": "อัปเดตการรักษาไส้ติ่งอักเสบในเด็กแบบไม่ผ่าตัด เพื่อลดการผ่าตัดที่ไม่จำเป็น",
     "pmid": "42542406",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42542406/"
-  },
-  {
-    "date": "2 Aug",
-    "title": "Assessment of Brain-Specific and Neuroendocrine Biomarkers for Intracerebral Hemorrhage Diagnosis: A Prospective Cohort Study",
-    "comment": "Biomarker ใหม่ช่วยวินิจฉัย ICH ได้แม่นยำขึ้น เพิ่มประสิทธิภาพการคัดกรองผู้ป่วย",
-    "pmid": "42542769",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42542769/"
-  },
-  {
-    "date": "2 Aug",
-    "title": "Sex-specific effects of methylprednisolone on outcomes after endovascular treatment for acute ischemic stroke due to large vessel occlusion: A secondary analysis of the MARVEL trial",
-    "comment": "ผลของ steroid ใน stroke แตกต่างกันตามเพศ มีผลต่อการตัดสินใจเลือกใช้ยา",
-    "pmid": "42542723",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42542723/"
-  },
-  {
-    "date": "2 Aug",
-    "title": "Predictive validity of SOFA-2 score for In-Hospital Mortality Among Patients With Suspected Infection Presenting to the Emergency Department",
-    "comment": "SOFA-2 ช่วยพยากรณ์อัตราตายในผู้ป่วยติดเชื้อที่ ER ได้อย่างมีนัยสำคัญ",
-    "pmid": "42542312",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42542312/"
-  },
-  {
-    "date": "2 Aug",
-    "title": "Anaphylaxis in pregnancy: diagnostic blind spots, epinephrine hesitancy, and emerging prevention strategies",
-    "comment": "เตือนเรื่องความลังเลในการให้ Epinephrine และจุดบอดในการวินิจฉัย Anaphylaxis ในคนท้อง",
-    "pmid": "42542438",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42542438/"
-  },
-  {
-    "date": "2 Aug",
-    "title": "Identifying Optimal Buprenorphine Dosing for Opioid Use Disorder Treatment and Overdose Prevention in the Fentanyl Era Using Linked Statewide Administrative Data",
-    "comment": "ปรับโดส Buprenorphine ให้เหมาะสมในยุค Fentanyl เพื่อลดอัตราการ overdose",
-    "pmid": "42540871",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42540871/"
-  },
-  {
-    "date": "2 Aug",
-    "title": "Emerging Neurovascular Interventions for the Prevention of Cerebral Vasospasm and Delayed Cerebral Ischemia After Aneurysmal Subarachnoid Hemorrhage: A Systematic Review",
-    "comment": "รวบรวมเทคนิคใหม่ป้องกัน Vasospasm หลัง SAH เพื่อลดอัตราความพิการของผู้ป่วย",
-    "pmid": "42540693",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42540693/"
-  },
-  {
-    "date": "2 Aug",
-    "title": "Comparison of ultrasound-guided brachiocephalic and internal jugular vein cannulation in neonates and infants: A prospective randomized controlled trial",
-    "comment": "RCT ยืนยันความปลอดภัยและประสิทธิภาพของการใช้ US นำทางใส่สาย CVC ในทารก",
-    "pmid": "42541218",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42541218/"
-  },
-  {
-    "date": "2 Aug",
-    "title": "Non-immunoglobulin E-mediated mechanisms of anaphylaxis",
-    "comment": "กลไก Anaphylaxis ที่ไม่ผ่าน IgE ช่วยให้วินิจฉัยและรักษาเคสที่ซับซ้อนได้แม่นยำขึ้น",
-    "pmid": "42542541",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42542541/"
-  },
-  {
-    "date": "2 Aug",
-    "title": "Effectiveness of Five-Level Prehospital Taiwan Triage and Acuity Scale (TTAS-PH) in Emergency Medical Services for Patient Outcome Prediction: A Retrospective Cohort Study",
-    "comment": "ระบบ Triage 5 ระดับช่วยทำนายผลลัพธ์ผู้ป่วยก่อนถึง ER ได้แม่นยำขึ้น",
-    "pmid": "42542875",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42542875/"
-  },
-  {
-    "date": "2 Aug",
-    "title": "Interactive artificial intelligence in airway management: Debunking myths through a comparison of Google Gemini and ChatGPT",
-    "comment": "เปรียบเทียบ LLMs ในการช่วยจัดการทางเดินหายใจ เตือนให้ระวังข้อมูลที่คลาดเคลื่อนทางคลินิก",
-    "pmid": "42540983",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42540983/"
   }
 ]
