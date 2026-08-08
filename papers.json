@@ -1,45 +1,80 @@
 [
   {
     "date": "8 Aug",
-    "title": "Use of [TIMP-2] • [IGFBP7] to identify sepsis-related acute kidney injury in the emergency department.",
-    "comment": "Biomarker ช่วยคัดกรองภาวะ AKI จาก Sepsis ใน ER ได้แม่นยำกว่าค่า Creatinine พื้นฐาน",
-    "pmid": "42565116",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42565116/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Smartphone-based Prehospital Stroke Triage Optimizes Workflow and Bridges the Off-hour Delays in Endovascular Thrombectomy.",
-    "comment": "การใช้ Smartphone triage ช่วยลดเวลา door-to-needle ในผู้ป่วย Stroke นอกเวลาทำการได้อย่างมีนัยสำคัญ",
-    "pmid": "42566337",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42566337/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Diagnostic role of N-terminal pro-B-type natriuretic peptide (NT-proBNP) in pediatric syncope in the emergency department: a prospective study.",
-    "comment": "การใช้ NT-proBNP ช่วยแยกโรคหัวใจในเด็กที่มาด้วยอาการหมดสติ (Syncope) ที่มีอาการน่าสงสัย",
-    "pmid": "42566053",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42566053/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Validation of SeptiCyte RAPID to Discriminate Sepsis From Noninfectious Systemic Inflammation in Critically Ill Children.",
-    "comment": "เครื่องมือช่วยแยก Sepsis ออกจากภาวะอักเสบอื่นในเด็ก ลดการใช้ยาปฏิชีวนะเกินความจำเป็น",
-    "pmid": "42565662",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42565662/"
-  },
-  {
-    "date": "8 Aug",
     "title": "Complications of Midazolam in the Management of Agitated Patients in the Emergency Department: A Dutch Observational Study.",
-    "comment": "เตือนความเสี่ยงภาวะแทรกซ้อนจากการใช้ Midazolam ในผู้ป่วย Agitated ใน ER ที่ควรระวัง",
+    "comment": "Safety signal: ข้อมูลภาวะแทรกซ้อนจากการใช้ Midazolam จัดการผู้ป่วย Agitation ใน ER",
     "pmid": "42566827",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42566827/"
   },
   {
     "date": "8 Aug",
+    "title": "Effect of anaesthesia modality on outcome in medium or distal vessel occlusion stroke: a post-hoc analysis of the DISTAL trial.",
+    "comment": "Practice changing: ผลของรูปแบบการระงับความรู้สึกต่อ outcome ในผู้ป่วย Stroke",
+    "pmid": "42566703",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42566703/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Precision allergy molecular diagnostic applications in anaphylaxis: from triggers to risk stratification and personalized management.",
+    "comment": "Novel Tool: การใช้ Molecular diagnostic เพื่อแบ่งกลุ่มความเสี่ยงและจัดการ Anaphylaxis",
+    "pmid": "42566649",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42566649/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Risk factors associated with delirium in older emergency department patients: A systematic review and meta-analysis.",
+    "comment": "Clinical impact: ปัจจัยเสี่ยงต่อการเกิด Delirium ในผู้สูงอายุที่มา ER",
+    "pmid": "42566629",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42566629/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Smartphone-based Prehospital Stroke Triage Optimizes Workflow and Bridges the Off-hour Delays in Endovascular Thrombectomy.",
+    "comment": "Novel Tool: การใช้ Smartphone triage เพื่อลดความล่าช้าในการทำ EVT",
+    "pmid": "42566337",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42566337/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Use of [TIMP-2] · [IGFBP7] to identify sepsis-related acute kidney injury in the emergency department.",
+    "comment": "Novel Tool: Biomarker สำหรับคัดกรอง Sepsis-AKI ใน ER ได้รวดเร็วขึ้น",
+    "pmid": "42565116",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42565116/"
+  },
+  {
+    "date": "8 Aug",
     "title": "Peripheral perfusion index as a predictor of severe shock in trauma patients: a prospective observational study.",
-    "comment": "ค่า PI ช่วยประเมินภาวะช็อกรุนแรงในผู้ป่วย Trauma ได้รวดเร็วและใช้ติดตามอาการได้ต่อเนื่อง",
+    "comment": "Clinical impact: ใช้ PPI เป็นตัวพยากรณ์ Severe shock ในผู้ป่วย Trauma",
     "pmid": "42565894",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42565894/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Diagnostic role of N-terminal pro-B-type natriuretic peptide (NT-proBNP) in pediatric syncope in the emergency department: a prospective study.",
+    "comment": "Clinical impact: บทบาทของ NT-proBNP ในการวินิจฉัย Syncope ในเด็กที่มา ER",
+    "pmid": "42566053",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42566053/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Early calcium replacement after minimal blood transfusion is associated with adverse outcomes.",
+    "comment": "Safety signal: การให้ Calcium replacement เร็วเกินไปหลัง transfusion ปริมาณน้อยสัมพันธ์กับ outcome ที่แย่ลง",
+    "pmid": "42565997",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42565997/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Efficacy of Ultra-low-dose Ketamine for Reducing Pain Intensity and Total Opioid Requirement in Children With Opioid-Refractory Pain.",
+    "comment": "Novel Drug/Dose: การใช้ Ultra-low-dose Ketamine ลดปวดและลดการใช้ Opioid ในเด็ก",
+    "pmid": "42565641",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42565641/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Validation of SeptiCyte RAPID to Discriminate Sepsis From Noninfectious Systemic Inflammation in Critically Ill Children.",
+    "comment": "Novel Tool: เครื่องมือแยก Sepsis ออกจาก SIRI ในเด็กวิกฤต",
+    "pmid": "42565662",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42565662/"
   },
   {
     "date": "8 Aug",
@@ -50,24 +85,10 @@
   },
   {
     "date": "8 Aug",
-    "title": "Early calcium replacement after minimal blood transfusion is associated with adverse outcomes.",
-    "comment": "การให้แคลเซียมเสริมเร็วเกินไปหลังได้รับเลือดปริมาณน้อยสัมพันธ์กับผลลัพธ์ที่แย่ลงในผู้ป่วย",
-    "pmid": "42565997",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42565997/"
-  },
-  {
-    "date": "8 Aug",
     "title": "Clinical value of the venous volume excess ultrasound score (VExUS) for volume management following cardiopulmonary bypass (CPB).",
     "comment": "การใช้ VExUS score ช่วยประเมินภาวะน้ำเกิน (Congestion) ได้แม่นยำกว่าการวัดความดันหลอดเลือดดำทั่วไป",
     "pmid": "42565947",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42565947/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Efficacy of Ultra-low-dose Ketamine for Reducing Pain Intensity and Total Opioid Requirement in Children With Opioid-Refractory Pain.",
-    "comment": "Ketamine ขนาดต่ำมากช่วยลดปวดในเด็กที่ดื้อต่อ Opioids ลดความจำเป็นในการใช้ยาหลักขนาดสูง",
-    "pmid": "42565641",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42565641/"
   },
   {
     "date": "7 Aug",
