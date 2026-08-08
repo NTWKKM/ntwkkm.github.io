@@ -1,17 +1,87 @@
 [
   {
     "date": "8 Aug",
+    "title": "Aggressive versus Conventional Antiplatelet Therapy During Emergent Carotid Stenting in Acute Ischemic Stroke: Balancing Occlusion and Hemorrhage.",
+    "comment": "เปรียบเทียบการใช้ antiplatelet ใน stroke ช่วยตัดสินใจเลือก intensity เพื่อลดภาวะแทรกซ้อน",
+    "pmid": "42567712",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42567712/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Frontal QRS-T angle predicts cardiac syncope in the emergency department.",
+    "comment": "เครื่องมือช่วยคัดกรองภาวะ syncope จากโรคหัวใจใน ER โดยใช้ ECG",
+    "pmid": "42567106",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42567106/"
+  },
+  {
+    "date": "8 Aug",
     "title": "Complications of Midazolam in the Management of Agitated Patients in the Emergency Department: A Dutch Observational Study.",
-    "comment": "Safety signal: ข้อมูลภาวะแทรกซ้อนจากการใช้ Midazolam จัดการผู้ป่วย Agitation ใน ER",
+    "comment": "ข้อมูลความปลอดภัยและผลข้างเคียงของการใช้ Midazolam จัดการผู้ป่วย agitated ใน ER",
     "pmid": "42566827",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42566827/"
   },
   {
     "date": "8 Aug",
+    "title": "Smartphone-based Prehospital Stroke Triage Optimizes Workflow and Bridges the Off-hour Delays in Endovascular Thrombectomy.",
+    "comment": "การใช้ Digital tool ช่วย triage stroke จากก่อนถึงโรงพยาบาลเพื่อลด delay ในการทำ EVT",
+    "pmid": "42566337",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42566337/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "When dyspnea replaces chest pain: Age-dependent symptom profiles in ACS and non-ACS patients undergoing coronary angiography.",
+    "comment": "เตือนการนำเสนออาการ ACS ที่ไม่ใช่ chest pain ในผู้ป่วยบางกลุ่มเพื่อป้องกันการ missed diagnosis",
+    "pmid": "42567025",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42567025/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Implementation of a national clinical guideline for cauda equina syndrome improves referral quality and reduces delays to MRI.",
+    "comment": "ยืนยันว่าการใช้ guideline ช่วยลด delay ในการวินิจฉัยและรักษา Cauda Equina Syndrome",
+    "pmid": "42567778",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42567778/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Comparison of patient acuity, transport patterns, and outcomes according to pre-contact vs. post-contact helicopter emergency medical service requests in trauma patients: A nationwide analysis of the Japanese Society for Aeromedical Services Registry.",
+    "comment": "วิเคราะห์ระบบ HEMS ใน trauma เพื่อ optimize การส่งต่อผู้ป่วยวิกฤต",
+    "pmid": "42567737",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42567737/"
+  },
+  {
+    "date": "8 Aug",
     "title": "Effect of anaesthesia modality on outcome in medium or distal vessel occlusion stroke: a post-hoc analysis of the DISTAL trial.",
-    "comment": "Practice changing: ผลของรูปแบบการระงับความรู้สึกต่อ outcome ในผู้ป่วย Stroke",
+    "comment": "เปรียบเทียบวิธีการระงับความรู้สึกในการรักษา stroke ส่งผลต่อ clinical outcome",
     "pmid": "42566703",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42566703/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Association Between the Sequential Organ Failure Assessment-2 (SOFA-2) Score and 90-Day and 365-Day Mortality in Patients With Sepsis: A Retrospective Cohort Study Based on the MIMIC-IV Database.",
+    "comment": "ประเมินความแม่นยำของ SOFA-2 ในการพยากรณ์การเสียชีวิตระยะยาวในผู้ป่วย Sepsis",
+    "pmid": "42566422",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42566422/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Risk factors associated with delirium in older emergency department patients: A systematic review and meta-analysis.",
+    "comment": "ระบุปัจจัยเสี่ยงของ delirium ในผู้สูงอายุที่มา ER เพื่อการป้องกันและจัดการเชิงรุก",
+    "pmid": "42566629",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42566629/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Over-Penetration Risk of TASER 10 Conducted Electrical Weapon Darts in Humans.",
+    "comment": "Safety signal เรื่องความเสี่ยงของการทะลุผ่านผิวหนังจากการใช้ TASER 10",
+    "pmid": "42567155",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42567155/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Contemporary Practice Patterns and Outcomes of Revascularization for Acute Limb Ischemia.",
+    "comment": "อัปเดตแนวทางการทำ revascularization ใน Acute Limb Ischemia เพื่อผลลัพธ์ที่ดีขึ้น",
+    "pmid": "42567313",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42567313/"
   },
   {
     "date": "8 Aug",
@@ -19,20 +89,6 @@
     "comment": "Novel Tool: การใช้ Molecular diagnostic เพื่อแบ่งกลุ่มความเสี่ยงและจัดการ Anaphylaxis",
     "pmid": "42566649",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42566649/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Risk factors associated with delirium in older emergency department patients: A systematic review and meta-analysis.",
-    "comment": "Clinical impact: ปัจจัยเสี่ยงต่อการเกิด Delirium ในผู้สูงอายุที่มา ER",
-    "pmid": "42566629",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42566629/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Smartphone-based Prehospital Stroke Triage Optimizes Workflow and Bridges the Off-hour Delays in Endovascular Thrombectomy.",
-    "comment": "Novel Tool: การใช้ Smartphone triage เพื่อลดความล่าช้าในการทำ EVT",
-    "pmid": "42566337",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42566337/"
   },
   {
     "date": "8 Aug",
