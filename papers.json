@@ -1,17 +1,80 @@
 [
   {
-    "date": "8 Aug",
+    "date": "9 Aug",
+    "title": "Frontal QRS-T angle predicts cardiac syncope in the emergency department.",
+    "comment": "เครื่องมือช่วยคัดกรองผู้ป่วย Syncope ใน ER เพื่อระบุกลุ่มเสี่ยง Cardiac cause",
+    "pmid": "42567106",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42567106/"
+  },
+  {
+    "date": "9 Aug",
     "title": "Aggressive versus Conventional Antiplatelet Therapy During Emergent Carotid Stenting in Acute Ischemic Stroke: Balancing Occlusion and Hemorrhage.",
-    "comment": "เปรียบเทียบการใช้ antiplatelet ใน stroke ช่วยตัดสินใจเลือก intensity เพื่อลดภาวะแทรกซ้อน",
+    "comment": "เปรียบเทียบการให้ Antiplatelet ในผู้ป่วย Stroke ที่ทำ Carotid stenting แบบเร่งด่วน",
     "pmid": "42567712",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42567712/"
   },
   {
-    "date": "8 Aug",
-    "title": "Frontal QRS-T angle predicts cardiac syncope in the emergency department.",
-    "comment": "เครื่องมือช่วยคัดกรองภาวะ syncope จากโรคหัวใจใน ER โดยใช้ ECG",
-    "pmid": "42567106",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42567106/"
+    "date": "9 Aug",
+    "title": "Pulsed Field Ablation Versus Thermal Ablation for First-Time Pulmonary Vein Isolation in Atrial Fibrillation: A Systematic Review and Meta-Analysis.",
+    "comment": "เปรียบเทียบเทคนิค Ablation แบบใหม่ (Pulsed Field) กับแบบเดิมใน AF",
+    "pmid": "42568857",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42568857/"
+  },
+  {
+    "date": "9 Aug",
+    "title": "Implementation of a national clinical guideline for cauda equina syndrome improves referral quality and reduces delays to MRI.",
+    "comment": "ยืนยันว่าการใช้ Guideline ช่วยลดความล่าช้าในการวินิจฉัยและรักษา Cauda Equina",
+    "pmid": "42567778",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42567778/"
+  },
+  {
+    "date": "9 Aug",
+    "title": "Type 2 Myocardial Infarction in Patients With Cardiorenal Vulnerability: Mechanisms, Diagnostic Challenges, and a Proposed Clinical Pathway.",
+    "comment": "เสนอ Clinical pathway ในการวินิจฉัย T2MI ในผู้ป่วยที่มีภาวะ Cardiorenal",
+    "pmid": "42568113",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42568113/"
+  },
+  {
+    "date": "9 Aug",
+    "title": "Real-World Diagnostic Performance for Heart Failure Events of TriageHF® Algorithm.",
+    "comment": "ประเมินประสิทธิภาพ Algorithm ช่วยคัดกรอง Heart Failure ในการใช้งานจริง",
+    "pmid": "42568463",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42568463/"
+  },
+  {
+    "date": "9 Aug",
+    "title": "A deep learning model for the interpretable identification of pulmonary thromboembolism from computed tomography pulmonary angiography.",
+    "comment": "AI ช่วยวินิจฉัย PE จาก CTPA เพิ่มความแม่นยำและลดภาระรังสีแพทย์",
+    "pmid": "42568363",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42568363/"
+  },
+  {
+    "date": "9 Aug",
+    "title": "Surgical strategies in elderly patients with acute type A aortic dissection-a systematic review.",
+    "comment": "ทบทวนกลยุทธ์การผ่าตัดในผู้สูงอายุที่เกิด Acute Type A Aortic Dissection",
+    "pmid": "42569110",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42569110/"
+  },
+  {
+    "date": "9 Aug",
+    "title": "Septic Arthritis and Its Mimics: Assessing the Incidence, Mortality Rate, Cause-of-Death and Preventability in a Population-Based Cohort Study.",
+    "comment": "ข้อมูลอุบัติการณ์และอัตราตายของ Septic Arthritis และโรคที่เลียนแบบ",
+    "pmid": "42568852",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42568852/"
+  },
+  {
+    "date": "9 Aug",
+    "title": "Over-Penetration Risk of TASER 10 Conducted Electrical Weapon Darts in Humans.",
+    "comment": "Safety signal: ความเสี่ยงจากการใช้ TASER 10 ที่อาจทะลุเข้าอวัยวะภายใน",
+    "pmid": "42567155",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42567155/"
+  },
+  {
+    "date": "9 Aug",
+    "title": "Comparison of patient acuity, transport patterns, and outcomes according to pre-contact vs. post-contact helicopter emergency medical service requests in trauma patients: A nationwide analysis of the Japanese Society for Aeromedical Services Registry.",
+    "comment": "วิเคราะห์ผลลัพธ์การใช้ HEMS ในผู้ป่วย Trauma ตามรูปแบบการเรียกใช้",
+    "pmid": "42567737",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42567737/"
   },
   {
     "date": "8 Aug",
@@ -36,20 +99,6 @@
   },
   {
     "date": "8 Aug",
-    "title": "Implementation of a national clinical guideline for cauda equina syndrome improves referral quality and reduces delays to MRI.",
-    "comment": "ยืนยันว่าการใช้ guideline ช่วยลด delay ในการวินิจฉัยและรักษา Cauda Equina Syndrome",
-    "pmid": "42567778",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42567778/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Comparison of patient acuity, transport patterns, and outcomes according to pre-contact vs. post-contact helicopter emergency medical service requests in trauma patients: A nationwide analysis of the Japanese Society for Aeromedical Services Registry.",
-    "comment": "วิเคราะห์ระบบ HEMS ใน trauma เพื่อ optimize การส่งต่อผู้ป่วยวิกฤต",
-    "pmid": "42567737",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42567737/"
-  },
-  {
-    "date": "8 Aug",
     "title": "Effect of anaesthesia modality on outcome in medium or distal vessel occlusion stroke: a post-hoc analysis of the DISTAL trial.",
     "comment": "เปรียบเทียบวิธีการระงับความรู้สึกในการรักษา stroke ส่งผลต่อ clinical outcome",
     "pmid": "42566703",
@@ -68,13 +117,6 @@
     "comment": "ระบุปัจจัยเสี่ยงของ delirium ในผู้สูงอายุที่มา ER เพื่อการป้องกันและจัดการเชิงรุก",
     "pmid": "42566629",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42566629/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Over-Penetration Risk of TASER 10 Conducted Electrical Weapon Darts in Humans.",
-    "comment": "Safety signal เรื่องความเสี่ยงของการทะลุผ่านผิวหนังจากการใช้ TASER 10",
-    "pmid": "42567155",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42567155/"
   },
   {
     "date": "8 Aug",
