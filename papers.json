@@ -1,5 +1,75 @@
 [
   {
+    "date": "8 Aug",
+    "title": "Use of [TIMP-2] • [IGFBP7] to identify sepsis-related acute kidney injury in the emergency department.",
+    "comment": "Biomarker ช่วยคัดกรองภาวะ AKI จาก Sepsis ใน ER ได้แม่นยำกว่าค่า Creatinine พื้นฐาน",
+    "pmid": "42565116",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42565116/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Smartphone-based Prehospital Stroke Triage Optimizes Workflow and Bridges the Off-hour Delays in Endovascular Thrombectomy.",
+    "comment": "การใช้ Smartphone triage ช่วยลดเวลา door-to-needle ในผู้ป่วย Stroke นอกเวลาทำการได้อย่างมีนัยสำคัญ",
+    "pmid": "42566337",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42566337/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Diagnostic role of N-terminal pro-B-type natriuretic peptide (NT-proBNP) in pediatric syncope in the emergency department: a prospective study.",
+    "comment": "การใช้ NT-proBNP ช่วยแยกโรคหัวใจในเด็กที่มาด้วยอาการหมดสติ (Syncope) ที่มีอาการน่าสงสัย",
+    "pmid": "42566053",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42566053/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Validation of SeptiCyte RAPID to Discriminate Sepsis From Noninfectious Systemic Inflammation in Critically Ill Children.",
+    "comment": "เครื่องมือช่วยแยก Sepsis ออกจากภาวะอักเสบอื่นในเด็ก ลดการใช้ยาปฏิชีวนะเกินความจำเป็น",
+    "pmid": "42565662",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42565662/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Complications of Midazolam in the Management of Agitated Patients in the Emergency Department: A Dutch Observational Study.",
+    "comment": "เตือนความเสี่ยงภาวะแทรกซ้อนจากการใช้ Midazolam ในผู้ป่วย Agitated ใน ER ที่ควรระวัง",
+    "pmid": "42566827",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42566827/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Peripheral perfusion index as a predictor of severe shock in trauma patients: a prospective observational study.",
+    "comment": "ค่า PI ช่วยประเมินภาวะช็อกรุนแรงในผู้ป่วย Trauma ได้รวดเร็วและใช้ติดตามอาการได้ต่อเนื่อง",
+    "pmid": "42565894",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42565894/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Trial Files: Leveraging large language models to summarize practice-changing clinical trials for clinicians.",
+    "comment": "ใช้ AI สรุปงานวิจัยสำคัญ ช่วยแพทย์ตัดสินใจปรับแนวทางรักษาให้ทันสมัยขึ้นอย่างรวดเร็ว",
+    "pmid": "42566403",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42566403/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Early calcium replacement after minimal blood transfusion is associated with adverse outcomes.",
+    "comment": "การให้แคลเซียมเสริมเร็วเกินไปหลังได้รับเลือดปริมาณน้อยสัมพันธ์กับผลลัพธ์ที่แย่ลงในผู้ป่วย",
+    "pmid": "42565997",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42565997/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Clinical value of the venous volume excess ultrasound score (VExUS) for volume management following cardiopulmonary bypass (CPB).",
+    "comment": "การใช้ VExUS score ช่วยประเมินภาวะน้ำเกิน (Congestion) ได้แม่นยำกว่าการวัดความดันหลอดเลือดดำทั่วไป",
+    "pmid": "42565947",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42565947/"
+  },
+  {
+    "date": "8 Aug",
+    "title": "Efficacy of Ultra-low-dose Ketamine for Reducing Pain Intensity and Total Opioid Requirement in Children With Opioid-Refractory Pain.",
+    "comment": "Ketamine ขนาดต่ำมากช่วยลดปวดในเด็กที่ดื้อต่อ Opioids ลดความจำเป็นในการใช้ยาหลักขนาดสูง",
+    "pmid": "42565641",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42565641/"
+  },
+  {
     "date": "7 Aug",
     "title": "Difficult Airway Society 2025 guidelines for management of unanticipated difficult tracheal intubation in adults: rethinking tracheal tube size for emergency scalpel cricothyroidotomy. Comment on Br J Anaesth 2025; 136: 283-307.",
     "comment": "ปรับคำแนะนำขนาดท่อช่วยหายใจในการทำ emergency cricothyroidotomy ใหม่ เพื่อเพิ่มโอกาสสำเร็จในวิกฤต",
