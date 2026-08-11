@@ -1,31 +1,80 @@
 [
   {
     "date": "12 Aug",
-    "title": "Ultra-early versus early adjunctive vasopressin initiation after norepinephrine escalation in septic shock: a target trial emulation",
-    "comment": "พิจารณาเวลาการให้ Vasopressin ใน Septic shock เพื่อลดอัตราตายและระยะเวลาใช้ยา",
+    "title": "Survival after Resuscitative Thoracotomy in the Emergency Department: An Analysis of 487 Trauma Patients with Prehospital Cardiopulmonary Resuscitation.",
+    "comment": "ข้อมูล survival rate ของ ET thoracotomy ช่วยในการตัดสินใจเลือกผู้ป่วยที่ได้ประโยชน์จริง",
+    "pmid": "42579392",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42579392/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Ultra-early versus early adjunctive vasopressin initiation after norepinephrine escalation in septic shock: a target trial emulation.",
+    "comment": "ผลของการให้ Vasopressin เร็วขึ้นใน Septic shock มีผลต่อ outcome ทางคลินิก",
     "pmid": "42578996",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42578996/"
   },
   {
     "date": "12 Aug",
-    "title": "Cost-Effectiveness of a Host-Response Point-of-Care Assay for Early Sepsis Diagnosis in UK Emergency Departments",
-    "comment": "เครื่องมือ POC ใหม่ช่วยวินิจฉัย Sepsis ได้เร็วขึ้นและคุ้มค่าในบริบท ER",
+    "title": "Cost-Effectiveness of a Host-Response Point-of-Care Assay for Early Sepsis Diagnosis in UK Emergency Departments.",
+    "comment": "เครื่องมือ POC ใหม่ช่วยวินิจฉัย Sepsis ได้เร็วและคุ้มค่า เพิ่มประสิทธิภาพการรักษา",
     "pmid": "42579089",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42579089/"
   },
   {
     "date": "12 Aug",
-    "title": "Interpretation of Lung Ultrasound in POCUS",
-    "comment": "แนวทางการแปลผล Lung Ultrasound สำหรับใช้ในจุดดูแลผู้ป่วย (POCUS) ทันที",
+    "title": "Beyond the Algorithm: The ERC Guidelines 2025 and the Maturity of Resuscitation Medicine.",
+    "comment": "ทิศทาง Guideline การกู้ชีพปี 2025 ซึ่งเป็นมาตรฐานหลักในการดูแลผู้ป่วยวิกฤต",
+    "pmid": "42578382",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42578382/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Survival After Out-of-Hospital Cardiac Arrest and 85-Minute Resuscitation.",
+    "comment": "ข้อมูลการยื้อชีวิตจนถึง 85 นาทีใน OHCA ช่วยกำหนดจุดตัดในการหยุด CPR",
+    "pmid": "42577978",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42577978/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Diagnostic Performance of Mobile Low-Field MRI and CT for Acute Headache as the Isolated Clinical Manifestation in the Neurology Emergency Department.",
+    "comment": "การใช้ Mobile imaging ใน ER เพื่อคัดกรอง Stroke/Hemorrhage ในผู้ป่วยปวดศีรษะ",
+    "pmid": "42578435",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42578435/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Distal Vessel Occlusions in Acute Ischemic Stroke: Reframing Patient Selection and Reperfusion Strategies.",
+    "comment": "เปลี่ยนแนวทางการเลือกผู้ป่วย Stroke ที่มี distal occlusion เพื่อทำ reperfusion",
+    "pmid": "42579828",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42579828/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Interpretation of Lung Ultrasound in POCUS.",
+    "comment": "ทบทวนการแปลผล LUS ซึ่งเป็น Tool สำคัญที่ใช้ได้ทันทีใน ER สำหรับ respiratory distress",
     "pmid": "42579084",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42579084/"
   },
   {
     "date": "12 Aug",
-    "title": "Beyond the Algorithm: The ERC Guidelines 2025 and the Maturity of Resuscitation Medicine",
-    "comment": "อัปเดตทิศทาง Guideline การกู้ชีพปี 2025 ที่แพทย์ ER ต้องเตรียมปรับใช้",
-    "pmid": "42578382",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42578382/"
+    "title": "Short-term risk of falls among initiators of controlled-release tapentadol versus oxycodone in New South Wales between 2014 and 2020: A population-based retrospective cohort study.",
+    "comment": "เปรียบเทียบความเสี่ยงการหกล้มระหว่างยาแก้ปวดกลุ่ม opioid สำคัญต่อความปลอดภัยผู้สูงอายุ",
+    "pmid": "42579646",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42579646/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Middle Meningeal Artery Embolization (MMAE) Versus Surgical Evacuation for Recurrent and Refractory Chronic Subdural Hematoma: A Systematic Review and Meta-Analysis.",
+    "comment": "ทางเลือกใหม่ MMAE ในการรักษา cSDH ที่ดื้อต่อการผ่าตัด",
+    "pmid": "42578383",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42578383/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Seizure Action Plans Beyond the Neurology Clinic: What Emergency, School, and Primary Care Teams Need to Know for Children With Epilepsy.",
+    "comment": "แนวทางการจัดการชักในเด็กที่แพทย์ ER ต้องประสานงานเพื่อความปลอดภัย",
+    "pmid": "42578882",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42578882/"
   },
   {
     "date": "12 Aug",
@@ -36,38 +85,10 @@
   },
   {
     "date": "12 Aug",
-    "title": "Middle Meningeal Artery Embolization (MMAE) Versus Surgical Evacuation for Recurrent and Refractory Chronic Subdural Hematoma: A Systematic Review and Meta-Analysis",
-    "comment": "เปรียบเทียบ MMAE กับผ่าตัดใน cSDH ที่ดื้อต่อการรักษา ช่วยเลือกวิธีรักษาที่เหมาะสม",
-    "pmid": "42578383",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42578383/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Survival After Out-of-Hospital Cardiac Arrest and 85-Minute Resuscitation",
-    "comment": "ข้อมูลผลลัพธ์การรอดชีวิตจากการทำ CPR นานถึง 85 นาทีใน OHCA",
-    "pmid": "42577978",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42577978/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Diagnostic Performance of Mobile Low-Field MRI and CT for Acute Headache as the Isolated Clinical Manifestation in the Neurology Emergency Department",
-    "comment": "ประสิทธิภาพของ Mobile MRI/CT ในการคัดกรอง Acute Headache ใน ER",
-    "pmid": "42578435",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42578435/"
-  },
-  {
-    "date": "12 Aug",
     "title": "Feasibility and safety of laparoscopic small bowel resections with intracorporal anastomosis in emergency settings - a retrospective single centre study",
     "comment": "ความเป็นไปได้และความปลอดภัยของการผ่าตัด Laparoscopic ในภาวะฉุกเฉินทางศัลยกรรม",
     "pmid": "42579160",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42579160/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Seizure Action Plans Beyond the Neurology Clinic: What Emergency, School, and Primary Care Teams Need to Know for Children With Epilepsy",
-    "comment": "แนวทางการจัดการอาการชักในเด็กสำหรับทีม ER เพื่อความปลอดภัยของผู้ป่วย",
-    "pmid": "42578882",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42578882/"
   },
   {
     "date": "12 Aug",
@@ -467,26 +488,5 @@
     "comment": "ข้อมูลความปลอดภัยและผลดีของยา SGLT2i ในผู้ป่วยที่ต้องผ่าตัดฉุกเฉินหรือหัตถการ",
     "pmid": "42561094",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42561094/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "The Intersection of Immunosenescence, Cellular Senescence, and Type 1 Diabetes: Paving the Way for Future Interventions.",
-    "comment": "ความรู้ใหม่เรื่องกลไกภูมิคุ้มกันในผู้ป่วยเบาหวานชนิดที่ 1 ที่ส่งผลต่ออาการรุนแรงใน ER",
-    "pmid": "42561161",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42561161/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Nursing Prioritization of Emergency Waiting Room Patients: A Multisite Observational Study.",
-    "comment": "กลยุทธ์การจัดลำดับความสำคัญผู้ป่วยใน ER ช่วยปรับปรุงระบบ Triage ให้มีประสิทธิภาพมากขึ้น",
-    "pmid": "42559785",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42559785/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Migraine and headache in children and adolescents: A 2026 evidence-based factsheet.",
-    "comment": "สรุปข้อมูลล่าสุด แนวทางการดูแลและวินิจฉัยปวดหัวในเด็กฉบับปี 2026 ที่นำไปใช้ได้ทันที",
-    "pmid": "42560804",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42560804/"
   }
 ]
