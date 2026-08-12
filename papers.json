@@ -1,6 +1,90 @@
 [
   {
     "date": "12 Aug",
+    "title": "Interventions with a significant mortality difference in acute respiratory distress syndrome: A systematic review and comparison with Guidelines.",
+    "comment": "ทบทวนการรักษา ARDS ที่ลดอัตราตายได้จริง เทียบกับ guideline ปัจจุบัน Impact สูงต่อการดูแลผู้ป่วยวิกฤต",
+    "pmid": "42580157",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42580157/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Catheter-directed thrombolysis versus anticoagulation for intermediate-risk and high-risk pulmonary embolism: a systematic review and meta-analysis.",
+    "comment": "เปรียบเทียบวิธีรักษา PE ความเสี่ยงสูง ช่วยตัดสินใจเลือกใช้ CDT หรือยาละลายลิ่มเลือด",
+    "pmid": "42580844",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42580844/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "In-hospital cardiopulmonary resuscitation with balloon occlusion of the descending aorta: protocol of the randomised controlled CPReboa study.",
+    "comment": "การใช้ REBOA ใน CPR ในโรงพยาบาล เป็นเทคนิคใหม่ที่อาจเปลี่ยน standard ของ resuscitation",
+    "pmid": "42580829",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42580829/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Survival after Resuscitative Thoracotomy in the Emergency Department: An Analysis of 487 Trauma Patients with Prehospital Cardiopulmonary Resuscitation.",
+    "comment": "ข้อมูลอัตราการรอดชีวิตจากการทำ RT ใน ER สำหรับผู้ป่วย Trauma ช่วยในการคัดเลือกผู้ป่วย (Patient Selection)",
+    "pmid": "42580392",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42580392/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Analgesia for Awake Internal Jugular Vein Cannulation in Trauma Emergency Bay: A Randomized Comparison of Ultrasound-Guided Superficial Cervical Plexus Block With Local Infiltration.",
+    "comment": "เปรียบเทียบวิธีระงับปวดในการใส่ IJ catheter ในเคส trauma ที่ยังรู้สึกตัว ช่วยเพิ่มความปลอดภัยและลดปวด",
+    "pmid": "42580054",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42580054/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "In children requiring emergency vascular access, are intraosseous lines associated with significant long-term complications?",
+    "comment": "ประเมินความปลอดภัยระยะยาวของการใส่ IO ในเด็ก ข้อมูลสำคัญสำหรับ Safety signal ใน ER",
+    "pmid": "42580875",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42580875/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Exploring Ketamine in Traumatic Brain Injury: A Narrative Review of Its Current Emerging Perspectives from Clinical and Preclinical Studies.",
+    "comment": "ทบทวนการใช้ Ketamine ใน TBI ซึ่งเดิมเป็นข้อห้ามหรือข้อกังวล เปลี่ยนมุมมองการใช้ยาใน ER",
+    "pmid": "42581636",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42581636/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Distal Vessel Occlusions in Acute Ischemic Stroke: Reframing Patient Selection and Reperfusion Strategies.",
+    "comment": "ปรับเกณฑ์การเลือกผู้ป่วย Stroke ที่มี distal occlusion เพื่อรับการรักษา reperfusion",
+    "pmid": "42579828",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42579828/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Why AI struggles with rare catastrophic disease: lessons from the AORTA-AI study of acute aortic syndrome.",
+    "comment": "ชี้จุดอ่อนของ AI ในการวินิจฉัย Acute Aortic Syndrome เตือนแพทย์ไม่ให้พึ่งพา AI ในโรคหายาก",
+    "pmid": "42580878",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42580878/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Critical Care-Specific vs General-Purpose Large Language Models in Emergency Intensive Care Unit Diagnosis: Single-Center Retrospective Paired Comparative Study.",
+    "comment": "เปรียบเทียบ LLM เฉพาะทางกับทั่วไปในการวินิจฉัยใน ICU/ER ช่วยประเมินเครื่องมือสนับสนุนการตัดสินใจ",
+    "pmid": "42580688",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42580688/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Factors associated with hospitalization among older patients with mild traumatic injuries presenting to the emergency department in Korea: a retrospective observational study.",
+    "comment": "ช่วยระบุปัจจัยเสี่ยงในการ admit ของผู้สูงอายุที่บาดเจ็บเล็กน้อย เพื่อลดการส่งกลับบ้านที่ผิดพลาด",
+    "pmid": "42581732",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42581732/"
+  },
+  {
+    "date": "12 Aug",
+    "title": "Suicide Risk Screening for Youth with Developmental Disabilities in the Pediatric Emergency Department.",
+    "comment": "แนวทางการคัดกรองความเสี่ยงฆ่าตัวตายในเด็กพิเศษที่มา ER ซึ่งเป็นกลุ่มเปราะบางและคัดกรองยาก",
+    "pmid": "42580304",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42580304/"
+  },
+  {
+    "date": "12 Aug",
     "title": "Survival after Resuscitative Thoracotomy in the Emergency Department: An Analysis of 487 Trauma Patients with Prehospital Cardiopulmonary Resuscitation.",
     "comment": "ข้อมูล survival rate ของ ET thoracotomy ช่วยในการตัดสินใจเลือกผู้ป่วยที่ได้ประโยชน์จริง",
     "pmid": "42579392",
@@ -40,13 +124,6 @@
     "comment": "การใช้ Mobile imaging ใน ER เพื่อคัดกรอง Stroke/Hemorrhage ในผู้ป่วยปวดศีรษะ",
     "pmid": "42578435",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42578435/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Distal Vessel Occlusions in Acute Ischemic Stroke: Reframing Patient Selection and Reperfusion Strategies.",
-    "comment": "เปลี่ยนแนวทางการเลือกผู้ป่วย Stroke ที่มี distal occlusion เพื่อทำ reperfusion",
-    "pmid": "42579828",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42579828/"
   },
   {
     "date": "12 Aug",
@@ -411,82 +488,5 @@
     "comment": "การใช้รหัสวินิจฉัยใหม่ช่วยชี้ให้เห็นอุบัติการณ์ที่เพิ่มขึ้นของ Cannabis Hyperemesis Syndrome ใน ER",
     "pmid": "42560855",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42560855/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Initial atropine dose of 0.5 mg versus 1 mg in unstable bradycardia: A propensity score-matched retrospective cohort study.",
-    "comment": "เปรียบเทียบขนาด Atropine 0.5 vs 1 mg ในภาวะหัวใจเต้นช้าแบบ unstable เพื่อปรับแนวทางให้เหมาะสม",
-    "pmid": "42561719",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42561719/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Impact of the hybrid emergency room system on long-term functional outcomes in severe traumatic brain injury.",
-    "comment": "การใช้ Hybrid ER ช่วยปรับปรุงผลลัพธ์การทำงานของสมองในระยะยาวของผู้ป่วย TBI รุนแรงอย่างมีนัยสำคัญ",
-    "pmid": "42562704",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42562704/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Errors in Point-of-Care Ultrasound Quality Assurance Data: A Descriptive Study.",
-    "comment": "เตือนภัยความคลาดเคลื่อนของข้อมูล QA ใน POCUS ที่แพทย์ ER ต้องระวังเพื่อความปลอดภัยผู้ป่วย",
-    "pmid": "42560996",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42560996/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Concurrent cardiocerebral infarction in the emergency department: A case series from a tertiary care centre in South India.",
-    "comment": "ย้ำเตือนภาวะ Cardiocerebral infarction ที่มักถูกมองข้ามในการวินิจฉัยแยกโรคที่ ER",
-    "pmid": "42561722",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42561722/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Successful dispatcher-assisted CPR and outcomes after out-of-hospital cardiac arrest: an age-specific nationwide study.",
-    "comment": "ยืนยันประโยชน์ของการทำ CPR แบบแนะนำผ่านโทรศัพท์ในระดับประเทศ ตามช่วงอายุผู้ป่วย",
-    "pmid": "42561720",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42561720/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "A Nationwide Analysis of Hospital Disposition After Tracheal Intubation Among Elderly Patients Admitted From the Emergency Department.",
-    "comment": "ข้อมูลวิเคราะห์แนวโน้มการส่งตัวผู้ป่วยสูงอายุหลังใส่ท่อช่วยหายใจ เพื่อการบริหารจัดการเตียงใน ER",
-    "pmid": "42561872",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42561872/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "The Effectiveness of Nirsevimab on Antibiotic Use in Children Using Target Trial Emulation.",
-    "comment": "ยืนยันประสิทธิภาพ Nirsevimab ช่วยลดการใช้ยาปฏิชีวนะในเด็กจาก RSV ได้จริง ลดการ Overuse ใน ER",
-    "pmid": "42560328",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42560328/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Staphylococcal Scalded Skin Syndrome Often Does Not Require Empiric Coverage for Methicillin Resistance.",
-    "comment": "ปรับแนวทางการให้ยาปฏิชีวนะในเด็ก ให้ข้อมูลชัดว่าไม่จำเป็นต้องครอบคลุมเชื้อดื้อยาเสมอไป",
-    "pmid": "42560286",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42560286/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Prediction of severe caffeine intoxication: a bedside clinical model with implications for extracorporeal therapy.",
-    "comment": "เครื่องมือช่วยตัดสินใจทางคลินิกเพื่อประเมินความรุนแรงและพิจารณาทำ Hemodialysis ในรายที่เกินขนาด",
-    "pmid": "425609718",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/425609718/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Comparison of standard care versus a biomarker algorithm to guide antibiotic stewardship in pediatric intensive care unit: a prospective observational cohort study with historical control (the BASIP study).",
-    "comment": "ใช้ Biomarker ช่วยตัดสินใจเรื่องยาปฏิชีวนะใน PICU เพิ่มประสิทธิภาพการทำ Antibiotic Stewardship",
-    "pmid": "42560479",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42560479/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Perioperative SGLT2 Inhibitor Use is Associated With Improved Outcomes After ACDF: A Propensity-matched Analysis.",
-    "comment": "ข้อมูลความปลอดภัยและผลดีของยา SGLT2i ในผู้ป่วยที่ต้องผ่าตัดฉุกเฉินหรือหัตถการ",
-    "pmid": "42561094",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42561094/"
   }
 ]
