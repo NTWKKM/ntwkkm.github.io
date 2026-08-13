@@ -1,5 +1,82 @@
 [
   {
+    "date": "13 Aug",
+    "title": "International multidisciplinary consensus statement on sepsis code guidelines: A Delphi approach.",
+    "comment": "Consensus ใหม่สำหรับ Sepsis Code ช่วยปรับปรุงระบบการคัดกรองและรักษาใน ER",
+    "pmid": "42590856",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42590856/"
+  },
+  {
+    "date": "13 Aug",
+    "title": "Hour-1 Sepsis Bundle: Updated Evidence.",
+    "comment": "อัปเดตหลักฐานการใช้ Hour-1 Bundle ซึ่งเป็นมาตรฐานหลักในการรักษา Sepsis ใน ER",
+    "pmid": "42590151",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42590151/"
+  },
+  {
+    "date": "13 Aug",
+    "title": "An Evidence-Informed Clinical Pathway for COPD Exacerbations in Emergency Departments: Diagnostic Assessment, Severity Stratification, and Individualized Management.",
+    "comment": "Clinical pathway สำหรับ COPD exacerbation ช่วยให้การคัดกรองและรักษาใน ER เป็นระบบมากขึ้น",
+    "pmid": "42590221",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42590221/"
+  },
+  {
+    "date": "13 Aug",
+    "title": "Acute Pain Management in Children: A Systematic Review and GRADE-Based Recommendations.",
+    "comment": "คำแนะนำการจัดการความปวดในเด็กตามหลัก GRADE นำไปใช้ปรับปรุงการให้ยาแก้ปวดได้ทันที",
+    "pmid": "42589904",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42589904/"
+  },
+  {
+    "date": "13 Aug",
+    "title": "Neuron-Specific Enolase for Neurological Prognostication After Cardiac Arrest in the Era of Targeted Temperature Management: A Systematic Review and Meta-Analysis.",
+    "comment": "ใช้ NSE ช่วยพยากรณ์ผลทางระบบประสาทหลัง cardiac arrest ได้แม่นยำขึ้น",
+    "pmid": "42589902",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42589902/"
+  },
+  {
+    "date": "13 Aug",
+    "title": "Predictive Performance of Trauma Scoring Systems for Mortality in Patients with High-Energy Trauma in the Emergency Department.",
+    "comment": "เปรียบเทียบประสิทธิภาพ Trauma score ในการพยากรณ์การเสียชีวิตของผู้ป่วยบาดเจ็บรุนแรง",
+    "pmid": "42589894",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42589894/"
+  },
+  {
+    "date": "13 Aug",
+    "title": "Risk of Early Deterioration in Emergency Department Patients Presenting with Non-Massive Hemoptysis: A Prospective Cohort Study.",
+    "comment": "ระบุปัจจัยเสี่ยงที่ทำให้ผู้ป่วยไอเป็นเลือดปริมาณน้อยเกิดอาการทรุดลงอย่างรวดเร็ว",
+    "pmid": "42590108",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42590108/"
+  },
+  {
+    "date": "13 Aug",
+    "title": "Spontaneous Coronary Artery Dissection and Takotsubo Syndrome: Converging Mechanisms, Diagnostic Pitfalls, and a Unified Clinical Algorithm.",
+    "comment": "Algorithm ช่วยแยกแยะ SCAD และ Takotsubo ซึ่งเป็นกับดักในการวินิจฉัย ACS",
+    "pmid": "42589913",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42589913/"
+  },
+  {
+    "date": "13 Aug",
+    "title": "Delayed Serum Creatine Kinase Elevation After Snakebite: Serial Changes and Clinical Correlates of Myotoxicity in a Korean Tertiary-Care Cohort.",
+    "comment": "เตือนเรื่อง CK ที่ขึ้นช้าหลังถูกงูกัด ช่วยให้ไม่ด่วนสรุปว่าไม่มี myotoxicity",
+    "pmid": "42590182",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42590182/"
+  },
+  {
+    "date": "13 Aug",
+    "title": "Fast Microbiology: A Pilot Study Comparing Culture-Independent Digital PCR and Blood Culture for Pathogen Detection in Sepsis.",
+    "comment": "เครื่องมือวินิจฉัยเชื้อใน Sepsis แบบรวดเร็วโดยไม่ต้องรอ Culture ช่วยให้เลือกยาได้เร็วขึ้น",
+    "pmid": "42589504",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42589504/"
+  },
+  {
+    "date": "13 Aug",
+    "title": "Baseline Neurological Severity and Early Imaging Findings Predict 3-Month Functional Outcome in Anterior-Circulation Acute Ischemic Stroke: A Retrospective Cohort Study with One-Year Follow-Up.",
+    "comment": "ใช้ข้อมูลแรกรับและ Imaging ช่วยพยากรณ์ผลการฟื้นตัวในผู้ป่วย Stroke",
+    "pmid": "42590118",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42590118/"
+  },
+  {
     "date": "12 Aug",
     "title": "Interventions with a significant mortality difference in acute respiratory distress syndrome: A systematic review and comparison with Guidelines.",
     "comment": "ทบทวนการรักษา ARDS ที่ลดอัตราตายได้จริง เทียบกับ guideline ปัจจุบัน Impact สูงต่อการดูแลผู้ป่วยวิกฤต",
@@ -411,82 +488,5 @@
     "comment": "Novel Tool: Biomarker สำหรับคัดกรอง Sepsis-AKI ใน ER ได้รวดเร็วขึ้น",
     "pmid": "42565116",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42565116/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Peripheral perfusion index as a predictor of severe shock in trauma patients: a prospective observational study.",
-    "comment": "Clinical impact: ใช้ PPI เป็นตัวพยากรณ์ Severe shock ในผู้ป่วย Trauma",
-    "pmid": "42565894",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42565894/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Diagnostic role of N-terminal pro-B-type natriuretic peptide (NT-proBNP) in pediatric syncope in the emergency department: a prospective study.",
-    "comment": "Clinical impact: บทบาทของ NT-proBNP ในการวินิจฉัย Syncope ในเด็กที่มา ER",
-    "pmid": "42566053",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42566053/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Early calcium replacement after minimal blood transfusion is associated with adverse outcomes.",
-    "comment": "Safety signal: การให้ Calcium replacement เร็วเกินไปหลัง transfusion ปริมาณน้อยสัมพันธ์กับ outcome ที่แย่ลง",
-    "pmid": "42565997",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42565997/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Efficacy of Ultra-low-dose Ketamine for Reducing Pain Intensity and Total Opioid Requirement in Children With Opioid-Refractory Pain.",
-    "comment": "Novel Drug/Dose: การใช้ Ultra-low-dose Ketamine ลดปวดและลดการใช้ Opioid ในเด็ก",
-    "pmid": "42565641",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42565641/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Validation of SeptiCyte RAPID to Discriminate Sepsis From Noninfectious Systemic Inflammation in Critically Ill Children.",
-    "comment": "Novel Tool: เครื่องมือแยก Sepsis ออกจาก SIRI ในเด็กวิกฤต",
-    "pmid": "42565662",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42565662/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Trial Files: Leveraging large language models to summarize practice-changing clinical trials for clinicians.",
-    "comment": "ใช้ AI สรุปงานวิจัยสำคัญ ช่วยแพทย์ตัดสินใจปรับแนวทางรักษาให้ทันสมัยขึ้นอย่างรวดเร็ว",
-    "pmid": "42566403",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42566403/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Clinical value of the venous volume excess ultrasound score (VExUS) for volume management following cardiopulmonary bypass (CPB).",
-    "comment": "การใช้ VExUS score ช่วยประเมินภาวะน้ำเกิน (Congestion) ได้แม่นยำกว่าการวัดความดันหลอดเลือดดำทั่วไป",
-    "pmid": "42565947",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42565947/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Difficult Airway Society 2025 guidelines for management of unanticipated difficult tracheal intubation in adults: rethinking tracheal tube size for emergency scalpel cricothyroidotomy. Comment on Br J Anaesth 2025; 136: 283-307.",
-    "comment": "ปรับคำแนะนำขนาดท่อช่วยหายใจในการทำ emergency cricothyroidotomy ใหม่ เพื่อเพิ่มโอกาสสำเร็จในวิกฤต",
-    "pmid": "42562701",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42562701/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Thunderbolt System for acute ischemic stroke secondary to large vessel occlusion: primary results of the THUNDER study.",
-    "comment": "นวัตกรรมระบบสกัดลิ่มเลือดอุดตันในหลอดเลือดสมองขนาดใหญ่ ให้ผลลัพธ์การรักษาที่น่าสนใจในเคส Stroke",
-    "pmid": "42562636",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42562636/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Association between Corticosteroids and In-Hospital Mortality After Cardiac Arrest: A Multicenter Study Using the eICU Collaborative Research Database.",
-    "comment": "ข้อมูลสำคัญเกี่ยวกับผลลัพธ์การใช้ Steroid ในผู้ป่วยหลังหยุดหายใจและการรอดชีวิตในโรงพยาบาล",
-    "pmid": "42562040",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42562040/"
-  },
-  {
-    "date": "7 Aug",
-    "title": "Trends in Emergency Department Visits Involving Cannabis Hyperemesis Syndrome Identified Using a New Diagnosis Code - United States, January 2023-May 2026.",
-    "comment": "การใช้รหัสวินิจฉัยใหม่ช่วยชี้ให้เห็นอุบัติการณ์ที่เพิ่มขึ้นของ Cannabis Hyperemesis Syndrome ใน ER",
-    "pmid": "42560855",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42560855/"
   }
 ]
