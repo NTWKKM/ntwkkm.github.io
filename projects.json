@@ -1,17 +1,5 @@
 [
   {
-    "title": "Medical Stat Tool",
-    "desc": "Interactive Shiny application for medical statistics and clinical research.",
-    "icon": "🏥",
-    "url": "https://ntwkkm-shinystat.hf.space/"
-  },
-  {
-    "title": "Med Statistics",
-    "desc": "Easy online calculator for medical stats.",
-    "icon": "📊",
-    "url": "https://medstat.app/"
-  },
-  {
     "title": "ER Standing Order Hub",
     "desc": "Emergency standing orders & clinical protocols.",
     "icon": "⚕️",
@@ -70,5 +58,17 @@
     "desc": "Clinical informatics dashboard & automated resource hub.",
     "icon": "🛡️",
     "url": "https://ntwkkm.github.io/pl/"
+  },
+  {
+    "title": "Medical Stat Tool",
+    "desc": "Interactive Shiny application for medical statistics and clinical research.",
+    "icon": "🏥",
+    "url": "https://ntwkkm-shinystat.hf.space/"
+  },
+  {
+    "title": "Med Statistics",
+    "desc": "Easy online calculator for medical stats.",
+    "icon": "📊",
+    "url": "https://medstat.app/"
   }
 ]
