@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
     <title>Medical Research Blog | NTWKKM</title>
     <meta name="description"
         content="Curated medical research papers with Thai-language commentary. Emergency Medicine, Clinical Informatics, and evidence-based practice.">
@@ -23,11 +24,28 @@
     <link rel="stylesheet" href="shared.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#ebe7df">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="NTWKKM Blog">
-    <link rel="stylesheet" href="blog.css">
 
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Medical Research Blog | NTWKKM",
+      "url": "https://ntwkkm.github.io/blog.html",
+      "description": "Curated emergency medicine and clinical informatics research papers with Thai-language summaries.",
+      "author": {
+        "@type": "Person",
+        "name": "NTWKKM",
+        "url": "https://github.com/NTWKKM"
+      }
+    }
+    </script>
+
+    <link rel="stylesheet" href="blog.css">
 </head>
 
 <body>

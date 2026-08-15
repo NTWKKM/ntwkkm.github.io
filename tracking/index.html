@@ -4,14 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
   <meta name="theme-color" content="#ebe7df">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <title>📦 Package Tracker — NTWKKM</title>
   <meta name="description" content="Real-time Thailand Post package tracking dashboard.">
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231e3c72'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='%23F0EDE5' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Sarabun:wght@300;400;500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <link rel="stylesheet" href="../shared.css">
   <link rel="stylesheet" href="tracking.css">
@@ -21,7 +24,7 @@
 
   <!-- Auth Gate -->
   <div class="auth-gate" id="authGate">
-    <div class="auth-box">
+    <form class="auth-box" onsubmit="event.preventDefault(); verifyPasscode();">
       <div class="auth-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.5"
           stroke-linecap="round" stroke-linejoin="round" class="auth-svg">
@@ -31,10 +34,11 @@
       </div>
       <h2>Access Required</h2>
       <div class="auth-subtitle">Enter secure passcode to view dashboard</div>
-      <input type="password" class="auth-input" id="authInput" placeholder="PASSCODE" maxlength="50" autocomplete="off">
+      <input type="text" name="username" value="ntwkkm" autocomplete="username" style="display:none;" aria-hidden="true" tabindex="-1">
+      <input type="password" class="auth-input" id="authInput" placeholder="PASSCODE" maxlength="50" autocomplete="current-password">
       <div class="auth-error" id="authError"></div>
-      <button class="auth-submit" id="authSubmit" onclick="verifyPasscode()">Unlock Dashboard</button>
-    </div>
+      <button type="submit" class="auth-submit" id="authSubmit">Unlock Dashboard</button>
+    </form>
   </div>
 
   <!-- Main Content (hidden until auth) -->

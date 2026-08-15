@@ -480,16 +480,17 @@ All JSON data is sanitized before DOM injection via centralized functions in `sh
 - **Unified Colors:** Headers in the `fray` and `tracking` modules are standardized to match the homepage's sticky header gradient (`linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)`) and flat, borderless buttons to present a consistent, premium design theme.
 - **Flex Controls Alignment:** Navigation action controls (links, buttons, toggles) are aligned as a flex container (`display: flex; align-items: center; gap: 12px;`) across both desktop and mobile viewports. On mobile screens (< 768px), they format as compact icon-only buttons (hiding text labels) and align strictly to the right (`justify-content: flex-end;`) to optimize space.
 
-## Caching
+## Caching & Offline Resilience
 
 - JSON fetches include `?v=${Date.now()}` or hourly cache-buster to ensure freshness after n8n updates
 - `blog.html` has a 5-minute `localStorage` cache (`research_blog_data_v2`) — version key bumped on schema changes to force invalidation
-- **Service Worker** (`sw.js`) implements a multi-cache strategy:
-  - `ntwkkm-static-v2` — Static assets: cache-first with background refresh
-  - `ntwkkm-dynamic-v2` — Dynamic content: network-first with cache fallback
+- **Service Worker** (`sw.js`) implements a multi-cache strategy (v3):
+  - `ntwkkm-static-v3` — Static assets (`/`, `/index.html`, `/index.css`, `/blog.html`, `/blog.css`, `/shared.css`, `/shared.js`, `/manifest.json`, `/tracking/`, `/tracking/tracking.css`, `/fray/`, `/fray/fray-dashboard.css`, `/fray/fray-dashboard.js`): cache-first with background refresh and `{ ignoreSearch: true }` query resilience.
+  - `ntwkkm-dynamic-v3` — Dynamic content (`/papers.json`, `/projects.json`, `/blog_index.json`, `/data/blog/`, `/tracking/status_store.json`, `/tracking/auth.json`, `/tracking/track_list.json`, `/fray/dashboard-snapshot.json`, `/fray/history/`): network-first with cache fallback and `{ ignoreSearch: true }` query resilience.
   - `ntwkkm-fonts-v1` — Google Fonts: separate long-lived cache (fonts rarely change)
   - Cache versions are bumped on deployments to force client refresh
   - Offline support for core pages, with path-aware document fallbacks (`/tracking/`, `/fray/`, `/blog.html`) instead of blanket redirection to home.
+  - Anti-FOUC (Flash of Un-themed Content) standard: early inline script in `<head>` initializes `data-theme` synchronously before layout parsing on all sub-pages.
 
 ## Enhanced Features (Recent Updates)
 

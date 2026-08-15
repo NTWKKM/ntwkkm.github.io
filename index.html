@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
     <title>NTWKKM | Emergency Medicine & Informatics</title>
     <meta name="description"
         content="NTWKKM — Emergency Medicine physician & Clinical Informatics developer. Research papers, medical tools, and open-source projects.">
@@ -21,9 +22,27 @@
     <link rel="stylesheet" href="shared.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#ebe7df">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="NTWKKM">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "NTWKKM | Emergency Medicine & Informatics",
+      "url": "https://ntwkkm.github.io/",
+      "description": "Emergency Medicine physician & Clinical Informatics developer portfolio and research portal.",
+      "author": {
+        "@type": "Person",
+        "name": "NTWKKM",
+        "jobTitle": "Emergency Medicine Physician & Clinical Informatics Developer",
+        "url": "https://github.com/NTWKKM"
+      }
+    }
+    </script>
 
     <link rel="stylesheet" href="index.css">
 </head>

@@ -42,19 +42,19 @@ function run() {
         }
     }
 
-    // 4. โหลดข้อมูลเก่าทั้งหมดมารวมกัน และลบไฟล์เก่าทิ้งเตรียมสร้างใหม่
+    // 4. โหลดข้อมูลเก่าทั้งหมดมารวมกันอย่างปลอดภัย (ยังไม่ลบไฟล์เก่าจนกว่าจะเขียนไฟล์ใหม่เสร็จ)
     let allPosts = [];
+    let existingFiles = [];
     indexData.forEach(fileRelativePath => {
         const filePath = path.join(ROOT_DIR, fileRelativePath);
         if (fs.existsSync(filePath)) {
             try {
                 const fileData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
                 allPosts = allPosts.concat(Array.isArray(fileData) ? fileData : fileData.data || []);
+                existingFiles.push(filePath);
             } catch (e) {
                 console.error(`Error reading ${filePath}:`, e);
             }
-            // ลบไฟล์เก่าออกเพื่อจัดระเบียบใหม่และป้องกันไฟล์ขยะตกค้าง
-            fs.unlinkSync(filePath); 
         }
     });
 
@@ -120,18 +120,32 @@ function run() {
 
     // 7. ตัดแบ่งข้อมูลเป็นก้อนๆ (Chunking) และบันทึกลงโฟลเดอร์ data/blog/
     let newIndex = [];
+    let writtenFiles = new Set();
     for (let i = 0; i < mergedPosts.length; i += ITEMS_PER_FILE) {
         const chunk = mergedPosts.slice(i, i + ITEMS_PER_FILE);
         const fileName = `research_chunk_${Math.floor(i / ITEMS_PER_FILE) + 1}.json`;
         const relativePath = `data/blog/${fileName}`; // เก็บ path แบบสัมพันธ์
+        const fullChunkPath = path.join(ROOT_DIR, relativePath);
         
-        fs.writeFileSync(path.join(ROOT_DIR, relativePath), JSON.stringify(chunk, null, 2));
+        fs.writeFileSync(fullChunkPath, JSON.stringify(chunk, null, 2));
         newIndex.push(relativePath);
+        writtenFiles.add(fullChunkPath);
     }
 
-    // 8. อัปเดต blog_index.json ให้ชี้ไปที่ Path ไฟล์ใหม่ทั้งหมด
+    // 8. ลบไฟล์เก่าที่ไม่ได้ใช้ออก (เฉพาะไฟล์ที่ไม่อยู่ใน writtenFiles)
+    existingFiles.forEach(oldFile => {
+        if (!writtenFiles.has(oldFile) && fs.existsSync(oldFile)) {
+            try {
+                fs.unlinkSync(oldFile);
+                console.log(`Cleaned up obsolete chunk: ${path.basename(oldFile)}`);
+            } catch (e) {
+                console.warn(`Could not remove obsolete chunk ${oldFile}:`, e);
+            }
+        }
+    });
+
+    // 9. อัปเดต blog_index.json ให้ชี้ไปที่ Path ไฟล์ใหม่ทั้งหมด
     fs.writeFileSync(INDEX_FILE, JSON.stringify(newIndex, null, 2));
-    
 
     console.log(`Successfully processed ${mergedPosts.length} posts into ${newIndex.length} files.`);
 }

@@ -252,9 +252,10 @@
                 const dd = String(date.getDate()).padStart(2, '0');
                 const dateStr = `${yyyy}-${mm}-${dd}`;
                 try {
-                    const res = await fetch(`history/${dateStr}.json`, { method: 'HEAD' });
-                    results[dateStr] = res.ok;
-                    if (!res.ok) tab.classList.add('missing');
+                    const res = await fetch(`history/${dateStr}.json`, { method: 'HEAD' }).catch(() => null);
+                    const isOk = res && res.ok;
+                    results[dateStr] = isOk;
+                    if (!isOk) tab.classList.add('missing');
                 } catch(e) {
                     results[dateStr] = false;
                     tab.classList.add('missing');

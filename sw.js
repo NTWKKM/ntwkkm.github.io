@@ -4,20 +4,25 @@
  * and network-first with cache fallback for dynamic content.
  */
 
-const STATIC_CACHE = 'ntwkkm-static-v2';
-const DYNAMIC_CACHE = 'ntwkkm-dynamic-v2';
+const STATIC_CACHE = 'ntwkkm-static-v3';
+const DYNAMIC_CACHE = 'ntwkkm-dynamic-v3';
 const FONTS_CACHE = 'ntwkkm-fonts-v1';
 
 // Static assets to cache on install
 const STATIC_ASSETS = [
     '/',
     '/index.html',
+    '/index.css',
     '/blog.html',
+    '/blog.css',
     '/shared.css',
     '/shared.js',
     '/manifest.json',
     '/tracking/',
-    '/fray/'
+    '/tracking/tracking.css',
+    '/fray/',
+    '/fray/fray-dashboard.css',
+    '/fray/fray-dashboard.js'
 ];
 
 // Dynamic content that should be network-first
@@ -29,7 +34,8 @@ const DYNAMIC_PATHS = [
     '/tracking/status_store.json',
     '/tracking/auth.json',
     '/tracking/track_list.json',
-    '/fray/dashboard-snapshot.json'
+    '/fray/dashboard-snapshot.json',
+    '/fray/history/'
 ];
 
 // Install event - cache static assets
@@ -131,8 +137,8 @@ self.addEventListener('fetch', (event) => {
                     return networkResponse;
                 })
                 .catch(() => {
-                    // Fallback to cache if network fails
-                    return caches.match(event.request)
+                    // Fallback to cache if network fails (ignore query string cache busters)
+                    return caches.match(event.request, { ignoreSearch: true })
                         .then((cachedResponse) => {
                             if (cachedResponse) {
                                 console.log('[SW] Serving from cache (offline):', pathname);
@@ -142,15 +148,15 @@ self.addEventListener('fetch', (event) => {
                             // Return offline page for HTML requests
                             if (event.request.destination === 'document') {
                                 if (pathname.includes('/tracking')) {
-                                    return caches.match('/tracking/') || caches.match('/index.html');
+                                    return caches.match('/tracking/', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
                                 }
                                 if (pathname.includes('/fray')) {
-                                    return caches.match('/fray/') || caches.match('/index.html');
+                                    return caches.match('/fray/', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
                                 }
                                 if (pathname.includes('/blog')) {
-                                    return caches.match('/blog.html') || caches.match('/index.html');
+                                    return caches.match('/blog.html', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
                                 }
-                                return caches.match('/index.html');
+                                return caches.match('/index.html', { ignoreSearch: true });
                             }
 
                             // Return error response for other requests
@@ -167,7 +173,7 @@ self.addEventListener('fetch', (event) => {
     } else {
         // Cache-first strategy for static assets
         event.respondWith(
-            caches.match(event.request)
+            caches.match(event.request, { ignoreSearch: true })
                 .then((cachedResponse) => {
                     if (cachedResponse) {
                         // Return cached version but fetch fresh version in background
@@ -199,15 +205,15 @@ self.addEventListener('fetch', (event) => {
                             // Return offline page for HTML requests
                             if (event.request.destination === 'document') {
                                 if (pathname.includes('/tracking')) {
-                                    return caches.match('/tracking/') || caches.match('/index.html');
+                                    return caches.match('/tracking/', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
                                 }
                                 if (pathname.includes('/fray')) {
-                                    return caches.match('/fray/') || caches.match('/index.html');
+                                    return caches.match('/fray/', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
                                 }
                                 if (pathname.includes('/blog')) {
-                                    return caches.match('/blog.html') || caches.match('/index.html');
+                                    return caches.match('/blog.html', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
                                 }
-                                return caches.match('/index.html');
+                                return caches.match('/index.html', { ignoreSearch: true });
                             }
 
                             return new Response('Offline', { status: 503 });
