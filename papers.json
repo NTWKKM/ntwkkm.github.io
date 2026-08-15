@@ -2,16 +2,79 @@
   {
     "date": "15 Aug",
     "title": "Comparing coronary computed tomography angiography to single-photon emission computed tomography in the evaluation of chest pain in the emergency department.",
-    "comment": "เปรียบเทียบ CCTA vs SPECT ใน ER ช่วยตัดสินใจเลือก imaging สำหรับ chest pain",
+    "comment": "เปรียบเทียบ CCTA vs SPECT ใน Chest pain ช่วยตัดสินใจเลือก imaging ใน ER",
     "pmid": "42601304",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42601304/"
   },
   {
     "date": "15 Aug",
     "title": "In-flight resuscitative endovascular balloon occlusion of the aorta (REBOA): Testing the limits of endovascular care in hHelicopter emergency medical services.",
-    "comment": "ขยายขอบเขตการใช้ REBOA ใน HEMS เพื่อกู้ชีพผู้ป่วย hemorrhagic shock ในขณะเคลื่อนย้าย",
+    "comment": "การใช้ REBOA ใน HEMS เป็น Novel tool ที่ช่วยลด mortality ใน trauma รุนแรง",
     "pmid": "42601299",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42601299/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Prehospital national early warning score outperforms shock index in predicting mortality and resource utilisation in adult trauma: A systematic review.",
+    "comment": "NEWS มีประสิทธิภาพสูงกว่า Shock Index ในการทำ triage และพยากรณ์โรคผู้ป่วย trauma",
+    "pmid": "42600367",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42600367/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Arterial Blood Gas Parameters during Cardiopulmonary Resuscitation and Sustained Return of Spontaneous Circulation in Out-of-Hospital Cardiac Arrest: A preplanned Secondary Analysis of the AMCPR Trial.",
+    "comment": "ใช้ค่า ABG ระหว่าง CPR เพื่อพยากรณ์โอกาสรอดชีวิต (ROSC) ใน OHCA",
+    "pmid": "42600769",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42600769/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Association of Emergency Physician Critical Care Training on Outcomes after Non-traumatic Out-of-Hospital Cardiac Arrest (OHCA).",
+    "comment": "ผลของ Critical care training ต่อ outcome ผู้ป่วย OHCA ย้ำความสำคัญของ specialized training",
+    "pmid": "42600766",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42600766/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Low-dose intravenous alteplase for acute retinal artery occlusion: A multicentre retrospective study.",
+    "comment": "การใช้ low-dose alteplase ใน RAO เป็นทางเลือกการรักษาใน acute phase",
+    "pmid": "42600539",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42600539/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Detection of Nitazenes in the Illicit Drug Supply Utilizing Precursor Ion Scan Methods With Paper Spray Mass Spectrometry.",
+    "comment": "Safety signal: การตรวจพบ Nitazenes (opioid รุนแรง) ในยาเสพติด ซึ่งแพทย์ ER ต้องเฝ้าระวัง",
+    "pmid": "42601813",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42601813/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Study of High-Velocity Nasal Insufflation vs Noninvasive Positive Pressure Ventilation for Emergency Type 2 Respiratory Failure: Protocol for a Noninferiority Randomized Controlled Trial.",
+    "comment": "เปรียบเทียบ HVNI vs NPPV ใน Type 2 RF ซึ่งอาจเปลี่ยนแนวทางการจัดการทางเดินหายใจ",
+    "pmid": "42600161",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42600161/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Has Nothing Changed? Evaluating a Decade of Emergency Resuscitative Thoracotomy in Blunt Trauma.",
+    "comment": "ทบทวน efficacy ของ ER Thoracotomy ใน Blunt trauma เพื่อปรับปรุง standard of care",
+    "pmid": "42600431",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42600431/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Vital sign parameters are not associated with electrical capture during transcutaneous pacing.",
+    "comment": "คำเตือน: อย่าใช้แค่ Vital signs ในการยืนยัน electrical capture เมื่อทำ TCP",
+    "pmid": "42600263",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42600263/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Insights and limitations of a taxonomy of errors for pediatric emergency tracheal intubation.",
+    "comment": "วิเคราะห์ข้อผิดพลาดในการใส่ท่อช่วยหายใจเด็ก เพื่อเพิ่มความปลอดภัยในการทำ procedure",
+    "pmid": "42601278",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42601278/"
   },
   {
     "date": "15 Aug",
@@ -19,27 +82,6 @@
     "comment": "อัปเดตแนวทางจัดการ Acute PE ปี 2026 ซึ่งมีผลต่อ Standard of Care โดยตรง",
     "pmid": "42601141",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42601141/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Arterial Blood Gas Parameters during Cardiopulmonary Resuscitation and Sustained Return of Spontaneous Circulation in Out-of-Hospital Cardiac Arrest: A Preplanned Secondary Analysis of the AMCPR Trial.",
-    "comment": "ใช้ค่า ABG ระหว่าง CPR เพื่อพยากรณ์โอกาสรอดชีวิตใน OHCA",
-    "pmid": "42600769",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42600769/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Association of Emergency Physician Critical Care Training on Outcomes after Non-traumatic Out-of-Hospital Cardiac Arrest (OHCA).",
-    "comment": "ผลของการอบรม Critical Care ของแพทย์ ER ต่อ outcome ผู้ป่วย OHCA",
-    "pmid": "42600766",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42600766/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Low-dose intravenous alteplase for acute retinal artery occlusion: A multicentre retrospective study.",
-    "comment": "ทางเลือกการใช้ low-dose alteplase ในการรักษา acute retinal artery occlusion",
-    "pmid": "42600539",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42600539/"
   },
   {
     "date": "15 Aug",
@@ -57,24 +99,10 @@
   },
   {
     "date": "15 Aug",
-    "title": "Prehospital national early warning score outperforms shock index in predicting mortality and resource utilisation in adult trauma: a systematic review.",
-    "comment": "NEWS มีประสิทธิภาพสูงกว่า Shock Index ในการ triage และพยากรณ์โรคผู้ป่วย trauma",
-    "pmid": "42600367",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42600367/"
-  },
-  {
-    "date": "15 Aug",
     "title": "Beyond Necrosis: Early Recognition of Xylazine-Associated Wounds in Emergency Nursing Practice.",
     "comment": "Safety signal: การระบุแผลจาก Xylazine เพื่อการจัดการที่ถูกต้องใน ER",
     "pmid": "42599254",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42599254/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Vital sign parameters are not associated with electrical capture during transcutaneous pacing.",
-    "comment": "คำเตือน: Vital signs ไม่สามารถใช้ยืนยัน electrical capture ใน TCP ได้",
-    "pmid": "42600263",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42600263/"
   },
   {
     "date": "15 Aug",
@@ -460,33 +488,5 @@
     "comment": "ยืนยันว่าการใช้ Guideline ช่วยลดความล่าช้าในการวินิจฉัยและรักษา Cauda Equina",
     "pmid": "42567778",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42567778/"
-  },
-  {
-    "date": "9 Aug",
-    "title": "Type 2 Myocardial Infarction in Patients With Cardiorenal Vulnerability: Mechanisms, Diagnostic Challenges, and a Proposed Clinical Pathway.",
-    "comment": "เสนอ Clinical pathway ในการวินิจฉัย T2MI ในผู้ป่วยที่มีภาวะ Cardiorenal",
-    "pmid": "42568113",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42568113/"
-  },
-  {
-    "date": "9 Aug",
-    "title": "Real-World Diagnostic Performance for Heart Failure Events of TriageHF® Algorithm.",
-    "comment": "ประเมินประสิทธิภาพ Algorithm ช่วยคัดกรอง Heart Failure ในการใช้งานจริง",
-    "pmid": "42568463",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42568463/"
-  },
-  {
-    "date": "9 Aug",
-    "title": "A deep learning model for the interpretable identification of pulmonary thromboembolism from computed tomography pulmonary angiography.",
-    "comment": "AI ช่วยวินิจฉัย PE จาก CTPA เพิ่มความแม่นยำและลดภาระรังสีแพทย์",
-    "pmid": "42568363",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42568363/"
-  },
-  {
-    "date": "9 Aug",
-    "title": "Surgical strategies in elderly patients with acute type A aortic dissection-a systematic review.",
-    "comment": "ทบทวนกลยุทธ์การผ่าตัดในผู้สูงอายุที่เกิด Acute Type A Aortic Dissection",
-    "pmid": "42569110",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42569110/"
   }
 ]
