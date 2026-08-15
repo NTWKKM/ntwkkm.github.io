@@ -35,7 +35,6 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- DESIGN.md
 |-- index.css
 |-- index.html
-|-- latest_updates.json
 |-- manifest.json
 |-- papers.json
 |-- projects.json
