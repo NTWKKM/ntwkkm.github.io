@@ -1,5 +1,89 @@
 [
   {
+    "date": "15 Aug",
+    "title": "Comparing coronary computed tomography angiography to single-photon emission computed tomography in the evaluation of chest pain in the emergency department.",
+    "comment": "เปรียบเทียบ CCTA vs SPECT ใน ER ช่วยตัดสินใจเลือก imaging สำหรับ chest pain",
+    "pmid": "42601304",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42601304/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "In-flight resuscitative endovascular balloon occlusion of the aorta (REBOA): Testing the limits of endovascular care in hHelicopter emergency medical services.",
+    "comment": "ขยายขอบเขตการใช้ REBOA ใน HEMS เพื่อกู้ชีพผู้ป่วย hemorrhagic shock ในขณะเคลื่อนย้าย",
+    "pmid": "42601299",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42601299/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Editorial regarding 2026 American Heart Association/American College of Cardiology/American College of Clinical Pharmacy/American College of Emergency Physicians/American College of Chest Physicians/Society for Cardiovascular Angiography and Interventions/Society of Hospital Medicine/Society of Interventional Radiology/Society for Vascular Medicine/Society for Vascular Nursing guideline for the evaluation and management of acute pulmonary embolism in adults.",
+    "comment": "อัปเดตแนวทางจัดการ Acute PE ปี 2026 ซึ่งมีผลต่อ Standard of Care โดยตรง",
+    "pmid": "42601141",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42601141/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Arterial Blood Gas Parameters during Cardiopulmonary Resuscitation and Sustained Return of Spontaneous Circulation in Out-of-Hospital Cardiac Arrest: A Preplanned Secondary Analysis of the AMCPR Trial.",
+    "comment": "ใช้ค่า ABG ระหว่าง CPR เพื่อพยากรณ์โอกาสรอดชีวิตใน OHCA",
+    "pmid": "42600769",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42600769/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Association of Emergency Physician Critical Care Training on Outcomes after Non-traumatic Out-of-Hospital Cardiac Arrest (OHCA).",
+    "comment": "ผลของการอบรม Critical Care ของแพทย์ ER ต่อ outcome ผู้ป่วย OHCA",
+    "pmid": "42600766",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42600766/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Low-dose intravenous alteplase for acute retinal artery occlusion: A multicentre retrospective study.",
+    "comment": "ทางเลือกการใช้ low-dose alteplase ในการรักษา acute retinal artery occlusion",
+    "pmid": "42600539",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42600539/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Impact of routine use of the GFAP and UCH-L1 TBI blood test for management of mild TBI on patient care in a European emergency department.",
+    "comment": "การใช้ Biomarker (GFAP/UCH-L1) ลดการส่ง CT ใน mild TBI ได้จริงในคลินิก",
+    "pmid": "42599452",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42599452/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "CT oral contrast and contemporary imaging pathways for suspected oesophageal perforation in the emergency department: a retrospective observational study.",
+    "comment": "ปรับปรุง protocol การใช้ contrast ในการวินิจฉัย oesophageal perforation ใน ER",
+    "pmid": "42599365",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42599365/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Prehospital national early warning score outperforms shock index in predicting mortality and resource utilisation in adult trauma: a systematic review.",
+    "comment": "NEWS มีประสิทธิภาพสูงกว่า Shock Index ในการ triage และพยากรณ์โรคผู้ป่วย trauma",
+    "pmid": "42600367",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42600367/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Beyond Necrosis: Early Recognition of Xylazine-Associated Wounds in Emergency Nursing Practice.",
+    "comment": "Safety signal: การระบุแผลจาก Xylazine เพื่อการจัดการที่ถูกต้องใน ER",
+    "pmid": "42599254",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42599254/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Vital sign parameters are not associated with electrical capture during transcutaneous pacing.",
+    "comment": "คำเตือน: Vital signs ไม่สามารถใช้ยืนยัน electrical capture ใน TCP ได้",
+    "pmid": "42600263",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42600263/"
+  },
+  {
+    "date": "15 Aug",
+    "title": "Evidence-based, cost-effective management of gastric outlet obstruction: An algorithm of the Journal of Trauma and Acute Care Surgery, Emergency General Surgery Algorithms Work Group.",
+    "comment": "Algorithm การจัดการ GOO ที่นำไปใช้ได้ทันทีใน Emergency General Surgery",
+    "pmid": "42599766",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42599766/"
+  },
+  {
     "date": "13 Aug",
     "title": "International multidisciplinary consensus statement on sepsis code guidelines: A Delphi approach.",
     "comment": "Consensus ใหม่สำหรับ Sepsis Code ช่วยปรับปรุงระบบการคัดกรองและรักษาใน ER",
@@ -404,89 +488,5 @@
     "comment": "ทบทวนกลยุทธ์การผ่าตัดในผู้สูงอายุที่เกิด Acute Type A Aortic Dissection",
     "pmid": "42569110",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42569110/"
-  },
-  {
-    "date": "9 Aug",
-    "title": "Septic Arthritis and Its Mimics: Assessing the Incidence, Mortality Rate, Cause-of-Death and Preventability in a Population-Based Cohort Study.",
-    "comment": "ข้อมูลอุบัติการณ์และอัตราตายของ Septic Arthritis และโรคที่เลียนแบบ",
-    "pmid": "42568852",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42568852/"
-  },
-  {
-    "date": "9 Aug",
-    "title": "Over-Penetration Risk of TASER 10 Conducted Electrical Weapon Darts in Humans.",
-    "comment": "Safety signal: ความเสี่ยงจากการใช้ TASER 10 ที่อาจทะลุเข้าอวัยวะภายใน",
-    "pmid": "42567155",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42567155/"
-  },
-  {
-    "date": "9 Aug",
-    "title": "Comparison of patient acuity, transport patterns, and outcomes according to pre-contact vs. post-contact helicopter emergency medical service requests in trauma patients: A nationwide analysis of the Japanese Society for Aeromedical Services Registry.",
-    "comment": "วิเคราะห์ผลลัพธ์การใช้ HEMS ในผู้ป่วย Trauma ตามรูปแบบการเรียกใช้",
-    "pmid": "42567737",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42567737/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Complications of Midazolam in the Management of Agitated Patients in the Emergency Department: A Dutch Observational Study.",
-    "comment": "ข้อมูลความปลอดภัยและผลข้างเคียงของการใช้ Midazolam จัดการผู้ป่วย agitated ใน ER",
-    "pmid": "42566827",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42566827/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Smartphone-based Prehospital Stroke Triage Optimizes Workflow and Bridges the Off-hour Delays in Endovascular Thrombectomy.",
-    "comment": "การใช้ Digital tool ช่วย triage stroke จากก่อนถึงโรงพยาบาลเพื่อลด delay ในการทำ EVT",
-    "pmid": "42566337",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42566337/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "When dyspnea replaces chest pain: Age-dependent symptom profiles in ACS and non-ACS patients undergoing coronary angiography.",
-    "comment": "เตือนการนำเสนออาการ ACS ที่ไม่ใช่ chest pain ในผู้ป่วยบางกลุ่มเพื่อป้องกันการ missed diagnosis",
-    "pmid": "42567025",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42567025/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Effect of anaesthesia modality on outcome in medium or distal vessel occlusion stroke: a post-hoc analysis of the DISTAL trial.",
-    "comment": "เปรียบเทียบวิธีการระงับความรู้สึกในการรักษา stroke ส่งผลต่อ clinical outcome",
-    "pmid": "42566703",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42566703/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Association Between the Sequential Organ Failure Assessment-2 (SOFA-2) Score and 90-Day and 365-Day Mortality in Patients With Sepsis: A Retrospective Cohort Study Based on the MIMIC-IV Database.",
-    "comment": "ประเมินความแม่นยำของ SOFA-2 ในการพยากรณ์การเสียชีวิตระยะยาวในผู้ป่วย Sepsis",
-    "pmid": "42566422",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42566422/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Risk factors associated with delirium in older emergency department patients: A systematic review and meta-analysis.",
-    "comment": "ระบุปัจจัยเสี่ยงของ delirium ในผู้สูงอายุที่มา ER เพื่อการป้องกันและจัดการเชิงรุก",
-    "pmid": "42566629",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42566629/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Contemporary Practice Patterns and Outcomes of Revascularization for Acute Limb Ischemia.",
-    "comment": "อัปเดตแนวทางการทำ revascularization ใน Acute Limb Ischemia เพื่อผลลัพธ์ที่ดีขึ้น",
-    "pmid": "42567313",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42567313/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Precision allergy molecular diagnostic applications in anaphylaxis: from triggers to risk stratification and personalized management.",
-    "comment": "Novel Tool: การใช้ Molecular diagnostic เพื่อแบ่งกลุ่มความเสี่ยงและจัดการ Anaphylaxis",
-    "pmid": "42566649",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42566649/"
-  },
-  {
-    "date": "8 Aug",
-    "title": "Use of [TIMP-2] · [IGFBP7] to identify sepsis-related acute kidney injury in the emergency department.",
-    "comment": "Novel Tool: Biomarker สำหรับคัดกรอง Sepsis-AKI ใน ER ได้รวดเร็วขึ้น",
-    "pmid": "42565116",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42565116/"
   }
 ]
