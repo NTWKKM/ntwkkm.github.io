@@ -6,7 +6,6 @@
 | --- | --- |
 | **Research Hub** | The clinical research blog reader module (`blog.html`) displaying curated emergency medicine and clinical informatics articles. |
 | **Toxico** | The clinical toxicology reference sub-app and project card link. |
-| **Fray Dashboard** | The observability dashboard (`fray/index.html`) mapping macOS system health, vitals, task logs, and reflections. |
 | **Thailand Post tracking** | The automated package tracking system using the Thailand Post Track & Trace API to poll status via GitHub Actions. |
 | **papers.json** | Automated file holding the top 12 emergency medicine papers, parsed daily via n8n. |
 | **latest_updates.json** | Ephemeral JSON file pushed from Notion to trigger GitHub Actions build, deduplicated and chunked. |
@@ -32,7 +31,7 @@
 
 - **Context**: As a clinical reader app used by an ER Physician, network connectivity inside hospitals can be highly unstable.
 - **Decision**: Implement a Service Worker (`sw.js`) with cache-first static caches and network-first dynamic caches, separated by version.
-- **Consequence**: Core files and previously read articles remain fully readable without active internet connection. Offline page requests fallback to path-appropriate directory index caches (e.g. `/tracking/` or `/fray/`) instead of blindly routing to `/index.html`.
+- **Consequence**: Core files and previously read articles remain fully readable without active internet connection. Offline page requests fallback to path-appropriate directory index caches (e.g. `/tracking/` or `/blog.html`) instead of blindly routing to `/index.html`.
 
 ### ADR-003: Mobile Drawer UX for Blog Reader
 
@@ -43,7 +42,7 @@
 ### ADR-004: CSS Modularization & Theme Centralization
 
 - **Context**: Inline style blocks grew up to 1,000 lines within single HTML files, causing huge codebase redundancy, hard-to-maintain theme styling, and slow cache performance.
-- **Decision**: Centralize all light/dark mode variables and global rules in `shared.css`. Extract page-specific inline styles into external stylesheets (`index.css`, `blog.css`, and `tracking/tracking.css`). Refactor all sub-page stylesheets (like `fray/fray-dashboard.css`) to inherit variables from `shared.css`.
+- **Decision**: Centralize all light/dark mode variables and global rules in `shared.css`. Extract page-specific inline styles into external stylesheets (`index.css`, `blog.css`, and `tracking/tracking.css`). Refactor sub-page stylesheets to inherit variables from `shared.css`.
 - **Consequence**: Improves code readability, maintainability, and reusability. External stylesheets are cached by the browser and service worker, reducing page load times and network overhead.
 
 ### ADR-005: Braun-Era Paper-Industrial Theme Migration
@@ -60,15 +59,15 @@
 
 ### ADR-007: Responsive Nav Right-Alignment and Header Color Standardization
 
-- **Context**: Mobile navigation menus on homepage, Fray, and Tracking pages were disorganized, utilizing varied alignments (some stretched, some left-aligned, some right-aligned). Additionally, the headers in `fray` and `tracking` pages used standard card background variables instead of matching the homepage's deep navy gradient, causing visual inconsistency. On the blog page, the mobile drawer collapsed state was broken on initial load because the sidebar lacked default hidden positions and the menu button was invisible/non-interactive on mobile viewports.
-- **Decision**: Set the mobile layout of navigation controls to `justify-content: flex-end; gap: 12px;` to neatly right-align buttons on mobile screens. Standardized the headers of Fray and Tracking pages to use the homepage's navy gradient background with solid cream text (`#F0EDE5`), removing custom gradient text effects. Forced the `blog.html` sidebar to collapse dynamically on mobile load, modified the mobile CSS to transition the sidebar based on `.collapsed`, and overrode the mobile open button opacity and pointer-events to ensure visibility.
+- **Context**: Mobile navigation menus on homepage and Tracking pages were disorganized, utilizing varied alignments (some stretched, some left-aligned, some right-aligned). Additionally, the headers in `tracking` pages used standard card background variables instead of matching the homepage's deep navy gradient, causing visual inconsistency. On the blog page, the mobile drawer collapsed state was broken on initial load because the sidebar lacked default hidden positions and the menu button was invisible/non-interactive on mobile viewports.
+- **Decision**: Set the mobile layout of navigation controls to `justify-content: flex-end; gap: 12px;` to neatly right-align buttons on mobile screens. Standardized the headers of the Tracking page to use the homepage's navy gradient background with solid cream text (`#F0EDE5`), removing custom gradient text effects. Forced the `blog.html` sidebar to collapse dynamically on mobile load, modified the mobile CSS to transition the sidebar based on `.collapsed`, and overrode the mobile open button opacity and pointer-events to ensure visibility.
 - **Consequence**: Delivers a fully cohesive, consistent header navigation experience across all sub-apps, solves mobile drawer access, and aligns with the responsive, premium design guidelines.
 
 ### ADR-008: PWA Meta Sync, Caching Preflight & Telemetry Stability
 
-- **Context**: Several sub-pages (tracking and fray dashboards) lacked `<meta name="theme-color">` and did not register the PWA Service Worker (`sw.js`). Favicons were using an outdated bright blue color. Furthermore, Fray page load triggered 6 simultaneous `HEAD` checks for history days on every refresh, risking network failure or rate limits. Vitals formatting threw TypeErrors if data schema drifted to string values.
-- **Decision**: Synchronized the theme-color meta tag and SVGs (to match the Rams navy gradient and cream palette) globally across all sub-pages. Registered the Service Worker in all dashboard entrypoints. Implemented a 1-hour `localStorage` cache for historical file preflight checks, and type-cast vital parameters using `Number` before running `.toFixed()`.
-- **Consequence**: Ensures robust offline loading and PWA support across all core pages, prevents dashboard crashes from schema drifts, and optimizes loading speed by caching preflight checks.
+- **Context**: The tracking dashboard lacked `<meta name="theme-color">` and did not register the PWA Service Worker (`sw.js`). Favicons were using an outdated bright blue color.
+- **Decision**: Synchronized the theme-color meta tag and SVGs (to match the Rams navy gradient and cream palette) globally across all sub-pages. Registered the Service Worker in all dashboard entrypoints.
+- **Consequence**: Ensures robust offline loading and PWA support across all core pages.
 
 ### ADR-009: Jekyll Build Document Exclusions
 

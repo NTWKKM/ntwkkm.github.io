@@ -8,14 +8,6 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- data /
 |   `-- blog /
 |       `-- (Chunked JSON files)
-|-- fray /
-|   |-- history /
-|   |   `-- (Daily snapshots)
-|   |-- ARCHITECTURE.md
-|   |-- dashboard-snapshot.json
-|   |-- fray-dashboard.css
-|   |-- fray-dashboard.js
-|   `-- index.html
 |-- soul /
 |   `-- audit_and_fix.md
 |-- tracking /

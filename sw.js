@@ -19,10 +19,7 @@ const STATIC_ASSETS = [
     '/shared.js',
     '/manifest.json',
     '/tracking/',
-    '/tracking/tracking.css',
-    '/fray/',
-    '/fray/fray-dashboard.css',
-    '/fray/fray-dashboard.js'
+    '/tracking/tracking.css'
 ];
 
 // Dynamic content that should be network-first
@@ -33,9 +30,7 @@ const DYNAMIC_PATHS = [
     '/data/blog/',
     '/tracking/status_store.json',
     '/tracking/auth.json',
-    '/tracking/track_list.json',
-    '/fray/dashboard-snapshot.json',
-    '/fray/history/'
+    '/tracking/track_list.json'
 ];
 
 // Install event - cache static assets
@@ -150,9 +145,6 @@ self.addEventListener('fetch', (event) => {
                                 if (pathname.includes('/tracking')) {
                                     return caches.match('/tracking/', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
                                 }
-                                if (pathname.includes('/fray')) {
-                                    return caches.match('/fray/', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
-                                }
                                 if (pathname.includes('/blog')) {
                                     return caches.match('/blog.html', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
                                 }
@@ -206,9 +198,6 @@ self.addEventListener('fetch', (event) => {
                             if (event.request.destination === 'document') {
                                 if (pathname.includes('/tracking')) {
                                     return caches.match('/tracking/', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
-                                }
-                                if (pathname.includes('/fray')) {
-                                    return caches.match('/fray/', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
                                 }
                                 if (pathname.includes('/blog')) {
                                     return caches.match('/blog.html', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
