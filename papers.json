@@ -1,5 +1,82 @@
 [
   {
+    "date": "16 Aug",
+    "title": "Ultrasound-Guided Supracondylar Radial Nerve Block Versus Hematoma Block for Closed Reductions of Distal Radius Fracture in the Emergency Department: A Randomized Controlled Clinical Trial.",
+    "comment": " RCT เปรียบเทียบเทคนิคระงับปวดใน ER ช่วยเพิ่มประสิทธิภาพการดึงกระดูกให้เข้าที่",
+    "pmid": "42604104",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42604104/"
+  },
+  {
+    "date": "16 Aug",
+    "title": "Diaphragm thickening fraction as a predictor of the need for ventilatory support in the emergency department: an observational pilot study.",
+    "comment": "ใช้ Ultrasound ประเมินกะบังลมเพื่อพยากรณ์ความจำเป็นในการใส่ท่อช่วยหายใจใน ER",
+    "pmid": "42602344",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42602344/"
+  },
+  {
+    "date": "16 Aug",
+    "title": "Point-of-Care Ultrasound for Suspected Anorectal Infections in the Emergency Department.",
+    "comment": "เพิ่มเครื่องมือ POCUS ในการวินิจฉัยการติดเชื้อบริเวณทวารหนัก ลดการส่งตรวจไม่จำเป็น",
+    "pmid": "42602241",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42602241/"
+  },
+  {
+    "date": "16 Aug",
+    "title": "Point-of-care ultrasound in trauma: a systematic review of recent literature.",
+    "comment": "สรุป evidence ล่าสุดของ POCUS ในงาน Trauma เพื่อปรับปรุง standard of care",
+    "pmid": "42602316",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42602316/"
+  },
+  {
+    "date": "16 Aug",
+    "title": "Branched stented anastomosis frozen elephant trunk repair reduces operative time and transfusion requirements in acute type A aortic dissection.",
+    "comment": "เทคนิคผ่าตัดใหม่ใน Type A Dissection ที่ช่วยลดเวลาผ่าตัดและการเสียเลือด",
+    "pmid": "42604356",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42604356/"
+  },
+  {
+    "date": "16 Aug",
+    "title": "Emergency medical service organizational structure and prehospital outcomes after out-of-hospital cardiac arrest in China: Insights from the BASIC-OHCA.",
+    "comment": "วิเคราะห์โครงสร้าง EMS ที่ส่งผลต่อ outcome ของ OHCA เพื่อปรับระบบ prehospital",
+    "pmid": "42604123",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42604123/"
+  },
+  {
+    "date": "16 Aug",
+    "title": "Non-pharmacological Interventions for Pain-Related Anxiety and Distress in Emergency Department Patients: A Systematic Review With Narrative Synthesis.",
+    "comment": "แนวทางจัดการความเครียดจากความเจ็บปวดใน ER โดยไม่ใช้ยา เพื่อลดการใช้ opioid",
+    "pmid": "42604111",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42604111/"
+  },
+  {
+    "date": "16 Aug",
+    "title": "Early Comprehensive Geriatric Assessment in Acute Care: Evidence and Implementation.",
+    "comment": "การประเมินผู้สูงอายุแบบครอบคลุมในระยะเฉียบพลัน ช่วยลดภาวะแทรกซ้อนและ admission",
+    "pmid": "42604280",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42604280/"
+  },
+  {
+    "date": "16 Aug",
+    "title": "Pediatric extracorporeal cardiopulmonary resuscitation for out-of-hospital cardiac arrest: outcomes and clinical trajectories.",
+    "comment": "ข้อมูลผลลัพธ์ของ ECPR ในเด็กที่เกิด OHCA สำหรับพิจารณาข้อบ่งชี้ในเคสวิกฤต",
+    "pmid": "42603601",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42603601/"
+  },
+  {
+    "date": "16 Aug",
+    "title": "Implementation of Virtual Clinical Emergency Response Team Model: Impact on Response Timeliness and Reliability.",
+    "comment": "รูปแบบ Virtual ERT ช่วยเพิ่มความเร็วและความแม่นยำในการตอบสนองต่อภาวะวิกฤต",
+    "pmid": "42603767",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42603767/"
+  },
+  {
+    "date": "16 Aug",
+    "title": "When Minutes Matter: Point-of-Care Ultrasound Unmasking a Clinically Occult Hernia in a Toddler.",
+    "comment": "เน้นความสำคัญของ POCUS ในการวินิจฉัยไส้เลื่อนที่ตรวจร่างกายไม่พบในเด็ก",
+    "pmid": "42602819",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42602819/"
+  },
+  {
     "date": "15 Aug",
     "title": "Comparing coronary computed tomography angiography to single-photon emission computed tomography in the evaluation of chest pain in the emergency department.",
     "comment": "เปรียบเทียบ CCTA vs SPECT ใน Chest pain ช่วยตัดสินใจเลือก imaging ใน ER",
@@ -411,82 +488,5 @@
     "comment": "เน้นความสำคัญของ 'เวลา' มากกว่าชนิดยาใน pediatric status epilepticus",
     "pmid": "42570400",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42570400/"
-  },
-  {
-    "date": "10 Aug",
-    "title": "Early identification of acute kidney injury progression in critically ill patients with sepsis: interpretable machine learning approach.",
-    "comment": "ใช้ AI ช่วยระบุการดำเนินโรค AKI ในผู้ป่วย sepsis เพื่อการรักษาที่รวดเร็วขึ้น",
-    "pmid": "42571594",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42571594/"
-  },
-  {
-    "date": "10 Aug",
-    "title": "Clinical selection of point-of-care EEG for seizure or altered mental status in a pediatric emergency department.",
-    "comment": "แนวทางการใช้ POC-EEG ในเด็กที่มีอาการชักหรือซึม เพื่อการวินิจฉัยที่แม่นยำใน ER",
-    "pmid": "42570523",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42570523/"
-  },
-  {
-    "date": "10 Aug",
-    "title": "Diagnostic yield and number needed to screen for cervical and concomitant spinal injuries in geriatric head trauma.",
-    "comment": "ข้อมูลการคัดกรองกระดูกสันหลังส่วนคอในผู้สูงอายุที่บาดเจ็บที่ศีรษะ ช่วยลดการตรวจไม่จำเป็น",
-    "pmid": "42569669",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42569669/"
-  },
-  {
-    "date": "10 Aug",
-    "title": "Effectiveness of the Bladder Stimulation Technique for Infant Urine Collection in the Pediatric Emergency Department: A Randomized Controlled Trial.",
-    "comment": "เทคนิคใหม่ในการเก็บปัสสาวะเด็กทารกใน ER ที่มีประสิทธิภาพและนำไปใช้ได้จริง",
-    "pmid": "42569998",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42569998/"
-  },
-  {
-    "date": "10 Aug",
-    "title": "The Impact of Emergency Department Initiated Palliative Care for Heart Failure Patients.",
-    "comment": "การเริ่ม Palliative care ตั้งแต่ใน ER สำหรับผู้ป่วย heart failure ช่วยปรับปรุง outcome การรักษา",
-    "pmid": "42570547",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42570547/"
-  },
-  {
-    "date": "9 Aug",
-    "title": "Comparison of Oliceridine and Hydromorphone for Postoperative Analgesia in Adults Undergoing Lower Limb Fracture Surgery: A Randomized Controlled Non-Inferiority Trial",
-    "comment": "ข้อมูลเปรียบเทียบยาแก้ปวดกลุ่ม Opioid ชนิดใหม่กับยามาตรฐานในผู้ป่วยกระดูกหัก",
-    "pmid": "42569673",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42569673/"
-  },
-  {
-    "date": "9 Aug",
-    "title": "Community Paramedicine Grab Bar Installations Decreased Emergency Calls in Older Adults With Previous Fall History",
-    "comment": "มาตรการป้องกันการหกล้มในชุมชนที่ช่วยลดจำนวนการมา ER ของผู้สูงอายุได้อย่างมีนัยสำคัญ",
-    "pmid": "42570219",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42570219/"
-  },
-  {
-    "date": "9 Aug",
-    "title": "Frontal QRS-T angle predicts cardiac syncope in the emergency department.",
-    "comment": "เครื่องมือช่วยคัดกรองผู้ป่วย Syncope ใน ER เพื่อระบุกลุ่มเสี่ยง Cardiac cause",
-    "pmid": "42567106",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42567106/"
-  },
-  {
-    "date": "9 Aug",
-    "title": "Aggressive versus Conventional Antiplatelet Therapy During Emergent Carotid Stenting in Acute Ischemic Stroke: Balancing Occlusion and Hemorrhage.",
-    "comment": "เปรียบเทียบการให้ Antiplatelet ในผู้ป่วย Stroke ที่ทำ Carotid stenting แบบเร่งด่วน",
-    "pmid": "42567712",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42567712/"
-  },
-  {
-    "date": "9 Aug",
-    "title": "Pulsed Field Ablation Versus Thermal Ablation for First-Time Pulmonary Vein Isolation in Atrial Fibrillation: A Systematic Review and Meta-Analysis.",
-    "comment": "เปรียบเทียบเทคนิค Ablation แบบใหม่ (Pulsed Field) กับแบบเดิมใน AF",
-    "pmid": "42568857",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42568857/"
-  },
-  {
-    "date": "9 Aug",
-    "title": "Implementation of a national clinical guideline for cauda equina syndrome improves referral quality and reduces delays to MRI.",
-    "comment": "ยืนยันว่าการใช้ Guideline ช่วยลดความล่าช้าในการวินิจฉัยและรักษา Cauda Equina",
-    "pmid": "42567778",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42567778/"
   }
 ]
