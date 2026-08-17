@@ -1,24 +1,94 @@
 [
   {
     "date": "17 Aug",
-    "title": "Effect of Prophylactic Incisional Negative Pressure Wound Therapy on Surgical Site Infection After Emergency Laparotomy: An Updated Meta-Analysis With Trial Sequential Analysis.",
-    "comment": "ลด SSI ในเคส emergency laparotomy ได้อย่างมีนัยสำคัญ เปลี่ยนแนวทางดูแลแผลผ่าตัดฉุกเฉิน",
-    "pmid": "42605546",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605546/"
+    "title": "Performance of a high-sensitivity troponin-based early rule-out pathway for suspected myocardial infarction.",
+    "comment": "เพิ่มประสิทธิภาพการคัดกรอง MI ใน ER ช่วยลดเวลาและทรัพยากรในการวินิจฉัย",
+    "pmid": "42605727",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605727/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "[Management of Acute Ischemic Stroke in Older Adults: What's New in Thrombolysis and Thrombectomy up to 24 Hours?].",
+    "comment": "Update แนวทาง Thrombolysis/Thrombectomy ในผู้สูงอายุจนถึง 24 ชม. ซึ่งเปลี่ยนแนวทางดูแล",
+    "pmid": "42606010",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42606010/"
   },
   {
     "date": "17 Aug",
     "title": "A structured 5-question approach for echocardiographic evaluation of undifferentiated shock.",
-    "comment": "เครื่องมือช่วยวินิจฉัย shock ใน ER ให้รวดเร็วและเป็นระบบมากขึ้น ใช้ได้ทันที",
+    "comment": "เครื่องมือช่วยวิเคราะห์ Shock ด้วย Echo ที่ใช้ได้จริงและรวดเร็วในห้องฉุกเฉิน",
     "pmid": "42604924",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42604924/"
   },
   {
     "date": "17 Aug",
+    "title": "Adverse Events Requiring Intervention in Infants Aged 3 to 12 Months Receiving Dissociative and Deep Sedation Performed by Emergency Physicians.",
+    "comment": "ข้อมูล Safety Signal ของการทำ Sedation ในทารกโดยแพทย์ ER เพื่อระวังภาวะแทรกซ้อน",
+    "pmid": "42606025",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42606025/"
+  },
+  {
+    "date": "17 Aug",
     "title": "Evolution of Sepsis Management in the Emergency Department: From Early Goal-Directed Therapy to Personalized Resuscitation.",
-    "comment": "อัปเดตการจัดการ sepsis จาก EGDT สู่ Personalized care ซึ่งเป็นหัวใจสำคัญของ ER ปัจจุบัน",
+    "comment": "ปรับเปลี่ยนจาก EGDT สู่ Personalized Resuscitation ในการดูแล Sepsis ยุคปัจจุบัน",
     "pmid": "42605402",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42605402/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Minimally Invasive Surgery Versus Conventional Craniotomy for Spontaneous Hypertensive Supratentorial Hemorrhage: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+    "comment": "เปรียบเทียบผลลัพธ์การผ่าตัดสมองแบบแผลเล็ก vs แบบเปิดในราย ICH จากความดันสูง",
+    "pmid": "42605345",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605345/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "A Pilot Placebo-Controlled Randomized Trial of Repeated High-Dose Intravenous Magnesium Sulphate and High-Dose Nebulized Budesonide for Severe Asthma in the Paediatric Emergency Department.",
+    "comment": "ทดสอบการใช้ MgSO4 และ Budesonide ขนาดสูงในเด็กที่เป็น Severe Asthma ใน ER",
+    "pmid": "42605209",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605209/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Effect on the likelihood ratio when under- and over-assigning the number of contributors to higher order mixtures.",
+    "comment": "ข้อมูลทางนิติเวช/ตรวจวิเคราะห์ที่อาจกระทบต่อการประเมินหลักฐานในเคสฉุกเฉินทางกฎหมาย",
+    "pmid": "42604865",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42604865/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Underrecognized Substance Exposure in Pediatric Emergency Departments: Insights from Universal LC-MS/MS Confirmation.",
+    "comment": "เตือนเรื่องสารพิษในเด็กที่มักตรวจไม่พบด้วยวิธีปกติ แต่พบได้ด้วย LC-MS/MS",
+    "pmid": "42605130",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605130/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Association Between Hemoglobin-To-Red Cell Distribution Width Ratio and Mortality Risk in Sepsis-Induced Coagulopathy: A Retrospective Study Based on MIMIC-IV Database.",
+    "comment": "Biomarker ใหม่ (Hb/RDW ratio) เพื่อพยากรณ์อัตราตายในผู้ป่วย Sepsis ที่มี Coagulopathy",
+    "pmid": "42606113",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42606113/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Current Evidence on the Use of Biomarkers for the Diagnosis of Acute Mesenteric Ischemia: A Narrative Review.",
+    "comment": "รวบรวม Biomarker สำหรับวินิจฉัย AMI ซึ่งเป็นภาวะวิกฤตที่วินิจฉัยยากใน ER",
+    "pmid": "42605438",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605438/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Efficacy and Safety of Sequential Nephron Blockade Compared to Standard Loop Diuretic for Fluid De-resuscitation in the ICU.",
+    "comment": "ทางเลือกการใช้ยาขับปัสสาวะหลายกลไกเพื่อลด fluid overload ในผู้ป่วยวิกฤต",
+    "pmid": "42604812",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42604812/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Effect of Prophylactic Incisional Negative Pressure Wound Therapy on Surgical Site Infection After Emergency Laparotomy: An Updated Meta-Analysis With Trial Sequential Analysis.",
+    "comment": "ลด SSI ในเคส emergency laparotomy ได้อย่างมีนัยสำคัญ เปลี่ยนแนวทางดูแลแผลผ่าตัดฉุกเฉิน",
+    "pmid": "42605546",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605546/"
   },
   {
     "date": "17 Aug",
@@ -29,45 +99,10 @@
   },
   {
     "date": "17 Aug",
-    "title": "Minimally Invasive Surgery Versus Conventional Craniotomy for Spontaneous Hypertensive Supratentorial Hemorrhage: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
-    "comment": "ข้อมูลเปรียบเทียบการผ่าตัดสมองใน ICH ช่วยตัดสินใจเลือกวิธีผ่าตัดที่เหมาะสม",
-    "pmid": "42605345",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605345/"
-  },
-  {
-    "date": "17 Aug",
-    "title": "A Pilot Placebo-Controlled Randomized Trial of Repeated High-Dose Intravenous Magnesium Sulphate and High-Dose Nebulized Budesonide for Severe Asthma in the Paediatric Emergency Department.",
-    "comment": "ยาและโดสใหม่สำหรับการจัดการ severe asthma ในเด็กที่ดื้อการรักษาเบื้องต้นใน ER",
-    "pmid": "42605209",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605209/"
-  },
-  {
-    "date": "17 Aug",
-    "title": "Current Evidence on the Use of Biomarkers for the Diagnosis of Acute Mesenteric Ischemia: A Narrative Review.",
-    "comment": "ทบทวน biomarker ช่วยวินิจฉัย AMI ซึ่งเป็นภาวะวิกฤตที่วินิจฉัยได้ยากใน ER",
-    "pmid": "42605438",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605438/"
-  },
-  {
-    "date": "17 Aug",
-    "title": "Efficacy and Safety of Sequential Nephron Blockade Compared to Standard Loop Diuretic for Fluid De-resuscitation in the ICU.",
-    "comment": "เทคนิคการขับน้ำที่ประสิทธิภาพสูงกว่า loop diuretic เดี่ยวๆ ในผู้ป่วยวิกฤต",
-    "pmid": "42604812",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42604812/"
-  },
-  {
-    "date": "17 Aug",
     "title": "Development and Internal Validation of a Multivariable Prognostic Model for in-Hospital Mortality in Critically Ill Patients with Acute Exacerbation of COPD.",
     "comment": "Model พยากรณ์การเสียชีวิตใน AECOPD ช่วยในการ triage และวางแผนการรักษา",
     "pmid": "42605395",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42605395/"
-  },
-  {
-    "date": "17 Aug",
-    "title": "Underrecognized Substance Exposure in Pediatric Emergency Departments: Insights from Universal LC-MS/MS Confirmation.",
-    "comment": "ชี้ให้เห็นความเสี่ยงที่ตรวจไม่พบจากการ screening ปกติ ต้องระวังสารเสพติดชนิดใหม่ในเด็ก",
-    "pmid": "42605130",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605130/"
   },
   {
     "date": "17 Aug",
@@ -453,40 +488,5 @@
     "comment": "ข้อมูลการยื้อชีวิตจนถึง 85 นาทีใน OHCA ช่วยกำหนดจุดตัดในการหยุด CPR",
     "pmid": "42577978",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42577978/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Diagnostic Performance of Mobile Low-Field MRI and CT for Acute Headache as the Isolated Clinical Manifestation in the Neurology Emergency Department.",
-    "comment": "การใช้ Mobile imaging ใน ER เพื่อคัดกรอง Stroke/Hemorrhage ในผู้ป่วยปวดศีรษะ",
-    "pmid": "42578435",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42578435/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Interpretation of Lung Ultrasound in POCUS.",
-    "comment": "ทบทวนการแปลผล LUS ซึ่งเป็น Tool สำคัญที่ใช้ได้ทันทีใน ER สำหรับ respiratory distress",
-    "pmid": "42579084",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42579084/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Short-term risk of falls among initiators of controlled-release tapentadol versus oxycodone in New South Wales between 2014 and 2020: A population-based retrospective cohort study.",
-    "comment": "เปรียบเทียบความเสี่ยงการหกล้มระหว่างยาแก้ปวดกลุ่ม opioid สำคัญต่อความปลอดภัยผู้สูงอายุ",
-    "pmid": "42579646",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42579646/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Middle Meningeal Artery Embolization (MMAE) Versus Surgical Evacuation for Recurrent and Refractory Chronic Subdural Hematoma: A Systematic Review and Meta-Analysis.",
-    "comment": "ทางเลือกใหม่ MMAE ในการรักษา cSDH ที่ดื้อต่อการผ่าตัด",
-    "pmid": "42578383",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42578383/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Seizure Action Plans Beyond the Neurology Clinic: What Emergency, School, and Primary Care Teams Need to Know for Children With Epilepsy.",
-    "comment": "แนวทางการจัดการชักในเด็กที่แพทย์ ER ต้องประสานงานเพื่อความปลอดภัย",
-    "pmid": "42578882",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42578882/"
   }
 ]
