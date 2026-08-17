@@ -1,52 +1,80 @@
 [
   {
-    "date": "17 Aug",
-    "title": "Performance of a high-sensitivity troponin-based early rule-out pathway for suspected myocardial infarction.",
-    "comment": "เพิ่มประสิทธิภาพการคัดกรอง MI ใน ER ช่วยลดเวลาและทรัพยากรในการวินิจฉัย",
-    "pmid": "42605727",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605727/"
-  },
-  {
-    "date": "17 Aug",
-    "title": "[Management of Acute Ischemic Stroke in Older Adults: What's New in Thrombolysis and Thrombectomy up to 24 Hours?].",
-    "comment": "Update แนวทาง Thrombolysis/Thrombectomy ในผู้สูงอายุจนถึง 24 ชม. ซึ่งเปลี่ยนแนวทางดูแล",
+    "date": "18 Aug",
+    "title": "[Management of Acute Ischemic Stroke in Older Adults: What's New in Thrombolysis and Thrombectomy up to 24 Hours?]",
+    "comment": "อัปเดตแนวทางการรักษา Stroke ในผู้สูงอายุ ทั้งยาละลายลิ่มเลือดและลากลิ่มเลือดในหน้าต่าง 24 ชม.",
     "pmid": "42606010",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42606010/"
   },
   {
-    "date": "17 Aug",
+    "date": "18 Aug",
+    "title": "Performance of a high-sensitivity troponin-based early rule-out pathway for suspected myocardial infarction.",
+    "comment": "ประเมินประสิทธิภาพ hs-Tn ในการ Rule-out MI ช่วยลดระยะเวลาการรอคอยใน ER",
+    "pmid": "42605727",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605727/"
+  },
+  {
+    "date": "18 Aug",
     "title": "A structured 5-question approach for echocardiographic evaluation of undifferentiated shock.",
-    "comment": "เครื่องมือช่วยวิเคราะห์ Shock ด้วย Echo ที่ใช้ได้จริงและรวดเร็วในห้องฉุกเฉิน",
+    "comment": "เครื่องมือช่วยแปลผล Echo อย่างเป็นระบบเพื่อวินิจฉัยสาเหตุของ Shock ในภาวะวิกฤต",
     "pmid": "42604924",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42604924/"
   },
   {
-    "date": "17 Aug",
+    "date": "18 Aug",
     "title": "Adverse Events Requiring Intervention in Infants Aged 3 to 12 Months Receiving Dissociative and Deep Sedation Performed by Emergency Physicians.",
-    "comment": "ข้อมูล Safety Signal ของการทำ Sedation ในทารกโดยแพทย์ ER เพื่อระวังภาวะแทรกซ้อน",
+    "comment": "ข้อมูลความปลอดภัยของการให้ยาระงับความรู้สึกในทารกโดยแพทย์ ER เพื่อเฝ้าระวังภาวะแทรกซ้อน",
     "pmid": "42606025",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42606025/"
   },
   {
-    "date": "17 Aug",
-    "title": "Evolution of Sepsis Management in the Emergency Department: From Early Goal-Directed Therapy to Personalized Resuscitation.",
-    "comment": "ปรับเปลี่ยนจาก EGDT สู่ Personalized Resuscitation ในการดูแล Sepsis ยุคปัจจุบัน",
-    "pmid": "42605402",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605402/"
-  },
-  {
-    "date": "17 Aug",
+    "date": "18 Aug",
     "title": "Minimally Invasive Surgery Versus Conventional Craniotomy for Spontaneous Hypertensive Supratentorial Hemorrhage: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
-    "comment": "เปรียบเทียบผลลัพธ์การผ่าตัดสมองแบบแผลเล็ก vs แบบเปิดในราย ICH จากความดันสูง",
+    "comment": "เปรียบเทียบการผ่าตัดสมองแบบแผลเล็กกับแบบมาตรฐานในผู้ป่วย ICH จากความดันโลหิตสูง",
     "pmid": "42605345",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42605345/"
   },
   {
-    "date": "17 Aug",
+    "date": "18 Aug",
+    "title": "Effect of Prophylactic Incisional Negative Pressure Wound Therapy on Surgical Site Infection After Emergency Laparotomy: An Updated Meta-Analysis With Trial Sequential Analysis.",
+    "comment": "การใช้ NPWT ช่วยลดการติดเชื้อแผลผ่าตัดในเคส Emergency Laparotomy",
+    "pmid": "42605546",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605546/"
+  },
+  {
+    "date": "18 Aug",
+    "title": "Evolution of Sepsis Management in the Emergency Department: From Early Goal-Directed Therapy to Personalized Resuscitation.",
+    "comment": "ทิศทางการปรับเปลี่ยนการรักษา Sepsis จาก EGDT สู่การฟื้นฟูแบบเฉพาะบุคคล",
+    "pmid": "42605402",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605402/"
+  },
+  {
+    "date": "18 Aug",
     "title": "A Pilot Placebo-Controlled Randomized Trial of Repeated High-Dose Intravenous Magnesium Sulphate and High-Dose Nebulized Budesonide for Severe Asthma in the Paediatric Emergency Department.",
-    "comment": "ทดสอบการใช้ MgSO4 และ Budesonide ขนาดสูงในเด็กที่เป็น Severe Asthma ใน ER",
+    "comment": "การใช้ MgSO4 และ Budesonide ขนาดสูงในเด็กที่มาด้วย Severe Asthma ใน ER",
     "pmid": "42605209",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42605209/"
+  },
+  {
+    "date": "18 Aug",
+    "title": "Underrecognized Substance Exposure in Pediatric Emergency Departments: Insights from Universal LC-MS/MS Confirmation.",
+    "comment": "ชี้ให้เห็นสารพิษที่มักตรวจไม่พบในเด็กด้วยวิธีมาตรฐาน เน้นความสำคัญของการตรวจยืนยัน",
+    "pmid": "42605130",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605130/"
+  },
+  {
+    "date": "18 Aug",
+    "title": "Current Evidence on the Use of Biomarkers for the Diagnosis of Acute Mesenteric Ischemia: A Narrative Review.",
+    "comment": "รวบรวม Biomarker สำหรับวินิจฉัยภาวะลำไส้ขาดเลือดเฉียบพลัน ซึ่งวินิจฉัยได้ยากในระยะแรก",
+    "pmid": "42605438",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605438/"
+  },
+  {
+    "date": "18 Aug",
+    "title": "Efficacy and Safety of Sequential Nephron Blockade Compared to Standard Loop Diuretic for Fluid De-resuscitation in the ICU.",
+    "comment": "เปรียบเทียบการใช้ยาขับปัสสาวะหลายกลไกเพื่อลดน้ำเกินในผู้ป่วยวิกฤต",
+    "pmid": "42604812",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42604812/"
   },
   {
     "date": "17 Aug",
@@ -57,38 +85,10 @@
   },
   {
     "date": "17 Aug",
-    "title": "Underrecognized Substance Exposure in Pediatric Emergency Departments: Insights from Universal LC-MS/MS Confirmation.",
-    "comment": "เตือนเรื่องสารพิษในเด็กที่มักตรวจไม่พบด้วยวิธีปกติ แต่พบได้ด้วย LC-MS/MS",
-    "pmid": "42605130",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605130/"
-  },
-  {
-    "date": "17 Aug",
     "title": "Association Between Hemoglobin-To-Red Cell Distribution Width Ratio and Mortality Risk in Sepsis-Induced Coagulopathy: A Retrospective Study Based on MIMIC-IV Database.",
     "comment": "Biomarker ใหม่ (Hb/RDW ratio) เพื่อพยากรณ์อัตราตายในผู้ป่วย Sepsis ที่มี Coagulopathy",
     "pmid": "42606113",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42606113/"
-  },
-  {
-    "date": "17 Aug",
-    "title": "Current Evidence on the Use of Biomarkers for the Diagnosis of Acute Mesenteric Ischemia: A Narrative Review.",
-    "comment": "รวบรวม Biomarker สำหรับวินิจฉัย AMI ซึ่งเป็นภาวะวิกฤตที่วินิจฉัยยากใน ER",
-    "pmid": "42605438",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605438/"
-  },
-  {
-    "date": "17 Aug",
-    "title": "Efficacy and Safety of Sequential Nephron Blockade Compared to Standard Loop Diuretic for Fluid De-resuscitation in the ICU.",
-    "comment": "ทางเลือกการใช้ยาขับปัสสาวะหลายกลไกเพื่อลด fluid overload ในผู้ป่วยวิกฤต",
-    "pmid": "42604812",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42604812/"
-  },
-  {
-    "date": "17 Aug",
-    "title": "Effect of Prophylactic Incisional Negative Pressure Wound Therapy on Surgical Site Infection After Emergency Laparotomy: An Updated Meta-Analysis With Trial Sequential Analysis.",
-    "comment": "ลด SSI ในเคส emergency laparotomy ได้อย่างมีนัยสำคัญ เปลี่ยนแนวทางดูแลแผลผ่าตัดฉุกเฉิน",
-    "pmid": "42605546",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605546/"
   },
   {
     "date": "17 Aug",
