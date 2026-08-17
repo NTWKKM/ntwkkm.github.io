@@ -1,10 +1,87 @@
 [
   {
-    "date": "16 Aug",
+    "date": "17 Aug",
+    "title": "Effect of Prophylactic Incisional Negative Pressure Wound Therapy on Surgical Site Infection After Emergency Laparotomy: An Updated Meta-Analysis With Trial Sequential Analysis.",
+    "comment": "ลด SSI ในเคส emergency laparotomy ได้อย่างมีนัยสำคัญ เปลี่ยนแนวทางดูแลแผลผ่าตัดฉุกเฉิน",
+    "pmid": "42605546",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605546/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "A structured 5-question approach for echocardiographic evaluation of undifferentiated shock.",
+    "comment": "เครื่องมือช่วยวินิจฉัย shock ใน ER ให้รวดเร็วและเป็นระบบมากขึ้น ใช้ได้ทันที",
+    "pmid": "42604924",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42604924/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Evolution of Sepsis Management in the Emergency Department: From Early Goal-Directed Therapy to Personalized Resuscitation.",
+    "comment": "อัปเดตการจัดการ sepsis จาก EGDT สู่ Personalized care ซึ่งเป็นหัวใจสำคัญของ ER ปัจจุบัน",
+    "pmid": "42605402",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605402/"
+  },
+  {
+    "date": "17 Aug",
     "title": "Ultrasound-Guided Supracondylar Radial Nerve Block Versus Hematoma Block for Closed Reductions of Distal Radius Fracture in the Emergency Department: A Randomized Controlled Clinical Trial.",
-    "comment": " RCT เปรียบเทียบเทคนิคระงับปวดใน ER ช่วยเพิ่มประสิทธิภาพการดึงกระดูกให้เข้าที่",
+    "comment": "เปรียบเทียบวิธีระงับปวดในการดึงกระดูก distal radius ใน ER เพื่อประสิทธิภาพที่ดีกว่า",
     "pmid": "42604104",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42604104/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Minimally Invasive Surgery Versus Conventional Craniotomy for Spontaneous Hypertensive Supratentorial Hemorrhage: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+    "comment": "ข้อมูลเปรียบเทียบการผ่าตัดสมองใน ICH ช่วยตัดสินใจเลือกวิธีผ่าตัดที่เหมาะสม",
+    "pmid": "42605345",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605345/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "A Pilot Placebo-Controlled Randomized Trial of Repeated High-Dose Intravenous Magnesium Sulphate and High-Dose Nebulized Budesonide for Severe Asthma in the Paediatric Emergency Department.",
+    "comment": "ยาและโดสใหม่สำหรับการจัดการ severe asthma ในเด็กที่ดื้อการรักษาเบื้องต้นใน ER",
+    "pmid": "42605209",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605209/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Current Evidence on the Use of Biomarkers for the Diagnosis of Acute Mesenteric Ischemia: A Narrative Review.",
+    "comment": "ทบทวน biomarker ช่วยวินิจฉัย AMI ซึ่งเป็นภาวะวิกฤตที่วินิจฉัยได้ยากใน ER",
+    "pmid": "42605438",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605438/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Efficacy and Safety of Sequential Nephron Blockade Compared to Standard Loop Diuretic for Fluid De-resuscitation in the ICU.",
+    "comment": "เทคนิคการขับน้ำที่ประสิทธิภาพสูงกว่า loop diuretic เดี่ยวๆ ในผู้ป่วยวิกฤต",
+    "pmid": "42604812",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42604812/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Development and Internal Validation of a Multivariable Prognostic Model for in-Hospital Mortality in Critically Ill Patients with Acute Exacerbation of COPD.",
+    "comment": "Model พยากรณ์การเสียชีวิตใน AECOPD ช่วยในการ triage และวางแผนการรักษา",
+    "pmid": "42605395",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605395/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Underrecognized Substance Exposure in Pediatric Emergency Departments: Insights from Universal LC-MS/MS Confirmation.",
+    "comment": "ชี้ให้เห็นความเสี่ยงที่ตรวจไม่พบจากการ screening ปกติ ต้องระวังสารเสพติดชนิดใหม่ในเด็ก",
+    "pmid": "42605130",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42605130/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Decoding the causes of ischemic stroke despite ongoing oral anticoagulation and their clinical impact: the ASPERA-R study.",
+    "comment": "วิเคราะห์สาเหตุ stroke ในผู้ป่วยที่กินยาต้านการแข็งตัวของเลือดอยู่แล้ว เพื่อปรับยา",
+    "pmid": "42604885",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42604885/"
+  },
+  {
+    "date": "17 Aug",
+    "title": "Branched stented anastomosis frozen elephant trunk repair reduces operative time and transfusion requirements in acute type A aortic dissection.",
+    "comment": "เทคนิคผ่าตัด Aortic dissection แบบใหม่ ลดเวลาผ่าตัดและปริมาณเลือดที่ต้องให้",
+    "pmid": "42604356",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42604356/"
   },
   {
     "date": "16 Aug",
@@ -26,13 +103,6 @@
     "comment": "สรุป evidence ล่าสุดของ POCUS ในงาน Trauma เพื่อปรับปรุง standard of care",
     "pmid": "42602316",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42602316/"
-  },
-  {
-    "date": "16 Aug",
-    "title": "Branched stented anastomosis frozen elephant trunk repair reduces operative time and transfusion requirements in acute type A aortic dissection.",
-    "comment": "เทคนิคผ่าตัดใหม่ใน Type A Dissection ที่ช่วยลดเวลาผ่าตัดและการเสียเลือด",
-    "pmid": "42604356",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42604356/"
   },
   {
     "date": "16 Aug",
@@ -418,75 +488,5 @@
     "comment": "แนวทางการจัดการชักในเด็กที่แพทย์ ER ต้องประสานงานเพื่อความปลอดภัย",
     "pmid": "42578882",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42578882/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Muscle mass and quality by computed tomography predicts mortality and emergency department revisits in older adults with acute pulmonary embolism",
-    "comment": "ใช้ CT ประเมินกล้ามเนื้อเพื่อทำนายพยากรณ์โรคและการกลับมา ER ซ้ำใน PE",
-    "pmid": "42579060",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42579060/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Feasibility and safety of laparoscopic small bowel resections with intracorporal anastomosis in emergency settings - a retrospective single centre study",
-    "comment": "ความเป็นไปได้และความปลอดภัยของการผ่าตัด Laparoscopic ในภาวะฉุกเฉินทางศัลยกรรม",
-    "pmid": "42579160",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42579160/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Adrenaline Use and Request for Emergency Medical Assistance to Manage Food Anaphylaxis",
-    "comment": "ข้อมูลการใช้ Adrenaline และการขอความช่วยเหลือในภาวะ Anaphylaxis จากอาหาร",
-    "pmid": "42578555",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42578555/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Small Doses, Big Problems: Antidote Shortages",
-    "comment": "สัญญาณเตือนเรื่องการขาดแคลนยาต้านพิษ (Antidotes) ที่กระทบความปลอดภัยผู้ป่วย",
-    "pmid": "42578056",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42578056/"
-  },
-  {
-    "date": "10 Aug",
-    "title": "Opioid Overdose and Hypoxia-Induced Cardiac Arrest: The Case for Ventilation-First in Resuscitation.",
-    "comment": "เปลี่ยนแนวทาง CPR ใน Opioid overdose ให้เน้น Ventilation ก่อนเพื่อลดภาวะ hypoxia",
-    "pmid": "42569964",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42569964/"
-  },
-  {
-    "date": "10 Aug",
-    "title": "Point-of-Care Ultrasound-Guided Hydrodissection in Emergency Care: A Structured Narrative Review of Perineural and Related Musculoskeletal Applications.",
-    "comment": "เทคนิค POCUS ใหม่ในการทำ hydrodissection เพื่อลดปวด/รักษาเส้นประสาทใน ER",
-    "pmid": "42571540",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42571540/"
-  },
-  {
-    "date": "10 Aug",
-    "title": "Tourniquet Application by Bystanders Fails to Improve Acuity.",
-    "comment": "หักล้างความเชื่อเรื่องการใช้ tourniquet โดย bystander ว่าไม่ได้ช่วยลดความรุนแรงของอาการ",
-    "pmid": "42570546",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42570546/"
-  },
-  {
-    "date": "10 Aug",
-    "title": "The gender pain gap in prehospital analgesia: the role of patient and provider gender - an analysis of 106,888 helicopter emergency medical service (HEMS) missions.",
-    "comment": "ชี้ให้เห็นความเหลื่อมล้ำในการให้ยาแก้ปวดตามเพศ ซึ่งส่งผลต่อความปลอดภัยและคุณภาพการรักษา",
-    "pmid": "42571028",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42571028/"
-  },
-  {
-    "date": "10 Aug",
-    "title": "A Bedside Prediction Score for Strangulation in Adults With Acute Mechanical Intestinal Obstruction: A Prospective Cohort Study in Taiz, Yemen.",
-    "comment": "เครื่องมือทำนายภาวะลำไส้ขาดเลือด (strangulation) ที่ใช้ได้ทันทีข้างเตียงในผู้ป่วย obstruction",
-    "pmid": "42571599",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42571599/"
-  },
-  {
-    "date": "10 Aug",
-    "title": "Time over drug in pediatric status epilepticus: A prospective observational study.",
-    "comment": "เน้นความสำคัญของ 'เวลา' มากกว่าชนิดยาใน pediatric status epilepticus",
-    "pmid": "42570400",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42570400/"
   }
 ]
