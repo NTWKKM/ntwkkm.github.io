@@ -1,5 +1,75 @@
 [
   {
+    "date": "19 Aug",
+    "title": "Physiology before pathology: Why hemodynamic stability must precede etiological triage in upper gastrointestinal bleeding. Comment on \"Evidence-based, cost-effective management of upper gastrointestinal hemorrhage. An algorithm of the journal of trauma and acute care surgery emergency general surgery algorithms work group\".",
+    "comment": "เน้นการให้ความสำคัญกับ hemodynamic stability ก่อนการหาต้นเหตุใน UGIB เปลี่ยนลำดับการจัดการทางคลินิก",
+    "pmid": "42611634",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42611634/"
+  },
+  {
+    "date": "19 Aug",
+    "title": "Point-of-Care Ultrasound-Guided Peripheral Veno-Arterial Extracorporeal Membrane Oxygenation Cannulation in Adult Patients.",
+    "comment": "เทคนิค POCUS ช่วยในการใส่สาย ECMO เพิ่มความปลอดภัยและแม่นยำในผู้ป่วยวิกฤต",
+    "pmid": "42611602",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42611602/"
+  },
+  {
+    "date": "19 Aug",
+    "title": "Successful Resuscitation of Cardiac Arrest with Concurrent Intravenous Thrombolysis during Cardiopulmonary Resuscitation.",
+    "comment": "ข้อมูลการใช้ thrombolysis พร้อมกับการ CPR ในเคส cardiac arrest ที่อาจเปลี่ยนแนวทางรักษา",
+    "pmid": "42611970",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42611970/"
+  },
+  {
+    "date": "19 Aug",
+    "title": "Nonlinear Association Between Admission Neutrophil Count and 14-Day Mortality in Patients with Traumatic Brain Injury: A Retrospective Cohort Study.",
+    "comment": "ใช้ Neutrophil count เป็น prognostic marker ใน TBI เพื่อประเมินความเสี่ยงการเสียชีวิต",
+    "pmid": "42612091",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42612091/"
+  },
+  {
+    "date": "19 Aug",
+    "title": "Multinational Validation of a Radiography-Based AI Tool for Appendicular Fracture Detection and Corresponding Reader Performance.",
+    "comment": "เครื่องมือ AI ช่วยตรวจจับกระดูกหัก ลดความผิดพลาดในการอ่านฟิล์มใน ER",
+    "pmid": "42610815",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42610815/"
+  },
+  {
+    "date": "19 Aug",
+    "title": "Inhaled Methoxyflurane in Australian Emergency Departments-A Cost-Minimisation Analysis.",
+    "comment": "การประเมินความคุ้มค่าของ Methoxyflurane ในการระงับปวดเฉียบพลันใน ER",
+    "pmid": "42610725",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42610725/"
+  },
+  {
+    "date": "19 Aug",
+    "title": "Transcranial Ultrasound in the Helicopter Emergency Medical Services-A Feasibility Study.",
+    "comment": "นวัตกรรมนำ Ultrasound ตรวจสมองมาใช้บนเฮลิคอปเตอร์เพื่อคัดกรองผู้ป่วยอุบัติเหตุ",
+    "pmid": "42610680",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42610680/"
+  },
+  {
+    "date": "19 Aug",
+    "title": "Identifying Quality Indicators for Prehospital Care Following Out-of-Hospital Cardiac Arrest: A Focused Scoping Review.",
+    "comment": "ตัวชี้วัดคุณภาพการดูแลก่อนถึงโรงพยาบาลใน OHCA เพื่อปรับปรุง standard of care",
+    "pmid": "42612190",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42612190/"
+  },
+  {
+    "date": "19 Aug",
+    "title": "Approximating Molecular Sepsis Subtypes Using Bedside Data in Resource-Limited Settings: A Multicenter Analysis From Uganda.",
+    "comment": "การใช้ข้อมูล bedside เพื่อแยก subtype ของ sepsis ช่วยให้การรักษาแม่นยำขึ้น",
+    "pmid": "42611628",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42611628/"
+  },
+  {
+    "date": "19 Aug",
+    "title": "Identification of Risk Factors for Postoperative Delirium and Targeted Preventive Strategies in Elderly Patients in the Emergency Surgical ICU.",
+    "comment": "ปัจจัยเสี่ยงและการป้องกัน delirium ในผู้สูงอายุที่ผ่าตัดฉุกเฉิน ลดภาวะแทรกซ้อนหลังผ่าตัด",
+    "pmid": "42610281",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42610281/"
+  },
+  {
     "date": "18 Aug",
     "title": "[Management of Acute Ischemic Stroke in Older Adults: What's New in Thrombolysis and Thrombectomy up to 24 Hours?]",
     "comment": "อัปเดตแนวทางการรักษา Stroke ในผู้สูงอายุ ทั้งยาละลายลิ่มเลือดและลากลิ่มเลือดในหน้าต่าง 24 ชม.",
@@ -418,75 +488,5 @@
     "comment": "ทบทวนการใช้ Ketamine ใน TBI ซึ่งเดิมเป็นข้อห้ามหรือข้อกังวล เปลี่ยนมุมมองการใช้ยาใน ER",
     "pmid": "42581636",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42581636/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Distal Vessel Occlusions in Acute Ischemic Stroke: Reframing Patient Selection and Reperfusion Strategies.",
-    "comment": "ปรับเกณฑ์การเลือกผู้ป่วย Stroke ที่มี distal occlusion เพื่อรับการรักษา reperfusion",
-    "pmid": "42579828",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42579828/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Why AI struggles with rare catastrophic disease: lessons from the AORTA-AI study of acute aortic syndrome.",
-    "comment": "ชี้จุดอ่อนของ AI ในการวินิจฉัย Acute Aortic Syndrome เตือนแพทย์ไม่ให้พึ่งพา AI ในโรคหายาก",
-    "pmid": "42580878",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42580878/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Critical Care-Specific vs General-Purpose Large Language Models in Emergency Intensive Care Unit Diagnosis: Single-Center Retrospective Paired Comparative Study.",
-    "comment": "เปรียบเทียบ LLM เฉพาะทางกับทั่วไปในการวินิจฉัยใน ICU/ER ช่วยประเมินเครื่องมือสนับสนุนการตัดสินใจ",
-    "pmid": "42580688",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42580688/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Factors associated with hospitalization among older patients with mild traumatic injuries presenting to the emergency department in Korea: a retrospective observational study.",
-    "comment": "ช่วยระบุปัจจัยเสี่ยงในการ admit ของผู้สูงอายุที่บาดเจ็บเล็กน้อย เพื่อลดการส่งกลับบ้านที่ผิดพลาด",
-    "pmid": "42581732",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42581732/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Suicide Risk Screening for Youth with Developmental Disabilities in the Pediatric Emergency Department.",
-    "comment": "แนวทางการคัดกรองความเสี่ยงฆ่าตัวตายในเด็กพิเศษที่มา ER ซึ่งเป็นกลุ่มเปราะบางและคัดกรองยาก",
-    "pmid": "42580304",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42580304/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Survival after Resuscitative Thoracotomy in the Emergency Department: An Analysis of 487 Trauma Patients with Prehospital Cardiopulmonary Resuscitation.",
-    "comment": "ข้อมูล survival rate ของ ET thoracotomy ช่วยในการตัดสินใจเลือกผู้ป่วยที่ได้ประโยชน์จริง",
-    "pmid": "42579392",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42579392/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Ultra-early versus early adjunctive vasopressin initiation after norepinephrine escalation in septic shock: a target trial emulation.",
-    "comment": "ผลของการให้ Vasopressin เร็วขึ้นใน Septic shock มีผลต่อ outcome ทางคลินิก",
-    "pmid": "42578996",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42578996/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Cost-Effectiveness of a Host-Response Point-of-Care Assay for Early Sepsis Diagnosis in UK Emergency Departments.",
-    "comment": "เครื่องมือ POC ใหม่ช่วยวินิจฉัย Sepsis ได้เร็วและคุ้มค่า เพิ่มประสิทธิภาพการรักษา",
-    "pmid": "42579089",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42579089/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Beyond the Algorithm: The ERC Guidelines 2025 and the Maturity of Resuscitation Medicine.",
-    "comment": "ทิศทาง Guideline การกู้ชีพปี 2025 ซึ่งเป็นมาตรฐานหลักในการดูแลผู้ป่วยวิกฤต",
-    "pmid": "42578382",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42578382/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Survival After Out-of-Hospital Cardiac Arrest and 85-Minute Resuscitation.",
-    "comment": "ข้อมูลการยื้อชีวิตจนถึง 85 นาทีใน OHCA ช่วยกำหนดจุดตัดในการหยุด CPR",
-    "pmid": "42577978",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42577978/"
   }
 ]
