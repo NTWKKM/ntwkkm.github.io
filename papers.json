@@ -1,31 +1,73 @@
 [
   {
     "date": "19 Aug",
+    "title": "Induction Agents for Tracheal Intubation of Critically Ill Patients: A Systematic Review and Network Meta-Analysis of Randomized Controlled Trials.",
+    "comment": "เปรียบเทียบยาเหนี่ยวนำการนำวิสัญญีในผู้ป่วยวิกฤต ช่วยเลือกยาที่เหมาะสมที่สุดใน ER",
+    "pmid": "42612901",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42612901/"
+  },
+  {
+    "date": "19 Aug",
+    "title": "Agitation: A Clinical Review for Emergency Physicians.",
+    "comment": "ทบทวนแนวทางการจัดการภาวะกระสับกระส่ายใน ER นำไปใช้หน้างานได้ทันที",
+    "pmid": "42612480",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42612480/"
+  },
+  {
+    "date": "19 Aug",
     "title": "Physiology before pathology: Why hemodynamic stability must precede etiological triage in upper gastrointestinal bleeding. Comment on \"Evidence-based, cost-effective management of upper gastrointestinal hemorrhage. An algorithm of the journal of trauma and acute care surgery emergency general surgery algorithms work group\".",
-    "comment": "เน้นการให้ความสำคัญกับ hemodynamic stability ก่อนการหาต้นเหตุใน UGIB เปลี่ยนลำดับการจัดการทางคลินิก",
+    "comment": "เน้นย้ำการกู้สัญญาณชีพ (Resuscitation) ก่อนการวินิจฉัยสาเหตุใน UGIB",
     "pmid": "42611634",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42611634/"
   },
   {
     "date": "19 Aug",
     "title": "Point-of-Care Ultrasound-Guided Peripheral Veno-Arterial Extracorporeal Membrane Oxygenation Cannulation in Adult Patients.",
-    "comment": "เทคนิค POCUS ช่วยในการใส่สาย ECMO เพิ่มความปลอดภัยและแม่นยำในผู้ป่วยวิกฤต",
+    "comment": "เทคนิค POCUS ช่วยเพิ่มความปลอดภัยในการใส่สาย ECMO ในผู้ป่วยวิกฤต",
     "pmid": "42611602",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42611602/"
   },
   {
     "date": "19 Aug",
+    "title": "Risk factors for sepsis development in trauma patients admitted to the ICU in Japan: a retrospective cohort study using the Japan trauma data bank.",
+    "comment": "ระบุปัจจัยเสี่ยงการเกิด Sepsis ในผู้ป่วย Trauma เพื่อการเฝ้าระวังเชิงรุก",
+    "pmid": "42613118",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42613118/"
+  },
+  {
+    "date": "19 Aug",
+    "title": "Role for Reduced-Dose Computed Tomography for Foreign Body Aspiration.",
+    "comment": "ทางเลือกการใช้ Low-dose CT ในการวินิจฉัยสิ่งแปลกปลอมในทางเดินหายใจ",
+    "pmid": "42612967",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42612967/"
+  },
+  {
+    "date": "19 Aug",
     "title": "Successful Resuscitation of Cardiac Arrest with Concurrent Intravenous Thrombolysis during Cardiopulmonary Resuscitation.",
-    "comment": "ข้อมูลการใช้ thrombolysis พร้อมกับการ CPR ในเคส cardiac arrest ที่อาจเปลี่ยนแนวทางรักษา",
+    "comment": "ข้อมูลการใช้ยาละลายลิ่มเลือดขณะ CPR ในกรณีที่สงสัย STEMI",
     "pmid": "42611970",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42611970/"
   },
   {
     "date": "19 Aug",
+    "title": "Effectiveness of virtual reality in reducing pain and fear in children with closed reduction applied forearm fractures.",
+    "comment": "ใช้ VR ลดความเจ็บปวดและกังวลในเด็กขณะดึงกระดูกให้เข้าที่",
+    "pmid": "42612321",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42612321/"
+  },
+  {
+    "date": "19 Aug",
     "title": "Nonlinear Association Between Admission Neutrophil Count and 14-Day Mortality in Patients with Traumatic Brain Injury: A Retrospective Cohort Study.",
-    "comment": "ใช้ Neutrophil count เป็น prognostic marker ใน TBI เพื่อประเมินความเสี่ยงการเสียชีวิต",
+    "comment": "ใช้ค่า Neutrophil แรกรับประเมินพยากรณ์โรคในผู้ป่วย TBI",
     "pmid": "42612091",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42612091/"
+  },
+  {
+    "date": "19 Aug",
+    "title": "ED-triage-agent: a multi-agent framework for human-in-the-loop emergency triage.",
+    "comment": "เครื่องมือ AI ช่วยคัดกรองผู้ป่วยใน ER เพื่อเพิ่มประสิทธิภาพการ Triage",
+    "pmid": "42612553",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42612553/"
   },
   {
     "date": "19 Aug",
@@ -446,47 +488,5 @@
     "comment": "ทบทวนการรักษา ARDS ที่ลดอัตราตายได้จริง เทียบกับ guideline ปัจจุบัน Impact สูงต่อการดูแลผู้ป่วยวิกฤต",
     "pmid": "42580157",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42580157/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Catheter-directed thrombolysis versus anticoagulation for intermediate-risk and high-risk pulmonary embolism: a systematic review and meta-analysis.",
-    "comment": "เปรียบเทียบวิธีรักษา PE ความเสี่ยงสูง ช่วยตัดสินใจเลือกใช้ CDT หรือยาละลายลิ่มเลือด",
-    "pmid": "42580844",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42580844/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "In-hospital cardiopulmonary resuscitation with balloon occlusion of the descending aorta: protocol of the randomised controlled CPReboa study.",
-    "comment": "การใช้ REBOA ใน CPR ในโรงพยาบาล เป็นเทคนิคใหม่ที่อาจเปลี่ยน standard ของ resuscitation",
-    "pmid": "42580829",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42580829/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Survival after Resuscitative Thoracotomy in the Emergency Department: An Analysis of 487 Trauma Patients with Prehospital Cardiopulmonary Resuscitation.",
-    "comment": "ข้อมูลอัตราการรอดชีวิตจากการทำ RT ใน ER สำหรับผู้ป่วย Trauma ช่วยในการคัดเลือกผู้ป่วย (Patient Selection)",
-    "pmid": "42580392",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42580392/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Analgesia for Awake Internal Jugular Vein Cannulation in Trauma Emergency Bay: A Randomized Comparison of Ultrasound-Guided Superficial Cervical Plexus Block With Local Infiltration.",
-    "comment": "เปรียบเทียบวิธีระงับปวดในการใส่ IJ catheter ในเคส trauma ที่ยังรู้สึกตัว ช่วยเพิ่มความปลอดภัยและลดปวด",
-    "pmid": "42580054",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42580054/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "In children requiring emergency vascular access, are intraosseous lines associated with significant long-term complications?",
-    "comment": "ประเมินความปลอดภัยระยะยาวของการใส่ IO ในเด็ก ข้อมูลสำคัญสำหรับ Safety signal ใน ER",
-    "pmid": "42580875",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42580875/"
-  },
-  {
-    "date": "12 Aug",
-    "title": "Exploring Ketamine in Traumatic Brain Injury: A Narrative Review of Its Current Emerging Perspectives from Clinical and Preclinical Studies.",
-    "comment": "ทบทวนการใช้ Ketamine ใน TBI ซึ่งเดิมเป็นข้อห้ามหรือข้อกังวล เปลี่ยนมุมมองการใช้ยาใน ER",
-    "pmid": "42581636",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42581636/"
   }
 ]
