@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — NTWKKM Personal Website
 
-**Last Updated:** 2026-07-04
+**Last Updated:** 2026-08-19
 
 ## Overview
 

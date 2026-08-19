@@ -182,20 +182,25 @@
                 container.innerHTML = ''; // Clear skeletons
 
                 papers.forEach((paper, index) => {
-                    const card = document.createElement('div');
+                    const card = document.createElement('a');
+                    card.href = sanitizeURL(paper.link);
+                    card.target = '_blank';
+                    card.rel = 'noopener noreferrer';
+                    card.draggable = false;
                     card.className = 'paper-card animate-entry';
                     card.style.animationDelay = `${index * 0.1}s`;
+                    card.setAttribute('role', 'listitem');
+                    card.setAttribute('aria-label', stripMarkdown(paper.title));
 
                     card.innerHTML = `
                         <div class="paper-date">${escapeHTML(paper.date)}</div>
                         <div class="paper-title">${escapeHTML(stripMarkdown(paper.title))}</div>
                         <div class="paper-comment">"${escapeHTML(paper.comment)}"</div>
-                        <a href="${sanitizeURL(paper.link)}" class="paper-link" target="_blank" rel="noopener noreferrer" draggable="false">
+                        <span class="paper-link" aria-hidden="true">
                             Read Paper 
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </a>
+                        </span>
                     `;
-                    card.setAttribute('role', 'listitem');
                     container.appendChild(card);
                 });
 
@@ -319,11 +324,10 @@
             }
 
             container.addEventListener('mousedown', (e) => {
+                if (e.button !== 0) return; // Only track left-clicks for drag scroll
                 isDown = true;
                 dragged = false;
                 if (rafId) cancelAnimationFrame(rafId);
-                container.style.scrollSnapType = 'none'; // Temporarily disable snap
-                container.classList.add('active');
                 startX = e.pageX - container.offsetLeft;
                 scrollLeft = container.scrollLeft;
                 lastX = e.pageX - container.offsetLeft;
@@ -334,45 +338,40 @@
                 clearInterval(autoScrollInterval);
             });
 
-            container.addEventListener('mouseleave', () => {
-                if (isDown) {
-                    isDown = false;
-                    container.classList.remove('active');
-                    startAutoScroll();
-                    if (dragged) {
-                        rafId = requestAnimationFrame(applyInertia);
-                    } else {
-                        container.style.scrollSnapType = 'x mandatory';
-                    }
-                }
-            });
-
-            container.addEventListener('mouseup', () => {
-                if (isDown) {
-                    isDown = false;
-                    container.classList.remove('active');
-                    startAutoScroll();
-                    if (dragged) {
-                        rafId = requestAnimationFrame(applyInertia);
-                    } else {
-                        container.style.scrollSnapType = 'x mandatory';
-                    }
-                }
-            });
-
             container.addEventListener('mousemove', (e) => {
                 if (!isDown) return;
-                e.preventDefault();
                 const x = e.pageX - container.offsetLeft;
-                const walk = (x - startX) * 1.5; // Scroll multiplier
-                if (Math.abs(x - startX) > 5) {
+                const dist = Math.abs(x - startX);
+                if (dist > 5) {
                     dragged = true;
+                    container.classList.add('active');
+                    container.style.scrollSnapType = 'none'; // Temporarily disable snap during actual drag
                 }
-                container.scrollLeft = scrollLeft - walk;
-                trackVelocity(e);
+                if (dragged) {
+                    e.preventDefault();
+                    const walk = (x - startX) * 1.5; // Scroll multiplier
+                    container.scrollLeft = scrollLeft - walk;
+                    trackVelocity(e);
+                }
             });
 
-            // Prevent clicks on links inside the container if we actually dragged
+            const handleDragEnd = () => {
+                if (isDown) {
+                    isDown = false;
+                    container.classList.remove('active');
+                    startAutoScroll();
+                    if (dragged) {
+                        rafId = requestAnimationFrame(applyInertia);
+                    } else {
+                        container.style.scrollSnapType = 'x mandatory';
+                    }
+                }
+            };
+
+            container.addEventListener('mouseleave', handleDragEnd);
+            container.addEventListener('mouseup', handleDragEnd);
+
+            // Prevent clicks on links/cards inside the container if we actually dragged
             container.addEventListener('click', (e) => {
                 if (dragged) {
                     e.preventDefault();
