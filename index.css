@@ -199,11 +199,6 @@ header .theme-btn:hover {
     color: #F0EDE5;
 }
 
-.paper-card:hover .paper-link {
-    color: #F0EDE5;
-    border-top-color: rgba(240, 237, 229, 0.2);
-}
-
 .paper-date {
     font-size: 0.68rem;
     color: var(--text-muted);
@@ -241,13 +236,27 @@ header .theme-btn:hover {
     font-weight: 600;
     color: var(--primary);
     text-decoration: none;
-    padding-top: 12px;
-    border-top: 1px solid var(--border);
     margin-top: auto;
+    margin-left: -21px;
+    margin-right: -24px;
+    margin-bottom: -24px;
+    padding: 14px 24px 18px 21px;
+    border-top: 1px solid var(--border);
     display: flex;
     align-items: center;
     gap: 6px;
-    transition: color 0.2s;
+    transition: color 0.2s, background-color 0.2s;
+    cursor: pointer;
+}
+
+.paper-card:hover .paper-link {
+    color: #F0EDE5;
+    border-top-color: rgba(240, 237, 229, 0.2);
+}
+
+.paper-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
 }
 
 .slider-nav-btn {
@@ -413,6 +422,13 @@ footer a:hover {
     .paper-card {
         flex: 0 0 250px;
         padding: 20px;
+    }
+
+    .paper-link {
+        margin-left: -20px;
+        margin-right: -20px;
+        margin-bottom: -20px;
+        padding: 12px 20px 16px 20px;
     }
 
     .slider-nav-btn {

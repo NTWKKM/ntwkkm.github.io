@@ -182,24 +182,19 @@
                 container.innerHTML = ''; // Clear skeletons
 
                 papers.forEach((paper, index) => {
-                    const card = document.createElement('a');
-                    card.href = sanitizeURL(paper.link);
-                    card.target = '_blank';
-                    card.rel = 'noopener noreferrer';
-                    card.draggable = false;
+                    const card = document.createElement('div');
                     card.className = 'paper-card animate-entry';
                     card.style.animationDelay = `${index * 0.1}s`;
                     card.setAttribute('role', 'listitem');
-                    card.setAttribute('aria-label', stripMarkdown(paper.title));
 
                     card.innerHTML = `
                         <div class="paper-date">${escapeHTML(paper.date)}</div>
                         <div class="paper-title">${escapeHTML(stripMarkdown(paper.title))}</div>
                         <div class="paper-comment">"${escapeHTML(paper.comment)}"</div>
-                        <span class="paper-link" aria-hidden="true">
+                        <a href="${sanitizeURL(paper.link)}" class="paper-link" target="_blank" rel="noopener noreferrer" draggable="false" aria-label="Read Paper: ${escapeHTML(stripMarkdown(paper.title))}">
                             Read Paper 
                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </span>
+                        </a>
                     `;
                     container.appendChild(card);
                 });
