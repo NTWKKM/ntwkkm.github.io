@@ -1,5 +1,89 @@
 [
   {
+    "date": "21 Aug",
+    "title": "Direct Comparison of the 0/1h- and 0/2h-Algorithms in Patients With Prior Coronary Artery Bypass Grafting.",
+    "comment": "เปรียบเทียบ algorithm การตรวจ Troponin ในผู้ป่วย CABG ช่วยให้ตัดสินใจ triage ACS ได้เร็วขึ้น",
+    "pmid": "42622139",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42622139/"
+  },
+  {
+    "date": "21 Aug",
+    "title": "Distinguishing Acute Myocardial Infarction from Other Forms of Cardiac Injury with the Cardiac Troponin Long-T ITC Complex and High-Sensitivity Troponin I and T in Patients with Suspected Acute Coronary Syndrome: MERITnI Substudy.",
+    "comment": "ใช้ Biomarker ใหม่แยก AMI ออกจาก Cardiac injury อื่นๆ เพิ่มความแม่นยำในการวินิจฉัยใน ER",
+    "pmid": "42621672",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42621672/"
+  },
+  {
+    "date": "21 Aug",
+    "title": "Designing a Cardiac Arrest System That Includes Extracorporeal Cardiopulmonary Resuscitation: A Contemporary Review.",
+    "comment": "ทบทวนระบบการจัดการ Cardiac Arrest ที่รวม ECPR ซึ่งเป็น High-impact intervention ในปัจจุบัน",
+    "pmid": "42622145",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42622145/"
+  },
+  {
+    "date": "21 Aug",
+    "title": "Implementation of a nurse-initiated in-hospital stroke response system: association with early imaging and response standardization in non-specialist wards.",
+    "comment": "ระบบ Stroke response โดยพยาบาลช่วยลดเวลาการทำ Imaging และทำให้การดูแลเป็นมาตรฐานขึ้น",
+    "pmid": "42621388",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42621388/"
+  },
+  {
+    "date": "21 Aug",
+    "title": "Predictive modeling for mortality risk in elderly patients with pulmonary embolism using machine learning algorithms.",
+    "comment": "ใช้ ML ประเมินความเสี่ยงตายในผู้สูงอายุที่เป็น PE ช่วยในการตัดสินใจระดับการดูแล (Triage/ICU)",
+    "pmid": "42620805",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42620805/"
+  },
+  {
+    "date": "21 Aug",
+    "title": "Life-Threatening Bupropion Poisoning Successfully Treated by Intravenous Lipid Emulsion.",
+    "comment": "ILE เป็นทางเลือกในการรักษา Bupropion overdose ที่รุนแรง ซึ่งเป็น Safety signal ที่นำไปใช้ได้",
+    "pmid": "42621209",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42621209/"
+  },
+  {
+    "date": "21 Aug",
+    "title": "Intravenous lipid emulsion as rescue therapy in severe quetiapine overdose: A case report.",
+    "comment": "การใช้ ILE ใน Quetiapine overdose รุนแรง เป็นข้อมูลทางเลือกสำหรับ rescue therapy ใน ER",
+    "pmid": "42622038",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42622038/"
+  },
+  {
+    "date": "21 Aug",
+    "title": "Malignant cerebral edema after endovascular thrombectomy: a multimodal prediction model based on post-thrombectomy cerebral hyperdensity and natural language processing.",
+    "comment": "โมเดลทำนายการเกิด cerebral edema หลัง EVT ช่วยให้เฝ้าระวังและป้องกันภาวะแทรกซ้อนรุนแรงได้",
+    "pmid": "42620714",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42620714/"
+  },
+  {
+    "date": "21 Aug",
+    "title": "Diagnostic accuracy and severity prediction of monocyte distribution width in sepsis: a retrospective study from the United Arab Emirates.",
+    "comment": "ประเมิน MDW ในการวินิจฉัยและทำนายความรุนแรงของ Sepsis ซึ่งเป็น tool ที่หาได้ง่ายจาก CBC",
+    "pmid": "42621033",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42621033/"
+  },
+  {
+    "date": "21 Aug",
+    "title": "Efficacy and safety of sublingual cilostazol and dexborneol for the treatment of acute ischaemic stroke: a randomised phase 2 trial in China.",
+    "comment": "ยาใหม่สำหรับ Acute Ischemic Stroke (Phase 2) เป็น Novel drug ที่ต้องติดตามผล",
+    "pmid": "42621146",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42621146/"
+  },
+  {
+    "date": "21 Aug",
+    "title": "Amyloid-Related Imaging Abnormalities Summit Special Proceedings: Cardiovascular and Stroke Considerations for β-Amyloid Immunotherapy in Alzheimer Disease.",
+    "comment": "ข้อมูลความเสี่ยง Stroke จากยาต้าน Amyloid ในผู้สูงอายุที่แพทย์ ER ต้องระวังเมื่อพบผู้ป่วยกลุ่มนี้",
+    "pmid": "42622140",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42622140/"
+  },
+  {
+    "date": "21 Aug",
+    "title": "Percutaneous nephrostomy vs. double-J stenting for emergency decompression in recurrent ipsilateral stone-related infectious obstruction.",
+    "comment": "เปรียบเทียบวิธี Decompression ในภาวะฉุกเฉินจากนิ่วและติดเชื้อ ช่วยเลือกวิธีที่เหมาะสมทางคลินิก",
+    "pmid": "42620494",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42620494/"
+  },
+  {
     "date": "20 Aug",
     "title": "Unscheduled Procedural Sedation Multidisciplinary Delphi Consensus Guidelines, Part 1: Principles, Oversight, and Quality Monitoring: Approved by the ACEP Board of Directors, April 29, 2026.",
     "comment": "แนวทางปฏิบัติมาตรฐานใหม่สำหรับการให้ยาระงับความรู้สึกใน ER โดย ACEP",
@@ -404,89 +488,5 @@
     "comment": "เพิ่มเครื่องมือ POCUS ในการวินิจฉัยการติดเชื้อบริเวณทวารหนัก ลดการส่งตรวจไม่จำเป็น",
     "pmid": "42602241",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42602241/"
-  },
-  {
-    "date": "16 Aug",
-    "title": "Point-of-care ultrasound in trauma: a systematic review of recent literature.",
-    "comment": "สรุป evidence ล่าสุดของ POCUS ในงาน Trauma เพื่อปรับปรุง standard of care",
-    "pmid": "42602316",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42602316/"
-  },
-  {
-    "date": "16 Aug",
-    "title": "Emergency medical service organizational structure and prehospital outcomes after out-of-hospital cardiac arrest in China: Insights from the BASIC-OHCA.",
-    "comment": "วิเคราะห์โครงสร้าง EMS ที่ส่งผลต่อ outcome ของ OHCA เพื่อปรับระบบ prehospital",
-    "pmid": "42604123",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42604123/"
-  },
-  {
-    "date": "16 Aug",
-    "title": "Non-pharmacological Interventions for Pain-Related Anxiety and Distress in Emergency Department Patients: A Systematic Review With Narrative Synthesis.",
-    "comment": "แนวทางจัดการความเครียดจากความเจ็บปวดใน ER โดยไม่ใช้ยา เพื่อลดการใช้ opioid",
-    "pmid": "42604111",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42604111/"
-  },
-  {
-    "date": "16 Aug",
-    "title": "Early Comprehensive Geriatric Assessment in Acute Care: Evidence and Implementation.",
-    "comment": "การประเมินผู้สูงอายุแบบครอบคลุมในระยะเฉียบพลัน ช่วยลดภาวะแทรกซ้อนและ admission",
-    "pmid": "42604280",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42604280/"
-  },
-  {
-    "date": "16 Aug",
-    "title": "Pediatric extracorporeal cardiopulmonary resuscitation for out-of-hospital cardiac arrest: outcomes and clinical trajectories.",
-    "comment": "ข้อมูลผลลัพธ์ของ ECPR ในเด็กที่เกิด OHCA สำหรับพิจารณาข้อบ่งชี้ในเคสวิกฤต",
-    "pmid": "42603601",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42603601/"
-  },
-  {
-    "date": "16 Aug",
-    "title": "Implementation of Virtual Clinical Emergency Response Team Model: Impact on Response Timeliness and Reliability.",
-    "comment": "รูปแบบ Virtual ERT ช่วยเพิ่มความเร็วและความแม่นยำในการตอบสนองต่อภาวะวิกฤต",
-    "pmid": "42603767",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42603767/"
-  },
-  {
-    "date": "16 Aug",
-    "title": "When Minutes Matter: Point-of-Care Ultrasound Unmasking a Clinically Occult Hernia in a Toddler.",
-    "comment": "เน้นความสำคัญของ POCUS ในการวินิจฉัยไส้เลื่อนที่ตรวจร่างกายไม่พบในเด็ก",
-    "pmid": "42602819",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42602819/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Comparing coronary computed tomography angiography to single-photon emission computed tomography in the evaluation of chest pain in the emergency department.",
-    "comment": "เปรียบเทียบ CCTA vs SPECT ใน Chest pain ช่วยตัดสินใจเลือก imaging ใน ER",
-    "pmid": "42601304",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42601304/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "In-flight resuscitative endovascular balloon occlusion of the aorta (REBOA): Testing the limits of endovascular care in hHelicopter emergency medical services.",
-    "comment": "การใช้ REBOA ใน HEMS เป็น Novel tool ที่ช่วยลด mortality ใน trauma รุนแรง",
-    "pmid": "42601299",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42601299/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Prehospital national early warning score outperforms shock index in predicting mortality and resource utilisation in adult trauma: A systematic review.",
-    "comment": "NEWS มีประสิทธิภาพสูงกว่า Shock Index ในการทำ triage และพยากรณ์โรคผู้ป่วย trauma",
-    "pmid": "42600367",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42600367/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Arterial Blood Gas Parameters during Cardiopulmonary Resuscitation and Sustained Return of Spontaneous Circulation in Out-of-Hospital Cardiac Arrest: A preplanned Secondary Analysis of the AMCPR Trial.",
-    "comment": "ใช้ค่า ABG ระหว่าง CPR เพื่อพยากรณ์โอกาสรอดชีวิต (ROSC) ใน OHCA",
-    "pmid": "42600769",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42600769/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Association of Emergency Physician Critical Care Training on Outcomes after Non-traumatic Out-of-Hospital Cardiac Arrest (OHCA).",
-    "comment": "ผลของ Critical care training ต่อ outcome ผู้ป่วย OHCA ย้ำความสำคัญของ specialized training",
-    "pmid": "42600766",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42600766/"
   }
 ]
