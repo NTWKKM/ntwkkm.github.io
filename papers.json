@@ -1,57 +1,71 @@
 [
   {
     "date": "21 Aug",
-    "title": "Direct Comparison of the 0/1h- and 0/2h-Algorithms in Patients With Prior Coronary Artery Bypass Grafting.",
-    "comment": "เปรียบเทียบ algorithm การตรวจ Troponin ในผู้ป่วย CABG ช่วยให้ตัดสินใจ triage ACS ได้เร็วขึ้น",
-    "pmid": "42622139",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42622139/"
-  },
-  {
-    "date": "21 Aug",
     "title": "Distinguishing Acute Myocardial Infarction from Other Forms of Cardiac Injury with the Cardiac Troponin Long-T ITC Complex and High-Sensitivity Troponin I and T in Patients with Suspected Acute Coronary Syndrome: MERITnI Substudy.",
-    "comment": "ใช้ Biomarker ใหม่แยก AMI ออกจาก Cardiac injury อื่นๆ เพิ่มความแม่นยำในการวินิจฉัยใน ER",
+    "comment": "ช่วยแยก AMI จาก Cardiac injury อื่นๆ เพิ่มความแม่นยำในการวินิจฉัย ACS ใน ER",
     "pmid": "42621672",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42621672/"
   },
   {
     "date": "21 Aug",
+    "title": "Direct Comparison of the 0/1h- and 0/2h-Algorithms in Patients With Prior Coronary Artery Bypass Grafting.",
+    "comment": "เปรียบเทียบ algorithm การตรวจ troponin เพื่อ rule-in/out MI ในกลุ่มผู้ป่วย CABG",
+    "pmid": "42622139",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42622139/"
+  },
+  {
+    "date": "21 Aug",
     "title": "Designing a Cardiac Arrest System That Includes Extracorporeal Cardiopulmonary Resuscitation: A Contemporary Review.",
-    "comment": "ทบทวนระบบการจัดการ Cardiac Arrest ที่รวม ECPR ซึ่งเป็น High-impact intervention ในปัจจุบัน",
+    "comment": "ทบทวนระบบการจัดการ cardiac arrest ที่รวม ECPR ซึ่งเป็น High-impact intervention",
     "pmid": "42622145",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42622145/"
   },
   {
     "date": "21 Aug",
-    "title": "Implementation of a nurse-initiated in-hospital stroke response system: association with early imaging and response standardization in non-specialist wards.",
-    "comment": "ระบบ Stroke response โดยพยาบาลช่วยลดเวลาการทำ Imaging และทำให้การดูแลเป็นมาตรฐานขึ้น",
-    "pmid": "42621388",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42621388/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Predictive modeling for mortality risk in elderly patients with pulmonary embolism using machine learning algorithms.",
-    "comment": "ใช้ ML ประเมินความเสี่ยงตายในผู้สูงอายุที่เป็น PE ช่วยในการตัดสินใจระดับการดูแล (Triage/ICU)",
-    "pmid": "42620805",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42620805/"
-  },
-  {
-    "date": "21 Aug",
     "title": "Life-Threatening Bupropion Poisoning Successfully Treated by Intravenous Lipid Emulsion.",
-    "comment": "ILE เป็นทางเลือกในการรักษา Bupropion overdose ที่รุนแรง ซึ่งเป็น Safety signal ที่นำไปใช้ได้",
+    "comment": "การใช้ Intravenous Lipid Emulsion รักษาภาวะพิษจาก Bupropion ที่รุนแรง",
     "pmid": "42621209",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42621209/"
   },
   {
     "date": "21 Aug",
     "title": "Intravenous lipid emulsion as rescue therapy in severe quetiapine overdose: A case report.",
-    "comment": "การใช้ ILE ใน Quetiapine overdose รุนแรง เป็นข้อมูลทางเลือกสำหรับ rescue therapy ใน ER",
+    "comment": "การใช้ Lipid emulsion เป็น rescue therapy ในกรณี quetiapine overdose รุนแรง",
     "pmid": "42622038",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42622038/"
   },
   {
     "date": "21 Aug",
+    "title": "Impaired Consciousness, Acute Respiratory Distress Syndrome (ARDS), and Multiorgan Dysfunction Syndrome (MODS) As the Triad of Mortality in Severe Dengue: Evidence From 100 Consecutive ICU Admissions.",
+    "comment": "ระบุ Triad ของการเสียชีวิตใน Severe Dengue ช่วยให้แพทย์ ER เฝ้าระวังอาการรุนแรงได้เร็วขึ้น",
+    "pmid": "42621618",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42621618/"
+  },
+  {
+    "date": "21 Aug",
+    "title": "Efficacy and safety of sublingual cilostazol and dexborneol for the treatment of acute ischaemic stroke: a randomised phase 2 trial in China.",
+    "comment": "ยาใหม่ทางเลือกในการรักษา Acute Ischemic Stroke ในระยะเฉียบพลัน",
+    "pmid": "42621146",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42621146/"
+  },
+  {
+    "date": "21 Aug",
+    "title": "Implementation of a nurse-initiated in-hospital stroke response system: association with early imaging and response standardization in non-specialist wards.",
+    "comment": "ระบบ Stroke response ที่เริ่มโดยพยาบาล ช่วยลดเวลาการส่ง imaging ในผู้ป่วย stroke",
+    "pmid": "42621388",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42621388/"
+  },
+  {
+    "date": "21 Aug",
+    "title": "Predictive modeling for mortality risk in elderly patients with pulmonary embolism using machine learning algorithms.",
+    "comment": "ใช้ ML ประเมินโอกาสเสียชีวิตในผู้สูงอายุที่เป็น PE ช่วยในการ triage และเลือก level of care",
+    "pmid": "42620805",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42620805/"
+  },
+  {
+    "date": "21 Aug",
     "title": "Malignant cerebral edema after endovascular thrombectomy: a multimodal prediction model based on post-thrombectomy cerebral hyperdensity and natural language processing.",
-    "comment": "โมเดลทำนายการเกิด cerebral edema หลัง EVT ช่วยให้เฝ้าระวังและป้องกันภาวะแทรกซ้อนรุนแรงได้",
+    "comment": "โมเดลทำนายการเกิด cerebral edema หลังทำ EVT ช่วยให้เฝ้าระวังภาวะแทรกซ้อนทางสมองได้ดีขึ้น",
     "pmid": "42620714",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42620714/"
   },
@@ -61,13 +75,6 @@
     "comment": "ประเมิน MDW ในการวินิจฉัยและทำนายความรุนแรงของ Sepsis ซึ่งเป็น tool ที่หาได้ง่ายจาก CBC",
     "pmid": "42621033",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42621033/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Efficacy and safety of sublingual cilostazol and dexborneol for the treatment of acute ischaemic stroke: a randomised phase 2 trial in China.",
-    "comment": "ยาใหม่สำหรับ Acute Ischemic Stroke (Phase 2) เป็น Novel drug ที่ต้องติดตามผล",
-    "pmid": "42621146",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42621146/"
   },
   {
     "date": "21 Aug",
@@ -481,12 +488,5 @@
     "comment": "ใช้ Ultrasound ประเมินกะบังลมเพื่อพยากรณ์ความจำเป็นในการใส่ท่อช่วยหายใจใน ER",
     "pmid": "42602344",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42602344/"
-  },
-  {
-    "date": "16 Aug",
-    "title": "Point-of-Care Ultrasound for Suspected Anorectal Infections in the Emergency Department.",
-    "comment": "เพิ่มเครื่องมือ POCUS ในการวินิจฉัยการติดเชื้อบริเวณทวารหนัก ลดการส่งตรวจไม่จำเป็น",
-    "pmid": "42602241",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42602241/"
   }
 ]
