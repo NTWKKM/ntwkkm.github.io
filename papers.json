@@ -9,58 +9,79 @@
   {
     "date": "20 Aug",
     "title": "Unscheduled Procedural Sedation Multidisciplinary Delphi Consensus Guidelines, Part 2: Clinical Practice: Approved by the ACEP Board of Directors, April 29, 2026.",
-    "comment": "แนวทางปฏิบัติทางคลินิกสำหรับการทำ Procedural Sedation ฉบับปรับปรุงล่าสุด",
+    "comment": "แนวทางปฏิบัติทางคลินิกสำหรับการทำ Procedural Sedation ใน ER",
     "pmid": "42618174",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42618174/"
   },
   {
     "date": "20 Aug",
     "title": "Clinical Policy: A Critical Issue Related to Direct Oral Anticoagulants in Adult Patients Presenting to the Emergency Department.",
-    "comment": "นโยบายการจัดการ DOACs ในผู้ป่วยฉุกเฉิน ซึ่งเป็นประเด็นวิกฤตทางคลินิก",
+    "comment": "นโยบายการจัดการผู้ป่วยที่ใช้ DOACs เมื่อมา ER ซึ่งเป็นปัญหาพบบ่อยและวิกฤต",
     "pmid": "42618190",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42618190/"
   },
   {
     "date": "20 Aug",
     "title": "Whole Blood Versus Component Therapy for Out-of-Hospital Trauma Resuscitation: September 2026 Annals of Emergency Medicine Journal Club.",
-    "comment": "เปรียบเทียบการใช้ Whole Blood vs Component ใน Trauma resuscitation นอกโรงพยาบาล",
+    "comment": "เปรียบเทียบการใช้ Whole Blood กับ Component therapy ในการกู้ชีพผู้ป่วย trauma นอก รพ.",
     "pmid": "42618180",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42618180/"
   },
   {
     "date": "20 Aug",
     "title": "Potential Risks With the SPEAR®, a New Device Marketed for Out-of-Hospital Needle Decompression of the Chest.",
-    "comment": "คำเตือนเรื่องความเสี่ยงของอุปกรณ์ Needle Decompression ตัวใหม่ที่ต้องระวัง",
+    "comment": "สัญญาณเตือนด้านความปลอดภัยของอุปกรณ์ Needle Decompression ตัวใหม่ที่ใช้ในนอก รพ.",
     "pmid": "42618185",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42618185/"
   },
   {
     "date": "20 Aug",
     "title": "Improving emergency management of status epilepticus: a randomized high-fidelity simulator-based trial.",
-    "comment": "การพัฒนาการจัดการ Status Epilepticus ด้วยการฝึกจำลองสถานการณ์เสมือนจริง",
+    "comment": "การเพิ่มประสิทธิภาพการรักษา Status Epilepticus ด้วยการฝึกฝนผ่าน Simulator",
     "pmid": "42618689",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42618689/"
   },
   {
     "date": "20 Aug",
     "title": "Prospective evaluation of a large language model clinical decision support system in the emergency department.",
-    "comment": "การประเมินการใช้ LLM เป็นระบบช่วยตัดสินใจทางคลินิกใน ER",
+    "comment": "การประเมินการใช้ LLM เป็นระบบช่วยตัดสินใจทางคลินิกใน ER ในสถานการณ์จริง",
     "pmid": "42618632",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42618632/"
   },
   {
     "date": "20 Aug",
+    "title": "Modified HAS-BLED score for predicting delayed intracranial hemorrhage in DOAC-treated geriatric head trauma.",
+    "comment": "การใช้ Modified HAS-BLED ทำนายเลือดออกในสมองล่าช้าในผู้สูงอายุที่ใช้ DOACs และมี head trauma",
+    "pmid": "42618393",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42618393/"
+  },
+  {
+    "date": "20 Aug",
+    "title": "The Prognostic Value of Venous Base Excess in Emergency Department Patients with and without Renal Dysfunction.",
+    "comment": "การใช้ Venous Base Excess เป็นตัวพยากรณ์โรคในผู้ป่วย ER โดยพิจารณาสภาพการทำงานของไต",
+    "pmid": "42618267",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42618267/"
+  },
+  {
+    "date": "20 Aug",
+    "title": "Navigating Colchicine Toxicity: Essential Management for a Timeless Therapy.",
+    "comment": "แนวทางการจัดการภาวะพิษจาก Colchicine ซึ่งมีความสำคัญและซับซ้อนในการรักษา",
+    "pmid": "42618164",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42618164/"
+  },
+  {
+    "date": "20 Aug",
     "title": "Adjunctive Middle Meningeal Artery Embolization After Surgical Evacuation of Chronic Subdural Hematoma: An Updated Meta-analysis of Randomized Controlled Trials.",
-    "comment": "หลักฐานใหม่เรื่องการทำ MMA Embolization เพื่อลดการกลับเป็นซ้ำของ cSDH",
+    "comment": "Meta-analysis การทำ MMA embolization เพื่อลดการกลับมาเป็นซ้ำของ Chronic SDH",
     "pmid": "42617993",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42617993/"
   },
   {
     "date": "20 Aug",
-    "title": "Modified HAS-BLED score for predicting delayed intracranial hemorrhage in DOAC-treated geriatric head trauma.",
-    "comment": "เครื่องมือทำนายเลือดออกในสมองที่ล่าช้าในผู้สูงอายุที่กิน DOAC และมี head trauma",
-    "pmid": "42618393",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42618393/"
+    "title": "Machine learning-derived serum carbon dioxide trajectories in predicting prognosis of patients with acute aortic dissection.",
+    "comment": "ใช้ ML วิเคราะห์แนวโน้ม serum CO2 เพื่อพยากรณ์โรคในผู้ป่วย Acute Aortic Dissection",
+    "pmid": "42619040",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42619040/"
   },
   {
     "date": "20 Aug",
@@ -68,20 +89,6 @@
     "comment": "ผลกระทบของการใช้ Nirsevimab ต่อการระบาดของไวรัสทางเดินหายใจในเด็ก",
     "pmid": "42618979",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42618979/"
-  },
-  {
-    "date": "20 Aug",
-    "title": "The Prognostic Value of Venous Base Excess in Emergency Department Patients with and without Renal Dysfunction.",
-    "comment": "การใช้ Venous Base Excess ทำนายพยากรณ์โรคในผู้ป่วย ER ทั้งที่มีและไม่มีโรคไต",
-    "pmid": "42618267",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42618267/"
-  },
-  {
-    "date": "20 Aug",
-    "title": "Navigating Colchicine Toxicity: Essential Management for a Timeless Therapy.",
-    "comment": "แนวทางการจัดการภาวะเป็นพิษจาก Colchicine ซึ่งมีความสำคัญทางคลินิก",
-    "pmid": "42618164",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42618164/"
   },
   {
     "date": "20 Aug",
@@ -481,12 +488,5 @@
     "comment": "ผลของ Critical care training ต่อ outcome ผู้ป่วย OHCA ย้ำความสำคัญของ specialized training",
     "pmid": "42600766",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42600766/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Low-dose intravenous alteplase for acute retinal artery occlusion: A multicentre retrospective study.",
-    "comment": "การใช้ low-dose alteplase ใน RAO เป็นทางเลือกการรักษาใน acute phase",
-    "pmid": "42600539",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42600539/"
   }
 ]
