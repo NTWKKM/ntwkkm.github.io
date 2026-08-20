@@ -1,6 +1,90 @@
 [
   {
     "date": "20 Aug",
+    "title": "Unscheduled Procedural Sedation Multidisciplinary Delphi Consensus Guidelines, Part 1: Principles, Oversight, and Quality Monitoring: Approved by the ACEP Board of Directors, April 29, 2026.",
+    "comment": "แนวทางปฏิบัติมาตรฐานใหม่สำหรับการให้ยาระงับความรู้สึกใน ER โดย ACEP",
+    "pmid": "42618173",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42618173/"
+  },
+  {
+    "date": "20 Aug",
+    "title": "Unscheduled Procedural Sedation Multidisciplinary Delphi Consensus Guidelines, Part 2: Clinical Practice: Approved by the ACEP Board of Directors, April 29, 2026.",
+    "comment": "แนวทางปฏิบัติทางคลินิกสำหรับการทำ Procedural Sedation ฉบับปรับปรุงล่าสุด",
+    "pmid": "42618174",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42618174/"
+  },
+  {
+    "date": "20 Aug",
+    "title": "Clinical Policy: A Critical Issue Related to Direct Oral Anticoagulants in Adult Patients Presenting to the Emergency Department.",
+    "comment": "นโยบายการจัดการ DOACs ในผู้ป่วยฉุกเฉิน ซึ่งเป็นประเด็นวิกฤตทางคลินิก",
+    "pmid": "42618190",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42618190/"
+  },
+  {
+    "date": "20 Aug",
+    "title": "Whole Blood Versus Component Therapy for Out-of-Hospital Trauma Resuscitation: September 2026 Annals of Emergency Medicine Journal Club.",
+    "comment": "เปรียบเทียบการใช้ Whole Blood vs Component ใน Trauma resuscitation นอกโรงพยาบาล",
+    "pmid": "42618180",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42618180/"
+  },
+  {
+    "date": "20 Aug",
+    "title": "Potential Risks With the SPEAR®, a New Device Marketed for Out-of-Hospital Needle Decompression of the Chest.",
+    "comment": "คำเตือนเรื่องความเสี่ยงของอุปกรณ์ Needle Decompression ตัวใหม่ที่ต้องระวัง",
+    "pmid": "42618185",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42618185/"
+  },
+  {
+    "date": "20 Aug",
+    "title": "Improving emergency management of status epilepticus: a randomized high-fidelity simulator-based trial.",
+    "comment": "การพัฒนาการจัดการ Status Epilepticus ด้วยการฝึกจำลองสถานการณ์เสมือนจริง",
+    "pmid": "42618689",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42618689/"
+  },
+  {
+    "date": "20 Aug",
+    "title": "Prospective evaluation of a large language model clinical decision support system in the emergency department.",
+    "comment": "การประเมินการใช้ LLM เป็นระบบช่วยตัดสินใจทางคลินิกใน ER",
+    "pmid": "42618632",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42618632/"
+  },
+  {
+    "date": "20 Aug",
+    "title": "Adjunctive Middle Meningeal Artery Embolization After Surgical Evacuation of Chronic Subdural Hematoma: An Updated Meta-analysis of Randomized Controlled Trials.",
+    "comment": "หลักฐานใหม่เรื่องการทำ MMA Embolization เพื่อลดการกลับเป็นซ้ำของ cSDH",
+    "pmid": "42617993",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42617993/"
+  },
+  {
+    "date": "20 Aug",
+    "title": "Modified HAS-BLED score for predicting delayed intracranial hemorrhage in DOAC-treated geriatric head trauma.",
+    "comment": "เครื่องมือทำนายเลือดออกในสมองที่ล่าช้าในผู้สูงอายุที่กิน DOAC และมี head trauma",
+    "pmid": "42618393",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42618393/"
+  },
+  {
+    "date": "20 Aug",
+    "title": "Impact on Pediatric Respiratory Virus Epidemiology Following Nirsevimab Introduction.",
+    "comment": "ผลกระทบของการใช้ Nirsevimab ต่อการระบาดของไวรัสทางเดินหายใจในเด็ก",
+    "pmid": "42618979",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42618979/"
+  },
+  {
+    "date": "20 Aug",
+    "title": "The Prognostic Value of Venous Base Excess in Emergency Department Patients with and without Renal Dysfunction.",
+    "comment": "การใช้ Venous Base Excess ทำนายพยากรณ์โรคในผู้ป่วย ER ทั้งที่มีและไม่มีโรคไต",
+    "pmid": "42618267",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42618267/"
+  },
+  {
+    "date": "20 Aug",
+    "title": "Navigating Colchicine Toxicity: Essential Management for a Timeless Therapy.",
+    "comment": "แนวทางการจัดการภาวะเป็นพิษจาก Colchicine ซึ่งมีความสำคัญทางคลินิก",
+    "pmid": "42618164",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42618164/"
+  },
+  {
+    "date": "20 Aug",
     "title": "No to Azithromycin for Preschoolers with Acute Wheezing in the Emergency Department.",
     "comment": "Practice Changing: ไม่แนะนำให้ใช้ Azithromycin ในเด็กก่อนวัยเรียนที่มีอาการ Wheezing ใน ER",
     "pmid": "42617121",
@@ -404,89 +488,5 @@
     "comment": "การใช้ low-dose alteplase ใน RAO เป็นทางเลือกการรักษาใน acute phase",
     "pmid": "42600539",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42600539/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Detection of Nitazenes in the Illicit Drug Supply Utilizing Precursor Ion Scan Methods With Paper Spray Mass Spectrometry.",
-    "comment": "Safety signal: การตรวจพบ Nitazenes (opioid รุนแรง) ในยาเสพติด ซึ่งแพทย์ ER ต้องเฝ้าระวัง",
-    "pmid": "42601813",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42601813/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Study of High-Velocity Nasal Insufflation vs Noninvasive Positive Pressure Ventilation for Emergency Type 2 Respiratory Failure: Protocol for a Noninferiority Randomized Controlled Trial.",
-    "comment": "เปรียบเทียบ HVNI vs NPPV ใน Type 2 RF ซึ่งอาจเปลี่ยนแนวทางการจัดการทางเดินหายใจ",
-    "pmid": "42600161",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42600161/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Has Nothing Changed? Evaluating a Decade of Emergency Resuscitative Thoracotomy in Blunt Trauma.",
-    "comment": "ทบทวน efficacy ของ ER Thoracotomy ใน Blunt trauma เพื่อปรับปรุง standard of care",
-    "pmid": "42600431",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42600431/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Vital sign parameters are not associated with electrical capture during transcutaneous pacing.",
-    "comment": "คำเตือน: อย่าใช้แค่ Vital signs ในการยืนยัน electrical capture เมื่อทำ TCP",
-    "pmid": "42600263",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42600263/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Insights and limitations of a taxonomy of errors for pediatric emergency tracheal intubation.",
-    "comment": "วิเคราะห์ข้อผิดพลาดในการใส่ท่อช่วยหายใจเด็ก เพื่อเพิ่มความปลอดภัยในการทำ procedure",
-    "pmid": "42601278",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42601278/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Editorial regarding 2026 American Heart Association/American College of Cardiology/American College of Clinical Pharmacy/American College of Emergency Physicians/American College of Chest Physicians/Society for Cardiovascular Angiography and Interventions/Society of Hospital Medicine/Society of Interventional Radiology/Society for Vascular Medicine/Society for Vascular Nursing guideline for the evaluation and management of acute pulmonary embolism in adults.",
-    "comment": "อัปเดตแนวทางจัดการ Acute PE ปี 2026 ซึ่งมีผลต่อ Standard of Care โดยตรง",
-    "pmid": "42601141",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42601141/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Impact of routine use of the GFAP and UCH-L1 TBI blood test for management of mild TBI on patient care in a European emergency department.",
-    "comment": "การใช้ Biomarker (GFAP/UCH-L1) ลดการส่ง CT ใน mild TBI ได้จริงในคลินิก",
-    "pmid": "42599452",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42599452/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "CT oral contrast and contemporary imaging pathways for suspected oesophageal perforation in the emergency department: a retrospective observational study.",
-    "comment": "ปรับปรุง protocol การใช้ contrast ในการวินิจฉัย oesophageal perforation ใน ER",
-    "pmid": "42599365",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42599365/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Beyond Necrosis: Early Recognition of Xylazine-Associated Wounds in Emergency Nursing Practice.",
-    "comment": "Safety signal: การระบุแผลจาก Xylazine เพื่อการจัดการที่ถูกต้องใน ER",
-    "pmid": "42599254",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42599254/"
-  },
-  {
-    "date": "15 Aug",
-    "title": "Evidence-based, cost-effective management of gastric outlet obstruction: An algorithm of the Journal of Trauma and Acute Care Surgery, Emergency General Surgery Algorithms Work Group.",
-    "comment": "Algorithm การจัดการ GOO ที่นำไปใช้ได้ทันทีใน Emergency General Surgery",
-    "pmid": "42599766",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42599766/"
-  },
-  {
-    "date": "13 Aug",
-    "title": "International multidisciplinary consensus statement on sepsis code guidelines: A Delphi approach.",
-    "comment": "Consensus ใหม่สำหรับ Sepsis Code ช่วยปรับปรุงระบบการคัดกรองและรักษาใน ER",
-    "pmid": "42590856",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42590856/"
-  },
-  {
-    "date": "13 Aug",
-    "title": "Hour-1 Sepsis Bundle: Updated Evidence.",
-    "comment": "อัปเดตหลักฐานการใช้ Hour-1 Bundle ซึ่งเป็นมาตรฐานหลักในการรักษา Sepsis ใน ER",
-    "pmid": "42590151",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42590151/"
   }
 ]
