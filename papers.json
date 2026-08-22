@@ -1,5 +1,89 @@
 [
   {
+    "date": "22 Aug",
+    "title": "Effectiveness of the modified Valsalva maneuver vs the standard Valsalva maneuver for the conversion of supraventricular tachycardia to normal sinus rhythm in the emergency department: a systematic review and meta analysis.",
+    "comment": "Modified Valsalva ให้ผลดีกว่าแบบมาตรฐานในการหยุด SVT ใน ER",
+    "pmid": "42629535",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42629535/"
+  },
+  {
+    "date": "22 Aug",
+    "title": "Diagnosis and management of acute hyperkalaemia.",
+    "comment": "Update การวินิจฉัยและรักษาภาวะ Hyperkalemia แบบเฉียบพลันที่ใช้ได้ทันที",
+    "pmid": "42629001",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42629001/"
+  },
+  {
+    "date": "22 Aug",
+    "title": "EXPRESS: Prognostic Accuracy of SPEED, NEWS, and NEWS-L for Predicting 28-Day Mortality in Geriatric Sepsis: A Prospective Study.",
+    "comment": "เปรียบเทียบ scoring tools ในการพยากรณ์การตายของผู้สูงอายุที่เป็น Sepsis",
+    "pmid": "42630037",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42630037/"
+  },
+  {
+    "date": "22 Aug",
+    "title": "Value of lung ultrasound score change as a predictor of 30-day outcome in acute heart failure: A prospective multicenter study.",
+    "comment": "ใช้การเปลี่ยนแปลงของ LUS score พยากรณ์ outcome ใน Acute HF",
+    "pmid": "42628319",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42628319/"
+  },
+  {
+    "date": "22 Aug",
+    "title": "A pragmatic clinical definition of traumatic shock using systolic blood pressure and shock index: A national registry study.",
+    "comment": "นิยาม Traumatic shock แบบนำไปใช้จริงได้ง่ายผ่าน SBP และ Shock Index",
+    "pmid": "42628230",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42628230/"
+  },
+  {
+    "date": "22 Aug",
+    "title": "Patient Stratification for Improving Acute Chest Pain Management and Mitigating Emergency Department Crowding: Machine Learning Model Development and Validation.",
+    "comment": "ใช้ ML ช่วยคัดกรองผู้ป่วย Chest pain เพื่อเพิ่มประสิทธิภาพการดูแลและลดความแออัด",
+    "pmid": "42628009",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42628009/"
+  },
+  {
+    "date": "22 Aug",
+    "title": "Diagnostic performance of clinical symptom combinations for Crimean-Congo hemorrhagic fever in emergency department patients with reported arthropod bites, stings, or exposure.",
+    "comment": "เกณฑ์อาการทางคลินิกในการวินิจฉัย CCHF สำหรับผู้ป่วยที่มา ER",
+    "pmid": "42629562",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42629562/"
+  },
+  {
+    "date": "22 Aug",
+    "title": "Integrating comprehensive geriatric care into emergency departments: the GIROT-ED model.",
+    "comment": "รูปแบบการนำ Geriatric care มาใช้ใน ER เพื่อยกระดับการดูแลผู้สูงอายุ",
+    "pmid": "42629536",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42629536/"
+  },
+  {
+    "date": "22 Aug",
+    "title": "The 3D/3D+ model: A real-world approach to frailty in emergency care.",
+    "comment": "เครื่องมือประเมินภาวะเปราะบาง (Frailty) ที่ออกแบบมาเพื่อใช้ใน ER โดยเฉพาะ",
+    "pmid": "42628267",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42628267/"
+  },
+  {
+    "date": "22 Aug",
+    "title": "The Effect of Ambient AI Documentation on Clinician Workload, Efficiency, and Patient Experience in a Multisite Emergency Department Network.",
+    "comment": "ผลของ AI documentation ต่อการลดภาระงานและเพิ่มประสิทธิภาพของแพทย์ ER",
+    "pmid": "42628943",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42628943/"
+  },
+  {
+    "date": "22 Aug",
+    "title": "Diagnostic value of ileocolic artery and vein diameters in acute appendicitis: A retrospective observational study with contrast-enhanced computed tomography.",
+    "comment": "ใช้ขนาดเส้นเลือด ileocolic จาก CT ช่วยวินิจฉัย Acute Appendicitis",
+    "pmid": "42629698",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42629698/"
+  },
+  {
+    "date": "22 Aug",
+    "title": "Revisiting clinical scoring tools for the diagnosis of thrombotic thrombocytopenic purpura (TTP).",
+    "comment": "ทบทวน scoring tools ในการวินิจฉัย TTP เพื่อความแม่นยำในการรักษา",
+    "pmid": "42629530",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42629530/"
+  },
+  {
     "date": "21 Aug",
     "title": "Distinguishing Acute Myocardial Infarction from Other Forms of Cardiac Injury with the Cardiac Troponin Long-T ITC Complex and High-Sensitivity Troponin I and T in Patients with Suspected Acute Coronary Syndrome: MERITnI Substudy.",
     "comment": "ช่วยแยก AMI จาก Cardiac injury อื่นๆ เพิ่มความแม่นยำในการวินิจฉัย ACS ใน ER",
@@ -404,89 +488,5 @@
     "comment": "การใช้ NPWT ช่วยลดการติดเชื้อแผลผ่าตัดในเคส Emergency Laparotomy",
     "pmid": "42605546",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42605546/"
-  },
-  {
-    "date": "18 Aug",
-    "title": "Evolution of Sepsis Management in the Emergency Department: From Early Goal-Directed Therapy to Personalized Resuscitation.",
-    "comment": "ทิศทางการปรับเปลี่ยนการรักษา Sepsis จาก EGDT สู่การฟื้นฟูแบบเฉพาะบุคคล",
-    "pmid": "42605402",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605402/"
-  },
-  {
-    "date": "18 Aug",
-    "title": "A Pilot Placebo-Controlled Randomized Trial of Repeated High-Dose Intravenous Magnesium Sulphate and High-Dose Nebulized Budesonide for Severe Asthma in the Paediatric Emergency Department.",
-    "comment": "การใช้ MgSO4 และ Budesonide ขนาดสูงในเด็กที่มาด้วย Severe Asthma ใน ER",
-    "pmid": "42605209",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605209/"
-  },
-  {
-    "date": "18 Aug",
-    "title": "Underrecognized Substance Exposure in Pediatric Emergency Departments: Insights from Universal LC-MS/MS Confirmation.",
-    "comment": "ชี้ให้เห็นสารพิษที่มักตรวจไม่พบในเด็กด้วยวิธีมาตรฐาน เน้นความสำคัญของการตรวจยืนยัน",
-    "pmid": "42605130",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605130/"
-  },
-  {
-    "date": "18 Aug",
-    "title": "Current Evidence on the Use of Biomarkers for the Diagnosis of Acute Mesenteric Ischemia: A Narrative Review.",
-    "comment": "รวบรวม Biomarker สำหรับวินิจฉัยภาวะลำไส้ขาดเลือดเฉียบพลัน ซึ่งวินิจฉัยได้ยากในระยะแรก",
-    "pmid": "42605438",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605438/"
-  },
-  {
-    "date": "18 Aug",
-    "title": "Efficacy and Safety of Sequential Nephron Blockade Compared to Standard Loop Diuretic for Fluid De-resuscitation in the ICU.",
-    "comment": "เปรียบเทียบการใช้ยาขับปัสสาวะหลายกลไกเพื่อลดน้ำเกินในผู้ป่วยวิกฤต",
-    "pmid": "42604812",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42604812/"
-  },
-  {
-    "date": "17 Aug",
-    "title": "Effect on the likelihood ratio when under- and over-assigning the number of contributors to higher order mixtures.",
-    "comment": "ข้อมูลทางนิติเวช/ตรวจวิเคราะห์ที่อาจกระทบต่อการประเมินหลักฐานในเคสฉุกเฉินทางกฎหมาย",
-    "pmid": "42604865",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42604865/"
-  },
-  {
-    "date": "17 Aug",
-    "title": "Association Between Hemoglobin-To-Red Cell Distribution Width Ratio and Mortality Risk in Sepsis-Induced Coagulopathy: A Retrospective Study Based on MIMIC-IV Database.",
-    "comment": "Biomarker ใหม่ (Hb/RDW ratio) เพื่อพยากรณ์อัตราตายในผู้ป่วย Sepsis ที่มี Coagulopathy",
-    "pmid": "42606113",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42606113/"
-  },
-  {
-    "date": "17 Aug",
-    "title": "Ultrasound-Guided Supracondylar Radial Nerve Block Versus Hematoma Block for Closed Reductions of Distal Radius Fracture in the Emergency Department: A Randomized Controlled Clinical Trial.",
-    "comment": "เปรียบเทียบวิธีระงับปวดในการดึงกระดูก distal radius ใน ER เพื่อประสิทธิภาพที่ดีกว่า",
-    "pmid": "42604104",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42604104/"
-  },
-  {
-    "date": "17 Aug",
-    "title": "Development and Internal Validation of a Multivariable Prognostic Model for in-Hospital Mortality in Critically Ill Patients with Acute Exacerbation of COPD.",
-    "comment": "Model พยากรณ์การเสียชีวิตใน AECOPD ช่วยในการ triage และวางแผนการรักษา",
-    "pmid": "42605395",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42605395/"
-  },
-  {
-    "date": "17 Aug",
-    "title": "Decoding the causes of ischemic stroke despite ongoing oral anticoagulation and their clinical impact: the ASPERA-R study.",
-    "comment": "วิเคราะห์สาเหตุ stroke ในผู้ป่วยที่กินยาต้านการแข็งตัวของเลือดอยู่แล้ว เพื่อปรับยา",
-    "pmid": "42604885",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42604885/"
-  },
-  {
-    "date": "17 Aug",
-    "title": "Branched stented anastomosis frozen elephant trunk repair reduces operative time and transfusion requirements in acute type A aortic dissection.",
-    "comment": "เทคนิคผ่าตัด Aortic dissection แบบใหม่ ลดเวลาผ่าตัดและปริมาณเลือดที่ต้องให้",
-    "pmid": "42604356",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42604356/"
-  },
-  {
-    "date": "16 Aug",
-    "title": "Diaphragm thickening fraction as a predictor of the need for ventilatory support in the emergency department: an observational pilot study.",
-    "comment": "ใช้ Ultrasound ประเมินกะบังลมเพื่อพยากรณ์ความจำเป็นในการใส่ท่อช่วยหายใจใน ER",
-    "pmid": "42602344",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42602344/"
   }
 ]
