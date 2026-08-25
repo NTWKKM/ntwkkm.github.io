@@ -1,5 +1,65 @@
 [
   {
+    "id": "2d6ba464-60a7-8125-bd37-cb40638b97a2",
+    "name": "Intraoperative peak lactate as a predictor of in-hospital mortality following non-cardiac emergency surgery: a retrospective cohort study.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41454008/",
+    "property_tag_2": "Emergency",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาความสำคัญของการพยากรณ์โรคโดยใช้ระดับแลคเตทระหว่างผ่าตัดในการทำนายอัตราการเสียชีวิตในโรงพยาบาลภายหลังการผ่าตัดฉุกเฉินที่ไม่ใช่การผ่าตัดหัวใจ\n- **วิธีการ:** เป็นการศึกษาย้อนหลังแบบสังเกตการณ์ในศูนย์การแพทย์เดียว (Peking Union Medical College Hospital) ระหว่างปี 2017-2023 ในผู้ป่วย 2,452 ราย โดยวิเคราะห์ระดับแลคเตทสูงสุดระหว่างผ่าตัดด้วยแบบจำลอง restricted cubic spline (RCS) เพื่อเปรียบเทียบกับผลลัพธ์หลักคือการเสียชีวิตในโรงพยาบาล\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** จากผู้ป่วยทั้งหมด พบผู้เสียชีวิต 161 ราย โดยการวิเคราะห์ถดถอยพหุคูณยืนยันว่าระดับแลคเตทสูงสุดสัมพันธ์กับการเสียชีวิตอย่างมีนัยสำคัญ (OR 1.249, 95% CI 1.185-1.318, P < 0.001) ในลักษณะที่ไม่เป็นเส้นตรง (Nonlinear) และความสัมพันธ์นี้จะชัดเจนยิ่งขึ้นในผู้ป่วยที่มีระดับความเสี่ยง ASA สูง",
+    "property_tag_3": "Critical Care",
+    "property_tag_1": "Surgery",
+    "property_last_edited_time": "2025-12-27T19:15:00.000Z",
+    "property_pmid": "41454008",
+    "property_name": "Intraoperative peak lactate as a predictor of in-hospital mortality following non-cardiac emergency surgery: a retrospective cohort study."
+  },
+  {
+    "id": "2d6ba464-60a7-81a4-b286-fd212ff87ab6",
+    "name": "Preeclampsia trials that changed practice.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41453814/",
+    "property_tag_2": "Maternal-Fetal Medicine",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อสรุปและรวบรวมข้อมูลจากการศึกษาทางคลินิกและการวิจัยที่มีความสำคัญ ซึ่งได้เปลี่ยนแนวทางการปฏิบัติทางคลินิกในปัจจุบันสำหรับการป้องกันและรักษาภาวะครรภ์เป็นพิษ\n- **วิธีการ:** เป็นบทความทบทวนวรรณกรรม (Review) ที่วิเคราะห์ข้อมูลจากการศึกษาตั้งแต่ระยะก่อนคลินิกไปจนถึงการทดลองแบบสุ่ม (Randomized trials) ล่าสุด ที่เกี่ยวข้องกับพยาธิสรีรวิทยาและกลยุทธ์การป้องกันโรค\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การศึกษาพบว่าการใช้ยาแอสไพรินขนาดต่ำเป็นมาตรฐานในการป้องกัน และการรักษาความดันโลหิตสูงเรื้อรังชนิดไม่รุนแรงช่วยลดความเสี่ยงของภาวะครรภ์เป็นพิษได้ นอกจากนี้ยังยืนยันบทบาทของแมกนีเซียมซัลเฟตในการป้องกันอาการชัก และความสำคัญของการกำหนดเวลาคลอดที่เหมาะสมตามหลักฐานเชิงประจักษ์",
+    "property_tag_3": "Women's Health",
+    "property_tag_1": "Obstetrics",
+    "property_last_edited_time": "2025-12-27T19:14:00.000Z",
+    "property_pmid": "41453814",
+    "property_name": "Preeclampsia trials that changed practice."
+  },
+  {
+    "id": "2d6ba464-60a7-81d0-a9fc-ebc61e96f785",
+    "name": "Mycobacteria & Trauma, an Emerging Threat?",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41453111/",
+    "property_tag_2": "Trauma",
+    "property_comment": "- **วัตถุประสงค์:** ไม่สามารถสรุปได้เนื่องจากไม่มีบทคัดย่อ (No Abstract available)\n- **วิธีการ:** ไม่สามารถสรุปได้เนื่องจากไม่มีบทคัดย่อ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่สามารถสรุปได้เนื่องจากไม่มีบทคัดย่อ",
+    "property_tag_3": "Military Medicine",
+    "property_tag_1": "Infectious Diseases",
+    "property_last_edited_time": "2025-12-27T19:13:00.000Z",
+    "property_pmid": "41453111",
+    "property_name": "Mycobacteria & Trauma, an Emerging Threat?"
+  },
+  {
+    "id": "2d5ba464-60a7-816b-ab25-d2876f625a27",
+    "name": "Is tranexamic acid effective for all traumatic brain injury patients? a severity based systematic review and meta-analysis.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41446790/",
+    "property_tag_2": "Neurology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาประสิทธิผลของยา Tranexamic acid (TXA) ต่ออัตราการเสียชีวิตในผู้ป่วยบาดเจ็บที่ศีรษะ (TBI) โดยเปรียบเทียบระหว่างกลุ่มที่มีอาการบาดเจ็บระดับเล็กน้อยถึงปานกลางและระดับรุนแรง\n- **วิธีการ:** ทำการทบทวนวรรณกรรมอย่างเป็นระบบและวิเคราะห์อภิมาน (Meta-analysis) จากฐานข้อมูลหลักจนถึงวันที่ 1 พฤษภาคม 2024 โดยคัดเลือกงานวิจัยที่เปรียบเทียบการใช้ยา TXA กับยาหลอก รวมทั้งหมด 16 การศึกษา (ผู้ป่วย 15,015 ราย)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การใช้ยา TXA สามารถลดอัตราการเสียชีวิตภายใน 28 วันได้อย่างมีนัยสำคัญในผู้ป่วย TBI ระดับเล็กน้อยถึงปานกลาง (Risk Ratio 0.71; 95% CI 0.60-0.85) แต่ไม่พบประโยชน์ที่ชัดเจนในผู้ป่วย TBI ระดับรุนแรง (GCS 3-8)",
+    "property_tag_3": "Trauma",
+    "property_tag_1": "Emergency Medicine",
+    "property_last_edited_time": "2025-12-26T19:12:00.000Z",
+    "property_pmid": "41446790",
+    "property_name": "Is tranexamic acid effective for all traumatic brain injury patients? a severity based systematic review and meta-analysis."
+  },
+  {
+    "id": "2d5ba464-60a7-819a-a86d-d420b5b67286",
+    "name": "Effectiveness of rapid rule-out strategy for acute coronary syndrome in the emergency department: a real-world retrospective study in Asia",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41445857/",
+    "property_tag_2": "Cardiology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินประสิทธิภาพการใช้งานจริงของอัลกอริธึม ESC 0/1 h hs-cTnT ในการคัดกรองและแยกโรคผู้ป่วยที่สงสัยว่าเป็นภาวะกล้ามเนื้อหัวใจขาดเลือดเฉียบพลัน (ACS) ในประชากรชาวเอเชีย\n- **วิธีการ:** เป็นการศึกษาย้อนหลังในโรงพยาบาลระดับตติยภูมิในประเทศจีน (ปี 2023-2025) ในผู้ป่วย 508 ราย โดยจำแนกผู้ป่วยตามเกณฑ์ ESC 2020 ออกเป็นกลุ่ม rule-out, observe และ rule-in เพื่อวิเคราะห์ความแม่นยำในการวินิจฉัย (Specificity และ PPV) และเปรียบเทียบผลกับเกณฑ์ปี 2015\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** จากผู้ป่วยทั้งหมด พบว่าเป็นกลุ่ม rule-out 40%, observe 50% และ rule-in 10% โดยกลุ่ม rule-in มีค่าทำนายผลบวก (PPV) ต่อการเกิดกล้ามเนื้อหัวใจตายที่ 82% ส่วนกลุ่ม rule-out มีความปลอดภัยสูงโดยไม่พบการวินิจฉัย MI เลย อย่างไรก็ตาม กลุ่ม observe มีสัดส่วนถึงครึ่งหนึ่งของผู้ป่วยทั้งหมดและใช้เวลาในห้องฉุกเฉินนานที่สุด (มัธยฐาน 7.4 ชั่วโมง) ซึ่งอาจจำกัดประสิทธิภาพในการบริหารจัดการ",
+    "property_tag_3": "Acute Coronary Syndrome",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2025-12-26T19:12:00.000Z",
+    "property_pmid": "41445857",
+    "property_name": "Effectiveness of rapid rule-out strategy for acute coronary syndrome in the emergency department: a real-world retrospective study in Asia"
+  },
+  {
     "id": "2d5ba464-60a7-81bc-a629-cfc76e5c2aac",
     "name": "Clinical Experience With Nasogastric Tube Placement Using a Biologically Transparent Illumination System in Critically Ill Patients",
     "url": "https://pubmed.ncbi.nlm.nih.gov/41446499/",
