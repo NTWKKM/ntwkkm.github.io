@@ -524,13 +524,48 @@ body {
 .article-meta {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 12px;
     font-size: 0.8rem;
     color: var(--text-muted);
     margin-bottom: 20px;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--border-color);
-    font-family: 'Inter', monospace;
+    font-family: 'Inter Tight', monospace;
+}
+
+.reading-time-pill {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-family: 'Inter Tight', monospace;
+    font-weight: 600;
+}
+
+.font-size-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1px 3px;
+}
+
+.font-ctrl-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 2px;
+    transition: all 0.15s ease;
+}
+
+.font-ctrl-btn:hover {
+    background: var(--bg-card);
+    color: var(--text-main);
 }
 
 .citation-btn {
@@ -546,12 +581,126 @@ body {
     gap: 4px;
     transition: all 0.2s;
     margin-left: auto;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .citation-btn:hover {
     border-color: var(--primary);
     color: var(--primary);
+}
+
+/* --- CITATION POPOVER DIALOG (2026 Baseline) --- */
+.citation-popover-dialog {
+    max-width: 580px;
+    width: 90vw;
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    padding: 0;
+}
+
+.citation-modal-box {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.citation-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.citation-modal-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.citation-modal-close {
+    background: transparent;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: var(--text-muted);
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+}
+
+.citation-modal-close:hover {
+    background: var(--bg-surface);
+    color: var(--text-main);
+}
+
+.citation-format-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.citation-format-tab {
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    background: var(--bg-body);
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.15s ease;
+}
+
+.citation-format-tab:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.citation-format-tab.active {
+    background: var(--primary);
+    color: #F0EDE5;
+    border-color: var(--primary);
+}
+
+.citation-text-area {
+    width: 100%;
+    min-height: 110px;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-body);
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--text-main);
+    resize: vertical;
+}
+
+.citation-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.citation-copy-btn {
+    background: var(--primary);
+    color: #F0EDE5;
+    border: none;
+    padding: 8px 18px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.84rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.citation-copy-btn:hover {
+    background: var(--primary-hover);
+}
+
+.citation-copy-btn.copied {
+    background: var(--state-ok, #5a6b3b);
 }
 
 .article-title {
@@ -885,5 +1034,61 @@ body {
 
     .article-list-item {
         padding: 12px 16px;
+    }
+}
+
+/* ===========================================================================
+   MOBILE BOTTOM NAVIGATION (Thumb-Zone Ergonomics)
+   =========================================================================== */
+.mobile-bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    z-index: 950;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 12px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.mob-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 0.72rem;
+    font-weight: 600;
+    transition: color 0.15s ease;
+}
+
+.mob-btn:hover,
+.mob-btn:active {
+    color: var(--primary);
+}
+
+.mob-icon {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+@media (max-width: 768px) {
+    .mobile-bottom-nav {
+        display: flex;
+    }
+
+    .main-content {
+        padding-bottom: 80px;
     }
 }

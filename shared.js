@@ -241,25 +241,206 @@ function sanitizeURL(url) {
 document.addEventListener('DOMContentLoaded', () => {
     initSharedTheme();
     initScrollAnimationFallback();
+    initNetworkStatus();
+    initPwaUpdateNotifier();
+    initCommandPalette();
 });
 
 // ===========================================================================
-// SCROLL ANIMATION FALLBACK
+// HAPTIC FEEDBACK (Web Vibration API)
 // ===========================================================================
-function initScrollAnimationFallback() {
-    // Only apply if the browser doesn't support native scroll-driven animations
-    if (window.CSS && CSS.supports && !CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // Animate only once
-                }
-            });
-        }, { threshold: 0.1 });
+function triggerHaptic(type = 'light') {
+    if (!('vibrate' in navigator)) return;
+    try {
+        if (type === 'light') navigator.vibrate(20);
+        else if (type === 'medium') navigator.vibrate(40);
+        else if (type === 'error') navigator.vibrate([40, 60, 40]);
+        else if (type === 'success') navigator.vibrate([30, 40, 30]);
+    } catch (e) {
+        // Silently ignore if restricted by permissions
+    }
+}
 
-        document.querySelectorAll('.animate-entry').forEach(el => {
-            observer.observe(el);
+// ===========================================================================
+// OFFLINE NETWORK STATUS LISTENER
+// ===========================================================================
+function initNetworkStatus() {
+    let offlinePill = document.getElementById('offline-pill');
+    if (!offlinePill) {
+        offlinePill = document.createElement('div');
+        offlinePill.id = 'offline-pill';
+        offlinePill.className = 'offline-pill';
+        offlinePill.setAttribute('role', 'status');
+        offlinePill.innerHTML = `<span class="offline-pill-dot"></span> ⚡ Offline Mode — Using Cached Records`;
+        document.body.appendChild(offlinePill);
+    }
+
+    const updateStatus = () => {
+        if (navigator.onLine) {
+            offlinePill.classList.remove('is-offline');
+        } else {
+            offlinePill.classList.add('is-offline');
+            triggerHaptic('medium');
+        }
+    };
+
+    window.addEventListener('online', updateStatus);
+    window.addEventListener('offline', updateStatus);
+    if (!navigator.onLine) updateStatus();
+}
+
+// ===========================================================================
+// PWA SERVICE WORKER UPDATE NOTIFIER
+// ===========================================================================
+function initPwaUpdateNotifier() {
+    if (!('serviceWorker' in navigator)) return;
+
+    let updateBar = null;
+
+    function showUpdateToast(registration) {
+        if (document.getElementById('pwa-update-bar')) return;
+
+        updateBar = document.createElement('div');
+        updateBar.id = 'pwa-update-bar';
+        updateBar.className = 'pwa-update-bar show';
+        updateBar.setAttribute('role', 'alert');
+        updateBar.innerHTML = `
+            <span>✨ New research updates available</span>
+            <button class="pwa-update-btn" id="pwa-refresh-btn">Update Now</button>
+        `;
+        document.body.appendChild(updateBar);
+
+        const btn = document.getElementById('pwa-refresh-btn');
+        if (btn) {
+            btn.addEventListener('click', () => {
+                if (registration && registration.waiting) {
+                    registration.waiting.postMessage({ type: 'SKIP_WAITING' });
+                }
+                window.location.reload();
+            });
+        }
+    }
+
+    navigator.serviceWorker.ready.then((registration) => {
+        registration.addEventListener('updatefound', () => {
+            const newWorker = registration.installing;
+            if (newWorker) {
+                newWorker.addEventListener('statechange', () => {
+                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                        showUpdateToast(registration);
+                    }
+                });
+            }
+        });
+    });
+
+    let refreshing = false;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (!refreshing) {
+            refreshing = true;
+            window.location.reload();
+        }
+    });
+}
+
+// ===========================================================================
+// COMMAND PALETTE (Cmd+K / Ctrl+K)
+// ===========================================================================
+function initCommandPalette() {
+    // Avoid double instantiation
+    if (document.getElementById('command-palette-dialog')) return;
+
+    const dialog = document.createElement('dialog');
+    dialog.id = 'command-palette-dialog';
+    dialog.className = 'command-palette-dialog';
+    dialog.setAttribute('popover', 'auto');
+
+    dialog.innerHTML = `
+        <div class="command-palette-header">
+            <span style="font-size: 1.1rem; opacity: 0.7;">🔍</span>
+            <input type="text" class="command-palette-input" id="cmd-palette-input" placeholder="Search pages, research, tools..." autocomplete="off">
+            <kbd class="command-palette-kbd">ESC</kbd>
+        </div>
+        <div class="command-palette-results" id="cmd-palette-results">
+            <div class="command-palette-group-title">Navigation & Tools</div>
+            <a href="https://ntwkkm.github.io/" class="command-palette-item" data-title="Homepage Portfolio">
+                <div class="command-palette-item-left">
+                    <span>🏠</span> <span>Homepage</span>
+                </div>
+                <span class="command-palette-item-tag">/</span>
+            </a>
+            <a href="https://ntwkkm.github.io/blog.html" class="command-palette-item" data-title="Medical Research Hub Blog">
+                <div class="command-palette-item-left">
+                    <span>📝</span> <span>Research Hub & Papers</span>
+                </div>
+                <span class="command-palette-item-tag">/blog.html</span>
+            </a>
+            <a href="https://ntwkkm.github.io/tracking/" class="command-palette-item" data-title="Package Tracker Emergency Logistics">
+                <div class="command-palette-item-left">
+                    <span>📦</span> <span>Package Tracker (Secure)</span>
+                </div>
+                <span class="command-palette-item-tag">/tracking</span>
+            </a>
+            <a href="https://github.com/NTWKKM" target="_blank" rel="noopener noreferrer" class="command-palette-item" data-title="GitHub Open Source Profile">
+                <div class="command-palette-item-left">
+                    <span>💻</span> <span>GitHub Profile</span>
+                </div>
+                <span class="command-palette-item-tag">github.com</span>
+            </a>
+            <div class="command-palette-group-title">Theme & Actions</div>
+            <div class="command-palette-item" id="cmd-theme-toggle" data-title="Toggle Dark Light Mode">
+                <div class="command-palette-item-left">
+                    <span>🌗</span> <span>Toggle Dark / Light Theme</span>
+                </div>
+                <span class="command-palette-item-tag">Action</span>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(dialog);
+
+    const input = dialog.querySelector('#cmd-palette-input');
+    const items = dialog.querySelectorAll('.command-palette-item');
+    const themeAction = dialog.querySelector('#cmd-theme-toggle');
+
+    if (themeAction) {
+        themeAction.addEventListener('click', () => {
+            const themeBtn = document.getElementById('theme-toggle');
+            if (themeBtn) themeBtn.click();
+            if (dialog.hidePopover) dialog.hidePopover();
+            else dialog.close();
+        });
+    }
+
+    // Keyboard shortcut listener (Cmd+K / Ctrl+K)
+    window.addEventListener('keydown', (e) => {
+        if ((e.metaKey || e.ctrlKey) && (e.key === 'k' || e.key === 'K')) {
+            e.preventDefault();
+            if (dialog.showPopover) {
+                if (dialog.matches(':popover-open')) {
+                    dialog.hidePopover();
+                } else {
+                    dialog.showPopover();
+                    setTimeout(() => input.focus(), 50);
+                }
+            } else {
+                if (dialog.open) dialog.close();
+                else {
+                    dialog.showModal();
+                    setTimeout(() => input.focus(), 50);
+                }
+            }
+        }
+    });
+
+    // Filtering in Command Palette
+    if (input) {
+        input.addEventListener('input', () => {
+            const q = input.value.toLowerCase().trim();
+            items.forEach(item => {
+                const text = (item.dataset.title || '' + ' ' + item.textContent).toLowerCase();
+                item.style.display = text.includes(q) ? 'flex' : 'none';
+            });
         });
     }
 }

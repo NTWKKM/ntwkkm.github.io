@@ -4,8 +4,8 @@
  * and network-first with cache fallback for dynamic content.
  */
 
-const STATIC_CACHE = 'ntwkkm-static-v3';
-const DYNAMIC_CACHE = 'ntwkkm-dynamic-v3';
+const STATIC_CACHE = 'ntwkkm-static-v4';
+const DYNAMIC_CACHE = 'ntwkkm-dynamic-v4';
 const FONTS_CACHE = 'ntwkkm-fonts-v1';
 
 // Static assets to cache on install

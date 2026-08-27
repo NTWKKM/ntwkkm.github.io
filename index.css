@@ -66,6 +66,28 @@ header {
     gap: 12px;
 }
 
+.cmd-palette-btn {
+    background: rgba(240, 237, 229, 0.12);
+    color: #F0EDE5;
+    border: 1px solid rgba(240, 237, 229, 0.2);
+    border-radius: var(--radius-sm);
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: monospace;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+}
+
+.cmd-palette-btn:hover {
+    background: rgba(240, 237, 229, 0.25);
+    border-color: rgba(240, 237, 229, 0.4);
+}
+
 .nav-highlight {
     background-color: transparent;
     color: #F0EDE5 !important;
@@ -291,11 +313,49 @@ header .theme-btn:hover {
     right: -18px;
 }
 
-/* --- PROJECTS PORTFOLIO --- */
+/* --- PAPER CAROUSEL INDICATORS --- */
+.paper-carousel-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.indicator-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border-strong);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    opacity: 0.6;
+}
+
+.indicator-dot:hover {
+    opacity: 1;
+    background: var(--primary);
+}
+
+.indicator-dot.active {
+    width: 20px;
+    border-radius: 4px;
+    background: var(--primary);
+    opacity: 1;
+}
+
+[data-theme="dark"] .indicator-dot.active {
+    background: #93c5fd;
+}
+
+/* --- PROJECTS PORTFOLIO (CSS Subgrid 2026 Baseline) --- */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
     gap: 20px;
+    grid-auto-rows: auto;
 }
 
 .project-card {
@@ -307,8 +367,15 @@ header .theme-btn:hover {
     color: inherit;
     border: 1px solid var(--border);
     border-left: 4px solid transparent;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    row-gap: 8px;
+}
+
+@supports (grid-template-rows: subgrid) {
+    .portfolio-grid {
+        grid-auto-rows: auto;
+    }
 }
 
 .project-card:hover {
@@ -330,7 +397,7 @@ header .theme-btn:hover {
 }
 
 .project-icon {
-    margin-bottom: 12px;
+    margin-bottom: 4px;
     width: 36px;
     height: 36px;
     background: var(--bg-surface);
@@ -347,7 +414,7 @@ header .theme-btn:hover {
 .project-title {
     font-size: 0.95rem;
     font-weight: 600;
-    margin-bottom: 6px;
+    margin-bottom: 2px;
     color: var(--text-main);
     transition: color 0.2s ease;
 }

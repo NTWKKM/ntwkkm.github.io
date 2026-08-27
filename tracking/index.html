@@ -645,6 +645,7 @@
         errorEl.textContent = 'Incorrect passcode. Try again.';
         input.value = '';
         input.focus();
+        triggerHaptic('error');
 
         const authBox = document.querySelector('.auth-box');
         if (authBox) {

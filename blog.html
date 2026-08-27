@@ -133,6 +133,12 @@
                     <span>📅 <span id="post-date">...</span></span>
                     <span>|</span>
                     <span>🔖 <span id="post-id" style="font-family: monospace;"></span></span>
+                    <span>|</span>
+                    <span id="reading-time" class="reading-time-pill" title="Estimated reading time">⏱️ <span id="reading-time-val">...</span></span>
+                    <div class="font-size-controls" aria-label="Font size controls">
+                        <button id="font-decrease" class="font-ctrl-btn" aria-label="Decrease font size" title="Smaller font">A-</button>
+                        <button id="font-increase" class="font-ctrl-btn" aria-label="Increase font size" title="Larger font">A+</button>
+                    </div>
                     <button id="citation-btn" class="citation-btn" title="Copy Citation">
                         🔗 Cite
                     </button>
@@ -158,6 +164,26 @@
                 </a>
             </article>
         </main>
+
+        <!-- Mobile Bottom Navigation (Thumb-Zone Ergonomics) -->
+        <nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="Mobile navigation bar">
+            <button id="mob-nav-menu" class="mob-btn" aria-label="Papers Menu">
+                <span class="mob-icon">📑</span>
+                <span class="mob-text">Papers</span>
+            </button>
+            <button id="mob-nav-prev" class="mob-btn" aria-label="Previous Article">
+                <span class="mob-icon">‹</span>
+                <span class="mob-text">Prev</span>
+            </button>
+            <button id="mob-nav-cite" class="mob-btn" aria-label="Cite Paper">
+                <span class="mob-icon">🔗</span>
+                <span class="mob-text">Cite</span>
+            </button>
+            <button id="mob-nav-next" class="mob-btn" aria-label="Next Article">
+                <span class="mob-icon">›</span>
+                <span class="mob-text">Next</span>
+            </button>
+        </nav>
     </div>
 
     <script src="shared.js"></script>
@@ -296,35 +322,35 @@
         }
 
         // ===========================================================================
-        // CITATION EXPORT
+        // CITATION EXPORT (4 Formats: APA, Vancouver, BibTeX, Markdown)
         // ===========================================================================
         function generateCitation(post, format = 'apa') {
-            const authors = post.authors || 'Unknown Authors';
-            const year = post.date ? new Date(post.date).getFullYear() : 'n.d.';
+            if (!post) return '';
+            const authors = post.authors || 'NTWKKM et al.';
+            const year = post.date ? new Date(post.date).getFullYear() : '2026';
             const title = post.title || 'Untitled';
-            const url = post.link || post.url || '';
+            const url = post.link || post.url || `https://ntwkkm.github.io/blog.html?id=${post.id}`;
             const pmid = post.pmid || '';
             const accessed = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 
             switch (format) {
                 case 'bibtex':
-                    return `@article{${pmid || 'unknown'},
+                    return `@article{pmid_${pmid || post.id},
   author = {${authors}},
   title = {${title}},
-  journal = {PubMed},
+  journal = {Medical Research Hub (NTWKKM)},
   year = {${year}},
-  pmid = {${pmid}},
+  pmid = {${pmid || 'N/A'}},
   url = {${url}},
   note = {Accessed: ${accessed}}
 }`;
-                case 'apa':
-                    return `${authors} (${year}). ${title}${pmid ? `. PMID: ${pmid}` : ''}. Retrieved ${accessed}, from ${url || 'PubMed'}`;
-                case 'mla':
-                    return `${authors}. "${title}." PubMed, ${year}${pmid ? `, PMID ${pmid}` : ''}, ${url || 'PubMed'}. Accessed ${accessed}.`;
                 case 'vancouver':
-                    return `${authors}. ${title}. ${pmid ? `PMID: ${pmid}. ` : ''}${year} [cited ${accessed}]. Available from: ${url || 'PubMed'}`;
+                    return `${authors}. ${title}. ${pmid ? `PMID: ${pmid}. ` : ''}${year} [cited ${accessed}]. Available from: ${url}`;
+                case 'markdown':
+                    return `[${authors} (${year}). ${title}](${url})`;
+                case 'apa':
                 default:
-                    return `${title}. ${url}`;
+                    return `${authors} (${year}). ${title}${pmid ? `. PMID: ${pmid}` : ''}. Retrieved ${accessed}, from ${url}`;
             }
         }
 
@@ -333,100 +359,84 @@
 
         function openCitationModal(post) {
             currentCitationPost = post;
-            const modal = document.createElement('div');
-            modal.className = 'citation-modal-overlay';
-            modal.id = 'citation-modal';
-            modal.innerHTML = `
-                <div class="citation-modal" role="dialog" aria-label="Citation options" aria-modal="true">
+            let dialog = document.getElementById('citation-popover-dialog');
+            if (dialog) dialog.remove();
+
+            dialog = document.createElement('dialog');
+            dialog.id = 'citation-popover-dialog';
+            dialog.className = 'citation-popover-dialog';
+            dialog.setAttribute('popover', 'auto');
+            dialog.innerHTML = `
+                <div class="citation-modal-box" role="dialog" aria-label="Citation options">
                     <div class="citation-modal-header">
-                        <h3 class="citation-modal-title">Cite this paper</h3>
-                        <button class="citation-modal-close" onclick="closeCitationModal()" aria-label="Close citation modal">&times;</button>
+                        <h3 class="citation-modal-title">Cite Research Paper</h3>
+                        <button class="citation-modal-close" id="citation-close-btn" aria-label="Close citation modal">&times;</button>
                     </div>
                     <div class="citation-format-tabs" role="tablist">
-                        <button class="citation-format-tab active" data-format="apa" role="tab" aria-selected="true" onclick="switchCitationFormat('apa', this)">APA</button>
-                        <button class="citation-format-tab" data-format="mla" role="tab" aria-selected="false" onclick="switchCitationFormat('mla', this)">MLA</button>
-                        <button class="citation-format-tab" data-format="vancouver" role="tab" aria-selected="false" onclick="switchCitationFormat('vancouver', this)">Vancouver</button>
-                        <button class="citation-format-tab" data-format="bibtex" role="tab" aria-selected="false" onclick="switchCitationFormat('bibtex', this)">BibTeX</button>
+                        <button class="citation-format-tab active" data-format="apa" role="tab" aria-selected="true">APA 7th</button>
+                        <button class="citation-format-tab" data-format="vancouver" role="tab" aria-selected="false">Vancouver</button>
+                        <button class="citation-format-tab" data-format="bibtex" role="tab" aria-selected="false">BibTeX</button>
+                        <button class="citation-format-tab" data-format="markdown" role="tab" aria-selected="false">Markdown</button>
                     </div>
-                    <textarea class="citation-text-area" id="citation-text" readonly aria-label="Citation text">${escapeHTML(generateCitation(post, 'apa'))}</textarea>
-                    <button class="citation-copy-btn" onclick="copyCitationText()" aria-label="Copy citation to clipboard">
-                        📋 Copy Citation
-                    </button>
+                    <textarea class="citation-text-area" id="citation-text" readonly aria-label="Citation text">${escapeHTML(generateCitation(post, currentCitationFormat))}</textarea>
+                    <div class="citation-modal-footer">
+                        <button class="citation-copy-btn" id="citation-copy-btn" aria-label="Copy citation to clipboard">
+                            📋 Copy Citation
+                        </button>
+                    </div>
                 </div>
             `;
-            document.body.appendChild(modal);
+            document.body.appendChild(dialog);
 
-            // Close on overlay click
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) closeCitationModal();
+            const closeBtn = dialog.querySelector('#citation-close-btn');
+            closeBtn.onclick = () => {
+                if (dialog.hidePopover) dialog.hidePopover();
+                else dialog.close();
+            };
+
+            dialog.querySelectorAll('.citation-format-tab').forEach(tab => {
+                tab.onclick = () => switchCitationFormat(tab.dataset.format, tab);
             });
 
-            // Focus trap and Escape handling
-            const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-            if (focusableElements.length > 0) {
-                const firstFocusable = focusableElements[0];
-                const lastFocusable = focusableElements[focusableElements.length - 1];
+            dialog.querySelector('#citation-copy-btn').onclick = copyCitationText;
 
-                modal.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape') {
-                        closeCitationModal();
-                        e.stopPropagation();
-                    } else if (e.key === 'Tab') {
-                        if (e.shiftKey) { // Shift + Tab
-                            if (document.activeElement === firstFocusable) {
-                                lastFocusable.focus();
-                                e.preventDefault();
-                            }
-                        } else { // Tab
-                            if (document.activeElement === lastFocusable) {
-                                firstFocusable.focus();
-                                e.preventDefault();
-                            }
-                        }
-                    }
-                });
-            }
-
-            // Focus trap for accessibility
-            modal.querySelector('.citation-modal-close').focus();
-        }
-
-        function closeCitationModal() {
-            const modal = document.getElementById('citation-modal');
-            if (modal) {
-                modal.remove();
+            if (dialog.showPopover) {
+                dialog.showPopover();
+            } else if (dialog.showModal) {
+                dialog.showModal();
             }
         }
 
         function switchCitationFormat(format, btn) {
             currentCitationFormat = format;
             const textArea = document.getElementById('citation-text');
-            textArea.value = generateCitation(currentCitationPost, format);
+            if (textArea && currentCitationPost) {
+                textArea.value = generateCitation(currentCitationPost, format);
+            }
 
-            // Update tab states
             document.querySelectorAll('.citation-format-tab').forEach(tab => {
-                tab.classList.remove('active');
-                tab.setAttribute('aria-selected', 'false');
+                tab.classList.toggle('active', tab === btn);
+                tab.setAttribute('aria-selected', tab === btn ? 'true' : 'false');
             });
-            btn.classList.add('active');
-            btn.setAttribute('aria-selected', 'true');
         }
 
         function copyCitationText() {
             const textArea = document.getElementById('citation-text');
+            if (!textArea) return;
             navigator.clipboard.writeText(textArea.value).then(() => {
-                const btn = document.querySelector('.citation-copy-btn');
-                btn.classList.add('copied');
-                btn.innerHTML = '✓ Copied!';
+                const btn = document.getElementById('citation-copy-btn');
+                if (btn) {
+                    btn.classList.add('copied');
+                    btn.innerHTML = '✓ Copied!';
+                    triggerHaptic('success');
+                    setTimeout(() => {
+                        btn.classList.remove('copied');
+                        btn.innerHTML = '📋 Copy Citation';
+                    }, 2000);
+                }
                 announceToScreenReader('Citation copied to clipboard');
-
-                setTimeout(() => {
-                    btn.classList.remove('copied');
-                    btn.innerHTML = '📋 Copy Citation';
-                }, 2000);
             }).catch(err => {
                 console.error('Failed to copy clipboard: ', err);
-                announceToScreenReader('Failed to copy citation', 'assertive');
             });
         }
 
@@ -590,12 +600,53 @@
                 if (post) openCitationModal(post);
             });
 
+            // Font Size Adjuster Controls
+            let currentFontSize = 1;
+            const applyFontSize = (size) => {
+                currentFontSize = Math.min(Math.max(size, 0.85), 1.35);
+                const articleView = document.getElementById('article-view');
+                if (articleView) articleView.style.fontSize = `${currentFontSize}rem`;
+                try { localStorage.setItem('reader_font_size', currentFontSize); } catch(e) {}
+            };
+            try {
+                const savedFontSize = parseFloat(localStorage.getItem('reader_font_size'));
+                if (!isNaN(savedFontSize)) applyFontSize(savedFontSize);
+            } catch(e) {}
+
+            document.getElementById('font-decrease')?.addEventListener('click', () => {
+                applyFontSize(currentFontSize - 0.08);
+                triggerHaptic('light');
+            });
+            document.getElementById('font-increase')?.addEventListener('click', () => {
+                applyFontSize(currentFontSize + 0.08);
+                triggerHaptic('light');
+            });
+
+            // Mobile Bottom Navigation Bar Handlers
+            document.getElementById('mob-nav-menu')?.addEventListener('click', () => {
+                openSidebar();
+                triggerHaptic('light');
+            });
+            document.getElementById('mob-nav-prev')?.addEventListener('click', () => {
+                navigateArticle(-1);
+                triggerHaptic('light');
+            });
+            document.getElementById('mob-nav-cite')?.addEventListener('click', () => {
+                const post = allPosts.find(p => p.id === currentPostId);
+                if (post) openCitationModal(post);
+                triggerHaptic('light');
+            });
+            document.getElementById('mob-nav-next')?.addEventListener('click', () => {
+                navigateArticle(1);
+                triggerHaptic('light');
+            });
+
             // Keyboard
             document.addEventListener('keydown', (e) => {
                 const tag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
                 const isInput = tag === 'input' || tag === 'textarea' || tag === 'select' || (document.activeElement && document.activeElement.isContentEditable);
                 if (isInput) return;
-                if (document.getElementById('citation-modal')) return;
+                if (document.getElementById('citation-popover-dialog')?.matches(':popover-open')) return;
 
                 if (e.key === 'ArrowLeft') navigateArticle(-1);
                 else if (e.key === 'ArrowRight') navigateArticle(1);
@@ -807,6 +858,14 @@
             document.getElementById('post-date').textContent = post.date;
             document.getElementById('post-id').textContent = post.id;
             document.getElementById('post-title').textContent = post.title;
+
+            // Calculate estimated reading time
+            const rawContent = `${post.title || ''} ${post.summary || ''} ${post.objective || ''} ${post.method || ''} ${post.result || ''}`;
+            const wordCount = rawContent.trim().split(/\s+/).filter(Boolean).length;
+            const charCount = rawContent.length;
+            const estMin = Math.max(1, Math.ceil(wordCount / 180 + charCount / 1000));
+            const readingTimeVal = document.getElementById('reading-time-val');
+            if (readingTimeVal) readingTimeVal.textContent = `${estMin} min read`;
 
             const tagsContainer = document.getElementById('post-tags');
             tagsContainer.innerHTML = '';

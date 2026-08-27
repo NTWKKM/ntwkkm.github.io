@@ -59,6 +59,10 @@
             </div>
 
             <div class="controls">
+                <button class="cmd-palette-btn" onclick="document.dispatchEvent(new KeyboardEvent('keydown', {key:'k', metaKey:true}))" aria-label="Open Command Menu (Cmd+K)">
+                    <span>⌘K</span>
+                </button>
+
                 <a href="https://ntwkkm.github.io/blog.html" class="nav-highlight" aria-label="Research Blog">
                     <span>📝 Research Blog</span>
                 </a>
@@ -90,7 +94,7 @@
                     </svg>
                 </button>
 
-                <div class="paper-scroll-container" id="paper-container" role="list" aria-label="Research papers">
+                <div class="paper-scroll-container" id="paper-container" role="list" aria-label="Research papers" tabindex="0">
                     <div class="skeleton-card">
                         <div class="skeleton-line w-50"></div>
                         <div class="skeleton-line w-80"></div>
@@ -107,6 +111,8 @@
                         <div class="skeleton-line"></div>
                     </div>
                 </div>
+
+                <div class="paper-carousel-indicators" id="paper-indicators" aria-hidden="true"></div>
             </div>
         </section>
 
@@ -219,6 +225,49 @@
             const container = document.getElementById('paper-container');
             const prevBtn = document.getElementById('slide-prev');
             const nextBtn = document.getElementById('slide-next');
+            const indicatorsContainer = document.getElementById('paper-indicators');
+            const cards = container.querySelectorAll('.paper-card');
+
+            // Build indicator dots
+            if (indicatorsContainer && cards.length > 0) {
+                indicatorsContainer.innerHTML = '';
+                cards.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.className = `indicator-dot ${i === 0 ? 'active' : ''}`;
+                    dot.setAttribute('aria-label', `Go to paper ${i + 1}`);
+                    dot.addEventListener('click', () => {
+                        resetAutoScroll();
+                        const cardWidth = cards[0].offsetWidth + 20;
+                        container.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+                    });
+                    indicatorsContainer.appendChild(dot);
+                });
+            }
+
+            const updateIndicators = debounce(() => {
+                if (!indicatorsContainer || cards.length === 0) return;
+                const cardWidth = cards[0].offsetWidth + 20;
+                const activeIndex = Math.round(container.scrollLeft / cardWidth);
+                const dots = indicatorsContainer.querySelectorAll('.indicator-dot');
+                dots.forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === activeIndex);
+                });
+            }, 50);
+
+            container.addEventListener('scroll', updateIndicators, { passive: true });
+
+            // Keyboard navigation (ArrowLeft / ArrowRight)
+            container.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    resetAutoScroll();
+                    container.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    resetAutoScroll();
+                    container.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+                }
+            });
 
             // --- AUTO SCROLL & BUTTONS ---
             const getScrollAmount = () => {
