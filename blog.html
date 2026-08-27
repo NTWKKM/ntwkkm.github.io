@@ -281,6 +281,13 @@
             window.addEventListener('scroll', window.updateReadingProgress);
             window.addEventListener('resize', () => {
                 if (window.updateReadingProgress) window.updateReadingProgress();
+                if (window.innerWidth > 1024) {
+                    const overlay = document.getElementById('sidebar-overlay');
+                    if (overlay) {
+                        overlay.classList.remove('visible');
+                        overlay.setAttribute('aria-hidden', 'true');
+                    }
+                }
                 clearTimeout(window.tocResizeTimeout);
                 window.tocResizeTimeout = setTimeout(() => {
                     generateToC();
@@ -555,7 +562,7 @@
             const overlay = document.getElementById('sidebar-overlay');
             if (sidebar) sidebar.classList.remove('collapsed');
             if (container) container.classList.remove('sidebar-hidden');
-            if (overlay) {
+            if (overlay && window.innerWidth <= 1024) {
                 overlay.classList.add('visible');
                 overlay.setAttribute('aria-hidden', 'false');
             }

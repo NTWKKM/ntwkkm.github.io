@@ -759,29 +759,33 @@ body {
 /* --- MOBILE DRAWER LAYOUT --- */
 .sidebar-overlay {
     display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(15, 23, 42, 0.4);
-    backdrop-filter: blur(4px);
-    z-index: 950;
-    opacity: 0;
-    transition: opacity 0.3s ease;
     pointer-events: none;
-}
-
-.sidebar-overlay.visible {
-    display: block;
-    opacity: 1;
-    pointer-events: auto;
 }
 
 @media (max-width: 1024px) {
     .container {
         height: 100vh;
         overflow: hidden;
+    }
+
+    .sidebar-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(15, 23, 42, 0.4);
+        backdrop-filter: blur(4px);
+        z-index: 950;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .sidebar-overlay.visible {
+        opacity: 1;
+        pointer-events: auto;
     }
 
     .sidebar {
