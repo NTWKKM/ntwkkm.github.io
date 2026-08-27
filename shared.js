@@ -246,6 +246,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===========================================================================
+// SCROLL ANIMATION FALLBACK
+// ===========================================================================
+function initScrollAnimationFallback() {
+    // Only apply if the browser doesn't support native scroll-driven animations
+    if (window.CSS && CSS.supports && !CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Animate only once
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-entry').forEach(el => {
+            observer.observe(el);
+        });
+    }
+}
+
+// ===========================================================================
 // HAPTIC FEEDBACK (Web Vibration API)
 // ===========================================================================
 function triggerHaptic(type = 'light') {
