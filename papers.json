@@ -1,6 +1,76 @@
 [
   {
     "date": "27 Aug",
+    "title": "Association Between Epinephrine Administration Timing and Outcomes in Adult Out-of-Hospital Cardiac Arrest: A Systematic Review and Dose-Response Meta-Analysis.",
+    "comment": "วิเคราะห์จังหวะการให้ Epinephrine ใน OHCA ซึ่งมีผลต่อ survival rate โดยตรง",
+    "pmid": "42654392",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42654392/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "HOLD-B: A Practical Score for Early Risk Stratification in Upper Gastrointestinal Bleeding.",
+    "comment": "Score ใหม่สำหรับคัดกรองความเสี่ยง UGIB ใน ER ช่วยตัดสินใจเรื่องการ Admit/Triage",
+    "pmid": "42654373",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42654373/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Serum YKL-40 in Non-ST-Segment Elevation Acute Coronary Syndrome: A Prospective Exploratory Emergency Department Study.",
+    "comment": "ศึกษา biomarker ตัวใหม่ใน NSTE-ACS เพื่อช่วยการวินิจฉัยในห้องฉุกเฉิน",
+    "pmid": "42654379",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42654379/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Temporal Trends in Pathogens and Clinical Outcomes of Adult Deep Neck Infections: An 18-Year Multicenter Cohort Study of 12,063 Cases.",
+    "comment": "ข้อมูลเชื้อก่อโรคใน Deep Neck Infection ระยะยาว ช่วยปรับปรุง Empirical Antibiotics",
+    "pmid": "42655170",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42655170/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Acute Coronary Syndrome and Recreational Drug Use: A Comprehensive Review.",
+    "comment": "แนวทางการจัดการ ACS ที่สัมพันธ์กับการใช้ยาเสพติด ซึ่งมักมีความซับซ้อนทางคลินิก",
+    "pmid": "42654374",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42654374/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Changing Etiological Patterns of Pediatric Meningitis: A Three-Year Experience from a Tertiary Pediatric Emergency Hospital in Romania.",
+    "comment": "การเปลี่ยนแปลงของเชื้อก่อโรค Meningitis ในเด็ก มีผลต่อการเลือกยาปฏิชีวนะเริ่มต้น",
+    "pmid": "42654394",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42654394/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Impact of the Korean Medical-Political Conflict on Septic Shock Care in the Emergency Department: A Retrospective Single-Center Clinical Analysis.",
+    "comment": "ผลกระทบของระบบสาธารณสุขต่อ outcome ของ Septic Shock ใน ER",
+    "pmid": "42654501",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42654501/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "When Bystanders Skip CPR: Insights from a Retrospective Study.",
+    "comment": "ข้อมูลปัจจัยที่ทำให้ไม่เกิด CPR โดยผู้เห็นเหตุการณ์ สำคัญต่อการวางระบบ Community CPR",
+    "pmid": "42654421",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42654421/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Routine C-Reactive Protein on Admission and In-Hospital Outcomes in Acute Ischemic Stroke Patients Treated with Thrombectomy: A Retrospective Single-Center Study.",
+    "comment": "ใช้ CRP ประเมินพยากรณ์โรคในผู้ป่วย Stroke ที่ได้รับ Mechanical Thrombectomy",
+    "pmid": "42654359",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42654359/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Comorbidity Burden and Radiological Features Associated with Legionella pneumophila Pneumonia: A Retrospective Case-Control Study.",
+    "comment": "ช่วยในการระบุกลุ่มเสี่ยงและลักษณะทางรังสีเพื่อวินิจฉัย Legionella ได้เร็วขึ้น",
+    "pmid": "42654803",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42654803/"
+  },
+  {
+    "date": "27 Aug",
     "title": "High-Sensitivity HEART Pathway One-and-Done Troponin Strategy is Safe and Effective",
     "comment": "เปลี่ยนแนวทางการ triage ผู้ป่วย Chest pain โดยใช้ hs-Troponin ครั้งเดียวเพื่อลดเวลาและทรัพยากร",
     "pmid": "42648609",
@@ -418,75 +488,5 @@
     "comment": "การใช้ Lipid emulsion เป็น rescue therapy ในกรณี quetiapine overdose รุนแรง",
     "pmid": "42622038",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42622038/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Impaired Consciousness, Acute Respiratory Distress Syndrome (ARDS), and Multiorgan Dysfunction Syndrome (MODS) As the Triad of Mortality in Severe Dengue: Evidence From 100 Consecutive ICU Admissions.",
-    "comment": "ระบุ Triad ของการเสียชีวิตใน Severe Dengue ช่วยให้แพทย์ ER เฝ้าระวังอาการรุนแรงได้เร็วขึ้น",
-    "pmid": "42621618",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42621618/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Efficacy and safety of sublingual cilostazol and dexborneol for the treatment of acute ischaemic stroke: a randomised phase 2 trial in China.",
-    "comment": "ยาใหม่ทางเลือกในการรักษา Acute Ischemic Stroke ในระยะเฉียบพลัน",
-    "pmid": "42621146",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42621146/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Implementation of a nurse-initiated in-hospital stroke response system: association with early imaging and response standardization in non-specialist wards.",
-    "comment": "ระบบ Stroke response ที่เริ่มโดยพยาบาล ช่วยลดเวลาการส่ง imaging ในผู้ป่วย stroke",
-    "pmid": "42621388",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42621388/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Predictive modeling for mortality risk in elderly patients with pulmonary embolism using machine learning algorithms.",
-    "comment": "ใช้ ML ประเมินโอกาสเสียชีวิตในผู้สูงอายุที่เป็น PE ช่วยในการ triage และเลือก level of care",
-    "pmid": "42620805",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42620805/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Malignant cerebral edema after endovascular thrombectomy: a multimodal prediction model based on post-thrombectomy cerebral hyperdensity and natural language processing.",
-    "comment": "โมเดลทำนายการเกิด cerebral edema หลังทำ EVT ช่วยให้เฝ้าระวังภาวะแทรกซ้อนทางสมองได้ดีขึ้น",
-    "pmid": "42620714",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42620714/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Diagnostic accuracy and severity prediction of monocyte distribution width in sepsis: a retrospective study from the United Arab Emirates.",
-    "comment": "ประเมิน MDW ในการวินิจฉัยและทำนายความรุนแรงของ Sepsis ซึ่งเป็น tool ที่หาได้ง่ายจาก CBC",
-    "pmid": "42621033",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42621033/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Amyloid-Related Imaging Abnormalities Summit Special Proceedings: Cardiovascular and Stroke Considerations for β-Amyloid Immunotherapy in Alzheimer Disease.",
-    "comment": "ข้อมูลความเสี่ยง Stroke จากยาต้าน Amyloid ในผู้สูงอายุที่แพทย์ ER ต้องระวังเมื่อพบผู้ป่วยกลุ่มนี้",
-    "pmid": "42622140",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42622140/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Percutaneous nephrostomy vs. double-J stenting for emergency decompression in recurrent ipsilateral stone-related infectious obstruction.",
-    "comment": "เปรียบเทียบวิธี Decompression ในภาวะฉุกเฉินจากนิ่วและติดเชื้อ ช่วยเลือกวิธีที่เหมาะสมทางคลินิก",
-    "pmid": "42620494",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42620494/"
-  },
-  {
-    "date": "20 Aug",
-    "title": "Unscheduled Procedural Sedation Multidisciplinary Delphi Consensus Guidelines, Part 1: Principles, Oversight, and Quality Monitoring: Approved by the ACEP Board of Directors, April 29, 2026.",
-    "comment": "แนวทางปฏิบัติมาตรฐานใหม่สำหรับการให้ยาระงับความรู้สึกใน ER โดย ACEP",
-    "pmid": "42618173",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42618173/"
-  },
-  {
-    "date": "20 Aug",
-    "title": "Unscheduled Procedural Sedation Multidisciplinary Delphi Consensus Guidelines, Part 2: Clinical Practice: Approved by the ACEP Board of Directors, April 29, 2026.",
-    "comment": "แนวทางปฏิบัติทางคลินิกสำหรับการทำ Procedural Sedation ใน ER",
-    "pmid": "42618174",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42618174/"
   }
 ]
