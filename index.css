@@ -286,6 +286,45 @@ header .theme-btn:hover {
     right: -18px;
 }
 
+/* --- PAPER CAROUSEL INDICATORS --- */
+.paper-carousel-indicators {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+    padding: 4px 0;
+}
+
+.indicator-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-strong);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0.5;
+}
+
+.indicator-dot:hover {
+    opacity: 0.9;
+    background: var(--primary);
+}
+
+.indicator-dot.active {
+    width: 22px;
+    border-radius: 4px;
+    background: var(--primary);
+    opacity: 1;
+}
+
+[data-theme="dark"] .indicator-dot.active {
+    background: #93c5fd;
+}
+
 /* --- PROJECTS PORTFOLIO (CSS Subgrid 2026 Baseline) --- */
 .portfolio-grid {
     display: grid;
