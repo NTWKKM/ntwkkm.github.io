@@ -473,6 +473,7 @@ body {
     margin: 0 auto;
     display: none;
     position: relative;
+    --reader-scale: 1;
 }
 
 .article-view.visible {
@@ -596,16 +597,23 @@ body {
     background: var(--bg-card);
     border: 1px solid var(--border-strong);
     border-radius: var(--radius);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
     overflow: hidden;
     padding: 0;
 }
 
+.citation-popover-dialog::backdrop {
+    background: rgba(10, 16, 28, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
 .citation-modal-box {
-    padding: 20px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 16px;
+    background: var(--bg-card);
 }
 
 .citation-modal-header {
@@ -621,18 +629,26 @@ body {
 }
 
 .citation-modal-close {
-    background: transparent;
-    border: none;
-    font-size: 1.3rem;
-    cursor: pointer;
-    color: var(--text-muted);
-    padding: 2px 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-strong);
     border-radius: var(--radius-sm);
+    color: var(--text-main);
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.2s ease;
 }
 
 .citation-modal-close:hover {
-    background: var(--bg-surface);
-    color: var(--text-main);
+    background: var(--primary);
+    color: #F0EDE5;
+    border-color: var(--primary);
 }
 
 .citation-format-tabs {
@@ -704,8 +720,8 @@ body {
 }
 
 .article-title {
-    font-family: 'Inter', 'Sarabun', sans-serif;
-    font-size: clamp(1.35rem, 3.5vw, 1.65rem);
+    font-family: 'Inter Tight', 'Sarabun', sans-serif;
+    font-size: calc(clamp(1.35rem, 3.5vw, 1.65rem) * var(--reader-scale, 1));
     font-weight: 700;
     line-height: 1.35;
     margin-bottom: 20px;
@@ -746,7 +762,7 @@ body {
 .sec-header {
     font-family: "Inter Tight", sans-serif;
     font-weight: 700;
-    font-size: 0.8rem;
+    font-size: calc(0.8rem * var(--reader-scale, 1));
     margin-bottom: 12px;
     color: var(--text-secondary);
     text-transform: uppercase;
@@ -764,9 +780,9 @@ body {
 }
 
 .sec-content {
-    font-size: 0.95rem;
+    font-size: calc(0.95rem * var(--reader-scale, 1));
     color: var(--text-secondary);
-    line-height: 1.75;
+    line-height: calc(1.75 * var(--reader-scale, 1));
     text-align: justify;
 }
 

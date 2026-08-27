@@ -370,7 +370,7 @@
                 <div class="citation-modal-box" role="dialog" aria-label="Citation options">
                     <div class="citation-modal-header">
                         <h3 class="citation-modal-title">Cite Research Paper</h3>
-                        <button class="citation-modal-close" id="citation-close-btn" aria-label="Close citation modal">&times;</button>
+                        <button class="citation-modal-close" id="citation-close-btn" aria-label="Close citation modal" title="Close">✕</button>
                     </div>
                     <div class="citation-format-tabs" role="tablist">
                         <button class="citation-format-tab active" data-format="apa" role="tab" aria-selected="true">APA 7th</button>
@@ -603,22 +603,26 @@
             // Font Size Adjuster Controls
             let currentFontSize = 1;
             const applyFontSize = (size) => {
-                currentFontSize = Math.min(Math.max(size, 0.85), 1.35);
+                currentFontSize = Math.min(Math.max(size, 0.8), 1.5);
                 const articleView = document.getElementById('article-view');
-                if (articleView) articleView.style.fontSize = `${currentFontSize}rem`;
-                try { localStorage.setItem('reader_font_size', currentFontSize); } catch(e) {}
+                if (articleView) {
+                    articleView.style.setProperty('--reader-scale', currentFontSize);
+                }
+                try { localStorage.setItem('reader_font_size', currentFontSize.toFixed(2)); } catch(e) {}
             };
             try {
                 const savedFontSize = parseFloat(localStorage.getItem('reader_font_size'));
-                if (!isNaN(savedFontSize)) applyFontSize(savedFontSize);
+                if (!isNaN(savedFontSize) && savedFontSize >= 0.8 && savedFontSize <= 1.5) {
+                    applyFontSize(savedFontSize);
+                }
             } catch(e) {}
 
             document.getElementById('font-decrease')?.addEventListener('click', () => {
-                applyFontSize(currentFontSize - 0.08);
+                applyFontSize(currentFontSize - 0.1);
                 triggerHaptic('light');
             });
             document.getElementById('font-increase')?.addEventListener('click', () => {
-                applyFontSize(currentFontSize + 0.08);
+                applyFontSize(currentFontSize + 0.1);
                 triggerHaptic('light');
             });
 
