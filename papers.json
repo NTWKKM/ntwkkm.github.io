@@ -1,5 +1,75 @@
 [
   {
+    "date": "27 Aug",
+    "title": "High-Sensitivity HEART Pathway One-and-Done Troponin Strategy is Safe and Effective",
+    "comment": "เปลี่ยนแนวทางการ triage ผู้ป่วย Chest pain โดยใช้ hs-Troponin ครั้งเดียวเพื่อลดเวลาและทรัพยากร",
+    "pmid": "42648609",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42648609/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Prognostic Value of the Lactate-to-Albumin Ratio in Adult Sepsis: An Updated Systematic Review of Prognostic Evidence",
+    "comment": "ตัวชี้วัดพยากรณ์โรคใหม่ใน Sepsis ที่นำไปใช้คำนวณได้ง่ายใน ER",
+    "pmid": "42648651",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42648651/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Association of Preoperative Lactate Concentration With In-Hospital Mortality After Emergency Surgery",
+    "comment": "เน้นความสำคัญของ Lactate ในการประเมินความเสี่ยงก่อนผ่าตัดฉุกเฉิน",
+    "pmid": "42648637",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42648637/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Transient Ischemic Attack Diagnosis using Explicit Criteria Outperforms Artificial Intelligence: a Prospective Cohort Study",
+    "comment": "หักล้างการใช้ AI ในการวินิจฉัย TIA โดยยืนยันว่า Clinical criteria ยังแม่นยำกว่า",
+    "pmid": "42647419",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42647419/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Safety and Local Tolerability of Diazepam Nasal Spray for Children With Epilepsy Aged 2-5 Years: Final Results of a Phase 1/2a Trial",
+    "comment": "ทางเลือกใหม่ในการหยุดชักในเด็กที่ใช้ได้จริงและปลอดภัยกว่าการฉีด",
+    "pmid": "42647177",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42647177/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Clinical Utility and Diagnostic Performance of (1→3)-β-D-Glucan in Invasive Mycoses",
+    "comment": "ทบทวนประสิทธิภาพการใช้ biomarkers วินิจฉัยเชื้อราในกระแสเลือดซึ่งสำคัญในผู้ป่วยวิกฤต",
+    "pmid": "42648313",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42648313/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Risk Factors for Deep Vein Thrombosis in Hospitalized Patients With Periarticular Knee Fractures Caused by High-Energy Injuries",
+    "comment": "ข้อมูลความเสี่ยง DVT ในผู้ป่วย Trauma เฉพาะจุดเพื่อปรับการให้ Prophylaxis",
+    "pmid": "42648672",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42648672/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "An Interpretable Machine Learning Framework with Clinical Nomogram for Predicting In-Hospital Mortality in Acute Ischemic Stroke Using High-Granularity Bedside Data",
+    "comment": "เครื่องมือช่วยทำนายอัตราตายใน Stroke ที่ใช้ข้อมูลข้างเตียงแบบ Real-time",
+    "pmid": "42648602",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42648602/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Development and Validation of a Prediction Model for Alarm-Triggered Interventions in Pediatrics",
+    "comment": "ลด Alarm fatigue ในหอผู้ป่วยเด็กด้วย Model คัดกรองการแทรกแซงที่จำเป็น",
+    "pmid": "42648734",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42648734/"
+  },
+  {
+    "date": "27 Aug",
+    "title": "Dynamic changes in the internal jugular vein during supine and passive leg raising as predictors of spinal anesthesia-induced hypotension in the elderly: A prospective diagnostic accuracy study",
+    "comment": "เทคนิค POCUS ประเมิน Fluid responsiveness เพื่อป้องกัน Hypotension ในผู้สูงอายุ",
+    "pmid": "42648635",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42648635/"
+  },
+  {
     "date": "26 Aug",
     "title": "IDSA/ACEP/ASM/PIDS/SCCM/SHEA/SHM/SIDP Multisociety Position Paper: Hospital Strategies to Improve Sepsis Outcomes.",
     "comment": "Practice Changing: ข้อตกลงร่วมหลายสมาคมเพื่อปรับปรุงผลลัพธ์การรักษา Sepsis ในโรงพยาบาล",
@@ -418,75 +488,5 @@
     "comment": "แนวทางปฏิบัติทางคลินิกสำหรับการทำ Procedural Sedation ใน ER",
     "pmid": "42618174",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42618174/"
-  },
-  {
-    "date": "20 Aug",
-    "title": "Clinical Policy: A Critical Issue Related to Direct Oral Anticoagulants in Adult Patients Presenting to the Emergency Department.",
-    "comment": "นโยบายการจัดการผู้ป่วยที่ใช้ DOACs เมื่อมา ER ซึ่งเป็นปัญหาพบบ่อยและวิกฤต",
-    "pmid": "42618190",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42618190/"
-  },
-  {
-    "date": "20 Aug",
-    "title": "Whole Blood Versus Component Therapy for Out-of-Hospital Trauma Resuscitation: September 2026 Annals of Emergency Medicine Journal Club.",
-    "comment": "เปรียบเทียบการใช้ Whole Blood กับ Component therapy ในการกู้ชีพผู้ป่วย trauma นอก รพ.",
-    "pmid": "42618180",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42618180/"
-  },
-  {
-    "date": "20 Aug",
-    "title": "Potential Risks With the SPEAR®, a New Device Marketed for Out-of-Hospital Needle Decompression of the Chest.",
-    "comment": "สัญญาณเตือนด้านความปลอดภัยของอุปกรณ์ Needle Decompression ตัวใหม่ที่ใช้ในนอก รพ.",
-    "pmid": "42618185",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42618185/"
-  },
-  {
-    "date": "20 Aug",
-    "title": "Improving emergency management of status epilepticus: a randomized high-fidelity simulator-based trial.",
-    "comment": "การเพิ่มประสิทธิภาพการรักษา Status Epilepticus ด้วยการฝึกฝนผ่าน Simulator",
-    "pmid": "42618689",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42618689/"
-  },
-  {
-    "date": "20 Aug",
-    "title": "Prospective evaluation of a large language model clinical decision support system in the emergency department.",
-    "comment": "การประเมินการใช้ LLM เป็นระบบช่วยตัดสินใจทางคลินิกใน ER ในสถานการณ์จริง",
-    "pmid": "42618632",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42618632/"
-  },
-  {
-    "date": "20 Aug",
-    "title": "Modified HAS-BLED score for predicting delayed intracranial hemorrhage in DOAC-treated geriatric head trauma.",
-    "comment": "การใช้ Modified HAS-BLED ทำนายเลือดออกในสมองล่าช้าในผู้สูงอายุที่ใช้ DOACs และมี head trauma",
-    "pmid": "42618393",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42618393/"
-  },
-  {
-    "date": "20 Aug",
-    "title": "The Prognostic Value of Venous Base Excess in Emergency Department Patients with and without Renal Dysfunction.",
-    "comment": "การใช้ Venous Base Excess เป็นตัวพยากรณ์โรคในผู้ป่วย ER โดยพิจารณาสภาพการทำงานของไต",
-    "pmid": "42618267",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42618267/"
-  },
-  {
-    "date": "20 Aug",
-    "title": "Navigating Colchicine Toxicity: Essential Management for a Timeless Therapy.",
-    "comment": "แนวทางการจัดการภาวะพิษจาก Colchicine ซึ่งมีความสำคัญและซับซ้อนในการรักษา",
-    "pmid": "42618164",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42618164/"
-  },
-  {
-    "date": "20 Aug",
-    "title": "Adjunctive Middle Meningeal Artery Embolization After Surgical Evacuation of Chronic Subdural Hematoma: An Updated Meta-analysis of Randomized Controlled Trials.",
-    "comment": "Meta-analysis การทำ MMA embolization เพื่อลดการกลับมาเป็นซ้ำของ Chronic SDH",
-    "pmid": "42617993",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42617993/"
-  },
-  {
-    "date": "20 Aug",
-    "title": "Machine learning-derived serum carbon dioxide trajectories in predicting prognosis of patients with acute aortic dissection.",
-    "comment": "ใช้ ML วิเคราะห์แนวโน้ม serum CO2 เพื่อพยากรณ์โรคในผู้ป่วย Acute Aortic Dissection",
-    "pmid": "42619040",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42619040/"
   }
 ]
