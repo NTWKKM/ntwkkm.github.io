@@ -1,5 +1,89 @@
 [
   {
+    "date": "28 Aug",
+    "title": "Resuscitative thoracotomy for traumatic cardiac arrest in settings where penetrating injury is uncommon: insights from the Austrian multi-society consensus.",
+    "comment": "Consensus ใหม่สำหรับการทำ RT ในเคส blunt trauma ซึ่งช่วยตัดสินใจเลือกผู้ป่วยได้แม่นยำขึ้น",
+    "pmid": "42659633",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42659633/"
+  },
+  {
+    "date": "28 Aug",
+    "title": "Mortality prediction using the Shock Index and Modified Shock Index in the Emergency Department.",
+    "comment": "ใช้ SI/MSI ใน ER เพื่อประเมินความเสี่ยงการเสียชีวิตและคัดกรองผู้ป่วยวิกฤตได้อย่างรวดเร็ว",
+    "pmid": "42659495",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42659495/"
+  },
+  {
+    "date": "28 Aug",
+    "title": "Just the facts: navigating blunt cerebrovascular injury in the emergency department.",
+    "comment": "แนวทางการวินิจฉัยและจัดการ BCVI ใน ER ซึ่งเป็นภาวะอันตรายที่มักถูกมองข้าม",
+    "pmid": "42658474",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42658474/"
+  },
+  {
+    "date": "28 Aug",
+    "title": "Volume-dependent detection of free intraperitoneal fluid by FAST: a prospective in-vivo study with sequential fluid instillation.",
+    "comment": "ข้อมูลขีดจำกัดในการตรวจ FAST เพื่อระวัง False Negative ในกรณีที่มี fluid ปริมาณน้อย",
+    "pmid": "42658233",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42658233/"
+  },
+  {
+    "date": "28 Aug",
+    "title": "Eligibility for Thrombolysis for Pediatric Acute Ischemic Stroke.",
+    "comment": "เกณฑ์การพิจารณาให้ยาละลายลิ่มเลือดในเด็กที่มี stroke ซึ่งมีข้อบ่งชี้ต่างจากผู้ใหญ่",
+    "pmid": "42657473",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42657473/"
+  },
+  {
+    "date": "28 Aug",
+    "title": "Asian consensus on diagnostic algorithm for invasive pulmonary fungal diseases in high-burden settings.",
+    "comment": "Algorithm การวินิจฉัยเชื้อราในปอดฉบับ consensus เอเชีย นำมาปรับใช้ในทางคลินิกได้ทันที",
+    "pmid": "42657100",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42657100/"
+  },
+  {
+    "date": "28 Aug",
+    "title": "Association of early non-opioid analgesic use with emergency department length of stay in acute abdominal pain.",
+    "comment": "ส่งเสริมการใช้ non-opioid ใน abdominal pain เพื่อลดระยะเวลาการรอคอยใน ER",
+    "pmid": "42659637",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42659637/"
+  },
+  {
+    "date": "28 Aug",
+    "title": "Adding age and sex to improve adverse outcome prediction in suspected infection: validation of a modified National Early Warning Score in the emergency department.",
+    "comment": "ปรับปรุง NEWS score ให้แม่นยำขึ้นโดยใช้ age/sex เพื่อทำนายผลลัพธ์ในผู้ป่วยติดเชื้อ",
+    "pmid": "42659636",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42659636/"
+  },
+  {
+    "date": "28 Aug",
+    "title": "Carotid-cavernous fistula diagnosed by point-of-care ultrasound.",
+    "comment": "เทคนิคการใช้ POCUS วินิจฉัย CCF ซึ่งเป็นเครื่องมือที่แพทย์ ER เข้าถึงได้ทันที",
+    "pmid": "42658391",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42658391/"
+  },
+  {
+    "date": "28 Aug",
+    "title": "Clinical value of the caval-aortic index and inferior vena cava diameter for volume assessment in hypernatremic patients.",
+    "comment": "ใช้ CAI และ IVC diameter ช่วยประเมิน volume status ในผู้ป่วย hypernatremia ได้แม่นยำขึ้น",
+    "pmid": "42658817",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42658817/"
+  },
+  {
+    "date": "28 Aug",
+    "title": "Oral transition therapy versus intravenous therapy for the treatment of uncomplicated Enterococcal bloodstream infections.",
+    "comment": "ข้อมูลการเปลี่ยนยาจาก IV เป็น Oral ใน Enterococcal BSI ที่ไม่มีภาวะแทรกซ้อน",
+    "pmid": "42658414",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42658414/"
+  },
+  {
+    "date": "28 Aug",
+    "title": "Concordance of the modified wells score with CTPA-confirmed pulmonary embolism in an imaging-selected cohort: A retrospective single-center study.",
+    "comment": "ประเมินความแม่นยำของ Modified Wells score ในการคัดกรอง PE ก่อนส่ง CTPA",
+    "pmid": "42656957",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42656957/"
+  },
+  {
     "date": "27 Aug",
     "title": "Association Between Epinephrine Administration Timing and Outcomes in Adult Out-of-Hospital Cardiac Arrest: A Systematic Review and Dose-Response Meta-Analysis.",
     "comment": "วิเคราะห์จังหวะการให้ Epinephrine ใน OHCA ซึ่งมีผลต่อ survival rate โดยตรง",
@@ -404,89 +488,5 @@
     "comment": "นิยาม Traumatic shock แบบนำไปใช้จริงได้ง่ายผ่าน SBP และ Shock Index",
     "pmid": "42628230",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42628230/"
-  },
-  {
-    "date": "22 Aug",
-    "title": "Patient Stratification for Improving Acute Chest Pain Management and Mitigating Emergency Department Crowding: Machine Learning Model Development and Validation.",
-    "comment": "ใช้ ML ช่วยคัดกรองผู้ป่วย Chest pain เพื่อเพิ่มประสิทธิภาพการดูแลและลดความแออัด",
-    "pmid": "42628009",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42628009/"
-  },
-  {
-    "date": "22 Aug",
-    "title": "Diagnostic performance of clinical symptom combinations for Crimean-Congo hemorrhagic fever in emergency department patients with reported arthropod bites, stings, or exposure.",
-    "comment": "เกณฑ์อาการทางคลินิกในการวินิจฉัย CCHF สำหรับผู้ป่วยที่มา ER",
-    "pmid": "42629562",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42629562/"
-  },
-  {
-    "date": "22 Aug",
-    "title": "Integrating comprehensive geriatric care into emergency departments: the GIROT-ED model.",
-    "comment": "รูปแบบการนำ Geriatric care มาใช้ใน ER เพื่อยกระดับการดูแลผู้สูงอายุ",
-    "pmid": "42629536",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42629536/"
-  },
-  {
-    "date": "22 Aug",
-    "title": "The 3D/3D+ model: A real-world approach to frailty in emergency care.",
-    "comment": "เครื่องมือประเมินภาวะเปราะบาง (Frailty) ที่ออกแบบมาเพื่อใช้ใน ER โดยเฉพาะ",
-    "pmid": "42628267",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42628267/"
-  },
-  {
-    "date": "22 Aug",
-    "title": "The Effect of Ambient AI Documentation on Clinician Workload, Efficiency, and Patient Experience in a Multisite Emergency Department Network.",
-    "comment": "ผลของ AI documentation ต่อการลดภาระงานและเพิ่มประสิทธิภาพของแพทย์ ER",
-    "pmid": "42628943",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42628943/"
-  },
-  {
-    "date": "22 Aug",
-    "title": "Diagnostic value of ileocolic artery and vein diameters in acute appendicitis: A retrospective observational study with contrast-enhanced computed tomography.",
-    "comment": "ใช้ขนาดเส้นเลือด ileocolic จาก CT ช่วยวินิจฉัย Acute Appendicitis",
-    "pmid": "42629698",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42629698/"
-  },
-  {
-    "date": "22 Aug",
-    "title": "Revisiting clinical scoring tools for the diagnosis of thrombotic thrombocytopenic purpura (TTP).",
-    "comment": "ทบทวน scoring tools ในการวินิจฉัย TTP เพื่อความแม่นยำในการรักษา",
-    "pmid": "42629530",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42629530/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Distinguishing Acute Myocardial Infarction from Other Forms of Cardiac Injury with the Cardiac Troponin Long-T ITC Complex and High-Sensitivity Troponin I and T in Patients with Suspected Acute Coronary Syndrome: MERITnI Substudy.",
-    "comment": "ช่วยแยก AMI จาก Cardiac injury อื่นๆ เพิ่มความแม่นยำในการวินิจฉัย ACS ใน ER",
-    "pmid": "42621672",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42621672/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Direct Comparison of the 0/1h- and 0/2h-Algorithms in Patients With Prior Coronary Artery Bypass Grafting.",
-    "comment": "เปรียบเทียบ algorithm การตรวจ troponin เพื่อ rule-in/out MI ในกลุ่มผู้ป่วย CABG",
-    "pmid": "42622139",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42622139/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Designing a Cardiac Arrest System That Includes Extracorporeal Cardiopulmonary Resuscitation: A Contemporary Review.",
-    "comment": "ทบทวนระบบการจัดการ cardiac arrest ที่รวม ECPR ซึ่งเป็น High-impact intervention",
-    "pmid": "42622145",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42622145/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Life-Threatening Bupropion Poisoning Successfully Treated by Intravenous Lipid Emulsion.",
-    "comment": "การใช้ Intravenous Lipid Emulsion รักษาภาวะพิษจาก Bupropion ที่รุนแรง",
-    "pmid": "42621209",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42621209/"
-  },
-  {
-    "date": "21 Aug",
-    "title": "Intravenous lipid emulsion as rescue therapy in severe quetiapine overdose: A case report.",
-    "comment": "การใช้ Lipid emulsion เป็น rescue therapy ในกรณี quetiapine overdose รุนแรง",
-    "pmid": "42622038",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42622038/"
   }
 ]
