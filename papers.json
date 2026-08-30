@@ -1,59 +1,80 @@
 [
   {
     "date": "30 Aug",
-    "title": "Criteria for the diagnosis of cardiogenic shock-European perspective: A Clinical Consensus Statement of the Association for Acute CardioVascular Care, the Heart Failure Association, and the European Association of Percutaneous Cardiovascular Interventions of the ESC.",
-    "comment": "Consensus ใหม่ในการวินิจฉัย Cardiogenic shock เปลี่ยนมาตรฐานการดูแลผู้ป่วยวิกฤต",
-    "pmid": "42667225",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42667225/"
-  },
-  {
-    "date": "30 Aug",
     "title": "Safety and efficacy of the 0/1 h pathway for myocardial infarction in the emergency department: an international, pragmatic, stepped-wedge, cluster-randomised, controlled trial.",
-    "comment": "ประเมิน Pathway ใหม่เพื่อลดเวลา treatment ใน STEMI ซึ่งส่งผลต่อการรอดชีวิตโดยตรง",
+    "comment": "เปลี่ยน standard of care ในการจัดการ MI เพื่อลดเวลา ischemic time",
     "pmid": "42667934",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42667934/"
   },
   {
     "date": "30 Aug",
+    "title": "Criteria for the diagnosis of cardiogenic shock-European perspective: A Clinical Consensus Statement of the Association for Acute CardioVascular Care, the Heart Failure Association, and the European Association of Percutaneous Cardiovascular Interventions of the ESC.",
+    "comment": "Consensus ใหม่ในการวินิจฉัย Cardiogenic shock ใช้ปรับ guideline ทางคลินิก",
+    "pmid": "42667225",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667225/"
+  },
+  {
+    "date": "30 Aug",
     "title": "Artificial intelligence-based ECG as a triage tool for acute myocardial infarction: a diagnostic systematic review and meta-analysis.",
-    "comment": "ใช้ AI คัดกรอง AMI จาก ECG ช่วยเพิ่มความเร็วและแม่นยำในการ Triage ที่ ER",
+    "comment": "ใช้ AI-ECG ช่วย triage ผู้ป่วย MI ใน ER เพิ่มความแม่นยำและรวดเร็ว",
     "pmid": "42668832",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42668832/"
   },
   {
     "date": "30 Aug",
     "title": "Less Invasive Rapid Tranquilization in LMIC Emergency Settings: Comparison of Oral Risperidone Plus Clonazepam Versus Intramuscular Haloperidol in a Randomized Trial.",
-    "comment": "ทางเลือกการทำ Rapid Tranquilization ที่ลดความเจ็บปวดและ invasive น้อยกว่าเดิม",
+    "comment": "ทางเลือกใหม่ในการทำ Rapid Tranquilization ที่ลดการรุกล้ำร่างกายและปลอดภัยขึ้น",
     "pmid": "42668395",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42668395/"
   },
   {
     "date": "30 Aug",
     "title": "Prothrombin complex concentrate (PCC) vs. non-PCC strategies for warfarin reversal in left ventricular assist device recipients: A systematic review and meta-analysis.",
-    "comment": "ข้อมูลการใช้ PCC เพื่อ reverse warfarin ในผู้ป่วยกลุ่มเสี่ยงสูงที่ต้องการความเร็ว",
+    "comment": "หลักฐานสนับสนุนการใช้ PCC ในการ reverse warfarin ในผู้ป่วยกลุ่มเสี่ยงสูง",
     "pmid": "42667788",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42667788/"
   },
   {
     "date": "30 Aug",
+    "title": "Diagnostic value of platelet-lymphocyte ratio for pediatric sepsis: A systematic review and meta-analysis.",
+    "comment": "ใช้ PLR เป็น marker ช่วยวินิจฉัย sepsis ในเด็กได้รวดเร็วใน ER",
+    "pmid": "42668943",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42668943/"
+  },
+  {
+    "date": "30 Aug",
     "title": "Development of a machine-learning risk stratification tool for vasoactive medication need after two-bolus fluid resuscitation in pediatric suspected sepsis.",
-    "comment": "เครื่องมือ ML ช่วยพยากรณ์ความต้องการยา Vasoactive ในเด็ก Sepsis หลังให้สารน้ำ",
+    "comment": "เครื่องมือ ML ช่วยทำนายความจำเป็นในการใช้ยาเพิ่มความดันในเด็ก sepsis",
     "pmid": "42668278",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42668278/"
   },
   {
     "date": "30 Aug",
-    "title": "Prognostic performance of APUA, APUA-RO2, and CURB-65 scores in patients with critical pneumonia.",
-    "comment": "เปรียบเทียบ Scoring ในการพยากรณ์โรค Pneumonia เพื่อเลือกสถานที่รักษาที่เหมาะสม",
-    "pmid": "42668389",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42668389/"
+    "title": "Direct oral anticoagulants versus vitamin K antagonists after venous thrombosis in antiphospholipid syndrome: Recurrence, safety, and exploratory phenotype analysis. A real-life cohort study.",
+    "comment": "ข้อมูลความปลอดภัยและการใช้ DOACs แทน VKA ในผู้ป่วย APS",
+    "pmid": "42667744",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667744/"
   },
   {
     "date": "30 Aug",
-    "title": "Diagnostic value of platelet-lymphocyte ratio for pediatric sepsis: A systematic review and meta-analysis.",
-    "comment": "การใช้ PLR เป็น biomarker ช่วยวินิจฉัย Pediatric Sepsis ในระยะเริ่มต้น",
-    "pmid": "42668943",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42668943/"
+    "title": "Early Identification of Children at Risk for Complicated Parapneumonic Pleural Effusion: Development of a Prediction Model.",
+    "comment": "Model ช่วยระบุเด็กกลุ่มเสี่ยงที่จะเกิด Complicated PPE เพื่อการรักษาที่เร็วขึ้น",
+    "pmid": "42669040",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42669040/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "What you don't see matters: dual-energy CT in emergency radiology.",
+    "comment": "ประโยชน์ของ Dual-energy CT ในการเพิ่มความแม่นยำของการวินิจฉัยทางรังสีใน ER",
+    "pmid": "42667564",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667564/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Prognostic performance of APUA, APUA-RO2, and CURB-65 scores in patients with critical pneumonia.",
+    "comment": "เปรียบเทียบ scoring ในการพยากรณ์โรคผู้ป่วย pneumonia ขั้นวิกฤต",
+    "pmid": "42668389",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42668389/"
   },
   {
     "date": "30 Aug",
@@ -61,13 +82,6 @@
     "comment": "การใช้ care bundle เพื่อลดการติดเชื้อแผลผ่าตัดในผู้ป่วย Emergency Laparotomy",
     "pmid": "42668526",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42668526/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "What you don't see matters: dual-energy CT in emergency radiology.",
-    "comment": "เพิ่มประสิทธิภาพการวินิจฉัยใน ER ด้วยเทคนิค DECT ช่วยลดข้อผิดพลาดในการอ่านผล",
-    "pmid": "42667564",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42667564/"
   },
   {
     "date": "30 Aug",
@@ -474,19 +488,5 @@
     "comment": "ตัวบ่งชี้การใส่ท่อช่วยหายใจในเด็กที่กระดูกสันหลังหัก ช่วยในการประเมินความเสี่ยงตั้งแต่แรกรับ",
     "pmid": "42635466",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42635466/"
-  },
-  {
-    "date": "25 Aug",
-    "title": "Diagnostic Value of Serum Neuron-Specific Enolase and S100 Calcium-Binding Protein B for Sepsis-Associated Encephalopathy: A Systematic Review and Meta-Analysis.",
-    "comment": "Biomarker สำหรับวินิจฉัย encephalopathy ในผู้ป่วย sepsis ซึ่งวินิจฉัยได้ยากในคลินิก",
-    "pmid": "42635386",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42635386/"
-  },
-  {
-    "date": "25 Aug",
-    "title": "development and validation of a nomogram to predict 28-day all-cause mortality in sepsis patients complicated by acute kidney injury.",
-    "comment": "เครื่องมือทำนายอัตราตายใน sepsis with AKI ช่วยในการสื่อสารกับญาติและวางแผนการรักษา",
-    "pmid": "42635375",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42635375/"
   }
 ]
