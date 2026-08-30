@@ -229,14 +229,17 @@
                 const cardWidth = card ? (card.offsetWidth + 20) : 320;
                 const visibleWidth = container.clientWidth || 320;
                 const maxScroll = Math.max(1, container.scrollWidth - visibleWidth);
-                // Double the dot granularity (~14-16 dots) for super-fluid, real-time scroll progression
-                const cardsPerView = Math.max(1, Math.round(visibleWidth / cardWidth));
-                const totalPages = Math.min(cards.length, Math.max(8, Math.ceil((cards.length / cardsPerView) * 2)));
+                // Cap total dots to maintain a clean, single-row indicator (6 on mobile, 8 on desktop)
+                const maxDots = visibleWidth < 640 ? 6 : 8;
+                const totalPages = Math.min(cards.length, maxDots);
                 return { cardWidth, visibleWidth, maxScroll, totalPages };
             }
 
             function buildIndicators() {
-                if (!indicatorsContainer || cards.length === 0) return;
+                if (!indicatorsContainer || cards.length <= 1) {
+                    if (indicatorsContainer) indicatorsContainer.innerHTML = '';
+                    return;
+                }
                 const { maxScroll, totalPages } = getMetrics();
                 indicatorsContainer.innerHTML = '';
 
@@ -246,7 +249,7 @@
                     dot.setAttribute('aria-label', `Go to paper position ${i + 1} of ${totalPages}`);
                     dot.addEventListener('click', () => {
                         resetAutoScroll();
-                        const targetLeft = (i / (totalPages - 1)) * maxScroll;
+                        const targetLeft = totalPages > 1 ? (i / (totalPages - 1)) * maxScroll : 0;
                         container.scrollTo({ left: targetLeft, behavior: 'smooth' });
                     });
                     indicatorsContainer.appendChild(dot);
@@ -259,10 +262,10 @@
             function updateIndicators() {
                 if (indicatorRafId) cancelAnimationFrame(indicatorRafId);
                 indicatorRafId = requestAnimationFrame(() => {
-                    if (!indicatorsContainer || cards.length === 0) return;
+                    if (!indicatorsContainer || cards.length <= 1) return;
                     const { maxScroll, totalPages } = getMetrics();
                     const ratio = Math.min(1, Math.max(0, container.scrollLeft / maxScroll));
-                    const activeIndex = Math.min(totalPages - 1, Math.round(ratio * (totalPages - 1)));
+                    const activeIndex = totalPages > 1 ? Math.min(totalPages - 1, Math.max(0, Math.round(ratio * (totalPages - 1)))) : 0;
                     const dots = indicatorsContainer.querySelectorAll('.indicator-dot');
                     dots.forEach((dot, idx) => {
                         dot.classList.toggle('active', idx === activeIndex);
