@@ -2,14 +2,70 @@
   {
     "date": "30 Aug",
     "title": "Criteria for the diagnosis of cardiogenic shock-European perspective: A Clinical Consensus Statement of the Association for Acute CardioVascular Care, the Heart Failure Association, and the European Association of Percutaneous Cardiovascular Interventions of the ESC.",
-    "comment": "Consensus ใหม่ในการวินิจฉัย Cardiogenic Shock ซึ่งมีผลโดยตรงต่อการตัดสินใจรักษาใน ER",
+    "comment": "Consensus ใหม่ในการวินิจฉัย Cardiogenic shock เปลี่ยนมาตรฐานการดูแลผู้ป่วยวิกฤต",
     "pmid": "42667225",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42667225/"
   },
   {
     "date": "30 Aug",
+    "title": "Safety and efficacy of the 0/1 h pathway for myocardial infarction in the emergency department: an international, pragmatic, stepped-wedge, cluster-randomised, controlled trial.",
+    "comment": "ประเมิน Pathway ใหม่เพื่อลดเวลา treatment ใน STEMI ซึ่งส่งผลต่อการรอดชีวิตโดยตรง",
+    "pmid": "42667934",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667934/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Artificial intelligence-based ECG as a triage tool for acute myocardial infarction: a diagnostic systematic review and meta-analysis.",
+    "comment": "ใช้ AI คัดกรอง AMI จาก ECG ช่วยเพิ่มความเร็วและแม่นยำในการ Triage ที่ ER",
+    "pmid": "42668832",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42668832/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Less Invasive Rapid Tranquilization in LMIC Emergency Settings: Comparison of Oral Risperidone Plus Clonazepam Versus Intramuscular Haloperidol in a Randomized Trial.",
+    "comment": "ทางเลือกการทำ Rapid Tranquilization ที่ลดความเจ็บปวดและ invasive น้อยกว่าเดิม",
+    "pmid": "42668395",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42668395/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Prothrombin complex concentrate (PCC) vs. non-PCC strategies for warfarin reversal in left ventricular assist device recipients: A systematic review and meta-analysis.",
+    "comment": "ข้อมูลการใช้ PCC เพื่อ reverse warfarin ในผู้ป่วยกลุ่มเสี่ยงสูงที่ต้องการความเร็ว",
+    "pmid": "42667788",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667788/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Development of a machine-learning risk stratification tool for vasoactive medication need after two-bolus fluid resuscitation in pediatric suspected sepsis.",
+    "comment": "เครื่องมือ ML ช่วยพยากรณ์ความต้องการยา Vasoactive ในเด็ก Sepsis หลังให้สารน้ำ",
+    "pmid": "42668278",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42668278/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Prognostic performance of APUA, APUA-RO2, and CURB-65 scores in patients with critical pneumonia.",
+    "comment": "เปรียบเทียบ Scoring ในการพยากรณ์โรค Pneumonia เพื่อเลือกสถานที่รักษาที่เหมาะสม",
+    "pmid": "42668389",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42668389/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Diagnostic value of platelet-lymphocyte ratio for pediatric sepsis: A systematic review and meta-analysis.",
+    "comment": "การใช้ PLR เป็น biomarker ช่วยวินิจฉัย Pediatric Sepsis ในระยะเริ่มต้น",
+    "pmid": "42668943",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42668943/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Implementation of an SSI care bundle for patients undergoing emergency laparotomy.",
+    "comment": "การใช้ care bundle เพื่อลดการติดเชื้อแผลผ่าตัดในผู้ป่วย Emergency Laparotomy",
+    "pmid": "42668526",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42668526/"
+  },
+  {
+    "date": "30 Aug",
     "title": "What you don't see matters: dual-energy CT in emergency radiology.",
-    "comment": "การใช้ DECT เพื่อเพิ่มความแม่นยำในการวินิจฉัยภาวะฉุกเฉินที่ CT ปกติอาจมองข้าม",
+    "comment": "เพิ่มประสิทธิภาพการวินิจฉัยใน ER ด้วยเทคนิค DECT ช่วยลดข้อผิดพลาดในการอ่านผล",
     "pmid": "42667564",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42667564/"
   },
@@ -432,61 +488,5 @@
     "comment": "เครื่องมือทำนายอัตราตายใน sepsis with AKI ช่วยในการสื่อสารกับญาติและวางแผนการรักษา",
     "pmid": "42635375",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42635375/"
-  },
-  {
-    "date": "25 Aug",
-    "title": "The Impact of Helmet Use on Head Injury Characteristics and Medical Management Following Helmet-Relevant Activity-Associated Traumatic Brain Injury: A 2014-2021 National Trauma Data Bank Retrospective Cohort Analysis.",
-    "comment": "ผลของการใส่หมวกกันน็อกต่อลักษณะการบาดเจ็บที่ศีรษะ มีผลต่อแนวทางการจัดการ TBI",
-    "pmid": "42635268",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42635268/"
-  },
-  {
-    "date": "25 Aug",
-    "title": "Heat-Related Emergencies in the Gulf Region: A Literature Review of the Current Epidemiology, Diagnosis, and Effective Management Strategies.",
-    "comment": "แนวทางการวินิจฉัยและรักษาภาวะฉุกเฉินจากความร้อน ซึ่งสำคัญมากในสภาวะอากาศปัจจุบัน",
-    "pmid": "42634775",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42634775/"
-  },
-  {
-    "date": "25 Aug",
-    "title": "Analyzing the Effect of Nurse-Led Follow-Up Calls to Reduce Emergency Department Readmissions in Older Adults.",
-    "comment": "ลดอัตราการกลับมา ER ซ้ำในผู้สูงอายุด้วยระบบ follow-up โดยพยาบาล",
-    "pmid": "42635507",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42635507/"
-  },
-  {
-    "date": "25 Aug",
-    "title": "Assessing the Synergistic Potential of Ceftazidime-avibactam and Aztreonam against Metallo-beta-lactamase Producing Enterobacterales by Disc Elution and Disc E Strip - Synergy Method.",
-    "comment": "สูตรยาผสมเพื่อจัดการเชื้อดื้อยาขั้นรุนแรง (MBL) ซึ่งเป็นปัญหาใหญ่ใน ICU/ER",
-    "pmid": "42635353",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42635353/"
-  },
-  {
-    "date": "23 Aug",
-    "title": "Outpatient management of pulmonary embolism patients diagnosed in the emergency setting: A prospective study in real-world clinical practice.",
-    "comment": "ช่วยพิจารณาการให้ผู้ป่วย PE กลับบ้านได้ปลอดภัยขึ้น ลดการครองเตียงใน ER/IPD",
-    "pmid": "42632381",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42632381/"
-  },
-  {
-    "date": "23 Aug",
-    "title": "AI-assisted radiographic fracture detection and length of stay in the adult ambulatory orthopedic emergency department: a before-after cohort study with a disease-specific internal control.",
-    "comment": "AI ช่วยตรวจจับ fracture ลดระยะเวลาการรอคอย (LOS) ในแผนกฉุกเฉินได้อย่างมีนัยสำคัญ",
-    "pmid": "42632355",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42632355/"
-  },
-  {
-    "date": "23 Aug",
-    "title": "Comparison of pre-endoscopic risk scores for identifying high-risk Forrest lesions in emergency department patients with suspected upper gastrointestinal bleeding.",
-    "comment": "ใช้คัดกรองความเสี่ยง UGIB เพื่อวางแผนการส่องกล้องใน ER ได้แม่นยำขึ้น",
-    "pmid": "42632219",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42632219/"
-  },
-  {
-    "date": "23 Aug",
-    "title": "Cath-Lab Clues to Type A Aortic Dissection Presenting as Acute Myocardial Infarction.",
-    "comment": "Safety signal สำคัญ: ช่วยให้แพทย์ไม่พลาดการวินิจฉัย Type A Dissection ที่มาด้วยอาการ MI",
-    "pmid": "42631677",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42631677/"
   }
 ]
