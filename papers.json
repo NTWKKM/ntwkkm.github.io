@@ -1,5 +1,82 @@
 [
   {
+    "date": "30 Aug",
+    "title": "Criteria for the diagnosis of cardiogenic shock-European perspective: A Clinical Consensus Statement of the Association for Acute CardioVascular Care, the Heart Failure Association, and the European Association of Percutaneous Cardiovascular Interventions of the ESC.",
+    "comment": "Consensus ใหม่ในการวินิจฉัย Cardiogenic Shock ซึ่งมีผลโดยตรงต่อการตัดสินใจรักษาใน ER",
+    "pmid": "42667225",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667225/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "What you don't see matters: dual-energy CT in emergency radiology.",
+    "comment": "การใช้ DECT เพื่อเพิ่มความแม่นยำในการวินิจฉัยภาวะฉุกเฉินที่ CT ปกติอาจมองข้าม",
+    "pmid": "42667564",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667564/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Early antiplatelet therapy was associated with reduced neurological deterioration in stroke patients treated with intravenous thrombolysis.",
+    "comment": "ข้อมูลสนับสนุนการให้ antiplatelet เร็วขึ้นในผู้ป่วย stroke ที่ได้รับ thrombolysis เพื่อลดความพิการ",
+    "pmid": "42666858",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42666858/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Invasive candidiasis in the Intensive Care unit: diagnostic stewardship, source control, and precision antifungal therapy.",
+    "comment": "แนวทางการจัดการเชื้อราใน ICU เน้นการวินิจฉัยที่แม่นยำและการเลือกยา antifungal",
+    "pmid": "42667299",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667299/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Traumatic Brain Injury in Austere Environments: a Review of Recent Advances.",
+    "comment": "รวมเทคนิคการจัดการ TBI ในสภาวะทรัพยากรจำกัด ซึ่งนำมาปรับใช้ในจุดเกิดเหตุได้",
+    "pmid": "42667521",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667521/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Population Pharmacokinetic and Pharmacodynamic Analysis of Imipenem in Critically Ill Patients Receiving Continuous Renal Replacement Therapy.",
+    "comment": "ข้อมูลการปรับโดส Imipenem ในผู้ป่วยวิกฤตที่ทำ CRRT เพื่อประสิทธิภาพและความปลอดภัย",
+    "pmid": "42666963",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42666963/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Personalizing myocardial revascularization strategies in the setting of acute myocardial infarction.",
+    "comment": "การเลือกกลยุทธ์การเปิดหลอดเลือดหัวใจแบบเฉพาะบุคคลในผู้ป่วย AMI",
+    "pmid": "42667606",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667606/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Safety of Coadministration of Continuous Infusions of Propofol and Clevidipine: A Multi-Site Retrospective Analysis.",
+    "comment": "ข้อมูลความปลอดภัยในการให้ Propofol คู่กับ Clevidipine แบบ continuous infusion ในผู้ป่วยวิกฤต",
+    "pmid": "42666011",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42666011/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "When Clinical Judgment Goes Beyond Balance, Eyes, Face, Arm, Speech (BEFAST): Acute Confusion Prompting Stroke Code Activation in Dominant Hemisphere Large Vessel Occlusion.",
+    "comment": "เตือนให้ระวัง Acute confusion ในผู้ป่วย LVO ที่อาจไม่เข้าเกณฑ์ BEFAST แบบปกติ",
+    "pmid": "42666606",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42666606/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Building an Integrated Trauma-Orthopedic Chest Wall Injury Service: Implementation, Workflow, and Early Experience With Rib Fracture Management.",
+    "comment": "ตัวอย่างการจัด workflow จัดการ rib fracture ที่ช่วยลดความเจ็บปวดและภาวะแทรกซ้อน",
+    "pmid": "42667243",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667243/"
+  },
+  {
+    "date": "30 Aug",
+    "title": "Acute viral bronchiolitis before and after implementation of nirsevimab prophylaxis in Italy: a multicentre retrospective cohort study.",
+    "comment": "ผลลัพธ์การใช้ Nirsevimab ป้องกัน bronchiolitis ในเด็ก ซึ่งช่วยลดการมา ER และ Admit",
+    "pmid": "42666909",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42666909/"
+  },
+  {
     "date": "28 Aug",
     "title": "Resuscitative thoracotomy for traumatic cardiac arrest in settings where penetrating injury is uncommon: insights from the Austrian multi-society consensus.",
     "comment": "Consensus ใหม่สำหรับการทำ RT ในเคส blunt trauma ซึ่งช่วยตัดสินใจเลือกผู้ป่วยได้แม่นยำขึ้น",
@@ -411,82 +488,5 @@
     "comment": "Safety signal สำคัญ: ช่วยให้แพทย์ไม่พลาดการวินิจฉัย Type A Dissection ที่มาด้วยอาการ MI",
     "pmid": "42631677",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42631677/"
-  },
-  {
-    "date": "23 Aug",
-    "title": "Using Rehabilitation Therapies to Reduce Antipsychotic Use and ED Visits in Individuals With Dementia.",
-    "comment": "ลดการใช้ยา antipsychotic และลดอัตราการกลับมา ER ซ้ำในผู้ป่วย Dementia",
-    "pmid": "42632249",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42632249/"
-  },
-  {
-    "date": "23 Aug",
-    "title": "Public access defibrillation by activated community first responders - the randomized HeartRunner trial.",
-    "comment": "ผลการทดลองแบบ RCT เรื่องการใช้ AED โดยอาสาสมัครในชุมชนเพื่อเพิ่มรอดชีวิตจาก OHCA",
-    "pmid": "42630735",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42630735/"
-  },
-  {
-    "date": "23 Aug",
-    "title": "J-shaped link of stress hyperglycemia ratio with in-hospital and 1-year mortality in hypertension patients: based on the MIMIC-IV database.",
-    "comment": "ใช้ Stress Hyperglycemia Ratio เป็นตัวพยากรณ์อัตราตายในผู้ป่วย HT ที่มาโรงพยาบาล",
-    "pmid": "42632059",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42632059/"
-  },
-  {
-    "date": "23 Aug",
-    "title": "Corticosteroid Stewardship: Can it help us avoid the corticosteroid trap? Journal of Allergy and Clinical Immunology: In Practice.",
-    "comment": "แนวทางการใช้ steroid อย่างเหมาะสมเพื่อลดผลข้างเคียงระยะยาวในผู้ป่วย acute care",
-    "pmid": "42632540",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42632540/"
-  },
-  {
-    "date": "23 Aug",
-    "title": "Application of a machine learning model integrating T cell subsets and clinical markers in 28-Day mortality prediction of sepsis patients.",
-    "comment": "เครื่องมือใหม่ใช้ ML พยากรณ์อัตราตาย 28 วันในผู้ป่วย Sepsis เพื่อการดูแลที่เข้มข้นขึ้น",
-    "pmid": "42631760",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42631760/"
-  },
-  {
-    "date": "23 Aug",
-    "title": "Red Blood Cell Distribution Width-To Albumin Ratio and 90-Day Mortality in Sepsis Patients with and Without Sepsis-Induced Coagulopathy: A Retrospective Observational Study Using the MIMIC-IV Database.",
-    "comment": "ใช้ RDW-to-Albumin ratio เป็น biomarker พยากรณ์การรอดชีวิตในผู้ป่วย Sepsis",
-    "pmid": "42630616",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42630616/"
-  },
-  {
-    "date": "22 Aug",
-    "title": "Effectiveness of the modified Valsalva maneuver vs the standard Valsalva maneuver for the conversion of supraventricular tachycardia to normal sinus rhythm in the emergency department: a systematic review and meta analysis.",
-    "comment": "Modified Valsalva ให้ผลดีกว่าแบบมาตรฐานในการหยุด SVT ใน ER",
-    "pmid": "42629535",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42629535/"
-  },
-  {
-    "date": "22 Aug",
-    "title": "Diagnosis and management of acute hyperkalaemia.",
-    "comment": "Update การวินิจฉัยและรักษาภาวะ Hyperkalemia แบบเฉียบพลันที่ใช้ได้ทันที",
-    "pmid": "42629001",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42629001/"
-  },
-  {
-    "date": "22 Aug",
-    "title": "EXPRESS: Prognostic Accuracy of SPEED, NEWS, and NEWS-L for Predicting 28-Day Mortality in Geriatric Sepsis: A Prospective Study.",
-    "comment": "เปรียบเทียบ scoring tools ในการพยากรณ์การตายของผู้สูงอายุที่เป็น Sepsis",
-    "pmid": "42630037",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42630037/"
-  },
-  {
-    "date": "22 Aug",
-    "title": "Value of lung ultrasound score change as a predictor of 30-day outcome in acute heart failure: A prospective multicenter study.",
-    "comment": "ใช้การเปลี่ยนแปลงของ LUS score พยากรณ์ outcome ใน Acute HF",
-    "pmid": "42628319",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42628319/"
-  },
-  {
-    "date": "22 Aug",
-    "title": "A pragmatic clinical definition of traumatic shock using systolic blood pressure and shock index: A national registry study.",
-    "comment": "นิยาม Traumatic shock แบบนำไปใช้จริงได้ง่ายผ่าน SBP และ Shock Index",
-    "pmid": "42628230",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42628230/"
   }
 ]
