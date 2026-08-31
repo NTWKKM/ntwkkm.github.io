@@ -1,66 +1,80 @@
 [
   {
-    "date": "31 Aug",
+    "date": "1 Sep",
     "title": "Safety and efficacy of the 0/1 h pathway for myocardial infarction in the emergency department: an international, pragmatic, stepped-wedge, cluster-randomised, controlled trial.",
-    "comment": "เปลี่ยน standard of care การจัดการ MI ใน ER เพื่อลดระยะเวลา Ischemia",
+    "comment": "เปลี่ยน standard of care การจัดการเวลาใน MI pathway เพื่อลดความล่าช้าใน ER",
     "pmid": "42667934",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42667934/"
   },
   {
-    "date": "31 Aug",
+    "date": "1 Sep",
     "title": "Artificial intelligence-based ECG as a triage tool for acute myocardial infarction: a diagnostic systematic review and meta-analysis.",
-    "comment": "ใช้ AI-ECG ช่วย Triage ผู้ป่วย AMI เพิ่มความแม่นยำในการคัดกรองเบื้องต้น",
+    "comment": "เครื่องมือ AI ช่วยคัดกรอง AMI จาก ECG เพิ่มประสิทธิภาพ triage ใน ER",
     "pmid": "42668832",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42668832/"
   },
   {
-    "date": "31 Aug",
+    "date": "1 Sep",
     "title": "Less Invasive Rapid Tranquilization in LMIC Emergency Settings: Comparison of Oral Risperidone Plus Clonazepam Versus Intramuscular Haloperidol in a Randomized Trial.",
-    "comment": "ทางเลือกใหม่ในการทำ Rapid Tranquilization ที่ลดการเจ็บตัวและผลข้างเคียง",
+    "comment": "ทางเลือกการระงับอาการวุ่นวายที่ลดการบาดเจ็บ (Less Invasive) แทนการฉีด IM",
     "pmid": "42668395",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42668395/"
   },
   {
-    "date": "31 Aug",
-    "title": "Contrast-enhanced chest computed tomography in acute heart failure: a narrative review of imaging clues to precipitating factors and underlying cardiac disease.",
-    "comment": "แนวทางการใช้ CE-CT หา precipitating cause ของ Acute HF ใน ER",
-    "pmid": "42669411",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42669411/"
-  },
-  {
-    "date": "31 Aug",
+    "date": "1 Sep",
     "title": "Prothrombin complex concentrate (PCC) vs. non-PCC strategies for warfarin reversal in left ventricular assist device recipients: A systematic review and meta-analysis.",
-    "comment": "เปรียบเทียบประสิทธิภาพการ Reverse Warfarin ในกลุ่มเสี่ยงสูง (LVAD)",
+    "comment": "แนวทางการแก้ไข Warfarin reversal ในผู้ป่วยกลุ่มเสี่ยงสูง (LVAD) เพื่อลดเลือดออก",
     "pmid": "42667788",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42667788/"
   },
   {
-    "date": "31 Aug",
-    "title": "Diagnostic value of platelet-lymphocyte ratio for pediatric sepsis: A systematic review and meta-analysis.",
-    "comment": "ใช้ PLR เป็น biomarker ช่วยวินิจฉัย Pediatric Sepsis ใน ER",
-    "pmid": "42668943",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42668943/"
+    "date": "1 Sep",
+    "title": "Contrast-enhanced chest computed tomography in acute heart failure: a narrative review of imaging clues to precipitating factors and underlying cardiac disease.",
+    "comment": "ใช้ CE-CT ช่วยวินิจฉัยหาสาเหตุที่กระตุ้นให้เกิด Acute Heart Failure ได้รวดเร็วขึ้น",
+    "pmid": "42669411",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42669411/"
   },
   {
-    "date": "31 Aug",
-    "title": "Group A Streptococcus molecular point of care testing in a paediatric emergency department.",
-    "comment": "การใช้ POCT ตรวจ GAS ในเด็ก ช่วยให้เริ่ม antibiotic ได้เร็วขึ้น",
-    "pmid": "42669628",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42669628/"
-  },
-  {
-    "date": "31 Aug",
+    "date": "1 Sep",
     "title": "Early Identification of Children at Risk for Complicated Parapneumonic Pleural Effusion: Development of a Prediction Model.",
-    "comment": "Model ทำนายความเสี่ยง Complicated PPE ในเด็ก เพื่อการจัดการที่รวดเร็ว",
+    "comment": "แบบจำลองทำนายความเสี่ยง Complicated effusion ในเด็ก ช่วยให้ตัดสินใจ Drainage ได้เร็วขึ้น",
     "pmid": "42669040",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42669040/"
   },
   {
-    "date": "31 Aug",
+    "date": "1 Sep",
+    "title": "Group A Streptococcus molecular point of care testing in a paediatric emergency department.",
+    "comment": "การใช้ POCT ตรวจ GAS ในเด็ก ช่วยให้เริ่มยาและแยกโรคได้ทันทีใน ER",
+    "pmid": "42669628",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42669628/"
+  },
+  {
+    "date": "1 Sep",
     "title": "Development of a machine-learning risk stratification tool for vasoactive medication need after two-bolus fluid resuscitation in pediatric suspected sepsis.",
-    "comment": "ใช้ ML ทำนายความจำเป็นในการใช้ยา Vasoactive ในเด็ก suspected sepsis",
+    "comment": "ML ช่วยทำนายความต้องการยา Vasoactive ใน sepsis เด็ก หลังให้ Fluid resuscitation",
     "pmid": "42668278",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42668278/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Diagnostic value of platelet-lymphocyte ratio for pediatric sepsis: A systematic review and meta-analysis.",
+    "comment": "ใช้ PLR เป็น biomarker ช่วยวินิจฉัย sepsis ในเด็ก เพิ่มความแม่นยำทางคลินิก",
+    "pmid": "42668943",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42668943/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Implementation of an SSI care bundle for patients undergoing emergency laparotomy.",
+    "comment": "การใช้ Care bundle เพื่อลดการติดเชื้อแผลผ่าตัด (SSI) ในเคส Emergency laparotomy",
+    "pmid": "42668526",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42668526/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Traumatic Brain Injury in Austere Environments: a Review of Recent Advances.",
+    "comment": "แนวทางจัดการ TBI ในพื้นที่จำกัด/ห่างไกล ซึ่งมีผลต่อการดูแลผู้ป่วย Pre-hospital",
+    "pmid": "42667521",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667521/"
   },
   {
     "date": "31 Aug",
@@ -68,13 +82,6 @@
     "comment": "เพิ่มประสิทธิภาพการวินิจฉัยใน ER ด้วย Dual-Energy CT",
     "pmid": "42667564",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42667564/"
-  },
-  {
-    "date": "31 Aug",
-    "title": "Traumatic Brain Injury in Austere Environments: a Review of Recent Advances.",
-    "comment": "Update การจัดการ TBI ในสภาพแวดล้อมจำกัดหรือนอกโรงพยาบาล",
-    "pmid": "42667521",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42667521/"
   },
   {
     "date": "30 Aug",
@@ -96,13 +103,6 @@
     "comment": "เปรียบเทียบ scoring ในการพยากรณ์โรคผู้ป่วย pneumonia ขั้นวิกฤต",
     "pmid": "42668389",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42668389/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "Implementation of an SSI care bundle for patients undergoing emergency laparotomy.",
-    "comment": "การใช้ care bundle เพื่อลดการติดเชื้อแผลผ่าตัดในผู้ป่วย Emergency Laparotomy",
-    "pmid": "42668526",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42668526/"
   },
   {
     "date": "30 Aug",
