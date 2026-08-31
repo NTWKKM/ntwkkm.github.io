@@ -1,5 +1,19 @@
 [
   {
+    "id": "392ba464-60a7-8153-bd67-c9476d79ff8c",
+    "name": "Can AI improve triage quality? A preliminary assessment of ChatGPT performance in evaluating triage decisions.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42391742/",
+    "property_date": null,
+    "property_tag_2": "Triage",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อสำรวจศักยภาพของ ChatGPT ในการประเมินความเหมาะสมของระดับการคัดแยกผู้ป่วยตามระบบ Tuscan Triage System (STT) ย้อนหลัง\n- **วิธีการ:** ใช้สถานการณ์คัดแยกผู้ป่วยที่ไม่ระบุชื่อ 50 สถานการณ์จากกรอบการทบทวนคุณภาพและการศึกษา โดยผู้เชี่ยวชาญด้านการคัดแยก 2 คนประเมินและลงรหัสอย่างอิสระ และผู้เชี่ยวชาญคนที่สามแก้ไขข้อขัดแย้ง จากนั้นให้ ChatGPT (GPT-4o) ประเมินแต่ละสถานการณ์ว่าการคัดแยกเดิมเหมาะสมหรือไม่ เปรียบเทียบกับมาตรฐานอ้างอิงจากผู้เชี่ยวชาญ\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** ความสอดคล้องแบบตรงระหว่าง ChatGPT กับผู้เชี่ยวชาญอยู่ที่ 46% ความไม่สอดคล้องส่วนใหญ่เป็นการคัดแยกต่ำกว่า (38%) มากกว่าสูงกว่า (16%) ค่า Cohen's Kappa โดยรวมเท่ากับ 0.243 ประสิทธิภาพสูงในกรณีที่มีความซับซ้อนสูง (κ = 0.313; F1 = 0.704) แต่ลดลงในกลุ่มปานกลางและต่ำ การจำแนกผิดส่วนใหญ่เกิดขึ้นระหว่างระดับที่อยู่ติดกัน\n- **Study Design:** Cross-sectional\n- **Clinical Relevance:** ChatGPT อาจใช้เป็นเครื่องมือประกันคุณภาพการคัดแยกผู้ป่วยย้อนหลัง",
+    "property_status": "Not started",
+    "property_tag_3": "Emergency Department",
+    "property_tag_1": "ChatGPT",
+    "property_last_edited_time": "2026-07-03T09:20:00.000Z",
+    "property_pmid": "42391742",
+    "property_name": "Can AI improve triage quality? A preliminary assessment of ChatGPT performance in evaluating triage decisions."
+  },
+  {
     "id": "392ba464-60a7-8182-98b4-e94d3283d441",
     "name": "Bypassing the emergency department for testicular torsion.",
     "url": "https://pubmed.ncbi.nlm.nih.gov/42391729/",
@@ -2784,19 +2798,5 @@
     "property_last_edited_time": "2026-06-03T22:07:00.000Z",
     "property_pmid": "42234315",
     "property_name": "CT-defined orbital wall burden and early visual dysfunction in acute orbital"
-  },
-  {
-    "id": "374ba464-60a7-8192-8f7c-e1f8b1c76794",
-    "name": "Dislodgement forces and cost effectiveness of prehospital securement of peripheral intravenous catheters on moist skin: a randomized controlled clinical trial in healthy volunteers.",
-    "url": "https://pubmed.ncbi.nlm.nih.gov/42234116/",
-    "property_date": null,
-    "property_tag_2": "Vascular Access",
-    "property_comment": "- **วัตถุประสงค์:** เพื่อเปรียบเทียบแรงที่ใช้ยึดตรึง PIVC ระหว่าง 4 วิธีการยึดตรึงที่ใช้ในเวชศาสตร์ฉุกเฉินบนผิวหนังที่เปียกชื้น และประเมินความคุ้มค่าทางด้านต้นทุน\n- **วิธีการ:** ทา artificial sweat บนผิวหนังของอาสาสมัคร 180 ราย ติดตั้ง PIVC ที่ forearm โดยใช้อุปกรณ์ยึดตรึง 4 ชนิด ได้แก่ elastic gauze, cohesive gauze, clingfilm และ velcro securing device จากนั้นออกแรงดึงเพิ่มขึ้นอย่างต่อเนื่องจนกระทั่งหลุด วิเคราะห์ผลด้วย Friedman's test หรือ repeated measures ANOVA\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** clingfilm ต้านทานแรงดึงได้ดีที่สุด รองลงมาคือ cohesive gauze ด้าน velcro securing device ต้านแรงดึงระดับต่ำได้ดีที่สุดแต่หลุดอย่างรวดเร็วเมื่อเจอแรงดึงที่สูงขึ้น ส่วน elastic gauze อ่อนแอที่สุดในทุกประเภท สำหรับต้นทุน clingfilm ประหยัดที่สุด (4 ct) ตามด้วย elastic gauze (12 ct), cohesive gauze (60 ct) และ velcro securing device (316 ct)\n- **Study Design:** Randomized Controlled Trial (RCT)\n- **Clinical Relevance:** ควรใช้ clingfilm หรือ cohesive gauze ยึดตรึง PIVC บนผิวเปียกชื้นใน ER",
-    "property_status": "Not started",
-    "property_tag_3": "Randomized Controlled Trial",
-    "property_tag_1": "Emergency Medicine",
-    "property_last_edited_time": "2026-06-03T22:06:00.000Z",
-    "property_pmid": "42234116",
-    "property_name": "Dislodgement forces and cost effectiveness of prehospital securement of peripheral intravenous catheters on moist skin: a randomized controlled clinical trial in healthy volunteers."
   }
 ]

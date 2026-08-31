@@ -1,5 +1,19 @@
 [
   {
+    "id": "35eba464-60a7-81a8-a41e-eb19e2c028bf",
+    "name": "Early Warning Systems and Emergency Declarations During Brazil's Largest Dengue Outbreak.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42114973/",
+    "property_date": null,
+    "property_tag_2": "Public Health",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินความสอดคล้องระหว่างการตรวจจับความเสี่ยงการระบาดอย่างทันท่วงทีด้วยระบบเตือนภัยล่วงหน้า (Early warning systems) และการตอบสนองด้านการจัดการสาธารณสุข ในช่วงวิกฤตการระบาดของโรคไข้เลือดออกครั้งใหญ่ที่สุดในบราซิลปี 2024\n- **วิธีการ:** รวบรวมข้อมูลผู้ติดเชื้อ ผู้เสียชีวิต และการประกาศภาวะฉุกเฉินด้านสาธารณสุข (PHEDs) ทั้งในระดับรัฐบาลกลาง รัฐ และท้องถิ่น ทำการประเมินความทันท่วงทีในการประกาศโดยอ้างอิงเกณฑ์ระดับความเสี่ยง และใช้สมการถดถอยโลจิสติก (Logistic regression) เพื่อวิเคราะห์ว่าความรุนแรงของโรคระบาดมีความสัมพันธ์กับการประกาศภาวะฉุกเฉินหรือไม่ โดยคำนึงถึงปัจจัยด้านการเมืองและการครอบคลุมของระบบสาธารณสุขปฐมภูมิ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** สถานการณ์ระบาดรุนแรงขึ้นอย่างรวดเร็ว แต่หลายพื้นที่กลับประกาศภาวะฉุกเฉินหลังจากเข้าสู่เกณฑ์ระดับการระบาดไปแล้วระยะหนึ่ง (บางพื้นที่ที่มีภาระโรคสูงไม่ได้ประกาศเลย) ผลการวิเคราะห์ด้วยแบบจำลองความถดถอยโลจิสติกพบว่า มีเพียงปัจจัยด้าน \"ระยะเวลา\" ที่เผชิญกับความเสี่ยงระดับสูงเท่านั้นที่สามารถทำนายการประกาศภาวะฉุกเฉินได้อย่างมีนัยสำคัญ ส่วนปัจจัยทางการเมืองและระบบสาธารณสุขไม่มีผล แสดงให้เห็นว่าการประกาศภาวะฉุกเฉินเกิดขึ้นจากการปล่อยให้การระบาดยืดเยื้อมากกว่าการตรวจจับและตอบสนองล่วงหน้าอย่างรวดเร็ว",
+    "property_status": "Not started",
+    "property_tag_3": "Epidemiology",
+    "property_tag_1": "Dengue",
+    "property_last_edited_time": "2026-05-12T11:13:00.000Z",
+    "property_pmid": "42114973",
+    "property_name": "Early Warning Systems and Emergency Declarations During Brazil's Largest Dengue Outbreak."
+  },
+  {
     "id": "35eba464-60a7-8162-9bcb-e2044e474654",
     "name": "Artificial Intelligence-Enhanced Electrocardiography and Health Records to Predict Cardiac Arrest.",
     "url": "https://pubmed.ncbi.nlm.nih.gov/42114451/",
@@ -2594,17 +2608,5 @@
     "property_last_edited_time": "2026-01-05T19:20:00.000Z",
     "property_pmid": "41487800",
     "property_name": "Non-pharmacological Perioperative Interventions for the Prevention of Postoperative Delirium in Elderly Patients Undergoing Hip and Knee Arthroplasty Surgery: A Systematic Review"
-  },
-  {
-    "id": "2dfba464-60a7-8142-8360-f06764c0335f",
-    "name": "Extracorporeal membrane oxygenation support for tropical infections: a scoping review",
-    "url": "https://pubmed.ncbi.nlm.nih.gov/41485007/",
-    "property_tag_2": "Infectious Diseases",
-    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนหลักฐานและบทบาทของการใช้เครื่องช่วยพยุงการทำงานของหัวใจและปอด (ECMO) ในการรักษาผู้ป่วยโรคติดเชื้อในเขตร้อน (Tropical infections) ซึ่งยังเป็นเรื่องที่ขาดข้อมูลการศึกษาที่ชัดเจนในปัจจุบัน\n- **วิธีการ:** คณะผู้วิจัยทำการระบุรายชื่อโรคติดเชื้อในเขตร้อนทั้งไวรัส แบคทีเรีย เชื้อรา และปรสิต โดยอิงตามเกณฑ์โรคเขตร้อนที่ถูกละเลย (NTD) ของ WHO หรือโรคที่มีความชุกสูงในเขตร้อน และทำการทบทวนวรรณกรรมที่เกี่ยวข้องกับการใช้ ECMO เพื่อรองรับผู้ป่วยกลุ่มนี้\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบว่ามีการใช้ ECMO ในโรคติดเชื้อหลายชนิดด้วยผลลัพธ์ที่แตกต่างกัน โดยโรคฉี่หนู (Leptospirosis) มีรายงานอัตราการรอดชีวิตสูงถึง 84% เมื่อใช้ Venovenous ECMO ส่วนโรค American trypanosomiasis มีอัตราการรอดชีวิต 71% เมื่อใช้ Venoarterial ECMO เพื่อรอการปลูกถ่าย ในทางกลับกันผู้ป่วย MERS มีอัตราการเสียชีวิตสูงกว่า 65% นอกจากนี้ยังพบความสำเร็จในการใช้ ECMO กับโรคไข้เลือดออก มาลาเรีย และวัณโรค",
-    "property_tag_3": "Tropical Medicine",
-    "property_tag_1": "Critical Care",
-    "property_last_edited_time": "2026-01-05T17:07:00.000Z",
-    "property_pmid": "41485007",
-    "property_name": "Extracorporeal membrane oxygenation support for tropical infections: a scoping review"
   }
 ]

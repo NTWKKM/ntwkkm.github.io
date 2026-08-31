@@ -1,5 +1,19 @@
 [
   {
+    "id": "3cdba464-60a7-81c9-bcd2-cccc7ecd066f",
+    "name": "Population Pharmacokinetic and Pharmacodynamic Analysis of Imipenem in Critically Ill Patients Receiving Continuous Renal Replacement Therapy",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42666963/",
+    "property_date": null,
+    "property_tag_2": "CRRT",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อพัฒนา population pharmacokinetic (PopPK) model สำหรับ imipenem ในผู้ป่วย critically ill ที่ได้รับ CRRT และประเมิน probability of target attainment (PTA) ในการบรรลุเป้าหมาย 40% fT>MIC ภายใต้สถานการณ์ทางคลินิกและ dosing regimens ต่างๆ\n- **วิธีการ:** เก็บข้อมูลย้อนหลังให้ผู้ป่วย critically ill ที่ได้รับ CRRT จำนวน 46 ราย (ตัวอย่าง plasma 560 ตัวอย่าง และ waste fluid 280 ตัวอย่าง) โดยใช้ NONMEM method ในการสร้าง PopPK model และใช้ Monte Carlo simulations (1,000 virtual patients ต่อ scenario) เพื่อประเมิน PD target attainment ตามระดับ CrCl, MIC ของเชื้อ และรูปแบบ CRRT (CVVH และ CVVHDF)\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** พฤติกรรมทางเภสัชจลนศาสตร์ของ imipenem อธิบายได้ดีที่สุดด้วย two-compartment model โดยมี typical population clearance 6.08 L/h และ central volume of distribution 24.4 L โดยพบว่า CrCl เป็น covariate ที่มีนัยสำคัญต่อ clearance สำหรับ PTA พบว่าหาก MIC ≤ 2 mg/L สามารถบรรลุเป้าหมายได้ในทุกกลุ่มย่อย แต่หาก MIC เพิ่มเป็น 8 mg/L ในกลุ่มที่มี high clearance จำเป็นต้องเพิ่มโดสเป็น 1 g q6h และหาก MIC ≥ 16 mg/L การเพิ่มโดสเพียงอย่างเดียวไม่เพียงพอ ควรพิจารณา combination therapy\n- **Study Design:** Retrospective Study\n- **Clinical Relevance:** ช่วยปรับโดส imipenem ตามค่า CrCl และ MIC เพื่อเพิ่มประสิทธิภาพการรักษาผู้ป่วยวิกฤต",
+    "property_status": "Not started",
+    "property_tag_3": "Imipenem",
+    "property_tag_1": "Pharmacokinetics",
+    "property_last_edited_time": "2026-08-31T23:42:00.000Z",
+    "property_pmid": "42666963",
+    "property_name": "Population Pharmacokinetic and Pharmacodynamic Analysis of Imipenem in Critically Ill Patients Receiving Continuous Renal Replacement Therapy"
+  },
+  {
     "id": "3cdba464-60a7-814e-9e54-cef35b9427e8",
     "name": "Criteria for the diagnosis of cardiogenic shock-European perspective: A Clinical Consensus Statement",
     "url": "https://pubmed.ncbi.nlm.nih.gov/42667225/",
@@ -2784,19 +2798,5 @@
     "property_last_edited_time": "2026-08-04T16:23:00.000Z",
     "property_pmid": "42547085",
     "property_name": "Effectiveness of RSV Prevention Strategies in US Infants: 2024-2025"
-  },
-  {
-    "id": "3b1ba464-60a7-8156-aa7f-efab166c68e4",
-    "name": "Evidence for Electrocardiographic Patterns Identifying Acute Coronary Occlusion in Non-ST-Elevation Acute Coronary Syndromes: A Scoping Review",
-    "url": "https://pubmed.ncbi.nlm.nih.gov/42543734/",
-    "property_date": null,
-    "property_tag_2": "Emergency",
-    "property_comment": "- **วัตถุประสงค์:** เพื่อรวบรวมและวิเคราะห์ขอบเขต คุณลักษณะ และระเบียบวิธีวิจัยของการศึกษาเบื้องต้นที่ตรวจสอบ ECG patterns ในผู้ป่วย non-ST-elevation เพื่อระบุภาวะ Acute Coronary Occlusion (ACO)\n- **วิธีการ:** ค้นหาข้อมูลจากฐานข้อมูลอิเล็กทรอนิกส์ ร่วมกับการติดตาม citation แบบ backward และ forward โดยคัดเลือกการศึกษาที่ประเมิน non-ST-elevation ECG patterns เทียบกับ angiographic หรือ composite reference standard สำหรับ ACO และคัดออกหากใช้ stenosis severity หรือ anatomical disease burden เป็นมาตรฐานอ้างอิง\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** พบการศึกษา 42 ฉบับ (78 pattern-level data sources) ครอบคลุม 20 ECG patterns โดยมีเพียง 23/78 แหล่งข้อมูลที่ประเมินผู้ป่วย undifferentiated ACS และ 33/78 แหล่งที่มีการนิยาม index test ที่วัดผลได้ มีการรายงาน diagnostic test accuracy เพียง 29/78 แหล่งข้อมูล ซึ่งส่วนใหญ่อยู่ในกลุ่ม LBBB/VPR\n- **Study Design:** Scoping Review\n- **Clinical Relevance:** ข้อมูล ECG patterns สำหรับระบุ ACO ใน non-STEMI ยังขาดมาตรฐานและความชัดเจน",
-    "property_status": "Not started",
-    "property_tag_3": "ECG",
-    "property_tag_1": "Cardiology",
-    "property_last_edited_time": "2026-08-03T12:26:00.000Z",
-    "property_pmid": "42543734",
-    "property_name": "Evidence for Electrocardiographic Patterns Identifying Acute Coronary Occlusion in Non-ST-Elevation Acute Coronary Syndromes: A Scoping Review"
   }
 ]

@@ -1,5 +1,19 @@
 [
   {
+    "id": "3b1ba464-60a7-8156-aa7f-efab166c68e4",
+    "name": "Evidence for Electrocardiographic Patterns Identifying Acute Coronary Occlusion in Non-ST-Elevation Acute Coronary Syndromes: A Scoping Review",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42543734/",
+    "property_date": null,
+    "property_tag_2": "Emergency",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อรวบรวมและวิเคราะห์ขอบเขต คุณลักษณะ และระเบียบวิธีวิจัยของการศึกษาเบื้องต้นที่ตรวจสอบ ECG patterns ในผู้ป่วย non-ST-elevation เพื่อระบุภาวะ Acute Coronary Occlusion (ACO)\n- **วิธีการ:** ค้นหาข้อมูลจากฐานข้อมูลอิเล็กทรอนิกส์ ร่วมกับการติดตาม citation แบบ backward และ forward โดยคัดเลือกการศึกษาที่ประเมิน non-ST-elevation ECG patterns เทียบกับ angiographic หรือ composite reference standard สำหรับ ACO และคัดออกหากใช้ stenosis severity หรือ anatomical disease burden เป็นมาตรฐานอ้างอิง\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** พบการศึกษา 42 ฉบับ (78 pattern-level data sources) ครอบคลุม 20 ECG patterns โดยมีเพียง 23/78 แหล่งข้อมูลที่ประเมินผู้ป่วย undifferentiated ACS และ 33/78 แหล่งที่มีการนิยาม index test ที่วัดผลได้ มีการรายงาน diagnostic test accuracy เพียง 29/78 แหล่งข้อมูล ซึ่งส่วนใหญ่อยู่ในกลุ่ม LBBB/VPR\n- **Study Design:** Scoping Review\n- **Clinical Relevance:** ข้อมูล ECG patterns สำหรับระบุ ACO ใน non-STEMI ยังขาดมาตรฐานและความชัดเจน",
+    "property_status": "Not started",
+    "property_tag_3": "ECG",
+    "property_tag_1": "Cardiology",
+    "property_last_edited_time": "2026-08-03T12:26:00.000Z",
+    "property_pmid": "42543734",
+    "property_name": "Evidence for Electrocardiographic Patterns Identifying Acute Coronary Occlusion in Non-ST-Elevation Acute Coronary Syndromes: A Scoping Review"
+  },
+  {
     "id": "3b1ba464-60a7-81d2-ac5d-ebd45fca5917",
     "name": "Association Between Initial Admission Ward and In-Hospital Mortality Among Patients Hospitalized for Cardiovascular Emergencies - A Nationwide Study Using the JROAD-DPC Database",
     "url": "https://pubmed.ncbi.nlm.nih.gov/42543601/",
@@ -2784,19 +2798,5 @@
     "property_last_edited_time": "2026-07-03T09:21:00.000Z",
     "property_pmid": "42391823",
     "property_name": "Ultrasound Characterization of the Distal Thigh Great Saphenous Vein Dimensions in Children and Adults: Implications for Peripheral Rescue Access."
-  },
-  {
-    "id": "392ba464-60a7-8153-bd67-c9476d79ff8c",
-    "name": "Can AI improve triage quality? A preliminary assessment of ChatGPT performance in evaluating triage decisions.",
-    "url": "https://pubmed.ncbi.nlm.nih.gov/42391742/",
-    "property_date": null,
-    "property_tag_2": "Triage",
-    "property_comment": "- **วัตถุประสงค์:** เพื่อสำรวจศักยภาพของ ChatGPT ในการประเมินความเหมาะสมของระดับการคัดแยกผู้ป่วยตามระบบ Tuscan Triage System (STT) ย้อนหลัง\n- **วิธีการ:** ใช้สถานการณ์คัดแยกผู้ป่วยที่ไม่ระบุชื่อ 50 สถานการณ์จากกรอบการทบทวนคุณภาพและการศึกษา โดยผู้เชี่ยวชาญด้านการคัดแยก 2 คนประเมินและลงรหัสอย่างอิสระ และผู้เชี่ยวชาญคนที่สามแก้ไขข้อขัดแย้ง จากนั้นให้ ChatGPT (GPT-4o) ประเมินแต่ละสถานการณ์ว่าการคัดแยกเดิมเหมาะสมหรือไม่ เปรียบเทียบกับมาตรฐานอ้างอิงจากผู้เชี่ยวชาญ\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** ความสอดคล้องแบบตรงระหว่าง ChatGPT กับผู้เชี่ยวชาญอยู่ที่ 46% ความไม่สอดคล้องส่วนใหญ่เป็นการคัดแยกต่ำกว่า (38%) มากกว่าสูงกว่า (16%) ค่า Cohen's Kappa โดยรวมเท่ากับ 0.243 ประสิทธิภาพสูงในกรณีที่มีความซับซ้อนสูง (κ = 0.313; F1 = 0.704) แต่ลดลงในกลุ่มปานกลางและต่ำ การจำแนกผิดส่วนใหญ่เกิดขึ้นระหว่างระดับที่อยู่ติดกัน\n- **Study Design:** Cross-sectional\n- **Clinical Relevance:** ChatGPT อาจใช้เป็นเครื่องมือประกันคุณภาพการคัดแยกผู้ป่วยย้อนหลัง",
-    "property_status": "Not started",
-    "property_tag_3": "Emergency Department",
-    "property_tag_1": "ChatGPT",
-    "property_last_edited_time": "2026-07-03T09:20:00.000Z",
-    "property_pmid": "42391742",
-    "property_name": "Can AI improve triage quality? A preliminary assessment of ChatGPT performance in evaluating triage decisions."
   }
 ]

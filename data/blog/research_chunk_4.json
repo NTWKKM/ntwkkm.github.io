@@ -1,5 +1,19 @@
 [
   {
+    "id": "374ba464-60a7-8192-8f7c-e1f8b1c76794",
+    "name": "Dislodgement forces and cost effectiveness of prehospital securement of peripheral intravenous catheters on moist skin: a randomized controlled clinical trial in healthy volunteers.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/42234116/",
+    "property_date": null,
+    "property_tag_2": "Vascular Access",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อเปรียบเทียบแรงที่ใช้ยึดตรึง PIVC ระหว่าง 4 วิธีการยึดตรึงที่ใช้ในเวชศาสตร์ฉุกเฉินบนผิวหนังที่เปียกชื้น และประเมินความคุ้มค่าทางด้านต้นทุน\n- **วิธีการ:** ทา artificial sweat บนผิวหนังของอาสาสมัคร 180 ราย ติดตั้ง PIVC ที่ forearm โดยใช้อุปกรณ์ยึดตรึง 4 ชนิด ได้แก่ elastic gauze, cohesive gauze, clingfilm และ velcro securing device จากนั้นออกแรงดึงเพิ่มขึ้นอย่างต่อเนื่องจนกระทั่งหลุด วิเคราะห์ผลด้วย Friedman's test หรือ repeated measures ANOVA\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** clingfilm ต้านทานแรงดึงได้ดีที่สุด รองลงมาคือ cohesive gauze ด้าน velcro securing device ต้านแรงดึงระดับต่ำได้ดีที่สุดแต่หลุดอย่างรวดเร็วเมื่อเจอแรงดึงที่สูงขึ้น ส่วน elastic gauze อ่อนแอที่สุดในทุกประเภท สำหรับต้นทุน clingfilm ประหยัดที่สุด (4 ct) ตามด้วย elastic gauze (12 ct), cohesive gauze (60 ct) และ velcro securing device (316 ct)\n- **Study Design:** Randomized Controlled Trial (RCT)\n- **Clinical Relevance:** ควรใช้ clingfilm หรือ cohesive gauze ยึดตรึง PIVC บนผิวเปียกชื้นใน ER",
+    "property_status": "Not started",
+    "property_tag_3": "Randomized Controlled Trial",
+    "property_tag_1": "Emergency Medicine",
+    "property_last_edited_time": "2026-06-03T22:06:00.000Z",
+    "property_pmid": "42234116",
+    "property_name": "Dislodgement forces and cost effectiveness of prehospital securement of peripheral intravenous catheters on moist skin: a randomized controlled clinical trial in healthy volunteers."
+  },
+  {
     "id": "374ba464-60a7-8157-92f5-cc79c18a581f",
     "name": "Angioedema as anaphylactic reaction following tenecteplase administration in acute ischemic stroke: A case report.",
     "url": "https://pubmed.ncbi.nlm.nih.gov/42232441/",
@@ -2784,19 +2798,5 @@
     "property_last_edited_time": "2026-05-12T11:14:00.000Z",
     "property_pmid": "42115064",
     "property_name": "Sex-related disparities in sepsis in western Europe: A systematic review and meta-analysis."
-  },
-  {
-    "id": "35eba464-60a7-81a8-a41e-eb19e2c028bf",
-    "name": "Early Warning Systems and Emergency Declarations During Brazil's Largest Dengue Outbreak.",
-    "url": "https://pubmed.ncbi.nlm.nih.gov/42114973/",
-    "property_date": null,
-    "property_tag_2": "Public Health",
-    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินความสอดคล้องระหว่างการตรวจจับความเสี่ยงการระบาดอย่างทันท่วงทีด้วยระบบเตือนภัยล่วงหน้า (Early warning systems) และการตอบสนองด้านการจัดการสาธารณสุข ในช่วงวิกฤตการระบาดของโรคไข้เลือดออกครั้งใหญ่ที่สุดในบราซิลปี 2024\n- **วิธีการ:** รวบรวมข้อมูลผู้ติดเชื้อ ผู้เสียชีวิต และการประกาศภาวะฉุกเฉินด้านสาธารณสุข (PHEDs) ทั้งในระดับรัฐบาลกลาง รัฐ และท้องถิ่น ทำการประเมินความทันท่วงทีในการประกาศโดยอ้างอิงเกณฑ์ระดับความเสี่ยง และใช้สมการถดถอยโลจิสติก (Logistic regression) เพื่อวิเคราะห์ว่าความรุนแรงของโรคระบาดมีความสัมพันธ์กับการประกาศภาวะฉุกเฉินหรือไม่ โดยคำนึงถึงปัจจัยด้านการเมืองและการครอบคลุมของระบบสาธารณสุขปฐมภูมิ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** สถานการณ์ระบาดรุนแรงขึ้นอย่างรวดเร็ว แต่หลายพื้นที่กลับประกาศภาวะฉุกเฉินหลังจากเข้าสู่เกณฑ์ระดับการระบาดไปแล้วระยะหนึ่ง (บางพื้นที่ที่มีภาระโรคสูงไม่ได้ประกาศเลย) ผลการวิเคราะห์ด้วยแบบจำลองความถดถอยโลจิสติกพบว่า มีเพียงปัจจัยด้าน \"ระยะเวลา\" ที่เผชิญกับความเสี่ยงระดับสูงเท่านั้นที่สามารถทำนายการประกาศภาวะฉุกเฉินได้อย่างมีนัยสำคัญ ส่วนปัจจัยทางการเมืองและระบบสาธารณสุขไม่มีผล แสดงให้เห็นว่าการประกาศภาวะฉุกเฉินเกิดขึ้นจากการปล่อยให้การระบาดยืดเยื้อมากกว่าการตรวจจับและตอบสนองล่วงหน้าอย่างรวดเร็ว",
-    "property_status": "Not started",
-    "property_tag_3": "Epidemiology",
-    "property_tag_1": "Dengue",
-    "property_last_edited_time": "2026-05-12T11:13:00.000Z",
-    "property_pmid": "42114973",
-    "property_name": "Early Warning Systems and Emergency Declarations During Brazil's Largest Dengue Outbreak."
   }
 ]
