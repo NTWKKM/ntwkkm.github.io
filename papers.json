@@ -1,10 +1,80 @@
 [
   {
-    "date": "30 Aug",
+    "date": "31 Aug",
     "title": "Safety and efficacy of the 0/1 h pathway for myocardial infarction in the emergency department: an international, pragmatic, stepped-wedge, cluster-randomised, controlled trial.",
-    "comment": "เปลี่ยน standard of care ในการจัดการ MI เพื่อลดเวลา ischemic time",
+    "comment": "เปลี่ยน standard of care การจัดการ MI ใน ER เพื่อลดระยะเวลา Ischemia",
     "pmid": "42667934",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42667934/"
+  },
+  {
+    "date": "31 Aug",
+    "title": "Artificial intelligence-based ECG as a triage tool for acute myocardial infarction: a diagnostic systematic review and meta-analysis.",
+    "comment": "ใช้ AI-ECG ช่วย Triage ผู้ป่วย AMI เพิ่มความแม่นยำในการคัดกรองเบื้องต้น",
+    "pmid": "42668832",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42668832/"
+  },
+  {
+    "date": "31 Aug",
+    "title": "Less Invasive Rapid Tranquilization in LMIC Emergency Settings: Comparison of Oral Risperidone Plus Clonazepam Versus Intramuscular Haloperidol in a Randomized Trial.",
+    "comment": "ทางเลือกใหม่ในการทำ Rapid Tranquilization ที่ลดการเจ็บตัวและผลข้างเคียง",
+    "pmid": "42668395",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42668395/"
+  },
+  {
+    "date": "31 Aug",
+    "title": "Contrast-enhanced chest computed tomography in acute heart failure: a narrative review of imaging clues to precipitating factors and underlying cardiac disease.",
+    "comment": "แนวทางการใช้ CE-CT หา precipitating cause ของ Acute HF ใน ER",
+    "pmid": "42669411",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42669411/"
+  },
+  {
+    "date": "31 Aug",
+    "title": "Prothrombin complex concentrate (PCC) vs. non-PCC strategies for warfarin reversal in left ventricular assist device recipients: A systematic review and meta-analysis.",
+    "comment": "เปรียบเทียบประสิทธิภาพการ Reverse Warfarin ในกลุ่มเสี่ยงสูง (LVAD)",
+    "pmid": "42667788",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667788/"
+  },
+  {
+    "date": "31 Aug",
+    "title": "Diagnostic value of platelet-lymphocyte ratio for pediatric sepsis: A systematic review and meta-analysis.",
+    "comment": "ใช้ PLR เป็น biomarker ช่วยวินิจฉัย Pediatric Sepsis ใน ER",
+    "pmid": "42668943",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42668943/"
+  },
+  {
+    "date": "31 Aug",
+    "title": "Group A Streptococcus molecular point of care testing in a paediatric emergency department.",
+    "comment": "การใช้ POCT ตรวจ GAS ในเด็ก ช่วยให้เริ่ม antibiotic ได้เร็วขึ้น",
+    "pmid": "42669628",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42669628/"
+  },
+  {
+    "date": "31 Aug",
+    "title": "Early Identification of Children at Risk for Complicated Parapneumonic Pleural Effusion: Development of a Prediction Model.",
+    "comment": "Model ทำนายความเสี่ยง Complicated PPE ในเด็ก เพื่อการจัดการที่รวดเร็ว",
+    "pmid": "42669040",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42669040/"
+  },
+  {
+    "date": "31 Aug",
+    "title": "Development of a machine-learning risk stratification tool for vasoactive medication need after two-bolus fluid resuscitation in pediatric suspected sepsis.",
+    "comment": "ใช้ ML ทำนายความจำเป็นในการใช้ยา Vasoactive ในเด็ก suspected sepsis",
+    "pmid": "42668278",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42668278/"
+  },
+  {
+    "date": "31 Aug",
+    "title": "What you don't see matters: dual-energy CT in emergency radiology.",
+    "comment": "เพิ่มประสิทธิภาพการวินิจฉัยใน ER ด้วย Dual-Energy CT",
+    "pmid": "42667564",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667564/"
+  },
+  {
+    "date": "31 Aug",
+    "title": "Traumatic Brain Injury in Austere Environments: a Review of Recent Advances.",
+    "comment": "Update การจัดการ TBI ในสภาพแวดล้อมจำกัดหรือนอกโรงพยาบาล",
+    "pmid": "42667521",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42667521/"
   },
   {
     "date": "30 Aug",
@@ -15,59 +85,10 @@
   },
   {
     "date": "30 Aug",
-    "title": "Artificial intelligence-based ECG as a triage tool for acute myocardial infarction: a diagnostic systematic review and meta-analysis.",
-    "comment": "ใช้ AI-ECG ช่วย triage ผู้ป่วย MI ใน ER เพิ่มความแม่นยำและรวดเร็ว",
-    "pmid": "42668832",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42668832/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "Less Invasive Rapid Tranquilization in LMIC Emergency Settings: Comparison of Oral Risperidone Plus Clonazepam Versus Intramuscular Haloperidol in a Randomized Trial.",
-    "comment": "ทางเลือกใหม่ในการทำ Rapid Tranquilization ที่ลดการรุกล้ำร่างกายและปลอดภัยขึ้น",
-    "pmid": "42668395",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42668395/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "Prothrombin complex concentrate (PCC) vs. non-PCC strategies for warfarin reversal in left ventricular assist device recipients: A systematic review and meta-analysis.",
-    "comment": "หลักฐานสนับสนุนการใช้ PCC ในการ reverse warfarin ในผู้ป่วยกลุ่มเสี่ยงสูง",
-    "pmid": "42667788",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42667788/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "Diagnostic value of platelet-lymphocyte ratio for pediatric sepsis: A systematic review and meta-analysis.",
-    "comment": "ใช้ PLR เป็น marker ช่วยวินิจฉัย sepsis ในเด็กได้รวดเร็วใน ER",
-    "pmid": "42668943",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42668943/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "Development of a machine-learning risk stratification tool for vasoactive medication need after two-bolus fluid resuscitation in pediatric suspected sepsis.",
-    "comment": "เครื่องมือ ML ช่วยทำนายความจำเป็นในการใช้ยาเพิ่มความดันในเด็ก sepsis",
-    "pmid": "42668278",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42668278/"
-  },
-  {
-    "date": "30 Aug",
     "title": "Direct oral anticoagulants versus vitamin K antagonists after venous thrombosis in antiphospholipid syndrome: Recurrence, safety, and exploratory phenotype analysis. A real-life cohort study.",
     "comment": "ข้อมูลความปลอดภัยและการใช้ DOACs แทน VKA ในผู้ป่วย APS",
     "pmid": "42667744",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42667744/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "Early Identification of Children at Risk for Complicated Parapneumonic Pleural Effusion: Development of a Prediction Model.",
-    "comment": "Model ช่วยระบุเด็กกลุ่มเสี่ยงที่จะเกิด Complicated PPE เพื่อการรักษาที่เร็วขึ้น",
-    "pmid": "42669040",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42669040/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "What you don't see matters: dual-energy CT in emergency radiology.",
-    "comment": "ประโยชน์ของ Dual-energy CT ในการเพิ่มความแม่นยำของการวินิจฉัยทางรังสีใน ER",
-    "pmid": "42667564",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42667564/"
   },
   {
     "date": "30 Aug",
@@ -96,13 +117,6 @@
     "comment": "แนวทางการจัดการเชื้อราใน ICU เน้นการวินิจฉัยที่แม่นยำและการเลือกยา antifungal",
     "pmid": "42667299",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42667299/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "Traumatic Brain Injury in Austere Environments: a Review of Recent Advances.",
-    "comment": "รวมเทคนิคการจัดการ TBI ในสภาวะทรัพยากรจำกัด ซึ่งนำมาปรับใช้ในจุดเกิดเหตุได้",
-    "pmid": "42667521",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42667521/"
   },
   {
     "date": "30 Aug",
@@ -474,19 +488,5 @@
     "comment": "ข้อมูลการจัดการสารพิษจากกระท่อม ซึ่งพบได้บ่อยและจำเป็นต้องรู้วิธีการรักษา",
     "pmid": "42634663",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42634663/"
-  },
-  {
-    "date": "25 Aug",
-    "title": "Development and Validation of Temperature Trajectory-Based Phenotypes in Pediatric Sepsis: A Multicenter Retrospective Cohort Study, 2012-2018.",
-    "comment": "ใช้รูปแบบอุณหภูมิระบุ phenotype ของ sepsis ในเด็ก เพื่อการรักษาที่แม่นยำขึ้น",
-    "pmid": "42635485",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42635485/"
-  },
-  {
-    "date": "25 Aug",
-    "title": "Emergency Department Predictors of Mechanical Ventilation in Pediatric Spine Fracture Patients in the US.",
-    "comment": "ตัวบ่งชี้การใส่ท่อช่วยหายใจในเด็กที่กระดูกสันหลังหัก ช่วยในการประเมินความเสี่ยงตั้งแต่แรกรับ",
-    "pmid": "42635466",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42635466/"
   }
 ]
