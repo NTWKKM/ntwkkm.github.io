@@ -1,6 +1,90 @@
 [
   {
     "date": "1 Sep",
+    "title": "Single High-Sensitivity Cardiac Troponin Measurement to Rule-out/Rule-in Myocardial Infarction in the Emergency Department.",
+    "comment": "ปรับปรุงการคัดกรอง MI ใน ER ให้เร็วขึ้นด้วยการใช้ hs-cTn ครั้งเดียว",
+    "pmid": "42670216",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42670216/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Accuracy of lung ultrasound in the diagnosis of acute respiratory distress syndrome: a systematic review and meta-analysis.",
+    "comment": "ยืนยันความแม่นยำของ LUS ในการวินิจฉัย ARDS ซึ่งใช้ได้ทันทีที่ bedside",
+    "pmid": "42671769",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42671769/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Artificial intelligence for predicting 30-day mortality after emergency laparotomy.",
+    "comment": "ใช้ AI ช่วยพยากรณ์อัตราตายหลังผ่าตัดฉุกเฉิน เพื่อวางแผนการดูแลผู้ป่วย",
+    "pmid": "42671572",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42671572/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Hypernatremia in the critically Ill: beyond free water replacement.",
+    "comment": "แนวทางการจัดการ Hypernatremia ในผู้ป่วยวิกฤตที่ซับซ้อนกว่าการเติมน้ำเปล่า",
+    "pmid": "42671609",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42671609/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Just the facts: what emergency physicians should know about catheter ablations for atrial fibrillation.",
+    "comment": "ข้อมูลสำคัญที่แพทย์ ER ต้องทราบเพื่อจัดการผู้ป่วยหลังทำ catheter ablation",
+    "pmid": "42671770",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42671770/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Targeted Use of Computed Tomographic Coronary Angiography in Acute Chest Pain.",
+    "comment": "แนวทางการใช้ CTCA อย่างเหมาะสมในผู้ป่วย Chest pain เพื่อลดการตรวจไม่จำเป็น",
+    "pmid": "42670980",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42670980/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Immediate Ambulatory Electrocardiographic Monitoring in Syncope.",
+    "comment": "การใช้ monitoring ทันทีในผู้ป่วย Syncope เพื่อเพิ่มอัตราการตรวจพบ arrhythmia",
+    "pmid": "42670977",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42670977/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Sepsis-associated liver injury: from liver-test risk signals to immunobiology-guided precision medicine.",
+    "comment": "ความเข้าใจเรื่องตับวายจาก sepsis เพื่อการรักษาที่แม่นยำขึ้นในผู้ป่วยวิกฤต",
+    "pmid": "42671610",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42671610/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Emergency management protocols for major complications after oral and maxillofacial surgery: emphasis on airway and bleeding control.",
+    "comment": "Protocol จัดการทางเดินหายใจและเลือดออกหลังผ่าตัดช่องปากและใบหน้า",
+    "pmid": "42670164",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42670164/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Comparison of Oral and Intravenous Nitroglycerin in the Treatment of Acute Postpartum Hypertension After Cesarean Delivery for Preeclampsia.",
+    "comment": "เปรียบเทียบประสิทธิภาพยาลดความดันหลังคลอดในผู้ป่วย Preeclampsia",
+    "pmid": "42671445",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42671445/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Diagnostic Accuracy of Cryptococcal Antigen Lateral Flow Assay Compared With Microscopy and Culture in Suspected Cryptococcal Meningitis.",
+    "comment": "ยืนยันความแม่นยำของ CrAg LFA ในการวินิจฉัยเยื่อหุ้มสมองอักเสบจากเชื้อรา",
+    "pmid": "42670495",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42670495/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Takotsubo syndrome diagnosis: the biomarker-based BioTAK score.",
+    "comment": "เครื่องมือใหม่ (BioTAK score) ช่วยแยก Takotsubo ออกจาก MI",
+    "pmid": "42670759",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42670759/"
+  },
+  {
+    "date": "1 Sep",
     "title": "Safety and efficacy of the 0/1 h pathway for myocardial infarction in the emergency department: an international, pragmatic, stepped-wedge, cluster-randomised, controlled trial.",
     "comment": "เปลี่ยน standard of care การจัดการเวลาใน MI pathway เพื่อลดความล่าช้าใน ER",
     "pmid": "42667934",
@@ -404,89 +488,5 @@
     "comment": "Practice Changing: เปรียบเทียบ IM vs IV midazolam ในการจัดการ acute agitation ใน ER",
     "pmid": "42640630",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42640630/"
-  },
-  {
-    "date": "26 Aug",
-    "title": "Extracorporeal membrane oxygenation use in trauma and emergency care: An update.",
-    "comment": "Novel Tool: อัปเดตการใช้ ECMO ในผู้ป่วย trauma และกรณีฉุกเฉิน",
-    "pmid": "42640745",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42640745/"
-  },
-  {
-    "date": "26 Aug",
-    "title": "Methadone vs Buprenorphine-Naloxone in Opioid Overdose Survivors.",
-    "comment": "High-Impact Controversy: เปรียบเทียบยาในผู้รอดชีวิตจาก Opioid overdose เพื่อการรักษาต่อเนื่อง",
-    "pmid": "42640642",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42640642/"
-  },
-  {
-    "date": "26 Aug",
-    "title": "Artificial Intelligence Technology Enhancing Emergency Department Triage: An Integrative Review.",
-    "comment": "Novel Tool: การนำ AI มาใช้เพิ่มประสิทธิภาพการทำ Triage ใน ER",
-    "pmid": "42641001",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42641001/"
-  },
-  {
-    "date": "26 Aug",
-    "title": "Risk factors for hypothermia on trauma center arrival in injured children.",
-    "comment": "Safety Signal: ปัจจัยเสี่ยงภาวะตัวเย็นในเด็กที่ส่งมายัง Trauma center",
-    "pmid": "42641059",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42641059/"
-  },
-  {
-    "date": "26 Aug",
-    "title": "Emergency MRI in acute dizziness and headache: current insights and future directions.",
-    "comment": "Novel Tool: แนวทางการใช้ MRI เร่งด่วนในผู้ป่วยเวียนศีรษะและปวดศีรษะเฉียบพลัน",
-    "pmid": "42639223",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42639223/"
-  },
-  {
-    "date": "26 Aug",
-    "title": "A multimarker panel for predicting short-term outcome after intravenous thrombolysis in acute ischemic stroke: a retrospective study.",
-    "comment": "Novel Tool: ชุดตัวบ่งชี้พยากรณ์ผลลัพธ์ระยะสั้นหลังให้ IV thrombolysis ใน stroke",
-    "pmid": "42639121",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42639121/"
-  },
-  {
-    "date": "26 Aug",
-    "title": "Distal radius fractures: interspecialty agreement on reduction adequacy following emergency department reduction.",
-    "comment": "Safety Signal: ความสอดคล้องในการประเมินการดึงกระดูก distal radius ใน ER",
-    "pmid": "42640545",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42640545/"
-  },
-  {
-    "date": "26 Aug",
-    "title": "Identifying clinical subtypes in acute dyspnoea patients admitted to the emergency department: a secondary model-based clustering of prospective cohorts.",
-    "comment": "Novel Tool: การแบ่ง subtype ผู้ป่วย dyspnoea เพื่อการรักษาที่แม่นยำขึ้น",
-    "pmid": "42641136",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42641136/"
-  },
-  {
-    "date": "25 Aug",
-    "title": "Efficacy of Intravenous Lidocaine Versus Ketorolac for Acute Pain Relief in Patients With Suspected Renal Colic Presenting to the Emergency Department at Pakistan Ordnance Factories (POF) Hospital, Wah Cantt, Pakistan.",
-    "comment": "เปรียบเทียบยาแก้ปวดใน Renal colic ซึ่งเป็น Common ER complaint เพื่อหาทางเลือกที่ดีกว่า",
-    "pmid": "42634757",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42634757/"
-  },
-  {
-    "date": "25 Aug",
-    "title": "Prehospital Transfusion With Red Blood Cells and Fresh Plasma in Helicopter Emergency Medical Services.",
-    "comment": "การให้เลือดในระยะก่อนถึงโรงพยาบาล (Prehospital) มี impact สูงต่อ survival ใน trauma",
-    "pmid": "42634272",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42634272/"
-  },
-  {
-    "date": "25 Aug",
-    "title": "Diagnostic accuracy of nurse‑performed lung ultrasound for pulmonary congestion in acute kidney injury: An exploratory study.",
-    "comment": "การใช้ LUS โดยพยาบาลเพื่อวินิจฉัย pulmonary congestion ใน AKI ช่วยเพิ่มความเร็วในการ triage",
-    "pmid": "42635548",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42635548/"
-  },
-  {
-    "date": "25 Aug",
-    "title": "Kratom Toxicity: Pharmacologic Mechanisms, Clinical Risks, and Management Considerations.",
-    "comment": "ข้อมูลการจัดการสารพิษจากกระท่อม ซึ่งพบได้บ่อยและจำเป็นต้องรู้วิธีการรักษา",
-    "pmid": "42634663",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42634663/"
   }
 ]
