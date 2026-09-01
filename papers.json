@@ -1,17 +1,87 @@
 [
   {
     "date": "1 Sep",
-    "title": "Single High-Sensitivity Cardiac Troponin Measurement to Rule-out/Rule-in Myocardial Infarction in the Emergency Department.",
-    "comment": "ปรับปรุงการคัดกรอง MI ใน ER ให้เร็วขึ้นด้วยการใช้ hs-cTn ครั้งเดียว",
-    "pmid": "42670216",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42670216/"
+    "title": "In AIS with inadequate response to tenecteplase, tirofiban vs. placebo increased excellent functional outcome rate at 90 d.",
+    "comment": "Practice Changing: ใช้ Tirofiban เพิ่ม outcome ในผู้ป่วย AIS ที่ไม่ตอบสนองต่อ tenecteplase",
+    "pmid": "42673593",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42673593/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "In septic shock, early vasopressors with restricted fluids vs. liberal fluids with later vasopressors as needed did not improve 90-d outcomes.",
+    "comment": "High-Impact Controversy: การให้ early vasopressors ร่วมกับจำกัดน้ำ ไม่ได้ทำให้ outcome ดีขึ้นกว่าเดิม",
+    "pmid": "42673586",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42673586/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Early recognition of limb necrotizing fasciitis and surgery within six hours is associated with a lower mortality risk and improved patient-reported outcomes.",
+    "comment": "Practice Changing: เน้นย้ำการผ่าตัด Necrotizing fasciitis ภายใน 6 ชม. เพื่อลด mortality",
+    "pmid": "42674563",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42674563/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Splenic artery embolization versus surgery for blunt splenic injuries: a systematic review, meta-analysis and trial sequential analysis stratified by hemodynamic status.",
+    "comment": "Practice Changing: เปรียบเทียบ SAE vs Surgery ใน blunt splenic injury ตาม hemodynamic status",
+    "pmid": "42673663",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42673663/"
   },
   {
     "date": "1 Sep",
     "title": "Accuracy of lung ultrasound in the diagnosis of acute respiratory distress syndrome: a systematic review and meta-analysis.",
-    "comment": "ยืนยันความแม่นยำของ LUS ในการวินิจฉัย ARDS ซึ่งใช้ได้ทันทีที่ bedside",
+    "comment": "Novel Tool: ยืนยันความแม่นยำของ LUS ในการวินิจฉัย ARDS ซึ่งใช้ได้ทันทีที่ bedside",
     "pmid": "42671769",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42671769/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Comparative performance of CRAMS, RTS, NISS, and ESI scores in predicting 24-hour mortality in adult multi-trauma patients: A prospective study.",
+    "comment": "Practice Changing: เปรียบเทียบ triage score เพื่อพยากรณ์ 24-hr mortality ในผู้ป่วย multi-trauma",
+    "pmid": "42673667",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42673667/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Empirical Meropenem Versus Piperacillin/Tazobactam for Critically Ill Adults With Sepsis: Feasibility of a Randomised Trial.",
+    "comment": "High-Impact Controversy: ศึกษาการเลือกใช้ antibiotic เริ่มต้นในผู้ป่วย sepsis ที่วิกฤต",
+    "pmid": "42674465",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42674465/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Cerebral Tissue Oxygen Saturation at Defibrillation and Return of Spontaneous Circulation in Out-of-Hospital Cardiac Arrest With a Shockable Rhythm.",
+    "comment": "Novel Tool: ใช้ Cerebral oxygen saturation ประเมินผู้ป่วย OHCA ที่มี shockable rhythm",
+    "pmid": "42674240",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42674240/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Contrasting the impact of fluoroquinolone exposure on aortic aneurysm and dissection risk: Insights from a US multicenter database study.",
+    "comment": "Safety Signal: ความเสี่ยงของ fluoroquinolone ต่อการเกิด aortic aneurysm และ dissection",
+    "pmid": "42674906",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42674906/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Comparison of Oral and Intravenous Nitroglycerin in the Treatment of Acute Postpartum Hypertension After Cesarean Delivery for Preeclampsia.",
+    "comment": "Practice Changing: เปรียบเทียบการให้ NTG oral vs IV ใน postpartum hypertension",
+    "pmid": "42671445",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42671445/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Analysis of factors associated with emergency airway intervention after extubation in patients surgically treated for traumatic cervical spinal cord injury without planned prophylactic airway management.",
+    "comment": "Safety Signal: ปัจจัยเสี่ยงที่ต้องทำ emergency airway หลัง extubation ใน C-spine injury",
+    "pmid": "42674947",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42674947/"
+  },
+  {
+    "date": "1 Sep",
+    "title": "Single High-Sensitivity Cardiac Troponin Measurement to Rule-out/Rule-in Myocardial Infarction in the Emergency Department.",
+    "comment": "ปรับปรุงการคัดกรอง MI ใน ER ให้เร็วขึ้นด้วยการใช้ hs-cTn ครั้งเดียว",
+    "pmid": "42670216",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42670216/"
   },
   {
     "date": "1 Sep",
@@ -61,13 +131,6 @@
     "comment": "Protocol จัดการทางเดินหายใจและเลือดออกหลังผ่าตัดช่องปากและใบหน้า",
     "pmid": "42670164",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42670164/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Comparison of Oral and Intravenous Nitroglycerin in the Treatment of Acute Postpartum Hypertension After Cesarean Delivery for Preeclampsia.",
-    "comment": "เปรียบเทียบประสิทธิภาพยาลดความดันหลังคลอดในผู้ป่วย Preeclampsia",
-    "pmid": "42671445",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42671445/"
   },
   {
     "date": "1 Sep",
@@ -425,68 +488,5 @@
     "comment": "หักล้างการใช้ AI ในการวินิจฉัย TIA โดยยืนยันว่า Clinical criteria ยังแม่นยำกว่า",
     "pmid": "42647419",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42647419/"
-  },
-  {
-    "date": "27 Aug",
-    "title": "Safety and Local Tolerability of Diazepam Nasal Spray for Children With Epilepsy Aged 2-5 Years: Final Results of a Phase 1/2a Trial",
-    "comment": "ทางเลือกใหม่ในการหยุดชักในเด็กที่ใช้ได้จริงและปลอดภัยกว่าการฉีด",
-    "pmid": "42647177",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42647177/"
-  },
-  {
-    "date": "27 Aug",
-    "title": "Clinical Utility and Diagnostic Performance of (1→3)-β-D-Glucan in Invasive Mycoses",
-    "comment": "ทบทวนประสิทธิภาพการใช้ biomarkers วินิจฉัยเชื้อราในกระแสเลือดซึ่งสำคัญในผู้ป่วยวิกฤต",
-    "pmid": "42648313",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42648313/"
-  },
-  {
-    "date": "27 Aug",
-    "title": "Risk Factors for Deep Vein Thrombosis in Hospitalized Patients With Periarticular Knee Fractures Caused by High-Energy Injuries",
-    "comment": "ข้อมูลความเสี่ยง DVT ในผู้ป่วย Trauma เฉพาะจุดเพื่อปรับการให้ Prophylaxis",
-    "pmid": "42648672",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42648672/"
-  },
-  {
-    "date": "27 Aug",
-    "title": "An Interpretable Machine Learning Framework with Clinical Nomogram for Predicting In-Hospital Mortality in Acute Ischemic Stroke Using High-Granularity Bedside Data",
-    "comment": "เครื่องมือช่วยทำนายอัตราตายใน Stroke ที่ใช้ข้อมูลข้างเตียงแบบ Real-time",
-    "pmid": "42648602",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42648602/"
-  },
-  {
-    "date": "27 Aug",
-    "title": "Development and Validation of a Prediction Model for Alarm-Triggered Interventions in Pediatrics",
-    "comment": "ลด Alarm fatigue ในหอผู้ป่วยเด็กด้วย Model คัดกรองการแทรกแซงที่จำเป็น",
-    "pmid": "42648734",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42648734/"
-  },
-  {
-    "date": "27 Aug",
-    "title": "Dynamic changes in the internal jugular vein during supine and passive leg raising as predictors of spinal anesthesia-induced hypotension in the elderly: A prospective diagnostic accuracy study",
-    "comment": "เทคนิค POCUS ประเมิน Fluid responsiveness เพื่อป้องกัน Hypotension ในผู้สูงอายุ",
-    "pmid": "42648635",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42648635/"
-  },
-  {
-    "date": "26 Aug",
-    "title": "IDSA/ACEP/ASM/PIDS/SCCM/SHEA/SHM/SIDP Multisociety Position Paper: Hospital Strategies to Improve Sepsis Outcomes.",
-    "comment": "Practice Changing: ข้อตกลงร่วมหลายสมาคมเพื่อปรับปรุงผลลัพธ์การรักษา Sepsis ในโรงพยาบาล",
-    "pmid": "42640090",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42640090/"
-  },
-  {
-    "date": "26 Aug",
-    "title": "Recommendations for the initial management of septic shock in children.",
-    "comment": "Practice Changing: แนวทางการจัดการเบื้องต้นสำหรับ Septic shock ในเด็ก",
-    "pmid": "42640976",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42640976/"
-  },
-  {
-    "date": "26 Aug",
-    "title": "Efficacy and safety of intramuscular and intravenous midazolam for acute agitation in emergency settings: a systematic review.",
-    "comment": "Practice Changing: เปรียบเทียบ IM vs IV midazolam ในการจัดการ acute agitation ใน ER",
-    "pmid": "42640630",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42640630/"
   }
 ]
