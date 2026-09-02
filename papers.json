@@ -1,17 +1,94 @@
 [
   {
     "date": "2 Sep",
+    "title": "Association of Whole Blood Transfusion With Survival Among Patients Achieving ROSC After Prehospital Traumatic Cardiac Arrest",
+    "comment": "ประเมินการใช้ Whole Blood ใน traumatic cardiac arrest เพื่อเพิ่ม survival rate (High Impact)",
+    "pmid": "42681995",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42681995/"
+  },
+  {
+    "date": "2 Sep",
+    "title": "[Out-of-hospital cardiopulmonary resuscitation : when and how should it be stopped ?]",
+    "comment": "แนวทางการตัดสินใจหยุด CPR นอกโรงพยาบาล ซึ่งมีผลต่อจริยธรรมและทรัพยากร",
+    "pmid": "42682124",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42682124/"
+  },
+  {
+    "date": "2 Sep",
+    "title": "[Post return of spontaneous circulation : initial care]",
+    "comment": "Update การดูแลผู้ป่วยหลัง ROSC เพื่อลดภาวะแทรกซ้อนและเพิ่ม neurological outcome",
+    "pmid": "42682117",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42682117/"
+  },
+  {
+    "date": "2 Sep",
+    "title": "[Prehospital point-of-care ultrasound]",
+    "comment": "การใช้ POCUS ในระยะก่อนถึงโรงพยาบาลเพื่อช่วย triage และ diagnostic เร็วขึ้น",
+    "pmid": "42682128",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42682128/"
+  },
+  {
+    "date": "2 Sep",
+    "title": "Clinical characteristics and prognostic differences among acute heart failure phenotypes in the emergency department: a real-world study",
+    "comment": "ช่วยจำแนก phenotype ของ AHf ใน ER เพื่อการรักษาที่แม่นยำขึ้น",
+    "pmid": "42681602",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42681602/"
+  },
+  {
+    "date": "2 Sep",
+    "title": "Development of a predictive model for high-flow nasal cannula treatment failure in emergency department patients with acute heart failure: a retrospective secondary data analysis",
+    "comment": "เครื่องมือพยากรณ์ความล้มเหลวของ HFNC ในผู้ป่วย AHf เพื่อปรับแผนการรักษาได้ทัน",
+    "pmid": "42680225",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42680225/"
+  },
+  {
+    "date": "2 Sep",
+    "title": "Impact of a Pharmacist-Led Antimicrobial Stewardship Program on Empiric Prescribing Appropriateness in the Emergency Department: A Retrospective Cohort Study",
+    "comment": "การใช้เภสัชกรช่วยคุมการใช้ยาฆ่าเชื้อใน ER ช่วยเพิ่มความเหมาะสมในการสั่งยา",
+    "pmid": "42682024",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42682024/"
+  },
+  {
+    "date": "2 Sep",
+    "title": "Association Between Individualized Intracranial Pressure Thresholds and Long-Term Outcomes in Moderate-to-Severe TBI: A CAHR-TBI Multicenter Study",
+    "comment": "เสนอการใช้ ICP threshold แบบรายบุคคลใน TBI เพื่อผลลัพธ์ระยะยาวที่ดีขึ้น",
+    "pmid": "42681854",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42681854/"
+  },
+  {
+    "date": "2 Sep",
+    "title": "Improving pediatric hip fracture detection using deep learning: multicenter validation and clinical reader study",
+    "comment": "AI ช่วยเพิ่มความแม่นยำในการตรวจพบกระดูกสะโพกหักในเด็ก ซึ่งมักตรวจยาก",
+    "pmid": "42682383",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42682383/"
+  },
+  {
+    "date": "2 Sep",
+    "title": "Development of a deep-learning model to detect free air on abdominal computed tomography for surgical decision support",
+    "comment": "AI ช่วยตรวจจับ free air ใน CT abdomen เพื่อเร่งการตัดสินใจผ่าตัดฉุกเฉิน",
+    "pmid": "42682356",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42682356/"
+  },
+  {
+    "date": "2 Sep",
+    "title": "[Prehospital non-transport: a safe practice?]",
+    "comment": "ประเมินความปลอดภัยของการไม่นำส่งโรงพยาบาล (Non-transport) ในงาน EMS",
+    "pmid": "42682141",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42682141/"
+  },
+  {
+    "date": "2 Sep",
+    "title": "Artificial intelligence in emergency medicine: from algorithmic performance to real-world clinical integration - understanding the implementation gap",
+    "comment": "วิเคราะห์ช่องว่างการนำ AI มาใช้จริงใน ER เพื่อการปรับใช้ที่มีประสิทธิภาพ",
+    "pmid": "42681610",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42681610/"
+  },
+  {
+    "date": "2 Sep",
     "title": "FilmArray Meningitis/Encephalitis Panel accelerates central nervous system infection diagnosis and reduces empirical acyclovir use: A Japanese prospective study.",
     "comment": "ช่วยวินิจฉัย CNS infection เร็วขึ้นและลดการใช้ acyclovir โดยไม่จำเป็น",
     "pmid": "42679643",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42679643/"
-  },
-  {
-    "date": "2 Sep",
-    "title": "Development of a predictive model for high-flow nasal cannula treatment failure in emergency department patients with acute heart failure: a retrospective secondary data analysis.",
-    "comment": "เครื่องมือพยากรณ์ความล้มเหลวของ HFNC ในผู้ป่วย Acute HF ที่ ER",
-    "pmid": "42680225",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42680225/"
   },
   {
     "date": "2 Sep",
@@ -411,82 +488,5 @@
     "comment": "ข้อมูลขีดจำกัดในการตรวจ FAST เพื่อระวัง False Negative ในกรณีที่มี fluid ปริมาณน้อย",
     "pmid": "42658233",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42658233/"
-  },
-  {
-    "date": "28 Aug",
-    "title": "Eligibility for Thrombolysis for Pediatric Acute Ischemic Stroke.",
-    "comment": "เกณฑ์การพิจารณาให้ยาละลายลิ่มเลือดในเด็กที่มี stroke ซึ่งมีข้อบ่งชี้ต่างจากผู้ใหญ่",
-    "pmid": "42657473",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42657473/"
-  },
-  {
-    "date": "28 Aug",
-    "title": "Asian consensus on diagnostic algorithm for invasive pulmonary fungal diseases in high-burden settings.",
-    "comment": "Algorithm การวินิจฉัยเชื้อราในปอดฉบับ consensus เอเชีย นำมาปรับใช้ในทางคลินิกได้ทันที",
-    "pmid": "42657100",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42657100/"
-  },
-  {
-    "date": "28 Aug",
-    "title": "Association of early non-opioid analgesic use with emergency department length of stay in acute abdominal pain.",
-    "comment": "ส่งเสริมการใช้ non-opioid ใน abdominal pain เพื่อลดระยะเวลาการรอคอยใน ER",
-    "pmid": "42659637",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42659637/"
-  },
-  {
-    "date": "28 Aug",
-    "title": "Adding age and sex to improve adverse outcome prediction in suspected infection: validation of a modified National Early Warning Score in the emergency department.",
-    "comment": "ปรับปรุง NEWS score ให้แม่นยำขึ้นโดยใช้ age/sex เพื่อทำนายผลลัพธ์ในผู้ป่วยติดเชื้อ",
-    "pmid": "42659636",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42659636/"
-  },
-  {
-    "date": "28 Aug",
-    "title": "Carotid-cavernous fistula diagnosed by point-of-care ultrasound.",
-    "comment": "เทคนิคการใช้ POCUS วินิจฉัย CCF ซึ่งเป็นเครื่องมือที่แพทย์ ER เข้าถึงได้ทันที",
-    "pmid": "42658391",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42658391/"
-  },
-  {
-    "date": "28 Aug",
-    "title": "Clinical value of the caval-aortic index and inferior vena cava diameter for volume assessment in hypernatremic patients.",
-    "comment": "ใช้ CAI และ IVC diameter ช่วยประเมิน volume status ในผู้ป่วย hypernatremia ได้แม่นยำขึ้น",
-    "pmid": "42658817",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42658817/"
-  },
-  {
-    "date": "28 Aug",
-    "title": "Oral transition therapy versus intravenous therapy for the treatment of uncomplicated Enterococcal bloodstream infections.",
-    "comment": "ข้อมูลการเปลี่ยนยาจาก IV เป็น Oral ใน Enterococcal BSI ที่ไม่มีภาวะแทรกซ้อน",
-    "pmid": "42658414",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42658414/"
-  },
-  {
-    "date": "28 Aug",
-    "title": "Concordance of the modified wells score with CTPA-confirmed pulmonary embolism in an imaging-selected cohort: A retrospective single-center study.",
-    "comment": "ประเมินความแม่นยำของ Modified Wells score ในการคัดกรอง PE ก่อนส่ง CTPA",
-    "pmid": "42656957",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42656957/"
-  },
-  {
-    "date": "27 Aug",
-    "title": "Association Between Epinephrine Administration Timing and Outcomes in Adult Out-of-Hospital Cardiac Arrest: A Systematic Review and Dose-Response Meta-Analysis.",
-    "comment": "วิเคราะห์จังหวะการให้ Epinephrine ใน OHCA ซึ่งมีผลต่อ survival rate โดยตรง",
-    "pmid": "42654392",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42654392/"
-  },
-  {
-    "date": "27 Aug",
-    "title": "HOLD-B: A Practical Score for Early Risk Stratification in Upper Gastrointestinal Bleeding.",
-    "comment": "Score ใหม่สำหรับคัดกรองความเสี่ยง UGIB ใน ER ช่วยตัดสินใจเรื่องการ Admit/Triage",
-    "pmid": "42654373",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42654373/"
-  },
-  {
-    "date": "27 Aug",
-    "title": "Serum YKL-40 in Non-ST-Segment Elevation Acute Coronary Syndrome: A Prospective Exploratory Emergency Department Study.",
-    "comment": "ศึกษา biomarker ตัวใหม่ใน NSTE-ACS เพื่อช่วยการวินิจฉัยในห้องฉุกเฉิน",
-    "pmid": "42654379",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42654379/"
   }
 ]
