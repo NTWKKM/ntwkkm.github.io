@@ -2,30 +2,72 @@
   {
     "date": "3 Sep",
     "title": "Superlarge-Bore Versus Large-Bore Aspiration Catheters in Mechanical Thrombectomy: A Multicenter Propensity-Matched Analysis.",
-    "comment": "เปรียบเทียบขนาดสายสวนในการรักษา Stroke ช่วยตัดสินใจเลือกอุปกรณ์เพื่อเพิ่มอัตราการดึงลิ่มเลือด",
+    "comment": "เปรียบเทียบขนาดสายดูด thrombectomy เพื่อเพิ่มประสิทธิภาพการนำลิ่มเลือดออกในผู้ป่วย Stroke",
     "pmid": "42683976",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42683976/"
   },
   {
     "date": "3 Sep",
     "title": "Application and Internal Validation of the Modified Glasgow-Blatchford Score for Early Triage of Acute Upper Gastrointestinal Bleeding.",
-    "comment": "การใช้ Modified GBS เพื่อคัดกรองผู้ป่วย UGIB ช่วยแยกผู้ป่วยความเสี่ยงต่ำออกได้รวดเร็วขึ้น",
+    "comment": "ใช้คัดกรองผู้ป่วย UGIB เพื่อแยกกลุ่มเสี่ยงต่ำที่สามารถรักษาแบบ OPD ได้อย่างปลอดภัย",
     "pmid": "42683975",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42683975/"
   },
   {
     "date": "3 Sep",
     "title": "Rescue Tirofiban for Early Neurological Deterioration After Tenecteplase in Capsular Warning Syndrome.",
-    "comment": "แนวทางการใช้ Tirofiban ในผู้ป่วย Stroke ที่มีอาการทรุดลงหลังได้รับยาละลายลิ่มเลือด",
+    "comment": "แนวทางการใช้ Rescue therapy เมื่อผู้ป่วย stroke มีอาการแย่ลงหลังได้รับยาละลายลิ่มเลือด",
     "pmid": "42683800",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42683800/"
   },
   {
     "date": "3 Sep",
     "title": "Effects of Glucagon-Like Peptide-1 Receptor Agonist Use After Transient Ischemic Attack on Risks of Subsequent Ischemic Stroke and Mortality.",
-    "comment": "ข้อมูลความปลอดภัยและผลลัพธ์ของ GLP-1 RA ในการป้องกัน Stroke ซ้ำหลัง TIA",
+    "comment": "ข้อมูลความปลอดภัยและผลกระทบของยา GLP-1 RA ต่อการเกิด Stroke ซ้ำหลัง TIA",
     "pmid": "42683794",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42683794/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Optimizing vancomycin therapy: the critical role of dosing frequency, AUC monitoring and gender: a retrospective cohort study.",
+    "comment": "ปรับปรุงการให้ Vancomycin โดยเน้น AUC monitoring เพื่อเพิ่มประสิทธิภาพและลดความเป็นพิษ",
+    "pmid": "42683476",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42683476/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Emergence of SCCmec variants causing false-negative MRSA results by Xpert SA Nasal Complete: a need for culture back-up?",
+    "comment": "Safety Signal: คำเตือนเรื่องผลลบปลอมของ Rapid test ในการตรวจ MRSA",
+    "pmid": "42683400",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42683400/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Development of a deep-learning model to detect free air on abdominal computed tomography for surgical decision support.",
+    "comment": "AI ช่วยตรวจหา Free air ใน CT abdomen เพื่อเร่งการตัดสินใจผ่าตัดใน ER",
+    "pmid": "42682356",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42682356/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Prehospital Care Duration and 30-Day Mortality Among Septic Shock.",
+    "comment": "ผลของระยะเวลาการดูแลก่อนถึงโรงพยาบาลต่ออัตราตายในผู้ป่วย Septic Shock",
+    "pmid": "42682811",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42682811/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Improving pediatric hip fracture detection using deep learning: multicenter validation and clinical reader study.",
+    "comment": "AI ช่วยเพิ่มความแม่นยำในการวินิจฉัย Hip fracture ในเด็ก ซึ่งมักตรวจพบยาก",
+    "pmid": "42682383",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42682383/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Impact of a Pharmacist-Led Antimicrobial Stewardship Program on Empiric Prescribing Appropriateness in the Emergency Department: A Retrospective Cohort Study.",
+    "comment": "การใช้เภสัชกรช่วยคัดเลือกยาฆ่าเชื้อใน ER เพื่อลดการใช้ยาไม่เหมาะสม",
+    "pmid": "42682024",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42682024/"
   },
   {
     "date": "3 Sep",
@@ -33,48 +75,6 @@
     "comment": "ระบบการจัดเก็บภาพ US ใน ER เพื่อการติดตามผลและคุณภาพการรักษาทางคลินิก",
     "pmid": "42683516",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42683516/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Optimizing vancomycin therapy: the critical role of dosing frequency, AUC monitoring and gender: a retrospective cohort study.",
-    "comment": "ปรับการให้ Vancomycin โดยใช้ AUC และความถี่ ซึ่งส่งผลต่อประสิทธิภาพและความปลอดภัย",
-    "pmid": "42683476",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42683476/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Emergence of SCCmec variants causing false-negative MRSA results by Xpert SA Nasal Complete: a need for culture back-up?",
-    "comment": "Safety Signal: เตือนเรื่องผลลบปลอมของ MRSA rapid test ในบางสายพันธุ์ ต้องระวังการใช้",
-    "pmid": "42683400",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42683400/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Prehospital Care Duration and 30-Day Mortality Among Septic Shock.",
-    "comment": "ผลกระทบของระยะเวลาดูแลก่อนถึงโรงพยาบาลต่ออัตราตายใน Septic Shock เน้นความเร็วในการนำส่ง",
-    "pmid": "42682811",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42682811/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Improving pediatric hip fracture detection using deep learning: multicenter validation and clinical reader study.",
-    "comment": "Novel Tool: การใช้ AI ช่วยวินิจฉัย Hip fracture ในเด็ก ลดความผิดพลาดในการอ่านฟิล์ม",
-    "pmid": "42682383",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42682383/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Development of a deep-learning model to detect free air on abdominal computed tomography for surgical decision support.",
-    "comment": "Novel Tool: AI ช่วยตรวจหา Free air ใน CT abdomen เพื่อให้ศัลยแพทย์ตัดสินใจผ่าตัดได้เร็วขึ้น",
-    "pmid": "42682356",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42682356/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Impact of a Pharmacist-Led Antimicrobial Stewardship Program on Empiric Prescribing Appropriateness in the Emergency Department: A Retrospective Cohort Study.",
-    "comment": "การให้เภสัชกรช่วยคุมการใช้ยาฆ่าเชื้อใน ER ช่วยเพิ่มความถูกต้องของการเลือกยา empiric",
-    "pmid": "42682024",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42682024/"
   },
   {
     "date": "3 Sep",
