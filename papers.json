@@ -1,6 +1,90 @@
 [
   {
     "date": "3 Sep",
+    "title": "[European Resuscitation Council Guidelines 2025: Basic and Advanced Life Support]",
+    "comment": "Practice Changing: แนวทางปฏิบัติล่าสุดสำหรับ BLS/ALS ที่แพทย์ ER ทุกคนต้องใช้เป็นมาตรฐาน",
+    "pmid": "42685707",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42685707/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Validation of the updated sequential organ failure assessment (SOFA)-2 score in emergency department septic shock.",
+    "comment": "Practice Changing: การปรับปรุง SOFA score เพื่อให้แม่นยำขึ้นในการประเมิน Septic Shock ใน ER",
+    "pmid": "42687193",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42687193/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Efficacy and safety of colchicine in patients with myocardial infarction: a systematic review and meta-analysis.",
+    "comment": "High-Impact: ทบทวนประสิทธิภาพและความปลอดภัยของ Colchicine ใน MI ซึ่งอาจเปลี่ยนการรักษามาตรฐาน",
+    "pmid": "42687738",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42687738/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Initial treatment of presumed pacemaker or implantable cardioverter defibrillator malfunctions: algorithm and rationale.",
+    "comment": "Novel Tool: อัลกอริทึมการจัดการเบื้องต้นสำหรับผู้ป่วยที่อุปกรณ์ Pacemaker/ICD ทำงานผิดปกติในภาวะฉุกเฉิน",
+    "pmid": "42686387",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42686387/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Comparative efficacy of landiolol and bisoprolol transdermal patch in patients with sepsis-related tachycardia: a retrospective cohort study.",
+    "comment": "Novel Drug: เปรียบเทียบยาควบคุมอัตราการเต้นของหัวใจในผู้ป่วย Sepsis ช่วยในการเลือกใช้ยาในทางคลินิก",
+    "pmid": "42687192",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42687192/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Prevalence, clinical features and emergency department blood pressure management of hypertensive emergencies and uncontrolled hypertension: a retrospective multi-centre study.",
+    "comment": "Practice Changing: ข้อมูลการจัดการความดันโลหิตในภาวะ Hypertensive emergency ใน ER จากหลายศูนย์",
+    "pmid": "42686811",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42686811/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Criteria for Safe Hospital Discharge in Bronchiolitis: A Systematic Review.",
+    "comment": "Safety Signal: เกณฑ์การจำหน่ายผู้ป่วย Bronchiolitis กลับบ้านอย่างปลอดภัย เพื่อลดการ readmission",
+    "pmid": "42687715",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42687715/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Outcomes among patients with out-of-hospital cardiac arrest who activated an ECPR pathway and achieved ROSC before cannulation.",
+    "comment": "High-Impact: ผลลัพธ์ของการใช้ ECPR ในผู้ป่วย OHCA ที่ช่วยตัดสินใจเลือกผู้ป่วยที่เหมาะสม",
+    "pmid": "42685531",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42685531/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "A Multistate Investigation of Serious Adverse Events, including Deaths, following Ceftriaxone Injections, September 2024-August 2025.",
+    "comment": "Safety Signal: ข้อมูลความเสี่ยงและเหตุการณ์ไม่พึงประสงค์รุนแรงหลังฉีด Ceftriaxone ที่แพทย์ต้องเฝ้าระวัง",
+    "pmid": "42686538",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42686538/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Does Contralateral Elbow Radiography Improve Diagnostic Accuracy of Paediatric Elbow Fractures amongst Emergency Residents?",
+    "comment": "Practice Changing: ตรวจสอบว่าการ X-ray ข้อศอกอีกข้างช่วยเพิ่มความแม่นยำในการวินิจฉัยในเด็กหรือไม่",
+    "pmid": "42687784",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42687784/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Early biomarker prognostic signals for 30-day mortality in acute poisoning: exploratory analysis of a complete-case subgroup from a derived MIMIC-IV dataset.",
+    "comment": "Novel Tool: การใช้ Biomarker ทำนายอัตราการเสียชีวิตใน 30 วันสำหรับผู้ป่วยได้รับสารพิษเฉียบพลัน",
+    "pmid": "42686589",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42686589/"
+  },
+  {
+    "date": "3 Sep",
+    "title": "Development and internal validation of a simple risk stratification score for unplanned emergency department revisits within 24 hours after discharge: A retrospective observational study.",
+    "comment": "Safety Signal: คะแนนประเมินความเสี่ยงในการกลับมา ER ซ้ำภายใน 24 ชม. เพื่อปรับปรุงการจำหน่ายผู้ป่วย",
+    "pmid": "42685117",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42685117/"
+  },
+  {
+    "date": "3 Sep",
     "title": "Superlarge-Bore Versus Large-Bore Aspiration Catheters in Mechanical Thrombectomy: A Multicenter Propensity-Matched Analysis.",
     "comment": "เปรียบเทียบขนาดสายดูด thrombectomy เพื่อเพิ่มประสิทธิภาพการนำลิ่มเลือดออกในผู้ป่วย Stroke",
     "pmid": "42683976",
@@ -404,89 +488,5 @@
     "comment": "การใช้ POCT ตรวจ GAS ในเด็ก ช่วยให้เริ่มยาและแยกโรคได้ทันทีใน ER",
     "pmid": "42669628",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42669628/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Development of a machine-learning risk stratification tool for vasoactive medication need after two-bolus fluid resuscitation in pediatric suspected sepsis.",
-    "comment": "ML ช่วยทำนายความต้องการยา Vasoactive ใน sepsis เด็ก หลังให้ Fluid resuscitation",
-    "pmid": "42668278",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42668278/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Diagnostic value of platelet-lymphocyte ratio for pediatric sepsis: A systematic review and meta-analysis.",
-    "comment": "ใช้ PLR เป็น biomarker ช่วยวินิจฉัย sepsis ในเด็ก เพิ่มความแม่นยำทางคลินิก",
-    "pmid": "42668943",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42668943/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Implementation of an SSI care bundle for patients undergoing emergency laparotomy.",
-    "comment": "การใช้ Care bundle เพื่อลดการติดเชื้อแผลผ่าตัด (SSI) ในเคส Emergency laparotomy",
-    "pmid": "42668526",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42668526/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Traumatic Brain Injury in Austere Environments: a Review of Recent Advances.",
-    "comment": "แนวทางจัดการ TBI ในพื้นที่จำกัด/ห่างไกล ซึ่งมีผลต่อการดูแลผู้ป่วย Pre-hospital",
-    "pmid": "42667521",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42667521/"
-  },
-  {
-    "date": "31 Aug",
-    "title": "What you don't see matters: dual-energy CT in emergency radiology.",
-    "comment": "เพิ่มประสิทธิภาพการวินิจฉัยใน ER ด้วย Dual-Energy CT",
-    "pmid": "42667564",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42667564/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "Criteria for the diagnosis of cardiogenic shock-European perspective: A Clinical Consensus Statement of the Association for Acute CardioVascular Care, the Heart Failure Association, and the European Association of Percutaneous Cardiovascular Interventions of the ESC.",
-    "comment": "Consensus ใหม่ในการวินิจฉัย Cardiogenic shock ใช้ปรับ guideline ทางคลินิก",
-    "pmid": "42667225",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42667225/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "Direct oral anticoagulants versus vitamin K antagonists after venous thrombosis in antiphospholipid syndrome: Recurrence, safety, and exploratory phenotype analysis. A real-life cohort study.",
-    "comment": "ข้อมูลความปลอดภัยและการใช้ DOACs แทน VKA ในผู้ป่วย APS",
-    "pmid": "42667744",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42667744/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "Prognostic performance of APUA, APUA-RO2, and CURB-65 scores in patients with critical pneumonia.",
-    "comment": "เปรียบเทียบ scoring ในการพยากรณ์โรคผู้ป่วย pneumonia ขั้นวิกฤต",
-    "pmid": "42668389",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42668389/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "Early antiplatelet therapy was associated with reduced neurological deterioration in stroke patients treated with intravenous thrombolysis.",
-    "comment": "ข้อมูลสนับสนุนการให้ antiplatelet เร็วขึ้นในผู้ป่วย stroke ที่ได้รับ thrombolysis เพื่อลดความพิการ",
-    "pmid": "42666858",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42666858/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "Invasive candidiasis in the Intensive Care unit: diagnostic stewardship, source control, and precision antifungal therapy.",
-    "comment": "แนวทางการจัดการเชื้อราใน ICU เน้นการวินิจฉัยที่แม่นยำและการเลือกยา antifungal",
-    "pmid": "42667299",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42667299/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "Population Pharmacokinetic and Pharmacodynamic Analysis of Imipenem in Critically Ill Patients Receiving Continuous Renal Replacement Therapy.",
-    "comment": "ข้อมูลการปรับโดส Imipenem ในผู้ป่วยวิกฤตที่ทำ CRRT เพื่อประสิทธิภาพและความปลอดภัย",
-    "pmid": "42666963",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42666963/"
-  },
-  {
-    "date": "30 Aug",
-    "title": "Personalizing myocardial revascularization strategies in the setting of acute myocardial infarction.",
-    "comment": "การเลือกกลยุทธ์การเปิดหลอดเลือดหัวใจแบบเฉพาะบุคคลในผู้ป่วย AMI",
-    "pmid": "42667606",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42667606/"
   }
 ]
