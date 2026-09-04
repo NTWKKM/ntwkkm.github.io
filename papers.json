@@ -1,5 +1,82 @@
 [
   {
+    "date": "4 Sep",
+    "title": "Real-world impact of implementing a point-of-care high-sensitivity troponin pathway on emergency department flow.",
+    "comment": "เพิ่มประสิทธิภาพ flow ใน ER ด้วย hs-troponin POC ช่วยลดระยะเวลาการรอคอยและตัดสินใจเร็วขึ้น",
+    "pmid": "42693503",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42693503/"
+  },
+  {
+    "date": "4 Sep",
+    "title": "Effect of a Ready-To-Use Vasopressin Product Availability in Automatic Dispensing Cabinets on Outcomes in Septic Shock.",
+    "comment": "การเข้าถึง Vasopressin แบบพร้อมใช้ในตู้ยาอัตโนมัติช่วยปรับปรุง outcome ผู้ป่วย Septic Shock",
+    "pmid": "42693658",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42693658/"
+  },
+  {
+    "date": "4 Sep",
+    "title": "Extracorporeal CO2 elimination for acute exacerbation of severe COPD requiring invasive mechanical ventilation: a randomized controlled trial (the X-COPD trial).",
+    "comment": "RCT ยืนยันผลของ ECCO2R ในผู้ป่วย COPD exacerbation ที่ใส่เครื่องช่วยหายใจ",
+    "pmid": "42693471",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42693471/"
+  },
+  {
+    "date": "4 Sep",
+    "title": "Diagnostic accuracy of delirium screening tools in the emergency department: A network meta-analysis.",
+    "comment": "เปรียบเทียบความแม่นยำเครื่องมือคัดกรอง Delirium ใน ER เพื่อเลือก tool ที่เหมาะสมที่สุด",
+    "pmid": "42691794",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42691794/"
+  },
+  {
+    "date": "4 Sep",
+    "title": "Mortality Risk From Prolonged ED Dwell Time in Older Adult Trauma: A National Trauma Data Bank Study.",
+    "comment": "ชี้ให้เห็นว่าระยะเวลาที่ผู้ป่วยสูงอายุบาดเจ็บค้างอยู่ใน ER นานเกินไปเพิ่มอัตราการเสียชีวิต",
+    "pmid": "42691974",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42691974/"
+  },
+  {
+    "date": "4 Sep",
+    "title": "Shockable rhythm as an independent prognostic factor in patients with non-ST elevation undergoing percutaneous coronary intervention after out-of-hospital cardiac arrest: a registry-based cohort study.",
+    "comment": "Shockable rhythm เป็นตัวพยากรณ์โรคที่ดีในผู้ป่วย OHCA ที่ทำ PCI แม้ไม่มี ST-elevation",
+    "pmid": "42693628",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42693628/"
+  },
+  {
+    "date": "4 Sep",
+    "title": "Primary Care Ondansetron Use and Subsequent Emergency Department Utilization in Children With Acute Gastroenteritis.",
+    "comment": "การใช้ Ondansetron ใน primary care ช่วยลดอัตราการมา ER ในเด็กที่เป็น AGE",
+    "pmid": "42693814",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42693814/"
+  },
+  {
+    "date": "4 Sep",
+    "title": "Association between point-of-care ultrasonography use and requests for formal imaging studies in hospital-based internal medicine: A retrospective cohort study.",
+    "comment": "การใช้ POCUS ช่วยลดการส่งตรวจ imaging ขนาดใหญ่ที่ไม่จำเป็นลงได้อย่างมีนัยสำคัญ",
+    "pmid": "42693692",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42693692/"
+  },
+  {
+    "date": "4 Sep",
+    "title": "[Progress in the protocolized application of automated capillary refill time in septic shock resuscitation].",
+    "comment": "การใช้ automated CRT ตาม protocol ช่วยเพิ่มประสิทธิภาพในการ resuscitation ผู้ป่วย Septic shock",
+    "pmid": "42693976",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42693976/"
+  },
+  {
+    "date": "4 Sep",
+    "title": "Using Sydney Triage to Admission Risk Tool With Artificial Intelligence (START-AI) To Predict Inpatient Admitting Specialty for Emergency Department Patients: Single Centre Deep Learning Analysis.",
+    "comment": "ใช้ AI ช่วยทำนายแผนกที่จะรับ admit ผู้ป่วยจากข้อมูล Triage เพื่อลดคอขวดใน ER",
+    "pmid": "42692462",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42692462/"
+  },
+  {
+    "date": "4 Sep",
+    "title": "Exposing and addressing the clinical safety gap in ESI-free emergency department triage: Imbalance-aware, interpretable deep learning.",
+    "comment": "ใช้ Deep Learning ปิดช่องว่างความปลอดภัยในการ Triage ผู้ป่วยโดยไม่ต้องพึ่ง ESI",
+    "pmid": "42691868",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42691868/"
+  },
+  {
     "date": "3 Sep",
     "title": "[European Resuscitation Council Guidelines 2025: Basic and Advanced Life Support]",
     "comment": "Practice Changing: แนวทางปฏิบัติล่าสุดสำหรับ BLS/ALS ที่แพทย์ ER ทุกคนต้องใช้เป็นมาตรฐาน",
@@ -411,82 +488,5 @@
     "comment": "การใช้ monitoring ทันทีในผู้ป่วย Syncope เพื่อเพิ่มอัตราการตรวจพบ arrhythmia",
     "pmid": "42670977",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42670977/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Sepsis-associated liver injury: from liver-test risk signals to immunobiology-guided precision medicine.",
-    "comment": "ความเข้าใจเรื่องตับวายจาก sepsis เพื่อการรักษาที่แม่นยำขึ้นในผู้ป่วยวิกฤต",
-    "pmid": "42671610",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42671610/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Emergency management protocols for major complications after oral and maxillofacial surgery: emphasis on airway and bleeding control.",
-    "comment": "Protocol จัดการทางเดินหายใจและเลือดออกหลังผ่าตัดช่องปากและใบหน้า",
-    "pmid": "42670164",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42670164/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Diagnostic Accuracy of Cryptococcal Antigen Lateral Flow Assay Compared With Microscopy and Culture in Suspected Cryptococcal Meningitis.",
-    "comment": "ยืนยันความแม่นยำของ CrAg LFA ในการวินิจฉัยเยื่อหุ้มสมองอักเสบจากเชื้อรา",
-    "pmid": "42670495",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42670495/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Takotsubo syndrome diagnosis: the biomarker-based BioTAK score.",
-    "comment": "เครื่องมือใหม่ (BioTAK score) ช่วยแยก Takotsubo ออกจาก MI",
-    "pmid": "42670759",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42670759/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Safety and efficacy of the 0/1 h pathway for myocardial infarction in the emergency department: an international, pragmatic, stepped-wedge, cluster-randomised, controlled trial.",
-    "comment": "เปลี่ยน standard of care การจัดการเวลาใน MI pathway เพื่อลดความล่าช้าใน ER",
-    "pmid": "42667934",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42667934/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Artificial intelligence-based ECG as a triage tool for acute myocardial infarction: a diagnostic systematic review and meta-analysis.",
-    "comment": "เครื่องมือ AI ช่วยคัดกรอง AMI จาก ECG เพิ่มประสิทธิภาพ triage ใน ER",
-    "pmid": "42668832",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42668832/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Less Invasive Rapid Tranquilization in LMIC Emergency Settings: Comparison of Oral Risperidone Plus Clonazepam Versus Intramuscular Haloperidol in a Randomized Trial.",
-    "comment": "ทางเลือกการระงับอาการวุ่นวายที่ลดการบาดเจ็บ (Less Invasive) แทนการฉีด IM",
-    "pmid": "42668395",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42668395/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Prothrombin complex concentrate (PCC) vs. non-PCC strategies for warfarin reversal in left ventricular assist device recipients: A systematic review and meta-analysis.",
-    "comment": "แนวทางการแก้ไข Warfarin reversal ในผู้ป่วยกลุ่มเสี่ยงสูง (LVAD) เพื่อลดเลือดออก",
-    "pmid": "42667788",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42667788/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Contrast-enhanced chest computed tomography in acute heart failure: a narrative review of imaging clues to precipitating factors and underlying cardiac disease.",
-    "comment": "ใช้ CE-CT ช่วยวินิจฉัยหาสาเหตุที่กระตุ้นให้เกิด Acute Heart Failure ได้รวดเร็วขึ้น",
-    "pmid": "42669411",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42669411/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Early Identification of Children at Risk for Complicated Parapneumonic Pleural Effusion: Development of a Prediction Model.",
-    "comment": "แบบจำลองทำนายความเสี่ยง Complicated effusion ในเด็ก ช่วยให้ตัดสินใจ Drainage ได้เร็วขึ้น",
-    "pmid": "42669040",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42669040/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Group A Streptococcus molecular point of care testing in a paediatric emergency department.",
-    "comment": "การใช้ POCT ตรวจ GAS ในเด็ก ช่วยให้เริ่มยาและแยกโรคได้ทันทีใน ER",
-    "pmid": "42669628",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42669628/"
   }
 ]
