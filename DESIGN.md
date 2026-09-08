@@ -61,7 +61,7 @@ All colors MUST be referenced via CSS variables defined in `:root` and `[data-th
 - Surface Contrast (Canvas vs Card): 1.26:1 (Sharp clinical layer separation)
 - Accent Signal (`--signal-orange`): `#FF7A45`
 - Primary Link/Action (`--primary`): `#93c5fd`
-- Shared Card Hover Tokens: `--card-hover-bg: #233760`, `--card-hover-border: #3A578E`, `--card-hover-text: #FFFFFF`
+- Shared Card Hover Tokens: `--card-hover-bg: #2A467C`, `--card-hover-border: #4E78BC`, `--card-hover-text: #FFFFFF`
 
 ### 3.3. Category / Tag Colors
 

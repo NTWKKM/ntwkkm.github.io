@@ -124,17 +124,17 @@
     --border-light:   #182744;
     
     --shadow:         0 4px 20px rgba(6, 12, 24, 0.55), 0 1px 3px rgba(6, 12, 24, 0.30);
-    --shadow-hover:   0 8px 30px rgba(6, 12, 24, 0.70), 0 2px 6px rgba(6, 12, 24, 0.40);
+    --shadow-hover:   0 10px 32px rgba(0, 0, 0, 0.65), 0 0 18px rgba(147, 197, 253, 0.12);
     --shadow-sm:      0 2px 8px rgba(6, 12, 24, 0.40);
     
     --toggle-bg:      #1E3054;
     --scrollbar-thumb: #2B406A;
 
     /* Shared Card Hover Tokens (Dark) */
-    --card-hover-bg:       #233760;
-    --card-hover-border:   #3A578E;
+    --card-hover-bg:       #2A467C;
+    --card-hover-border:   #4E78BC;
     --card-hover-text:     #FFFFFF;
-    --card-hover-icon-bg:  rgba(147, 197, 253, 0.15);
+    --card-hover-icon-bg:  rgba(147, 197, 253, 0.20);
 
     /* State / Status Colors */
     --state-ok: #abc585; /* lighter Olive green */
