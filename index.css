@@ -167,7 +167,7 @@ header .theme-btn:hover {
     flex: 0 0 300px;
     background: var(--bg-card);
     border-radius: var(--radius);
-    padding: 24px 24px 24px 21px; /* offset padding for 4px left border sentinel */
+    padding: 24px;
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
@@ -175,23 +175,23 @@ header .theme-btn:hover {
     overflow: hidden;
     transition: all 0.2s ease;
     border: 1px solid var(--border);
-    border-left: 4px solid transparent;
+    box-shadow: var(--shadow);
     -webkit-user-drag: none;
     text-decoration: none;
     color: inherit;
 }
 
 .paper-card:hover {
-    background-color: #49628d;
-    border-color: #49628d;
-    border-left-color: #F0EDE5;
-    color: #F0EDE5;
+    background-color: var(--card-hover-bg);
+    border-color: var(--card-hover-border);
+    color: var(--card-hover-text);
+    box-shadow: var(--shadow-hover);
 }
 
 .paper-card:hover .paper-title,
 .paper-card:hover .paper-comment,
 .paper-card:hover .paper-date {
-    color: #F0EDE5;
+    color: var(--card-hover-text);
 }
 
 .paper-date {
@@ -232,10 +232,10 @@ header .theme-btn:hover {
     color: var(--primary);
     text-decoration: none;
     margin-top: auto;
-    margin-left: -21px;
+    margin-left: -24px;
     margin-right: -24px;
     margin-bottom: -24px;
-    padding: 14px 24px 18px 21px;
+    padding: 14px 24px 18px 24px;
     border-top: 1px solid var(--border);
     display: flex;
     align-items: center;
@@ -245,8 +245,8 @@ header .theme-btn:hover {
 }
 
 .paper-card:hover .paper-link {
-    color: #F0EDE5;
-    border-top-color: rgba(240, 237, 229, 0.2);
+    color: var(--card-hover-text);
+    border-top-color: var(--card-hover-divider);
 }
 
 .paper-link:hover {
@@ -270,12 +270,14 @@ header .theme-btn:hover {
     cursor: pointer;
     z-index: 10;
     transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
 }
 
 .slider-nav-btn:hover {
     background: var(--bg-surface);
     border-color: var(--border-strong);
     color: var(--text-main);
+    box-shadow: var(--shadow);
 }
 
 .slider-nav-btn.prev {
@@ -347,12 +349,12 @@ header .theme-btn:hover {
 .project-card {
     background: var(--bg-card);
     border-radius: var(--radius);
-    padding: 24px 24px 24px 21px; /* offset padding for 4px left border sentinel */
+    padding: 24px;
     transition: all 0.2s ease;
     text-decoration: none;
     color: inherit;
     border: 1px solid var(--border);
-    border-left: 4px solid transparent;
+    box-shadow: var(--shadow);
     display: grid;
     grid-template-rows: auto auto 1fr;
     row-gap: 8px;
@@ -365,21 +367,21 @@ header .theme-btn:hover {
 }
 
 .project-card:hover {
-    background-color: #49628d;
-    border-color: #49628d;
-    border-left-color: #F0EDE5;
-    color: #F0EDE5;
+    background-color: var(--card-hover-bg);
+    border-color: var(--card-hover-border);
+    color: var(--card-hover-text);
+    box-shadow: var(--shadow-hover);
 }
 
 .project-card:hover .project-title,
 .project-card:hover .project-desc {
-    color: #F0EDE5;
+    color: var(--card-hover-text);
 }
 
 .project-card:hover .project-icon {
-    background-color: rgba(240, 237, 229, 0.15);
+    background-color: var(--card-hover-icon-bg);
     border-color: transparent;
-    color: #F0EDE5;
+    color: var(--card-hover-text);
 }
 
 .project-icon {
