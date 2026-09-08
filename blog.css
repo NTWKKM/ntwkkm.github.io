@@ -357,13 +357,13 @@ body {
 }
 
 .article-list-item:hover {
-    background-color: #49628d;
-    color: #F0EDE5;
-    border-left-color: #F0EDE5;
+    background-color: var(--card-hover-bg);
+    color: var(--card-hover-text);
+    border-left-color: var(--card-hover-sentinel);
 }
 
 .article-list-item:hover .list-title {
-    color: #F0EDE5;
+    color: var(--card-hover-text);
 }
 
 .article-list-item:hover .list-meta {
@@ -378,13 +378,13 @@ body {
 }
 
 .article-list-item.active:hover {
-    background-color: #49628d;
-    color: #F0EDE5;
-    border-left-color: #F0EDE5;
+    background-color: var(--card-hover-bg);
+    color: var(--card-hover-text);
+    border-left-color: var(--card-hover-sentinel);
 }
 
 .article-list-item.active:hover .list-title {
-    color: #F0EDE5;
+    color: var(--card-hover-text);
 }
 
 .article-list-item.active:hover .list-meta {
@@ -871,15 +871,15 @@ body {
 }
 
 .related-card:hover {
-    background-color: #49628d;
-    border-color: #49628d;
-    border-left-color: #F0EDE5;
-    color: #F0EDE5;
+    background-color: var(--card-hover-bg);
+    border-color: var(--card-hover-border);
+    border-left-color: var(--card-hover-sentinel);
+    color: var(--card-hover-text);
 }
 
 .related-card:hover .related-title,
 .related-card:hover .related-date {
-    color: #F0EDE5;
+    color: var(--card-hover-text);
 }
 
 .related-title {
