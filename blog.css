@@ -365,7 +365,7 @@ body {
 }
 
 .article-list-item:hover .list-meta {
-    color: #cbd5e1;
+    color: var(--card-hover-meta);
 }
 
 .article-list-item.active {
@@ -385,7 +385,7 @@ body {
 }
 
 .article-list-item.active:hover .list-meta {
-    color: #cbd5e1;
+    color: var(--card-hover-meta);
 }
 
 .list-title {

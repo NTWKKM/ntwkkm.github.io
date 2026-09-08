@@ -50,6 +50,9 @@
     --card-hover-border:   #1E3A6D;
     --card-hover-text:     #FFFFFF;
     --card-hover-icon-bg:  rgba(255, 255, 255, 0.15);
+    --card-hover-divider:  rgba(255, 255, 255, 0.20);
+    --card-hover-meta:     #CBD5E1;
+    --card-hover-muted:    #CBD5E1;
 
     /* Fluid Typography Scale Tokens (Baseline 2026) */
     --font-size-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.78rem);
@@ -135,6 +138,9 @@
     --card-hover-border:   #4E78BC;
     --card-hover-text:     #FFFFFF;
     --card-hover-icon-bg:  rgba(147, 197, 253, 0.20);
+    --card-hover-divider:  rgba(255, 255, 255, 0.20);
+    --card-hover-meta:     #CBD5E1;
+    --card-hover-muted:    #CBD5E1;
 
     /* State / Status Colors */
     --state-ok: #abc585; /* lighter Olive green */

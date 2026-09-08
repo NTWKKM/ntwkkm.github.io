@@ -46,7 +46,7 @@ All colors MUST be referenced via CSS variables defined in `:root` and `[data-th
 - Card Shadow (`--shadow`): `0 4px 20px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.04)`
 - Surface Contrast (Canvas vs Card): 1.18:1 (Clean, modern card separation)
 - Accent Signal (`--signal-orange`): `#d84315`
-- Shared Card Hover Tokens: `--card-hover-bg: #1E3A6D`, `--card-hover-border: #1E3A6D`, `--card-hover-text: #FFFFFF`
+- Shared Card Hover Tokens: `--card-hover-bg: #1E3A6D`, `--card-hover-border: #1E3A6D`, `--card-hover-text: #FFFFFF`, `--card-hover-divider: rgba(255, 255, 255, 0.20)`, `--card-hover-meta: #CBD5E1`
 
 ### 3.2. Dark Theme (Titanium Precision Navy - Ergonomic Tone 1)
 
@@ -61,7 +61,7 @@ All colors MUST be referenced via CSS variables defined in `:root` and `[data-th
 - Surface Contrast (Canvas vs Card): 1.26:1 (Sharp clinical layer separation)
 - Accent Signal (`--signal-orange`): `#FF7A45`
 - Primary Link/Action (`--primary`): `#93c5fd`
-- Shared Card Hover Tokens: `--card-hover-bg: #2A467C`, `--card-hover-border: #4E78BC`, `--card-hover-text: #FFFFFF`
+- Shared Card Hover Tokens: `--card-hover-bg: #2A467C`, `--card-hover-border: #4E78BC`, `--card-hover-text: #FFFFFF`, `--card-hover-divider: rgba(255, 255, 255, 0.20)`, `--card-hover-meta: #CBD5E1`
 
 ### 3.3. Category / Tag Colors
 
@@ -115,10 +115,10 @@ Muted tones, applied **text-only** (never as solid background badges).
 
 **When building a new component or page, strictly enforce these rules:**
 
-1. [ ] "Use the centralized Braun variables from `shared.css` (`var(--paper)`, `var(--ink)`, `var(--rule)`, etc.). No hardcoded HEX/RGB."
+1. [ ] "Use the shared Slate/Titanium tokens from `shared.css` (`var(--bg-body)`, `var(--bg-card)`, `var(--text-main)`, `var(--border)`, `var(--card-hover-bg)`, etc.). No hardcoded HEX/RGB."
 2. [ ] "Use `Inter Tight` for UI/Latin, `Sarabun` for Thai, and monospace for metrics/IDs."
 3. [ ] "Set card border radius to `4px` and small elements to `2px` for harder industrial edges."
-4. [ ] "Do not implement card elevation lifts (`translateY`) or drop shadows on hover. Hover effects must be flat (e.g., border color changes)."
+4. [ ] "Elevate cards on hover using soft shadow `var(--shadow-hover)` and shared hover tokens (`var(--card-hover-bg)`, `var(--card-hover-border)`, `var(--card-hover-text)`), consistent with the Hover State & Elevation guidance. Avoid layout-shifting transforms or unvetted elevation."
 5. [ ] "Category tags/badges must be text-only colors, never solid colored backgrounds."
 6. [ ] "Ensure the layout is responsive and supports the Inverted Dark Theme color variables."
 7. [ ] "Every anchor link that opens in a new tab (`target="_blank"`) MUST strictly define `rel="noopener noreferrer"` to prevent tabnabbing security vulnerabilities."

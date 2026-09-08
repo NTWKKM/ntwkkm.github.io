@@ -246,7 +246,7 @@ header .theme-btn:hover {
 
 .paper-card:hover .paper-link {
     color: var(--card-hover-text);
-    border-top-color: rgba(255, 255, 255, 0.2);
+    border-top-color: var(--card-hover-divider);
 }
 
 .paper-link:hover {
