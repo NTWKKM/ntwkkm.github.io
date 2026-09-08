@@ -1,5 +1,82 @@
 [
   {
+    "date": "8 Sep",
+    "title": "Early and prolonged oral edaravone for neuroprotection in acute ischemic stroke: the ERASE-STROKE randomized controlled phase 3 trial.",
+    "comment": "ผล Trial Phase 3 ยา neuroprotection ใน Stroke มีผลต่อการตัดสินใจรักษา",
+    "pmid": "42705987",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42705987/"
+  },
+  {
+    "date": "8 Sep",
+    "title": "Interventions to improve early recognition and management of sepsis in emergency departments: A systematic review and meta-analysis.",
+    "comment": "รวบรวมวิธีเพิ่มประสิทธิภาพการตรวจจับและรักษา Sepsis ใน ER ให้เร็วขึ้น",
+    "pmid": "42705021",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42705021/"
+  },
+  {
+    "date": "8 Sep",
+    "title": "Vancomycin optimised dosing regimens for critically ill patients receiving renal replacement therapy.",
+    "comment": "แนวทางการปรับ Dose Vancomycin ในผู้ป่วยวิกฤตที่ทำ RRT ซึ่งซับซ้อนและสำคัญ",
+    "pmid": "42706573",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42706573/"
+  },
+  {
+    "date": "8 Sep",
+    "title": "PREGO Protocol: Point-of-Care Ultrasound for Evaluating Third-Trimester Pregnancy in the Emergency Department.",
+    "comment": "Protocol ใหม่การใช้ POCUS ประเมินหญิงตั้งครรภ์ไตรมาส 3 ใน ER",
+    "pmid": "42705157",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42705157/"
+  },
+  {
+    "date": "8 Sep",
+    "title": "Very early versus early endoscopy in acute non-variceal upper gastrointestinal bleeding: A prospective cohort study with propensity score matching.",
+    "comment": "เปรียบเทียบเวลาการทำ Endoscopy ใน UGIB แบบ non-variceal เพื่อหา Optimal timing",
+    "pmid": "42705478",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42705478/"
+  },
+  {
+    "date": "8 Sep",
+    "title": "Use of point-of-care ultrasound in predicting difficult intubations in the emergency department.",
+    "comment": "การใช้ POCUS คัดกรอง Difficult airway ใน ER เพื่อเพิ่มความปลอดภัยในการใส่ท่อ",
+    "pmid": "42705905",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42705905/"
+  },
+  {
+    "date": "8 Sep",
+    "title": "Safety and Feasibility of Percutaneous Tracheostomy in Patients with Traditional Contraindications: A Systematic Review of 2232 Cases.",
+    "comment": "ข้อมูลความปลอดภัยของการทำ Percutaneous Tracheostomy ในกลุ่มที่มีข้อห้ามเดิม",
+    "pmid": "42706628",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42706628/"
+  },
+  {
+    "date": "8 Sep",
+    "title": "Effectiveness of using the NEWS2 in the management of sepsis in emergency departments: an integrative literature review.",
+    "comment": "ประเมินประสิทธิภาพ NEWS2 ในการจัดการ Sepsis ใน ER เพื่อใช้เป็น Standard tool",
+    "pmid": "42706847",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42706847/"
+  },
+  {
+    "date": "8 Sep",
+    "title": "Efficacy and safety of middle meningeal artery embolization for chronic subdural hematoma: an updated systematic review and meta-analysis focusing on time of intervention.",
+    "comment": "ข้อมูล MMA embolization ใน cSDH และผลของระยะเวลาที่เริ่มทำหัตถการ",
+    "pmid": "42706447",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42706447/"
+  },
+  {
+    "date": "8 Sep",
+    "title": "Physiological limits of capillary refill time: a human endotoxemia study.",
+    "comment": "วิจัยขีดจำกัดทางสรีรวิทยาของ CRT ซึ่งเป็นเครื่องมือพื้นฐานที่ใช้บ่อยใน ER",
+    "pmid": "42706575",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42706575/"
+  },
+  {
+    "date": "8 Sep",
+    "title": "Drug-associated central nervous system vasculitis and reversible cerebral vasoconstriction syndrome: a global disproportionality analysis of the WHO pharmacovigilance database (VigiBase).",
+    "comment": "สัญญาณเตือนเรื่องยาที่ก่อให้เกิด CNS vasculitis และ RCVS ที่แพทย์ต้องระวัง",
+    "pmid": "42706935",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42706935/"
+  },
+  {
     "date": "6 Sep",
     "title": "Sustained Low-Efficiency Dialysis Versus Intermittent Hemodialysis in Critically Ill Patients with Severe Acute Kidney Injury.",
     "comment": "เปรียบเทียบรูปแบบการฟอกเลือดในผู้ป่วย AKI วิกฤต มีผลต่อการเลือก modality ใน ICU",
@@ -411,82 +488,5 @@
     "comment": "เปรียบเทียบ AI กับรังสีแพทย์ในการวินิจฉัย Aortic Dissection ซึ่งเป็นภาวะวิกฤต",
     "pmid": "42679415",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42679415/"
-  },
-  {
-    "date": "2 Sep",
-    "title": "Challenging the 4-h premedication regimen for iodinated contrast allergy: A multicenter retrospective study.",
-    "comment": "ทบทวนความจำเป็นของ premedication 4 ชม. ในผู้ป่วยแพ้สารทึบรังสี",
-    "pmid": "42679439",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42679439/"
-  },
-  {
-    "date": "2 Sep",
-    "title": "Epidemiology and Mechanisms of Cervical Spine Injuries Caused by Non-Traditional Vehicles in the United States: An Analysis of National Emergency Department Data.",
-    "comment": "ข้อมูลการบาดเจ็บกระดูกคอจากยานพาหนะรูปแบบใหม่ เพื่อการประเมินใน ER",
-    "pmid": "42679903",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42679903/"
-  },
-  {
-    "date": "2 Sep",
-    "title": "Borrelia or Bell's? Development of BoB: a clinical decision support tool to differentiate Lyme neuroborreliosis facial palsy from Bell's palsy.",
-    "comment": "เครื่องมือช่วยแยกโรค Bell's palsy ออกจาก Lyme neuroborreliosis",
-    "pmid": "42679518",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42679518/"
-  },
-  {
-    "date": "2 Sep",
-    "title": "US heatwaves: nearly 1 in 10 emergency department visits heat related, study finds.",
-    "comment": "สัญญาณเตือนความเสี่ยงและอุบัติการณ์ผู้ป่วย Heat-related ที่เพิ่มสูงขึ้นใน ER",
-    "pmid": "42680486",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42680486/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "In AIS with inadequate response to tenecteplase, tirofiban vs. placebo increased excellent functional outcome rate at 90 d.",
-    "comment": "Practice Changing: ใช้ Tirofiban เพิ่ม outcome ในผู้ป่วย AIS ที่ไม่ตอบสนองต่อ tenecteplase",
-    "pmid": "42673593",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42673593/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "In septic shock, early vasopressors with restricted fluids vs. liberal fluids with later vasopressors as needed did not improve 90-d outcomes.",
-    "comment": "High-Impact Controversy: การให้ early vasopressors ร่วมกับจำกัดน้ำ ไม่ได้ทำให้ outcome ดีขึ้นกว่าเดิม",
-    "pmid": "42673586",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42673586/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Early recognition of limb necrotizing fasciitis and surgery within six hours is associated with a lower mortality risk and improved patient-reported outcomes.",
-    "comment": "Practice Changing: เน้นย้ำการผ่าตัด Necrotizing fasciitis ภายใน 6 ชม. เพื่อลด mortality",
-    "pmid": "42674563",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42674563/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Splenic artery embolization versus surgery for blunt splenic injuries: a systematic review, meta-analysis and trial sequential analysis stratified by hemodynamic status.",
-    "comment": "Practice Changing: เปรียบเทียบ SAE vs Surgery ใน blunt splenic injury ตาม hemodynamic status",
-    "pmid": "42673663",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42673663/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Accuracy of lung ultrasound in the diagnosis of acute respiratory distress syndrome: a systematic review and meta-analysis.",
-    "comment": "Novel Tool: ยืนยันความแม่นยำของ LUS ในการวินิจฉัย ARDS ซึ่งใช้ได้ทันทีที่ bedside",
-    "pmid": "42671769",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42671769/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Comparative performance of CRAMS, RTS, NISS, and ESI scores in predicting 24-hour mortality in adult multi-trauma patients: A prospective study.",
-    "comment": "Practice Changing: เปรียบเทียบ triage score เพื่อพยากรณ์ 24-hr mortality ในผู้ป่วย multi-trauma",
-    "pmid": "42673667",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42673667/"
-  },
-  {
-    "date": "1 Sep",
-    "title": "Empirical Meropenem Versus Piperacillin/Tazobactam for Critically Ill Adults With Sepsis: Feasibility of a Randomised Trial.",
-    "comment": "High-Impact Controversy: ศึกษาการเลือกใช้ antibiotic เริ่มต้นในผู้ป่วย sepsis ที่วิกฤต",
-    "pmid": "42674465",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42674465/"
   }
 ]
