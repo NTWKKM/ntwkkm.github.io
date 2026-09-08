@@ -167,7 +167,7 @@ header .theme-btn:hover {
     flex: 0 0 300px;
     background: var(--bg-card);
     border-radius: var(--radius);
-    padding: 24px 24px 24px 21px; /* offset padding for 4px left border sentinel */
+    padding: 24px;
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
@@ -175,7 +175,6 @@ header .theme-btn:hover {
     overflow: hidden;
     transition: all 0.2s ease;
     border: 1px solid var(--border);
-    border-left: 4px solid transparent;
     box-shadow: var(--shadow);
     -webkit-user-drag: none;
     text-decoration: none;
@@ -185,7 +184,6 @@ header .theme-btn:hover {
 .paper-card:hover {
     background-color: var(--card-hover-bg);
     border-color: var(--card-hover-border);
-    border-left-color: var(--card-hover-sentinel);
     color: var(--card-hover-text);
     box-shadow: var(--shadow-hover);
 }
@@ -234,10 +232,10 @@ header .theme-btn:hover {
     color: var(--primary);
     text-decoration: none;
     margin-top: auto;
-    margin-left: -21px;
+    margin-left: -24px;
     margin-right: -24px;
     margin-bottom: -24px;
-    padding: 14px 24px 18px 21px;
+    padding: 14px 24px 18px 24px;
     border-top: 1px solid var(--border);
     display: flex;
     align-items: center;
@@ -351,12 +349,11 @@ header .theme-btn:hover {
 .project-card {
     background: var(--bg-card);
     border-radius: var(--radius);
-    padding: 24px 24px 24px 21px; /* offset padding for 4px left border sentinel */
+    padding: 24px;
     transition: all 0.2s ease;
     text-decoration: none;
     color: inherit;
     border: 1px solid var(--border);
-    border-left: 4px solid transparent;
     box-shadow: var(--shadow);
     display: grid;
     grid-template-rows: auto auto 1fr;
@@ -372,7 +369,6 @@ header .theme-btn:hover {
 .project-card:hover {
     background-color: var(--card-hover-bg);
     border-color: var(--card-hover-border);
-    border-left-color: var(--card-hover-sentinel);
     color: var(--card-hover-text);
     box-shadow: var(--shadow-hover);
 }
@@ -385,7 +381,7 @@ header .theme-btn:hover {
 .project-card:hover .project-icon {
     background-color: var(--card-hover-icon-bg);
     border-color: transparent;
-    color: var(--card-hover-sentinel);
+    color: var(--card-hover-text);
 }
 
 .project-icon {

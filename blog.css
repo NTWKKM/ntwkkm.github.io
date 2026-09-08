@@ -353,13 +353,11 @@ body {
     transition: all 0.2s ease;
     cursor: pointer;
     border-bottom: 1px solid var(--border-light);
-    border-left: 3px solid transparent;
 }
 
 .article-list-item:hover {
     background-color: var(--card-hover-bg);
     color: var(--card-hover-text);
-    border-left-color: var(--card-hover-sentinel);
 }
 
 .article-list-item:hover .list-title {
@@ -380,7 +378,6 @@ body {
 .article-list-item.active:hover {
     background-color: var(--card-hover-bg);
     color: var(--card-hover-text);
-    border-left-color: var(--card-hover-sentinel);
 }
 
 .article-list-item.active:hover .list-title {
@@ -862,18 +859,16 @@ body {
 
 .related-card {
     background: var(--bg-surface);
-    padding: 16px 16px 16px 13px; /* offset padding for 3px left border sentinel */
+    padding: 16px;
     border-radius: var(--radius-sm);
     cursor: pointer;
     transition: all 0.2s;
     border: 1px solid var(--border);
-    border-left: 3px solid transparent;
 }
 
 .related-card:hover {
     background-color: var(--card-hover-bg);
     border-color: var(--card-hover-border);
-    border-left-color: var(--card-hover-sentinel);
     color: var(--card-hover-text);
 }
 
