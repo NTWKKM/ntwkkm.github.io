@@ -176,6 +176,7 @@ header .theme-btn:hover {
     transition: all 0.2s ease;
     border: 1px solid var(--border);
     border-left: 4px solid transparent;
+    box-shadow: var(--shadow);
     -webkit-user-drag: none;
     text-decoration: none;
     color: inherit;
@@ -186,6 +187,7 @@ header .theme-btn:hover {
     border-color: #49628d;
     border-left-color: #F0EDE5;
     color: #F0EDE5;
+    box-shadow: var(--shadow-hover);
 }
 
 .paper-card:hover .paper-title,
@@ -270,12 +272,14 @@ header .theme-btn:hover {
     cursor: pointer;
     z-index: 10;
     transition: all 0.2s ease;
+    box-shadow: var(--shadow-sm);
 }
 
 .slider-nav-btn:hover {
     background: var(--bg-surface);
     border-color: var(--border-strong);
     color: var(--text-main);
+    box-shadow: var(--shadow);
 }
 
 .slider-nav-btn.prev {
@@ -353,6 +357,7 @@ header .theme-btn:hover {
     color: inherit;
     border: 1px solid var(--border);
     border-left: 4px solid transparent;
+    box-shadow: var(--shadow);
     display: grid;
     grid-template-rows: auto auto 1fr;
     row-gap: 8px;
@@ -369,6 +374,7 @@ header .theme-btn:hover {
     border-color: #49628d;
     border-left-color: #F0EDE5;
     color: #F0EDE5;
+    box-shadow: var(--shadow-hover);
 }
 
 .project-card:hover .project-title,

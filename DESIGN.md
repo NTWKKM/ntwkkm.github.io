@@ -8,10 +8,10 @@ This document serves as the **core design guideline** for any AI agent or develo
 
 ## 1. Core Philosophy
 
-- **Braun-Era Paper-Industrial**: The design language is inspired by the 1960s-70s Braun product design (Dieter Rams). It has a muted, matte, "printed document" feel. Avoid modern glassmorphic panels, glossy gradients (except navigation), and 3D tilts.
-- **Flat & Solid**: Use thin 1px lines in `--rule` for dividers and borders. Avoid heavy drop shadows or large blurred overlays.
-- **Interactive & Quiet**: Elements should react to user hover but remain quiet. Change border colors or background shades on hover. Avoid moving elements (no `transform: translateY`) or increasing drop shadows.
-- **First-Class Dark Mode (Inverted)**: Both Light and Dark modes are supported. Dark mode is an inversion: using deep navy surfaces (`#121e36` body, `#1a2744` cards) and warm cream/paper text (`#ebe7df`).
+- **Modern Apple / iPadOS Slate & Titanium Navy**: The design language pairs a crisp, digital **Modern Apple / iPadOS Slate** light theme with a deep **Titanium Precision Navy** dark theme. It delivers the clean, tactile feel of modern clinical operating systems (iPadOS / macOS HIG) with strict WCAG AAA contrast standards.
+- **Card Separation & Soft Depth**: Surfaces feature distinct, ergonomic elevation. Cards sit cleanly atop the canvas with soft dimensional shadows (`0 4px 20px rgba(...)`) and crisp 1px borders.
+- **Interactive & Quiet**: Elements react smoothly to user hover (subtle border color highlights and shadow shifts) while preserving strict layout stability.
+- **First-Class Dark Mode (Ergonomic Navy)**: Dark mode preserves the signature deep navy canvas (`#121E36`) with elevated surfaces (`#1C2D4F`). To prevent eye fatigue and glare during long clinical sessions, text is rendered in soft slate white (`#E2E8F0`, contrast 10.8:1 PASS AAA) instead of harsh 100% white.
 - **Accent Restraint**: Only ONE accent color (`--signal-orange`) exists. It must be used sparingly for high-priority or critical items only (e.g., status errors, highlights). Do not use it decoratively or for standard call-to-actions.
 
 ---
@@ -34,24 +34,32 @@ font-family: "Inter Tight", "Neue Haas Grotesk", "Sarabun", sans-serif;
 
 All colors MUST be referenced via CSS variables defined in `:root` and `[data-theme="dark"]`. **Do not hardcode HEX or RGB values** in component styles.
 
-### 3.1. Light Theme (Default)
+### 3.1. Light Theme (Modern Apple / iPadOS Slate)
 
-- `--paper`: `#ebe7df` (Main page background — warm cream/off-white)
-- `--ink`: `#1a1a1a` (Primary text color)
-- `--graphite`: `#4a4a4a` (Secondary text)
-- `--rule`: `#d8d4c8` (Dividers, card borders)
-- `--signal-orange`: `#d84315` (Signal accent — high priority only)
-- `--primary`: `#1e3c72` (Deep navy nav background)
-- `--primary-hover`: `#49628d` (Nav item hover background)
+- Canvas Background (`--bg-body`): `#ECECEE` (Neutral Cool Gray)
+- Card Container (`--bg-card`): `#FFFFFF` (Pure White)
+- Primary Text (`--text-main` / `--ink`): `#1d1d1f` (Contrast: 16.83:1, PASS AAA)
+- Secondary Text (`--text-secondary` / `--graphite`): `#333333` (Contrast: 10.71:1, PASS AAA)
+- Muted Text (`--text-muted`): `#6E6E73` (Apple HIG Secondary Label, Contrast >5.4:1)
+- Card Border (`--border` / `--rule`): `1px solid #D8D8DC`
+- Border Strong (`--border-strong`): `#C7C7CC`
+- Card Shadow (`--shadow`): `0 4px 20px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.04)`
+- Surface Contrast (Canvas vs Card): 1.18:1 (Clean, modern card separation)
+- Accent Signal (`--signal-orange`): `#d84315`
 
-### 3.2. Dark Theme (Inverted)
+### 3.2. Dark Theme (Titanium Precision Navy - Ergonomic Tone 1)
 
-- `--bg-body`: `#121e36` (Deep navy body background)
-- `--bg-card`: `#1a2744` (Slightly lighter navy card background)
-- `--text-main`: `#ebe7df` (Warm cream primary text)
-- `--text-secondary`: `#c4bfb0` (Warm greyish secondary text)
-- `--border`: `#233558` (Dark rule/border)
-- `--signal-orange`: `#ff6f43` (Slightly brighter orange for dark contrast)
+- Canvas Background (`--bg-body`): `#121E36` (Signature Deep Navy)
+- Card Container (`--bg-card`): `#1C2D4F` (Elevated Navy Surface)
+- Primary Text (`--text-main`): `#E2E8F0` (Soft Slate White, Anti-glare, Contrast: 10.8:1, PASS AAA)
+- Secondary Text (`--text-secondary`): `#94A3B8` (Cool Slate Gray, Contrast: 5.5:1, PASS AAA)
+- Muted Text (`--text-muted`): `#64748B`
+- Card Border (`--border` / `--rule`): `1px solid #2B406A`
+- Border Strong (`--border-strong`): `#3A548C`
+- Card Shadow (`--shadow`): `0 4px 20px rgba(6, 12, 24, 0.55), 0 1px 3px rgba(6, 12, 24, 0.30)`
+- Surface Contrast (Canvas vs Card): 1.26:1 (Sharp clinical layer separation)
+- Accent Signal (`--signal-orange`): `#FF7A45`
+- Primary Link/Action (`--primary`): `#93c5fd`
 
 ### 3.3. Category / Tag Colors
 
