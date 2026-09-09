@@ -1,6 +1,90 @@
 [
   {
     "date": "9 Sep",
+    "title": "Evaluation of point-of-care complete blood count and C-reactive protein testing for routine use in a pediatric emergency department.",
+    "comment": "ประเมินการใช้ POCT CBC/CRP ในเด็ก ช่วยลดระยะเวลารอคอยและตัดสินใจรักษาได้เร็วขึ้น",
+    "pmid": "42711586",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42711586/"
+  },
+  {
+    "date": "9 Sep",
+    "title": "Diagnosis of myocardial infarction in early presenters using 1-hour delta of high sensitive Troponin I: a pilot study.",
+    "comment": "ใช้ 1-hr delta hs-TnI ช่วยวินิจฉัย MI ในผู้ป่วยที่มาถึง ER เร็ว เพิ่มความแม่นยำในการคัดกรอง",
+    "pmid": "42710360",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42710360/"
+  },
+  {
+    "date": "9 Sep",
+    "title": "Comparison of subanaesthetic ketamine and lidocaine as adjuvants to propofol-based total intravenous anesthesia on propofol requirement during emergency decompressive craniectomy for traumatic brain injury: a prospective, double-blind, three-arm randomized controlled trial.",
+    "comment": "เปรียบเทียบ Ketamine vs Lidocaine ใน TBI ช่วยลดปริมาณ Propofol ที่ต้องใช้ในหัตถการฉุกเฉิน",
+    "pmid": "42710328",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42710328/"
+  },
+  {
+    "date": "9 Sep",
+    "title": "Paediatric Procedural Sedation and Analgesia in Emergency Departments: A Delphi Consensus Study.",
+    "comment": "Consensus การให้ยาบรรเทาปวดและระงับความรู้สึกในเด็กที่ ER เพื่อเป็นมาตรฐานการดูแล",
+    "pmid": "42710898",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42710898/"
+  },
+  {
+    "date": "9 Sep",
+    "title": "Impact of point of care testing in time to treatment decision-making in emergency departments: a systematic review.",
+    "comment": "Review ยืนยันว่า POCT ช่วยลดระยะเวลาตัดสินใจเริ่มการรักษาใน ER อย่างมีนัยสำคัญ",
+    "pmid": "42709507",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42709507/"
+  },
+  {
+    "date": "9 Sep",
+    "title": "Timing of aneurysm repair and clinical outcomes after aneurysmal subarachnoid hemorrhage: a systematic review.",
+    "comment": "วิเคราะห์ช่วงเวลาที่เหมาะสมในการผ่าตัด aneurysm หลัง SAH ซึ่งส่งผลต่อ outcome ผู้ป่วย",
+    "pmid": "42711461",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42711461/"
+  },
+  {
+    "date": "9 Sep",
+    "title": "Emergency department referral and short-term death after outpatient hyperkalemia: a population-based study.",
+    "comment": "ชี้ให้เห็นความเสี่ยงการเสียชีวิตระยะสั้นในผู้ป่วย Hyperkalemia ที่ถูกส่งตัวมา ER",
+    "pmid": "42710931",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42710931/"
+  },
+  {
+    "date": "9 Sep",
+    "title": "A portable nanobiosensor with machine learning: enabling multi-cytokines point-of-care testing and early identification of sepsis immunoparalysis.",
+    "comment": "เครื่องมือใหม่ตรวจ multi-cytokines แบบ POCT ช่วยระบุ sepsis immunoparalysis ได้รวดเร็ว",
+    "pmid": "42711715",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42711715/"
+  },
+  {
+    "date": "9 Sep",
+    "title": "The use of Riva Star for dental pain in the emergency department.",
+    "comment": "ทางเลือกการใช้ Riva Star จัดการอาการปวดฟันใน ER เพื่อลดการใช้ยาแก้ปวดรุนแรง",
+    "pmid": "42711157",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42711157/"
+  },
+  {
+    "date": "9 Sep",
+    "title": "Hypocapnia in acute carbon monoxide poisoning: A complex interaction beyond metabolic compensation.",
+    "comment": "ข้อมูลความเสี่ยงเรื่อง Hypocapnia ในผู้ป่วย CO poisoning ที่แพทย์ ER ต้องเฝ้าระวัง",
+    "pmid": "42709721",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42709721/"
+  },
+  {
+    "date": "9 Sep",
+    "title": "Fournier's gangrene: evolving understanding and modern management of a necrotising surgical emergency.",
+    "comment": "อัปเดตการจัดการ Fournier's gangrene ซึ่งเป็นภาวะฉุกเฉินทางศัลยกรรมที่ต้องรักษาทันที",
+    "pmid": "42710056",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42710056/"
+  },
+  {
+    "date": "9 Sep",
+    "title": "CRISPR-Based Diagnostic Assay for Point-of-Care Detection of Methicillin-Resistant Staphylococcus aureus in patients with Bloodstream Infections.",
+    "comment": "นวัตกรรมตรวจ MRSA แบบ POCT ในผู้ป่วยติดเชื้อในกระแสเลือด ช่วยปรับยา antibiotic ได้เร็ว",
+    "pmid": "42710038",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42710038/"
+  },
+  {
+    "date": "9 Sep",
     "title": "Restrictive vs Liberal Transfusion Strategy in Traumatic Brain Injury: A Secondary Analysis of the TRAIN Trial.",
     "comment": "Impact สูงต่อการจัดการ fluid/blood ใน TBI เพื่อให้ได้ standard of care ที่ชัดเจน",
     "pmid": "42709438",
@@ -8,31 +92,10 @@
   },
   {
     "date": "9 Sep",
-    "title": "Paediatric Procedural Sedation and Analgesia in Emergency Departments: A Delphi Consensus Study.",
-    "comment": "Consensus ใหม่สำหรับการให้ยาระงับปวด/ความรู้สึกในเด็กที่ ER นำไปใช้ได้ทันที",
-    "pmid": "42710898",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42710898/"
-  },
-  {
-    "date": "9 Sep",
     "title": "Simple risk stratification of patients with ST-segment elevation myocardial infarction: based on the modified DanGer shock trial-derived criteria assessed at initial emergency room presentation.",
     "comment": "เครื่องมือคัดกรองความเสี่ยง STEMI ที่หน้างาน เพื่อตัดสินใจเรื่องการรักษาและส่งต่อ",
     "pmid": "42709177",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42709177/"
-  },
-  {
-    "date": "9 Sep",
-    "title": "Comparison of subanaesthetic ketamine and lidocaine as adjuvants to propofol-based total intravenous anesthesia on propofol requirement during emergency decompressive craniectomy for traumatic brain injury: a prospective, double-blind, three-arm randomized controlled trial.",
-    "comment": "RCT เปรียบเทียบ adjuvant ในการทำ emergency craniectomy ช่วยลดปริมาณ propofol",
-    "pmid": "42710328",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42710328/"
-  },
-  {
-    "date": "9 Sep",
-    "title": "Diagnosis of myocardial infarction in early presenters using 1-hour delta of high sensitive Troponin I: a pilot study.",
-    "comment": "เพิ่มความเร็วในการวินิจฉัย MI ในกลุ่ม early presenters ช่วยลดระยะเวลาใน ER",
-    "pmid": "42710360",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42710360/"
   },
   {
     "date": "9 Sep",
@@ -50,38 +113,10 @@
   },
   {
     "date": "9 Sep",
-    "title": "Emergency department referral and short-term death after outpatient hyperkalemia: a population-based study.",
-    "comment": "Safety signal เรื่องอัตราตายในผู้ป่วย hyperkalemia ที่ส่งตัวมาจาก OPD",
-    "pmid": "42710931",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42710931/"
-  },
-  {
-    "date": "9 Sep",
     "title": "Spectral computed tomography in thoracic pathology: A technological and clinical update.",
     "comment": "อัปเดตเทคโนโลยี Spectral CT สำหรับวินิจฉัยโรคทรวงอกที่แม่นยำขึ้นในภาวะฉุกเฉิน",
     "pmid": "42711020",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42711020/"
-  },
-  {
-    "date": "9 Sep",
-    "title": "Impact of point of care testing in time to treatment decision-making in emergency departments: a systematic review.",
-    "comment": "วิเคราะห์ผลของ POCT ต่อการลดเวลาตัดสินใจรักษา ซึ่งมีผลต่อ prognosis ผู้ป่วย",
-    "pmid": "42709507",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42709507/"
-  },
-  {
-    "date": "9 Sep",
-    "title": "Fournier's gangrene: evolving understanding and modern management of a necrotising surgical emergency.",
-    "comment": "แนวทางการจัดการศัลยกรรมฉุกเฉินในภาวะ Necrotising fasciitis บริเวณอวัยวะเพศ",
-    "pmid": "42710056",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42710056/"
-  },
-  {
-    "date": "9 Sep",
-    "title": "Hypocapnia in acute carbon monoxide poisoning: A complex interaction beyond metabolic compensation.",
-    "comment": "ข้อมูลสำคัญในการแปลผล ABG เพื่อวินิจฉัย CO poisoning ให้ถูกต้อง",
-    "pmid": "42709721",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42709721/"
   },
   {
     "date": "8 Sep",
@@ -453,40 +488,5 @@
     "comment": "AI ช่วยเพิ่มความแม่นยำในการวินิจฉัย Hip fracture ในเด็ก ซึ่งมักตรวจพบยาก",
     "pmid": "42682383",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42682383/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Impact of a Pharmacist-Led Antimicrobial Stewardship Program on Empiric Prescribing Appropriateness in the Emergency Department: A Retrospective Cohort Study.",
-    "comment": "การใช้เภสัชกรช่วยคัดเลือกยาฆ่าเชื้อใน ER เพื่อลดการใช้ยาไม่เหมาะสม",
-    "pmid": "42682024",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42682024/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Ultrasound Archiving in the Emergency Department: Implementation, Governance and 4-Year Outcomes at an Australian Tertiary Emergency Department.",
-    "comment": "ระบบการจัดเก็บภาพ US ใน ER เพื่อการติดตามผลและคุณภาพการรักษาทางคลินิก",
-    "pmid": "42683516",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42683516/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Post return of spontaneous circulation : initial care",
-    "comment": "แนวทางการดูแลผู้ป่วยหลัง ROSC ในระยะแรกเพื่อเพิ่มโอกาสรอดชีวิตและลดความพิการ",
-    "pmid": "42682117",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42682117/"
-  },
-  {
-    "date": "2 Sep",
-    "title": "Association of Whole Blood Transfusion With Survival Among Patients Achieving ROSC After Prehospital Traumatic Cardiac Arrest",
-    "comment": "ประเมินการใช้ Whole Blood ใน traumatic cardiac arrest เพื่อเพิ่ม survival rate (High Impact)",
-    "pmid": "42681995",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42681995/"
-  },
-  {
-    "date": "2 Sep",
-    "title": "[Out-of-hospital cardiopulmonary resuscitation : when and how should it be stopped ?]",
-    "comment": "แนวทางการตัดสินใจหยุด CPR นอกโรงพยาบาล ซึ่งมีผลต่อจริยธรรมและทรัพยากร",
-    "pmid": "42682124",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42682124/"
   }
 ]
