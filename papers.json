@@ -1,5 +1,89 @@
 [
   {
+    "date": "10 Sep",
+    "title": "Safety and efficacy of tenecteplase versus alteplase for acute ischemic stroke in a real-world patient population.",
+    "comment": "เปรียบเทียบยาละลายลิ่มเลือดใน Stroke ช่วยตัดสินใจเลือกใช้ยาในเวชปฏิบัติจริง",
+    "pmid": "42715780",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42715780/"
+  },
+  {
+    "date": "10 Sep",
+    "title": "Evidence, Controversies, and Practical Progress of Early Initiation of SGLT2 Inhibitors in Hospitalized Patients With Acute Heart Failure.",
+    "comment": "Update การใช้ SGLT2i ใน Acute HF เพื่อลด admission และ improving outcomes",
+    "pmid": "42717294",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42717294/"
+  },
+  {
+    "date": "10 Sep",
+    "title": "Diagnostic yield of repeat CT pulmonary angiography after a negative examination in the emergency department.",
+    "comment": "ข้อมูลช่วยตัดสินใจว่าควรทำ repeat CTPA หรือไม่เมื่อสงสัย PE แม้ผลแรกเป็นลบ",
+    "pmid": "42717156",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42717156/"
+  },
+  {
+    "date": "10 Sep",
+    "title": "A foundation model for acute abdomen diagnosis stratification and triage on noncontrast computed tomography.",
+    "comment": "การใช้ AI ช่วยคัดกรอง Acute Abdomen จาก NCCT เพิ่มความแม่นยำในการ Triage",
+    "pmid": "42716938",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42716938/"
+  },
+  {
+    "date": "10 Sep",
+    "title": "Predictors of increased flumazenil requirements in emergency settings: A multicenter retrospective study.",
+    "comment": "ปัจจัยทำนายการใช้ Flumazenil ปริมาณสูง ช่วยในการเตรียมยาและเฝ้าระวังใน ER",
+    "pmid": "42716837",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42716837/"
+  },
+  {
+    "date": "10 Sep",
+    "title": "Does increasing model complexity improve HEART-based chest pain risk stratification? A multicentre development and held-out emergency department validation study.",
+    "comment": "ประเมินความแม่นยำของ HEART score ในการคัดกรองผู้ป่วย Chest pain",
+    "pmid": "42716566",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42716566/"
+  },
+  {
+    "date": "10 Sep",
+    "title": "Best Location for a Closed Reduction of Dislocated Total Hip Arthroplasty: Emergency Department or Operating Room?",
+    "comment": "เปรียบเทียบสถานที่ทำ Reduction ของ THA dislocation เพื่อความปลอดภัยและประสิทธิภาพ",
+    "pmid": "42715221",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42715221/"
+  },
+  {
+    "date": "10 Sep",
+    "title": "Endovascular therapy for mild-to-moderate stroke due to basilar artery occlusion: A systematic review and meta-analysis.",
+    "comment": "ขยายข้อบ่งชี้การทำ EVT ใน Basilar occlusion กลุ่มอาการน้อยถึงปานกลาง",
+    "pmid": "42715615",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42715615/"
+  },
+  {
+    "date": "10 Sep",
+    "title": "Risk of respiratory and neurologic effects in children ingesting kratom and related alkaloids.",
+    "comment": "Safety signal ความเสี่ยงทางระบบประสาทและทางเดินหายใจในเด็กที่ได้รับกระท่อม",
+    "pmid": "42715782",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42715782/"
+  },
+  {
+    "date": "10 Sep",
+    "title": "Prophylactic abdominal drainage versus no drainage after laparoscopic appendectomy for perforated acute appendicitis: a multicenter propensity score-weighted analysis.",
+    "comment": "ผลของการใส่ drain หลังผ่าไส้ติ่งแตกแบบ Laparoscopic ต่อผลลัพธ์การรักษา",
+    "pmid": "42717043",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42717043/"
+  },
+  {
+    "date": "10 Sep",
+    "title": "Nonoperative Management in Emergency General Surgery: Does It Matter for Surgical Quality Benchmarking in Older Adults?",
+    "comment": "ผลลัพธ์การรักษาแบบไม่ผ่าตัดในผู้ป่วย EGS สูงอายุ ซึ่งมีผลต่อการเลือกแนวทางรักษา",
+    "pmid": "42717371",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42717371/"
+  },
+  {
+    "date": "10 Sep",
+    "title": "Immunotherapy in the critically ill cancer patient: What the intensivist should know.",
+    "comment": "ข้อควรระวังและแนวทางจัดการ Immunotherapy ในผู้ป่วยมะเร็งวิกฤตที่ต้องระวัง irAEs",
+    "pmid": "42716890",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42716890/"
+  },
+  {
     "date": "9 Sep",
     "title": "Evaluation of point-of-care complete blood count and C-reactive protein testing for routine use in a pediatric emergency department.",
     "comment": "ประเมินการใช้ POCT CBC/CRP ในเด็ก ช่วยลดระยะเวลารอคอยและตัดสินใจรักษาได้เร็วขึ้น",
@@ -404,89 +488,5 @@
     "comment": "Safety Signal: ข้อมูลความเสี่ยงและเหตุการณ์ไม่พึงประสงค์รุนแรงหลังฉีด Ceftriaxone ที่แพทย์ต้องเฝ้าระวัง",
     "pmid": "42686538",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42686538/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Does Contralateral Elbow Radiography Improve Diagnostic Accuracy of Paediatric Elbow Fractures amongst Emergency Residents?",
-    "comment": "Practice Changing: ตรวจสอบว่าการ X-ray ข้อศอกอีกข้างช่วยเพิ่มความแม่นยำในการวินิจฉัยในเด็กหรือไม่",
-    "pmid": "42687784",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42687784/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Early biomarker prognostic signals for 30-day mortality in acute poisoning: exploratory analysis of a complete-case subgroup from a derived MIMIC-IV dataset.",
-    "comment": "Novel Tool: การใช้ Biomarker ทำนายอัตราการเสียชีวิตใน 30 วันสำหรับผู้ป่วยได้รับสารพิษเฉียบพลัน",
-    "pmid": "42686589",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42686589/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Development and internal validation of a simple risk stratification score for unplanned emergency department revisits within 24 hours after discharge: A retrospective observational study.",
-    "comment": "Safety Signal: คะแนนประเมินความเสี่ยงในการกลับมา ER ซ้ำภายใน 24 ชม. เพื่อปรับปรุงการจำหน่ายผู้ป่วย",
-    "pmid": "42685117",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42685117/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Superlarge-Bore Versus Large-Bore Aspiration Catheters in Mechanical Thrombectomy: A Multicenter Propensity-Matched Analysis.",
-    "comment": "เปรียบเทียบขนาดสายดูด thrombectomy เพื่อเพิ่มประสิทธิภาพการนำลิ่มเลือดออกในผู้ป่วย Stroke",
-    "pmid": "42683976",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42683976/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Application and Internal Validation of the Modified Glasgow-Blatchford Score for Early Triage of Acute Upper Gastrointestinal Bleeding.",
-    "comment": "ใช้คัดกรองผู้ป่วย UGIB เพื่อแยกกลุ่มเสี่ยงต่ำที่สามารถรักษาแบบ OPD ได้อย่างปลอดภัย",
-    "pmid": "42683975",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42683975/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Rescue Tirofiban for Early Neurological Deterioration After Tenecteplase in Capsular Warning Syndrome.",
-    "comment": "แนวทางการใช้ Rescue therapy เมื่อผู้ป่วย stroke มีอาการแย่ลงหลังได้รับยาละลายลิ่มเลือด",
-    "pmid": "42683800",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42683800/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Effects of Glucagon-Like Peptide-1 Receptor Agonist Use After Transient Ischemic Attack on Risks of Subsequent Ischemic Stroke and Mortality.",
-    "comment": "ข้อมูลความปลอดภัยและผลกระทบของยา GLP-1 RA ต่อการเกิด Stroke ซ้ำหลัง TIA",
-    "pmid": "42683794",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42683794/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Optimizing vancomycin therapy: the critical role of dosing frequency, AUC monitoring and gender: a retrospective cohort study.",
-    "comment": "ปรับปรุงการให้ Vancomycin โดยเน้น AUC monitoring เพื่อเพิ่มประสิทธิภาพและลดความเป็นพิษ",
-    "pmid": "42683476",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42683476/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Emergence of SCCmec variants causing false-negative MRSA results by Xpert SA Nasal Complete: a need for culture back-up?",
-    "comment": "Safety Signal: คำเตือนเรื่องผลลบปลอมของ Rapid test ในการตรวจ MRSA",
-    "pmid": "42683400",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42683400/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Development of a deep-learning model to detect free air on abdominal computed tomography for surgical decision support.",
-    "comment": "AI ช่วยตรวจหา Free air ใน CT abdomen เพื่อเร่งการตัดสินใจผ่าตัดใน ER",
-    "pmid": "42682356",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42682356/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Prehospital Care Duration and 30-Day Mortality Among Septic Shock.",
-    "comment": "ผลของระยะเวลาการดูแลก่อนถึงโรงพยาบาลต่ออัตราตายในผู้ป่วย Septic Shock",
-    "pmid": "42682811",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42682811/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Improving pediatric hip fracture detection using deep learning: multicenter validation and clinical reader study.",
-    "comment": "AI ช่วยเพิ่มความแม่นยำในการวินิจฉัย Hip fracture ในเด็ก ซึ่งมักตรวจพบยาก",
-    "pmid": "42682383",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42682383/"
   }
 ]
