@@ -1,5 +1,89 @@
 [
   {
+    "date": "12 Sep",
+    "title": "High-Flow Nasal Oxygen Versus Conventional Oxygen Therapy and Non-Invasive Ventilation for Acute Respiratory Failure in the Emergency Department: A Systematic Review and Meta-Analysis.",
+    "comment": "เปรียบเทียบประสิทธิภาพ HFNO vs NIV/Conventional ใน ARF ช่วยตัดสินใจเลือก Oxygen therapy ใน ER",
+    "pmid": "42728228",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42728228/"
+  },
+  {
+    "date": "12 Sep",
+    "title": "Intravenous or Intraosseous Vascular Access in Cardiac Arrest: An Individual Participant Data Meta-Analysis.",
+    "comment": "ข้อมูลระดับ IPD meta-analysis ช่วยเลือกทางเลือกการเปิดเส้นเลือดที่เหมาะสมที่สุดขณะ CPR",
+    "pmid": "42727699",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42727699/"
+  },
+  {
+    "date": "12 Sep",
+    "title": "Extending the Treatment Window for Intravenous Thrombolysis in Acute Ischemic Stroke: An Updated Systematic Review and Meta-Analysis.",
+    "comment": "ทบทวนการขยายเวลาให้ IV Thrombolysis ใน Stroke ซึ่งอาจเปลี่ยนแนวทาง Time window เดิม",
+    "pmid": "42727034",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42727034/"
+  },
+  {
+    "date": "12 Sep",
+    "title": "Artificial Intelligence Enables Nonexperts to Automatically Capture Lung Ultrasound Clips Containing B-Lines.",
+    "comment": "AI ช่วยให้แพทย์ที่ไม่เชี่ยวชาญทำ Lung US ได้แม่นยำขึ้น เพิ่มความเร็วในการวินิจฉัยใน ER",
+    "pmid": "42728197",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42728197/"
+  },
+  {
+    "date": "12 Sep",
+    "title": "A two-minute bedside assessment is associated with ED disposition and 30-day mortality in COPD exacerbations: The Barthel Index.",
+    "comment": "ใช้ Barthel Index ประเมินข้างเตียง 2 นาที เพื่อทำนายการ Admit และ Mortality ใน COPD",
+    "pmid": "42727532",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42727532/"
+  },
+  {
+    "date": "12 Sep",
+    "title": "Nurse-administered Remimazolam for procedural sedation in the emergency department: A prospective study of safety, effectiveness and patient satisfaction.",
+    "comment": "การใช้ Remimazolam โดยพยาบาลเพื่อทำ Sedation ใน ER: ข้อมูลด้านความปลอดภัยและประสิทธิภาพ",
+    "pmid": "42727215",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42727215/"
+  },
+  {
+    "date": "12 Sep",
+    "title": "Embedded Low-Acuity Pathway in the Emergency Department: An Alternative to Stand-Alone Urgent Care Services.",
+    "comment": "รูปแบบการจัดการผู้ป่วย Low-acuity ใน ER เพื่อลดความแออัดและเพิ่มประสิทธิภาพการไหลเวียนผู้ป่วย",
+    "pmid": "42728236",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42728236/"
+  },
+  {
+    "date": "12 Sep",
+    "title": "Vancomycin population pharmacokinetics and optimized dosing in critically ill infants and children.",
+    "comment": "แนวทางการปรับโดส Vancomycin ในเด็กวิกฤต เพื่อประสิทธิภาพการรักษาและลดความเป็นพิษ",
+    "pmid": "42727864",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42727864/"
+  },
+  {
+    "date": "12 Sep",
+    "title": "Prehospital transfusion requirements in severe trauma: A multicenter, retrospective estimate of requirements.",
+    "comment": "ข้อมูลความต้องการเลือดในระยะ Prehospital สำหรับผู้ป่วย Trauma รุนแรง เพื่อวางแผน Resource",
+    "pmid": "42727312",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42727312/"
+  },
+  {
+    "date": "12 Sep",
+    "title": "Right Bundle Branch Block Without Anterior ST-Segment Depression - Should it be Automatically Flagged as Anterior STEMI Equivalent?",
+    "comment": "ประเด็นสำคัญในการอ่าน EKG เพื่อป้องกันการพลาดการวินิจฉัย Anterior STEMI ในคนไข้ RBBB",
+    "pmid": "42726680",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42726680/"
+  },
+  {
+    "date": "12 Sep",
+    "title": "Advances in the diagnosis and management of skin and soft tissue infections.",
+    "comment": "อัปเดตการวินิจฉัยและรักษา SSTI ซึ่งพบบ่อยมากใน ER ให้เป็นปัจจุบัน",
+    "pmid": "42727947",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42727947/"
+  },
+  {
+    "date": "12 Sep",
+    "title": "Barriers to dispatcher-assisted CPR are associated with delayed bystander CPR and worse outcomes in out-of-hospital cardiac arrest: A retrospective cohort study.",
+    "comment": "ระบุอุปสรรคของ Dispatcher-assisted CPR ที่ส่งผลต่ออัตราการรอดชีวิตของผู้ป่วย OHCA",
+    "pmid": "42727702",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42727702/"
+  },
+  {
     "date": "10 Sep",
     "title": "Safety and efficacy of tenecteplase versus alteplase for acute ischemic stroke in a real-world patient population.",
     "comment": "เปรียบเทียบยาละลายลิ่มเลือดใน Stroke ช่วยตัดสินใจเลือกใช้ยาในเวชปฏิบัติจริง",
@@ -404,89 +488,5 @@
     "comment": "การใช้ POCUS ช่วยลดการส่งตรวจ imaging ขนาดใหญ่ที่ไม่จำเป็นลงได้อย่างมีนัยสำคัญ",
     "pmid": "42693692",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42693692/"
-  },
-  {
-    "date": "4 Sep",
-    "title": "[Progress in the protocolized application of automated capillary refill time in septic shock resuscitation].",
-    "comment": "การใช้ automated CRT ตาม protocol ช่วยเพิ่มประสิทธิภาพในการ resuscitation ผู้ป่วย Septic shock",
-    "pmid": "42693976",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42693976/"
-  },
-  {
-    "date": "4 Sep",
-    "title": "Using Sydney Triage to Admission Risk Tool With Artificial Intelligence (START-AI) To Predict Inpatient Admitting Specialty for Emergency Department Patients: Single Centre Deep Learning Analysis.",
-    "comment": "ใช้ AI ช่วยทำนายแผนกที่จะรับ admit ผู้ป่วยจากข้อมูล Triage เพื่อลดคอขวดใน ER",
-    "pmid": "42692462",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42692462/"
-  },
-  {
-    "date": "4 Sep",
-    "title": "Exposing and addressing the clinical safety gap in ESI-free emergency department triage: Imbalance-aware, interpretable deep learning.",
-    "comment": "ใช้ Deep Learning ปิดช่องว่างความปลอดภัยในการ Triage ผู้ป่วยโดยไม่ต้องพึ่ง ESI",
-    "pmid": "42691868",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42691868/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "[European Resuscitation Council Guidelines 2025: Basic and Advanced Life Support]",
-    "comment": "Practice Changing: แนวทางปฏิบัติล่าสุดสำหรับ BLS/ALS ที่แพทย์ ER ทุกคนต้องใช้เป็นมาตรฐาน",
-    "pmid": "42685707",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42685707/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Validation of the updated sequential organ failure assessment (SOFA)-2 score in emergency department septic shock.",
-    "comment": "Practice Changing: การปรับปรุง SOFA score เพื่อให้แม่นยำขึ้นในการประเมิน Septic Shock ใน ER",
-    "pmid": "42687193",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42687193/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Efficacy and safety of colchicine in patients with myocardial infarction: a systematic review and meta-analysis.",
-    "comment": "High-Impact: ทบทวนประสิทธิภาพและความปลอดภัยของ Colchicine ใน MI ซึ่งอาจเปลี่ยนการรักษามาตรฐาน",
-    "pmid": "42687738",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42687738/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Initial treatment of presumed pacemaker or implantable cardioverter defibrillator malfunctions: algorithm and rationale.",
-    "comment": "Novel Tool: อัลกอริทึมการจัดการเบื้องต้นสำหรับผู้ป่วยที่อุปกรณ์ Pacemaker/ICD ทำงานผิดปกติในภาวะฉุกเฉิน",
-    "pmid": "42686387",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42686387/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Comparative efficacy of landiolol and bisoprolol transdermal patch in patients with sepsis-related tachycardia: a retrospective cohort study.",
-    "comment": "Novel Drug: เปรียบเทียบยาควบคุมอัตราการเต้นของหัวใจในผู้ป่วย Sepsis ช่วยในการเลือกใช้ยาในทางคลินิก",
-    "pmid": "42687192",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42687192/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Prevalence, clinical features and emergency department blood pressure management of hypertensive emergencies and uncontrolled hypertension: a retrospective multi-centre study.",
-    "comment": "Practice Changing: ข้อมูลการจัดการความดันโลหิตในภาวะ Hypertensive emergency ใน ER จากหลายศูนย์",
-    "pmid": "42686811",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42686811/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Criteria for Safe Hospital Discharge in Bronchiolitis: A Systematic Review.",
-    "comment": "Safety Signal: เกณฑ์การจำหน่ายผู้ป่วย Bronchiolitis กลับบ้านอย่างปลอดภัย เพื่อลดการ readmission",
-    "pmid": "42687715",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42687715/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "Outcomes among patients with out-of-hospital cardiac arrest who activated an ECPR pathway and achieved ROSC before cannulation.",
-    "comment": "High-Impact: ผลลัพธ์ของการใช้ ECPR ในผู้ป่วย OHCA ที่ช่วยตัดสินใจเลือกผู้ป่วยที่เหมาะสม",
-    "pmid": "42685531",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42685531/"
-  },
-  {
-    "date": "3 Sep",
-    "title": "A Multistate Investigation of Serious Adverse Events, including Deaths, following Ceftriaxone Injections, September 2024-August 2025.",
-    "comment": "Safety Signal: ข้อมูลความเสี่ยงและเหตุการณ์ไม่พึงประสงค์รุนแรงหลังฉีด Ceftriaxone ที่แพทย์ต้องเฝ้าระวัง",
-    "pmid": "42686538",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42686538/"
   }
 ]
