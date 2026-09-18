@@ -1,5 +1,82 @@
 [
   {
+    "date": "18 Sep",
+    "title": "The Once-Conventional 48-h Elective Cardioversion Threshold for \"Recent-Onset\" Atrial Fibrillation Is No Longer Recommended.",
+    "comment": "เปลี่ยนแนวทางจัดการ AF โดยไม่จำเป็นต้องรอ 48 ชม. เพื่อทำ elective cardioversion",
+    "pmid": "42755198",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42755198/"
+  },
+  {
+    "date": "18 Sep",
+    "title": "Diagnostic accuracy of AI-assisted versus independent physician interpretation for bone fractures: a systematic review and meta-analysis.",
+    "comment": "เปรียบเทียบความแม่นยำ AI vs แพทย์ ในการอ่าน X-ray กระดูกหัก มีผลต่อ workflow ER",
+    "pmid": "42754668",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42754668/"
+  },
+  {
+    "date": "18 Sep",
+    "title": "Prehospital Sedation and Physical Restraint of Older Adults Presenting With Behavioral Health Emergencies: A Nationwide Cross-Sectional Study.",
+    "comment": "ข้อมูลความเสี่ยงและรูปแบบการใช้ยาสงบประสาท/ผูกยึดในผู้สูงอายุที่มีภาวะฉุกเฉินทางจิตเวช",
+    "pmid": "42754548",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42754548/"
+  },
+  {
+    "date": "18 Sep",
+    "title": "Efficacy and Safety of Ventilator Assisted Preoxygenation for Intubation in Two Australian Emergency Departments: A Retrospective Cohort Study.",
+    "comment": "ประเมินประสิทธิภาพการใช้ ventilator ช่วย preoxygenation ก่อน intubate ใน ER",
+    "pmid": "42754264",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42754264/"
+  },
+  {
+    "date": "18 Sep",
+    "title": "Diagnostic accuracy and predictive value of hard signs for operative or endovascular management and major injury in penetrating neck trauma: a single-centre retrospective cohort study.",
+    "comment": "ใช้ประเมิน hard signs เพื่อตัดสินใจผ่าตัดหรือทำ endovascular ในผู้ป่วย neck trauma",
+    "pmid": "42752941",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42752941/"
+  },
+  {
+    "date": "18 Sep",
+    "title": "Quadruple respiratory viral point-of-care lateral flow testing in the emergency department: a single-centre service evaluation.",
+    "comment": "การใช้ POC test ตรวจเชื้อทางเดินหายใจ 4 ชนิดใน ER เพื่อเพิ่มความเร็วในการวินิจฉัย",
+    "pmid": "42754386",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42754386/"
+  },
+  {
+    "date": "18 Sep",
+    "title": "After the scan: Timing of first analgesia relative to CT initiation in adult trauma patients.",
+    "comment": "วิเคราะห์ timing การให้ยาแก้ปวดในผู้ป่วย trauma เมื่อเทียบกับการส่ง CT scan",
+    "pmid": "42753322",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42753322/"
+  },
+  {
+    "date": "18 Sep",
+    "title": "Clinical effects of adjuvant basal cisternostomy in traumatic brain injury: a pragmatic single-centre randomised controlled trial.",
+    "comment": "RCT ประเมินผลการทำ basal cisternostomy ในผู้ป่วย TBI เพื่อลด ICP",
+    "pmid": "42753532",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42753532/"
+  },
+  {
+    "date": "18 Sep",
+    "title": "Do we need capnogram analysis to guide ventilator settings during pediatric cardiopulmonary resuscitation?",
+    "comment": "ตั้งคำถามการใช้ capnogram ปรับ ventilator ในเด็กขณะ CPR มีผลต่อการตัดสินใจทางคลินิก",
+    "pmid": "42755261",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42755261/"
+  },
+  {
+    "date": "18 Sep",
+    "title": "Incidence of biphasic anaphylaxis: an 8-year single centre health records review.",
+    "comment": "ข้อมูลอุบัติการณ์ biphasic anaphylaxis ช่วยในการตัดสินใจระยะเวลาสังเกตอาการใน ER",
+    "pmid": "42754390",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42754390/"
+  },
+  {
+    "date": "18 Sep",
+    "title": "Emergency-transport N-terminal pro-B-type natriuretic peptide, renal function, and discharge outcome after acute stroke.",
+    "comment": "ใช้ NT-proBNP และค่าไตขณะนำส่ง เพื่อทำนายผลลัพธ์ในผู้ป่วย acute stroke",
+    "pmid": "42753676",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42753676/"
+  },
+  {
     "date": "12 Sep",
     "title": "High-Flow Nasal Oxygen Versus Conventional Oxygen Therapy and Non-Invasive Ventilation for Acute Respiratory Failure in the Emergency Department: A Systematic Review and Meta-Analysis.",
     "comment": "เปรียบเทียบประสิทธิภาพ HFNO vs NIV/Conventional ใน ARF ช่วยตัดสินใจเลือก Oxygen therapy ใน ER",
@@ -411,82 +488,5 @@
     "comment": "สร้าง risk score ประเมินโอกาสเกิด adverse event ระหว่างใส่ท่อช่วยหายใจ",
     "pmid": "42699043",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42699043/"
-  },
-  {
-    "date": "6 Sep",
-    "title": "Diaphragm Ultrasound: State-of-the-Art Review.",
-    "comment": "รวบรวมเทคนิค US กะบังลม เพื่อใช้ประเมิน weaning และ respiratory failure ใน ER/ICU",
-    "pmid": "42701071",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42701071/"
-  },
-  {
-    "date": "6 Sep",
-    "title": "Achieving Faster Bleeding Disorder Treatment in the Emergency Department: A Quality Improvement Initiative.",
-    "comment": "แนวทางปรับปรุงระบบเพื่อลดระยะเวลาการให้ยาในผู้ป่วยเลือดออกผิดปกติ",
-    "pmid": "42699934",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42699934/"
-  },
-  {
-    "date": "6 Sep",
-    "title": "The relationship between sepsis bundle delay intervals and in-hospital mortality of sepsis patients in ICU.",
-    "comment": "ย้ำความสำคัญของเวลาในการให้ Sepsis bundle ที่ส่งผลต่ออัตราการตาย",
-    "pmid": "42698984",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42698984/"
-  },
-  {
-    "date": "4 Sep",
-    "title": "Real-world impact of implementing a point-of-care high-sensitivity troponin pathway on emergency department flow.",
-    "comment": "เพิ่มประสิทธิภาพ flow ใน ER ด้วย hs-troponin POC ช่วยลดระยะเวลาการรอคอยและตัดสินใจเร็วขึ้น",
-    "pmid": "42693503",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42693503/"
-  },
-  {
-    "date": "4 Sep",
-    "title": "Effect of a Ready-To-Use Vasopressin Product Availability in Automatic Dispensing Cabinets on Outcomes in Septic Shock.",
-    "comment": "การเข้าถึง Vasopressin แบบพร้อมใช้ในตู้ยาอัตโนมัติช่วยปรับปรุง outcome ผู้ป่วย Septic Shock",
-    "pmid": "42693658",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42693658/"
-  },
-  {
-    "date": "4 Sep",
-    "title": "Extracorporeal CO2 elimination for acute exacerbation of severe COPD requiring invasive mechanical ventilation: a randomized controlled trial (the X-COPD trial).",
-    "comment": "RCT ยืนยันผลของ ECCO2R ในผู้ป่วย COPD exacerbation ที่ใส่เครื่องช่วยหายใจ",
-    "pmid": "42693471",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42693471/"
-  },
-  {
-    "date": "4 Sep",
-    "title": "Diagnostic accuracy of delirium screening tools in the emergency department: A network meta-analysis.",
-    "comment": "เปรียบเทียบความแม่นยำเครื่องมือคัดกรอง Delirium ใน ER เพื่อเลือก tool ที่เหมาะสมที่สุด",
-    "pmid": "42691794",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42691794/"
-  },
-  {
-    "date": "4 Sep",
-    "title": "Mortality Risk From Prolonged ED Dwell Time in Older Adult Trauma: A National Trauma Data Bank Study.",
-    "comment": "ชี้ให้เห็นว่าระยะเวลาที่ผู้ป่วยสูงอายุบาดเจ็บค้างอยู่ใน ER นานเกินไปเพิ่มอัตราการเสียชีวิต",
-    "pmid": "42691974",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42691974/"
-  },
-  {
-    "date": "4 Sep",
-    "title": "Shockable rhythm as an independent prognostic factor in patients with non-ST elevation undergoing percutaneous coronary intervention after out-of-hospital cardiac arrest: a registry-based cohort study.",
-    "comment": "Shockable rhythm เป็นตัวพยากรณ์โรคที่ดีในผู้ป่วย OHCA ที่ทำ PCI แม้ไม่มี ST-elevation",
-    "pmid": "42693628",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42693628/"
-  },
-  {
-    "date": "4 Sep",
-    "title": "Primary Care Ondansetron Use and Subsequent Emergency Department Utilization in Children With Acute Gastroenteritis.",
-    "comment": "การใช้ Ondansetron ใน primary care ช่วยลดอัตราการมา ER ในเด็กที่เป็น AGE",
-    "pmid": "42693814",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42693814/"
-  },
-  {
-    "date": "4 Sep",
-    "title": "Association between point-of-care ultrasonography use and requests for formal imaging studies in hospital-based internal medicine: A retrospective cohort study.",
-    "comment": "การใช้ POCUS ช่วยลดการส่งตรวจ imaging ขนาดใหญ่ที่ไม่จำเป็นลงได้อย่างมีนัยสำคัญ",
-    "pmid": "42693692",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42693692/"
   }
 ]
