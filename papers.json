@@ -1,10 +1,87 @@
 [
   {
     "date": "19 Sep",
+    "title": "Clinical Policy: A Critical Issue in the Evaluation and Management of Adult Patients Presenting to the Emergency Department With Suspected Acute Venous Thromboembolic Disease.",
+    "comment": "แนวทางเวชปฏิบัติใหม่ในการประเมินและจัดการ VTE ใน ER ซึ่งมีผลโดยตรงต่อ Standard of Care",
+    "pmid": "42760062",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42760062/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Doxycycline With a β-Lactam Should Be Considered for Empiric Treatment of Community-Acquired Pneumonia in Critically Ill Adults.",
+    "comment": "ข้อเสนอแนะการปรับยา Empiric therapy ในผู้ป่วย CAP วิกฤต เพื่อเพิ่มประสิทธิภาพการรักษา",
+    "pmid": "42760044",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42760044/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Zero peri-shock pause: Could insulating gloves enable continuous CPR during defibrillation?",
+    "comment": "เทคนิคใหม่ลดการหยุด CPR ระหว่าง Defibrillation เพื่อเพิ่มโอกาสรอดชีวิตในผู้ป่วย Cardiac Arrest",
+    "pmid": "42760238",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42760238/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "AI-Assisted FAST for Abdominal Free-Fluid Detection: From Image-Level Accuracy to Clinical Utility.",
+    "comment": "การใช้ AI ช่วยตรวจ FAST ใน ER เพื่อเพิ่มความแม่นยำในการตรวจพบ Free fluid",
+    "pmid": "42759997",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42759997/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Admission ionised calcium disturbances and adverse outcomes in paediatric major trauma: a UK multicentre retrospective cohort study.",
+    "comment": "ข้อมูลความสำคัญของระดับ Ionised calcium ต่อผลลัพธ์ในเด็กที่ได้รับบาดเจ็บรุนแรง",
+    "pmid": "42760083",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42760083/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "A Causal Model for Prehospital Blood Transfusion and Mortality in Traumatic Hemorrhagic Shock.",
+    "comment": "วิเคราะห์ผลของการให้เลือดตั้งแต่ก่อนถึงโรงพยาบาลต่ออัตราการตายใน Shock จากการบาดเจ็บ",
+    "pmid": "42758640",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42758640/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Worsening Emergency Department Heart Rate Trajectory and Clinically Significant 7-Day Bouncebacks.",
+    "comment": "ใช้แนวโน้ม HR ใน ER เป็นตัวพยากรณ์การกลับมาโรงพยาบาลซ้ำภายใน 7 วัน",
+    "pmid": "42759270",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42759270/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Perioperative management of SGLT2 inhibitors: balancing euglycaemic ketoacidosis risk and cardiorenal benefits.",
+    "comment": "คำเตือนเรื่องความเสี่ยง Euglycaemic ketoacidosis จากยา SGLT2i ที่แพทย์ ER และศัลยแพทย์ต้องระวัง",
+    "pmid": "42759692",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42759692/"
+  },
+  {
+    "date": "19 Sep",
     "title": "Machine learning versus conventional methods for prehospital detection of stroke due to large vessel occlusion or intracranial haemorrhage.",
-    "comment": "ใช้ AI ช่วยคัดกรอง Stroke ก่อนถึง รพ. เพิ่มความแม่นยำในการส่งต่อผู้ป่วยไปยังศูนย์ Stroke center",
+    "comment": "การใช้ ML ช่วยคัดกรอง LVO/ICH ตั้งแต่ระยะ Prehospital เพื่อส่งต่อให้ถูกจุด",
     "pmid": "42758735",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42758735/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Diagnosis, Treatment, and Prognosis of Cerebral Venous Thrombosis.",
+    "comment": "ข้อมูลสรุปการวินิจฉัยและการรักษา CVT ซึ่งเป็นภาวะวิกฤตทางระบบประสาทที่พบบ่อยใน ER",
+    "pmid": "42758959",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42758959/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Is it Time to Reconsider the Fluid of Choice in Hypothermia? the Case for Lactated Ringer's Solution.",
+    "comment": "ทบทวนการเลือกชนิดสารน้ำที่เหมาะสมที่สุดสำหรับผู้ป่วย Hypothermia",
+    "pmid": "42758042",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42758042/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Prediction of Post-Cardiac Arrest Seizures Using Heart Rate Variability.",
+    "comment": "ใช้ HRV พยากรณ์การเกิดชักหลังฟื้นคืนชีพ เพื่อการเฝ้าระวังและรักษาที่รวดเร็ว",
+    "pmid": "42757915",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42757915/"
   },
   {
     "date": "19 Sep",
@@ -15,24 +92,10 @@
   },
   {
     "date": "19 Sep",
-    "title": "A Causal Model for Prehospital Blood Transfusion and Mortality in Traumatic Hemorrhagic Shock.",
-    "comment": "ข้อมูลการให้เลือดตั้งแต่ก่อนถึง รพ. ในผู้ป่วย Trauma shock ซึ่งส่งผลต่ออัตราการรอดชีวิต",
-    "pmid": "42758640",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42758640/"
-  },
-  {
-    "date": "19 Sep",
     "title": "European Stroke Organisation survey on reperfusion therapy practices.",
     "comment": "สำรวจแนวทางการให้ Reperfusion therapy ในปัจจุบัน เพื่อปรับปรุง Standard of care ในผู้ป่วย Stroke",
     "pmid": "42758736",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42758736/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Is it Time to Reconsider the Fluid of Choice in Hypothermia? the Case for Lactated Ringer's Solution.",
-    "comment": "ทบทวนการเลือกใช้ Fluid ในผู้ป่วย Hypothermia โดยเสนอ LR แทนน้ำเกลือเดิม",
-    "pmid": "42758042",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42758042/"
   },
   {
     "date": "19 Sep",
@@ -75,13 +138,6 @@
     "comment": "ใช้ EtCO2 ประเมิน Bicarbonate ในผู้ป่วย Acid-base disorder ช่วยให้ประเมินเบื้องต้นได้รวดเร็วใน ER",
     "pmid": "42757558",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42757558/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Diagnosis, Treatment, and Prognosis of Cerebral Venous Thrombosis.",
-    "comment": "ทบทวนการวินิจฉัยและรักษา CVST ซึ่งเป็นภาวะวิกฤตทางระบบประสาทที่ต้องวินิจฉัยให้เร็ว",
-    "pmid": "42758959",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42758959/"
   },
   {
     "date": "18 Sep",
@@ -432,61 +488,5 @@
     "comment": "ช่วยแยก Stroke ออกจาก Vestibulopathy ซึ่งเป็นจุดวิกฤตในการวินิจฉัยที่ ER",
     "pmid": "42709223",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42709223/"
-  },
-  {
-    "date": "9 Sep",
-    "title": "The effect of Remote Ischemic Condition on Hematoma growth in patients with Intracerebral Hemorrhage: a subgroup analysis from the RESIST trial.",
-    "comment": "ข้อมูลการลดการโตของ hematoma ใน ICH ซึ่งเป็นภาวะวิกฤตทางระบบประสาท",
-    "pmid": "42710698",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42710698/"
-  },
-  {
-    "date": "9 Sep",
-    "title": "Spectral computed tomography in thoracic pathology: A technological and clinical update.",
-    "comment": "อัปเดตเทคโนโลยี Spectral CT สำหรับวินิจฉัยโรคทรวงอกที่แม่นยำขึ้นในภาวะฉุกเฉิน",
-    "pmid": "42711020",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42711020/"
-  },
-  {
-    "date": "8 Sep",
-    "title": "Early and prolonged oral edaravone for neuroprotection in acute ischemic stroke: the ERASE-STROKE randomized controlled phase 3 trial.",
-    "comment": "ผล Trial Phase 3 ยา neuroprotection ใน Stroke มีผลต่อการตัดสินใจรักษา",
-    "pmid": "42705987",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42705987/"
-  },
-  {
-    "date": "8 Sep",
-    "title": "Interventions to improve early recognition and management of sepsis in emergency departments: A systematic review and meta-analysis.",
-    "comment": "รวบรวมวิธีเพิ่มประสิทธิภาพการตรวจจับและรักษา Sepsis ใน ER ให้เร็วขึ้น",
-    "pmid": "42705021",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42705021/"
-  },
-  {
-    "date": "8 Sep",
-    "title": "Vancomycin optimised dosing regimens for critically ill patients receiving renal replacement therapy.",
-    "comment": "แนวทางการปรับ Dose Vancomycin ในผู้ป่วยวิกฤตที่ทำ RRT ซึ่งซับซ้อนและสำคัญ",
-    "pmid": "42706573",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42706573/"
-  },
-  {
-    "date": "8 Sep",
-    "title": "PREGO Protocol: Point-of-Care Ultrasound for Evaluating Third-Trimester Pregnancy in the Emergency Department.",
-    "comment": "Protocol ใหม่การใช้ POCUS ประเมินหญิงตั้งครรภ์ไตรมาส 3 ใน ER",
-    "pmid": "42705157",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42705157/"
-  },
-  {
-    "date": "8 Sep",
-    "title": "Very early versus early endoscopy in acute non-variceal upper gastrointestinal bleeding: A prospective cohort study with propensity score matching.",
-    "comment": "เปรียบเทียบเวลาการทำ Endoscopy ใน UGIB แบบ non-variceal เพื่อหา Optimal timing",
-    "pmid": "42705478",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42705478/"
-  },
-  {
-    "date": "8 Sep",
-    "title": "Use of point-of-care ultrasound in predicting difficult intubations in the emergency department.",
-    "comment": "การใช้ POCUS คัดกรอง Difficult airway ใน ER เพื่อเพิ่มความปลอดภัยในการใส่ท่อ",
-    "pmid": "42705905",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42705905/"
   }
 ]
