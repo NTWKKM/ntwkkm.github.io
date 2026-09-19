@@ -1,5 +1,89 @@
 [
   {
+    "date": "19 Sep",
+    "title": "Machine learning versus conventional methods for prehospital detection of stroke due to large vessel occlusion or intracranial haemorrhage.",
+    "comment": "ใช้ AI ช่วยคัดกรอง Stroke ก่อนถึง รพ. เพิ่มความแม่นยำในการส่งต่อผู้ป่วยไปยังศูนย์ Stroke center",
+    "pmid": "42758735",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42758735/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Intracranial Atherosclerotic Stenosis: Asian Consensus Recommendations on Standardized Definitions, Diagnosis and Imaging.",
+    "comment": "ข้อตกลงร่วมระดับเอเชียเรื่องการวินิจฉัย ICAS ซึ่งสำคัญมากสำหรับประชากรในไทยและเอเชีย",
+    "pmid": "42758665",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42758665/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "A Causal Model for Prehospital Blood Transfusion and Mortality in Traumatic Hemorrhagic Shock.",
+    "comment": "ข้อมูลการให้เลือดตั้งแต่ก่อนถึง รพ. ในผู้ป่วย Trauma shock ซึ่งส่งผลต่ออัตราการรอดชีวิต",
+    "pmid": "42758640",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42758640/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "European Stroke Organisation survey on reperfusion therapy practices.",
+    "comment": "สำรวจแนวทางการให้ Reperfusion therapy ในปัจจุบัน เพื่อปรับปรุง Standard of care ในผู้ป่วย Stroke",
+    "pmid": "42758736",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42758736/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Is it Time to Reconsider the Fluid of Choice in Hypothermia? the Case for Lactated Ringer's Solution.",
+    "comment": "ทบทวนการเลือกใช้ Fluid ในผู้ป่วย Hypothermia โดยเสนอ LR แทนน้ำเกลือเดิม",
+    "pmid": "42758042",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42758042/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "An LLM-enhanced AI agent for rapid diagnosis of acute aortic dissection in multi-center settings.",
+    "comment": "การใช้ AI ช่วยวินิจฉัย Acute Aortic Dissection ให้รวดเร็วขึ้น ลดความผิดพลาดในภาวะวิกฤต",
+    "pmid": "42757002",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42757002/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Therapeutic hypercapnia after cardiac arrest: still promising or time to move on?",
+    "comment": "ทบทวนการทำ Therapeutic hypercapnia หลัง cardiac arrest เพื่อตัดสินใจว่าจะยังใช้ในคลินิกหรือไม่",
+    "pmid": "42758270",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42758270/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Bivalent RSVpreF Effectiveness Against Respiratory Syncytial Virus (RSV)-Related Respiratory Disease Hospitalization and Emergency Department Visits Across Three RSV Seasons.",
+    "comment": "ข้อมูลประสิทธิภาพวัคซีน RSV ในการลดการมา ER และการนอน รพ. ซึ่งกระทบต่อการบริหารจัดการทรัพยากร",
+    "pmid": "42758281",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42758281/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Indian Society of Critical Care Medicine Position Statement on the Management of Paraquat Poisoning.",
+    "comment": "แนวทางจัดการพิษ Paraquat ซึ่งเป็นปัญหาพบบ่อยใน ER ไทย มีความสำคัญทางคลินิกสูง",
+    "pmid": "42756941",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42756941/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Novel Prediction Model for ICU Admission in Acute Intracerebral Hemorrhage.",
+    "comment": "เครื่องมือทำนายการต้องเข้า ICU ในผู้ป่วย ICH ช่วยให้จัดสรรเตียงและทรัพยากรได้ดีขึ้น",
+    "pmid": "42757946",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42757946/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Relationship between End-tidal Carbon Dioxide and Arterial Blood Gas Bicarbonate Levels in Patients with Acid-base Disorders Presenting to the Emergency Department and Critical Care Unit.",
+    "comment": "ใช้ EtCO2 ประเมิน Bicarbonate ในผู้ป่วย Acid-base disorder ช่วยให้ประเมินเบื้องต้นได้รวดเร็วใน ER",
+    "pmid": "42757558",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42757558/"
+  },
+  {
+    "date": "19 Sep",
+    "title": "Diagnosis, Treatment, and Prognosis of Cerebral Venous Thrombosis.",
+    "comment": "ทบทวนการวินิจฉัยและรักษา CVST ซึ่งเป็นภาวะวิกฤตทางระบบประสาทที่ต้องวินิจฉัยให้เร็ว",
+    "pmid": "42758959",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42758959/"
+  },
+  {
     "date": "18 Sep",
     "title": "The Once-Conventional 48-h Elective Cardioversion Threshold for \"Recent-Onset\" Atrial Fibrillation Is No Longer Recommended.",
     "comment": "เปลี่ยนแนวทางจัดการ AF โดยไม่จำเป็นต้องรอ 48 ชม. เพื่อทำ elective cardioversion",
@@ -404,89 +488,5 @@
     "comment": "การใช้ POCUS คัดกรอง Difficult airway ใน ER เพื่อเพิ่มความปลอดภัยในการใส่ท่อ",
     "pmid": "42705905",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42705905/"
-  },
-  {
-    "date": "8 Sep",
-    "title": "Safety and Feasibility of Percutaneous Tracheostomy in Patients with Traditional Contraindications: A Systematic Review of 2232 Cases.",
-    "comment": "ข้อมูลความปลอดภัยของการทำ Percutaneous Tracheostomy ในกลุ่มที่มีข้อห้ามเดิม",
-    "pmid": "42706628",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42706628/"
-  },
-  {
-    "date": "8 Sep",
-    "title": "Effectiveness of using the NEWS2 in the management of sepsis in emergency departments: an integrative literature review.",
-    "comment": "ประเมินประสิทธิภาพ NEWS2 ในการจัดการ Sepsis ใน ER เพื่อใช้เป็น Standard tool",
-    "pmid": "42706847",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42706847/"
-  },
-  {
-    "date": "8 Sep",
-    "title": "Efficacy and safety of middle meningeal artery embolization for chronic subdural hematoma: an updated systematic review and meta-analysis focusing on time of intervention.",
-    "comment": "ข้อมูล MMA embolization ใน cSDH และผลของระยะเวลาที่เริ่มทำหัตถการ",
-    "pmid": "42706447",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42706447/"
-  },
-  {
-    "date": "8 Sep",
-    "title": "Physiological limits of capillary refill time: a human endotoxemia study.",
-    "comment": "วิจัยขีดจำกัดทางสรีรวิทยาของ CRT ซึ่งเป็นเครื่องมือพื้นฐานที่ใช้บ่อยใน ER",
-    "pmid": "42706575",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42706575/"
-  },
-  {
-    "date": "8 Sep",
-    "title": "Drug-associated central nervous system vasculitis and reversible cerebral vasoconstriction syndrome: a global disproportionality analysis of the WHO pharmacovigilance database (VigiBase).",
-    "comment": "สัญญาณเตือนเรื่องยาที่ก่อให้เกิด CNS vasculitis และ RCVS ที่แพทย์ต้องระวัง",
-    "pmid": "42706935",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42706935/"
-  },
-  {
-    "date": "6 Sep",
-    "title": "Sustained Low-Efficiency Dialysis Versus Intermittent Hemodialysis in Critically Ill Patients with Severe Acute Kidney Injury.",
-    "comment": "เปรียบเทียบรูปแบบการฟอกเลือดในผู้ป่วย AKI วิกฤต มีผลต่อการเลือก modality ใน ICU",
-    "pmid": "42700418",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42700418/"
-  },
-  {
-    "date": "6 Sep",
-    "title": "Glasgow-Blatchford score for early risk stratification in upper gastrointestinal bleeding: Predicting blood transfusion and early endoscopy.",
-    "comment": "ยืนยันประสิทธิภาพ GBS ในการคัดกรองผู้ป่วย UGIB เพื่อลดการทำหัตถการที่ไม่จำเป็น",
-    "pmid": "42699860",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42699860/"
-  },
-  {
-    "date": "6 Sep",
-    "title": "Evaluation of the clinical performance of the JETest Influenza A/B Antigen Rapid Test Kit versus real-time reverse transcription-PCR for influenza detection.",
-    "comment": "ประเมินความแม่นยำ Rapid test เทียบกับ gold standard ใช้ตัดสินใจในการวินิจฉัยหน้างาน",
-    "pmid": "42700662",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42700662/"
-  },
-  {
-    "date": "6 Sep",
-    "title": "One termination of resuscitation rule to guide them all? When external validation meets system heterogeneity in a clinical prediction rule: a young ERC journal club article",
-    "comment": "วิพากษ์เกณฑ์การหยุด CPR ซึ่งส่งผลโดยตรงต่อจริยธรรมและการตัดสินใจทางคลินิกใน ER",
-    "pmid": "42699599",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42699599/"
-  },
-  {
-    "date": "6 Sep",
-    "title": "Physiological Emergency Surgery Acuity Score Predicts Mortality and Anastomotic Leak in Emergency Laparotomy: An External Validation Study.",
-    "comment": "ใช้ score ประเมินความรุนแรงผู้ป่วยผ่าตัดฉุกเฉิน เพื่อพยากรณ์การตายและภาวะแทรกซ้อน",
-    "pmid": "42699977",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42699977/"
-  },
-  {
-    "date": "6 Sep",
-    "title": "An Eye on Survival: Association Between Initial Optic Nerve Sheath Diameter and 30-Day Mortality in Patients With Traumatic Brain Injury.",
-    "comment": "ใช้ US วัดขนาด optic nerve เป็น biomarker พยากรณ์การรอดชีวิตใน TBI",
-    "pmid": "42699344",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42699344/"
-  },
-  {
-    "date": "6 Sep",
-    "title": "Physiological Factors Associated with Peri-intubation Severe Adverse Events and Derivation of an Exploratory Bedside Risk Score; A Cross-sectional Study.",
-    "comment": "สร้าง risk score ประเมินโอกาสเกิด adverse event ระหว่างใส่ท่อช่วยหายใจ",
-    "pmid": "42699043",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42699043/"
   }
 ]
