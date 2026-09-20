@@ -2,58 +2,79 @@
   {
     "date": "20 Sep",
     "title": "Impact of pre-ICU balanced crystalloids versus saline on mortality in sepsis: a propensity score-matched multicenter cohort study.",
-    "comment": "ผลลัพธ์การใช้ Balanced crystalloids เทียบ saline ใน sepsis ซึ่งมีผลต่อการเลือก fluid ใน ER",
+    "comment": "เปรียบเทียบสารน้ำใน Sepsis ซึ่งมีผลต่อการเลือกใช้ Fluid ใน ER และ ICU",
     "pmid": "42762986",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42762986/"
   },
   {
     "date": "20 Sep",
     "title": "Safety and efficacy of repeated intravenous thrombolysis within 3 months for acute ischemic stroke: a systematic review and individual-patient data meta-analysis.",
-    "comment": "ข้อมูลความปลอดภัยและประสิทธิภาพของการให้ IV thrombolysis ซ้ำในผู้ป่วย stroke",
+    "comment": "ข้อมูลความปลอดภัยของการให้ rtPA ซ้ำในผู้ป่วย Stroke ภายใน 3 เดือน",
     "pmid": "42762269",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42762269/"
   },
   {
     "date": "20 Sep",
-    "title": "Viscoelastic hemostatic assays in trauma-induced coagulopathy: Precision transfusion, fibrinolytic phenotyping, and future directions.",
-    "comment": "การใช้ viscoelastic assays เพื่อการให้เลือดแบบแม่นยำในผู้ป่วย trauma",
-    "pmid": "42762956",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42762956/"
-  },
-  {
-    "date": "20 Sep",
     "title": "Modified Sequential Organ Failure Assessment score for prehospital critical care: defining thresholds and clinical implications.",
-    "comment": "การปรับปรุง SOFA score เพื่อใช้ในระยะ prehospital เพื่อประเมินความรุนแรงของผู้ป่วยวิกฤต",
+    "comment": "การปรับใช้ SOFA score ในระยะ Prehospital เพื่อคัดกรองผู้ป่วยวิกฤต",
     "pmid": "42763288",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42763288/"
   },
   {
     "date": "20 Sep",
+    "title": "Viscoelastic hemostatic assays in trauma-induced coagulopathy: Precision transfusion, fibrinolytic phenotyping, and future directions.",
+    "comment": "การใช้ TEG/ROTEM เพื่อนำทางความแม่นยำในการเติมเลือดในผู้ป่วย Trauma",
+    "pmid": "42762956",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42762956/"
+  },
+  {
+    "date": "20 Sep",
     "title": "Emergency management of extreme hyperbilirubinemia.",
-    "comment": "แนวทางการจัดการภาวะ bilirubin สูงวิกฤต ซึ่งเป็นภาวะฉุกเฉินที่ต้องรักษาทันที",
+    "comment": "แนวทางการจัดการภาวะบิลิรูบินสูงขั้นวิกฤตในภาวะฉุกเฉิน",
     "pmid": "42763218",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42763218/"
   },
   {
     "date": "20 Sep",
+    "title": "Injury Severity and Time to Documented Analgesia in Emergency Department Trauma Patients.",
+    "comment": "ประเมินระยะเวลาการให้ยาแก้ปวดในผู้ป่วย Trauma ซึ่งส่งผลต่อคุณภาพการรักษา",
+    "pmid": "42762606",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42762606/"
+  },
+  {
+    "date": "20 Sep",
     "title": "Blood Host-Response mRNA Assays in Adult Acute Care: Diagnostic Performance, Translational Evidence, and the Clinical Implementation Gap.",
-    "comment": "การใช้ mRNA assays ประเมินการตอบสนองของโฮสต์เพื่อช่วยวินิจฉัยในผู้ป่วย acute care",
+    "comment": "การใช้ mRNA assay เพื่อวินิจฉัยการติดเชื้อในผู้ป่วยวิกฤต ช่วยลดเวลาการรักษา",
     "pmid": "42761931",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42761931/"
   },
   {
     "date": "20 Sep",
     "title": "Validity and accuracy of Manchester triage system with vignettes cases: A multicentric study",
-    "comment": "การประเมินความแม่นยำของระบบ Triage (Manchester system) ซึ่งส่งผลต่อ workflow ใน ER",
+    "comment": "ตรวจสอบความแม่นยำของระบบ Triage (Manchester) ที่ใช้ใน ER หลายแห่ง",
     "pmid": "42762657",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42762657/"
   },
   {
     "date": "20 Sep",
-    "title": "Injury Severity and Time to Documented Analgesia in Emergency Department Trauma Patients.",
-    "comment": "การวิเคราะห์เวลาในการให้ยาแก้ปวดในผู้ป่วย trauma ซึ่งเป็นตัวชี้วัดคุณภาพการดูแลใน ER",
-    "pmid": "42762606",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42762606/"
+    "title": "Frailty as a Predictor of Clinical Outcomes After Acute Ischemic Stroke in Older Adults: A Systematic Review and Meta-Analysis.",
+    "comment": "ใช้ความเปราะบาง (Frailty) พยากรณ์ผลลัพธ์ในผู้ป่วย Stroke สูงอายุ",
+    "pmid": "42763461",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42763461/"
+  },
+  {
+    "date": "20 Sep",
+    "title": "Emergence of optrA-mediated linezolid-resistance in human clinical Enterococcus faecalis: an alert for a shifting resistance landscape in hospitals.",
+    "comment": "สัญญาณเตือนการดื้อยา Linezolid ในเชื้อ E. faecalis ที่แพทย์ ER ต้องระวัง",
+    "pmid": "42762874",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42762874/"
+  },
+  {
+    "date": "20 Sep",
+    "title": "Observed variability of oxygen administration between prehospital settings and the emergency department.",
+    "comment": "ความแตกต่างของการให้ Oxygen ระหว่าง EMS และ ER ซึ่งส่งผลต่อมาตรฐานการรักษา",
+    "pmid": "42762371",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42762371/"
   },
   {
     "date": "20 Sep",
@@ -61,20 +82,6 @@
     "comment": "แนวทางการรักษาและวินิจฉัยเชื้อดื้อยาขั้นรุนแรง (XDR) ที่พบได้ในผู้ป่วยวิกฤต",
     "pmid": "42761762",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42761762/"
-  },
-  {
-    "date": "20 Sep",
-    "title": "Observed variability of oxygen administration between prehospital settings and the emergency department.",
-    "comment": "ความแตกต่างของการให้ oxygen ระหว่างจุดรับส่งผู้ป่วย ซึ่งมีผลต่อมาตรฐานการรักษา",
-    "pmid": "42762371",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42762371/"
-  },
-  {
-    "date": "20 Sep",
-    "title": "Frailty as a Predictor of Clinical Outcomes After Acute Ischemic Stroke in Older Adults: A Systematic Review and Meta-Analysis.",
-    "comment": "ใช้ความเปราะบาง (Frailty) เป็นตัวพยากรณ์ผลลัพธ์ในผู้ป่วย stroke สูงอายุ",
-    "pmid": "42763461",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42763461/"
   },
   {
     "date": "19 Sep",
@@ -481,12 +488,5 @@
     "comment": "เปรียบเทียบ Ketamine vs Lidocaine ใน TBI ช่วยลดปริมาณ Propofol ที่ต้องใช้ในหัตถการฉุกเฉิน",
     "pmid": "42710328",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42710328/"
-  },
-  {
-    "date": "9 Sep",
-    "title": "Paediatric Procedural Sedation and Analgesia in Emergency Departments: A Delphi Consensus Study.",
-    "comment": "Consensus การให้ยาบรรเทาปวดและระงับความรู้สึกในเด็กที่ ER เพื่อเป็นมาตรฐานการดูแล",
-    "pmid": "42710898",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42710898/"
   }
 ]
