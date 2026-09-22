@@ -1,5 +1,89 @@
 [
   {
+    "date": "22 Sep",
+    "title": "Comparative Effectiveness of Lidocaine and Amiodarone for Refractory VF/pVT in Adult In-Hospital Cardiac Arrest: Insights from a Nationwide Multicenter Chinese Registry.",
+    "comment": "เปรียบเทียบยาใน Refractory VF/pVT ช่วยตัดสินใจเลือกยาใน ACLS ได้แม่นยำขึ้น",
+    "pmid": "42767592",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42767592/"
+  },
+  {
+    "date": "22 Sep",
+    "title": "The 2026 Surviving Sepsis Campaign Guidelines: The dissenting opinion.",
+    "comment": "ความเห็นต่างต่อแนวทาง SSC 2026 ซึ่งอาจเปลี่ยนแนวทางการรักษา Sepsis ใน ER",
+    "pmid": "42767105",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42767105/"
+  },
+  {
+    "date": "22 Sep",
+    "title": "Just the Facts: Resuscitative point-of-care ultrasound in adults with undifferentiated shock.",
+    "comment": "การใช้ R-POCUS ใน Undifferentiated shock เพื่อวินิจฉัยสาเหตุและรักษาได้ทันที",
+    "pmid": "42768273",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42768273/"
+  },
+  {
+    "date": "22 Sep",
+    "title": "Emergency burr hole craniostomy for traumatic brain injury in austere environments: a practical guide for non-neurosurgeons.",
+    "comment": "คู่มือปฏิบัติการเจาะกะโหลกฉุกเฉินใน TBI สำหรับแพทย์ที่ไม่ใช่ศัลยแพทย์ประสาท",
+    "pmid": "42767760",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42767760/"
+  },
+  {
+    "date": "22 Sep",
+    "title": "Prediction of high-flow nasal cannula failure in patients with sepsis by a preliminary risk stratification model based on the ROX index.",
+    "comment": "ใช้ ROX index ทำนายการล้มเหลวของ HFNC ในผู้ป่วย Sepsis เพื่อเตรียม Intubate ได้เร็วขึ้น",
+    "pmid": "42768322",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42768322/"
+  },
+  {
+    "date": "22 Sep",
+    "title": "Appropriateness of antibiotic selection at emergency department discharge and risk of 30-day adverse events in patients with acute exacerbation of COPD.",
+    "comment": "ตรวจสอบความเหมาะสมของ ATB ใน AECOPD และความเสี่ยงที่จะเกิด adverse events",
+    "pmid": "42768888",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42768888/"
+  },
+  {
+    "date": "22 Sep",
+    "title": "Development and validation of a prognostic nomogram model for 28-day mortality based on IP-10 and clinical parameters in septic patients in the emergency department.",
+    "comment": "เครื่องมือทำนายการเสียชีวิต 28 วันในผู้ป่วย Sepsis ที่มา ER ช่วยในการ Triage ผู้ป่วย",
+    "pmid": "42769025",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42769025/"
+  },
+  {
+    "date": "22 Sep",
+    "title": "A light-cured and doxycycline stabilized silk fibroin/tannin acid tissue adhesive for emergency hemorrhage.",
+    "comment": "อุปกรณ์ห้ามเลือดชนิดใหม่สำหรับภาวะเลือดออกฉุกเฉิน ใช้เทคโนโลยี light-cured adhesive",
+    "pmid": "42767137",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42767137/"
+  },
+  {
+    "date": "22 Sep",
+    "title": "Real-World Adverse Event Reporting Patterns of Tirzepatide Versus Semaglutide: A Stratified Study of General and Healthcare Professional Cohorts in FAERS.",
+    "comment": "ข้อมูลความปลอดภัยจริงของยา GLP-1 RA สองชนิดที่ใช้แพร่หลาย แพทย์ต้องเฝ้าระวังผลข้างเคียง",
+    "pmid": "42768828",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42768828/"
+  },
+  {
+    "date": "22 Sep",
+    "title": "Sedation-Assisted, Non-sedated, and Escalated Removal of Pediatric ENT Foreign Bodies in Emergency Settings: A Systematic Review.",
+    "comment": "ทบทวนแนวทางการเอาสิ่งแปลกปลอมใน ENT เด็กออกใน ER เพื่อความปลอดภัยสูงสุด",
+    "pmid": "42769021",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42769021/"
+  },
+  {
+    "date": "22 Sep",
+    "title": "Development and validation of an interpretable machine-learning model for predicting treatment failure in severe trauma patients.",
+    "comment": "AI ทำนายความล้มเหลวในการรักษาผู้ป่วย Severe Trauma ช่วยให้ปรับแผนการรักษาได้ทันท่วงที",
+    "pmid": "42769044",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42769044/"
+  },
+  {
+    "date": "22 Sep",
+    "title": "Central embolic localization in acute pulmonary embolism: Prognostic marker or target for intervention?",
+    "comment": "ตำแหน่งของลิ่มเลือดใน PE อาจเป็นตัวกำหนดพยากรณ์โรคหรือเป้าหมายในการทำ intervention",
+    "pmid": "42767924",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42767924/"
+  },
+  {
     "date": "20 Sep",
     "title": "Impact of pre-ICU balanced crystalloids versus saline on mortality in sepsis: a propensity score-matched multicenter cohort study.",
     "comment": "เปรียบเทียบสารน้ำใน Sepsis ซึ่งมีผลต่อการเลือกใช้ Fluid ใน ER และ ICU",
@@ -404,89 +488,5 @@
     "comment": "ข้อมูลช่วยตัดสินใจว่าควรทำ repeat CTPA หรือไม่เมื่อสงสัย PE แม้ผลแรกเป็นลบ",
     "pmid": "42717156",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42717156/"
-  },
-  {
-    "date": "10 Sep",
-    "title": "A foundation model for acute abdomen diagnosis stratification and triage on noncontrast computed tomography.",
-    "comment": "การใช้ AI ช่วยคัดกรอง Acute Abdomen จาก NCCT เพิ่มความแม่นยำในการ Triage",
-    "pmid": "42716938",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42716938/"
-  },
-  {
-    "date": "10 Sep",
-    "title": "Predictors of increased flumazenil requirements in emergency settings: A multicenter retrospective study.",
-    "comment": "ปัจจัยทำนายการใช้ Flumazenil ปริมาณสูง ช่วยในการเตรียมยาและเฝ้าระวังใน ER",
-    "pmid": "42716837",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42716837/"
-  },
-  {
-    "date": "10 Sep",
-    "title": "Does increasing model complexity improve HEART-based chest pain risk stratification? A multicentre development and held-out emergency department validation study.",
-    "comment": "ประเมินความแม่นยำของ HEART score ในการคัดกรองผู้ป่วย Chest pain",
-    "pmid": "42716566",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42716566/"
-  },
-  {
-    "date": "10 Sep",
-    "title": "Best Location for a Closed Reduction of Dislocated Total Hip Arthroplasty: Emergency Department or Operating Room?",
-    "comment": "เปรียบเทียบสถานที่ทำ Reduction ของ THA dislocation เพื่อความปลอดภัยและประสิทธิภาพ",
-    "pmid": "42715221",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42715221/"
-  },
-  {
-    "date": "10 Sep",
-    "title": "Endovascular therapy for mild-to-moderate stroke due to basilar artery occlusion: A systematic review and meta-analysis.",
-    "comment": "ขยายข้อบ่งชี้การทำ EVT ใน Basilar occlusion กลุ่มอาการน้อยถึงปานกลาง",
-    "pmid": "42715615",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42715615/"
-  },
-  {
-    "date": "10 Sep",
-    "title": "Risk of respiratory and neurologic effects in children ingesting kratom and related alkaloids.",
-    "comment": "Safety signal ความเสี่ยงทางระบบประสาทและทางเดินหายใจในเด็กที่ได้รับกระท่อม",
-    "pmid": "42715782",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42715782/"
-  },
-  {
-    "date": "10 Sep",
-    "title": "Prophylactic abdominal drainage versus no drainage after laparoscopic appendectomy for perforated acute appendicitis: a multicenter propensity score-weighted analysis.",
-    "comment": "ผลของการใส่ drain หลังผ่าไส้ติ่งแตกแบบ Laparoscopic ต่อผลลัพธ์การรักษา",
-    "pmid": "42717043",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42717043/"
-  },
-  {
-    "date": "10 Sep",
-    "title": "Nonoperative Management in Emergency General Surgery: Does It Matter for Surgical Quality Benchmarking in Older Adults?",
-    "comment": "ผลลัพธ์การรักษาแบบไม่ผ่าตัดในผู้ป่วย EGS สูงอายุ ซึ่งมีผลต่อการเลือกแนวทางรักษา",
-    "pmid": "42717371",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42717371/"
-  },
-  {
-    "date": "10 Sep",
-    "title": "Immunotherapy in the critically ill cancer patient: What the intensivist should know.",
-    "comment": "ข้อควรระวังและแนวทางจัดการ Immunotherapy ในผู้ป่วยมะเร็งวิกฤตที่ต้องระวัง irAEs",
-    "pmid": "42716890",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42716890/"
-  },
-  {
-    "date": "9 Sep",
-    "title": "Evaluation of point-of-care complete blood count and C-reactive protein testing for routine use in a pediatric emergency department.",
-    "comment": "ประเมินการใช้ POCT CBC/CRP ในเด็ก ช่วยลดระยะเวลารอคอยและตัดสินใจรักษาได้เร็วขึ้น",
-    "pmid": "42711586",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42711586/"
-  },
-  {
-    "date": "9 Sep",
-    "title": "Diagnosis of myocardial infarction in early presenters using 1-hour delta of high sensitive Troponin I: a pilot study.",
-    "comment": "ใช้ 1-hr delta hs-TnI ช่วยวินิจฉัย MI ในผู้ป่วยที่มาถึง ER เร็ว เพิ่มความแม่นยำในการคัดกรอง",
-    "pmid": "42710360",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42710360/"
-  },
-  {
-    "date": "9 Sep",
-    "title": "Comparison of subanaesthetic ketamine and lidocaine as adjuvants to propofol-based total intravenous anesthesia on propofol requirement during emergency decompressive craniectomy for traumatic brain injury: a prospective, double-blind, three-arm randomized controlled trial.",
-    "comment": "เปรียบเทียบ Ketamine vs Lidocaine ใน TBI ช่วยลดปริมาณ Propofol ที่ต้องใช้ในหัตถการฉุกเฉิน",
-    "pmid": "42710328",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42710328/"
   }
 ]
