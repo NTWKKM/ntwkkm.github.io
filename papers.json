@@ -1,57 +1,71 @@
 [
   {
-    "date": "23 Sep",
+    "date": "24 Sep",
     "title": "Increasing Awareness of 7-Hydroxymitragynine and the Threat of Emerging Opioids.",
-    "comment": "เตือนภัยยาเสพติดชนิดใหม่ที่แพทย์ ER ต้องเฝ้าระวังในการรักษา Overdose",
+    "comment": "Safety Signal: คำเตือนเรื่อง Opioids ชนิดใหม่ที่แพทย์ ER ต้องเฝ้าระวังในการวินิจฉัย overdose",
     "pmid": "42776105",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42776105/"
   },
   {
-    "date": "23 Sep",
-    "title": "Hidden risk: Corticosteroid exposure and severe outcomes in patients with latent Strongyloides stercoralis.",
-    "comment": "Safety Signal: การใช้ steroid ในคนไข้ที่มี Strongyloides แฝงอาจทำให้เกิดภาวะรุนแรงถึงชีวิต",
+    "date": "24 Sep",
+    "title": "Hidden risk: Corticosteroid exposure and severe outcomes in patients with latent Strongyloides stercalis.",
+    "comment": "Safety Signal: ความเสี่ยงรุนแรงเมื่อใช้ Steroid ในผู้ป่วยที่มี Strongyloides แฝง ต้องระวัง Hyperinfection",
     "pmid": "42776064",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42776064/"
   },
   {
-    "date": "23 Sep",
-    "title": "Five Practical Considerations for the Management of Out-of-hospital Cardiac Arrest: Reflections from the British Cardiovascular Intervention Society Out-of-hospital Cardiac Arrest Focus Group.",
-    "comment": "แนวทางปฏิบัติในการจัดการ OHCA เพื่อเพิ่มโอกาสรอดชีวิต นำไปใช้ทางคลินิกได้ทันที",
-    "pmid": "42774765",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42774765/"
-  },
-  {
-    "date": "23 Sep",
-    "title": "Size and location of intracranial hemorrhage in acute stroke presentations: correlation with baseline NIHSS and relevance to direct-to-angiography workflows.",
-    "comment": "ช่วยตัดสินใจเรื่อง workflow การส่งต่อคนไข้ Stroke ไปยังห้อง Angio ได้รวดเร็วขึ้น",
-    "pmid": "42774128",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42774128/"
-  },
-  {
-    "date": "23 Sep",
-    "title": "Development and clinical validation of a colorimetric isothermal assay for rapid detection of monkeypox virus.",
-    "comment": "เครื่องมือตรวจวินิจฉัย Monkeypox แบบรวดเร็ว เพิ่มประสิทธิภาพในการคัดกรองที่ ER",
-    "pmid": "42775090",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42775090/"
-  },
-  {
-    "date": "23 Sep",
-    "title": "Use of a Virtual Reality Visual Field Device to Improve Quality of Care in the Emergency Department and Inpatient Setting.",
-    "comment": "Novel Tool: การใช้ VR ช่วยในการตรวจ visual field เพิ่มความแม่นยำในจุดรับบริการฉุกเฉิน",
-    "pmid": "42775735",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42775735/"
-  },
-  {
-    "date": "23 Sep",
+    "date": "24 Sep",
     "title": "Smartphone-Based Measurement of Cognition and Physical Function in Older Emergency Department Patients: A Feasibility Study.",
-    "comment": "เครื่องมือคัดกรอง Cognitive/Physical function ในผู้สูงอายุที่ ER ผ่านสมาร์ทโฟน",
+    "comment": "Novel Tool: การใช้สมาร์ทโฟนประเมิน cognition/physical function ในผู้สูงอายุที่ ER เพื่อความรวดเร็ว",
     "pmid": "42775945",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42775945/"
   },
   {
-    "date": "23 Sep",
+    "date": "24 Sep",
+    "title": "Use of a Virtual Reality Visual Field Device to Improve Quality of Care in the Emergency Department and Inpatient Setting.",
+    "comment": "Novel Tool: การใช้ VR visual field device เพิ่มประสิทธิภาพการตรวจประเมินใน ER",
+    "pmid": "42775735",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42775735/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Five Practical Considerations for the Management of Out-of-hospital Cardiac Arrest: Reflections from the British Cardiovascular Intervention Society Out-of-hospital Cardiac Arrest Focus Group.",
+    "comment": "Practice Changing: ข้อแนะนำเชิงปฏิบัติในการจัดการ OHCA เพื่อปรับปรุง outcome การรักษา",
+    "pmid": "42774765",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42774765/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Development and clinical validation of a colorimetric isothermal assay for rapid detection of monkeypox virus.",
+    "comment": "Novel Tool: ชุดตรวจ Monkeypox แบบรวดเร็ว (colorimetric) นำมาใช้คัดกรองผู้ป่วยใน ER ได้",
+    "pmid": "42775090",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42775090/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Risk of diabetic ketoacidosis with sodium-glucose cotransporter-2 inhibitors compared with dipeptidyl peptidase-4 inhibitors in type 2 diabetes: A nationwide cohort study.",
+    "comment": "Safety Signal: ข้อมูลความเสี่ยง DKA ในผู้ป่วยที่ใช้ SGLT2i ซึ่งพบได้บ่อยใน ER",
+    "pmid": "42774769",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42774769/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Size and location of intracranial hemorrhage in acute stroke presentations: correlation with baseline NIHSS and relevance to direct-to-angiography workflows.",
+    "comment": "Practice Changing: ข้อมูลขนาด/ตำแหน่ง ICH เพื่อปรับปรุง workflow การส่งต่อผู้ป่วย stroke",
+    "pmid": "42774128",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42774128/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "AI-assisted vs. textbook-based vs. blended learning for acute abdomen diagnosis: a retrospective cohort study of emergency interns.",
+    "comment": "Novel Tool: การใช้ AI ช่วยวินิจฉัย Acute abdomen ในแพทย์จบใหม่ เพื่อลดความผิดพลาด",
+    "pmid": "42774238",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42774238/"
+  },
+  {
+    "date": "24 Sep",
     "title": "Optimal buprenorphine exposure to treat patients with opioid use disorder in the era of fentanyl and polysubstance use.",
-    "comment": "ปรับแนวทางการให้ยา Buprenorphine เพื่อรับมือกับวิกฤต Fentanyl ในปัจจุบัน",
+    "comment": "Practice Changing: ปรับขนาดยา Buprenorphine ให้เหมาะสมกับยุค Fentanyl เพื่อผลการรักษาที่ดีขึ้น",
     "pmid": "42774285",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42774285/"
   },
@@ -61,13 +75,6 @@
     "comment": "การใช้ Pathway เดียวกันในการรักษา Asthma ในเด็ก ช่วยลดอัตราการเข้า ICU",
     "pmid": "42775332",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42775332/"
-  },
-  {
-    "date": "23 Sep",
-    "title": "Risk of diabetic ketoacidosis with sodium-glucose cotransporter-2 inhibitors compared with dipeptidyl peptidase-4 inhibitors in type 2 diabetes: A nationwide cohort study.",
-    "comment": "Safety Signal: ความเสี่ยง DKA ในผู้ใช้ SGLT2i ซึ่งแพทย์ ER ต้องตระหนักเมื่อคนไข้มาด้วยภาวะ Acidosis",
-    "pmid": "42774769",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42774769/"
   },
   {
     "date": "22 Sep",
@@ -481,12 +488,5 @@
     "comment": "AI ช่วยให้แพทย์ที่ไม่เชี่ยวชาญทำ Lung US ได้แม่นยำขึ้น เพิ่มความเร็วในการวินิจฉัยใน ER",
     "pmid": "42728197",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42728197/"
-  },
-  {
-    "date": "12 Sep",
-    "title": "A two-minute bedside assessment is associated with ED disposition and 30-day mortality in COPD exacerbations: The Barthel Index.",
-    "comment": "ใช้ Barthel Index ประเมินข้างเตียง 2 นาที เพื่อทำนายการ Admit และ Mortality ใน COPD",
-    "pmid": "42727532",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42727532/"
   }
 ]
