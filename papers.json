@@ -1,6 +1,90 @@
 [
   {
     "date": "24 Sep",
+    "title": "Renal colic in the ED: Consider POCUS first.",
+    "comment": "เน้นการใช้ POCUS ในการวินิจฉัยนิ่วในทางเดินปัสสาวะเพื่อลดการส่งตรวจ CT",
+    "pmid": "42779036",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42779036/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Rotational thromboelastometry-guided transfusion in acute trauma: Less plasma, greater precision.",
+    "comment": "ใช้ ROTEM ช่วยนำทางการให้เลือดใน Trauma เพื่อความแม่นยำและลดการใช้ Plasma เกินความจำเป็น",
+    "pmid": "42778196",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42778196/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Group A Streptococcus pharyngitis: 2025 clinical practice updates.",
+    "comment": "อัปเดตแนวทางการดูแลรักษาคออักเสบจาก GAS ปี 2025 สำหรับใช้ทางคลินิก",
+    "pmid": "42779026",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42779026/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Serum hyperkalemia and short-term clinical outcomes in emergency department patients: A multicenter propensity-matched study.",
+    "comment": "ข้อมูลผลลัพธ์ระยะสั้นของผู้ป่วย Hyperkalemia ใน ER เพื่อประเมินความเสี่ยงและความรุนแรง",
+    "pmid": "42777312",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42777312/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Right ventricular-protective ventilation in acute respiratory distress syndrome: phenotypes, monitoring and ventilatory management.",
+    "comment": "กลยุทธ์การปรับเครื่องช่วยหายใจเพื่อปกป้อง RV ในผู้ป่วย ARDS",
+    "pmid": "42778203",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42778203/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Critical care consultations in ED expedite specialized care.",
+    "comment": "การปรึกษาทีม ICU ตั้งแต่อยู่ใน ER ช่วยให้ผู้ป่วยเข้าถึงการดูแลเฉพาะทางได้รวดเร็วขึ้น",
+    "pmid": "42779073",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42779073/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Ceftriaxone-associated immune haemolytic anaemia: A patient-level systematic review.",
+    "comment": "Safety Signal: อาการซีดจากภูมิคุ้มกันทำลายเม็ดเลือดแดงที่สัมพันธ์กับการใช้ Ceftriaxone",
+    "pmid": "42779158",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42779158/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Clinical and Laboratory Findings When Pediatric Male Sexual Assault Survivors Present to the Emergency Department.",
+    "comment": "แนวทางการตรวจร่างกายและส่งตรวจทางห้องปฏิบัติการในเด็กชายที่ถูกล่วงละเมิดทางเพศ",
+    "pmid": "42779261",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42779261/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Screening for sexually transmitted infections in the emergency department: beyond pooling.",
+    "comment": "การเพิ่มประสิทธิภาพการคัดกรองโรคติดต่อทางเพศสัมพันธ์ในผู้ป่วยที่มา ER",
+    "pmid": "42778467",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42778467/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Pre-hospital time and risk of perforation in patients with acute appendicitis in 112 countries (AlliGatOr): an international, prospective, observational cohort study.",
+    "comment": "ผลของระยะเวลาก่อนถึงโรงพยาบาลต่อความเสี่ยงไส้ติ่งแตกในระดับนานาชาติ",
+    "pmid": "42777751",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42777751/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Emergency department utilization and outcomes among patients with Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS) syndrome.",
+    "comment": "การวิเคราะห์การใช้บริการ ER และผลลัพธ์การรักษาในผู้ป่วย DRESS syndrome",
+    "pmid": "42777313",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42777313/"
+  },
+  {
+    "date": "24 Sep",
+    "title": "Daily emergency department volume and in-hospital mortality: the importance of temporal alignment.",
+    "comment": "ความสัมพันธ์ระหว่างจำนวนผู้ป่วยใน ER ต่อวันกับอัตราการเสียชีวิตในโรงพยาบาล",
+    "pmid": "42778953",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42778953/"
+  },
+  {
+    "date": "24 Sep",
     "title": "Tenecteplase Before Thrombectomy at 4.5 to 24 Hours for Basilar Artery Occlusion: The ATTENTION LATE Randomized Clinical Trial",
     "comment": "Practice Changing: การใช้ Tenecteplase ในช่วงเวลา 4.5-24 ชม. สำหรับ Basilar Artery Occlusion",
     "pmid": "42776543",
@@ -12,27 +96,6 @@
     "comment": "Practice Changing: Guideline ล่าสุดในการจัดการบาดเจ็บลำไส้ใหญ่และเรคตัมจาก WSES",
     "pmid": "42776522",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42776522/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Rotational thromboelastometry-guided transfusion in acute trauma: Less plasma, greater precision",
-    "comment": "Novel Tool: การใช้ ROTEM เพื่อนำทางการให้เลือดในผู้ป่วย Trauma ช่วยลดการใช้ Plasma",
-    "pmid": "42778196",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42778196/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Right ventricular-protective ventilation in acute respiratory distress syndrome: phenotypes, monitoring and ventilatory management",
-    "comment": "Practice Changing: แนวทางการตั้งค่า Ventilator เพื่อปกป้อง RV ในผู้ป่วย ARDS",
-    "pmid": "42778203",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42778203/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Serum hyperkalemia and short-term clinical outcomes in emergency department patients: A multicenter propensity-matched study",
-    "comment": "Safety Signal: ผลกระทบของ Hyperkalemia ต่อ outcome ระยะสั้นในผู้ป่วย ER",
-    "pmid": "42777312",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42777312/"
   },
   {
     "date": "24 Sep",
@@ -50,31 +113,10 @@
   },
   {
     "date": "24 Sep",
-    "title": "Pre-hospital time and risk of perforation in patients with acute appendicitis in 112 countries (AlliGatOr): an international, prospective, observational cohort study",
-    "comment": "Safety Signal: ความสัมพันธ์ระหว่างระยะเวลาก่อนถึง รพ. กับอัตราการแตกของไส้ติ่งทั่วโลก",
-    "pmid": "42777751",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42777751/"
-  },
-  {
-    "date": "24 Sep",
     "title": "Alcohol, drugs and self-harm emergencies in a national unscheduled care system: a retrospective observational study",
     "comment": "Safety Signal: ข้อมูลความสัมพันธ์ของสารเสพติดกับการมา ER ด้วยการทำร้ายตัวเอง",
     "pmid": "42778343",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42778343/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Screening for sexually transmitted infections in the emergency department: beyond pooling",
-    "comment": "Novel Tool: แนวทางการคัดกรอง STI ใน ER ที่มีประสิทธิภาพมากกว่าวิธีเดิม",
-    "pmid": "42778467",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42778467/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Emergency department utilization and outcomes among patients with Drug Reaction with Eosinophilia and Systemic Symptoms (DRESS) syndrome",
-    "comment": "Safety Signal: การมา ER และผลลัพธ์ทางคลินิกในผู้ป่วย DRESS syndrome",
-    "pmid": "42777313",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42777313/"
   },
   {
     "date": "24 Sep",
@@ -446,47 +488,5 @@
     "comment": "แนวทางจัดการพิษ Paraquat ซึ่งเป็นปัญหาพบบ่อยใน ER ไทย มีความสำคัญทางคลินิกสูง",
     "pmid": "42756941",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42756941/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Novel Prediction Model for ICU Admission in Acute Intracerebral Hemorrhage.",
-    "comment": "เครื่องมือทำนายการต้องเข้า ICU ในผู้ป่วย ICH ช่วยให้จัดสรรเตียงและทรัพยากรได้ดีขึ้น",
-    "pmid": "42757946",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42757946/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Relationship between End-tidal Carbon Dioxide and Arterial Blood Gas Bicarbonate Levels in Patients with Acid-base Disorders Presenting to the Emergency Department and Critical Care Unit.",
-    "comment": "ใช้ EtCO2 ประเมิน Bicarbonate ในผู้ป่วย Acid-base disorder ช่วยให้ประเมินเบื้องต้นได้รวดเร็วใน ER",
-    "pmid": "42757558",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42757558/"
-  },
-  {
-    "date": "18 Sep",
-    "title": "The Once-Conventional 48-h Elective Cardioversion Threshold for \"Recent-Onset\" Atrial Fibrillation Is No Longer Recommended.",
-    "comment": "เปลี่ยนแนวทางจัดการ AF โดยไม่จำเป็นต้องรอ 48 ชม. เพื่อทำ elective cardioversion",
-    "pmid": "42755198",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42755198/"
-  },
-  {
-    "date": "18 Sep",
-    "title": "Diagnostic accuracy of AI-assisted versus independent physician interpretation for bone fractures: a systematic review and meta-analysis.",
-    "comment": "เปรียบเทียบความแม่นยำ AI vs แพทย์ ในการอ่าน X-ray กระดูกหัก มีผลต่อ workflow ER",
-    "pmid": "42754668",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42754668/"
-  },
-  {
-    "date": "18 Sep",
-    "title": "Prehospital Sedation and Physical Restraint of Older Adults Presenting With Behavioral Health Emergencies: A Nationwide Cross-Sectional Study.",
-    "comment": "ข้อมูลความเสี่ยงและรูปแบบการใช้ยาสงบประสาท/ผูกยึดในผู้สูงอายุที่มีภาวะฉุกเฉินทางจิตเวช",
-    "pmid": "42754548",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42754548/"
-  },
-  {
-    "date": "18 Sep",
-    "title": "Efficacy and Safety of Ventilator Assisted Preoxygenation for Intubation in Two Australian Emergency Departments: A Retrospective Cohort Study.",
-    "comment": "ประเมินประสิทธิภาพการใช้ ventilator ช่วย preoxygenation ก่อน intubate ใน ER",
-    "pmid": "42754264",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42754264/"
   }
 ]
