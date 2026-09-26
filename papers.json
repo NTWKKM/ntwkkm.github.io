@@ -1,5 +1,75 @@
 [
   {
+    "date": "26 Sep",
+    "title": "Derivative indices of optic nerve sheath diameter: a novel ultrasound-based approach for non-invasive intracranial pressure monitoring in neurocritical patients.",
+    "comment": "เครื่องมือใหม่ใช้ Ultrasound ติดตาม ICP แบบ non-invasive ในผู้ป่วยวิกฤตทางระบบประสาท",
+    "pmid": "42798351",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42798351/"
+  },
+  {
+    "date": "26 Sep",
+    "title": "Vascular Ehlers-Danlos syndrome: A multidisciplinary clinical framework for early suspicion, emergency-safe management and lifelong care.",
+    "comment": "Framework การจัดการ vEDS ใน ER เพื่อป้องกันภาวะแทรกซ้อนรุนแรงและเพิ่มความปลอดภัย",
+    "pmid": "42798186",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42798186/"
+  },
+  {
+    "date": "26 Sep",
+    "title": "Association of an age-albumin-red cell distribution width score with 28-day in-hospital mortality in emergency department patients with suspected sepsis: A retrospective cohort study.",
+    "comment": "Score ใหม่ช่วยพยากรณ์การเสียชีวิต 28 วันในผู้ป่วย Sepsis ที่มา ER",
+    "pmid": "42798095",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42798095/"
+  },
+  {
+    "date": "26 Sep",
+    "title": "Factors associated with occult acute rib fractures on chest CT after negative radiography in older fall patients: A retrospective observational study.",
+    "comment": "ระวัง Rib fractures ในผู้สูงอายุที่ CXR ปกติแต่ CT พบความผิดปกติ",
+    "pmid": "42798131",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42798131/"
+  },
+  {
+    "date": "26 Sep",
+    "title": "Protodesnitazene: The identification and tissue distribution of a new nitazene.",
+    "comment": "Safety Signal: พบยาเสพติดกลุ่ม Nitazene ชนิดใหม่ที่แพทย์ ER ต้องระวังในการวินิจฉัย overdose",
+    "pmid": "42798250",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42798250/"
+  },
+  {
+    "date": "26 Sep",
+    "title": "Clinical characteristics of microbiologically inappropriate empiric antibiotics in emergency department patients with bacteremia: A descriptive study.",
+    "comment": "ข้อมูลการใช้ Empiric antibiotic ไม่ครอบคลุมเชื้อในผู้ป่วย Bacteremia ที่ ER",
+    "pmid": "42798086",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42798086/"
+  },
+  {
+    "date": "26 Sep",
+    "title": "Emergency Department-Based Screening and Linkage-to-Care for Hepatitis B, C, and D in a Referral Hospital in Barcelona, Spain: Reduction in Hepatitis C Prevalence After Five Years.",
+    "comment": "Impact ของการใช้ ER เป็นจุดคัดกรองและส่งต่อการรักษาไวรัสตับอักเสบ",
+    "pmid": "42797761",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42797761/"
+  },
+  {
+    "date": "26 Sep",
+    "title": "The association between chronic pain and non-fatal overdose in people who inject drugs: Longitudinal cohort study in Montreal, Canada, 2017 to 2025.",
+    "comment": "ความสัมพันธ์ระหว่างความปวดเรื้อรังและการเกิด overdose ในกลุ่มผู้ใช้ยาฉีด",
+    "pmid": "42798222",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42798222/"
+  },
+  {
+    "date": "26 Sep",
+    "title": "Impediments Faced in Acute Stroke Care in Third World Countries - A Study from a Tertiary Center of South India.",
+    "comment": "วิเคราะห์อุปสรรคในการดูแล Acute Stroke ซึ่งนำมาปรับปรุง Stroke fast track ได้",
+    "pmid": "42798207",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42798207/"
+  },
+  {
+    "date": "26 Sep",
+    "title": "The C-Reactive Protein/Albumin Ratio Predicts In-Hospital Mortality Across Age Groups.",
+    "comment": "ใช้ CRP/Albumin ratio เป็นตัวพยากรณ์อัตราการเสียชีวิตในโรงพยาบาล",
+    "pmid": "42796971",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42796971/"
+  },
+  {
     "date": "24 Sep",
     "title": "Renal colic in the ED: Consider POCUS first.",
     "comment": "เน้นการใช้ POCUS ในการวินิจฉัยนิ่วในทางเดินปัสสาวะเพื่อลดการส่งตรวจ CT",
@@ -418,75 +488,5 @@
     "comment": "คำเตือนเรื่องความเสี่ยง Euglycaemic ketoacidosis จากยา SGLT2i ที่แพทย์ ER และศัลยแพทย์ต้องระวัง",
     "pmid": "42759692",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42759692/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Machine learning versus conventional methods for prehospital detection of stroke due to large vessel occlusion or intracranial haemorrhage.",
-    "comment": "การใช้ ML ช่วยคัดกรอง LVO/ICH ตั้งแต่ระยะ Prehospital เพื่อส่งต่อให้ถูกจุด",
-    "pmid": "42758735",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42758735/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Diagnosis, Treatment, and Prognosis of Cerebral Venous Thrombosis.",
-    "comment": "ข้อมูลสรุปการวินิจฉัยและการรักษา CVT ซึ่งเป็นภาวะวิกฤตทางระบบประสาทที่พบบ่อยใน ER",
-    "pmid": "42758959",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42758959/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Is it Time to Reconsider the Fluid of Choice in Hypothermia? the Case for Lactated Ringer's Solution.",
-    "comment": "ทบทวนการเลือกชนิดสารน้ำที่เหมาะสมที่สุดสำหรับผู้ป่วย Hypothermia",
-    "pmid": "42758042",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42758042/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Prediction of Post-Cardiac Arrest Seizures Using Heart Rate Variability.",
-    "comment": "ใช้ HRV พยากรณ์การเกิดชักหลังฟื้นคืนชีพ เพื่อการเฝ้าระวังและรักษาที่รวดเร็ว",
-    "pmid": "42757915",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42757915/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Intracranial Atherosclerotic Stenosis: Asian Consensus Recommendations on Standardized Definitions, Diagnosis and Imaging.",
-    "comment": "ข้อตกลงร่วมระดับเอเชียเรื่องการวินิจฉัย ICAS ซึ่งสำคัญมากสำหรับประชากรในไทยและเอเชีย",
-    "pmid": "42758665",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42758665/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "European Stroke Organisation survey on reperfusion therapy practices.",
-    "comment": "สำรวจแนวทางการให้ Reperfusion therapy ในปัจจุบัน เพื่อปรับปรุง Standard of care ในผู้ป่วย Stroke",
-    "pmid": "42758736",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42758736/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "An LLM-enhanced AI agent for rapid diagnosis of acute aortic dissection in multi-center settings.",
-    "comment": "การใช้ AI ช่วยวินิจฉัย Acute Aortic Dissection ให้รวดเร็วขึ้น ลดความผิดพลาดในภาวะวิกฤต",
-    "pmid": "42757002",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42757002/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Therapeutic hypercapnia after cardiac arrest: still promising or time to move on?",
-    "comment": "ทบทวนการทำ Therapeutic hypercapnia หลัง cardiac arrest เพื่อตัดสินใจว่าจะยังใช้ในคลินิกหรือไม่",
-    "pmid": "42758270",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42758270/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Bivalent RSVpreF Effectiveness Against Respiratory Syncytial Virus (RSV)-Related Respiratory Disease Hospitalization and Emergency Department Visits Across Three RSV Seasons.",
-    "comment": "ข้อมูลประสิทธิภาพวัคซีน RSV ในการลดการมา ER และการนอน รพ. ซึ่งกระทบต่อการบริหารจัดการทรัพยากร",
-    "pmid": "42758281",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42758281/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Indian Society of Critical Care Medicine Position Statement on the Management of Paraquat Poisoning.",
-    "comment": "แนวทางจัดการพิษ Paraquat ซึ่งเป็นปัญหาพบบ่อยใน ER ไทย มีความสำคัญทางคลินิกสูง",
-    "pmid": "42756941",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42756941/"
   }
 ]
