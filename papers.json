@@ -1,6 +1,83 @@
 [
   {
     "date": "27 Sep",
+    "title": "Is ultra-early endoscopy always beneficial? A systematic review and meta-analysis of timing-dependent outcomes in nonvariceal upper gastrointestinal bleeding.",
+    "comment": "ทบทวนความจำเป็นของการส่องกล้องด่วนพิเศษใน UGIB ช่วยตัดสินใจเรื่อง timing ได้แม่นยำขึ้น",
+    "pmid": "42801172",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42801172/"
+  },
+  {
+    "date": "27 Sep",
+    "title": "Prehospital whole blood transfusion versus component therapy-A scoping review.",
+    "comment": "เปรียบเทียบการให้ Whole blood vs component ในระยะก่อนถึงโรงพยาบาล มี impact ต่อ trauma care",
+    "pmid": "42799715",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42799715/"
+  },
+  {
+    "date": "27 Sep",
+    "title": "Pericapsular Nerve Group (PENG) Block as the Preferred Interfascial Plane Block Over Fascia Iliaca Block for Neck of Femur Fractures.",
+    "comment": "เทคนิคระงับปวดแบบใหม่ใน Hip fracture ที่อาจมีประสิทธิภาพดีกว่า standard เดิม",
+    "pmid": "42800721",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42800721/"
+  },
+  {
+    "date": "27 Sep",
+    "title": "Rapid Treatment of Acute Decompensated Heart Failure with Cardiogenic Shock in the Emergency Setting.",
+    "comment": "แนวทางการจัดการ Cardiogenic shock ใน ER เพื่อลดอัตราการเสียชีวิต",
+    "pmid": "42799284",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42799284/"
+  },
+  {
+    "date": "27 Sep",
+    "title": "Incidence, Clinical Outcomes, and Factors Associated With Post-intubation Hypotension Among Critically Ill Patients Undergoing Emergency Endotracheal Intubation: A Retrospective Observational Study.",
+    "comment": "วิเคราะห์ปัจจัยเสี่ยงของ hypotension หลังใส่ท่อช่วยหายใจ เพื่อป้องกัน hemodynamic collapse",
+    "pmid": "42801266",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42801266/"
+  },
+  {
+    "date": "27 Sep",
+    "title": "Antibiotic Selection and Outcomes in Patients With Monomicrobial and Polymicrobial Vibrio Necrotizing Fasciitis.",
+    "comment": "ข้อมูลการเลือก antibiotic ใน necrotizing fasciitis จาก Vibrio ซึ่งรุนแรงและต้องการยาที่จำเพาะ",
+    "pmid": "42801098",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42801098/"
+  },
+  {
+    "date": "27 Sep",
+    "title": "DEED-FRAIL trial: A cluster-randomized trial of a frailty-oriented multicomponent ED discharge intervention for older adults with geriatric vulnerability and acute heart failure.",
+    "comment": "การจัดการผู้สูงอายุ Heart failure ใน ER เพื่อลดการกลับมานอนโรงพยาบาลซ้ำ",
+    "pmid": "42800747",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42800747/"
+  },
+  {
+    "date": "27 Sep",
+    "title": "Percutaneous decannulation with a suture-mediated closure device versus open surgical repair for peripheral veno-arterial extracorporeal membrane oxygenation: A systematic review and meta-analysis.",
+    "comment": "เปรียบเทียบวิธีถอดสาย VA-ECMO แบบใช้ device vs ผ่าตัด ช่วยลดภาวะแทรกซ้อน",
+    "pmid": "42799675",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42799675/"
+  },
+  {
+    "date": "27 Sep",
+    "title": "The sepsis paradox in 2026: defining dysregulation, treating the syndrome.",
+    "comment": "อัปเดตนิยามและการรักษา sepsis มุ่งเน้นการจัดการ dysregulation ของร่างกาย",
+    "pmid": "42800746",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42800746/"
+  },
+  {
+    "date": "27 Sep",
+    "title": "Short-Term Clinical Outcomes and Complication Timing in Patients With Postoperative Delirium After Major Emergency Abdominal Surgery: A Prospective Cohort Study.",
+    "comment": "ข้อมูลเรื่อง delirium หลังผ่าตัดด่วนทางหน้าท้อง ซึ่งส่งผลต่อการพยากรณ์โรคและการดูแล",
+    "pmid": "42800036",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42800036/"
+  },
+  {
+    "date": "27 Sep",
+    "title": "Closing the Evidence-Practice Gap: A Quality Improvement Audit of Antibiotic Prescribing Following Incision and Drainage of Superficial Skin, Pilonidal and Perianal Abscesses.",
+    "comment": "ตรวจสอบการใช้ antibiotic หลัง I&D ซึ่งมักมีการใช้เกินความจำเป็นในทางปฏิบัติ",
+    "pmid": "42801007",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42801007/"
+  },
+  {
+    "date": "27 Sep",
     "title": "Derivative indices of optic nerve sheath diameter: a novel ultrasound-based approach for non-invasive intracranial pressure monitoring in neurocritical patients.",
     "comment": "เครื่องมือใหม่ใช้ Ultrasound ประเมิน ICP แบบ non-invasive ในผู้ป่วยวิกฤตทางระบบประสาท",
     "pmid": "42798351",
@@ -411,82 +488,5 @@
     "comment": "ใช้ความเปราะบาง (Frailty) พยากรณ์ผลลัพธ์ในผู้ป่วย Stroke สูงอายุ",
     "pmid": "42763461",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42763461/"
-  },
-  {
-    "date": "20 Sep",
-    "title": "Emergence of optrA-mediated linezolid-resistance in human clinical Enterococcus faecalis: an alert for a shifting resistance landscape in hospitals.",
-    "comment": "สัญญาณเตือนการดื้อยา Linezolid ในเชื้อ E. faecalis ที่แพทย์ ER ต้องระวัง",
-    "pmid": "42762874",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42762874/"
-  },
-  {
-    "date": "20 Sep",
-    "title": "Observed variability of oxygen administration between prehospital settings and the emergency department.",
-    "comment": "ความแตกต่างของการให้ Oxygen ระหว่าง EMS และ ER ซึ่งส่งผลต่อมาตรฐานการรักษา",
-    "pmid": "42762371",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42762371/"
-  },
-  {
-    "date": "20 Sep",
-    "title": "Metallo-β-lactamase-producing Pseudomonas aeruginosa: epidemiology, diagnostic challenges and therapeutic strategies in the era of MDR/XDR resistance.",
-    "comment": "แนวทางการรักษาและวินิจฉัยเชื้อดื้อยาขั้นรุนแรง (XDR) ที่พบได้ในผู้ป่วยวิกฤต",
-    "pmid": "42761762",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42761762/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Clinical Policy: A Critical Issue in the Evaluation and Management of Adult Patients Presenting to the Emergency Department With Suspected Acute Venous Thromboembolic Disease.",
-    "comment": "แนวทางเวชปฏิบัติใหม่ในการประเมินและจัดการ VTE ใน ER ซึ่งมีผลโดยตรงต่อ Standard of Care",
-    "pmid": "42760062",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42760062/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Doxycycline With a β-Lactam Should Be Considered for Empiric Treatment of Community-Acquired Pneumonia in Critically Ill Adults.",
-    "comment": "ข้อเสนอแนะการปรับยา Empiric therapy ในผู้ป่วย CAP วิกฤต เพื่อเพิ่มประสิทธิภาพการรักษา",
-    "pmid": "42760044",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42760044/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Zero peri-shock pause: Could insulating gloves enable continuous CPR during defibrillation?",
-    "comment": "เทคนิคใหม่ลดการหยุด CPR ระหว่าง Defibrillation เพื่อเพิ่มโอกาสรอดชีวิตในผู้ป่วย Cardiac Arrest",
-    "pmid": "42760238",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42760238/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "AI-Assisted FAST for Abdominal Free-Fluid Detection: From Image-Level Accuracy to Clinical Utility.",
-    "comment": "การใช้ AI ช่วยตรวจ FAST ใน ER เพื่อเพิ่มความแม่นยำในการตรวจพบ Free fluid",
-    "pmid": "42759997",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42759997/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Admission ionised calcium disturbances and adverse outcomes in paediatric major trauma: a UK multicentre retrospective cohort study.",
-    "comment": "ข้อมูลความสำคัญของระดับ Ionised calcium ต่อผลลัพธ์ในเด็กที่ได้รับบาดเจ็บรุนแรง",
-    "pmid": "42760083",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42760083/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "A Causal Model for Prehospital Blood Transfusion and Mortality in Traumatic Hemorrhagic Shock.",
-    "comment": "วิเคราะห์ผลของการให้เลือดตั้งแต่ก่อนถึงโรงพยาบาลต่ออัตราการตายใน Shock จากการบาดเจ็บ",
-    "pmid": "42758640",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42758640/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Worsening Emergency Department Heart Rate Trajectory and Clinically Significant 7-Day Bouncebacks.",
-    "comment": "ใช้แนวโน้ม HR ใน ER เป็นตัวพยากรณ์การกลับมาโรงพยาบาลซ้ำภายใน 7 วัน",
-    "pmid": "42759270",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42759270/"
-  },
-  {
-    "date": "19 Sep",
-    "title": "Perioperative management of SGLT2 inhibitors: balancing euglycaemic ketoacidosis risk and cardiorenal benefits.",
-    "comment": "คำเตือนเรื่องความเสี่ยง Euglycaemic ketoacidosis จากยา SGLT2i ที่แพทย์ ER และศัลยแพทย์ต้องระวัง",
-    "pmid": "42759692",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42759692/"
   }
 ]
