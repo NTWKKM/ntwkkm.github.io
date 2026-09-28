@@ -1,10 +1,80 @@
 [
   {
     "date": "28 Sep",
+    "title": "Model-Informed Ceftazidime-Avibactam Dosing Stratified by Renal Function and Renal Replacement Therapy Status in Critically Ill Patients: A Prospective Population Pharmacokinetic and Monte Carlo Simulation Study.",
+    "comment": "ปรับการให้ยา Ceftazidime-Avibactam ตามการทำงานของไตในผู้ป่วยวิกฤตเพื่อประสิทธิภาพสูงสุด",
+    "pmid": "42802803",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42802803/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Early Heparin Initiation Is Associated With Improved Outcomes in Sepsis‑Induced Myocardial Injury: A Target Trial Emulation and Experimental Study.",
+    "comment": "การให้ Heparin ระยะแรกใน Sepsis-induced myocardial injury ช่วยให้ผลลัพธ์การรักษาดีขึ้น",
+    "pmid": "42802311",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42802311/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Differentiating Normal Healing From Infection in Total Joint Arthroplasty: An Educational and Diagnostic Tool for Emergency Providers Evaluating the Postoperative Patient.",
+    "comment": "เครื่องมือช่วยแยกการอักเสบปกติจากการติดเชื้อในผู้ป่วยหลังผ่าตัดเปลี่ยนข้อเทียมสำหรับแพทย์ ER",
+    "pmid": "42802411",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42802411/"
+  },
+  {
+    "date": "28 Sep",
     "title": "Is ultra-early endoscopy always beneficial? A systematic review and meta-analysis of timing-dependent outcomes in nonvariceal upper gastrointestinal bleeding.",
-    "comment": "ทบทวนความคุ้มค่าของ ultra-early endoscopy ใน UGIB ซึ่งอาจเปลี่ยน standard timing ในการทำหัตถการ",
+    "comment": "ทบทวนความจำเป็นของการทำ Endoscopy แบบ ultra-early ใน nonvariceal UGIB",
     "pmid": "42801172",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42801172/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Interpret With Caution the Protective Effect of Delayed Appendectomy Within 24 Hours.",
+    "comment": "เตือนให้ระวังการตีความผลประโยชน์ของการเลื่อนผ่าตัดไส้ติ่งออกไปภายใน 24 ชม.",
+    "pmid": "42802547",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42802547/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Incidence, Clinical Outcomes, and Factors Associated With Post-intubation Hypotension Among Critically Ill Patients Undergoing Emergency Endotracheal Intubation: A Retrospective Observational Study.",
+    "comment": "วิเคราะห์ปัจจัยเสี่ยงของการเกิดความดันโลหิตต่ำหลังใส่ท่อช่วยหายใจในภาวะฉุกเฉิน",
+    "pmid": "42801266",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42801266/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Reassessing the Kocher Criteria: A Prospective Evaluation of Diagnostic Performance in Pediatric Musculoskeletal Infection.",
+    "comment": "ประเมินความแม่นยำของ Kocher Criteria ในการวินิจฉัยการติดเชื้อในข้อเด็กยุคปัจจุบัน",
+    "pmid": "42802642",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42802642/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "CT-derived adrenal-to-spleen ratio as a predictor of massive transfusion and mortality in emergency transcatheter arterial embolization of active bleeding.",
+    "comment": "ใช้ ratio ของต่อมหมวกไตต่อม้ามจาก CT ทำนายความต้องการเลือดปริมาณมากและการรอดชีวิต",
+    "pmid": "42802285",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42802285/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Risk Factors for Undertriage of Children Presenting to a Pediatric Emergency Department With Abdominal Pain.",
+    "comment": "ปัจจัยที่ทำให้เกิดการคัดกรองระดับความรุนแรงต่ำกว่าความเป็นจริงในเด็กที่มีอาการปวดท้อง",
+    "pmid": "42802705",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42802705/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Ventilation uncertainties in CPR: who should do it, how to measure it when and how to perform it?",
+    "comment": "แนวทางการจัดการเรื่องการระบายอากาศ (Ventilation) ในระหว่างการทำ CPR ให้ชัดเจนขึ้น",
+    "pmid": "42802419",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42802419/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Antibiotic Selection and Outcomes in Patients With Monomicrobial and Polymicrobial Vibrio Necrotizing Fasciitis.",
+    "comment": "ข้อมูลการเลือกยาปฏิชีวนะและผลลัพธ์ในผู้ป่วย Vibrio necrotizing fasciitis",
+    "pmid": "42801098",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42801098/"
   },
   {
     "date": "28 Sep",
@@ -12,13 +82,6 @@
     "comment": "เปรียบเทียบเทคนิคระงับปวดในผู้ป่วย Hip fracture ซึ่งส่งผลต่อการเลือกใช้ technique ใน ER",
     "pmid": "42800721",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42800721/"
-  },
-  {
-    "date": "28 Sep",
-    "title": "Incidence, Clinical Outcomes, and Factors Associated With Post-intubation Hypotension Among Critically Ill Patients Undergoing Emergency Endotracheal Intubation: A Retrospective Observational Study.",
-    "comment": "วิเคราะห์ปัจจัยเสี่ยงภาวะความดันตกหลังใส่ท่อช่วยหายใจ เพื่อเฝ้าระวังและป้องกันในผู้ป่วยวิกฤต",
-    "pmid": "42801266",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42801266/"
   },
   {
     "date": "28 Sep",
@@ -33,13 +96,6 @@
     "comment": "ข้อมูลความปลอดภัยในการทำ LP ในผู้ป่วยที่ใช้ยาละลายลิ่มเลือด ซึ่งเป็นหัตถการที่พบบ่อยใน ER",
     "pmid": "42801450",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42801450/"
-  },
-  {
-    "date": "28 Sep",
-    "title": "Antibiotic Selection and Outcomes in Patients With Monomicrobial and Polymicrobial Vibrio Necrotizing Fasciitis.",
-    "comment": "แนวทางการเลือกยาปฏิชีวนะสำหรับ Vibrio necrotizing fasciitis ซึ่งเป็นภาวะฉุกเฉินที่มีอัตราตายสูง",
-    "pmid": "42801098",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42801098/"
   },
   {
     "date": "28 Sep",
@@ -432,61 +488,5 @@
     "comment": "อุปกรณ์ห้ามเลือดชนิดใหม่สำหรับภาวะเลือดออกฉุกเฉิน ใช้เทคโนโลยี light-cured adhesive",
     "pmid": "42767137",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42767137/"
-  },
-  {
-    "date": "22 Sep",
-    "title": "Real-World Adverse Event Reporting Patterns of Tirzepatide Versus Semaglutide: A Stratified Study of General and Healthcare Professional Cohorts in FAERS.",
-    "comment": "ข้อมูลความปลอดภัยจริงของยา GLP-1 RA สองชนิดที่ใช้แพร่หลาย แพทย์ต้องเฝ้าระวังผลข้างเคียง",
-    "pmid": "42768828",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42768828/"
-  },
-  {
-    "date": "22 Sep",
-    "title": "Sedation-Assisted, Non-sedated, and Escalated Removal of Pediatric ENT Foreign Bodies in Emergency Settings: A Systematic Review.",
-    "comment": "ทบทวนแนวทางการเอาสิ่งแปลกปลอมใน ENT เด็กออกใน ER เพื่อความปลอดภัยสูงสุด",
-    "pmid": "42769021",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42769021/"
-  },
-  {
-    "date": "22 Sep",
-    "title": "Development and validation of an interpretable machine-learning model for predicting treatment failure in severe trauma patients.",
-    "comment": "AI ทำนายความล้มเหลวในการรักษาผู้ป่วย Severe Trauma ช่วยให้ปรับแผนการรักษาได้ทันท่วงที",
-    "pmid": "42769044",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42769044/"
-  },
-  {
-    "date": "22 Sep",
-    "title": "Central embolic localization in acute pulmonary embolism: Prognostic marker or target for intervention?",
-    "comment": "ตำแหน่งของลิ่มเลือดใน PE อาจเป็นตัวกำหนดพยากรณ์โรคหรือเป้าหมายในการทำ intervention",
-    "pmid": "42767924",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42767924/"
-  },
-  {
-    "date": "20 Sep",
-    "title": "Impact of pre-ICU balanced crystalloids versus saline on mortality in sepsis: a propensity score-matched multicenter cohort study.",
-    "comment": "เปรียบเทียบสารน้ำใน Sepsis ซึ่งมีผลต่อการเลือกใช้ Fluid ใน ER และ ICU",
-    "pmid": "42762986",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42762986/"
-  },
-  {
-    "date": "20 Sep",
-    "title": "Safety and efficacy of repeated intravenous thrombolysis within 3 months for acute ischemic stroke: a systematic review and individual-patient data meta-analysis.",
-    "comment": "ข้อมูลความปลอดภัยของการให้ rtPA ซ้ำในผู้ป่วย Stroke ภายใน 3 เดือน",
-    "pmid": "42762269",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42762269/"
-  },
-  {
-    "date": "20 Sep",
-    "title": "Modified Sequential Organ Failure Assessment score for prehospital critical care: defining thresholds and clinical implications.",
-    "comment": "การปรับใช้ SOFA score ในระยะ Prehospital เพื่อคัดกรองผู้ป่วยวิกฤต",
-    "pmid": "42763288",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42763288/"
-  },
-  {
-    "date": "20 Sep",
-    "title": "Viscoelastic hemostatic assays in trauma-induced coagulopathy: Precision transfusion, fibrinolytic phenotyping, and future directions.",
-    "comment": "การใช้ TEG/ROTEM เพื่อนำทางความแม่นยำในการเติมเลือดในผู้ป่วย Trauma",
-    "pmid": "42762956",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42762956/"
   }
 ]
