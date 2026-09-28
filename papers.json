@@ -1,10 +1,73 @@
 [
   {
-    "date": "27 Sep",
+    "date": "28 Sep",
     "title": "Is ultra-early endoscopy always beneficial? A systematic review and meta-analysis of timing-dependent outcomes in nonvariceal upper gastrointestinal bleeding.",
-    "comment": "ทบทวนความจำเป็นของการส่องกล้องด่วนพิเศษใน UGIB ช่วยตัดสินใจเรื่อง timing ได้แม่นยำขึ้น",
+    "comment": "ทบทวนความคุ้มค่าของ ultra-early endoscopy ใน UGIB ซึ่งอาจเปลี่ยน standard timing ในการทำหัตถการ",
     "pmid": "42801172",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42801172/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Pericapsular Nerve Group (PENG) Block as the Preferred Interfascial Plane Block Over Fascia Iliaca Block for Neck of Femur Fractures.",
+    "comment": "เปรียบเทียบเทคนิคระงับปวดในผู้ป่วย Hip fracture ซึ่งส่งผลต่อการเลือกใช้ technique ใน ER",
+    "pmid": "42800721",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42800721/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Incidence, Clinical Outcomes, and Factors Associated With Post-intubation Hypotension Among Critically Ill Patients Undergoing Emergency Endotracheal Intubation: A Retrospective Observational Study.",
+    "comment": "วิเคราะห์ปัจจัยเสี่ยงภาวะความดันตกหลังใส่ท่อช่วยหายใจ เพื่อเฝ้าระวังและป้องกันในผู้ป่วยวิกฤต",
+    "pmid": "42801266",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42801266/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Efficacy of Blood Purification in Paediatric Sepsis and Its Effects on Inflammatory Cytokines: A Systematic Review and Meta-analysis.",
+    "comment": "ประเมินการใช้ Blood purification ในเด็กที่เป็น sepsis เพื่อพิจารณาใช้ในกรณีรุนแรง",
+    "pmid": "42801776",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42801776/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Association of antiplatelet and anticoagulant use history with 30-day outcomes after lumbar puncture: a population-based retrospective study.",
+    "comment": "ข้อมูลความปลอดภัยในการทำ LP ในผู้ป่วยที่ใช้ยาละลายลิ่มเลือด ซึ่งเป็นหัตถการที่พบบ่อยใน ER",
+    "pmid": "42801450",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42801450/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Antibiotic Selection and Outcomes in Patients With Monomicrobial and Polymicrobial Vibrio Necrotizing Fasciitis.",
+    "comment": "แนวทางการเลือกยาปฏิชีวนะสำหรับ Vibrio necrotizing fasciitis ซึ่งเป็นภาวะฉุกเฉินที่มีอัตราตายสูง",
+    "pmid": "42801098",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42801098/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Lactate in acute kidney injury: pathobiology, risk stratification, and clinical interpretation.",
+    "comment": "การแปลผล Lactate ในผู้ป่วย AKI เพื่อช่วยในการแบ่งกลุ่มความเสี่ยงและวางแผนรักษา",
+    "pmid": "42802082",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42802082/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "DEED-FRAIL trial: A cluster-randomized trial of a frailty-oriented multicomponent ED discharge intervention for older adults with geriatric vulnerability and acute heart failure.",
+    "comment": "นวัตกรรมการวางแผนจำหน่ายผู้สูงอายุที่มีภาวะเปราะบางและ Heart failure เพื่อลดการ readmission",
+    "pmid": "42800747",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42800747/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "Out-of-hospital cardiac arrest management in the Swiss canton of Valais: a retrospective study on first responders' response and automated external defibrillator efficacy.",
+    "comment": "ประเมินประสิทธิภาพของ AED และ first responder ในระบบ OHCA เพื่อปรับปรุงระบบการกู้ชีพ",
+    "pmid": "42801457",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42801457/"
+  },
+  {
+    "date": "28 Sep",
+    "title": "The Many Faces of Dengue Infection: Dengue Infection Masquerading as Acute Airway Edema.",
+    "comment": "เตือนภัย Dengue ที่มาด้วยอาการ airway edema ซึ่งอาจนำไปสู่การวินิจฉัยผิดพลาดในระยะวิกฤต",
+    "pmid": "42801047",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42801047/"
   },
   {
     "date": "27 Sep",
@@ -15,38 +78,10 @@
   },
   {
     "date": "27 Sep",
-    "title": "Pericapsular Nerve Group (PENG) Block as the Preferred Interfascial Plane Block Over Fascia Iliaca Block for Neck of Femur Fractures.",
-    "comment": "เทคนิคระงับปวดแบบใหม่ใน Hip fracture ที่อาจมีประสิทธิภาพดีกว่า standard เดิม",
-    "pmid": "42800721",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42800721/"
-  },
-  {
-    "date": "27 Sep",
     "title": "Rapid Treatment of Acute Decompensated Heart Failure with Cardiogenic Shock in the Emergency Setting.",
     "comment": "แนวทางการจัดการ Cardiogenic shock ใน ER เพื่อลดอัตราการเสียชีวิต",
     "pmid": "42799284",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42799284/"
-  },
-  {
-    "date": "27 Sep",
-    "title": "Incidence, Clinical Outcomes, and Factors Associated With Post-intubation Hypotension Among Critically Ill Patients Undergoing Emergency Endotracheal Intubation: A Retrospective Observational Study.",
-    "comment": "วิเคราะห์ปัจจัยเสี่ยงของ hypotension หลังใส่ท่อช่วยหายใจ เพื่อป้องกัน hemodynamic collapse",
-    "pmid": "42801266",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42801266/"
-  },
-  {
-    "date": "27 Sep",
-    "title": "Antibiotic Selection and Outcomes in Patients With Monomicrobial and Polymicrobial Vibrio Necrotizing Fasciitis.",
-    "comment": "ข้อมูลการเลือก antibiotic ใน necrotizing fasciitis จาก Vibrio ซึ่งรุนแรงและต้องการยาที่จำเพาะ",
-    "pmid": "42801098",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42801098/"
-  },
-  {
-    "date": "27 Sep",
-    "title": "DEED-FRAIL trial: A cluster-randomized trial of a frailty-oriented multicomponent ED discharge intervention for older adults with geriatric vulnerability and acute heart failure.",
-    "comment": "การจัดการผู้สูงอายุ Heart failure ใน ER เพื่อลดการกลับมานอนโรงพยาบาลซ้ำ",
-    "pmid": "42800747",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42800747/"
   },
   {
     "date": "27 Sep",
@@ -453,40 +488,5 @@
     "comment": "การใช้ TEG/ROTEM เพื่อนำทางความแม่นยำในการเติมเลือดในผู้ป่วย Trauma",
     "pmid": "42762956",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42762956/"
-  },
-  {
-    "date": "20 Sep",
-    "title": "Emergency management of extreme hyperbilirubinemia.",
-    "comment": "แนวทางการจัดการภาวะบิลิรูบินสูงขั้นวิกฤตในภาวะฉุกเฉิน",
-    "pmid": "42763218",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42763218/"
-  },
-  {
-    "date": "20 Sep",
-    "title": "Injury Severity and Time to Documented Analgesia in Emergency Department Trauma Patients.",
-    "comment": "ประเมินระยะเวลาการให้ยาแก้ปวดในผู้ป่วย Trauma ซึ่งส่งผลต่อคุณภาพการรักษา",
-    "pmid": "42762606",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42762606/"
-  },
-  {
-    "date": "20 Sep",
-    "title": "Blood Host-Response mRNA Assays in Adult Acute Care: Diagnostic Performance, Translational Evidence, and the Clinical Implementation Gap.",
-    "comment": "การใช้ mRNA assay เพื่อวินิจฉัยการติดเชื้อในผู้ป่วยวิกฤต ช่วยลดเวลาการรักษา",
-    "pmid": "42761931",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42761931/"
-  },
-  {
-    "date": "20 Sep",
-    "title": "Validity and accuracy of Manchester triage system with vignettes cases: A multicentric study",
-    "comment": "ตรวจสอบความแม่นยำของระบบ Triage (Manchester) ที่ใช้ใน ER หลายแห่ง",
-    "pmid": "42762657",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42762657/"
-  },
-  {
-    "date": "20 Sep",
-    "title": "Frailty as a Predictor of Clinical Outcomes After Acute Ischemic Stroke in Older Adults: A Systematic Review and Meta-Analysis.",
-    "comment": "ใช้ความเปราะบาง (Frailty) พยากรณ์ผลลัพธ์ในผู้ป่วย Stroke สูงอายุ",
-    "pmid": "42763461",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42763461/"
   }
 ]
