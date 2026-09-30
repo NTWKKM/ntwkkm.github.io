@@ -1,5 +1,89 @@
 [
   {
+    "date": "1 Oct",
+    "title": "Integrating rapid response teams and structured care pathways improves outcomes in status epilepticus: A prospective cohort study.",
+    "comment": "ช่วยลดอัตราตาย/พิการใน status epilepticus ด้วยการใช้ RRT และ structured pathway",
+    "pmid": "42814030",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42814030/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Oral vs Intravenous Fluid Therapy in Emergency Department Patients: Protocol for a Randomized Controlled Feasibility and Noninferiority Trial.",
+    "comment": "ศึกษาความไม่ด้อยกว่าของการให้สารน้ำทางปากเทียบกับ IV ใน ER ซึ่งอาจเปลี่ยน standard care",
+    "pmid": "42814483",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42814483/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "SAFE-SEAL: a bail-out technique for percutaneous femoral closure after failed hybrid closure.",
+    "comment": "เทคนิคกู้ชีพกรณีปิดแผล femoral artery ล้มเหลว ใช้ได้จริงในหัตถการ ER/Cath lab",
+    "pmid": "42814485",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42814485/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Toxic Alcohol Poisoning: Emergency Department Recognition and Management in Patients With Complex Health and Housing Needs.",
+    "comment": "แนวทางการวินิจฉัยและดูแลผู้ป่วยพิษจากแอลกอฮอล์ในกลุ่มเปราะบางที่ ER",
+    "pmid": "42814071",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42814071/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "The Mesenteric Whirl Sign: A surgical decision signal for bowel-threatening mechanical disease.",
+    "comment": "Radiologic sign สำคัญที่ช่วยตัดสินใจผ่าตัดด่วนในผู้ป่วย abdominal pain/bowel obstruction",
+    "pmid": "42814013",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42814013/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Combat Casualty Care in the Russo-Ukrainian War: Operational Adaptations for Near-Peer Conflict.",
+    "comment": "การปรับตัวของการดูแลผู้บาดเจ็บในสนามรบยุคใหม่ นำมาประยุกต์ใช้กับ mass casualty/trauma ได้",
+    "pmid": "42813379",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42813379/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Impact of the emergency medical services crew size (2 vs. ≥3 personnel) on prehospital performance and survival in severe trauma: a nationwide cohort study in Korea.",
+    "comment": "จำนวนเจ้าหน้าที่ EMS มีผลต่อ survival rate ใน severe trauma มีผลต่อการจัดระบบ prehospital",
+    "pmid": "42813214",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42813214/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Rescue OTSC: salvage treatment for recurrent diverticular bleeding after failed conventional endoscopic hemostasis.",
+    "comment": "ทางเลือกในการหยุดเลือด diverticular bleeding เมื่อวิธีมาตรฐานล้มเหลว",
+    "pmid": "42813919",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42813919/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Test characteristics of cardiac point-of-care ultrasound in paediatric shock: insights from multisystem inflammatory syndrome in children.",
+    "comment": "ความแม่นยำของ POCUS ในการประเมิน shock ในเด็ก (MIS-C) ช่วยในการ triage และรักษา",
+    "pmid": "42813535",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42813535/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Relative inhibitory activities of taniborbactam and xeruborbactam against KPC variants conferring reduced susceptibility or resistance to ceftazidime/avibactam, cefiderocol, and cefepime/taniborbactam.",
+    "comment": "ข้อมูลยา antibiotic ใหม่ในการจัดการเชื้อดื้อยา KPC variants ที่ดื้อยามาตรฐาน",
+    "pmid": "42814039",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42814039/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Feasibility and Acceptability of Oura Ring Sleep Monitoring in Older Adults Admitted From the Emergency Department: Prospective Cohort Study.",
+    "comment": "การใช้ wearable device ติดตามผู้สูงอายุหลังออกจาก ER เพื่อลดการกลับมา admit ซ้ำ",
+    "pmid": "42814730",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42814730/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Building a Trauma System Through Detection: ShotSpotter Technology and Increased Capture of Injured Patients.",
+    "comment": "การใช้เทคโนโลยีตรวจจับเสียงปืนเพื่อนำส่งผู้บาดเจ็บเข้าสู่ระบบ trauma ได้เร็วขึ้น",
+    "pmid": "42813995",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42813995/"
+  },
+  {
     "date": "28 Sep",
     "title": "Model-Informed Ceftazidime-Avibactam Dosing Stratified by Renal Function and Renal Replacement Therapy Status in Critically Ill Patients: A Prospective Population Pharmacokinetic and Monte Carlo Simulation Study.",
     "comment": "ปรับการให้ยา Ceftazidime-Avibactam ตามการทำงานของไตในผู้ป่วยวิกฤตเพื่อประสิทธิภาพสูงสุด",
@@ -404,89 +488,5 @@
     "comment": "Safety Signal: ข้อมูลความเสี่ยง DKA ในผู้ป่วยที่ใช้ SGLT2i ซึ่งพบได้บ่อยใน ER",
     "pmid": "42774769",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42774769/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Size and location of intracranial hemorrhage in acute stroke presentations: correlation with baseline NIHSS and relevance to direct-to-angiography workflows.",
-    "comment": "Practice Changing: ข้อมูลขนาด/ตำแหน่ง ICH เพื่อปรับปรุง workflow การส่งต่อผู้ป่วย stroke",
-    "pmid": "42774128",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42774128/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "AI-assisted vs. textbook-based vs. blended learning for acute abdomen diagnosis: a retrospective cohort study of emergency interns.",
-    "comment": "Novel Tool: การใช้ AI ช่วยวินิจฉัย Acute abdomen ในแพทย์จบใหม่ เพื่อลดความผิดพลาด",
-    "pmid": "42774238",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42774238/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Optimal buprenorphine exposure to treat patients with opioid use disorder in the era of fentanyl and polysubstance use.",
-    "comment": "Practice Changing: ปรับขนาดยา Buprenorphine ให้เหมาะสมกับยุค Fentanyl เพื่อผลการรักษาที่ดีขึ้น",
-    "pmid": "42774285",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42774285/"
-  },
-  {
-    "date": "23 Sep",
-    "title": "Quality Improvement Initiative: Implementation of a Unified Pediatric Asthma Pathway Reduces Critical Care Requirements.",
-    "comment": "การใช้ Pathway เดียวกันในการรักษา Asthma ในเด็ก ช่วยลดอัตราการเข้า ICU",
-    "pmid": "42775332",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42775332/"
-  },
-  {
-    "date": "22 Sep",
-    "title": "Comparative Effectiveness of Lidocaine and Amiodarone for Refractory VF/pVT in Adult In-Hospital Cardiac Arrest: Insights from a Nationwide Multicenter Chinese Registry.",
-    "comment": "เปรียบเทียบยาใน Refractory VF/pVT ช่วยตัดสินใจเลือกยาใน ACLS ได้แม่นยำขึ้น",
-    "pmid": "42767592",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42767592/"
-  },
-  {
-    "date": "22 Sep",
-    "title": "The 2026 Surviving Sepsis Campaign Guidelines: The dissenting opinion.",
-    "comment": "ความเห็นต่างต่อแนวทาง SSC 2026 ซึ่งอาจเปลี่ยนแนวทางการรักษา Sepsis ใน ER",
-    "pmid": "42767105",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42767105/"
-  },
-  {
-    "date": "22 Sep",
-    "title": "Just the Facts: Resuscitative point-of-care ultrasound in adults with undifferentiated shock.",
-    "comment": "การใช้ R-POCUS ใน Undifferentiated shock เพื่อวินิจฉัยสาเหตุและรักษาได้ทันที",
-    "pmid": "42768273",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42768273/"
-  },
-  {
-    "date": "22 Sep",
-    "title": "Emergency burr hole craniostomy for traumatic brain injury in austere environments: a practical guide for non-neurosurgeons.",
-    "comment": "คู่มือปฏิบัติการเจาะกะโหลกฉุกเฉินใน TBI สำหรับแพทย์ที่ไม่ใช่ศัลยแพทย์ประสาท",
-    "pmid": "42767760",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42767760/"
-  },
-  {
-    "date": "22 Sep",
-    "title": "Prediction of high-flow nasal cannula failure in patients with sepsis by a preliminary risk stratification model based on the ROX index.",
-    "comment": "ใช้ ROX index ทำนายการล้มเหลวของ HFNC ในผู้ป่วย Sepsis เพื่อเตรียม Intubate ได้เร็วขึ้น",
-    "pmid": "42768322",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42768322/"
-  },
-  {
-    "date": "22 Sep",
-    "title": "Appropriateness of antibiotic selection at emergency department discharge and risk of 30-day adverse events in patients with acute exacerbation of COPD.",
-    "comment": "ตรวจสอบความเหมาะสมของ ATB ใน AECOPD และความเสี่ยงที่จะเกิด adverse events",
-    "pmid": "42768888",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42768888/"
-  },
-  {
-    "date": "22 Sep",
-    "title": "Development and validation of a prognostic nomogram model for 28-day mortality based on IP-10 and clinical parameters in septic patients in the emergency department.",
-    "comment": "เครื่องมือทำนายการเสียชีวิต 28 วันในผู้ป่วย Sepsis ที่มา ER ช่วยในการ Triage ผู้ป่วย",
-    "pmid": "42769025",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42769025/"
-  },
-  {
-    "date": "22 Sep",
-    "title": "A light-cured and doxycycline stabilized silk fibroin/tannin acid tissue adhesive for emergency hemorrhage.",
-    "comment": "อุปกรณ์ห้ามเลือดชนิดใหม่สำหรับภาวะเลือดออกฉุกเฉิน ใช้เทคโนโลยี light-cured adhesive",
-    "pmid": "42767137",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42767137/"
   }
 ]
