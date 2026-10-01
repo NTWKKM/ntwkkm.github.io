@@ -1,6 +1,76 @@
 [
   {
     "date": "1 Oct",
+    "title": "Prehospital whole blood transfusion in traumatic hemorrhagic shock: a systematic review and meta-analysis.",
+    "comment": "Practice Changing: ข้อมูลการใช้ whole blood ใน prehospital สำหรับ hemorrhagic shock ซึ่งมีผลต่อ survival rate",
+    "pmid": "42815248",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42815248/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "The Benefit of Early Advanced Airway Management Depends on Prehospital Epinephrine Timing in Out-of-Hospital Cardiac Arrest: A Nationwide Cohort Study.",
+    "comment": "Practice Changing: ปรับจังหวะการทำ advanced airway ให้สัมพันธ์กับการให้ epinephrine ใน OHCA",
+    "pmid": "42815411",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42815411/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Impact of Emergency Department Point-of-Care Ultrasound on the Emergency Department Length of Stay and Time to Diagnosis in Early Pregnancy: A Systematic Review and Meta-Analysis.",
+    "comment": "Novel Tool: POCUS ช่วยลดเวลาวินิจฉัยและ LOS ในผู้ป่วยตั้งครรภ์ที่มา ER",
+    "pmid": "42815412",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42815412/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Impact of Wechat-based prehospital data transmission on reperfusion times in ST-elevation myocardial infarction: a prospective observational study.",
+    "comment": "Novel Tool: การส่งข้อมูลผ่าน app ช่วยลด reperfusion time ใน STEMI",
+    "pmid": "42815357",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42815357/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Muscle or Subcutaneous Fat? A Prospective Ultrasonographic Study of Dorsogluteal Injection Accuracy in the Emergency Department.",
+    "comment": "Safety Signal: ความแม่นยำในการฉีดยาบริเวณ dorsogluteal ซึ่งอาจส่งผลต่อการดูดซึมยา",
+    "pmid": "42815413",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42815413/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Convergence of carbapenem resistance and hypervirulence in Klebsiella pneumoniae in Europe: a systematic review.",
+    "comment": "Safety Signal: การระบาดของ K. pneumoniae ที่ทั้งดื้อยาและรุนแรงสูง ซึ่งต้องระวังใน ER",
+    "pmid": "42815739",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42815739/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Emergent Total Endovascular Repair Using Retrograde in Situ Branched Stent Grafting for Ruptured Retrograde Aortic Dissection.",
+    "comment": "Novel Tool: เทคนิคการรักษา ruptured aortic dissection แบบฉุกเฉินที่ใช้ได้จริง",
+    "pmid": "42816371",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42816371/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Nasal versus oral intubation in the neonatal intensive care unit: associations with procedural success and safety in a retrospective cohort study from the National Emergency Airway Registry for Neonates (NEAR4NEOS).",
+    "comment": "Practice Changing: เปรียบเทียบความสำเร็จและความปลอดภัยของ Nasal vs Oral intubation ในทารก",
+    "pmid": "42816158",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42816158/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Beyond creatinine: biomarkers of kidney recovery after acute kidney injury.",
+    "comment": "Novel Tool: การใช้ biomarker อื่นนอกเหนือจาก creatinine เพื่อประเมิน recovery ของ AKI",
+    "pmid": "42817189",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42817189/"
+  },
+  {
+    "date": "1 Oct",
+    "title": "Artificial intelligence-assisted diagnosis of pediatric supracondylar humerus fractures: a deep learning-based clinical decision support model.",
+    "comment": "Novel Tool: AI ช่วยวินิจฉัย pediatric supracondylar fracture เพิ่มความแม่นยำใน ER",
+    "pmid": "42817596",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42817596/"
+  },
+  {
+    "date": "1 Oct",
     "title": "Integrating rapid response teams and structured care pathways improves outcomes in status epilepticus: A prospective cohort study.",
     "comment": "เพิ่มอัตราการรอดชีวิตและลดภาวะแทรกซ้อนใน Status Epilepticus ด้วยระบบ RRT และ Care Pathway",
     "pmid": "42814030",
@@ -418,75 +488,5 @@
     "comment": "Practice Changing: Guideline ล่าสุดในการจัดการบาดเจ็บลำไส้ใหญ่และเรคตัมจาก WSES",
     "pmid": "42776522",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42776522/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Effectiveness, safety and acceptability of mifepristone compared with other interventions in reproductive-age women using emergency contraception for the prevention of pregnancy: a systematic review and meta-analysis",
-    "comment": "Practice Changing: เปรียบเทียบประสิทธิภาพ Mifepristone กับยาคุมฉุกเฉินชนิดอื่น",
-    "pmid": "42778306",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42778306/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "External Validation and Recalibration of the Boey and PULP Scores in a Contemporary Cohort With Peptic Ulcer Perforation",
-    "comment": "High-Impact Controversy: ตรวจสอบความแม่นยำของ Boey และ PULP score ในผู้ป่วย PUPD ยุคปัจจุบัน",
-    "pmid": "42778054",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42778054/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Alcohol, drugs and self-harm emergencies in a national unscheduled care system: a retrospective observational study",
-    "comment": "Safety Signal: ข้อมูลความสัมพันธ์ของสารเสพติดกับการมา ER ด้วยการทำร้ายตัวเอง",
-    "pmid": "42778343",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42778343/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Increasing Awareness of 7-Hydroxymitragynine and the Threat of Emerging Opioids",
-    "comment": "Safety Signal: คำเตือนเรื่อง Opioids ชนิดใหม่ (Kratom derivative) ที่แพทย์ ER ต้องระวัง",
-    "pmid": "42776105",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42776105/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Hidden risk: Corticosteroid exposure and severe outcomes in patients with latent Strongyloides stercalis.",
-    "comment": "Safety Signal: ความเสี่ยงรุนแรงเมื่อใช้ Steroid ในผู้ป่วยที่มี Strongyloides แฝง ต้องระวัง Hyperinfection",
-    "pmid": "42776064",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42776064/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Smartphone-Based Measurement of Cognition and Physical Function in Older Emergency Department Patients: A Feasibility Study.",
-    "comment": "Novel Tool: การใช้สมาร์ทโฟนประเมิน cognition/physical function ในผู้สูงอายุที่ ER เพื่อความรวดเร็ว",
-    "pmid": "42775945",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42775945/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Use of a Virtual Reality Visual Field Device to Improve Quality of Care in the Emergency Department and Inpatient Setting.",
-    "comment": "Novel Tool: การใช้ VR visual field device เพิ่มประสิทธิภาพการตรวจประเมินใน ER",
-    "pmid": "42775735",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42775735/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Five Practical Considerations for the Management of Out-of-hospital Cardiac Arrest: Reflections from the British Cardiovascular Intervention Society Out-of-hospital Cardiac Arrest Focus Group.",
-    "comment": "Practice Changing: ข้อแนะนำเชิงปฏิบัติในการจัดการ OHCA เพื่อปรับปรุง outcome การรักษา",
-    "pmid": "42774765",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42774765/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Development and clinical validation of a colorimetric isothermal assay for rapid detection of monkeypox virus.",
-    "comment": "Novel Tool: ชุดตรวจ Monkeypox แบบรวดเร็ว (colorimetric) นำมาใช้คัดกรองผู้ป่วยใน ER ได้",
-    "pmid": "42775090",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42775090/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Risk of diabetic ketoacidosis with sodium-glucose cotransporter-2 inhibitors compared with dipeptidyl peptidase-4 inhibitors in type 2 diabetes: A nationwide cohort study.",
-    "comment": "Safety Signal: ข้อมูลความเสี่ยง DKA ในผู้ป่วยที่ใช้ SGLT2i ซึ่งพบได้บ่อยใน ER",
-    "pmid": "42774769",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42774769/"
   }
 ]
