@@ -1,5 +1,89 @@
 [
   {
+    "date": "4 Oct",
+    "title": "Comparing the pain relief effectiveness of intravenous magnesium sulfate and ketorolac versus intravenous morphine and ketorolac for kidney stones.",
+    "comment": "เปรียบเทียบประสิทธิภาพการระงับปวดในนิ่วในไต เพื่อหาทางเลือกลดการใช้ Opioids ใน ER",
+    "pmid": "42829757",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42829757/"
+  },
+  {
+    "date": "4 Oct",
+    "title": "Management of acute pyelonephritis in pregnancy in emergency settings: A comparative study of conservative therapy and renal drainage.",
+    "comment": "เปรียบเทียบการรักษา pyelonephritis ในคนท้อง ระหว่างประคับประคองกับการระบายปัสสาวะ มีผลต่อการตัดสินใจรักษา",
+    "pmid": "42829782",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42829782/"
+  },
+  {
+    "date": "4 Oct",
+    "title": "Resuscitative endovascular balloon occlusion of the aorta versus resuscitative thoracotomy in traumatic non-compressible torso hemorrhage: A structured narrative systematic review.",
+    "comment": "เปรียบเทียบ REBOA vs Thoracotomy ในภาวะเลือดออกในช่องตัวรุนแรง ซึ่งเป็นจุดเปลี่ยนแนวทาง Resuscitation",
+    "pmid": "42828812",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42828812/"
+  },
+  {
+    "date": "4 Oct",
+    "title": "TISA-818, an Anti-inflammatory Conjugate of Montelukast-Decapeptide, in Acute Respiratory Distress Syndrome Due to Pulmonary Infection: A Phase 2 Randomized Trial Using the 2023 Global Definition.",
+    "comment": "ยารักษา ARDS จากการติดเชื้อตัวใหม่ ผลการทดลอง Phase 2 ที่แพทย์ ER ควรติดตาม",
+    "pmid": "42829168",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42829168/"
+  },
+  {
+    "date": "4 Oct",
+    "title": "Early prognostic assessment of upper gastrointestinal bleeding requiring intensive care: comparison of SOFA and bleeding-specific risk scores.",
+    "comment": "เปรียบเทียบ score เพื่อทำนายความจำเป็นในการใช้ ICU ในผู้ป่วย UGIB ช่วย triage ผู้ป่วยได้แม่นยำขึ้น",
+    "pmid": "42829278",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42829278/"
+  },
+  {
+    "date": "4 Oct",
+    "title": "Ferritin-Based Biomarkers for Prediction of 28-Day Mortality in Septic Shock: A Prospective, Single-Centre, Observational Study From South India.",
+    "comment": "ใช้ Ferritin เป็น biomarker ทำนายการเสียชีวิตใน Septic shock ช่วยในการประเมินความรุนแรงของโรค",
+    "pmid": "42829695",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42829695/"
+  },
+  {
+    "date": "4 Oct",
+    "title": "Closed-Incision Prophylactic Negative Pressure Wound Therapy in Emergency Laparotomy: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+    "comment": "การใช้ NPWT หลังผ่าตัด Laparotomy ฉุกเฉิน เพื่อลดภาวะแทรกซ้อนของแผลผ่าตัด",
+    "pmid": "42828341",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42828341/"
+  },
+  {
+    "date": "4 Oct",
+    "title": "Trends in tranexamic acid use in adult emergency departments: a 10-year multi-institutional analysis from Epic Cosmos.",
+    "comment": "ข้อมูลการใช้ TXA ใน ER ย้อนหลัง 10 ปี ช่วยทบทวนความเหมาะสมของการใช้ยาในปัจจุบัน",
+    "pmid": "42829310",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42829310/"
+  },
+  {
+    "date": "4 Oct",
+    "title": "Interpretable admission-stage machine learning for early Sepsis-3 identification in the emergency department.",
+    "comment": "การใช้ AI ช่วยวินิจฉัย Sepsis-3 ตั้งแต่แรกรับใน ER เพื่อให้การรักษาได้รวดเร็วขึ้น",
+    "pmid": "42827729",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42827729/"
+  },
+  {
+    "date": "4 Oct",
+    "title": "Early C-reactive protein change and mortality in emergency admissions: a trajectory, not a target.",
+    "comment": "การดูแนวโน้มการเปลี่ยนแปลงของ CRP สำคัญกว่าค่าเดี่ยวในการทำนายอัตราการเสียชีวิต",
+    "pmid": "42829286",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42829286/"
+  },
+  {
+    "date": "4 Oct",
+    "title": "Prospective Study of Ultrasound-Guided Regional Anesthesia Blocks for Upper Extremity Procedures in a Community Emergency Medicine Hospital.",
+    "comment": "การใช้ US-guided block สำหรับหัตถการแขนใน ER เพิ่มประสิทธิภาพการระงับปวดและลดการใช้ยา",
+    "pmid": "42828035",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42828035/"
+  },
+  {
+    "date": "4 Oct",
+    "title": "Association between systemic inflammation and long-term mortality in emergency department patients with severe hypertension.",
+    "comment": "การอักเสบในร่างกายสัมพันธ์กับอัตราตายระยะยาวในผู้ป่วย Severe HTN ช่วยให้ประเมินความเสี่ยงผู้ป่วยได้ดีขึ้น",
+    "pmid": "42828888",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42828888/"
+  },
+  {
     "date": "2 Oct",
     "title": "Securing the Airway, Protecting the Brain: Neuroprotective Intubation for Acute Neurologic Emergencies",
     "comment": "แนวทางให้ intubation แบบลดความเสียหายทางสมองในผู้ป่วย Neurologic emergency",
@@ -404,89 +488,5 @@
     "comment": "ตรวจสอบการใช้ antibiotic หลัง I&D ซึ่งมักมีการใช้เกินความจำเป็นในทางปฏิบัติ",
     "pmid": "42801007",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42801007/"
-  },
-  {
-    "date": "27 Sep",
-    "title": "Derivative indices of optic nerve sheath diameter: a novel ultrasound-based approach for non-invasive intracranial pressure monitoring in neurocritical patients.",
-    "comment": "เครื่องมือใหม่ใช้ Ultrasound ประเมิน ICP แบบ non-invasive ในผู้ป่วยวิกฤตทางระบบประสาท",
-    "pmid": "42798351",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42798351/"
-  },
-  {
-    "date": "27 Sep",
-    "title": "Vascular Ehlers-Danlos syndrome: A multidisciplinary clinical framework for early suspicion, emergency-safe management and lifelong care.",
-    "comment": "Framework การจัดการ vEDS ในภาวะฉุกเฉินเพื่อลดความเสี่ยงและเพิ่มความปลอดภัย",
-    "pmid": "42798186",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42798186/"
-  },
-  {
-    "date": "27 Sep",
-    "title": "Factors associated with occult acute rib fractures on chest CT after negative radiography in older fall patients: A retrospective observational study.",
-    "comment": "ช่วยระบุกลุ่มเสี่ยงที่ X-ray ปกติแต่มี rib fracture เพื่อปรับการจัดการความปวด/ระวังภาวะแทรกซ้อน",
-    "pmid": "42798131",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42798131/"
-  },
-  {
-    "date": "27 Sep",
-    "title": "Association of an age-albumin-red cell distribution width score with 28-day in-hospital mortality in emergency department patients with suspected sepsis: A retrospective cohort study.",
-    "comment": "Score ใหม่ช่วยพยากรณ์อัตราตาย 28 วันในผู้ป่วย suspected sepsis ที่ ER",
-    "pmid": "42798095",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42798095/"
-  },
-  {
-    "date": "27 Sep",
-    "title": "Clinical characteristics of microbiologically inappropriate empiric antibiotics in emergency department patients with bacteremia: A descriptive study.",
-    "comment": "ข้อมูลความเหมาะสมของ empiric antibiotics ในผู้ป่วย bacteremia เพื่อปรับปรุงการเลือกยาที่ ER",
-    "pmid": "42798086",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42798086/"
-  },
-  {
-    "date": "27 Sep",
-    "title": "Protodesnitazene: The identification and tissue distribution of a new nitazene.",
-    "comment": "Safety Signal: ตรวจพบสารเสพติดกลุ่ม nitazene ชนิดใหม่ แพทย์ ER ต้องระวังในผู้ป่วย overdose",
-    "pmid": "42798250",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42798250/"
-  },
-  {
-    "date": "27 Sep",
-    "title": "Emergency Department-Based Screening and Linkage-to-Care for Hepatitis B, C, and D in a Referral Hospital in Barcelona, Spain: Reduction in Hepatitis C Prevalence After Five Years.",
-    "comment": "ผลลัพธ์ของการทำ screening และ linkage-to-care สำหรับไวรัสตับอักเสบใน ER",
-    "pmid": "42797761",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42797761/"
-  },
-  {
-    "date": "27 Sep",
-    "title": "The C-Reactive Protein/Albumin Ratio Predicts In-Hospital Mortality Across Age Groups.",
-    "comment": "ตัวชี้วัดทางชีวภาพที่ใช้ง่าย (CRP/Alb) ในการพยากรณ์อัตราตายในโรงพยาบาล",
-    "pmid": "42796971",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42796971/"
-  },
-  {
-    "date": "26 Sep",
-    "title": "The association between chronic pain and non-fatal overdose in people who inject drugs: Longitudinal cohort study in Montreal, Canada, 2017 to 2025.",
-    "comment": "ความสัมพันธ์ระหว่างความปวดเรื้อรังและการเกิด overdose ในกลุ่มผู้ใช้ยาฉีด",
-    "pmid": "42798222",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42798222/"
-  },
-  {
-    "date": "26 Sep",
-    "title": "Impediments Faced in Acute Stroke Care in Third World Countries - A Study from a Tertiary Center of South India.",
-    "comment": "วิเคราะห์อุปสรรคในการดูแล Acute Stroke ซึ่งนำมาปรับปรุง Stroke fast track ได้",
-    "pmid": "42798207",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42798207/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Renal colic in the ED: Consider POCUS first.",
-    "comment": "เน้นการใช้ POCUS ในการวินิจฉัยนิ่วในทางเดินปัสสาวะเพื่อลดการส่งตรวจ CT",
-    "pmid": "42779036",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42779036/"
-  },
-  {
-    "date": "24 Sep",
-    "title": "Rotational thromboelastometry-guided transfusion in acute trauma: Less plasma, greater precision.",
-    "comment": "ใช้ ROTEM ช่วยนำทางการให้เลือดใน Trauma เพื่อความแม่นยำและลดการใช้ Plasma เกินความจำเป็น",
-    "pmid": "42778196",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42778196/"
   }
 ]
