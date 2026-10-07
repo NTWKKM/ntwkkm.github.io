@@ -2,23 +2,79 @@
   {
     "date": "7 Oct",
     "title": "Amiodarone After Conversion From a Non-shockable to a Shockable Rhythm in Out-of-Hospital Cardiac Arrest A Propensity Score-Matched Analysis from the German Resuscitation Registry.",
-    "comment": "ประเมินการใช้ Amiodarone ใน OHCA เมื่อ rhythm เปลี่ยนเป็น shockable มีผลต่อการตัดสินใจให้ยา",
+    "comment": "ข้อมูลการใช้ Amiodarone ใน OHCA เมื่อ rhythm เปลี่ยนแปลง ซึ่งมีผลต่อการตัดสินใจให้ยา",
     "pmid": "42838501",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42838501/"
   },
   {
     "date": "7 Oct",
+    "title": "Efficacy and Safety of Flecainide Versus Amiodarone for the Cardioversion of paroxysmal Atrial Fibrillation in Patients with Coronary Artery Disease without evidence of residual ischemia: The FLECA-ED Randomized Clinical Trial.",
+    "comment": "เปรียบเทียบยา cardioversion ในผู้ป่วย CAD ช่วยเลือกยาที่ปลอดภัยและมีประสิทธิภาพใน ER",
+    "pmid": "42838320",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42838320/"
+  },
+  {
+    "date": "7 Oct",
     "title": "One-year Outcomes of Mechanical Thrombectomy and Catheter-Directed Thrombolysis in Acute Pulmonary Embolism.",
-    "comment": "เปรียบเทียบผลระยะยาวของ Mechanical Thrombectomy vs CDT ใน PE ช่วยเลือกวิธีรักษาในเคส High-risk",
+    "comment": "ผลลัพธ์ระยะยาวของ MT และ CDT ใน PE ช่วยในการตัดสินใจเลือก invasive procedure",
     "pmid": "42838488",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42838488/"
   },
   {
     "date": "7 Oct",
-    "title": "Efficacy and Safety of Flecainide Versus Amiodarone for the Cardioversion of paroxysmal Atrial Fibrillation in Patients with Coronary Artery Disease without evidence of residual ischemia: The FLECA-ED Randomized Clinical Trial.",
-    "comment": "RCT เปรียบเทียบยาเพื่อ Cardioversion ใน AF ผู้ป่วย CAD ช่วยเลือกยาที่ปลอดภัยและได้ผล",
-    "pmid": "42838320",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42838320/"
+    "title": "Abrupt versus gradual HFNC discontinuation in children: Shorter HFNC duration without increased weaning failure.",
+    "comment": "การหยุด HFNC แบบทันทีในเด็กทำได้โดยไม่เพิ่ม failure rate ลดระยะเวลาการใช้เครื่อง",
+    "pmid": "42837916",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42837916/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Dual Antiglutamate Therapy in Super-Refractory Status Epilepticus After Cardiac Arrest (SUPER-CAT Study).",
+    "comment": "แนวทางรักษา Super-Refractory SE หลัง cardiac arrest ซึ่งรักษายากและมีอัตราตายสูง",
+    "pmid": "42837646",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42837646/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Direct, real-time visualization-assisted nasoenteral tube placement in critically ill patients: a multicenter experience.",
+    "comment": "เทคนิคการใส่สาย feeding แบบ real-time visualization เพิ่มความแม่นยำและลดภาวะแทรกซ้อน",
+    "pmid": "42839240",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42839240/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Application of procalcitonin in pediatric emergency and critical care settings.",
+    "comment": "ทบทวนการใช้ PCT ในเด็กเพื่อแยก sepsis และลดการใช้ยาปฏิชีวนะที่ไม่จำเป็น",
+    "pmid": "42838857",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42838857/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Mean arterial pressure for children in US emergency department and prehospital settings.",
+    "comment": "ข้อมูล MAP ในเด็กที่ใช้ใน ER และ prehospital เพื่อประเมินภาวะ shock ได้แม่นยำขึ้น",
+    "pmid": "42838724",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42838724/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "SGLT2 Inhibitors and Asthma Exacerbation Risk Among Patients With Type 2 Diabetes and Asthma: A Target Trial Emulation.",
+    "comment": "ความสัมพันธ์ระหว่าง SGLT2i กับความเสี่ยง asthma exacerbation ที่แพทย์ต้องเฝ้าระวัง",
+    "pmid": "42839355",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42839355/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "A roadmap towards clinical use of molecular biomarkers in acute ischaemic stroke.",
+    "comment": "ทิศทางการใช้ molecular biomarkers เพื่อช่วยวินิจฉัยและคัดกรองผู้ป่วย stroke ได้เร็วขึ้น",
+    "pmid": "42839011",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42839011/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Neuro-oncological emergencies requiring critical care intervention.",
+    "comment": "แนวทางการจัดการภาวะฉุกเฉินทางระบบประสาทและเนื้องอกที่ต้องใช้ ICU/Critical care",
+    "pmid": "42838418",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42838418/"
   },
   {
     "date": "7 Oct",
@@ -26,20 +82,6 @@
     "comment": "การใช้ CRT นำทางในการ resuscitation ใน Septic shock เพื่อปรับปรุง outcome ทางคลินิก",
     "pmid": "42837096",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42837096/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Abrupt versus gradual HFNC discontinuation in children: Shorter HFNC duration without increased weaning failure.",
-    "comment": "การหยุด HFNC แบบทันทีในเด็กให้ผลไม่ต่างจากแบบค่อยๆ ลด และลดระยะเวลาการใช้",
-    "pmid": "42837916",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42837916/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Dual Antiglutamate Therapy in Super-Refractory Status Epilepticus After Cardiac Arrest (SUPER-CAT Study).",
-    "comment": "แนวทางการรักษา Super-refractory SE หลัง cardiac arrest ด้วย Dual antiglutamate therapy",
-    "pmid": "42837646",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42837646/"
   },
   {
     "date": "7 Oct",
@@ -68,20 +110,6 @@
     "comment": "ทบทวนการใช้ IO access ในภาวะฉุกเฉินทางระบบประสาท เพื่อเป็นทางเลือกเมื่อ IV ไม่สำเร็จ",
     "pmid": "42836714",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42836714/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Neuro-oncological emergencies requiring critical care intervention.",
-    "comment": "รวบรวมภาวะฉุกเฉินทางระบบประสาทและมะเร็งสมองที่ต้องได้รับการดูแลใน ICU/ER",
-    "pmid": "42838418",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42838418/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Mean arterial pressure for children in US emergency department and prehospital settings.",
-    "comment": "ข้อมูลค่า MAP ในเด็กที่ใช้เป็นเกณฑ์อ้างอิงสำหรับการ resuscitation ใน ER และ prehospital",
-    "pmid": "42838724",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42838724/"
   },
   {
     "date": "7 Oct",
@@ -460,33 +488,5 @@
     "comment": "สัญญาณทางรังสีวิทยาที่สำคัญในการตัดสินใจผ่าตัดด่วนสำหรับภาวะลำไส้ขาดเลือด",
     "pmid": "42814013",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42814013/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Impact of the emergency medical services crew size (2 vs. ≥3 personnel) on prehospital performance and survival in severe trauma: a nationwide cohort study in Korea.",
-    "comment": "จำนวนเจ้าหน้าที่ EMS มีผลต่ออัตราการรอดชีวิตในผู้ป่วย Trauma รุนแรง",
-    "pmid": "42813214",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42813214/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Rescue OTSC: salvage treatment for recurrent diverticular bleeding after failed conventional endoscopic hemostasis.",
-    "comment": "การใช้ OTSC เป็นทางเลือกสุดท้ายในการหยุดเลือด diverticular bleeding ที่ล้มเหลวจากวิธีมาตรฐาน",
-    "pmid": "42813919",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42813919/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Relative inhibitory activities of taniborbactam and xeruborbactam against KPC variants conferring reduced susceptibility or resistance to ceftazidime/avibactam, cefiderocol, and cefepime/taniborbactam.",
-    "comment": "ข้อมูลยาปฏิชีวนะใหม่สำหรับเชื้อดื้อยา KPC ที่รักษายาก",
-    "pmid": "42814039",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42814039/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Test characteristics of cardiac point-of-care ultrasound in paediatric shock: insights from multisystem inflammatory syndrome in children.",
-    "comment": "ความแม่นยำของ POCUS ในการประเมิน Pediatric Shock โดยเฉพาะในกลุ่ม MIS-C",
-    "pmid": "42813535",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42813535/"
   }
 ]
