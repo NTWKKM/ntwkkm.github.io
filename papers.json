@@ -2,44 +2,86 @@
   {
     "date": "7 Oct",
     "title": "Amiodarone After Conversion From a Non-shockable to a Shockable Rhythm in Out-of-Hospital Cardiac Arrest A Propensity Score-Matched Analysis from the German Resuscitation Registry.",
-    "comment": "ผลการใช้ Amiodarone ใน OHCA เมื่อ rhythm เปลี่ยนเป็น shockable มีผลต่อการรอดชีวิต",
+    "comment": "ประเมินการใช้ Amiodarone ใน OHCA เมื่อ rhythm เปลี่ยนเป็น shockable มีผลต่อการตัดสินใจให้ยา",
     "pmid": "42838501",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42838501/"
   },
   {
     "date": "7 Oct",
     "title": "One-year Outcomes of Mechanical Thrombectomy and Catheter-Directed Thrombolysis in Acute Pulmonary Embolism.",
-    "comment": "ติดตามผล 1 ปี ของการใช้ Mechanical Thrombectomy ใน PE ช่วยตัดสินใจเลือกหัตถการ",
+    "comment": "เปรียบเทียบผลระยะยาวของ Mechanical Thrombectomy vs CDT ใน PE ช่วยเลือกวิธีรักษาในเคส High-risk",
     "pmid": "42838488",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42838488/"
   },
   {
     "date": "7 Oct",
     "title": "Efficacy and Safety of Flecainide Versus Amiodarone for the Cardioversion of paroxysmal Atrial Fibrillation in Patients with Coronary Artery Disease without evidence of residual ischemia: The FLECA-ED Randomized Clinical Trial.",
-    "comment": "เปรียบเทียบยา cardioversion ใน AF ผู้ป่วย CAD ช่วยเลือกยาที่ปลอดภัยและได้ผล",
+    "comment": "RCT เปรียบเทียบยาเพื่อ Cardioversion ใน AF ผู้ป่วย CAD ช่วยเลือกยาที่ปลอดภัยและได้ผล",
     "pmid": "42838320",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42838320/"
   },
   {
     "date": "7 Oct",
     "title": "Does a personalized hemodynamic resuscitation strategy targeting capillary refill time improve outcomes in patients with early septic shock?",
-    "comment": "การใช้ CRT นำทางในการกู้สัญญาณชีพใน Septic shock เพื่อปรับปรุง outcome ผู้ป่วย",
+    "comment": "การใช้ CRT นำทางในการ resuscitation ใน Septic shock เพื่อปรับปรุง outcome ทางคลินิก",
     "pmid": "42837096",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42837096/"
   },
   {
     "date": "7 Oct",
+    "title": "Abrupt versus gradual HFNC discontinuation in children: Shorter HFNC duration without increased weaning failure.",
+    "comment": "การหยุด HFNC แบบทันทีในเด็กให้ผลไม่ต่างจากแบบค่อยๆ ลด และลดระยะเวลาการใช้",
+    "pmid": "42837916",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42837916/"
+  },
+  {
+    "date": "7 Oct",
     "title": "Dual Antiglutamate Therapy in Super-Refractory Status Epilepticus After Cardiac Arrest (SUPER-CAT Study).",
-    "comment": "การรักษา Status Epilepticus หลัง cardiac arrest ที่ดื้อยาอย่างรุนแรงด้วย Dual Antiglutamate",
+    "comment": "แนวทางการรักษา Super-refractory SE หลัง cardiac arrest ด้วย Dual antiglutamate therapy",
     "pmid": "42837646",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42837646/"
   },
   {
     "date": "7 Oct",
-    "title": "Abrupt versus gradual HFNC discontinuation in children: Shorter HFNC duration without increased weaning failure.",
-    "comment": "การหยุด HFNC ในเด็กแบบฉับพลันเทียบกับค่อยๆ ลด ไม่เพิ่มอัตราความล้มเหลวในการหย่าเครื่อง",
-    "pmid": "42837916",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42837916/"
+    "title": "New Criteria for Refractory Septic Shock: Relying on Treatment to Define a Disease.",
+    "comment": "การเสนอเกณฑ์ใหม่ในการนิยาม Refractory Septic Shock ซึ่งกระทบต่อการจัดกลุ่มผู้ป่วยและการรักษา",
+    "pmid": "42837136",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42837136/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Dyssynchrony without dysfunction: Left bundle branch block does not acutely reduce cardiac output.",
+    "comment": "หักล้างความเชื่อเดิมว่า LBBB ทำให้ cardiac output ลดลงอย่างเฉียบพลันในภาวะ acute",
+    "pmid": "42837421",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42837421/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Antibiotic prescribing that aligns with a host-protein test at US acute care settings is associated with fewer subsequent hospitalisations.",
+    "comment": "การใช้ Host-protein test ช่วยให้จ่ายยาฆ่าเชื้อแม่นยำขึ้นและลดอัตราการกลับมานอน รพ.",
+    "pmid": "42838625",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42838625/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Intraosseous access in neurological emergencies: a critical narrative review and research framework.",
+    "comment": "ทบทวนการใช้ IO access ในภาวะฉุกเฉินทางระบบประสาท เพื่อเป็นทางเลือกเมื่อ IV ไม่สำเร็จ",
+    "pmid": "42836714",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42836714/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Neuro-oncological emergencies requiring critical care intervention.",
+    "comment": "รวบรวมภาวะฉุกเฉินทางระบบประสาทและมะเร็งสมองที่ต้องได้รับการดูแลใน ICU/ER",
+    "pmid": "42838418",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42838418/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Mean arterial pressure for children in US emergency department and prehospital settings.",
+    "comment": "ข้อมูลค่า MAP ในเด็กที่ใช้เป็นเกณฑ์อ้างอิงสำหรับการ resuscitation ใน ER และ prehospital",
+    "pmid": "42838724",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42838724/"
   },
   {
     "date": "7 Oct",
@@ -47,34 +89,6 @@
     "comment": "Update แนวทางการเลือก Imaging ที่เหมาะสมสำหรับอาการปวดท้องน้อยเฉียบพลันในวัยหมดประจำเดือน",
     "pmid": "42836805",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42836805/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Mean arterial pressure for children in US emergency department and prehospital settings.",
-    "comment": "ข้อมูล MAP ในเด็กที่ใช้ใน ER และ prehospital เพื่อปรับเกณฑ์การประเมิน shock",
-    "pmid": "42838724",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42838724/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Antibiotic prescribing that aligns with a host-protein test at US acute care settings is associated with fewer subsequent hospitalisations.",
-    "comment": "การสั่งยาตามผล host-protein test ช่วยลดอัตราการกลับมานอนโรงพยาบาล",
-    "pmid": "42838625",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42838625/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Neuro-oncological emergencies requiring critical care intervention.",
-    "comment": "แนวทางการจัดการภาวะฉุกเฉินทางประสาทศัลยศาสตร์ที่ต้องใช้การดูแลระดับวิกฤต",
-    "pmid": "42838418",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42838418/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Intraosseous access in neurological emergencies: a critical narrative review and research framework.",
-    "comment": "การใช้ IO access ในภาวะฉุกเฉินทางสมอง เมื่อไม่สามารถเปิดเส้นเลือดดำได้",
-    "pmid": "42836714",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42836714/"
   },
   {
     "date": "7 Oct",
@@ -474,19 +488,5 @@
     "comment": "ความแม่นยำของ POCUS ในการประเมิน Pediatric Shock โดยเฉพาะในกลุ่ม MIS-C",
     "pmid": "42813535",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42813535/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Building a Trauma System Through Detection: ShotSpotter Technology and Increased Capture of Injured Patients.",
-    "comment": "การใช้เทคโนโลยีตรวจจับเสียงปืนเพื่อเพิ่มประสิทธิภาพการนำส่งผู้บาดเจ็บเข้าสู่ระบบ Trauma",
-    "pmid": "42813995",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42813995/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Feasibility and Acceptability of Oura Ring Sleep Monitoring in Older Adults Admitted From the Emergency Department: Prospective Cohort Study.",
-    "comment": "การใช้ wearable device ติดตามผู้สูงอายุหลังออกจาก ER เพื่อลดการกลับมา admit ซ้ำ",
-    "pmid": "42814730",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42814730/"
   }
 ]
