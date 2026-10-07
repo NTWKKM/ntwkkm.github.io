@@ -1,5 +1,89 @@
 [
   {
+    "date": "7 Oct",
+    "title": "Amiodarone After Conversion From a Non-shockable to a Shockable Rhythm in Out-of-Hospital Cardiac Arrest A Propensity Score-Matched Analysis from the German Resuscitation Registry.",
+    "comment": "ผลการใช้ Amiodarone ใน OHCA เมื่อ rhythm เปลี่ยนเป็น shockable มีผลต่อการรอดชีวิต",
+    "pmid": "42838501",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42838501/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "One-year Outcomes of Mechanical Thrombectomy and Catheter-Directed Thrombolysis in Acute Pulmonary Embolism.",
+    "comment": "ติดตามผล 1 ปี ของการใช้ Mechanical Thrombectomy ใน PE ช่วยตัดสินใจเลือกหัตถการ",
+    "pmid": "42838488",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42838488/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Efficacy and Safety of Flecainide Versus Amiodarone for the Cardioversion of paroxysmal Atrial Fibrillation in Patients with Coronary Artery Disease without evidence of residual ischemia: The FLECA-ED Randomized Clinical Trial.",
+    "comment": "เปรียบเทียบยา cardioversion ใน AF ผู้ป่วย CAD ช่วยเลือกยาที่ปลอดภัยและได้ผล",
+    "pmid": "42838320",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42838320/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Does a personalized hemodynamic resuscitation strategy targeting capillary refill time improve outcomes in patients with early septic shock?",
+    "comment": "การใช้ CRT นำทางในการกู้สัญญาณชีพใน Septic shock เพื่อปรับปรุง outcome ผู้ป่วย",
+    "pmid": "42837096",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42837096/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Dual Antiglutamate Therapy in Super-Refractory Status Epilepticus After Cardiac Arrest (SUPER-CAT Study).",
+    "comment": "การรักษา Status Epilepticus หลัง cardiac arrest ที่ดื้อยาอย่างรุนแรงด้วย Dual Antiglutamate",
+    "pmid": "42837646",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42837646/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Abrupt versus gradual HFNC discontinuation in children: Shorter HFNC duration without increased weaning failure.",
+    "comment": "การหยุด HFNC ในเด็กแบบฉับพลันเทียบกับค่อยๆ ลด ไม่เพิ่มอัตราความล้มเหลวในการหย่าเครื่อง",
+    "pmid": "42837916",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42837916/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "ACR Appropriateness Criteria® Postmenopausal Acute Pelvic Pain: 2026 Update.",
+    "comment": "Update แนวทางการเลือก Imaging ที่เหมาะสมสำหรับอาการปวดท้องน้อยเฉียบพลันในวัยหมดประจำเดือน",
+    "pmid": "42836805",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42836805/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Mean arterial pressure for children in US emergency department and prehospital settings.",
+    "comment": "ข้อมูล MAP ในเด็กที่ใช้ใน ER และ prehospital เพื่อปรับเกณฑ์การประเมิน shock",
+    "pmid": "42838724",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42838724/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Antibiotic prescribing that aligns with a host-protein test at US acute care settings is associated with fewer subsequent hospitalisations.",
+    "comment": "การสั่งยาตามผล host-protein test ช่วยลดอัตราการกลับมานอนโรงพยาบาล",
+    "pmid": "42838625",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42838625/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Neuro-oncological emergencies requiring critical care intervention.",
+    "comment": "แนวทางการจัดการภาวะฉุกเฉินทางประสาทศัลยศาสตร์ที่ต้องใช้การดูแลระดับวิกฤต",
+    "pmid": "42838418",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42838418/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Intraosseous access in neurological emergencies: a critical narrative review and research framework.",
+    "comment": "การใช้ IO access ในภาวะฉุกเฉินทางสมอง เมื่อไม่สามารถเปิดเส้นเลือดดำได้",
+    "pmid": "42836714",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42836714/"
+  },
+  {
+    "date": "7 Oct",
+    "title": "Toxicology 101: Identification and Initial Management of Common Accidental Ingestions.",
+    "comment": "สรุปการระบุตัวยาและการจัดการเบื้องต้นในผู้ป่วยได้รับสารพิษ/ยาเกินขนาดที่พบบ่อย",
+    "pmid": "42837580",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42837580/"
+  },
+  {
     "date": "6 Oct",
     "title": "In adults with active cancer and suspected PE, the YEARS algorithm was noninferior to CTPA alone for ruling out VTE at 3 mo.",
     "comment": "Practice Changing: ใช้ YEARS algorithm คัดกรอง PE ในผู้ป่วยมะเร็งได้ ลดการทำ CTPA โดยความแม่นยำไม่ต่างกัน",
@@ -404,89 +488,5 @@
     "comment": "การใช้ wearable device ติดตามผู้สูงอายุหลังออกจาก ER เพื่อลดการกลับมา admit ซ้ำ",
     "pmid": "42814730",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42814730/"
-  },
-  {
-    "date": "28 Sep",
-    "title": "Model-Informed Ceftazidime-Avibactam Dosing Stratified by Renal Function and Renal Replacement Therapy Status in Critically Ill Patients: A Prospective Population Pharmacokinetic and Monte Carlo Simulation Study.",
-    "comment": "ปรับการให้ยา Ceftazidime-Avibactam ตามการทำงานของไตในผู้ป่วยวิกฤตเพื่อประสิทธิภาพสูงสุด",
-    "pmid": "42802803",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42802803/"
-  },
-  {
-    "date": "28 Sep",
-    "title": "Early Heparin Initiation Is Associated With Improved Outcomes in Sepsis‑Induced Myocardial Injury: A Target Trial Emulation and Experimental Study.",
-    "comment": "การให้ Heparin ระยะแรกใน Sepsis-induced myocardial injury ช่วยให้ผลลัพธ์การรักษาดีขึ้น",
-    "pmid": "42802311",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42802311/"
-  },
-  {
-    "date": "28 Sep",
-    "title": "Differentiating Normal Healing From Infection in Total Joint Arthroplasty: An Educational and Diagnostic Tool for Emergency Providers Evaluating the Postoperative Patient.",
-    "comment": "เครื่องมือช่วยแยกการอักเสบปกติจากการติดเชื้อในผู้ป่วยหลังผ่าตัดเปลี่ยนข้อเทียมสำหรับแพทย์ ER",
-    "pmid": "42802411",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42802411/"
-  },
-  {
-    "date": "28 Sep",
-    "title": "Is ultra-early endoscopy always beneficial? A systematic review and meta-analysis of timing-dependent outcomes in nonvariceal upper gastrointestinal bleeding.",
-    "comment": "ทบทวนความจำเป็นของการทำ Endoscopy แบบ ultra-early ใน nonvariceal UGIB",
-    "pmid": "42801172",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42801172/"
-  },
-  {
-    "date": "28 Sep",
-    "title": "Interpret With Caution the Protective Effect of Delayed Appendectomy Within 24 Hours.",
-    "comment": "เตือนให้ระวังการตีความผลประโยชน์ของการเลื่อนผ่าตัดไส้ติ่งออกไปภายใน 24 ชม.",
-    "pmid": "42802547",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42802547/"
-  },
-  {
-    "date": "28 Sep",
-    "title": "Incidence, Clinical Outcomes, and Factors Associated With Post-intubation Hypotension Among Critically Ill Patients Undergoing Emergency Endotracheal Intubation: A Retrospective Observational Study.",
-    "comment": "วิเคราะห์ปัจจัยเสี่ยงของการเกิดความดันโลหิตต่ำหลังใส่ท่อช่วยหายใจในภาวะฉุกเฉิน",
-    "pmid": "42801266",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42801266/"
-  },
-  {
-    "date": "28 Sep",
-    "title": "Reassessing the Kocher Criteria: A Prospective Evaluation of Diagnostic Performance in Pediatric Musculoskeletal Infection.",
-    "comment": "ประเมินความแม่นยำของ Kocher Criteria ในการวินิจฉัยการติดเชื้อในข้อเด็กยุคปัจจุบัน",
-    "pmid": "42802642",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42802642/"
-  },
-  {
-    "date": "28 Sep",
-    "title": "CT-derived adrenal-to-spleen ratio as a predictor of massive transfusion and mortality in emergency transcatheter arterial embolization of active bleeding.",
-    "comment": "ใช้ ratio ของต่อมหมวกไตต่อม้ามจาก CT ทำนายความต้องการเลือดปริมาณมากและการรอดชีวิต",
-    "pmid": "42802285",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42802285/"
-  },
-  {
-    "date": "28 Sep",
-    "title": "Risk Factors for Undertriage of Children Presenting to a Pediatric Emergency Department With Abdominal Pain.",
-    "comment": "ปัจจัยที่ทำให้เกิดการคัดกรองระดับความรุนแรงต่ำกว่าความเป็นจริงในเด็กที่มีอาการปวดท้อง",
-    "pmid": "42802705",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42802705/"
-  },
-  {
-    "date": "28 Sep",
-    "title": "Ventilation uncertainties in CPR: who should do it, how to measure it when and how to perform it?",
-    "comment": "แนวทางการจัดการเรื่องการระบายอากาศ (Ventilation) ในระหว่างการทำ CPR ให้ชัดเจนขึ้น",
-    "pmid": "42802419",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42802419/"
-  },
-  {
-    "date": "28 Sep",
-    "title": "Antibiotic Selection and Outcomes in Patients With Monomicrobial and Polymicrobial Vibrio Necrotizing Fasciitis.",
-    "comment": "ข้อมูลการเลือกยาปฏิชีวนะและผลลัพธ์ในผู้ป่วย Vibrio necrotizing fasciitis",
-    "pmid": "42801098",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42801098/"
-  },
-  {
-    "date": "28 Sep",
-    "title": "Pericapsular Nerve Group (PENG) Block as the Preferred Interfascial Plane Block Over Fascia Iliaca Block for Neck of Femur Fractures.",
-    "comment": "เปรียบเทียบเทคนิคระงับปวดในผู้ป่วย Hip fracture ซึ่งส่งผลต่อการเลือกใช้ technique ใน ER",
-    "pmid": "42800721",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42800721/"
   }
 ]
