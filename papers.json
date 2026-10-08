@@ -1,5 +1,89 @@
 [
   {
+    "date": "8 Oct",
+    "title": "Practice changing articles: capillary refill time personalized hemodynamic resuscitation in patients with early septic shock.",
+    "comment": "เปลี่ยนแนวทางให้ใช้ CRT ในการทำ hemodynamic resuscitation ใน septic shock ระยะแรก",
+    "pmid": "42843174",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42843174/"
+  },
+  {
+    "date": "8 Oct",
+    "title": "Prognostic Outcomes Following Endovascular Management for Carotid Blowout Syndrome: A Multi-Institutional Observational Cohort Study.",
+    "comment": "ข้อมูลผลลัพธ์การรักษา Carotid Blowout ด้วยวิธี endovascular ซึ่งเป็นภาวะวิกฤตใน ER",
+    "pmid": "42844952",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42844952/"
+  },
+  {
+    "date": "8 Oct",
+    "title": "Trends in Fentanyl Adulteration From Rapid Drug Analysis and Research (RaDAR) Drug Checking Samples, January 2024 to June 2026.",
+    "comment": "Safety signal: การปนเปื้อนของสารใน Fentanyl ที่แพทย์ ER ต้องระวังในการรักษา overdose",
+    "pmid": "42844883",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42844883/"
+  },
+  {
+    "date": "8 Oct",
+    "title": "A Comparative Study between Serum Cystatin C and Creatinine in Early Detection of Acute Kidney Injury.",
+    "comment": "เปรียบเทียบการใช้ Cystatin C vs Creatinine เพื่อตรวจจับ AKI ได้เร็วขึ้น",
+    "pmid": "42844882",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42844882/"
+  },
+  {
+    "date": "8 Oct",
+    "title": "Feasibility of Collaborative Assessment and Management of Suicidality-Brief Intervention in an Emergency Department With Youth Who Are Suicidal.",
+    "comment": "เทคนิคการประเมินและจัดการผู้ป่วยวัยรุ่นที่มีภาวะฆ่าตัวตายใน ER ให้มีประสิทธิภาพขึ้น",
+    "pmid": "42844752",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42844752/"
+  },
+  {
+    "date": "8 Oct",
+    "title": "Impact of on-site mobile CT imaging on prehospital patient management during the Munich Oktoberfest: a retrospective observational before-after study at a mass gathering.",
+    "comment": "Novel tool: การใช้ Mobile CT ในจุดเกิดเหตุเพื่อเปลี่ยนการจัดการผู้ป่วยก่อนถึงโรงพยาบาล",
+    "pmid": "42844595",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42844595/"
+  },
+  {
+    "date": "8 Oct",
+    "title": "Emergency cricothyrotomy: A procedure well worth knowing.",
+    "comment": "ทบทวนหัตถการวิกฤตในการจัดการทางเดินหายใจที่แพทย์ ER ทุกคนต้องทำได้",
+    "pmid": "42844088",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42844088/"
+  },
+  {
+    "date": "8 Oct",
+    "title": "Pharmacist-driven allergy to beta-lactam evaluation in the emergency department.",
+    "comment": "Novel workflow: ใช้เภสัชกรช่วยคัดกรองการแพ้ยา beta-lactam ใน ER เพื่อลดการใช้ยาไม่จำเป็น",
+    "pmid": "42843789",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42843789/"
+  },
+  {
+    "date": "8 Oct",
+    "title": "Clinical Profile, Prognostic Indicators, and Outcomes in Patients with Acute Pyelonephritis: Comparing Emphysematous with Nonemphysematous Pyelonephritis.",
+    "comment": "ข้อมูล Clinical profile และตัวบ่งชี้พยากรณ์โรคในผู้ป่วย Acute Pyelonephritis แบบรุนแรง",
+    "pmid": "42844960",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42844960/"
+  },
+  {
+    "date": "8 Oct",
+    "title": "Exploratory evaluation of a medical vision-language model for electrocardiographic detection of acute coronary occlusion.",
+    "comment": "Novel tool: การใช้ AI vision-language model ในการตรวจหา Acute Coronary Occlusion จาก ECG",
+    "pmid": "42843173",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42843173/"
+  },
+  {
+    "date": "8 Oct",
+    "title": "The First 48 Hours: Incidence, Timing and Predictors of Adverse Events After ICU-To-Ward Transfer: A Prospective Cohort Study.",
+    "comment": "Safety signal: ปัจจัยทำนายเหตุการณ์ไม่พึงประสงค์หลังย้ายผู้ป่วยจาก ICU ไป Ward",
+    "pmid": "42844803",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42844803/"
+  },
+  {
+    "date": "8 Oct",
+    "title": "Combat-related bowel injuries managed at a civilian level I trauma centre during the Iron Swords War: operative strategies and outcomes.",
+    "comment": "กลยุทธ์การผ่าตัดและผลลัพธ์การรักษาบาดแผลทางลำไส้จากสงครามใน Trauma center",
+    "pmid": "42843889",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42843889/"
+  },
+  {
     "date": "7 Oct",
     "title": "Amiodarone After Conversion From a Non-shockable to a Shockable Rhythm in Out-of-Hospital Cardiac Arrest A Propensity Score-Matched Analysis from the German Resuscitation Registry.",
     "comment": "ข้อมูลการใช้ Amiodarone ใน OHCA เมื่อ rhythm เปลี่ยนแปลง ซึ่งมีผลต่อการตัดสินใจให้ยา",
@@ -404,89 +488,5 @@
     "comment": "Novel Tool: การส่งข้อมูลผ่าน app ช่วยลด reperfusion time ใน STEMI",
     "pmid": "42815357",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42815357/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Muscle or Subcutaneous Fat? A Prospective Ultrasonographic Study of Dorsogluteal Injection Accuracy in the Emergency Department.",
-    "comment": "Safety Signal: ความแม่นยำในการฉีดยาบริเวณ dorsogluteal ซึ่งอาจส่งผลต่อการดูดซึมยา",
-    "pmid": "42815413",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42815413/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Convergence of carbapenem resistance and hypervirulence in Klebsiella pneumoniae in Europe: a systematic review.",
-    "comment": "Safety Signal: การระบาดของ K. pneumoniae ที่ทั้งดื้อยาและรุนแรงสูง ซึ่งต้องระวังใน ER",
-    "pmid": "42815739",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42815739/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Emergent Total Endovascular Repair Using Retrograde in Situ Branched Stent Grafting for Ruptured Retrograde Aortic Dissection.",
-    "comment": "Novel Tool: เทคนิคการรักษา ruptured aortic dissection แบบฉุกเฉินที่ใช้ได้จริง",
-    "pmid": "42816371",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42816371/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Nasal versus oral intubation in the neonatal intensive care unit: associations with procedural success and safety in a retrospective cohort study from the National Emergency Airway Registry for Neonates (NEAR4NEOS).",
-    "comment": "Practice Changing: เปรียบเทียบความสำเร็จและความปลอดภัยของ Nasal vs Oral intubation ในทารก",
-    "pmid": "42816158",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42816158/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Beyond creatinine: biomarkers of kidney recovery after acute kidney injury.",
-    "comment": "Novel Tool: การใช้ biomarker อื่นนอกเหนือจาก creatinine เพื่อประเมิน recovery ของ AKI",
-    "pmid": "42817189",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42817189/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Artificial intelligence-assisted diagnosis of pediatric supracondylar humerus fractures: a deep learning-based clinical decision support model.",
-    "comment": "Novel Tool: AI ช่วยวินิจฉัย pediatric supracondylar fracture เพิ่มความแม่นยำใน ER",
-    "pmid": "42817596",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42817596/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Integrating rapid response teams and structured care pathways improves outcomes in status epilepticus: A prospective cohort study.",
-    "comment": "เพิ่มอัตราการรอดชีวิตและลดภาวะแทรกซ้อนใน Status Epilepticus ด้วยระบบ RRT และ Care Pathway",
-    "pmid": "42814030",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42814030/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Oral vs Intravenous Fluid Therapy in Emergency Department Patients: Protocol for a Randomized Controlled Feasibility and Noninferiority Trial.",
-    "comment": "ประเมินความเป็นไปได้ในการใช้การให้สารน้ำทางปากแทน IV ใน ER ซึ่งอาจเปลี่ยนแนวทางปฏิบัติ",
-    "pmid": "42814483",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42814483/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Toxic Alcohol Poisoning: Emergency Department Recognition and Management in Patients With Complex Health and Housing Needs.",
-    "comment": "แนวทางการวินิจฉัยและจัดการพิษจากแอลกอฮอล์ในกลุ่มเสี่ยงสูงที่มา ER",
-    "pmid": "42814071",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42814071/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "SAFE-SEAL: a bail-out technique for percutaneous femoral closure after failed hybrid closure.",
-    "comment": "เทคนิคกู้ชีพ (Bail-out) เมื่อการปิดแผล femoral หลังทำหัตถการล้มเหลว ใช้ได้จริงใน ER/Cath lab",
-    "pmid": "42814485",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42814485/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Combat Casualty Care in the Russo-Ukrainian War: Operational Adaptations for Near-Peer Conflict.",
-    "comment": "การปรับตัวของการดูแลผู้บาดเจ็บในสนามรบสมัยใหม่ นำมาประยุกต์ใช้กับ Massive Trauma ใน ER ได้",
-    "pmid": "42813379",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42813379/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "The Mesenteric Whirl Sign: A Surgical Decision Signal for Bowel-Threatening Mechanical Disease.",
-    "comment": "สัญญาณทางรังสีวิทยาที่สำคัญในการตัดสินใจผ่าตัดด่วนสำหรับภาวะลำไส้ขาดเลือด",
-    "pmid": "42814013",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42814013/"
   }
 ]
