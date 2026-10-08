@@ -26,6 +26,7 @@ A unified portfolio and clinical tool hub for an **Emergency Medicine Physician 
 
 | Project | Description | Link |
 | :--- | :--- | :--- |
+| **☕ NTWK Coffee Science** | Coffee science deep research notebook & analysis portal | [Launch Portal](https://ntwkkm.github.io/ntwcoff/) |
 | **⚕️ ER Standing Order Hub** | Emergency standing orders & clinical protocols | [Launch Hub](https://ntwkkm.github.io/er-hub/) |
 | **🩺 ER-PED Workstation** | Pediatric emergency calculator workstation | [Launch Workstation](https://ntwkkm.github.io/er-ped/) |
 | **🧪 Toxico Course Bookmarks** | Toxicology course bookmarks & reference links | [View Bookmarks](https://ntwkkm.github.io/toxico/) |
