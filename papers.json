@@ -1,5 +1,89 @@
 [
   {
+    "date": "9 Oct",
+    "title": "Modified vs. reverse Valsalva maneuver for cardioversion of supraventricular tachycardia: A randomized controlled trial.",
+    "comment": "RCT เปรียบเทียบเทคนิค Valsalva ช่วยให้ตัดสินใจเลือกวิธีลดอัตราการเต้นหัวใจใน SVT ได้แม่นยำขึ้น",
+    "pmid": "42850163",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42850163/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Real-world analytical and diagnostic evaluation of the Abbott i-STAT Alinity point-of-care high-sensitivity troponin I assay in a UK emergency department.",
+    "comment": "ประเมินประสิทธิภาพ POC hs-TnI ใน ER จริง ช่วยเพิ่มความเร็วและความแม่นยำในการวินิจฉัย AMI",
+    "pmid": "42850204",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42850204/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Impact of prehospital olanzapine for methamphetamine intoxication on patient and system-level outcomes: a population-based retrospective cohort study.",
+    "comment": "ข้อมูลการใช้ Olanzapine ในระยะก่อนถึงโรงพยาบาลสำหรับผู้ป่วย Meth intoxication เพื่อลดอาการวุ่นวาย",
+    "pmid": "42849953",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42849953/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Diagnostic Accuracy and Clinical Impact of Ocular Fundus Imaging in the Emergency Department: A Systematic Review and Meta-Analysis.",
+    "comment": "Meta-analysis ยืนยันความแม่นยำของการตรวจ Fundus ใน ER เพื่อช่วยวินิจฉัยโรคทางตาที่วิกฤต",
+    "pmid": "42849760",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42849760/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Emergency Uterine Artery Embolization for Postpartum Hemorrhage: Hemostatic Outcomes According to Embolic Material and Shock Index, with Subsequent Pregnancy Outcomes.",
+    "comment": "ข้อมูลการใช้ UAE จัดการ PPH โดยวิเคราะห์ตาม Shock Index ซึ่งส่งผลต่อการตัดสินใจรักษาในภาวะฉุกเฉิน",
+    "pmid": "42849867",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42849867/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Digital Health-Enabled Prehospital Notification for Acute Stroke Using the Brain Saver Mobile App in Emergency Medical Transport in South Korea: Pilot Quasi-Experimental Study.",
+    "comment": "การใช้ App แจ้งเตือน Stroke จากจุดเกิดเหตุ ช่วยลด Time-to-needle และปรับปรุง workflow ใน ER",
+    "pmid": "42849893",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42849893/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "The safety of outpatient management for low-risk pulmonary embolism: A narrative review.",
+    "comment": "ทบทวนความปลอดภัยในการให้ผู้ป่วย low-risk PE กลับไปรักษาที่บ้าน ช่วยลด overcrowding ใน ER",
+    "pmid": "42849322",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42849322/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Is paediatric conscious sedation as effective as general anaesthesia for removing aural and nasal foreign bodies?",
+    "comment": "เปรียบเทียบการให้ sedation vs GA ในเด็ก เพื่อลดความเสี่ยงและระยะเวลาในการนำสิ่งแปลกปลอมออก",
+    "pmid": "42850031",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42850031/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Outcomes Following Impedance Threshold Device Use During Out-of-Hospital Cardiac Arrest.",
+    "comment": "ประเมินผลลัพธ์การใช้ ITD ในผู้ป่วย OHCA ซึ่งเป็นอุปกรณ์ช่วยในการช่วยหายใจระหว่าง CPR",
+    "pmid": "42849561",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42849561/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Performance of updated American College of Surgeons field triage guidelines in identifying need for trauma center care.",
+    "comment": "ประเมินความแม่นยำของ ACS triage guideline ล่าสุด ในการคัดกรองผู้ป่วยหนักเข้า Trauma center",
+    "pmid": "42848131",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42848131/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Submandibular-window point-of-care ultrasound as a bedside clue to deep extension of a peritonsillar abscess.",
+    "comment": "เทคนิค POCUS ใหม่ในการประเมินการแพร่กระจายของ Peritonsillar abscess ที่ bedside ใน ER",
+    "pmid": "42848130",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42848130/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Etomidate vaping: A new form of anesthetic abuse.",
+    "comment": "Safety signal เตือนเรื่องการนำ Etomidate มาใช้ในรูปแบบ vaping ซึ่งแพทย์ ER ต้องเฝ้าระวังในกลุ่ม abuse",
+    "pmid": "42848713",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42848713/"
+  },
+  {
     "date": "8 Oct",
     "title": "Practice changing articles: capillary refill time personalized hemodynamic resuscitation in patients with early septic shock.",
     "comment": "เปลี่ยนแนวทางให้ใช้ CRT ในการทำ hemodynamic resuscitation ใน septic shock ระยะแรก",
@@ -404,89 +488,5 @@
     "comment": "ทบทวนการให้สารน้ำในผู้ป่วยไฟไหม้น้ำร้อนลวกตามหลักฐานปัจจุบัน",
     "pmid": "42823008",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42823008/"
-  },
-  {
-    "date": "2 Oct",
-    "title": "Troubleshooting the Failed Airway",
-    "comment": "แนวทางจัดการและแก้ไขสถานการณ์เมื่อไม่สามารถใส่ท่อช่วยหายใจได้",
-    "pmid": "42823005",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42823005/"
-  },
-  {
-    "date": "2 Oct",
-    "title": "Predictors of mortality available at emergency department arrival in massively transfused trauma patients without severe TBI: A single-center retrospective cohort study",
-    "comment": "ตัวบ่งชี้การเสียชีวิตในผู้ป่วย trauma ที่ต้องเติมเลือดปริมาณมาก ช่วยในการ triage",
-    "pmid": "42821530",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42821530/"
-  },
-  {
-    "date": "2 Oct",
-    "title": "Modelling eCPR eligibility after out-of-hospital cardiac arrest: a 10-year retrospective temporospatial analysis from a mixed urban-rural region in Germany",
-    "comment": "เกณฑ์การเลือกผู้ป่วย OHCA เพื่อทำ eCPR เพิ่มโอกาสรอดชีวิต",
-    "pmid": "42823760",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42823760/"
-  },
-  {
-    "date": "2 Oct",
-    "title": "Continuous vs intermittent meropenem administration in critically ill patients and renal function. A secondary post-hoc analysis of the MERCY trial",
-    "comment": "เปรียบเทียบการให้ meropenem แบบต่อเนื่อง vs แบ่งโดส ในผู้ป่วยวิกฤต",
-    "pmid": "42823304",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42823304/"
-  },
-  {
-    "date": "2 Oct",
-    "title": "Electrical Alternans as an Early Clue to a Rapidly Evolving Large Pericardial Effusion: The Role of Point-of-Care Ultrasound",
-    "comment": "ใช้ ECG (Electrical alternans) ร่วมกับ POCUS วินิจฉัย pericardial effusion รุนแรง",
-    "pmid": "42820026",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42820026/"
-  },
-  {
-    "date": "2 Oct",
-    "title": "Clip-first emergency hemostasis for acute esophagogastric variceal bleeding: a retrospective comparative study",
-    "comment": "เทคนิคการใช้ clip หยุดเลือด variceal bleeding แบบเร่งด่วน",
-    "pmid": "42823548",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42823548/"
-  },
-  {
-    "date": "2 Oct",
-    "title": "Recognizing NORSE and FIRES - clinical course, diagnosis and evaluation",
-    "comment": "แนวทางการวินิจฉัยและประเมินภาวะชักรุนแรงชนิด NORSE และ FIRES",
-    "pmid": "42822992",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42822992/"
-  },
-  {
-    "date": "2 Oct",
-    "title": "External Validation of a Post-Cardiac Arrest Risk Score (SLANT) for In-Hospital Mortality in Patients Receiving Targeted Temperature Management",
-    "comment": "การใช้ SLANT score ประเมินพยากรณ์โรคผู้ป่วยหลัง cardiac arrest ที่ทำ TTM",
-    "pmid": "42823224",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42823224/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Prehospital whole blood transfusion in traumatic hemorrhagic shock: a systematic review and meta-analysis.",
-    "comment": "Practice Changing: ข้อมูลการใช้ whole blood ใน prehospital สำหรับ hemorrhagic shock ซึ่งมีผลต่อ survival rate",
-    "pmid": "42815248",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42815248/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "The Benefit of Early Advanced Airway Management Depends on Prehospital Epinephrine Timing in Out-of-Hospital Cardiac Arrest: A Nationwide Cohort Study.",
-    "comment": "Practice Changing: ปรับจังหวะการทำ advanced airway ให้สัมพันธ์กับการให้ epinephrine ใน OHCA",
-    "pmid": "42815411",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42815411/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Impact of Emergency Department Point-of-Care Ultrasound on the Emergency Department Length of Stay and Time to Diagnosis in Early Pregnancy: A Systematic Review and Meta-Analysis.",
-    "comment": "Novel Tool: POCUS ช่วยลดเวลาวินิจฉัยและ LOS ในผู้ป่วยตั้งครรภ์ที่มา ER",
-    "pmid": "42815412",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42815412/"
-  },
-  {
-    "date": "1 Oct",
-    "title": "Impact of Wechat-based prehospital data transmission on reperfusion times in ST-elevation myocardial infarction: a prospective observational study.",
-    "comment": "Novel Tool: การส่งข้อมูลผ่าน app ช่วยลด reperfusion time ใน STEMI",
-    "pmid": "42815357",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42815357/"
   }
 ]
