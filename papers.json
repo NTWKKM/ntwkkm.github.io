@@ -1,17 +1,80 @@
 [
   {
     "date": "9 Oct",
+    "title": "Diagnosis and Management of Infectious Encephalitis in Adults: Guidelines From the European Academy of Neurology and European Society of Clinical Microbiology and Infectious Diseases.",
+    "comment": "Guideline ใหม่สำหรับการวินิจฉัยและรักษา Encephalitis ในผู้ใหญ่ ใช้ปรับ Standard of Care ได้ทันที",
+    "pmid": "42851210",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42851210/"
+  },
+  {
+    "date": "9 Oct",
     "title": "Modified vs. reverse Valsalva maneuver for cardioversion of supraventricular tachycardia: A randomized controlled trial.",
-    "comment": "RCT เปรียบเทียบเทคนิค Valsalva เพื่อให้ผลลัพธ์การทำ cardioversion ใน SVT ดีขึ้น",
+    "comment": "RCT เปรียบเทียบเทคนิค Valsalva ใน SVT ช่วยเลือกวิธีที่มีประสิทธิภาพสูงสุดในการทำ cardioversion",
     "pmid": "42850163",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42850163/"
   },
   {
     "date": "9 Oct",
+    "title": "Age-Dependent Benefit of ECPR in OHCA: An Interaction Analysis.",
+    "comment": "ข้อมูลผลประโยชน์ของ ECPR ในผู้ป่วย OHCA ตามช่วงอายุ ช่วยในการตัดสินใจเลือกผู้ป่วย",
+    "pmid": "42851276",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42851276/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "SECURE: A Cognitive Scaffold for Post-Intubation Sedation and Analgesia in the Emergency Department.",
+    "comment": "เครื่องมือช่วยจัดการ Sedation และ Analgesia หลังใส่ท่อช่วยหายใจใน ER เพื่อความปลอดภัยและแม่นยำ",
+    "pmid": "42851015",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42851015/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Real-world analytical and diagnostic evaluation of the Abbott i-STAT Alinity point-of-care high-sensitivity troponin I assay in a UK emergency department.",
+    "comment": "ประเมินประสิทธิภาพ hs-Troponin แบบ POC ใน ER จริง ช่วยเพิ่มความรวดเร็วในการวินิจฉัย AMI",
+    "pmid": "42850204",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42850204/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Identifying Intracranial Atherosclerotic Disease in Emergent Large Vessel Occlusion.",
+    "comment": "ช่วยแยกแยะสาเหตุของ LVO ในภาวะฉุกเฉิน เพื่อการเลือกวิธีรักษาที่เหมาะสม (Thrombectomy vs Medical)",
+    "pmid": "42850452",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42850452/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "The Safety and Interventions for Redirecting Non-Urgent Patients From Emergency Departments to Primary Care Services: A Scoping Review.",
+    "comment": "ข้อมูลความปลอดภัยในการส่งต่อผู้ป่วยไม่ฉุกเฉินไป Primary Care เพื่อลด ER overcrowding",
+    "pmid": "42851122",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42851122/"
+  },
+  {
+    "date": "9 Oct",
     "title": "Diagnostic Accuracy and Clinical Impact of Ocular Fundus Imaging in the Emergency Department: A Systematic Review and Meta-Analysis.",
-    "comment": "ประเมินความแม่นยำของ Fundus imaging ใน ER ช่วยในการวินิจฉัยโรคตาเร่งด่วน",
+    "comment": "ประสิทธิภาพของการตรวจ Fundus ใน ER ช่วยวินิจฉัยโรคทางตาและระบบประสาทได้รวดเร็วขึ้น",
     "pmid": "42849760",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42849760/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Broad multiplex respiratory panel implementation and antibiotic prescribing in US emergency and urgent care departments: a staggered-adoption study.",
+    "comment": "ผลของการใช้ Multiplex PCR ต่อการลดการใช้ยาปฏิชีวนะที่ไม่จำเป็นใน ER",
+    "pmid": "42850780",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42850780/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Acute Imbalance Syndrome vs Acute Vestibular Syndrome: Clinical and Topographical Differentiation.",
+    "comment": "ช่วยแยกแยะอาการเวียนศีรษะเฉียบพลันระหว่างรอยโรคในสมองและหูชั้นใน ลดการพลาดวินิจฉัย Stroke",
+    "pmid": "42848973",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42848973/"
+  },
+  {
+    "date": "9 Oct",
+    "title": "Outcomes Following Impedance Threshold Device Use During Out-of-Hospital Cardiac Arrest.",
+    "comment": "ประเมินผลการใช้ Impedance Threshold Device ใน OHCA เพื่อปรับปรุงคุณภาพการ CPR",
+    "pmid": "42849561",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42849561/"
   },
   {
     "date": "9 Oct",
@@ -29,13 +92,6 @@
   },
   {
     "date": "9 Oct",
-    "title": "Real-world analytical and diagnostic evaluation of the Abbott i-STAT Alinity point-of-care high-sensitivity troponin I assay in a UK emergency department.",
-    "comment": "ประเมิน POCT hs-Troponin I รุ่นใหม่ใน ER เพื่อความรวดเร็วและแม่นยำในการวินิจฉัย AMI",
-    "pmid": "42850204",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42850204/"
-  },
-  {
-    "date": "9 Oct",
     "title": "Digital Health-Enabled Prehospital Notification for Acute Stroke Using the Brain Saver Mobile App in Emergency Medical Transport in South Korea: Pilot Quasi-Experimental Study.",
     "comment": "การใช้ App แจ้งเตือน Stroke จาก Prehospital ช่วยลดเวลา Time to treatment",
     "pmid": "42849893",
@@ -47,13 +103,6 @@
     "comment": "ผลลัพธ์การทำ UAE ใน PPH ตาม Shock index และชนิดวัสดุอุดหลอดเลือด",
     "pmid": "42849867",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42849867/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Outcomes Following Impedance Threshold Device Use During Out-of-Hospital Cardiac Arrest.",
-    "comment": "ผลลัพธ์การใช้ ITD ในการช่วยฟื้นคืนชีพนอกโรงพยาบาล (OHCA)",
-    "pmid": "42849561",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42849561/"
   },
   {
     "date": "9 Oct",
@@ -439,54 +488,5 @@
     "comment": "วิเคราะห์แนวโน้มการใช้ TXA ใน ER ตลอด 10 ปี เพื่อทบทวน Standard of Care",
     "pmid": "42829310",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42829310/"
-  },
-  {
-    "date": "4 Oct",
-    "title": "Association between systemic inflammation and long-term mortality in emergency department patients with severe hypertension.",
-    "comment": "ตัวบ่งชี้การอักเสบสัมพันธ์กับอัตราตายในผู้ป่วยความดันโลหิตสูงรุนแรง ช่วยระบุกลุ่มเสี่ยง",
-    "pmid": "42828888",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42828888/"
-  },
-  {
-    "date": "4 Oct",
-    "title": "Prospective Study of Ultrasound-Guided Regional Anesthesia Blocks for Upper Extremity Procedures in a Community Emergency Medicine Hospital.",
-    "comment": "การใช้ US-guided block สำหรับหัตถการแขนใน ER เพิ่มประสิทธิภาพการระงับปวด",
-    "pmid": "42828035",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42828035/"
-  },
-  {
-    "date": "4 Oct",
-    "title": "Early C-reactive protein change and mortality in emergency admissions: a trajectory, not a target.",
-    "comment": "การเปลี่ยนแปลงของ CRP (Trajectory) พยากรณ์การเสียชีวิตได้ดีกว่าค่าเดี่ยว",
-    "pmid": "42829286",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42829286/"
-  },
-  {
-    "date": "2 Oct",
-    "title": "Securing the Airway, Protecting the Brain: Neuroprotective Intubation for Acute Neurologic Emergencies",
-    "comment": "แนวทางให้ intubation แบบลดความเสียหายทางสมองในผู้ป่วย Neurologic emergency",
-    "pmid": "42823011",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42823011/"
-  },
-  {
-    "date": "2 Oct",
-    "title": "The Non-invasive Hemodynamic Profile: A Modern Approach to the Evaluation and Management of Acute Decompensated Heart Failure-Related Cardiogenic Shock with Point-of-Care Ultrasound",
-    "comment": "การใช้ POCUS ประเมิน hemodynamic ใน cardiogenic shock เพื่อปรับการรักษาทันที",
-    "pmid": "42823016",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42823016/"
-  },
-  {
-    "date": "2 Oct",
-    "title": "Strategies to Manage Refractory Hypoxemia in the Intubated Patient",
-    "comment": "เทคนิคจัดการภาวะออกซิเจนต่ำดื้อยาในผู้ป่วยใส่ท่อช่วยหายใจใน ER",
-    "pmid": "42823010",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42823010/"
-  },
-  {
-    "date": "2 Oct",
-    "title": "Emergency Burn Resuscitation: Where Evidence Meets Practice",
-    "comment": "ทบทวนการให้สารน้ำในผู้ป่วยไฟไหม้น้ำร้อนลวกตามหลักฐานปัจจุบัน",
-    "pmid": "42823008",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42823008/"
   }
 ]
