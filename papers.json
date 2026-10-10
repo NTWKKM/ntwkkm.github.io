@@ -1,59 +1,73 @@
 [
   {
-    "date": "10 Oct",
+    "date": "11 Oct",
     "title": "EAN-ESCMID guidelines on the diagnosis and management of encephalitis in adults caused by infection.",
-    "comment": "Practice Changing: แนวทางเวชปฏิบัติใหม่ในการวินิจฉัยและรักษา encephalitis ในผู้ใหญ่",
+    "comment": "Practice Changing: แนวทางเวชปฏิบัติใหม่ในการวินิจฉัยและรักษา Encephalitis ในผู้ใหญ่",
     "pmid": "42854782",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42854782/"
   },
   {
-    "date": "10 Oct",
+    "date": "11 Oct",
     "title": "Artificial Intelligence Echocardiographic Interpretation in the Emergency Department: Agreement, Interpretation Yield and Reporting Scope.",
     "comment": "Novel Tool: ประเมินการใช้ AI ช่วยอ่าน Echo ใน ER เพื่อเพิ่มความแม่นยำและรวดเร็ว",
     "pmid": "42855990",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42855990/"
   },
   {
-    "date": "10 Oct",
+    "date": "11 Oct",
     "title": "Occlusion Myocardial Infarction Missed by ST-Elevation Myocardial Infarction (STEMI) Criteria: An Angiographic Emergency Department Cohort.",
-    "comment": "High-Impact Controversy: เตือนเรื่อง AMI ที่หลุดรอดจาก STEMI criteria ซึ่งต้องการการจัดการเร่งด่วน",
+    "comment": "High-Impact Controversy: เตือนเรื่องการพลาดวินิจฉัย Occlusion MI ที่ไม่เข้าเกณฑ์ STEMI ใน ER",
     "pmid": "42854528",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42854528/"
   },
   {
-    "date": "10 Oct",
-    "title": "Left Atrial Appendage Occlusion vs Oral Anticoagulation for Stroke Prevention in Atrial Fibrillation: A Meta-Analysis.",
-    "comment": "Practice Changing: เปรียบเทียบประสิทธิภาพการป้องกัน stroke ใน AF ระหว่าง LAAO กับยาละลายลิ่มเลือด",
-    "pmid": "42855979",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42855979/"
-  },
-  {
-    "date": "10 Oct",
+    "date": "11 Oct",
     "title": "Early Post-ROSC Laboratory Phenotypes and Clinical Outcomes after Out-of-Hospital Cardiac Arrest: A 10-Year National Cohort Study.",
-    "comment": "Clinical Impact: ใช้ผล Lab หลัง ROSC เพื่อพยากรณ์ผลลัพธ์ในผู้ป่วย OHCA",
+    "comment": "Practice Changing: ใช้ Lab หลัง ROSC เพื่อทำนายผลลัพธ์ในผู้ป่วย OHCA",
     "pmid": "42855036",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42855036/"
   },
   {
-    "date": "10 Oct",
+    "date": "11 Oct",
+    "title": "Left Atrial Appendage Occlusion vs Oral Anticoagulation for Stroke Prevention in Atrial Fibrillation: A Meta-Analysis.",
+    "comment": "High-Impact Controversy: เปรียบเทียบประสิทธิภาพ LAAO กับยาละลายลิ่มเลือดในการป้องกัน Stroke",
+    "pmid": "42855979",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42855979/"
+  },
+  {
+    "date": "11 Oct",
     "title": "Opioid-Associated vs Undifferentiated Out-of-Hospital Cardiac Arrest: Examining differences in outcomes and the relationship with Utstein variables.",
-    "comment": "Clinical Impact: ข้อมูลความแตกต่างของผลลัพธ์ระหว่าง OHCA จาก opioid และสาเหตุอื่น",
+    "comment": "Safety Signal: วิเคราะห์ความแตกต่างของผลลัพธ์ใน OHCA ที่เกิดจาก Opioid vs สาเหตุอื่น",
     "pmid": "42855034",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42855034/"
   },
   {
-    "date": "10 Oct",
+    "date": "11 Oct",
     "title": "Diagnostic Accuracy of shock index, revised trauma score, and injury severity score for mortality prediction in trauma: A hierarchical meta-analysis.",
-    "comment": "Clinical Impact: เปรียบเทียบความแม่นยำของ score ต่างๆ ในการพยากรณ์การเสียชีวิตในผู้ป่วย Trauma",
+    "comment": "Practice Changing: เปรียบเทียบความแม่นยำของ Score ต่างๆ ในการทำนายการเสียชีวิตของผู้ป่วย Trauma",
     "pmid": "42854533",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42854533/"
   },
   {
-    "date": "10 Oct",
+    "date": "11 Oct",
     "title": "Medical management of major incidents and mass casualty events during military operations: a consensus statement.",
-    "comment": "Practice Changing: ข้อตกลงร่วมในการจัดการผู้ป่วยจำนวนมากในสถานการณ์ฉุกเฉิน/สงคราม",
+    "comment": "Practice Changing: ข้อตกลงร่วมในการจัดการผู้บาดเจ็บจำนวนมากในสถานการณ์วิกฤต",
     "pmid": "42855200",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42855200/"
+  },
+  {
+    "date": "11 Oct",
+    "title": "Pharmacokinetics, pharmacodynamics, and safety of AQST-109 epinephrine 12mg sublingual film: A Phase I pediatric study.",
+    "comment": "Novel Drug: รูปแบบยา Epinephrine แบบแผ่นแปะใต้ลิ้นสำหรับเด็ก ซึ่งใช้ได้ง่ายขึ้นในภาวะฉุกเฉิน",
+    "pmid": "42854837",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42854837/"
+  },
+  {
+    "date": "11 Oct",
+    "title": "Accidental or an emergency? Blood culture contamination rates in the Emergency Department.",
+    "comment": "Safety Signal: วิเคราะห์อัตราการปนเปื้อนของ Blood Culture ใน ER เพื่อลดการรักษาที่เกินจำเป็น",
+    "pmid": "42854915",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42854915/"
   },
   {
     "date": "10 Oct",
@@ -61,20 +75,6 @@
     "comment": "Practice Changing: อัปเดตการวินิจฉัยและรักษาภาวะหลอดลมหดตัวจากการออกกำลังกาย",
     "pmid": "42855906",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42855906/"
-  },
-  {
-    "date": "10 Oct",
-    "title": "Pharmacokinetics, pharmacodynamics, and safety of AQST-109 epinephrine 12mg sublingual film: A Phase I pediatric study.",
-    "comment": "Novel Drug: ยา Epinephrine รูปแบบแผ่นแปะใต้ลิ้นสำหรับเด็ก เพิ่มทางเลือกในการรักษา anaphylaxis",
-    "pmid": "42854837",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42854837/"
-  },
-  {
-    "date": "10 Oct",
-    "title": "Accidental or an emergency? Blood culture contamination rates in the Emergency Department.",
-    "comment": "Safety Signal: วิเคราะห์อัตราการปนเปื้อน blood culture ใน ER เพื่อลดการรักษาที่ไม่จำเป็น",
-    "pmid": "42854915",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42854915/"
   },
   {
     "date": "10 Oct",
