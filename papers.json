@@ -1,5 +1,82 @@
 [
   {
+    "date": "13 Oct",
+    "title": "Canadian Cardiovascular Society/Canadian Society of Cardiovascular Surgery/Canadian Association of Interventional Cardiology Clinical Practice Update on Transcatheter Mitral and Tricuspid Valve Intervention: Patient Evaluation and Management.",
+    "comment": "Update แนวทางการดูแลผู้ป่วยที่ใส่ลิ้นหัวใจ TAVR/TMVR สำคัญต่อการจัดการใน ER",
+    "pmid": "42862133",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42862133/"
+  },
+  {
+    "date": "13 Oct",
+    "title": "Labetalol-induced hyperkalemia in acute aortic dissection: A rare but clinically relevant adverse effect.",
+    "comment": "Safety Signal: ระวัง Hyperkalemia เมื่อใช้ Labetalol ในเคส Aortic dissection",
+    "pmid": "42862110",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42862110/"
+  },
+  {
+    "date": "13 Oct",
+    "title": "Deconstructing the Modified Sequential Organ Failure Assessment (mSOFA) Score: A Decision Tree Analysis Reveals the Pathophysiological Hierarchy of Organ Dysfunction Predictors in Prehospital Critical Care.",
+    "comment": "ช่วยให้เข้าใจและนำ mSOFA ไปใช้คัดกรองผู้ป่วยวิกฤตในระยะ Prehospital ได้แม่นยำขึ้น",
+    "pmid": "42861714",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42861714/"
+  },
+  {
+    "date": "13 Oct",
+    "title": "Beyond the oscillometric cuff: the utility of point-of-care ultrasound-derived blood pressure in shock.",
+    "comment": "Novel Tool: การใช้ POCUS ประเมิน BP ในผู้ป่วย Shock แทน cuff แบบเดิม",
+    "pmid": "42860303",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42860303/"
+  },
+  {
+    "date": "13 Oct",
+    "title": "Invasive Bacterial Infections Other Than Escherichia coli and Streptococcus agalactiae in Febrile Infants Younger Than 90 Days: A Multicenter Emergency Department Study.",
+    "comment": "ข้อมูลเชื้อก่อโรคในทารกมีไข้ ช่วยปรับแนวทางการเลือก Empiric antibiotics ใน ER",
+    "pmid": "42860599",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42860599/"
+  },
+  {
+    "date": "13 Oct",
+    "title": "Natural Language Processing for Risk Stratification of Emergency Department Patients with Chest Pain.",
+    "comment": "Novel Tool: ใช้ NLP ช่วยคัดกรองความเสี่ยงผู้ป่วย Chest pain เพื่อลดระยะเวลารอคอย",
+    "pmid": "42861239",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42861239/"
+  },
+  {
+    "date": "13 Oct",
+    "title": "Clinical practice guidelines: management of non-post-operative supra-ventricular tachycardia in neonates and children less than 18 years old hospitalized in a Pediatric Intensive Care Unit.",
+    "comment": "Practice Changing: แนวทางจัดการ SVT ในเด็ก ซึ่งนำมาประยุกต์ใช้ใน Pediatric ER ได้",
+    "pmid": "42861350",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42861350/"
+  },
+  {
+    "date": "13 Oct",
+    "title": "Left Atrial Appendage Closure Versus Oral Anticoagulation for Prevention of Stroke or Systemic Embolism in Patients With Atrial Fibrillation: An Updated Meta-Analysis of 7004 Patients Across Six Randomized Trials.",
+    "comment": "High-Impact: เปรียบเทียบการปิด LAA กับการใช้ยาต้านการแข็งตัวของเลือดเพื่อป้องกัน Stroke",
+    "pmid": "42860016",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42860016/"
+  },
+  {
+    "date": "13 Oct",
+    "title": "Management of breakthrough cancer pain in the emergency department.",
+    "comment": "Clinical impact: แนวทางการจัดการความปวดเฉียบพลันในผู้ป่วยมะเร็งที่มา ER",
+    "pmid": "42860301",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42860301/"
+  },
+  {
+    "date": "13 Oct",
+    "title": "Effectiveness of Intratympanic Steroid Injection on Hearing Threshold Improvement in Sudden Sensorineural Hearing Loss: A Meta-Analysis.",
+    "comment": "ช่วยตัดสินใจในการให้การรักษา SSNHL เพื่อกู้คืนการได้ยินอย่างรวดเร็ว",
+    "pmid": "42861443",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42861443/"
+  },
+  {
+    "date": "13 Oct",
+    "title": "A deep learning-based model combining quantitative parameters of initial chest computed tomography and clinical variables for the prediction of posttraumatic acute respiratory distress syndrome.",
+    "comment": "Novel Tool: ใช้ AI ทำนายการเกิด ARDS หลังอุบัติเหตุจาก CT scan และข้อมูลคลินิก",
+    "pmid": "42861159",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42861159/"
+  },
+  {
     "date": "11 Oct",
     "title": "Clinical practice guideline for renal replacement therapy in critically ill patients with acute kidney injury (2026 edition).",
     "comment": "Guideline ใหม่สำหรับการทำ RRT ในผู้ป่วยวิกฤต AKI มีผลโดยตรงต่อ Standard of Care",
@@ -411,82 +488,5 @@
     "comment": "แนวทางรักษา Super-Refractory SE หลัง cardiac arrest ซึ่งรักษายากและมีอัตราตายสูง",
     "pmid": "42837646",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42837646/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Direct, real-time visualization-assisted nasoenteral tube placement in critically ill patients: a multicenter experience.",
-    "comment": "เทคนิคการใส่สาย feeding แบบ real-time visualization เพิ่มความแม่นยำและลดภาวะแทรกซ้อน",
-    "pmid": "42839240",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42839240/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Application of procalcitonin in pediatric emergency and critical care settings.",
-    "comment": "ทบทวนการใช้ PCT ในเด็กเพื่อแยก sepsis และลดการใช้ยาปฏิชีวนะที่ไม่จำเป็น",
-    "pmid": "42838857",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42838857/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Mean arterial pressure for children in US emergency department and prehospital settings.",
-    "comment": "ข้อมูล MAP ในเด็กที่ใช้ใน ER และ prehospital เพื่อประเมินภาวะ shock ได้แม่นยำขึ้น",
-    "pmid": "42838724",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42838724/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "SGLT2 Inhibitors and Asthma Exacerbation Risk Among Patients With Type 2 Diabetes and Asthma: A Target Trial Emulation.",
-    "comment": "ความสัมพันธ์ระหว่าง SGLT2i กับความเสี่ยง asthma exacerbation ที่แพทย์ต้องเฝ้าระวัง",
-    "pmid": "42839355",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42839355/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "A roadmap towards clinical use of molecular biomarkers in acute ischaemic stroke.",
-    "comment": "ทิศทางการใช้ molecular biomarkers เพื่อช่วยวินิจฉัยและคัดกรองผู้ป่วย stroke ได้เร็วขึ้น",
-    "pmid": "42839011",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42839011/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Neuro-oncological emergencies requiring critical care intervention.",
-    "comment": "แนวทางการจัดการภาวะฉุกเฉินทางระบบประสาทและเนื้องอกที่ต้องใช้ ICU/Critical care",
-    "pmid": "42838418",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42838418/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Does a personalized hemodynamic resuscitation strategy targeting capillary refill time improve outcomes in patients with early septic shock?",
-    "comment": "การใช้ CRT นำทางในการ resuscitation ใน Septic shock เพื่อปรับปรุง outcome ทางคลินิก",
-    "pmid": "42837096",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42837096/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "New Criteria for Refractory Septic Shock: Relying on Treatment to Define a Disease.",
-    "comment": "การเสนอเกณฑ์ใหม่ในการนิยาม Refractory Septic Shock ซึ่งกระทบต่อการจัดกลุ่มผู้ป่วยและการรักษา",
-    "pmid": "42837136",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42837136/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Dyssynchrony without dysfunction: Left bundle branch block does not acutely reduce cardiac output.",
-    "comment": "หักล้างความเชื่อเดิมว่า LBBB ทำให้ cardiac output ลดลงอย่างเฉียบพลันในภาวะ acute",
-    "pmid": "42837421",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42837421/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Antibiotic prescribing that aligns with a host-protein test at US acute care settings is associated with fewer subsequent hospitalisations.",
-    "comment": "การใช้ Host-protein test ช่วยให้จ่ายยาฆ่าเชื้อแม่นยำขึ้นและลดอัตราการกลับมานอน รพ.",
-    "pmid": "42838625",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42838625/"
-  },
-  {
-    "date": "7 Oct",
-    "title": "Intraosseous access in neurological emergencies: a critical narrative review and research framework.",
-    "comment": "ทบทวนการใช้ IO access ในภาวะฉุกเฉินทางระบบประสาท เพื่อเป็นทางเลือกเมื่อ IV ไม่สำเร็จ",
-    "pmid": "42836714",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42836714/"
   }
 ]
