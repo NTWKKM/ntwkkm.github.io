@@ -1,66 +1,87 @@
 [
   {
-    "date": "13 Oct",
-    "title": "Screening for Left Ventricular Dysfunction in Sepsis Using a Smartphone ECG Analysis Application: A Multicenter Validation Study.",
-    "comment": "เครื่องมือคัดกรอง LV dysfunction ใน sepsis ผ่าน smartphone ECG ช่วยให้วินิจฉัยได้เร็วขึ้นใน ER",
-    "pmid": "42865282",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42865282/"
-  },
-  {
-    "date": "13 Oct",
-    "title": "ESR and CRP Testing in an Urban Emergency Department: Should We Still Be Doing This?",
-    "comment": "ทบทวนความจำเป็นของ ESR/CRP ใน ER เพื่อลดการสั่งตรวจที่ไม่จำเป็นและลด cost",
-    "pmid": "42865101",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42865101/"
-  },
-  {
-    "date": "13 Oct",
-    "title": "Cannabinoids for Acute Pain Management: A Contemporary Scoping Review of Evidence, Mechanisms, and Clinical Implications.",
-    "comment": "รวบรวมหลักฐานการใช้ Cannabinoids จัดการความปวดเฉียบพลันเพื่อเป็นแนวทางทางคลินิก",
-    "pmid": "42864800",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42864800/"
-  },
-  {
-    "date": "13 Oct",
-    "title": "Management of suspected infectious and autoimmune encephalitis in adults - National Guidelines from the United Kingdom Joint Societies.",
-    "comment": "Guideline การจัดการ Encephalitis ทั้งแบบติดเชื้อและ autoimmune ใช้เป็นมาตรฐานการรักษาได้",
-    "pmid": "42863638",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42863638/"
-  },
-  {
-    "date": "13 Oct",
-    "title": "Mechanical versus manual bag-valve ventilation during cardiopulmonary resuscitation in adults with cardiac arrest: A systematic review and Bayesian meta-analysis.",
-    "comment": "เปรียบเทียบประสิทธิภาพ BVM mechanical vs manual ใน CPR เพื่อปรับปรุง standard of care",
-    "pmid": "42863592",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42863592/"
-  },
-  {
-    "date": "13 Oct",
+    "date": "14 Oct",
     "title": "Occlusion-Focused Triage vs Very-High-Risk NSTEMI Criteria: A DIFOCCULT-3 Substudy.",
-    "comment": "ปรับเกณฑ์ Triage ผู้ป่วย MI ให้เน้นที่ Occlusion แทน NSTEMI เพื่อเพิ่มอัตราการรอดชีวิต",
+    "comment": "เปลี่ยนแนวทาง triage ผู้ป่วย ACS โดยเน้น occlusion-focused แทนเกณฑ์ NSTEMI เดิม",
     "pmid": "42863867",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42863867/"
   },
   {
-    "date": "13 Oct",
+    "date": "14 Oct",
     "title": "The Unlucky Occlusion Patients Missed by the STEMI/NSTEMI Paradigm May Be Found by OMI/NOMI.",
-    "comment": "นำเสนอแนวคิด OMI/NOMI เพื่อหาผู้ป่วย occlusion ที่หลุดรอดจากเกณฑ์ STEMI/NSTEMI เดิม",
+    "comment": "หักล้าง paradigm เดิมเรื่อง STEMI/NSTEMI เพื่อลดการพลาดเคส Occlusion MI",
     "pmid": "42863866",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42863866/"
   },
   {
-    "date": "13 Oct",
+    "date": "14 Oct",
+    "title": "Management of suspected infectious and autoimmune encephalitis in adults - National Guidelines from the United Kingdom Joint Societies.",
+    "comment": "Guideline ใหม่สำหรับการจัดการ encephalitis ซึ่งเป็นภาวะฉุกเฉินทางระบบประสาท",
+    "pmid": "42863638",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42863638/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Mechanical versus manual bag-valve ventilation during cardiopulmonary resuscitation in adults with cardiac arrest: A systematic review and Bayesian meta-analysis.",
+    "comment": "เปรียบเทียบวิธี BVM ใน CPR ซึ่งส่งผลต่อ standard of care ในการกู้ชีพ",
+    "pmid": "42863592",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42863592/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "ESR and CRP Testing in an Urban Emergency Department: Should We Still Be Doing This?",
+    "comment": "ทบทวนความจำเป็นของ ESR/CRP ใน ER เพื่อลดการตรวจที่ไม่จำเป็น (Low-value care)",
+    "pmid": "42865101",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42865101/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Screening for Left Ventricular Dysfunction in Sepsis Using a Smartphone ECG Analysis Application: A Multicenter Validation Study.",
+    "comment": "เครื่องมือใหม่ใช้ smartphone ECG คัดกรอง LV dysfunction ในผู้ป่วย Sepsis",
+    "pmid": "42865282",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42865282/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Pancreatic and biliary safety signals of GLP-1 receptor agonists and tirzepatide: a disproportionality analysis of FAERS reports.",
+    "comment": "Safety signal สำคัญเรื่องตับอ่อนและทางเดินน้ำดีในผู้ใช้ยา GLP-1 ที่พบบ่อยขึ้น",
+    "pmid": "42865361",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42865361/"
+  },
+  {
+    "date": "14 Oct",
     "title": "Optimizing Antibiotic Duration for Pneumonia and Sinusitis in the Pediatric Emergency Department.",
-    "comment": "แนวทางการปรับลดระยะเวลาการใช้ยาปฏิชีวนะในเด็กที่มา ER เพื่อลดเชื้อดื้อยา",
+    "comment": "ปรับปรุงระยะเวลาให้ยาปฏิชีวนะในเด็ก เพื่อลดการใช้ยาเกินความจำเป็นใน ER",
     "pmid": "42863842",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42863842/"
   },
   {
-    "date": "13 Oct",
+    "date": "14 Oct",
     "title": "Calprotectin as a Prognostic Marker for Sepsis Independent of Renal Dysfunction.",
-    "comment": "ใช้ Calprotectin เป็น marker พยากรณ์โรคใน sepsis โดยไม่ขึ้นกับค่าไต",
+    "comment": "Biomarker ใหม่สำหรับพยากรณ์โรคใน Sepsis ที่ไม่ขึ้นกับค่าไต",
     "pmid": "42865138",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42865138/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Cannabinoids for Acute Pain Management: A Contemporary Scoping Review of Evidence, Mechanisms, and Clinical Implications.",
+    "comment": "ทบทวนการใช้ Cannabinoids จัดการความปวดเฉียบพลัน ซึ่งเป็นประเด็นถกเถียงใน ER",
+    "pmid": "42864800",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42864800/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Benchmarking the trauma airway intubation.",
+    "comment": "กำหนดมาตรฐานการจัดการทางเดินหายใจในผู้ป่วย Trauma เพื่อเพิ่มความปลอดภัย",
+    "pmid": "42864525",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42864525/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Fibrinogen in trauma patients: finding the needle or shrinking the haystack?",
+    "comment": "วิเคราะห์การใช้ fibrinogen ในผู้ป่วย Trauma เพื่อปรับปรุงการให้เลือดและส่วนประกอบเลือด",
+    "pmid": "42864524",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42864524/"
   },
   {
     "date": "13 Oct",
@@ -467,26 +488,5 @@
     "comment": "ข้อมูลผลลัพธ์การรักษา Carotid Blowout ด้วยวิธี endovascular ซึ่งเป็นภาวะวิกฤตใน ER",
     "pmid": "42844952",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42844952/"
-  },
-  {
-    "date": "8 Oct",
-    "title": "Trends in Fentanyl Adulteration From Rapid Drug Analysis and Research (RaDAR) Drug Checking Samples, January 2024 to June 2026.",
-    "comment": "Safety signal: การปนเปื้อนของสารใน Fentanyl ที่แพทย์ ER ต้องระวังในการรักษา overdose",
-    "pmid": "42844883",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42844883/"
-  },
-  {
-    "date": "8 Oct",
-    "title": "A Comparative Study between Serum Cystatin C and Creatinine in Early Detection of Acute Kidney Injury.",
-    "comment": "เปรียบเทียบการใช้ Cystatin C vs Creatinine เพื่อตรวจจับ AKI ได้เร็วขึ้น",
-    "pmid": "42844882",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42844882/"
-  },
-  {
-    "date": "8 Oct",
-    "title": "Feasibility of Collaborative Assessment and Management of Suicidality-Brief Intervention in an Emergency Department With Youth Who Are Suicidal.",
-    "comment": "เทคนิคการประเมินและจัดการผู้ป่วยวัยรุ่นที่มีภาวะฆ่าตัวตายใน ER ให้มีประสิทธิภาพขึ้น",
-    "pmid": "42844752",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42844752/"
   }
 ]
