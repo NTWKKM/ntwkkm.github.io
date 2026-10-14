@@ -1,6 +1,90 @@
 [
   {
     "date": "14 Oct",
+    "title": "Cardiogenic Shock Systems of Care Best Practices. Part 1: Prehospital and Emergency Department Evaluation and Management.",
+    "comment": "แนวทางปฏิบัติที่ดีที่สุดในการประเมินและจัดการ Cardiogenic Shock ใน ER และ Prehospital",
+    "pmid": "42866104",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42866104/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Cardiogenic Shock Systems of Care Best Practices. Part 2: The Shock Team and Inpatient Management.",
+    "comment": "การจัดตั้ง Shock Team และการจัดการผู้ป่วยในเพื่อลดอัตราการเสียชีวิต",
+    "pmid": "42866100",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42866100/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Cardiogenic Shock Systems of Care Best Practices, Part 3: Regionalization of Care, Organizational Components, and Critical Care Transport Medicine.",
+    "comment": "การวางระบบส่งต่อและการจัดการระดับภูมิภาคสำหรับผู้ป่วยวิกฤต Cardiogenic Shock",
+    "pmid": "42866097",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42866097/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Safety of Intravenous Ibuprofen Administration in the Pediatric Emergency Department.",
+    "comment": "ข้อมูลความปลอดภัยของการใช้ IV Ibuprofen ในเด็ก ซึ่งเป็นทางเลือกในการลดปวด/ลดไข้ใน ER",
+    "pmid": "42866619",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42866619/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Screening for Left Ventricular Dysfunction in Sepsis Using a Smartphone ECG Analysis Application: A Multicenter Validation Study.",
+    "comment": "เครื่องมือใหม่ใช้ Smartphone ECG คัดกรอง LV dysfunction ในผู้ป่วย Sepsis ได้ทันที",
+    "pmid": "42865282",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42865282/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Pancreatic and biliary safety signals of GLP-1 receptor agonists and tirzepatide: a disproportionality analysis of FAERS reports.",
+    "comment": "สัญญาณเตือนความเสี่ยงต่อตับอ่อนและทางเดินน้ำดีจากยากลุ่ม GLP-1 ที่แพทย์ต้องเฝ้าระวัง",
+    "pmid": "42865361",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42865361/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "The Fast Care Model and Clinical Leadership in the Emergency Department: A Randomized Clinical Trial.",
+    "comment": "รูปแบบการจัดการ ER (Fast Care Model) เพื่อเพิ่มประสิทธิภาพการดูแลผู้ป่วย",
+    "pmid": "42867437",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42867437/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Predictive analysis in acute ischemic stroke imaging.",
+    "comment": "การวิเคราะห์ภาพถ่ายทางรังสีเพื่อทำนายผลลัพธ์ในผู้ป่วย Acute Ischemic Stroke",
+    "pmid": "42866768",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42866768/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Multi-model comparison and nomogram development for predicting in-hospital mortality in Trauma patients based on NLR and other indicators.",
+    "comment": "การใช้ NLR และตัวชี้วัดอื่นทำนายอัตราการเสียชีวิตในโรงพยาบาลของผู้ป่วย Trauma",
+    "pmid": "42866760",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42866760/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Integrating emergency medical services and hospital surge capacity for mass-gathering preparedness: a structured narrative review.",
+    "comment": "แนวทางการจัดการ Surge Capacity และการประสาน EMS สำหรับเหตุการณ์ที่มีคนจำนวนมาก",
+    "pmid": "42865863",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42865863/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Blood biomarkers and penalized logistic regression for the prediction of complicated appendicitis in children: a retrospective cohort study.",
+    "comment": "การใช้ Biomarkers ทำนายภาวะ appendicitis ที่ซับซ้อนในเด็ก เพื่อวางแผนการรักษา",
+    "pmid": "42866744",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42866744/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Impact of inoculum effect on in vitro activity of intermittent and continuous piperacillin-tazobactam infusion against ESBL-producing Escherichia coli in a hollow-fiber infection model.",
+    "comment": "ข้อมูลการให้ยา Piperacillin-tazobactam แบบต่อเนื่องเทียบกับ intermittent ในเชื้อ ESBL",
+    "pmid": "42867252",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42867252/"
+  },
+  {
+    "date": "14 Oct",
     "title": "Occlusion-Focused Triage vs Very-High-Risk NSTEMI Criteria: A DIFOCCULT-3 Substudy.",
     "comment": "เปลี่ยนแนวทาง triage ผู้ป่วย ACS โดยเน้น occlusion-focused แทนเกณฑ์ NSTEMI เดิม",
     "pmid": "42863867",
@@ -33,20 +117,6 @@
     "comment": "ทบทวนความจำเป็นของ ESR/CRP ใน ER เพื่อลดการตรวจที่ไม่จำเป็น (Low-value care)",
     "pmid": "42865101",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42865101/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Screening for Left Ventricular Dysfunction in Sepsis Using a Smartphone ECG Analysis Application: A Multicenter Validation Study.",
-    "comment": "เครื่องมือใหม่ใช้ smartphone ECG คัดกรอง LV dysfunction ในผู้ป่วย Sepsis",
-    "pmid": "42865282",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42865282/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Pancreatic and biliary safety signals of GLP-1 receptor agonists and tirzepatide: a disproportionality analysis of FAERS reports.",
-    "comment": "Safety signal สำคัญเรื่องตับอ่อนและทางเดินน้ำดีในผู้ใช้ยา GLP-1 ที่พบบ่อยขึ้น",
-    "pmid": "42865361",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42865361/"
   },
   {
     "date": "14 Oct",
@@ -418,75 +488,5 @@
     "comment": "ประเมินผลการใช้ Impedance Threshold Device ใน OHCA เพื่อปรับปรุงคุณภาพการ CPR",
     "pmid": "42849561",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42849561/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Impact of prehospital olanzapine for methamphetamine intoxication on patient and system-level outcomes: a population-based retrospective cohort study.",
-    "comment": "การใช้ Olanzapine ในระยะก่อนถึงโรงพยาบาลสำหรับผู้ป่วย Meth intoxication",
-    "pmid": "42849953",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42849953/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "The safety of outpatient management for low-risk pulmonary embolism: A narrative review.",
-    "comment": "แนวทางการดูแลผู้ป่วย PE ความเสี่ยงต่ำแบบผู้ป่วยนอกเพื่อลดการครองเตียง",
-    "pmid": "42849322",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42849322/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Digital Health-Enabled Prehospital Notification for Acute Stroke Using the Brain Saver Mobile App in Emergency Medical Transport in South Korea: Pilot Quasi-Experimental Study.",
-    "comment": "การใช้ App แจ้งเตือน Stroke จาก Prehospital ช่วยลดเวลา Time to treatment",
-    "pmid": "42849893",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42849893/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Emergency Uterine Artery Embolization for Postpartum Hemorrhage: Hemostatic Outcomes According to Embolic Material and Shock Index, with Subsequent Pregnancy Outcomes.",
-    "comment": "ผลลัพธ์การทำ UAE ใน PPH ตาม Shock index และชนิดวัสดุอุดหลอดเลือด",
-    "pmid": "42849867",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42849867/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Submandibular-window point-of-care ultrasound as a bedside clue to deep extension of a peritonsillar abscess.",
-    "comment": "เทคนิค POCUS หน้าต่างใต้คางเพื่อประเมินการลุกลามของ Peritonsillar abscess",
-    "pmid": "42848130",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42848130/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Is paediatric conscious sedation as effective as general anaesthesia for removing aural and nasal foreign bodies?",
-    "comment": "เปรียบเทียบ Conscious sedation vs GA ในการนำสิ่งแปลกปลอมออกในเด็ก",
-    "pmid": "42850031",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42850031/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Performance of updated American College of Surgeons field triage guidelines in identifying need for trauma center care.",
-    "comment": "ประเมินประสิทธิภาพ Guideline การ Triage ผู้ป่วย Trauma เพื่อส่งต่อ Trauma Center",
-    "pmid": "42848131",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42848131/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Etomidate vaping: A new form of anesthetic abuse.",
-    "comment": "Safety signal เตือนเรื่องการนำ Etomidate มาใช้ในรูปแบบ vaping ซึ่งแพทย์ ER ต้องเฝ้าระวังในกลุ่ม abuse",
-    "pmid": "42848713",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42848713/"
-  },
-  {
-    "date": "8 Oct",
-    "title": "Practice changing articles: capillary refill time personalized hemodynamic resuscitation in patients with early septic shock.",
-    "comment": "เปลี่ยนแนวทางให้ใช้ CRT ในการทำ hemodynamic resuscitation ใน septic shock ระยะแรก",
-    "pmid": "42843174",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42843174/"
-  },
-  {
-    "date": "8 Oct",
-    "title": "Prognostic Outcomes Following Endovascular Management for Carotid Blowout Syndrome: A Multi-Institutional Observational Cohort Study.",
-    "comment": "ข้อมูลผลลัพธ์การรักษา Carotid Blowout ด้วยวิธี endovascular ซึ่งเป็นภาวะวิกฤตใน ER",
-    "pmid": "42844952",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42844952/"
   }
 ]
