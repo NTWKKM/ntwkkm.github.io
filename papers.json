@@ -1,6 +1,76 @@
 [
   {
     "date": "14 Oct",
+    "title": "Rhabdo-RRT score: development and external validation of an emergency department tool for predicting renal replacement therapy in rhabdomyolysis.",
+    "comment": "Tool ใหม่ช่วยทำนายความจำเป็นในการฟอกเลือดในผู้ป่วย Rhabdomyolysis ได้ทันทีใน ER",
+    "pmid": "42869638",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42869638/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "A 0/2-Hour Algorithm Using a Novel Point-of-Care High-Sensitivity Cardiac Troponin I Assay for Suspected Myocardial Infarction.",
+    "comment": "Algorithm ใหม่ใช้ POC hs-cTnI ช่วยให้วินิจฉัย MI ได้เร็วขึ้นและลดระยะเวลารอคอย",
+    "pmid": "42869272",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42869272/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Counterfeit and unregulated GLP-1 receptor agonists: an unmeasured variable in emergency department procedural sedation risk.",
+    "comment": "คำเตือนเรื่องความปลอดภัย: ยาลดน้ำหนักปลอมส่งผลต่อความเสี่ยงในการให้ยาสลบ/Sedation ใน ER",
+    "pmid": "42869636",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42869636/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Moving diagnostics upstream: prehospital blood gas analysis is associated with safe community care and improved patient selection for hospital admission.",
+    "comment": "การตรวจ Blood gas ตั้งแต่ก่อนถึงโรงพยาบาลช่วยคัดกรองผู้ป่วยและลดการ admit ที่ไม่จำเป็น",
+    "pmid": "42869640",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42869640/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Prehospital recognition of sepsis is associated with earlier antibiotic administration in the emergency department : A retrospective cohort study.",
+    "comment": "การระบุภาวะ Sepsis ตั้งแต่ระยะ prehospital ช่วยให้ผู้ป่วยได้รับยาฆ่าเชื้อเร็วขึ้นเมื่อถึง ER",
+    "pmid": "42867521",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42867521/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Diagnostic performance of an open-source artificial intelligence model for detecting chest infections on after-hours emergency department chest radiographs in Singapore.",
+    "comment": "การใช้ AI ช่วยอ่าน CXR เพื่อตรวจหาการติดเชื้อในปอดช่วงนอกเวลาช่วยเพิ่มความแม่นยำ",
+    "pmid": "42869615",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42869615/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Multidisciplinary perspectives on managing functional/dissociative seizures in the emergency department: A survey of medical, nursing, and allied health clinicians.",
+    "comment": "แนวทางการจัดการ Functional Seizures ใน ER เพื่อให้การดูแลเป็นไปในทิศทางเดียวกัน",
+    "pmid": "42869697",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42869697/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "The Fast Care Model and Clinical Leadership in the Emergency Department: A Randomized Clinical Trial.",
+    "comment": "การใช้ Fast Care Model และการปรับ Leadership ช่วยเพิ่มประสิทธิภาพการไหลเวียนผู้ป่วยใน ER",
+    "pmid": "42867437",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42867437/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Phlebotomy technique and its impact on haemolysis in the emergency department.",
+    "comment": "ข้อมูลด้านเทคนิคการเจาะเลือดเพื่อลดการเกิด Hemolysis ซึ่งส่งผลต่อการแปลผล Lab ใน ER",
+    "pmid": "42868200",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42868200/"
+  },
+  {
+    "date": "14 Oct",
+    "title": "Yield and disparities in newly diagnosed HIV identified through a universal emergency department-based screening program in South Florida.",
+    "comment": "ผลลัพธ์ของการคัดกรอง HIV แบบ Universal ใน ER ช่วยเพิ่มอัตราการตรวจพบผู้ติดเชื้อรายใหม่",
+    "pmid": "42869777",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42869777/"
+  },
+  {
+    "date": "14 Oct",
     "title": "Cardiogenic Shock Systems of Care Best Practices. Part 1: Prehospital and Emergency Department Evaluation and Management.",
     "comment": "แนวทางปฏิบัติที่ดีที่สุดในการประเมินและจัดการ Cardiogenic Shock ใน ER และ Prehospital",
     "pmid": "42866104",
@@ -40,13 +110,6 @@
     "comment": "สัญญาณเตือนความเสี่ยงต่อตับอ่อนและทางเดินน้ำดีจากยากลุ่ม GLP-1 ที่แพทย์ต้องเฝ้าระวัง",
     "pmid": "42865361",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42865361/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "The Fast Care Model and Clinical Leadership in the Emergency Department: A Randomized Clinical Trial.",
-    "comment": "รูปแบบการจัดการ ER (Fast Care Model) เพื่อเพิ่มประสิทธิภาพการดูแลผู้ป่วย",
-    "pmid": "42867437",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42867437/"
   },
   {
     "date": "14 Oct",
@@ -425,68 +488,5 @@
     "comment": "RCT เปรียบเทียบเทคนิค Valsalva ใน SVT ช่วยเลือกวิธีที่มีประสิทธิภาพสูงสุดในการทำ cardioversion",
     "pmid": "42850163",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42850163/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Age-Dependent Benefit of ECPR in OHCA: An Interaction Analysis.",
-    "comment": "ข้อมูลผลประโยชน์ของ ECPR ในผู้ป่วย OHCA ตามช่วงอายุ ช่วยในการตัดสินใจเลือกผู้ป่วย",
-    "pmid": "42851276",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42851276/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "SECURE: A Cognitive Scaffold for Post-Intubation Sedation and Analgesia in the Emergency Department.",
-    "comment": "เครื่องมือช่วยจัดการ Sedation และ Analgesia หลังใส่ท่อช่วยหายใจใน ER เพื่อความปลอดภัยและแม่นยำ",
-    "pmid": "42851015",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42851015/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Real-world analytical and diagnostic evaluation of the Abbott i-STAT Alinity point-of-care high-sensitivity troponin I assay in a UK emergency department.",
-    "comment": "ประเมินประสิทธิภาพ hs-Troponin แบบ POC ใน ER จริง ช่วยเพิ่มความรวดเร็วในการวินิจฉัย AMI",
-    "pmid": "42850204",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42850204/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Identifying Intracranial Atherosclerotic Disease in Emergent Large Vessel Occlusion.",
-    "comment": "ช่วยแยกแยะสาเหตุของ LVO ในภาวะฉุกเฉิน เพื่อการเลือกวิธีรักษาที่เหมาะสม (Thrombectomy vs Medical)",
-    "pmid": "42850452",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42850452/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "The Safety and Interventions for Redirecting Non-Urgent Patients From Emergency Departments to Primary Care Services: A Scoping Review.",
-    "comment": "ข้อมูลความปลอดภัยในการส่งต่อผู้ป่วยไม่ฉุกเฉินไป Primary Care เพื่อลด ER overcrowding",
-    "pmid": "42851122",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42851122/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Diagnostic Accuracy and Clinical Impact of Ocular Fundus Imaging in the Emergency Department: A Systematic Review and Meta-Analysis.",
-    "comment": "ประสิทธิภาพของการตรวจ Fundus ใน ER ช่วยวินิจฉัยโรคทางตาและระบบประสาทได้รวดเร็วขึ้น",
-    "pmid": "42849760",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42849760/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Broad multiplex respiratory panel implementation and antibiotic prescribing in US emergency and urgent care departments: a staggered-adoption study.",
-    "comment": "ผลของการใช้ Multiplex PCR ต่อการลดการใช้ยาปฏิชีวนะที่ไม่จำเป็นใน ER",
-    "pmid": "42850780",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42850780/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Acute Imbalance Syndrome vs Acute Vestibular Syndrome: Clinical and Topographical Differentiation.",
-    "comment": "ช่วยแยกแยะอาการเวียนศีรษะเฉียบพลันระหว่างรอยโรคในสมองและหูชั้นใน ลดการพลาดวินิจฉัย Stroke",
-    "pmid": "42848973",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42848973/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Outcomes Following Impedance Threshold Device Use During Out-of-Hospital Cardiac Arrest.",
-    "comment": "ประเมินผลการใช้ Impedance Threshold Device ใน OHCA เพื่อปรับปรุงคุณภาพการ CPR",
-    "pmid": "42849561",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42849561/"
   }
 ]
