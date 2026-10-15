@@ -1,5 +1,82 @@
 [
   {
+    "date": "15 Oct",
+    "title": "Efficacy of Inhaled Methoxyflurane for Acute Trauma Pain Management: A Systematic Review and Meta-Analysis.",
+    "comment": "Novel tool สำหรับจัดการความปวดใน trauma ที่ใช้ได้จริงใน ER",
+    "pmid": "42874195",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42874195/"
+  },
+  {
+    "date": "15 Oct",
+    "title": "Signs of Life and Clinical Outcomes in Patients With Traumatic Out-of-Hospital Cardiac Arrest: A Nationwide Multicenter Observational Study.",
+    "comment": "ข้อมูล prognosis และการตัดสินใจกู้ชีพในราย traumatic OHCA",
+    "pmid": "42874196",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42874196/"
+  },
+  {
+    "date": "15 Oct",
+    "title": "Mobile Stroke Units in Acute Ischemic Stroke: Thrombectomy Efficiency, Workflow Models, and Implementation Considerations: A Review.",
+    "comment": "การเพิ่มประสิทธิภาพการทำ thrombectomy ผ่านระบบ Mobile Stroke Unit",
+    "pmid": "42873733",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42873733/"
+  },
+  {
+    "date": "15 Oct",
+    "title": "Prehospital Care of Older Adults Following Perceived Low-Acuity Falls and Related \"Lift Assist\" Encounters: An NAEMSP Position Statement and Resource Document.",
+    "comment": "Position statement การดูแลผู้สูงอายุที่หกล้ม ซึ่งเป็นเคสพบบ่อยใน ER/Prehospital",
+    "pmid": "42873076",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42873076/"
+  },
+  {
+    "date": "15 Oct",
+    "title": "Strategies, Barriers, and Sustainability: Implementation of a Massive Transfusion Protocol Alert Team.",
+    "comment": "การจัดตั้งทีม MTP เพื่อเพิ่มความปลอดภัยในการเติมเลือดปริมาณมาก",
+    "pmid": "42873970",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42873970/"
+  },
+  {
+    "date": "15 Oct",
+    "title": "Validation of PECARN as a clinical decision rule for CT imaging of children with blunt abdominal trauma: a single centre retrospective cohort study.",
+    "comment": "ตรวจสอบความแม่นยำของ PECARN ในการลด CT ในเด็กที่โดน blunt abdominal trauma",
+    "pmid": "42873268",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42873268/"
+  },
+  {
+    "date": "15 Oct",
+    "title": "Development and independent regional validation of a dynamic ultrasound appendicitis score for suspected acute appendicitis: a prospective multicenter study.",
+    "comment": "Novel tool ใช้ US score ช่วยวินิจฉัย appendicitis ลดการส่ง CT",
+    "pmid": "42873382",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42873382/"
+  },
+  {
+    "date": "15 Oct",
+    "title": "GLP-1 receptor agonist initiation and risk of psychiatric hospitalisation and emergency department presentation in adults with schizophrenia and type 2 diabetes in the USA: an observational cohort study using electronic health records data.",
+    "comment": "Safety signal ความเสี่ยงทางจิตเวชหลังใช้ GLP-1 RA ที่แพทย์ ER ต้องระวัง",
+    "pmid": "42874603",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42874603/"
+  },
+  {
+    "date": "15 Oct",
+    "title": "Prehospital fluid resuscitation in patients with severe burns - A nationwide cohort study.",
+    "comment": "ข้อมูลการให้สารน้ำในผู้ป่วย burn รุนแรงช่วง prehospital เพื่อปรับปรุง outcome",
+    "pmid": "42874523",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42874523/"
+  },
+  {
+    "date": "15 Oct",
+    "title": "Human vs Artificial Intelligence in Detecting Coronary Occlusions in ST-Elevation Myocardial Infarction: Retrospective Study.",
+    "comment": "เปรียบเทียบ AI กับแพทย์ในการวินิจฉัย STEMI เพื่อเพิ่มความเร็วและแม่นยำ",
+    "pmid": "42873564",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42873564/"
+  },
+  {
+    "date": "15 Oct",
+    "title": "Oral Fosfomycin for Pyelonephritis: Time for Evidence Over Eminence-based Guidelines.",
+    "comment": "ท้าทายแนวทางเดิมในการใช้ Oral Fosfomycin รักษา pyelonephritis",
+    "pmid": "42873563",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42873563/"
+  },
+  {
     "date": "14 Oct",
     "title": "Rhabdo-RRT score: development and external validation of an emergency department tool for predicting renal replacement therapy in rhabdomyolysis.",
     "comment": "Tool ใหม่ช่วยทำนายความจำเป็นในการฟอกเลือดในผู้ป่วย Rhabdomyolysis ได้ทันทีใน ER",
@@ -411,82 +488,5 @@
     "comment": "High-Impact Controversy: เตือนเรื่องการพลาดวินิจฉัย Occlusion MI ที่ไม่เข้าเกณฑ์ STEMI ใน ER",
     "pmid": "42854528",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42854528/"
-  },
-  {
-    "date": "11 Oct",
-    "title": "Early Post-ROSC Laboratory Phenotypes and Clinical Outcomes after Out-of-Hospital Cardiac Arrest: A 10-Year National Cohort Study.",
-    "comment": "Practice Changing: ใช้ Lab หลัง ROSC เพื่อทำนายผลลัพธ์ในผู้ป่วย OHCA",
-    "pmid": "42855036",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42855036/"
-  },
-  {
-    "date": "11 Oct",
-    "title": "Left Atrial Appendage Occlusion vs Oral Anticoagulation for Stroke Prevention in Atrial Fibrillation: A Meta-Analysis.",
-    "comment": "High-Impact Controversy: เปรียบเทียบประสิทธิภาพ LAAO กับยาละลายลิ่มเลือดในการป้องกัน Stroke",
-    "pmid": "42855979",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42855979/"
-  },
-  {
-    "date": "11 Oct",
-    "title": "Opioid-Associated vs Undifferentiated Out-of-Hospital Cardiac Arrest: Examining differences in outcomes and the relationship with Utstein variables.",
-    "comment": "Safety Signal: วิเคราะห์ความแตกต่างของผลลัพธ์ใน OHCA ที่เกิดจาก Opioid vs สาเหตุอื่น",
-    "pmid": "42855034",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42855034/"
-  },
-  {
-    "date": "11 Oct",
-    "title": "Diagnostic Accuracy of shock index, revised trauma score, and injury severity score for mortality prediction in trauma: A hierarchical meta-analysis.",
-    "comment": "Practice Changing: เปรียบเทียบความแม่นยำของ Score ต่างๆ ในการทำนายการเสียชีวิตของผู้ป่วย Trauma",
-    "pmid": "42854533",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42854533/"
-  },
-  {
-    "date": "11 Oct",
-    "title": "Medical management of major incidents and mass casualty events during military operations: a consensus statement.",
-    "comment": "Practice Changing: ข้อตกลงร่วมในการจัดการผู้บาดเจ็บจำนวนมากในสถานการณ์วิกฤต",
-    "pmid": "42855200",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42855200/"
-  },
-  {
-    "date": "11 Oct",
-    "title": "Pharmacokinetics, pharmacodynamics, and safety of AQST-109 epinephrine 12mg sublingual film: A Phase I pediatric study.",
-    "comment": "Novel Drug: รูปแบบยา Epinephrine แบบแผ่นแปะใต้ลิ้นสำหรับเด็ก ซึ่งใช้ได้ง่ายขึ้นในภาวะฉุกเฉิน",
-    "pmid": "42854837",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42854837/"
-  },
-  {
-    "date": "11 Oct",
-    "title": "Accidental or an emergency? Blood culture contamination rates in the Emergency Department.",
-    "comment": "Safety Signal: วิเคราะห์อัตราการปนเปื้อนของ Blood Culture ใน ER เพื่อลดการรักษาที่เกินจำเป็น",
-    "pmid": "42854915",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42854915/"
-  },
-  {
-    "date": "10 Oct",
-    "title": "Novel understanding in diagnosis and management of exercise-induced bronchoconstriction.",
-    "comment": "Practice Changing: อัปเดตการวินิจฉัยและรักษาภาวะหลอดลมหดตัวจากการออกกำลังกาย",
-    "pmid": "42855906",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42855906/"
-  },
-  {
-    "date": "10 Oct",
-    "title": "Ethnicity is associated with variation in diabetes emergency outcomes: Findings from the DEKODE audit and feedback programme.",
-    "comment": "Safety Signal: ความแตกต่างทางเชื้อชาติที่มีผลต่อผลลัพธ์การรักษาภาวะฉุกเฉินจากเบาหวาน",
-    "pmid": "42856017",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42856017/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Diagnosis and Management of Infectious Encephalitis in Adults: Guidelines From the European Academy of Neurology and European Society of Clinical Microbiology and Infectious Diseases.",
-    "comment": "Guideline ใหม่สำหรับการวินิจฉัยและรักษา Encephalitis ในผู้ใหญ่ ใช้ปรับ Standard of Care ได้ทันที",
-    "pmid": "42851210",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42851210/"
-  },
-  {
-    "date": "9 Oct",
-    "title": "Modified vs. reverse Valsalva maneuver for cardioversion of supraventricular tachycardia: A randomized controlled trial.",
-    "comment": "RCT เปรียบเทียบเทคนิค Valsalva ใน SVT ช่วยเลือกวิธีที่มีประสิทธิภาพสูงสุดในการทำ cardioversion",
-    "pmid": "42850163",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42850163/"
   }
 ]
