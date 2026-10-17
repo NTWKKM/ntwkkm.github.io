@@ -1,6 +1,83 @@
 [
   {
     "date": "17 Oct",
+    "title": "Diagnostic Accuracy of NT-proBNP thresholds in Dyspneic Patients in the Emergency Department according to patients' characteristics: A Systematic Review and Meta-Analysis.",
+    "comment": "ช่วยกำหนดจุดตัด NT-proBNP ในผู้ป่วยเหนื่อยที่ ER ตามลักษณะผู้ป่วยเพื่อความแม่นยำในการวินิจฉัย",
+    "pmid": "42888496",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42888496/"
+  },
+  {
+    "date": "17 Oct",
+    "title": "In older adults, \"mild\" by GCS does not mean low risk: Multicenter study of 1,157 patients with mild TBI and acute subdural hematoma.",
+    "comment": "เตือนว่า GCS ปกติในผู้สูงอายุไม่ได้แปลว่าความเสี่ยงต่ำใน TBI/SDH ให้ระวังการประเมินพลาด",
+    "pmid": "42886856",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42886856/"
+  },
+  {
+    "date": "17 Oct",
+    "title": "Neutrophil to lymphocyte ratio for predicting delayed neurologic sequelae caused by carbon monoxide poisoning: A systematic review and meta-analysis.",
+    "comment": "ใช้ NLR เป็นตัวพยากรณ์ภาวะแทรกซ้อนทางระบบประสาทที่เกิดขึ้นภายหลังในผู้ป่วยพิษ CO",
+    "pmid": "42888538",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42888538/"
+  },
+  {
+    "date": "17 Oct",
+    "title": "Does performing preprocedural point-of-care ultrasound improve success rate for lumbar punctures in paediatric patients?",
+    "comment": "ยืนยันผลของ POCUS ในการเพิ่มอัตราความสำเร็จของการเจาะหลังในเด็ก",
+    "pmid": "42888024",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42888024/"
+  },
+  {
+    "date": "17 Oct",
+    "title": "Safeguarding in Emergency Care: Clarifying the Targeted 'Child-Check' Protocol.",
+    "comment": "ปรับปรุง protocol การคัดกรองความปลอดภัยเด็กใน ER ให้ชัดเจนขึ้นเพื่อลดความเสี่ยง",
+    "pmid": "42888527",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42888527/"
+  },
+  {
+    "date": "17 Oct",
+    "title": "An Accountable Encounter-Based Imaging Workflow for Point-of-Care Ultrasound: Integrating Image Availability, Clinician Attribution, and Documentation Accountability.",
+    "comment": "แนวทางจัดการ workflow การทำ POCUS ให้มีการบันทึกและรับผิดชอบผลการตรวจที่ได้มาตรฐาน",
+    "pmid": "42888312",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42888312/"
+  },
+  {
+    "date": "17 Oct",
+    "title": "Evaluating Explicit Anatomical Priors Beyond a Mature CT Detector for Six Acute Abdominal Emergencies.",
+    "comment": "พัฒนาการใช้ AI/Anatomical priors ในการช่วยวินิจฉัยภาวะฉุกเฉินทางหน้าท้อง 6 กลุ่มอาการ",
+    "pmid": "42888310",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42888310/"
+  },
+  {
+    "date": "17 Oct",
+    "title": "Sivelestat sodium improves post-resuscitation brain outcomes possibly by inhibiting cell pyroptosis via inactivating the cGAS/STING/TBK1 pathway.",
+    "comment": "ยา Sivelestat ช่วยปรับปรุงพยากรณ์โรคทางสมองหลังการ CPR โดยลดการอักเสบของเซลล์",
+    "pmid": "42887670",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42887670/"
+  },
+  {
+    "date": "17 Oct",
+    "title": "Endovascular treatment of tandem lesions: prognostic factors of functional outcome and the efficacy of emergent carotid stenting.",
+    "comment": "ข้อมูลการรักษา tandem lesions ด้วย endovascular และประสิทธิภาพของการทำ carotid stenting แบบฉุกเฉิน",
+    "pmid": "42887123",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42887123/"
+  },
+  {
+    "date": "17 Oct",
+    "title": "Kaposi sarcoma during Janus kinase inhibition: A systematic review of an emerging safety signal.",
+    "comment": "สัญญาณเตือนความปลอดภัย: พบความเสี่ยง Kaposi sarcoma ในผู้ป่วยที่ใช้ยากลุ่ม JAK inhibitors",
+    "pmid": "42887600",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42887600/"
+  },
+  {
+    "date": "17 Oct",
+    "title": "Physiotherapy contact in the emergency department and hospital re‑presentation rates: A systematic review and meta‑regression.",
+    "comment": "การให้กายภาพบำบัดตั้งแต่ใน ER ช่วยลดอัตราการกลับมาโรงพยาบาลซ้ำ",
+    "pmid": "42888147",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42888147/"
+  },
+  {
+    "date": "17 Oct",
     "title": "Long forms of cardiac troponin T are independent of kidney function and improve the diagnosis of myocardial infarction.",
     "comment": "ช่วยลด False positive ในคนไข้โรคไต เพิ่มความแม่นยำในการวินิจฉัย MI ใน ER",
     "pmid": "42886060",
@@ -411,82 +488,5 @@
     "comment": "Biomarker ใหม่สำหรับพยากรณ์โรคใน Sepsis ที่ไม่ขึ้นกับค่าไต",
     "pmid": "42865138",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42865138/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Cannabinoids for Acute Pain Management: A Contemporary Scoping Review of Evidence, Mechanisms, and Clinical Implications.",
-    "comment": "ทบทวนการใช้ Cannabinoids จัดการความปวดเฉียบพลัน ซึ่งเป็นประเด็นถกเถียงใน ER",
-    "pmid": "42864800",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42864800/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Benchmarking the trauma airway intubation.",
-    "comment": "กำหนดมาตรฐานการจัดการทางเดินหายใจในผู้ป่วย Trauma เพื่อเพิ่มความปลอดภัย",
-    "pmid": "42864525",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42864525/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Fibrinogen in trauma patients: finding the needle or shrinking the haystack?",
-    "comment": "วิเคราะห์การใช้ fibrinogen ในผู้ป่วย Trauma เพื่อปรับปรุงการให้เลือดและส่วนประกอบเลือด",
-    "pmid": "42864524",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42864524/"
-  },
-  {
-    "date": "13 Oct",
-    "title": "[Airway management in penetrating cervicofacial trauma: importance of fiberoptic intubation in anticipated difficult airways].",
-    "comment": "เน้นความสำคัญของ Fiberoptic intubation ในผู้ป่วย trauma บริเวณใบหน้าและลำคอ",
-    "pmid": "42864418",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42864418/"
-  },
-  {
-    "date": "13 Oct",
-    "title": "Benzodiazepine Use Early in Pregnancy and Risk for Congenital Malformations.",
-    "comment": "ข้อมูลความเสี่ยงของ BZD ในช่วงต้นของการตั้งครรภ์ที่แพทย์ ER ต้องระวังเมื่อสั่งยา",
-    "pmid": "42863122",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42863122/"
-  },
-  {
-    "date": "13 Oct",
-    "title": "The trauma brain CT scan is positive. Now what?",
-    "comment": "แนวทางการจัดการทางคลินิกทันทีหลังจากพบผล CT brain เป็นบวกในผู้ป่วย trauma",
-    "pmid": "42864522",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42864522/"
-  },
-  {
-    "date": "13 Oct",
-    "title": "Canadian Cardiovascular Society/Canadian Society of Cardiovascular Surgery/Canadian Association of Interventional Cardiology Clinical Practice Update on Transcatheter Mitral and Tricuspid Valve Intervention: Patient Evaluation and Management.",
-    "comment": "Update แนวทางการดูแลผู้ป่วยที่ใส่ลิ้นหัวใจ TAVR/TMVR สำคัญต่อการจัดการใน ER",
-    "pmid": "42862133",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42862133/"
-  },
-  {
-    "date": "13 Oct",
-    "title": "Labetalol-induced hyperkalemia in acute aortic dissection: A rare but clinically relevant adverse effect.",
-    "comment": "Safety Signal: ระวัง Hyperkalemia เมื่อใช้ Labetalol ในเคส Aortic dissection",
-    "pmid": "42862110",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42862110/"
-  },
-  {
-    "date": "13 Oct",
-    "title": "Deconstructing the Modified Sequential Organ Failure Assessment (mSOFA) Score: A Decision Tree Analysis Reveals the Pathophysiological Hierarchy of Organ Dysfunction Predictors in Prehospital Critical Care.",
-    "comment": "ช่วยให้เข้าใจและนำ mSOFA ไปใช้คัดกรองผู้ป่วยวิกฤตในระยะ Prehospital ได้แม่นยำขึ้น",
-    "pmid": "42861714",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42861714/"
-  },
-  {
-    "date": "13 Oct",
-    "title": "Beyond the oscillometric cuff: the utility of point-of-care ultrasound-derived blood pressure in shock.",
-    "comment": "Novel Tool: การใช้ POCUS ประเมิน BP ในผู้ป่วย Shock แทน cuff แบบเดิม",
-    "pmid": "42860303",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42860303/"
-  },
-  {
-    "date": "13 Oct",
-    "title": "Invasive Bacterial Infections Other Than Escherichia coli and Streptococcus agalactiae in Febrile Infants Younger Than 90 Days: A Multicenter Emergency Department Study.",
-    "comment": "ข้อมูลเชื้อก่อโรคในทารกมีไข้ ช่วยปรับแนวทางการเลือก Empiric antibiotics ใน ER",
-    "pmid": "42860599",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42860599/"
   }
 ]
