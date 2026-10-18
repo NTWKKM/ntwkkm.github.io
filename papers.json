@@ -1,17 +1,73 @@
 [
   {
     "date": "18 Oct",
+    "title": "Efficacy and Safety of Etomidate Versus Ketamine for Endotracheal Intubation in Critically Ill Patients: A Systematic Review and Meta-Analysis.",
+    "comment": "เปรียบเทียบยา Induction ที่ใช้บ่อยใน ER ช่วยในการตัดสินใจเลือกยาให้เหมาะสมกับผู้ป่วยวิกฤต",
+    "pmid": "42893350",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42893350/"
+  },
+  {
+    "date": "18 Oct",
+    "title": "Decompressive craniectomy in adults with moderate to severe traumatic brain injury: A systematic review and meta-analysis of randomised controlled trials.",
+    "comment": "ข้อมูลระดับ Meta-analysis เรื่องการผ่าตัดลดความดันในสมอง ซึ่งมีผลต่อการรอดชีวิตและพิการ",
+    "pmid": "42893097",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42893097/"
+  },
+  {
+    "date": "18 Oct",
     "title": "Octreotide Plus Proton pump inhibitor (PPI) versus PPI alone in Non-Variceal Upper gastrointestinal (GI) Bleeding in intensive care unit (ICU): A Multi-Center Randomized Trial.",
-    "comment": "RCT ประเมิน Octreotide ใน Non-variceal UGIB ซึ่งอาจเปลี่ยนแนวทางการรักษาใน ICU",
+    "comment": "RCT ใหม่เกี่ยวกับการจัดการ GI bleed ที่ไม่ใช่ variceal ซึ่งอาจเปลี่ยนแนวทางการให้ยาใน ICU/ER",
     "pmid": "42892527",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42892527/"
   },
   {
     "date": "18 Oct",
+    "title": "Automated Calculation of the Pediatric Emergency Care Applied Research Network (PECARN) Intra-Abdominal Injury Rule from Unstructured Emergency Department Notes Using a Large Language Model.",
+    "comment": "การใช้ LLM ช่วยคำนวณ PECARN score จาก note เพื่อลดความผิดพลาดและเพิ่มความเร็วในการคัดกรองเด็ก",
+    "pmid": "42893265",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42893265/"
+  },
+  {
+    "date": "18 Oct",
     "title": "Intimate Partner Violence and Suicide Risk among Women Presenting to Emergency Departments: A Systematic Review, Meta-Analysis, and Narrative Synthesis.",
-    "comment": "ข้อมูลความเสี่ยงสูงที่แพทย์ ER ต้องคัดกรองเพื่อป้องกันการฆ่าตัวตายในผู้ป่วยหญิง",
+    "comment": "ระบุกลุ่มเสี่ยงสูงต่อการฆ่าตัวตายใน ER ที่ต้องได้รับการประเมินทางจิตเวชอย่างเร่งด่วน",
     "pmid": "42891520",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42891520/"
+  },
+  {
+    "date": "18 Oct",
+    "title": "Prehospital extracorporeal cardiopulmonary resuscitation for refractory out-of-hospital cardiac arrest: a protocol for the Rapid prehospital ACcess to ECPR in Prague (RACE Prague) single-arm pilot feasibility study.",
+    "comment": "แนวทางการทำ ECPR ตั้งแต่ก่อนถึงโรงพยาบาลสำหรับ OHCA ที่ไม่ตอบสนองต่อการ CPR ปกติ",
+    "pmid": "42893205",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42893205/"
+  },
+  {
+    "date": "18 Oct",
+    "title": "A systematic review of laxative use in critically unwell patients: Are we doing more harm than good?",
+    "comment": "ทบทวนความปลอดภัยของการใช้ยาถ่ายในผู้ป่วยวิกฤต ซึ่งอาจมีผลเสียมากกว่าประโยชน์",
+    "pmid": "42892790",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42892790/"
+  },
+  {
+    "date": "18 Oct",
+    "title": "Improving Arterial Blood Gas Sampling Practice in the Emergency Department: A Two-Cycle Clinical Audit.",
+    "comment": "ข้อมูลการปรับปรุงคุณภาพการเจาะ ABG ใน ER เพื่อลดภาวะแทรกซ้อนและเพิ่มความแม่นยำ",
+    "pmid": "42893309",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42893309/"
+  },
+  {
+    "date": "18 Oct",
+    "title": "Utility of Point-of-care Ultrasound in Clinical Care: A Narrative Review.",
+    "comment": "สรุปการใช้ POCUS ในคลินิก ซึ่งเป็นเครื่องมือสำคัญที่ช่วยในการวินิจฉัยรวดเร็วใน ER",
+    "pmid": "42891441",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42891441/"
+  },
+  {
+    "date": "18 Oct",
+    "title": "Longitudinal measurements of inflammatory mediators in patients at risk of sepsis in the Emergency Department.",
+    "comment": "การใช้ตัวบ่งชี้การอักเสบติดตามผลในผู้ป่วยเสี่ยง Sepsis เพื่อการวินิจฉัยและรักษาที่รวดเร็วขึ้น",
+    "pmid": "42892907",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42892907/"
   },
   {
     "date": "18 Oct",
@@ -19,27 +75,6 @@
     "comment": "เครื่องมือช่วยคัดกรองภาวะสมองเสื่อมที่ยังไม่ถูกวินิจฉัยใน ER เพื่อการจัดการที่เหมาะสม",
     "pmid": "42891040",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42891040/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Longitudinal measurements of inflammatory mediators in patients at risk of sepsis in the Emergency Department.",
-    "comment": "การใช้ inflammatory mediators ติดตามผู้ป่วยกลุ่มเสี่ยง sepsis เพื่อการวินิจฉัยที่รวดเร็วขึ้น",
-    "pmid": "42892907",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42892907/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "A systematic review of laxative use in critically unwell patients: Are we doing more harm than good?",
-    "comment": "ทบทวนความปลอดภัยการใช้ยาระบายในผู้ป่วยวิกฤต ซึ่งอาจขัดกับความเชื่อเดิม",
-    "pmid": "42892790",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42892790/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Utility of Point-of-care Ultrasound in Clinical Care: A Narrative Review.",
-    "comment": "รวบรวมการใช้ POCUS ในคลินิกเพื่อเพิ่มความแม่นยำในการวินิจฉัยฉุกเฉิน",
-    "pmid": "42891441",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42891441/"
   },
   {
     "date": "18 Oct",
@@ -453,40 +488,5 @@
     "comment": "การวางระบบส่งต่อและการจัดการระดับภูมิภาคสำหรับผู้ป่วยวิกฤต Cardiogenic Shock",
     "pmid": "42866097",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42866097/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Safety of Intravenous Ibuprofen Administration in the Pediatric Emergency Department.",
-    "comment": "ข้อมูลความปลอดภัยของการใช้ IV Ibuprofen ในเด็ก ซึ่งเป็นทางเลือกในการลดปวด/ลดไข้ใน ER",
-    "pmid": "42866619",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42866619/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Screening for Left Ventricular Dysfunction in Sepsis Using a Smartphone ECG Analysis Application: A Multicenter Validation Study.",
-    "comment": "เครื่องมือใหม่ใช้ Smartphone ECG คัดกรอง LV dysfunction ในผู้ป่วย Sepsis ได้ทันที",
-    "pmid": "42865282",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42865282/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Pancreatic and biliary safety signals of GLP-1 receptor agonists and tirzepatide: a disproportionality analysis of FAERS reports.",
-    "comment": "สัญญาณเตือนความเสี่ยงต่อตับอ่อนและทางเดินน้ำดีจากยากลุ่ม GLP-1 ที่แพทย์ต้องเฝ้าระวัง",
-    "pmid": "42865361",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42865361/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Predictive analysis in acute ischemic stroke imaging.",
-    "comment": "การวิเคราะห์ภาพถ่ายทางรังสีเพื่อทำนายผลลัพธ์ในผู้ป่วย Acute Ischemic Stroke",
-    "pmid": "42866768",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42866768/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Multi-model comparison and nomogram development for predicting in-hospital mortality in Trauma patients based on NLR and other indicators.",
-    "comment": "การใช้ NLR และตัวชี้วัดอื่นทำนายอัตราการเสียชีวิตในโรงพยาบาลของผู้ป่วย Trauma",
-    "pmid": "42866760",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42866760/"
   }
 ]
