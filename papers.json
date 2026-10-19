@@ -1,10 +1,87 @@
 [
   {
-    "date": "18 Oct",
+    "date": "19 Oct",
+    "title": "What's new in point-of-care lung ultrasound: reading the new recommendations.",
+    "comment": "อัปเดตคำแนะนำการใช้ POCUS ปอด ซึ่งเป็นเครื่องมือสำคัญในการวินิจฉัยโรคเฉียบพลันใน ER",
+    "pmid": "42895537",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42895537/"
+  },
+  {
+    "date": "19 Oct",
+    "title": "ICare-FASTER (Improving Care by Faster Risk Stratification Through Use of High-Sensitivity Point-of-Care Troponin in Patients Presenting With Possible Acute Coronary Syndrome in the Emergency Department): A Stepped-Wedge Cluster-Randomized Trial.",
+    "comment": "ทดสอบ hs-POC Troponin เพื่อเพิ่มความเร็วในการคัดกรองผู้ป่วย ACS ใน ER",
+    "pmid": "42895015",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42895015/"
+  },
+  {
+    "date": "19 Oct",
+    "title": "Use of Intranasal Analgesia for Acute Pain in Pediatric Emergency Departments: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+    "comment": "หลักฐานการใช้ยาแก้ปวดทางจมูกในเด็ก ซึ่งเป็นทางเลือกที่ลดความเจ็บปวดจากการฉีดยา",
+    "pmid": "42895051",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42895051/"
+  },
+  {
+    "date": "19 Oct",
+    "title": "Diagnostic accuracy of high-sensitivity point-of-care troponin assays in emergency department for patients presenting with chest pain: a systematic review.",
+    "comment": "ยืนยันความแม่นยำของ hs-POC Troponin ในการคัดกรอง Chest pain ใน ER",
+    "pmid": "42894477",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42894477/"
+  },
+  {
+    "date": "19 Oct",
     "title": "Efficacy and Safety of Etomidate Versus Ketamine for Endotracheal Intubation in Critically Ill Patients: A Systematic Review and Meta-Analysis.",
-    "comment": "เปรียบเทียบยา Induction ที่ใช้บ่อยใน ER ช่วยในการตัดสินใจเลือกยาให้เหมาะสมกับผู้ป่วยวิกฤต",
+    "comment": "เปรียบเทียบยาเหนี่ยวนำการนำสอดท่อช่วยหายใจในผู้ป่วยวิกฤต มีผลต่อการเลือกยาใน ER",
     "pmid": "42893350",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42893350/"
+  },
+  {
+    "date": "19 Oct",
+    "title": "Nebulized Magnesium Sulfate as an Adjunct to Standard Therapy in Infants with Acute Bronchiolitis: A Double Blind Randomized Controlled Trial.",
+    "comment": "การใช้ MgSO4 พ่นยาเป็นทางเลือกเสริมในการรักษา Bronchiolitis ในทารก",
+    "pmid": "42894611",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42894611/"
+  },
+  {
+    "date": "19 Oct",
+    "title": "Human Factors-Driven Optimization of Pediatric Resuscitation Workflow Using Integrated Color-Coded Systems: A Randomized Crossover Study.",
+    "comment": "ใช้ระบบ Color-code เพื่อลดความผิดพลาดและเพิ่มประสิทธิภาพการกู้ชีพในเด็ก",
+    "pmid": "42894359",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42894359/"
+  },
+  {
+    "date": "19 Oct",
+    "title": "A Drone-Integrated Artificial Intelligence-Based System for Mass-Casualty Triage and Remote Monitoring.",
+    "comment": "นวัตกรรม AI และโดรนเพื่อการ Triage ผู้บาดเจ็บจำนวนมากในสถานการณ์ภัยพิบัติ",
+    "pmid": "42895141",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42895141/"
+  },
+  {
+    "date": "19 Oct",
+    "title": "Buprenorphine Following Ketamine for Suicidal Ideation: A Bridge to Care from the Emergency Department.",
+    "comment": "แนวทางการใช้ Buprenorphine ต่อเนื่องจาก Ketamine ในผู้ป่วย Suicidal ideation ใน ER",
+    "pmid": "42894304",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42894304/"
+  },
+  {
+    "date": "19 Oct",
+    "title": "Procalcitonin-Guided Antimicrobial Therapy: Current Evidence for Clinical Decision-Making and Practical Limitations.",
+    "comment": "ทบทวนการใช้ PCT ในการตัดสินใจให้/หยุดยาฆ่าเชื้อ เพื่อลดการดื้อยา",
+    "pmid": "42894527",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42894527/"
+  },
+  {
+    "date": "19 Oct",
+    "title": "Palpitations in children and adolescents in the emergency department: a state-of-the-art narrative review of arrhythmia risk, diagnostic strategy, and disposition.",
+    "comment": "แนวทางการวินิจฉัยและจัดการอาการใจสั่นในเด็กและวัยรุ่นที่มา ER",
+    "pmid": "42894485",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42894485/"
+  },
+  {
+    "date": "19 Oct",
+    "title": "Assessing Medication Confounders Before Determination of Brain Death/Death by Neurologic Criteria: A Primer, with Opioids as a Worked Example.",
+    "comment": "ข้อควรระวังเรื่องยา (เช่น Opioids) ที่อาจรบกวนการวินิจฉัยสมองตาย",
+    "pmid": "42895303",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42895303/"
   },
   {
     "date": "18 Oct",
@@ -411,82 +488,5 @@
     "comment": "Algorithm ใหม่ใช้ POC hs-cTnI ช่วยให้วินิจฉัย MI ได้เร็วขึ้นและลดระยะเวลารอคอย",
     "pmid": "42869272",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42869272/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Counterfeit and unregulated GLP-1 receptor agonists: an unmeasured variable in emergency department procedural sedation risk.",
-    "comment": "คำเตือนเรื่องความปลอดภัย: ยาลดน้ำหนักปลอมส่งผลต่อความเสี่ยงในการให้ยาสลบ/Sedation ใน ER",
-    "pmid": "42869636",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42869636/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Moving diagnostics upstream: prehospital blood gas analysis is associated with safe community care and improved patient selection for hospital admission.",
-    "comment": "การตรวจ Blood gas ตั้งแต่ก่อนถึงโรงพยาบาลช่วยคัดกรองผู้ป่วยและลดการ admit ที่ไม่จำเป็น",
-    "pmid": "42869640",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42869640/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Prehospital recognition of sepsis is associated with earlier antibiotic administration in the emergency department : A retrospective cohort study.",
-    "comment": "การระบุภาวะ Sepsis ตั้งแต่ระยะ prehospital ช่วยให้ผู้ป่วยได้รับยาฆ่าเชื้อเร็วขึ้นเมื่อถึง ER",
-    "pmid": "42867521",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42867521/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Diagnostic performance of an open-source artificial intelligence model for detecting chest infections on after-hours emergency department chest radiographs in Singapore.",
-    "comment": "การใช้ AI ช่วยอ่าน CXR เพื่อตรวจหาการติดเชื้อในปอดช่วงนอกเวลาช่วยเพิ่มความแม่นยำ",
-    "pmid": "42869615",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42869615/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Multidisciplinary perspectives on managing functional/dissociative seizures in the emergency department: A survey of medical, nursing, and allied health clinicians.",
-    "comment": "แนวทางการจัดการ Functional Seizures ใน ER เพื่อให้การดูแลเป็นไปในทิศทางเดียวกัน",
-    "pmid": "42869697",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42869697/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "The Fast Care Model and Clinical Leadership in the Emergency Department: A Randomized Clinical Trial.",
-    "comment": "การใช้ Fast Care Model และการปรับ Leadership ช่วยเพิ่มประสิทธิภาพการไหลเวียนผู้ป่วยใน ER",
-    "pmid": "42867437",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42867437/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Phlebotomy technique and its impact on haemolysis in the emergency department.",
-    "comment": "ข้อมูลด้านเทคนิคการเจาะเลือดเพื่อลดการเกิด Hemolysis ซึ่งส่งผลต่อการแปลผล Lab ใน ER",
-    "pmid": "42868200",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42868200/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Yield and disparities in newly diagnosed HIV identified through a universal emergency department-based screening program in South Florida.",
-    "comment": "ผลลัพธ์ของการคัดกรอง HIV แบบ Universal ใน ER ช่วยเพิ่มอัตราการตรวจพบผู้ติดเชื้อรายใหม่",
-    "pmid": "42869777",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42869777/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Cardiogenic Shock Systems of Care Best Practices. Part 1: Prehospital and Emergency Department Evaluation and Management.",
-    "comment": "แนวทางปฏิบัติที่ดีที่สุดในการประเมินและจัดการ Cardiogenic Shock ใน ER และ Prehospital",
-    "pmid": "42866104",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42866104/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Cardiogenic Shock Systems of Care Best Practices. Part 2: The Shock Team and Inpatient Management.",
-    "comment": "การจัดตั้ง Shock Team และการจัดการผู้ป่วยในเพื่อลดอัตราการเสียชีวิต",
-    "pmid": "42866100",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42866100/"
-  },
-  {
-    "date": "14 Oct",
-    "title": "Cardiogenic Shock Systems of Care Best Practices, Part 3: Regionalization of Care, Organizational Components, and Critical Care Transport Medicine.",
-    "comment": "การวางระบบส่งต่อและการจัดการระดับภูมิภาคสำหรับผู้ป่วยวิกฤต Cardiogenic Shock",
-    "pmid": "42866097",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42866097/"
   }
 ]
