@@ -14,8 +14,6 @@ Static personal website hosted on GitHub Pages (`ntwkkm.github.io`). Serves as a
 | `index.css` | Homepage-specific minimal styling |
 | `blog.html` | Research blog reader — sidebar list + article detail view |
 | `blog.css` | Blog-specific minimal styling |
-| `tracking/index.html` | Package tracking dashboard — Thailand Post status viewer |
-| `tracking/tracking.css` | Package tracker specific minimal styling |
 | `pl/index.html` | `[NEW]` NTWKKM Knowledge Vault — Auto-synced from private `NTWKKM/pl` |
 | `manifest.json` | `[NEW]` PWA manifest — installable web app experience |
 | `sw.js` | `[NEW]` Service Worker — offline caching and resilience |
@@ -54,17 +52,6 @@ Private Repository Synchronization (pl/):
     ├── Clones private NTWKKM/pl repository using PAT_FOR_PL
     ├── Injects into pl/ subdirectory during build
     └── Deploys securely to GitHub Pages without exposing repo access
-
-Package Tracking Pipeline:
-  n8n Workflow 4 (add-tracking, on-demand via webhook):
-    └── Dashboard form POST → n8n webhook → GET/PUT track_list.json via GitHub API
-
-  GitHub Actions (track-packages.yml, 4x/day + on push to track_list.json):
-    ├── Reads tracking/track_list.json
-    ├── Calls Thailand Post Track & Trace API (2-step token auth)
-    ├── Diffs new status against tracking/status_store.json
-    ├── Commits only when status changes ([skip ci])
-    └── Dashboard: tracking/index.html fetches status_store.json client-side
 ```
 
 ### Pipeline Chains
@@ -80,12 +67,6 @@ Path B — latest_updates.json (Workflow 3, daily 02:25):
     → Triggers: process-blog-data.yml (merge + chunk + index + delete)
     → Triggers: pages-build-deployment.yml (deploy to GitHub Pages)
     → update-readme.yml ignores latest_updates.json (paths-ignore)
-
-Path C — tracking/track_list.json (Workflow 4, on-demand):
-  Dashboard form → n8n webhook → commits track_list.json via GitHub API
-    → Triggers: track-packages.yml (poll Thailand Post API & generate auth.json)
-    → Commits tracking/status_store.json and auth.json
-    → Triggers: pages-build-deployment.yml
 ```
 
 ### Key Rules
@@ -95,9 +76,6 @@ Path C — tracking/track_list.json (Workflow 4, on-demand):
 - `blog_index.json` — **Auto-generated.** Written by `process_blog.js` with relative paths (e.g., `data/blog/research_chunk_1.json`). Never edit manually.
 - `papers.json` — **Automated.** Merged by Workflow 1 (dedup by link + PMID, cap 70 items, 2x/day). Do not edit manually.
 - `projects.json` — **Manual.** Edit directly to add/remove project cards.
-- `tracking/track_list.json` — **Semi-automated.** Add barcodes via dashboard webhook form (n8n Workflow 4) or edit directly. Remove manually.
-- `tracking/status_store.json` — **Auto-generated / Encrypted.** Updated by `tracker.py` via GitHub Actions. When `TRACKING_PASSCODE` is configured, this file is cryptographically encrypted using AES-256-GCM so that tracking data remains secure on public GitHub Pages. Never edit manually.
-- `tracking/auth.json` — **Auto-generated.** SHA-256 hash of the `TRACKING_PASSCODE` GitHub Secret. Used as a legacy fallback client-side gate if encryption is disabled.
 
 > **Deduplication (Dual-Layer):** The processing script (`process_blog.js`) uses a **primary** `Map<id, post>` strategy (Notion page ID) and a **secondary** `Set<pmid>` check. If a new entry has the same PMID as an existing post but a different Notion ID, it is skipped as duplicate content. This prevents the same PubMed paper from appearing multiple times when it gets re-processed through different Notion pages.
 
@@ -219,38 +197,6 @@ Notion Ai-research DB (sorted by last_edited, limit 20)
 
 ---
 
-### Workflow 4: `add-tracking` — Package Tracking Input
-
-**Purpose:** Accept new tracking barcodes from the dashboard form and commit to `track_list.json` via GitHub API. Designed to handle Fly.io scale-to-zero cold starts gracefully.
-
-| Property | Value |
-| --- | --- |
-| Trigger | Webhook POST from `tracking/index.html` |
-| Endpoint | `https://ntwkkm-n8n-final.fly.dev/webhook/add-tracking` |
-| Output | `tracking/track_list.json` (GitHub commit) |
-| CORS | Handled natively by n8n Webhook Node (Restricted to `https://ntwkkm.github.io`) |
-
-**Pipeline:**
-
-```text
-Frontend: GET /healthz (No-CORS) to pre-warm Fly.io server on form open
-  ↓
-Webhook POST (barcode, note)
-  → Validate Input (Empty Check) ──[Empty]──→ Respond 400
-  → GET tracking/track_list.json via GitHub API
-  → Code: Decode Base64 → Validate Regex → Dedup Check → Append
-  → Routing (If Nodes):
-      ├── [Error/Invalid Format] → Respond 400
-      ├── [Duplicate Barcode] ───→ Respond 409 Conflict
-      └── [Valid & New] ─────────→ PUT track_list.json (Commit)
-                                     ↳ Respond 200 Success
-  → Commit triggers: track-packages.yml (poll Thailand Post API)
-```
-
-**Cold Start Mitigation:** The n8n instance runs on a Fly.io free tier which sleeps when inactive. The frontend implements a "Pre-warm" strategy by firing a background `GET /healthz` request as soon as the user opens the Add Tracking form, ensuring the instance is awake by the time the user hits submit. The UI also provides a `⏳ Waking server...` fallback message if the webhook takes > 2.5s.
-
-**Validation & Deduplication:** The Code node strictly checks the `XX000000000XX` format and prevents duplicate entries. Duplicates route to a dedicated response node returning `409 Conflict`, which the frontend catches to display a specific "already being tracked" warning.
-
 ---
 
 ### Workflow Orchestration
@@ -264,14 +210,11 @@ Schedule Overview (Daily):
                         └── Triggers: process-blog-data.yml → chunked blog data
                         └── Triggers: pages-build-deployment.yml → deploy
 
-  04:00 - 07:30  (Every 30 mins) track-packages.yml (Thailand Post API)
-  08:00, 12:00, 18:00, 22:00     track-packages.yml (Thailand Post API)
-
   05:01  Workflow 1 — Second run (same as above)
   05:15  Workflow 2 — Second run (same as above)
 ```
 
-### Data Flow 1: Medical Research Pipeline
+### Data Flow: Medical Research Pipeline
 
 ```mermaid
 graph LR
@@ -287,16 +230,6 @@ graph LR
     G -->|"Triggers"| DEPLOY["GitHub Actions<br/>pages-build-deployment.yml"]
 ```
 
-### Data Flow 2: Package Tracking System
-
-```mermaid
-graph LR
-    W4["Workflow 4<br/>add-tracking (Webhook)"] -->|"track_list.json"| G["GitHub Repo"]
-    G -->|"Triggers"| TP["GitHub Actions<br/>track-packages.yml"]
-    TP -->|"status_store.json<br/>auth.json"| G
-    G -->|"Triggers"| DEPLOY["GitHub Actions<br/>pages-build-deployment.yml"]
-```
-
 ### External Services
 
 | Service | Role |
@@ -306,8 +239,7 @@ graph LR
 | **Gemini 2.5 Pro** | High-quality clinical curation with expert persona (Workflow 1) |
 | **Notion** | Primary data warehouse — stores all processed papers, index logs, and curated selections |
 | **LINE Messaging API** | Notification channel + chat-based trigger for on-demand searches |
-| **GitHub API** | Direct file commits (`papers.json`, `latest_updates.json`, `track_list.json`) |
-| **Thailand Post API** | Track & Trace barcode status polling (2-step token auth, Workflow 4 + GitHub Actions) |
+| **GitHub API** | Direct file commits (`papers.json`, `latest_updates.json`) |
 
 ## NTWKKM Knowledge Vault (`pl/`)
 
@@ -332,7 +264,6 @@ The NTWKKM Knowledge Vault is an automated, dynamic resource hub and clinical in
 | `process-blog-data.yml` | Push to `latest_updates.json` or manual | `blog-data-processing` | Merge, deduplicate, chunk blog data |
 | `pages-build-deployment.yml` | Push to `main`, manual, or `repository_dispatch` | `pages` | Build, fetch private `pl` repo, and deploy to Pages |
 | `update-readme.yml` | Push to `main` (ignores `README.md`, `latest_updates.json`) | `readme-update` | Auto-generate repository tree in README |
-| `track-packages.yml` | Schedule (4x/day), push to `track_list.json`, or manual | `package-tracking` | Poll Thailand Post API, update tracking status |
 
 > **Concurrency:** All workflows use `cancel-in-progress: false` to ensure sequential execution. This prevents deployment conflicts when multiple n8n commits arrive in quick succession.
 
@@ -342,7 +273,6 @@ The NTWKKM Knowledge Vault is an automated, dynamic resource hub and clinical in
 | --- | --- |
 | `.github/scripts/process_blog.js` | Merge `latest_updates.json` with existing chunks, deduplicate by Notion ID (primary) + PMID (secondary), split into ≤200-post files, update `blog_index.json` |
 | `.github/scripts/generate_readme.js` | Generate repository file tree for README.md (collapses `data/blog/` to summary) |
-| `.github/scripts/tracker.py` | Authenticate with Thailand Post API, fetch tracking events, diff against `status_store.json`, update on changes |
 
 ## Theming
 
@@ -363,7 +293,6 @@ All pages use `data-theme="light|dark"` on the `<html>` element with `localStora
 - `shared.css` — Common styles (variables, reset, smooth scroll, custom scrollbar, toast notifications, skeleton loading, theme toggle, skip-to-content, reduced-motion, search highlight, citation modal, error states)
 - `index.css` — Homepage-specific minimal styling (paper slider, portfolio grid, buttons)
 - `blog.css` — Blog-specific minimal styling (sidebar, article view, search, filters, ToC)
-- `tracking/tracking.css` — Tracking dashboard specific minimal styling (passcode gate, status timeline, package grid)
 
 **JavaScript (Core):**
 
@@ -379,7 +308,7 @@ All JSON data is sanitized before DOM injection via centralized functions in `sh
 - `escapeHTML(str)` — escapes `<`, `>`, `&`, `"`, `'`, `` ` `` entities
 - `sanitizeURL(url)` — validates `http:` / `https:` protocol only
 
-> **Deduplication:** `escapeHTML` and `sanitizeURL` are defined **only** in `shared.js`. All pages (`index.html`, `blog.html`, `tracking/index.html`) import `shared.js` — no page-local duplicates.
+> **Deduplication:** `escapeHTML` and `sanitizeURL` are defined **only** in `shared.js`. All pages (`index.html`, `blog.html`) import `shared.js` — no page-local duplicates.
 
 ## Tag Filtering (blog.html)
 
@@ -402,19 +331,19 @@ All JSON data is sanitized before DOM injection via centralized functions in `sh
 
 ## Navigation Bar Consistency & Responsive Alignment
 
-- **Unified Colors:** Headers in the `tracking` module are standardized to match the homepage's sticky header gradient (`linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)`) and flat, borderless buttons to present a consistent, premium design theme.
+- **Unified Colors:** Sub-page headers are standardized to match the homepage's sticky header gradient (`linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)`) and flat, borderless buttons to present a consistent, premium design theme.
 - **Flex Controls Alignment:** Navigation action controls (links, buttons, toggles) are aligned as a flex container (`display: flex; align-items: center; gap: 12px;`) across both desktop and mobile viewports. On mobile screens (< 768px), they format as compact icon-only buttons (hiding text labels) and align strictly to the right (`justify-content: flex-end;`) to optimize space.
 
 ## Caching & Offline Resilience
 
 - JSON fetches include `?v=${Date.now()}` or hourly cache-buster to ensure freshness after n8n updates
 - `blog.html` has a 5-minute `localStorage` cache (`research_blog_data_v2`) — version key bumped on schema changes to force invalidation
-- **Service Worker** (`sw.js`) implements a multi-cache strategy (v3):
-  - `ntwkkm-static-v3` — Static assets (`/`, `/index.html`, `/index.css`, `/blog.html`, `/blog.css`, `/shared.css`, `/shared.js`, `/manifest.json`, `/tracking/`, `/tracking/tracking.css`): cache-first with background refresh and `{ ignoreSearch: true }` query resilience.
-  - `ntwkkm-dynamic-v3` — Dynamic content (`/papers.json`, `/projects.json`, `/blog_index.json`, `/data/blog/`, `/tracking/status_store.json`, `/tracking/auth.json`, `/tracking/track_list.json`): network-first with cache fallback and `{ ignoreSearch: true }` query resilience.
+- **Service Worker** (`sw.js`) implements a multi-cache strategy (v5):
+  - `ntwkkm-static-v5` — Static assets (`/`, `/index.html`, `/index.css`, `/blog.html`, `/blog.css`, `/shared.css`, `/shared.js`, `/manifest.json`): cache-first with background refresh and `{ ignoreSearch: true }` query resilience.
+  - `ntwkkm-dynamic-v5` — Dynamic content (`/papers.json`, `/projects.json`, `/blog_index.json`, `/data/blog/`): network-first with cache fallback and `{ ignoreSearch: true }` query resilience.
   - `ntwkkm-fonts-v1` — Google Fonts: separate long-lived cache (fonts rarely change)
   - Cache versions are bumped on deployments to force client refresh
-  - Offline support for core pages, with path-aware document fallbacks (`/tracking/`, `/blog.html`) instead of blanket redirection to home.
+  - Offline support for core pages, with path-aware document fallbacks (`/blog.html`) instead of blanket redirection to home.
   - Anti-FOUC (Flash of Un-themed Content) standard: early inline script in `<head>` initializes `data-theme` synchronously before layout parsing on all sub-pages.
 
 ## Enhanced Features (Recent Updates)

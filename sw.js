@@ -4,8 +4,8 @@
  * and network-first with cache fallback for dynamic content.
  */
 
-const STATIC_CACHE = 'ntwkkm-static-v4';
-const DYNAMIC_CACHE = 'ntwkkm-dynamic-v4';
+const STATIC_CACHE = 'ntwkkm-static-v5';
+const DYNAMIC_CACHE = 'ntwkkm-dynamic-v5';
 const FONTS_CACHE = 'ntwkkm-fonts-v1';
 
 // Static assets to cache on install
@@ -17,9 +17,7 @@ const STATIC_ASSETS = [
     '/blog.css',
     '/shared.css',
     '/shared.js',
-    '/manifest.json',
-    '/tracking/',
-    '/tracking/tracking.css'
+    '/manifest.json'
 ];
 
 // Dynamic content that should be network-first
@@ -27,10 +25,7 @@ const DYNAMIC_PATHS = [
     '/papers.json',
     '/projects.json',
     '/blog_index.json',
-    '/data/blog/',
-    '/tracking/status_store.json',
-    '/tracking/auth.json',
-    '/tracking/track_list.json'
+    '/data/blog/'
 ];
 
 // Install event - cache static assets
@@ -142,9 +137,6 @@ self.addEventListener('fetch', (event) => {
 
                             // Return offline page for HTML requests
                             if (event.request.destination === 'document') {
-                                if (pathname.includes('/tracking')) {
-                                    return caches.match('/tracking/', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
-                                }
                                 if (pathname.includes('/blog')) {
                                     return caches.match('/blog.html', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
                                 }
@@ -196,9 +188,6 @@ self.addEventListener('fetch', (event) => {
                         .catch(() => {
                             // Return offline page for HTML requests
                             if (event.request.destination === 'document') {
-                                if (pathname.includes('/tracking')) {
-                                    return caches.match('/tracking/', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
-                                }
                                 if (pathname.includes('/blog')) {
                                     return caches.match('/blog.html', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
                                 }
