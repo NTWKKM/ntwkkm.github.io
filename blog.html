@@ -1078,7 +1078,7 @@
             const lines = text.split(/\n/);
             let html = '';
             lines.forEach(line => {
-                let cleanLine = line.trim().replace(/^[-•*]\s*/, '');
+                let cleanLine = line.trim().replace(/^(?:[-•]\s*|\*\s+)/, '');
                 if (!cleanLine) return;
 
                 let sectionTitle = "";
