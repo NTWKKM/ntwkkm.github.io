@@ -666,7 +666,8 @@
                 } else if (e.key === '/') {
                     if (e.ctrlKey || e.metaKey || e.altKey) return;
                     e.preventDefault();
-                    if (window.innerWidth <= 1024) {
+                    const sidebar = document.getElementById('sidebar');
+                    if (window.innerWidth <= 1024 || (sidebar && sidebar.classList.contains('collapsed'))) {
                         openSidebar();
                     }
                     const searchInput = document.getElementById('search-input');
