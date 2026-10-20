@@ -651,6 +651,9 @@
                 if (isInput) {
                     if (e.key === 'Escape') {
                         document.activeElement.blur();
+                        if (window.innerWidth <= 1024) {
+                            closeSidebar();
+                        }
                     }
                     return;
                 }
@@ -661,6 +664,7 @@
                 } else if (e.key === 'ArrowRight') {
                     navigateArticle(1);
                 } else if (e.key === '/') {
+                    if (e.ctrlKey || e.metaKey || e.altKey) return;
                     e.preventDefault();
                     if (window.innerWidth <= 1024) {
                         openSidebar();
