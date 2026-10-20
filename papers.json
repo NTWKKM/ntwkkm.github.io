@@ -1,17 +1,87 @@
 [
   {
     "date": "20 Oct",
+    "title": "Clevidipine vs. nicardipine in hypertensive crisis: a systematic review and meta-analysis.",
+    "comment": "เปรียบเทียบยาฉีดลดความดันในภาวะวิกฤต ช่วยตัดสินใจเลือกใช้ยาให้เหมาะสมกับคนไข้",
+    "pmid": "42897471",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42897471/"
+  },
+  {
+    "date": "20 Oct",
+    "title": "Emergency Department-Administered Extended-Release Buprenorphine After Fentanyl Overdose Reversed by Emergency Medical Services With Naloxone.",
+    "comment": "Novel approach ในการจัดการ Opioid overdose เพื่อลดการกลับมาเป็นซ้ำใน ER",
+    "pmid": "42896403",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42896403/"
+  },
+  {
+    "date": "20 Oct",
+    "title": "Identifying the electrically unstable NSTEMI patient: Comparative performance of four scores for short-term risk stratification of major cardiac arrhythmias.",
+    "comment": "ช่วยคัดกรองคนไข้ NSTEMI ที่มีความเสี่ยงสูงต่อ arrhythmia เพื่อเฝ้าระวังใกล้ชิด",
+    "pmid": "42896388",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42896388/"
+  },
+  {
+    "date": "20 Oct",
+    "title": "Prehospital Pediatric Ventilation Quality Following Use of a Feedback Device: A Randomized Study.",
+    "comment": "การใช้ Feedback device ช่วยเพิ่มคุณภาพการช่วยหายใจในเด็กช่วงก่อนถึงโรงพยาบาล",
+    "pmid": "42896864",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42896864/"
+  },
+  {
+    "date": "20 Oct",
     "title": "Technological Integration in Triage With AI and Machine Learning Compared With Conventional Triage and Narrative Synthesis of Telehealth for Patient Prioritization in Emergency and Acute Care Settings: Systematic Review and Meta-Analysis.",
-    "comment": "AI ช่วยคัดกรองผู้ป่วยใน ER ได้แม่นยำกว่าวิธีดั้งเดิม เพิ่มประสิทธิภาพการจัดการผู้ป่วย",
+    "comment": "ประเมินประสิทธิภาพ AI ในการทำ Triage เปรียบเทียบกับวิธีมาตรฐานใน ER",
     "pmid": "42896140",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42896140/"
   },
   {
     "date": "20 Oct",
+    "title": "Undertreatment of Wernicke encephalopathy in alcohol-related clinical contexts: a scoping review of diagnosis, thiamine regimens, and clinical management.",
+    "comment": "Safety signal เตือนเรื่องการรักษา Wernicke ที่ไม่เพียงพอและแนวทางการให้ Thiamine",
+    "pmid": "42897605",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42897605/"
+  },
+  {
+    "date": "20 Oct",
+    "title": "The hidden severity of new psychoactive substances: clinical evidence from emergency and intensive care admissions in Taiwan.",
+    "comment": "ข้อมูลความรุนแรงของยาเสพติดชนิดใหม่ที่แพทย์ ER ต้องเฝ้าระวังอาการทางคลินิก",
+    "pmid": "42898047",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42898047/"
+  },
+  {
+    "date": "20 Oct",
+    "title": "Reliability of the figure-of-eight method for measuring foot and ankle edema: Prospective emergency department assessment and literature review.",
+    "comment": "ตรวจสอบความแม่นยำของวิธีวัดบวมที่เท้า ซึ่งนำไปใช้ประเมินคนไข้ใน ER ได้ทันที",
+    "pmid": "42897824",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42897824/"
+  },
+  {
+    "date": "20 Oct",
     "title": "Low-Titer O+ Whole Blood Implementation in the EMS System for Metropolitan Oklahoma City and Tulsa: Significance, Success, & Sharing Lessons Learned.",
-    "comment": "การใช้ Low-titer O+ whole blood ในระบบ EMS เพื่อช่วยชีวิตผู้ป่วย Trauma ขั้นวิกฤต",
+    "comment": "การใช้ Low-titer O+ whole blood ในระบบ EMS เพื่อกู้ชีพคนไข้ Trauma",
     "pmid": "42896084",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42896084/"
+  },
+  {
+    "date": "20 Oct",
+    "title": "Low-Dose Nivolumab in Various Cancers: A Real-World Exploratory Analysis in Resource-Constrained Settings.",
+    "comment": "ข้อมูลการใช้ยา Immunotherapy ขนาดต่ำในพื้นที่จำกัด ซึ่งอาจเป็นทางเลือกใหม่ในการรักษา",
+    "pmid": "42897090",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42897090/"
+  },
+  {
+    "date": "20 Oct",
+    "title": "POCUS Image Archiving in Emergency Medicine: A Systematic Review of Clinical and Financial Impacts.",
+    "comment": "ผลกระทบของการเก็บข้อมูล POCUS ต่อการดูแลคนไข้และการบริหารจัดการใน ER",
+    "pmid": "42895784",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42895784/"
+  },
+  {
+    "date": "20 Oct",
+    "title": "Timeliness of Emergency Care for Intracerebral Hemorrhage Compared With Acute Ischemic Stroke.",
+    "comment": "เปรียบเทียบความรวดเร็วในการรักษา ICH vs AIS เพื่อหาจุดที่ต้องปรับปรุงระบบ",
+    "pmid": "42895744",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42895744/"
   },
   {
     "date": "20 Oct",
@@ -418,75 +488,5 @@
     "comment": "ปรับปรุงการทำนายอัตราตายในผู้สูงอายุที่มาด้วย Acute Heart Failure ที่ ER",
     "pmid": "42875629",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42875629/"
-  },
-  {
-    "date": "15 Oct",
-    "title": "Comparison of Acute Physiology, Age and Chronic Health Evaluation II score and Peradeniya Organophosphorus Poisoning Scale in predicting clinical outcomes and mortality in organophosphorus poisoning.",
-    "comment": "เปรียบเทียบ score ทำนายผลลัพธ์ในผู้ป่วยพิษจากสารกำจัดศัตรูพืช (OP poisoning)",
-    "pmid": "42875742",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42875742/"
-  },
-  {
-    "date": "15 Oct",
-    "title": "International survey of parental and patient perspectives on emerging adrenaline devices for community-based management of anaphylaxis: An EAACI task force report.",
-    "comment": "อัปเดตอุปกรณ์ให้ Adrenaline รูปแบบใหม่สำหรับการจัดการ Anaphylaxis ในชุมชน",
-    "pmid": "42876015",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42876015/"
-  },
-  {
-    "date": "15 Oct",
-    "title": "Predictive Value of Inflammatory Markers Combined With Urinary Biomarkers for 28-Day Outcomes in Patients With Urosepsis: A Retrospective Study.",
-    "comment": "ใช้ Biomarker ร่วมกันทำนายผลลัพธ์ 28 วันในผู้ป่วย Urosepsis เพื่อปรับการรักษา",
-    "pmid": "42876126",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42876126/"
-  },
-  {
-    "date": "15 Oct",
-    "title": "Prehospital fluid resuscitation in patients with severe burns - A nationwide cohort study.",
-    "comment": "ข้อมูลการให้สารน้ำก่อนถึงโรงพยาบาลในผู้ป่วยไฟไหม้น้ำร้อนลวกขั้นรุนแรง",
-    "pmid": "42874523",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42874523/"
-  },
-  {
-    "date": "15 Oct",
-    "title": "Hospitalized primary headache in children after emergency department evaluation: a retrospective cohort study.",
-    "comment": "ข้อมูลช่วยคัดกรองเด็กที่เป็นปวดศีรษะรุนแรงจนต้อง admit เพื่อลดการ admit ที่ไม่จำเป็น",
-    "pmid": "42875666",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42875666/"
-  },
-  {
-    "date": "15 Oct",
-    "title": "Mobile Stroke Units in Acute Ischemic Stroke: Thrombectomy Efficiency, Workflow Models, and Implementation Considerations: A Review.",
-    "comment": "การเพิ่มประสิทธิภาพการทำ thrombectomy ผ่านระบบ Mobile Stroke Unit",
-    "pmid": "42873733",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42873733/"
-  },
-  {
-    "date": "15 Oct",
-    "title": "Prehospital Care of Older Adults Following Perceived Low-Acuity Falls and Related \"Lift Assist\" Encounters: An NAEMSP Position Statement and Resource Document.",
-    "comment": "Position statement การดูแลผู้สูงอายุที่หกล้ม ซึ่งเป็นเคสพบบ่อยใน ER/Prehospital",
-    "pmid": "42873076",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42873076/"
-  },
-  {
-    "date": "15 Oct",
-    "title": "Strategies, Barriers, and Sustainability: Implementation of a Massive Transfusion Protocol Alert Team.",
-    "comment": "การจัดตั้งทีม MTP เพื่อเพิ่มความปลอดภัยในการเติมเลือดปริมาณมาก",
-    "pmid": "42873970",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42873970/"
-  },
-  {
-    "date": "15 Oct",
-    "title": "Validation of PECARN as a clinical decision rule for CT imaging of children with blunt abdominal trauma: a single centre retrospective cohort study.",
-    "comment": "ตรวจสอบความแม่นยำของ PECARN ในการลด CT ในเด็กที่โดน blunt abdominal trauma",
-    "pmid": "42873268",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42873268/"
-  },
-  {
-    "date": "15 Oct",
-    "title": "Development and independent regional validation of a dynamic ultrasound appendicitis score for suspected acute appendicitis: a prospective multicenter study.",
-    "comment": "Novel tool ใช้ US score ช่วยวินิจฉัย appendicitis ลดการส่ง CT",
-    "pmid": "42873382",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42873382/"
   }
 ]
