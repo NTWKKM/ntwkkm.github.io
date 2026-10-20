@@ -2,7 +2,7 @@
 
 Last updated: *2026-07-04*
 
-This document serves as the **core design guideline** for any AI agent or developer modifying or creating new interfaces for the NTWKKM project. All UI implementations MUST adhere strictly to these principles to maintain a cohesive, premium, and matte aesthetic across all modules (`index`, `blog`).
+This document serves as the **core design guideline** for any AI agent or developer modifying or creating new interfaces maintained in this repository (`index`, `blog`). All UI implementations MUST adhere strictly to these principles to maintain a cohesive, premium, and matte aesthetic across these modules. Note that the separately maintained `/pl/` sub-app follows its own dedicated design guidelines in the private `NTWKKM/pl` repository.
 
 ---
 

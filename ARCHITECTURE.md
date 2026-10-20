@@ -239,8 +239,7 @@ graph LR
 | **Gemini 2.5 Pro** | High-quality clinical curation with expert persona (Workflow 1) |
 | **Notion** | Primary data warehouse — stores all processed papers, index logs, and curated selections |
 | **LINE Messaging API** | Notification channel + chat-based trigger for on-demand searches |
-| **GitHub API** | Direct file commits (`papers.json`, `latest_updates.json`, `track_list.json`) |
-| **Thailand Post API** | Track & Trace barcode status polling (2-step token auth, Workflow 4 + GitHub Actions) |
+| **GitHub API** | Direct file commits (`papers.json`, `latest_updates.json`) |
 
 ## NTWKKM Knowledge Vault (`pl/`)
 
