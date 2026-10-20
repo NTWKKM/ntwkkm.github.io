@@ -16,7 +16,6 @@ A unified portfolio and clinical tool hub for an **Emergency Medicine Physician 
 - **📑 Automated Medical Literature Feed (`index.html`)**: Daily automated curation of high-impact Emergency Medicine publications from PubMed via n8n automated pipelines.
 - **📝 Research Blog & Knowledge Base (`blog.html`)**: Interactive clinical informatics and research articles automatically synchronized and chunked from Notion databases.
 - **🛡️ NTWKKM Knowledge Vault (`/pl/`)**: Integrated knowledge repository and clinical informatics resource dashboard.
-- **📦 Thailand Post Package Tracker (`/tracking/`)**: Client-side encrypted package tracking dashboard with automated status updates.
 - **⚡ Offline-First PWA**: Progressive Web App with Service Worker (`sw.js`) caching strategies, zero-cloud dependency for local utilities, and resilient fallback states.
 - **🎨 Minimal Braun Aesthetic**: Clean, high-legibility interface built on Vanilla HTML5, CSS custom properties, and WCAG 2.1 AA accessible typography.
 
@@ -35,7 +34,6 @@ A unified portfolio and clinical tool hub for an **Emergency Medicine Physician 
 | **💓 Shock Sim** | Hemodynamic changes & shock state visualizer | [Launch Shock Sim](https://shocksimulation.vercel.app/) |
 | **🚑 MNRH Refer** | Inter-hospital emergency referral system | [Open Referral](https://mnrhrefer.vercel.app/) |
 | **🕒 Stroke Protocol V1** | Archive version of acute ischemic stroke rtPA tools | [Open Tool](https://rtpamnrh.vercel.app/) |
-| **📦 Package Tracker** | Thailand Post real-time tracking dashboard | [Open Tracker](https://ntwkkm.github.io/tracking/) |
 | **🛡️ NTWKKM Knowledge Vault** | Clinical informatics dashboard & automated resource hub | [Open Vault](https://ntwkkm.github.io/pl/) |
 | **🏥 Medical Stat Tool** | Interactive Shiny application for medical statistics and clinical research | [Launch Shiny App](https://ntwkkm-shinystat.hf.space/) |
 | **📊 Med Statistics** | Easy online calculator for medical stats | [Open MedStat](https://medstat.app/) |
@@ -49,8 +47,7 @@ A unified portfolio and clinical tool hub for an **Emergency Medicine Physician 
 - **Automated Data Pipelines**:
   - **PubMed Pipeline**: Daily EM literature digest pushed automatically into `papers.json`.
   - **Notion Sync Pipeline**: Research articles fetched and chunked into `data/blog/*.json` with `blog_index.json`.
-  - **Tracking Engine**: Scheduled GitHub Actions runner fetching Thailand Post Track & Trace API.
-- **Security & Privacy**: Zero-PHI enforcement, client-side AES-256-GCM encrypted status storage for personal trackers, and strict Content Security Policies.
+- **Security & Privacy**: Zero-PHI enforcement and strict Content Security Policies.
 
 ---
 
@@ -66,12 +63,6 @@ This content reflects the repository structure (updated by GitHub Actions):
 |       `-- (Chunked JSON files)
 |-- soul /
 |   `-- audit_and_fix.md
-|-- tracking /
-|   |-- auth.json
-|   |-- index.html
-|   |-- status_store.json
-|   |-- track_list.json
-|   `-- tracking.css
 |-- _config.yml
 |-- .gitignore
 |-- ARCHITECTURE.md

@@ -65,8 +65,7 @@ const fs = require('fs');
 
     const targets = [
       '',
-      'blog.html',
-      'tracking/'
+      'blog.html'
     ];
 
     for (const target of targets) {

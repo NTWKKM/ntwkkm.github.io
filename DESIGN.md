@@ -2,7 +2,7 @@
 
 Last updated: *2026-07-04*
 
-This document serves as the **core design guideline** for any AI agent or developer modifying or creating new interfaces for the NTWKKM project. All UI implementations MUST adhere strictly to these principles to maintain a cohesive, premium, and matte aesthetic across all modules (`index`, `blog`, `tracking`).
+This document serves as the **core design guideline** for any AI agent or developer modifying or creating new interfaces for the NTWKKM project. All UI implementations MUST adhere strictly to these principles to maintain a cohesive, premium, and matte aesthetic across all modules (`index`, `blog`).
 
 ---
 
@@ -85,10 +85,10 @@ Muted tones, applied **text-only** (never as solid background badges).
 
 ### 4.2. Navigation Bar
 
-- The header is the only area permitted a gradient: `linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)`. This color scheme is standardized globally across all module headers (Homepage and Tracking dashboards) for layout consistency.
+- The header is the only area permitted a gradient: `linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)`. This color scheme is standardized globally across all module headers (Homepage and sub-pages) for layout consistency.
 - Navigation text, brand logo, subtitles, and icons are warm off-white (`#F0EDE5`) in both Light and Dark themes to ensure legibility on the dark navy gradient.
 - **Favicons / Icons:** SVGs used in favicons are standardized to the Rams color palette (background `#1e3c72`, rounded corners `rx="4"`, and warm off-white text `#F0EDE5`), ensuring brand alignment down to the browser tab indicator. Standard PWA icons retain rounded corners (`rx`), while maskable PWA icons use flat, full-bleed squares (`rx="0"`) with scaled-down text to prevent clipping in circular/squircle shapes.
-- Buttons and links (e.g. GitHub, Research Blog, Refresh, and Add Tracking): Borders are transparent (`none`/`transparent`) in their normal state to retain a flat, printed-document aesthetic. Hover states use `var(--card-hover-bg)` background.
+- Buttons and links (e.g. GitHub, Research Blog, Refresh): Borders are transparent (`none`/`transparent`) in their normal state to retain a flat, printed-document aesthetic. Hover states use `var(--card-hover-bg)` background.
 - **Mobile Viewport Alignment:** Controls inside the navigation bar (links, toggles, actions) are collapsed to icon-only buttons (with text spans hidden) and aligned strictly to the right side of the screen (`justify-content: flex-end; gap: 12px;`) to optimize finger reachability and space.
 
 ### 4.3. Badges and Chips
@@ -102,12 +102,6 @@ Muted tones, applied **text-only** (never as solid background badges).
 - **Standard Button**: Warm background (`var(--bg-card)`), border `var(--border)`. Hovers to `var(--border-strong)`.
 - **Primary Button**: Solid ink background (`var(--text-main)`), cream text (`var(--bg-card)`), flat with no drop shadow.
 - **Theme Toggle**: Circular button with no shadow. Adjusts fill color to match nav bar background.
-
-### 4.5. Secure Dashboards & Passcode Gate
-
-- **Auth Gate Overlay**: The passcode gate `.auth-gate` covers the entire screen, utilizing standard Rams flexbox layout to center the login container.
-- **Passcode Box Feedback**: If decryption fails, the `.auth-box` is temporarily given a `.shake` class (shaking CSS keyframe animation) triggered by a forced browser reflow (`void authBox.offsetWidth;`) for immediate tactile feedback.
-- **Session Persistence**: Once successfully decrypted, the raw passcode is saved in `sessionStorage` (`tracking_passcode`) so subsequent page reloads do not trigger the auth gate, automatically pre-authenticating the user.
 
 ---
 
