@@ -657,7 +657,8 @@
                     }
                     return;
                 }
-                if (document.getElementById('citation-popover-dialog')?.matches(':popover-open')) return;
+                const citationDialog = document.getElementById('citation-popover-dialog');
+                if (citationDialog && (citationDialog.open || citationDialog.matches(':popover-open'))) return;
 
                 if (e.key === 'ArrowLeft') {
                     navigateArticle(-1);
