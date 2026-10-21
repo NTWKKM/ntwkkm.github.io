@@ -2,72 +2,96 @@
   {
     "title": "NTWK Coffee Science",
     "desc": "Coffee science deep research notebook & analysis portal.",
+    "category": "Research",
+    "tag": "v2.4 • Analysis Notebook",
     "icon": "☕",
     "url": "https://ntwkkm.github.io/ntwcoff/"
   },
   {
     "title": "ER Standing Order Hub",
     "desc": "Emergency standing orders & clinical protocols.",
+    "category": "Protocols",
+    "tag": "ER Clinical Guidelines",
     "icon": "⚕️",
     "url": "https://ntwkkm.github.io/er-hub/"
   },
   {
     "title": "ER-PED Workstation",
     "desc": "Pediatric emergency calculator workstation.",
+    "category": "Resuscitation",
+    "tag": "Broselow • Wt-based Dosing",
     "icon": "🩺",
     "url": "https://ntwkkm.github.io/er-ped/"
   },
   {
     "title": "Toxico Course Bookmarks",
     "desc": "Toxicology course bookmarks & reference links.",
+    "category": "Toxicology",
+    "tag": "Reference Index",
     "icon": "🧪",
     "url": "https://ntwkkm.github.io/toxico/"
   },
   {
     "title": "Acetaminophen Tox",
     "desc": "Interactive nomogram & protocol.",
+    "category": "Toxicology",
+    "tag": "Rumack-Matthew Nomogram",
     "icon": "💊",
     "url": "https://acetatox.netlify.app/"
   },
   {
     "title": "VentSim",
     "desc": "Mechanical ventilator simulator.",
+    "category": "Simulators",
+    "tag": "Waveforms • Compliance",
     "icon": "🫁",
     "url": "https://ventsim.vercel.app/"
   },
   {
     "title": "Shock Sim",
     "desc": "Hemodynamic changes visualizer.",
+    "category": "Simulators",
+    "tag": "SVR • CO • MAP Models",
     "icon": "💓",
     "url": "https://shocksimulation.vercel.app/"
   },
   {
     "title": "MNRH Refer",
     "desc": "Inter-hospital referral system.",
+    "category": "Informatics",
+    "tag": "Transfer Coordinator",
     "icon": "🚑",
     "url": "https://mnrhrefer.vercel.app/"
   },
   {
     "title": "Stroke Protocol V1",
     "desc": "Archive version of rtPA tools.",
+    "category": "Protocols",
+    "tag": "rtPA Window • NIHSS",
     "icon": "🕒",
     "url": "https://rtpamnrh.vercel.app/"
   },
   {
     "title": "NTWKKM Knowledge Vault",
     "desc": "Clinical informatics dashboard & automated resource hub.",
+    "category": "Informatics",
+    "tag": "Central Repository",
     "icon": "🛡️",
     "url": "https://ntwkkm.github.io/pl/"
   },
   {
     "title": "Medical Stat Tool",
     "desc": "Interactive Shiny application for medical statistics and clinical research.",
+    "category": "Statistics",
+    "tag": "R-Shiny Powered",
     "icon": "🏥",
     "url": "https://ntwkkm-shinystat.hf.space/"
   },
   {
     "title": "Med Statistics",
     "desc": "Easy online calculator for medical stats.",
+    "category": "Statistics",
+    "tag": "Sample Size • P-Value",
     "icon": "📊",
     "url": "https://medstat.app/"
   }

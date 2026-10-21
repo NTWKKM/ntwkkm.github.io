@@ -79,15 +79,16 @@ Muted tones, applied **text-only** (never as solid background badges).
 
 ### 4.1. Cards & Panels
 
-- **Border Radius**: `--radius: 4px` for outer cards, `--radius-sm: 2px` for inner elements, to give a harder industrial edge.
+- **Border Radius**: `--radius: 8px` for outer cards/modals, `--radius-sm: 4px` for inner badges, pills, and buttons, delivering a modern tactile Apple Slate / Titanium precision feel.
 - **Borders**: Thin `1px solid var(--border)`.
-- **Hover State & Elevation:** Cards (such as `.project-card` and homepage `.paper-card`) elevate with soft shadow `var(--shadow-hover)` and a tactile `transform: translateY(-2px)`. In Light theme, card backgrounds maintain a clean surface tone (`#F8F8FA`) with crisp border highlight (`#1E3C72`) and clear text contrast (`#1d1d1f`), eliminating harsh inverted dark flips. In Dark theme, cards smoothly elevate to elevated navy (`var(--card-hover-bg): #2A467C`) with `#4E78BC` border and white text. Similarly, blog article list items (`.article-list-item`) and related cards (`.related-card`) transition smoothly to `var(--card-hover-bg)` background without contrast clipping. Active selection list items (`.article-list-item.active`) utilize `var(--bg-paper-list)` background with a solid `3px` left border of `var(--text-main)` to visually signify the active reading state.
+- **Hover State & Elevation:** Cards (such as `.project-card` and homepage `.paper-card`) elevate with soft shadow `var(--shadow-hover)` and a tactile `transform: translateY(-2px)`. In Light theme, card backgrounds maintain a clean surface tone (`#F8F8FA`) with crisp border highlight (`#1E3C72`) and clear text contrast (`#1d1d1f`), eliminating harsh inverted dark flips. In Dark theme, cards smoothly elevate to elevated navy (`var(--card-hover-bg): #2A467C`) with `#4E78BC` border and white text. Similarly, blog article list items (`.article-list-item`) and related cards (`.related-card`) transition smoothly to `var(--card-hover-bg)` background without contrast clipping. Active selection list items (`.article-list-item.active`) utilize `var(--bg-paper-list)` background with a solid `3px` left border of `var(--primary)` to visually signify the active reading state.
 
-### 4.2. Navigation Bar
+### 4.2. Navigation Bar & Reader Command Bar
 
-- The header is the only area permitted a gradient: `linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)`. This color scheme is standardized globally across all module headers (Homepage and sub-pages) for layout consistency.
-- Navigation text, brand logo, subtitles, and icons are warm off-white (`#F0EDE5`) in both Light and Dark themes to ensure legibility on the dark navy gradient.
-- **Favicons / Icons:** SVGs used in favicons are standardized to the Rams color palette (background `#1e3c72`, rounded corners `rx="4"`, and warm off-white text `#F0EDE5`), ensuring brand alignment down to the browser tab indicator. Standard PWA icons retain rounded corners (`rx`), while maskable PWA icons use flat, full-bleed squares (`rx="0"`) with scaled-down text to prevent clipping in circular/squircle shapes.
+- **Homepage Header**: Standardized deep navy gradient `linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)` with high-blur glassmorphism (`backdrop-filter: blur(16px)`), brand cardiology SVG icon, single-line navigation links (*Research Papers*, *Clinical Tools*, *Research Blog* external pill), theme toggle, and GitHub profile link.
+- **Blog Top Command Bar**: Sticky header (`height: 52px`) featuring Research Hub return link, Index drawer toggle, paper date & reading time indicators, segmented font zoom pill (`A-` / `A+`), Vancouver citation popover trigger, and previous/next article shortcuts.
+- Navigation text, brand logo, subtitles, and icons are warm off-white (`#F0EDE5`) in both Light and Dark themes on the homepage gradient, and dynamically themed on the reader bar.
+- **Favicons / Icons:** SVGs used in favicons are standardized to the Rams color palette (background `#1e3c72`, rounded corners `rx="6"`, and warm off-white text `#F0EDE5`), ensuring brand alignment down to the browser tab indicator. Standard PWA icons retain rounded corners (`rx`), while maskable PWA icons use flat, full-bleed squares (`rx="0"`) with scaled-down text to prevent clipping in circular/squircle shapes.
 - Buttons and links (e.g. GitHub, Research Blog, Refresh): Borders are transparent (`none`/`transparent`) in their normal state to retain a flat, printed-document aesthetic. Hover states use `var(--card-hover-bg)` background.
 - **Mobile Viewport Alignment:** Controls inside the navigation bar (links, toggles, actions) are collapsed to icon-only buttons (with text spans hidden) and aligned strictly to the right side of the screen (`justify-content: flex-end; gap: 12px;`) to optimize finger reachability and space.
 
@@ -111,7 +112,7 @@ Muted tones, applied **text-only** (never as solid background badges).
 
 1. [ ] "Use the shared Slate/Titanium tokens from `shared.css` (`var(--bg-body)`, `var(--bg-card)`, `var(--text-main)`, `var(--border)`, `var(--card-hover-bg)`, etc.). No hardcoded HEX/RGB."
 2. [ ] "Use `Inter Tight` for UI/Latin, `Sarabun` for Thai, and monospace for metrics/IDs."
-3. [ ] "Set card border radius to `4px` and small elements to `2px` for harder industrial edges."
+3. [ ] "Set card border radius to `8px` and small elements to `4px` for modern tactile Apple Slate / Titanium precision."
 4. [ ] "Elevate cards on hover using soft shadow `var(--shadow-hover)` and shared hover tokens (`var(--card-hover-bg)`, `var(--card-hover-border)`, `var(--card-hover-text)`), consistent with the Hover State & Elevation guidance. Avoid layout-shifting transforms or unvetted elevation."
 5. [ ] "Category tags/badges must be text-only colors, never solid colored backgrounds."
 6. [ ] "Ensure the layout is responsive and supports the Inverted Dark Theme color variables."

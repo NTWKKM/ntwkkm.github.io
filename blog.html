@@ -15,13 +15,12 @@
     <meta property="og:url" content="https://ntwkkm.github.io/blog.html">
     <link rel="canonical" href="https://ntwkkm.github.io/blog.html">
     <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231e3c72'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='%23F0EDE5' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231e3c72'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='%23F0EDE5' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Sarabun:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="shared.css">
+    <link rel="stylesheet" href="blog.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#ECECEE">
     <meta name="mobile-web-app-capable" content="yes">
@@ -44,32 +43,72 @@
       }
     }
     </script>
-
-    <link rel="stylesheet" href="blog.css">
 </head>
 
 <body>
 
-    <div class="container" id="app-container">
+    <!-- Top Reader Command & Controls Bar -->
+    <header class="reader-command-bar" role="banner">
+        <div class="reader-bar-content">
+            <div class="reader-bar-left">
+                <a href="https://ntwkkm.github.io/" class="reader-back-btn" aria-label="Return to Research Hub">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    <span>Research Hub</span>
+                </a>
+                <button id="sidebar-toggle-btn" class="reader-index-toggle" aria-label="Toggle paper index drawer">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                    <span>Index</span>
+                </button>
+                <div class="reader-divider"></div>
+                <div class="reader-meta-chips">
+                    <span class="meta-chip">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                        <span id="post-date">Latest Papers</span>
+                    </span>
+                    <span class="meta-sep">•</span>
+                    <span class="meta-chip">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <span id="reading-time-val">4 min read</span>
+                    </span>
+                </div>
+            </div>
 
-        <button id="sidebar-open-btn" class="sidebar-open-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px;"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg><span>Show Menu</span>
-        </button>
+            <div class="reader-bar-right">
+                <div class="font-zoom-pill" aria-label="Text zoom controls">
+                    <button id="font-decrease" class="font-zoom-btn" aria-label="Smaller text" title="Smaller text">A-</button>
+                    <span class="font-zoom-sep">|</span>
+                    <button id="font-increase" class="font-zoom-btn" aria-label="Larger text" title="Larger text">A+</button>
+                </div>
+
+                <button id="citation-btn" class="reader-action-btn" aria-label="Cite this research paper" title="Cite this paper">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                    <span>Cite</span>
+                </button>
+
+                <div class="reader-nav-arrows">
+                    <button id="nav-prev-article" class="reader-arrow-btn" aria-label="Previous paper" title="Previous paper">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <button id="nav-next-article" class="reader-arrow-btn" aria-label="Next paper" title="Next paper">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+
+                <button id="theme-toggle" class="reader-theme-btn" aria-label="Toggle Dark Mode"></button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" id="app-container">
 
         <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
+        <!-- Left Column: Topic Navigator & Paper Index -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <a href="https://ntwkkm.github.io/" class="brand" aria-label="Back to Home">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg><span> Research Hub</span>
-                </a>
-
-                <div class="header-actions">
-                    <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
-                    </button>
-                    <button id="sidebar-close-btn" class="icon-btn" aria-label="Collapse sidebar">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                    </button>
+                <div class="topics-header-row">
+                    <span class="topics-title">Topics</span>
+                    <span class="topics-badge" id="topics-count-badge">Available</span>
                 </div>
 
                 <div class="search-container">
@@ -78,20 +117,19 @@
                         aria-label="Search articles">
                 </div>
 
-                <label class="filter-tags-label">Topics <span id="active-filters-badge"
-                        class="active-filters-badge"></span></label>
                 <div class="filter-tags-wrapper">
                     <div class="filter-tags" id="filter-tags-container">
                         <span class="filter-tag active" data-tag="all">All</span>
                     </div>
                     <div class="more-tags-dropdown" id="more-tags-dropdown"></div>
+                    <span id="active-filters-badge" class="active-filters-badge"></span>
                 </div>
             </div>
 
             <div class="sidebar-content">
                 <div class="article-list-section">
-                    <label class="articles-label">Papers List</label>
-                    <div id="loading-indicator" class="skeleton-loader" style="display: none;">
+                    <div class="articles-label">Curated Index</div>
+                    <div id="loading-indicator" class="skeleton-loader" style="display: none; padding: 16px;">
                         <div class="skeleton-item">
                             <div class="skeleton-line" style="width:70%"></div>
                             <div class="skeleton-line" style="width:40%"></div>
@@ -100,74 +138,60 @@
                             <div class="skeleton-line" style="width:80%"></div>
                             <div class="skeleton-line" style="width:30%"></div>
                         </div>
-                        <div class="skeleton-item">
-                            <div class="skeleton-line" style="width:60%"></div>
-                            <div class="skeleton-line" style="width:50%"></div>
-                        </div>
                     </div>
                     <div id="sidebar-list"></div>
                 </div>
             </div>
 
             <div class="sidebar-footer">
-                <button id="prev-btn" class="pagination-btn" aria-label="Previous page">← Prev</button>
+                <button id="prev-btn" class="pagination-btn" aria-label="Previous page">Prev</button>
                 <span id="page-info" class="page-info">1 / 1</span>
-                <button id="next-btn" class="pagination-btn" aria-label="Next page">Next →</button>
+                <button id="next-btn" class="pagination-btn" aria-label="Next page">Next</button>
             </div>
         </aside>
 
-        <main class="main-content">
-            <div id="toc-container" class="toc-container">
-                <div class="toc-title">On this page</div>
-                <div id="toc-list"></div>
-            </div>
+        <!-- Center Column: Primary Academic Reader -->
+        <main class="main-content" role="main">
 
             <div id="empty-state" class="empty-state">
-                <div class="empty-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+                <div class="empty-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                </div>
                 <h3>Select a research paper</h3>
-                <p>Choose from the list on the left to view full details.</p>
+                <p>Choose from the curated index on the left to review the evidence and clinical takeaways.</p>
             </div>
 
             <article id="article-view" class="article-view">
-                <div class="article-meta">
-                    <span class="meta-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px;vertical-align:-1px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span id="post-date">...</span></span>
-                    <span class="meta-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px;vertical-align:-1px;"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg><span id="post-id" style="font-family: monospace;"></span></span>
-                    <span id="reading-time" class="reading-time-pill meta-item" title="Estimated reading time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px;vertical-align:-1px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span id="reading-time-val">...</span></span>
-                    <div class="font-size-controls" aria-label="Font size controls">
-                        <button id="font-decrease" class="font-ctrl-btn" aria-label="Decrease font size" title="Smaller font">A-</button>
-                        <button id="font-increase" class="font-ctrl-btn" aria-label="Increase font size" title="Larger font">A+</button>
-                    </div>
-                    <button id="citation-btn" class="citation-btn" title="Copy Citation">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px;"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>Cite
-                    </button>
-                    <div class="article-navigation">
-                        <button id="nav-prev-article" class="nav-btn" aria-label="Previous Article"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                        <button id="nav-next-article" class="nav-btn" aria-label="Next Article"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
-                    </div>
+                <div class="article-header">
+                    <h1 class="article-title" id="post-title">Loading Article...</h1>
+                    <div id="post-tags" class="tags-container"></div>
                 </div>
-
-                <h1 class="article-title" id="post-title">...</h1>
-
-                <div id="post-tags" class="tags-container"></div>
 
                 <div id="formatted-summary-container"></div>
 
                 <div id="related-papers" class="related-papers-section heavy-section-deferred" style="display:none;">
-                    <div class="related-header">Related Papers</div>
+                    <div class="related-header">Related Research Papers</div>
                     <div id="related-grid" class="related-grid"></div>
                 </div>
 
                 <a href="#" target="_blank" rel="noopener noreferrer" id="post-link" class="pubmed-link">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>View Full Paper
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                    <span>View Full Paper</span>
                 </a>
             </article>
         </main>
+
+        <!-- Right Column: Sticky Table of Contents -->
+        <aside id="toc-container" class="toc-container" aria-label="Table of contents">
+            <div class="toc-title">On this page</div>
+            <div id="toc-list"></div>
+        </aside>
 
         <!-- Mobile Bottom Navigation (Thumb-Zone Ergonomics) -->
         <nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="Mobile navigation bar">
             <button id="mob-nav-menu" class="mob-btn" aria-label="Papers Menu">
                 <span class="mob-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></span>
-                <span class="mob-text">Papers</span>
+                <span class="mob-text">Index</span>
             </button>
             <button id="mob-nav-prev" class="mob-btn" aria-label="Previous Article">
                 <span class="mob-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></span>
@@ -199,7 +223,7 @@
             });
         }
 
-        // Search Optimization Utilities (moved from shared.js)
+        // Search Optimization Utilities
         function fuzzyMatch(query, text) {
             if (!query) return true;
             if (!text) return false;
@@ -240,14 +264,14 @@
         let filteredPosts = [];
         let currentPage = 1;
         const itemsPerPage = 10;
-        let activeTags = new Set();  // empty = show all (multi-select)
+        let activeTags = new Set();
         let currentPostId = null;
         let tocObserver = null;
 
         const CACHE_KEY = 'research_blog_data_v2';
         const CACHE_DURATION = 1000 * 60 * 5; // 5 minutes
 
-        // Step 1: Tag normalization - merge near-duplicate AI-generated tags
+        // Tag normalization mapping
         const TAG_NORMALIZATION = {
             'Emergency': 'Emergency Medicine',
             'Infectious Disease': 'Infectious Diseases',
@@ -262,14 +286,11 @@
         };
         const TOP_TAGS_COUNT = 12;
 
-        // Initialize screen reader announcer
         document.addEventListener('DOMContentLoaded', () => {
             initScreenReaderAnnouncer();
         });
 
-        // ===========================================================================
-        // READING PROGRESS INDICATOR
-        // ===========================================================================
+        // Reading progress indicator
         function initReadingProgress() {
             const progressBar = document.createElement('div');
             progressBar.className = 'reading-progress';
@@ -319,15 +340,13 @@
             });
         }
 
-        // ===========================================================================
-        // CITATION EXPORT (4 Formats: APA, Vancouver, BibTeX, Markdown)
-        // ===========================================================================
-        function generateCitation(post, format = 'apa') {
+        // Citation export with 4 formats
+        function generateCitation(post, format = 'vancouver') {
             if (!post) return '';
-            const authors = post.authors || 'NTWKKM et al.';
+            const authors = post.authors || 'NTWKKM Group';
             const year = post.date ? new Date(post.date).getFullYear() : '2026';
             const title = post.title || 'Untitled';
-            const url = post.link || post.url || `https://ntwkkm.github.io/blog.html?id=${post.id}`;
+            const url = post.link || `https://ntwkkm.github.io/blog.html?id=${post.id}`;
             const pmid = post.pmid || '';
             const accessed = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 
@@ -342,20 +361,20 @@
   url = {${url}},
   note = {Accessed: ${accessed}}
 }`;
-                case 'vancouver':
-                    return `${authors}. ${title}. ${pmid ? `PMID: ${pmid}. ` : ''}${year} [cited ${accessed}]. Available from: ${url}`;
+                case 'apa':
+                    return `${authors} (${year}). ${title}${pmid ? `. PMID: ${pmid}` : ''}. Retrieved ${accessed}, from ${url}`;
                 case 'markdown':
                     return `[${authors} (${year}). ${title}](${url})`;
-                case 'apa':
+                case 'vancouver':
                 default:
-                    return `${authors} (${year}). ${title}${pmid ? `. PMID: ${pmid}` : ''}. Retrieved ${accessed}, from ${url}`;
+                    return `${authors}. ${title}. ${pmid ? `PMID: ${pmid}. ` : ''}${year} [cited ${accessed}]. Available from: ${url}`;
             }
         }
 
-        let currentCitationFormat = 'apa';
+        let currentCitationFormat = 'vancouver';
         let currentCitationPost = null;
 
-        const citationCopySvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px;vertical-align:-1px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
+        const citationCopySvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
 
         function openCitationModal(post) {
             currentCitationPost = post;
@@ -373,15 +392,16 @@
                         <button class="citation-modal-close" id="citation-close-btn" aria-label="Close citation modal" title="Close">✕</button>
                     </div>
                     <div class="citation-format-tabs" role="tablist">
-                        <button class="citation-format-tab active" data-format="apa" role="tab" aria-selected="true">APA 7th</button>
-                        <button class="citation-format-tab" data-format="vancouver" role="tab" aria-selected="false">Vancouver</button>
+                        <button class="citation-format-tab active" data-format="vancouver" role="tab" aria-selected="true">Vancouver</button>
+                        <button class="citation-format-tab" data-format="apa" role="tab" aria-selected="false">APA 7th</button>
                         <button class="citation-format-tab" data-format="bibtex" role="tab" aria-selected="false">BibTeX</button>
                         <button class="citation-format-tab" data-format="markdown" role="tab" aria-selected="false">Markdown</button>
                     </div>
                     <textarea class="citation-text-area" id="citation-text" readonly aria-label="Citation text">${escapeHTML(generateCitation(post, currentCitationFormat))}</textarea>
                     <div class="citation-modal-footer">
                         <button class="citation-copy-btn" id="citation-copy-btn" aria-label="Copy citation to clipboard">
-                            ${citationCopySvg}Copy Citation
+                            ${citationCopySvg}
+                            <span>Copy Citation</span>
                         </button>
                     </div>
                 </div>
@@ -431,7 +451,7 @@
                     triggerHaptic('success');
                     setTimeout(() => {
                         btn.classList.remove('copied');
-                        btn.innerHTML = `${citationCopySvg}Copy Citation`;
+                        btn.innerHTML = `${citationCopySvg}<span>Copy Citation</span>`;
                     }, 2000);
                 }
                 announceToScreenReader('Citation copied to clipboard');
@@ -440,19 +460,12 @@
             });
         }
 
-
-
-        // ===========================================================================
-        // MAIN DATA LOADING
-        // ===========================================================================
+        // Main data loading
         document.addEventListener('DOMContentLoaded', async () => {
-            // Initialize reading progress
             initReadingProgress();
 
-            // Collapse sidebar on page load if mobile
             if (window.innerWidth <= 1024) {
                 document.getElementById('sidebar').classList.add('collapsed');
-                document.getElementById('app-container').classList.add('sidebar-hidden');
             }
 
             const loadingEl = document.getElementById('loading-indicator');
@@ -466,30 +479,23 @@
                     try {
                         const parsedCache = JSON.parse(cached);
                         if (Date.now() - parsedCache.timestamp < CACHE_DURATION) {
-                            console.log("Using cached data");
                             rawData = parsedCache.data;
                         }
                     } catch (e) { console.warn("Cache error"); }
                 }
 
                 if (!rawData) {
-                    // 1. Fetch the list of JSON files from blog_index.json (cache-busted)
                     const cacheBuster = `?v=${Date.now()}`;
-
-                    // Use fetchWithFallback for resilience
                     const fileList = await fetchWithFallback('./blog_index.json' + cacheBuster, []);
 
                     if (!fileList.length) {
                         throw new Error('No blog data files found');
                     }
 
-                    // 2. Fetch data from all files concurrently
                     const fetchPromises = fileList.map(file =>
                         fetchWithFallback(`./${file}${cacheBuster}`, [])
                     );
                     const allFilesData = await Promise.all(fetchPromises);
-
-                    // 3. Flatten and combine data from all sources
                     rawData = allFilesData.flat();
 
                     if (!rawData.length) {
@@ -508,7 +514,7 @@
                     const tags = [item.property_tag_1, item.property_tag_2, item.property_tag_3]
                         .filter(t => t && t.trim() !== "")
                         .map(t => TAG_NORMALIZATION[t.trim()] || t.trim())
-                        .filter((t, i, arr) => arr.indexOf(t) === i); // dedupe after normalization
+                        .filter((t, i, arr) => arr.indexOf(t) === i);
                     let dateStr = "";
                     let timestamp = 0;
                     if (item.property_last_edited_time) {
@@ -553,13 +559,10 @@
             }
         });
 
-
         function closeSidebar() {
             const sidebar = document.getElementById('sidebar');
-            const container = document.getElementById('app-container');
             const overlay = document.getElementById('sidebar-overlay');
             if (sidebar) sidebar.classList.add('collapsed');
-            if (container) container.classList.add('sidebar-hidden');
             if (overlay) {
                 overlay.classList.remove('visible');
                 overlay.setAttribute('aria-hidden', 'true');
@@ -568,10 +571,8 @@
 
         function openSidebar() {
             const sidebar = document.getElementById('sidebar');
-            const container = document.getElementById('app-container');
             const overlay = document.getElementById('sidebar-overlay');
             if (sidebar) sidebar.classList.remove('collapsed');
-            if (container) container.classList.remove('sidebar-hidden');
             if (overlay && window.innerWidth <= 1024) {
                 overlay.classList.add('visible');
                 overlay.setAttribute('aria-hidden', 'false');
@@ -583,24 +584,33 @@
             document.getElementById('prev-btn').addEventListener('click', () => changePage(-1));
             document.getElementById('next-btn').addEventListener('click', () => changePage(1));
 
-            // Sidebar Toggle
             const overlay = document.getElementById('sidebar-overlay');
-
-            document.getElementById('sidebar-close-btn').addEventListener('click', closeSidebar);
-            document.getElementById('sidebar-open-btn').addEventListener('click', openSidebar);
             if (overlay) overlay.addEventListener('click', closeSidebar);
 
-            // Article Nav
+            // Command bar toggle
+            const toggleBtn = document.getElementById('sidebar-toggle-btn');
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', () => {
+                    const sidebar = document.getElementById('sidebar');
+                    if (sidebar && sidebar.classList.contains('collapsed')) {
+                        openSidebar();
+                    } else {
+                        closeSidebar();
+                    }
+                });
+            }
+
+            // Article Navigation
             document.getElementById('nav-prev-article').addEventListener('click', () => navigateArticle(-1));
             document.getElementById('nav-next-article').addEventListener('click', () => navigateArticle(1));
 
-            // Setup Citation Button
+            // Citation Button
             document.getElementById('citation-btn').addEventListener('click', () => {
                 const post = allPosts.find(p => p.id === currentPostId);
                 if (post) openCitationModal(post);
             });
 
-            // Font Size Adjuster Controls
+            // Font Size Zoom Controls
             let currentFontSize = 1;
             const applyFontSize = (size) => {
                 currentFontSize = Math.min(Math.max(size, 0.8), 1.5);
@@ -626,7 +636,7 @@
                 triggerHaptic('light');
             });
 
-            // Mobile Bottom Navigation Bar Handlers
+            // Mobile Navigation Bar
             document.getElementById('mob-nav-menu')?.addEventListener('click', () => {
                 openSidebar();
                 triggerHaptic('light');
@@ -645,7 +655,7 @@
                 triggerHaptic('light');
             });
 
-            // Keyboard shortcuts (ArrowLeft/Right for articles, / for search, Escape to dismiss)
+            // Keyboard Shortcuts
             document.addEventListener('keydown', (e) => {
                 const tag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
                 const isInput = tag === 'input' || tag === 'textarea' || tag === 'select' || (document.activeElement && document.activeElement.isContentEditable);
@@ -653,17 +663,12 @@
                 if (isInput) {
                     if (e.key === 'Escape') {
                         document.activeElement.blur();
-                        if (window.innerWidth <= 1024) {
-                            closeSidebar();
-                        }
+                        if (window.innerWidth <= 1024) closeSidebar();
                     }
                     return;
                 }
                 const citationDialog = document.getElementById('citation-popover-dialog');
                 if (citationDialog?.open) return;
-                try {
-                    if (citationDialog?.matches(':popover-open')) return;
-                } catch (_) {}
 
                 if (e.key === 'ArrowLeft') {
                     navigateArticle(-1);
@@ -672,10 +677,7 @@
                 } else if (e.key === '/') {
                     if (e.ctrlKey || e.metaKey || e.altKey) return;
                     e.preventDefault();
-                    const sidebar = document.getElementById('sidebar');
-                    if (window.innerWidth <= 1024 || (sidebar && sidebar.classList.contains('collapsed'))) {
-                        openSidebar();
-                    }
+                    openSidebar();
                     const searchInput = document.getElementById('search-input');
                     if (searchInput) {
                         searchInput.focus();
@@ -687,7 +689,7 @@
             });
         }
 
-        // Step 2 & 3: Top-N pills with count badges + More dropdown
+        // Initialize Topics / Tags
         function initTags(posts) {
             const tagCounts = new Map();
             posts.forEach(p => {
@@ -696,9 +698,13 @@
                 });
             });
 
-            // Sort by count descending, then alphabetically
             const sortedTags = Array.from(tagCounts.entries())
                 .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+            const countBadge = document.getElementById('topics-count-badge');
+            if (countBadge) {
+                countBadge.textContent = `${sortedTags.length} Available`;
+            }
 
             const topTags = sortedTags.slice(0, TOP_TAGS_COUNT);
             const moreTags = sortedTags.slice(TOP_TAGS_COUNT);
@@ -706,17 +712,14 @@
             const container = document.getElementById('filter-tags-container');
             container.innerHTML = '';
 
-            // "All" pill
             const allPill = createTagPill('all', 'All', posts.length);
             allPill.classList.add('active');
             container.appendChild(allPill);
 
-            // Top-N tag pills
             topTags.forEach(([tag, count]) => {
                 container.appendChild(createTagPill(tag, tag, count));
             });
 
-            // "More" toggle if remaining tags exist
             const dropdown = document.getElementById('more-tags-dropdown');
             dropdown.innerHTML = '';
 
@@ -735,7 +738,6 @@
                 };
                 container.appendChild(moreBtn);
 
-                // Render dropdown tags
                 moreTags.forEach(([tag, count]) => {
                     dropdown.appendChild(createTagPill(tag, tag, count));
                 });
@@ -746,18 +748,12 @@
             const span = document.createElement('span');
             span.className = 'filter-tag';
             span.dataset.tag = dataTag;
-            if (dataTag === 'all') {
-                span.innerHTML = `${escapeHTML(label)} <span class="tag-count">(${count})</span>`;
-            } else {
-                span.innerHTML = `${escapeHTML(label)} <span class="tag-count">(${count})</span>`;
-            }
+            span.innerHTML = `${escapeHTML(label)} <span class="tag-count">(${count})</span>`;
             span.onclick = () => selectTag(dataTag);
-            // Restore active state if previously selected
             if (activeTags.has(dataTag)) span.classList.add('active');
             return span;
         }
 
-        // Step 4: Multi-select toggle (OR logic)
         function selectTag(tag) {
             if (tag === 'all') {
                 activeTags.clear();
@@ -783,7 +779,6 @@
                     el.classList.toggle('active', activeTags.has(el.dataset.tag));
                 }
             });
-            // Update active filters badge
             const badge = document.getElementById('active-filters-badge');
             if (activeTags.size > 0) {
                 badge.classList.add('visible');
@@ -797,9 +792,7 @@
         function handleFilter(query) {
             const lowerQuery = query.toLowerCase();
             filteredPosts = allPosts.filter(post => {
-                // Step 4: Multi-select OR logic - matches if ANY active tag is in the post's tags
                 const matchesTag = activeTags.size === 0 || (post.tags && post.tags.some(t => activeTags.has(t)));
-                // Enhanced search: title, ID, summary, objective, method, result, and tags
                 const matchesSearch = fuzzyMatch(lowerQuery, post.title) ||
                     fuzzyMatch(lowerQuery, post.id) ||
                     fuzzyMatch(lowerQuery, post.summary) ||
@@ -814,21 +807,11 @@
         }
 
         function renderSidebar() {
-            if (!document.startViewTransition) {
-                _renderSidebarContent();
-                return;
-            }
-            document.startViewTransition(() => {
-                _renderSidebarContent();
-            });
-        }
-
-        function _renderSidebarContent() {
             const listContainer = document.getElementById('sidebar-list');
             listContainer.innerHTML = '';
 
             if (filteredPosts.length === 0) {
-                listContainer.innerHTML = '<div style="text-align:center; margin-top:30px; color:#94a3b8; font-size:0.9rem;">No results found.</div>';
+                listContainer.innerHTML = '<div style="text-align:center; padding:24px 16px; color:var(--text-muted); font-size:0.82rem;">No results found.</div>';
                 updatePaginationControls();
                 return;
             }
@@ -839,8 +822,6 @@
             pageItems.forEach(post => {
                 const item = document.createElement('div');
                 item.className = 'article-list-item';
-                // Assign a unique view-transition-name to each item if possible, but for lists usually a container transition is fine.
-                // We'll rely on the default container cross-fade for now.
                 if (post.id === currentPostId) item.classList.add('active');
                 item.dataset.id = post.id;
                 
@@ -867,20 +848,6 @@
             document.querySelector('.sidebar-content').scrollTop = 0;
         }
 
-        function clearArticle() {
-            currentPostId = null;
-            document.title = "Medical Research Blog";
-            document.getElementById('empty-state').style.display = 'flex';
-            document.getElementById('article-view').classList.remove('visible');
-            document.querySelectorAll('.article-list-item').forEach(el => el.classList.remove('active'));
-            document.getElementById('toc-list').innerHTML = '';
-            if (tocObserver) {
-                tocObserver.disconnect();
-                tocObserver = null;
-            }
-            if (window.updateReadingProgress) window.updateReadingProgress();
-        }
-
         function loadArticle(post, pushHistory = true) {
             currentPostId = post.id;
             document.title = `${post.title} | Medical Research Blog`;
@@ -889,11 +856,10 @@
             const articleView = document.getElementById('article-view');
             articleView.classList.remove('visible');
 
-            document.getElementById('post-date').textContent = post.date;
-            document.getElementById('post-id').textContent = post.id;
-            document.getElementById('post-title').textContent = post.title;
+            // Update Header Meta
+            const dateEl = document.getElementById('post-date');
+            if (dateEl) dateEl.textContent = post.date || 'Recent';
 
-            // Calculate estimated reading time
             const rawContent = `${post.title || ''} ${post.summary || ''} ${post.objective || ''} ${post.method || ''} ${post.result || ''}`;
             const wordCount = rawContent.trim().split(/\s+/).filter(Boolean).length;
             const charCount = rawContent.length;
@@ -901,6 +867,9 @@
             const readingTimeVal = document.getElementById('reading-time-val');
             if (readingTimeVal) readingTimeVal.textContent = `${estMin} min read`;
 
+            document.getElementById('post-title').textContent = post.title;
+
+            // Render Tags
             const tagsContainer = document.getElementById('post-tags');
             tagsContainer.innerHTML = '';
             if (post.tags && post.tags.length > 0) {
@@ -911,15 +880,13 @@
                     tagEl.onclick = (e) => { e.stopPropagation(); selectTag(tag); };
                     tagsContainer.appendChild(tagEl);
                 });
-            } else {
-                tagsContainer.innerHTML = '<span style="color:#cbd5e1; font-size:0.8rem;">No tags</span>';
             }
 
             // Render Content
             const summaryContainer = document.getElementById('formatted-summary-container');
             summaryContainer.innerHTML = parseContent(post);
 
-            // Generate ToC AFTER content is rendered
+            // Generate Table of Contents
             generateToC();
 
             // Render Related Papers
@@ -943,7 +910,6 @@
             const activeEl = document.querySelector(`.article-list-item[data-id="${post.id}"]`);
             if (activeEl) activeEl.classList.add('active');
 
-            // Step 5: Preserve tag state in URL when navigating articles
             if (pushHistory) {
                 const params = new URLSearchParams();
                 params.set('id', post.id);
@@ -956,17 +922,16 @@
             setTimeout(() => {
                 articleView.classList.add('visible');
                 if (window.updateReadingProgress) window.updateReadingProgress();
-            }, 50);
+            }, 30);
             document.querySelector('.main-content').scrollTop = 0;
-            window.scrollTo(0, 0); // For mobile
+            window.scrollTo(0, 0);
 
-            // Auto-collapse sidebar on mobile select
             if (window.innerWidth <= 1024) {
                 closeSidebar();
             }
         }
 
-        /* --- 3. DYNAMIC ToC LOGIC --- */
+        // Table of Contents Scrollspy
         function generateToC() {
             const tocContainer = document.getElementById('toc-container');
             const tocList = document.getElementById('toc-list');
@@ -979,12 +944,12 @@
                 tocObserver = null;
             }
 
-            if (headers.length > 0 && window.innerWidth > 1200) {
+            if (headers.length > 0 && window.innerWidth >= 1280) {
                 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                 const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
                 tocContainer.style.display = 'block';
                 headers.forEach((header, index) => {
-                    header.id = `section-${index}`; // Assign ID for anchor
+                    header.id = `section-${index}`;
                     const link = document.createElement('a');
                     link.className = 'toc-link';
                     link.textContent = header.textContent;
@@ -998,7 +963,6 @@
                     tocList.appendChild(link);
                 });
 
-                // Setup dynamic intersection observer to track active section while scrolling
                 tocObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -1006,7 +970,6 @@
                             document.querySelectorAll('.toc-link').forEach(link => {
                                 if (link.getAttribute('href') === `#${targetId}`) {
                                     link.classList.add('active');
-                                    link.scrollIntoView({ behavior: scrollBehavior, block: 'nearest' });
                                 } else {
                                     link.classList.remove('active');
                                 }
@@ -1015,7 +978,7 @@
                     });
                 }, {
                     root: document.querySelector('.main-content') || null,
-                    rootMargin: '-80px 0px -70% 0px',
+                    rootMargin: '-60px 0px -70% 0px',
                     threshold: 0
                 });
 
@@ -1025,18 +988,17 @@
             }
         }
 
-        /* --- 2. RELATED PAPERS LOGIC --- */
+        // Related Papers
         function renderRelatedPapers(currentPost) {
             const container = document.getElementById('related-papers');
             const grid = document.getElementById('related-grid');
             grid.innerHTML = '';
 
-            // Find overlapping tags, excluding current post
             const related = allPosts.filter(p =>
                 p.id !== currentPost.id &&
                 p.tags && currentPost.tags &&
                 p.tags.some(t => currentPost.tags.includes(t))
-            ).slice(0, 3); // Top 3
+            ).slice(0, 3);
 
             if (related.length > 0) {
                 container.style.display = 'block';
@@ -1069,14 +1031,27 @@
         }
 
         function parseContent(post) {
+            let calloutHtml = '';
+            if (post.summary && post.summary.trim()) {
+                const cleanSummary = escapeHTML(post.summary).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                calloutHtml = `
+                    <div class="thai-callout-box">
+                        <div class="thai-callout-icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path></svg>
+                        </div>
+                        <div class="thai-callout-text">&ldquo;${cleanSummary}&rdquo;</div>
+                    </div>
+                `;
+            }
+
             if (post.objective || post.method || post.result) {
-                let html = '';
+                let html = calloutHtml;
                 if (post.objective) html += `<div class="research-section"><div class="sec-header">Objective</div><div class="sec-content">${escapeHTML(post.objective).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div></div>`;
-                if (post.method) html += `<div class="research-section"><div class="sec-header">Methods</div><div class="sec-content">${escapeHTML(post.method).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div></div>`;
-                if (post.result) html += `<div class="research-section conclusion-section"><div class="sec-header">Results & Conclusion</div><div class="sec-content">${escapeHTML(post.result).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div></div>`;
+                if (post.method) html += `<div class="research-section"><div class="sec-header">Methods &amp; Design</div><div class="sec-content">${escapeHTML(post.method).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div></div>`;
+                if (post.result) html += `<div class="research-section conclusion-section"><div class="sec-header">Results &amp; Clinical Takeaways</div><div class="sec-content">${escapeHTML(post.result).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div></div>`;
                 return html;
             }
-            return parseSummaryToSections(post.summary);
+            return calloutHtml || parseSummaryToSections(post.summary);
         }
 
         function parseSummaryToSections(text) {
@@ -1096,46 +1071,14 @@
 
                 if (sectionTitle) {
                     sectionContent = cleanLine.replace(/^(?:\*\*(?:Results\s*(?:&|&amp;)\s*Conclusion|วัตถุประสงค์|Objective|วิธีการ|Methods|Method|Results|Result|Conclusions|Conclusion|สรุป|ผลลัพธ์[^\s:*]*|ผลวิเคราะห์)(?=\*\*|[:：]|\s).*?[:：]?\*\*[:：]?|(?:Results\s*(?:&|&amp;)\s*Conclusion|วัตถุประสงค์|Objective|วิธีการ|Methods|Method|Results|Result|Conclusions|Conclusion|สรุป|ผลลัพธ์[^\s:*]*|ผลวิเคราะห์)(?:[:：]|\s+|$))\s*/i, '').trim();
-                    // Sanitize first, then allow bold formatting
                     const safeSectionContent = escapeHTML(sectionContent).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                    const sectionClass = (sectionTitle === "Results & Conclusion") ? "research-section conclusion-section" : "research-section";
-                    html += `<div class="${sectionClass}"><div class="sec-header">${sectionTitle}</div><div class="sec-content">${safeSectionContent}</div></div>`;
+                    html += `<div class="research-section"><div class="sec-header">${escapeHTML(sectionTitle)}</div><div class="sec-content">${safeSectionContent}</div></div>`;
                 } else {
-                    // Sanitize first, then allow bold formatting
-                    const formattedContent = escapeHTML(cleanLine).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                    html += `<div class="research-section"><div class="sec-content">${formattedContent}</div></div>`;
+                    const safeLine = escapeHTML(cleanLine).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    html += `<p class="sec-content" style="margin-bottom:12px;">${safeLine}</p>`;
                 }
             });
             return html;
-        }
-
-        // Step 5: URL state sync - restore tags from ?tag= param
-        function handleRouting() {
-            const params = new URLSearchParams(window.location.search);
-
-            // Restore tag state from URL
-            const tagParam = params.get('tag');
-            if (tagParam) {
-                tagParam.split(',').forEach(t => {
-                    const trimmed = t.trim();
-                    if (trimmed) activeTags.add(trimmed);
-                });
-                refreshTagUI();
-                handleFilter('');
-            }
-
-            // Load specific article if ID present, otherwise load the latest one
-            const id = params.get('id');
-            if (id && allPosts.length > 0) {
-                const post = allPosts.find(p => p.id === id);
-                if (post) {
-                    loadArticle(post, false);
-                } else if (filteredPosts.length > 0) {
-                    loadArticle(filteredPosts[0], false);
-                }
-            } else if (filteredPosts.length > 0) {
-                loadArticle(filteredPosts[0], false);
-            }
         }
 
         function updateURLState() {
@@ -1146,50 +1089,42 @@
                 params.delete('tag');
             }
             const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
-            history.replaceState(history.state, '', newUrl);
+            history.replaceState({ id: currentPostId }, '', newUrl);
         }
 
-        window.onpopstate = function (event) {
-            // Restore tags from URL on back/forward
+        function handleRouting() {
             const params = new URLSearchParams(window.location.search);
-            activeTags.clear();
             const tagParam = params.get('tag');
-            if (tagParam) {
-                tagParam.split(',').forEach(t => {
-                    const trimmed = t.trim();
-                    if (trimmed) activeTags.add(trimmed);
-                });
-            }
-            refreshTagUI();
-            handleFilter(document.getElementById('search-input').value || '');
+            const idParam = params.get('id');
 
-            if (event.state && event.state.id) {
-                const post = allPosts.find(p => p.id === event.state.id);
-                if (post) {
-                    loadArticle(post, false);
-                } else if (filteredPosts.length > 0) {
-                    loadArticle(filteredPosts[0], false);
-                } else {
-                    clearArticle();
+            if (tagParam) {
+                activeTags = new Set(tagParam.split(',').filter(Boolean));
+                refreshTagUI();
+                handleFilter('');
+            }
+
+            if (idParam) {
+                const targetPost = allPosts.find(p => p.id === idParam);
+                if (targetPost) {
+                    loadArticle(targetPost, false);
+                    return;
                 }
-            } else {
-                // If there's an id in URL parameters
-                const id = params.get('id');
-                if (id) {
-                    const post = allPosts.find(p => p.id === id);
-                    if (post) {
-                        loadArticle(post, false);
-                        return;
-                    }
-                }
-                if (filteredPosts.length > 0) {
-                    loadArticle(filteredPosts[0], false);
-                } else {
-                    clearArticle();
-                }
+            }
+
+            if (filteredPosts.length > 0) {
+                loadArticle(filteredPosts[0], false);
+            }
+        }
+
+        window.onpopstate = (e) => {
+            const id = e.state ? e.state.id : new URLSearchParams(window.location.search).get('id');
+            if (id) {
+                const targetPost = allPosts.find(p => p.id === id);
+                if (targetPost) loadArticle(targetPost, false);
+            } else if (filteredPosts.length > 0) {
+                loadArticle(filteredPosts[0], false);
             }
         };
-
     </script>
 </body>
 

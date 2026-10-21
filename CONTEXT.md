@@ -97,3 +97,13 @@
 - **Context**: Light theme card hover inverted the entire card background to deep navy (`#1E3A6D`), creating visual flash and jarring contrast. Furthermore, raw emojis scattered across UI elements clashed with the serious clinical systems identity, and carousel controls overflowed container boundaries.
 - **Decision**: Calibrate Light theme hover tokens (`--card-hover-bg: #F8F8FA`) with tactile elevation (`transform: translateY(-2px)`), soft shadow (`var(--shadow-hover)`), and crisp border highlight (`#1E3C72`), eliminating full-card navy flipping. Replace all raw emojis with 1.5px/2.0px stroke vector SVGs, eliminate em-dashes across markup and styles, and integrate carousel controls into the section header.
 - **Consequence**: Delivers a calm, publication-grade Dieter Rams / Apple Slate experience with tactile micro-interactions and zero AI-slop tells.
+
+### ADR-014: Stitch-Inspired Modern Apple Slate & Titanium Navy Overhaul (taste-skill Alignment)
+
+- **Context**: Screen prototypes generated in Stitch project "Web Repo Overhaul" (ID `1378738448426175962`) provided a more modern layout with a top command bar, structured clinical callout cards, and bento metadata grids. However, Stitch generated static Tailwind CDN markup which clashed with the repo's offline-first dynamic pipelines (`papers.json`, `projects.json`, blog chunks) and required refinement under `/taste-skill`.
+- **Decision**: Overhaul `index.html`, `blog.html`, `index.css`, and `blog.css` using the design strengths of Stitch while adhering strictly to `/taste-skill` rules:
+  1. Updated corner radii to modern tactile tokens (`--radius: 8px;`, `--radius-sm: 4px;`).
+  2. Enhanced the homepage with a cardiology SVG icon, single-line navigation header, date/read-time/topic chips on research cards, and enriched bento tool cards from `projects.json`.
+  3. Transformed `blog.html` into a 3-column academic reader with a top reader command bar (A-/A+ text zoom, 4-format citation modal, prev/next article navigation, theme toggle), topic pills with count badge, and a dedicated Thai commentary callout card.
+  4. Preserved zero-build native CSS architecture, automated n8n data ingestion, PWA Service Worker offline caching, and strict ZERO em-dash (`—`) compliance.
+- **Consequence**: Delivers a modern, publication-grade clinical informatics experience with superior typography, tactile micro-interactions, full mobile responsiveness, and zero regressions to offline/upstream pipelines.
