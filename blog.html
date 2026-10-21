@@ -1089,7 +1089,7 @@
                 else if (cleanLine.match(/^(\*\*)?(ผลลัพธ์|Result|Conclusion|สรุป|ผลวิเคราะห์)/i)) sectionTitle = "Results & Conclusion";
 
                 if (sectionTitle) {
-                    sectionContent = cleanLine.replace(/^(?:\*\*(?:วัตถุประสงค์|Objective|วิธีการ|Method|Methods|Results|Result|Conclusion|สรุป|ผลลัพธ์|ผลวิเคราะห์).*?[:：]?\*\*[:：]?|(?:วัตถุประสงค์|Objective|วิธีการ|Method|Methods|Results|Result|Conclusion|สรุป|ผลลัพธ์|ผลวิเคราะห์).*?[:：]?)\s*/i, '').trim();
+                    sectionContent = cleanLine.replace(/^(?:\*\*(?:Results\s*(?:&|&amp;)\s*Conclusion|วัตถุประสงค์|Objective|วิธีการ|Methods|Method|Results|Result|Conclusion|สรุป|ผลลัพธ์|ผลวิเคราะห์).*?[:：]?\*\*[:：]?|(?:Results\s*(?:&|&amp;)\s*Conclusion|วัตถุประสงค์|Objective|วิธีการ|Methods|Method|Results|Result|Conclusion|สรุป|ผลลัพธ์|ผลวิเคราะห์)(?:[:：]|\s+))\s*/i, '').trim();
                     // Sanitize first, then allow bold formatting
                     const safeSectionContent = escapeHTML(sectionContent).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
                     const sectionClass = (sectionTitle === "Results & Conclusion") ? "research-section conclusion-section" : "research-section";
