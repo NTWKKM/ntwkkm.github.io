@@ -355,6 +355,8 @@
         let currentCitationFormat = 'apa';
         let currentCitationPost = null;
 
+        const citationCopySvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px;vertical-align:-1px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
+
         function openCitationModal(post) {
             currentCitationPost = post;
             let dialog = document.getElementById('citation-popover-dialog');
@@ -379,7 +381,7 @@
                     <textarea class="citation-text-area" id="citation-text" readonly aria-label="Citation text">${escapeHTML(generateCitation(post, currentCitationFormat))}</textarea>
                     <div class="citation-modal-footer">
                         <button class="citation-copy-btn" id="citation-copy-btn" aria-label="Copy citation to clipboard">
-                            📋 Copy Citation
+                            ${citationCopySvg}Copy Citation
                         </button>
                     </div>
                 </div>
@@ -429,7 +431,7 @@
                     triggerHaptic('success');
                     setTimeout(() => {
                         btn.classList.remove('copied');
-                        btn.innerHTML = '📋 Copy Citation';
+                        btn.innerHTML = `${citationCopySvg}Copy Citation`;
                     }, 2000);
                 }
                 announceToScreenReader('Citation copied to clipboard');
@@ -1082,7 +1084,7 @@
             const lines = text.split(/\n/);
             let html = '';
             lines.forEach(line => {
-                let cleanLine = line.trim().replace(/^(?:[-•]\s*|\*\s+)/, '');
+                let cleanLine = line.trim().replace(/^(?:[-•](?:\s+|$)|\*\s+)/, '');
                 if (!cleanLine) return;
 
                 let sectionTitle = "";
