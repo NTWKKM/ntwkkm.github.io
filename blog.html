@@ -1031,27 +1031,27 @@
         }
 
         function parseContent(post) {
-            let calloutHtml = '';
-            if (post.summary && post.summary.trim()) {
-                const cleanSummary = escapeHTML(post.summary).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                calloutHtml = `
-                    <div class="thai-callout-box">
-                        <div class="thai-callout-icon" aria-hidden="true">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path></svg>
-                        </div>
-                        <div class="thai-callout-text">&ldquo;${cleanSummary}&rdquo;</div>
-                    </div>
-                `;
-            }
-
             if (post.objective || post.method || post.result) {
+                let calloutHtml = '';
+                if (post.summary && post.summary.trim()) {
+                    const cleanSummary = escapeHTML(post.summary).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                    calloutHtml = `
+                        <div class="thai-callout-box">
+                            <div class="thai-callout-icon" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path></svg>
+                            </div>
+                            <div class="thai-callout-text">&ldquo;${cleanSummary}&rdquo;</div>
+                        </div>
+                    `;
+                }
+
                 let html = calloutHtml;
                 if (post.objective) html += `<div class="research-section"><div class="sec-header">Objective</div><div class="sec-content">${escapeHTML(post.objective).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div></div>`;
                 if (post.method) html += `<div class="research-section"><div class="sec-header">Methods &amp; Design</div><div class="sec-content">${escapeHTML(post.method).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div></div>`;
                 if (post.result) html += `<div class="research-section conclusion-section"><div class="sec-header">Results &amp; Clinical Takeaways</div><div class="sec-content">${escapeHTML(post.result).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div></div>`;
                 return html;
             }
-            return calloutHtml || parseSummaryToSections(post.summary);
+            return parseSummaryToSections(post.summary);
         }
 
         function parseSummaryToSections(text) {
@@ -1097,11 +1097,10 @@
             const tagParam = params.get('tag');
             const idParam = params.get('id');
 
-            if (tagParam) {
-                activeTags = new Set(tagParam.split(',').filter(Boolean));
-                refreshTagUI();
-                handleFilter('');
-            }
+            activeTags = new Set(tagParam ? tagParam.split(',').map(t => t.trim()).filter(Boolean) : []);
+            refreshTagUI();
+            const searchInput = document.getElementById('search-input');
+            handleFilter(searchInput ? searchInput.value : '');
 
             if (idParam) {
                 const targetPost = allPosts.find(p => p.id === idParam);
@@ -1116,14 +1115,8 @@
             }
         }
 
-        window.onpopstate = (e) => {
-            const id = e.state ? e.state.id : new URLSearchParams(window.location.search).get('id');
-            if (id) {
-                const targetPost = allPosts.find(p => p.id === id);
-                if (targetPost) loadArticle(targetPost, false);
-            } else if (filteredPosts.length > 0) {
-                loadArticle(filteredPosts[0], false);
-            }
+        window.onpopstate = () => {
+            handleRouting();
         };
     </script>
 </body>

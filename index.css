@@ -4,7 +4,7 @@
    =================================================================== */
 
 body {
-    font-family: "Inter Tight", "Neue Haas Grotesk", "Sarabun", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: "Inter Tight", "Neue Haas Grotesk", Sarabun, -apple-system, BlinkMacSystemFont, sans-serif;
     background-color: var(--bg-body);
     color: var(--text-main);
     line-height: 1.6;
@@ -345,7 +345,6 @@ header .theme-btn:active {
 }
 
 [data-theme="dark"] .paper-date-badge {
-    color: #93c5fd;
     border-color: rgba(147, 197, 253, 0.15);
 }
 
@@ -372,7 +371,6 @@ header .theme-btn:active {
 }
 
 [data-theme="dark"] .paper-category-chip {
-    color: #93c5fd;
     background: rgba(147, 197, 253, 0.1);
     border-color: rgba(147, 197, 253, 0.18);
 }
@@ -396,7 +394,7 @@ header .theme-btn:active {
 }
 
 [data-theme="dark"] .paper-card:hover .paper-title {
-    color: #FFFFFF;
+    color: var(--card-hover-text);
 }
 
 .paper-comment {
@@ -437,7 +435,7 @@ header .theme-btn:active {
 }
 
 [data-theme="dark"] .paper-card:hover .paper-link {
-    color: #93c5fd;
+    color: var(--primary);
     border-top-color: var(--card-hover-divider);
     background-color: rgba(255, 255, 255, 0.04);
 }
@@ -542,10 +540,6 @@ header .theme-btn:active {
     transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-[data-theme="dark"] .project-icon-box {
-    color: #93c5fd;
-}
-
 .project-card:hover .project-icon-box {
     background-color: var(--card-hover-icon-bg);
     border-color: var(--border-strong);
@@ -582,10 +576,6 @@ header .theme-btn:active {
     transform: translate(2px, -2px);
 }
 
-[data-theme="dark"] .project-card:hover .project-external-arrow {
-    color: #93c5fd;
-}
-
 .project-card-body {
     flex-grow: 1;
     margin-bottom: 14px;
@@ -605,7 +595,7 @@ header .theme-btn:active {
 }
 
 [data-theme="dark"] .project-card:hover .project-title {
-    color: #FFFFFF;
+    color: var(--card-hover-text);
 }
 
 .project-desc {
@@ -643,10 +633,6 @@ header .theme-btn:active {
 .project-card:hover .project-launch-btn {
     color: var(--primary-hover);
     text-decoration: underline;
-}
-
-[data-theme="dark"] .project-launch-btn {
-    color: #93c5fd;
 }
 
 /* --- FOOTER --- */

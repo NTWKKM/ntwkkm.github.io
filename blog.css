@@ -40,6 +40,19 @@ body {
     gap: 12px;
 }
 
+@media (max-width: 767px) {
+    .reader-back-btn span,
+    .reader-index-toggle span,
+    .reader-action-btn span {
+        display: none;
+    }
+
+    .reader-nav-arrows,
+    #citation-btn {
+        display: none;
+    }
+}
+
 .reader-bar-left {
     display: flex;
     align-items: center;
@@ -1093,6 +1106,8 @@ body {
     }
 
     .sidebar.collapsed {
+        width: 320px;
+        min-width: 0;
         transform: translateX(-100%);
         opacity: 0;
     }

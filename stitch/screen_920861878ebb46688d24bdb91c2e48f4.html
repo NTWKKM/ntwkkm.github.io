@@ -36,10 +36,10 @@
 </button>
 <!-- Prev / Next Document Quick Nav -->
 <div class="flex items-center gap-1">
-<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors" title="Previous Paper">
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors" title="Previous Paper" aria-label="Previous Paper">
 <span class="material-symbols-outlined text-[18px]">chevron_left</span>
 </button>
-<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors" title="Next Paper">
+<button class="w-8 h-8 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors" title="Next Paper" aria-label="Next Paper">
 <span class="material-symbols-outlined text-[18px]">chevron_right</span>
 </button>
 </div>
@@ -54,7 +54,7 @@
 <span class="material-symbols-outlined text-secondary text-[20px]">format_quote</span>
 <h4 class="font-headline-sm text-headline-sm text-primary">Cite This Paper</h4>
 </div>
-<button class="text-on-surface-variant hover:text-on-surface rounded-lg p-1" id="close-cite">
+<button class="text-on-surface-variant hover:text-on-surface rounded-lg p-1" id="close-cite" aria-label="Close" title="Close">
 <span class="material-symbols-outlined text-[18px]">close</span>
 </button>
 </div>
@@ -389,17 +389,29 @@
       const btnOut = document.getElementById('btn-zoom-out');
       let currentScale = 1;
 
+      function updateZoom() {
+        article.style.fontSize = `${currentScale * 100}%`;
+        const targets = article.querySelectorAll('h1, p');
+        targets.forEach(el => {
+          if (!el.dataset.origSize) {
+            el.dataset.origSize = parseFloat(window.getComputedStyle(el).fontSize);
+          }
+          const base = parseFloat(el.dataset.origSize);
+          el.style.fontSize = `${(base * currentScale).toFixed(2)}px`;
+        });
+      }
+
       if (btnIn && btnOut && article) {
         btnIn.addEventListener('click', () => {
           if (currentScale < 1.25) {
-            currentScale += 0.05;
-            article.style.fontSize = `${currentScale * 100}%`;
+            currentScale = Math.min(1.25, +(currentScale + 0.05).toFixed(2));
+            updateZoom();
           }
         });
         btnOut.addEventListener('click', () => {
           if (currentScale > 0.85) {
-            currentScale -= 0.05;
-            article.style.fontSize = `${currentScale * 100}%`;
+            currentScale = Math.max(0.85, +(currentScale - 0.05).toFixed(2));
+            updateZoom();
           }
         });
       }
