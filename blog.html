@@ -658,7 +658,10 @@
                     return;
                 }
                 const citationDialog = document.getElementById('citation-popover-dialog');
-                if (citationDialog && (citationDialog.open || citationDialog.matches(':popover-open'))) return;
+                if (citationDialog?.open) return;
+                try {
+                    if (citationDialog?.matches(':popover-open')) return;
+                } catch (_) {}
 
                 if (e.key === 'ArrowLeft') {
                     navigateArticle(-1);
@@ -1085,9 +1088,9 @@
                 let sectionTitle = "";
                 let sectionContent = cleanLine;
 
-                if (cleanLine.match(/^(\*\*)?(วัตถุประสงค์|Objective)/i)) sectionTitle = "Objective";
-                else if (cleanLine.match(/^(\*\*)?(วิธีการ|Method)/i)) sectionTitle = "Methods";
-                else if (cleanLine.match(/^(\*\*)?(ผลลัพธ์|Result|Conclusion|สรุป|ผลวิเคราะห์)/i)) sectionTitle = "Results & Conclusion";
+                if (cleanLine.match(/^(\*\*)?(?:วัตถุประสงค์|Objective(?=\*\*|[:：]|\s|$))/i)) sectionTitle = "Objective";
+                else if (cleanLine.match(/^(\*\*)?(?:วิธีการ|Method(?:s)?(?=\*\*|[:：]|\s|$))/i)) sectionTitle = "Methods";
+                else if (cleanLine.match(/^(\*\*)?(?:ผลลัพธ์|Result(?:s)?(?=\*\*|[:：]|\s|$)|Conclusion(?:s)?(?=\*\*|[:：]|\s|$)|สรุป|ผลวิเคราะห์)/i)) sectionTitle = "Results & Conclusion";
 
                 if (sectionTitle) {
                     sectionContent = cleanLine.replace(/^(?:\*\*(?:Results\s*(?:&|&amp;)\s*Conclusion|วัตถุประสงค์|Objective|วิธีการ|Methods|Method|Results|Result|Conclusions|Conclusion|สรุป|ผลลัพธ์[^\s:*]*|ผลวิเคราะห์)(?=\*\*|[:：]|\s).*?[:：]?\*\*[:：]?|(?:Results\s*(?:&|&amp;)\s*Conclusion|วัตถุประสงค์|Objective|วิธีการ|Methods|Method|Results|Result|Conclusions|Conclusion|สรุป|ผลลัพธ์[^\s:*]*|ผลวิเคราะห์)(?:[:：]|\s+))\s*/i, '').trim();
