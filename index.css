@@ -1,5 +1,5 @@
 /* ===================================================================
-   HOMEPAGE SPECIFIC STYLES — index.html
+   HOMEPAGE SPECIFIC STYLES - index.html
    =================================================================== */
 
 body {
@@ -117,18 +117,32 @@ header .theme-btn:hover {
 
 /* --- SECTION HEADER --- */
 .section-header {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     gap: 16px;
 }
 
-
+.section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.3px;
+    margin: 0;
+    white-space: nowrap;
+}
 
 .section-line {
     height: 1px;
     background: var(--border);
     flex-grow: 1;
+}
+
+.carousel-nav-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
 }
 
 /* --- LATEST PAPERS SLIDER --- */
@@ -173,7 +187,7 @@ header .theme-btn:hover {
     flex-direction: column;
     position: relative;
     overflow: hidden;
-    transition: all 0.2s ease;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
     -webkit-user-drag: none;
@@ -184,14 +198,28 @@ header .theme-btn:hover {
 .paper-card:hover {
     background-color: var(--card-hover-bg);
     border-color: var(--card-hover-border);
-    color: var(--card-hover-text);
     box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
 }
 
-.paper-card:hover .paper-title,
-.paper-card:hover .paper-comment,
+.paper-card:active {
+    transform: translateY(0);
+}
+
+.paper-card:hover .paper-title {
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .paper-card:hover .paper-title {
+    color: #FFFFFF;
+}
+
+.paper-card:hover .paper-comment {
+    color: var(--text-secondary);
+}
+
 .paper-card:hover .paper-date {
-    color: var(--card-hover-text);
+    color: var(--card-hover-muted);
 }
 
 .paper-date {
@@ -240,27 +268,38 @@ header .theme-btn:hover {
     display: flex;
     align-items: center;
     gap: 6px;
-    transition: color 0.2s, background-color 0.2s;
+    transition: color 0.2s, background-color 0.2s, border-top-color 0.2s;
     cursor: pointer;
 }
 
 .paper-card:hover .paper-link {
-    color: var(--card-hover-text);
+    border-top-color: var(--border-strong);
+    background-color: rgba(30, 60, 114, 0.03);
+}
+
+[data-theme="dark"] .paper-card:hover .paper-link {
+    color: #93c5fd;
     border-top-color: var(--card-hover-divider);
+    background-color: rgba(255, 255, 255, 0.04);
+}
+
+.paper-link svg {
+    transition: transform 0.2s ease;
+}
+
+.paper-card:hover .paper-link svg {
+    transform: translateX(3px);
 }
 
 .paper-link:hover {
-    color: #ffffff;
+    color: var(--primary-hover);
     text-decoration: underline;
 }
 
 .slider-nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
     background: var(--bg-card);
     border: 1px solid var(--border);
     color: var(--text-secondary);
@@ -268,8 +307,7 @@ header .theme-btn:hover {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    z-index: 10;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: var(--shadow-sm);
 }
 
@@ -280,23 +318,12 @@ header .theme-btn:hover {
     box-shadow: var(--shadow);
 }
 
-.slider-nav-btn.prev {
-    left: -18px;
-}
-
-.slider-nav-btn.next {
-    right: -18px;
+.slider-nav-btn:active {
+    transform: scale(0.96);
 }
 
 #papers-section {
-    margin-bottom: 24px;
-}
-
-.section-header {
-    margin-bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
+    margin-bottom: 28px;
 }
 
 /* --- PAPER CAROUSEL INDICATORS --- */
@@ -349,8 +376,8 @@ header .theme-btn:hover {
 .project-card {
     background: var(--bg-card);
     border-radius: var(--radius);
-    padding: 24px;
-    transition: all 0.2s ease;
+    padding: 22px;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
     text-decoration: none;
     color: inherit;
     border: 1px solid var(--border);
@@ -358,6 +385,7 @@ header .theme-btn:hover {
     display: grid;
     grid-template-rows: auto auto 1fr;
     row-gap: 8px;
+    position: relative;
 }
 
 @supports (grid-template-rows: subgrid) {
@@ -369,34 +397,72 @@ header .theme-btn:hover {
 .project-card:hover {
     background-color: var(--card-hover-bg);
     border-color: var(--card-hover-border);
-    color: var(--card-hover-text);
     box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
 }
 
-.project-card:hover .project-title,
+.project-card:active {
+    transform: translateY(0);
+}
+
+.project-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.project-card:hover .project-title {
+    color: var(--text-main);
+}
+
+[data-theme="dark"] .project-card:hover .project-title {
+    color: #FFFFFF;
+}
+
 .project-card:hover .project-desc {
-    color: var(--card-hover-text);
-}
-
-.project-card:hover .project-icon {
-    background-color: var(--card-hover-icon-bg);
-    border-color: transparent;
-    color: var(--card-hover-text);
+    color: var(--text-secondary);
 }
 
 .project-icon {
-    margin-bottom: 4px;
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     background: var(--bg-surface);
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--primary);
-    font-size: 1.1rem;
     border: 1px solid var(--border);
     transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+[data-theme="dark"] .project-icon {
+    color: #93c5fd;
+}
+
+.project-card:hover .project-icon {
+    background-color: var(--card-hover-icon-bg);
+    border-color: var(--border-strong);
+}
+
+.project-external-arrow {
+    color: var(--text-muted);
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.project-card:hover .project-external-arrow {
+    opacity: 1;
+    color: var(--primary);
+    transform: translate(2px, -2px);
+}
+
+[data-theme="dark"] .project-card:hover .project-external-arrow {
+    color: #93c5fd;
 }
 
 .project-title {
@@ -404,6 +470,7 @@ header .theme-btn:hover {
     font-weight: 600;
     margin-bottom: 2px;
     color: var(--text-main);
+    letter-spacing: -0.2px;
     transition: color 0.2s ease;
 }
 
@@ -484,6 +551,10 @@ footer a:hover {
         margin-right: -20px;
         margin-bottom: -20px;
         padding: 12px 20px 16px 20px;
+    }
+
+    .section-title {
+        font-size: 1.05rem;
     }
 
     .slider-nav-btn {

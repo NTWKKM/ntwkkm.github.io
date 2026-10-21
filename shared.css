@@ -1,5 +1,5 @@
 /* ===================================================================
-   SHARED STYLES — ntwkkm.github.io
+   SHARED STYLES - ntwkkm.github.io
    Consolidated styling used across all sub-pages.
    =================================================================== */
 
@@ -46,13 +46,13 @@
     --scrollbar-thumb: #C7C7CC;
 
     /* Shared Card Hover Tokens (Light) */
-    --card-hover-bg:       #1E3A6D;
-    --card-hover-border:   #1E3A6D;
-    --card-hover-text:     #FFFFFF;
-    --card-hover-icon-bg:  rgba(255, 255, 255, 0.15);
-    --card-hover-divider:  rgba(255, 255, 255, 0.20);
-    --card-hover-meta:     #CBD5E1;
-    --card-hover-muted:    #CBD5E1;
+    --card-hover-bg:       #F8F8FA;
+    --card-hover-border:   #1e3c72;
+    --card-hover-text:     #1d1d1f;
+    --card-hover-icon-bg:  rgba(30, 60, 114, 0.08);
+    --card-hover-divider:  #D8D8DC;
+    --card-hover-meta:     #4a4a4a;
+    --card-hover-muted:    #6E6E73;
 
     /* Fluid Typography Scale Tokens (Baseline 2026) */
     --font-size-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.78rem);

@@ -46,7 +46,7 @@ All colors MUST be referenced via CSS variables defined in `:root` and `[data-th
 - Card Shadow (`--shadow`): `0 4px 20px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.04)`
 - Surface Contrast (Canvas vs Card): 1.18:1 (Clean, modern card separation)
 - Accent Signal (`--signal-orange`): `#d84315`
-- Shared Card Hover Tokens: `--card-hover-bg: #1E3A6D`, `--card-hover-border: #1E3A6D`, `--card-hover-text: #FFFFFF`, `--card-hover-divider: rgba(255, 255, 255, 0.20)`, `--card-hover-meta: #CBD5E1`
+- Shared Card Hover Tokens: `--card-hover-bg: #F8F8FA`, `--card-hover-border: #1E3C72`, `--card-hover-text: #1d1d1f`, `--card-hover-icon-bg: rgba(30, 60, 114, 0.08)`, `--card-hover-divider: #D8D8DC`, `--card-hover-meta: #4a4a4a`
 
 ### 3.2. Dark Theme (Titanium Precision Navy - Ergonomic Tone 1)
 
@@ -81,7 +81,7 @@ Muted tones, applied **text-only** (never as solid background badges).
 
 - **Border Radius**: `--radius: 4px` for outer cards, `--radius-sm: 2px` for inner elements, to give a harder industrial edge.
 - **Borders**: Thin `1px solid var(--border)`.
-- **Hover State & Elevation:** Cards (such as `.project-card` and homepage `.paper-card`) elevate with soft shadow `var(--shadow-hover)`. On hover, background changes to `var(--card-hover-bg)`, borders are `var(--card-hover-border)`, and child text turns `var(--card-hover-text)` with symmetric padding. Similarly, blog article list items (`.article-list-item`) and related cards (`.related-card`) transition cleanly to `var(--card-hover-bg)` background, `var(--card-hover-border)` border, and `var(--card-hover-text)` text on hover. Active selection list items (`.article-list-item.active`) utilize `var(--bg-paper-list)` background with a solid `3px` left border of `var(--text-main)` to visually signify the active reading state.
+- **Hover State & Elevation:** Cards (such as `.project-card` and homepage `.paper-card`) elevate with soft shadow `var(--shadow-hover)` and a tactile `transform: translateY(-2px)`. In Light theme, card backgrounds maintain a clean surface tone (`#F8F8FA`) with crisp border highlight (`#1E3C72`) and clear text contrast (`#1d1d1f`), eliminating harsh inverted dark flips. In Dark theme, cards smoothly elevate to elevated navy (`var(--card-hover-bg): #2A467C`) with `#4E78BC` border and white text. Similarly, blog article list items (`.article-list-item`) and related cards (`.related-card`) transition smoothly to `var(--card-hover-bg)` background without contrast clipping. Active selection list items (`.article-list-item.active`) utilize `var(--bg-paper-list)` background with a solid `3px` left border of `var(--text-main)` to visually signify the active reading state.
 
 ### 4.2. Navigation Bar
 
