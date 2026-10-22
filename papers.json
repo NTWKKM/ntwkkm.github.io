@@ -1,45 +1,87 @@
 [
   {
-    "date": "22 Oct",
+    "date": "23 Oct",
     "title": "Emergency Department Evaluation and Care of Hepatic Encephalopathy: ACEP Expert Panel Recommendations.",
-    "comment": "แนวทางปฏิบัติมาตรฐานจากผู้เชี่ยวชาญ ACEP สำหรับดูแล Hepatic Encephalopathy ใน ER",
+    "comment": "แนวทางปฏิบัติมาตรฐานจาก Expert Panel สำหรับจัดการ Hepatic Encephalopathy ใน ER",
     "pmid": "42900941",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42900941/"
   },
   {
-    "date": "22 Oct",
+    "date": "23 Oct",
     "title": "Intravenous ibuprofen versus ketorolac for acute low back pain in the emergency department: a triple-blind randomized clinical trial.",
-    "comment": "เปรียบเทียบประสิทธิภาพยาแก้ปวดสำหรับ Low back pain ใน ER นำไปใช้ทางคลินิกได้ทันที",
+    "comment": "RCT เปรียบเทียบประสิทธิภาพยาแก้ปวดสองชนิดสำหรับ Acute low back pain ใน ER",
     "pmid": "42902081",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42902081/"
   },
   {
-    "date": "22 Oct",
+    "date": "23 Oct",
     "title": "Intravenous Ketamine for Depressed and Suicidal Adolescents in the Emergency Department: A Randomized Double-Blind Trial.",
-    "comment": "การใช้ Ketamine รักษาภาวะซึมเศร้าและเสี่ยงฆ่าตัวตายในวัยรุ่นที่มา ER",
+    "comment": "RCT การใช้ IV Ketamine รักษาภาวะซึมเศร้าและเสี่ยงฆ่าตัวตายในวัยรุ่นที่มา ER",
     "pmid": "42900929",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42900929/"
   },
   {
-    "date": "22 Oct",
-    "title": "Point-of-Care Ultrasound After Medical Screening Exam Reduces Time to Ruptured Ectopic Pregnancy Diagnosis and Surgery.",
-    "comment": "POCUS ช่วยลดเวลาวินิจฉัยและผ่าตัด Ruptured Ectopic Pregnancy ได้อย่างมีนัยสำคัญ",
-    "pmid": "42900937",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42900937/"
-  },
-  {
-    "date": "22 Oct",
+    "date": "23 Oct",
     "title": "Absence of miosis does not exclude opioid exposure in emergency department patients with respiratory depression: a diagnostic accuracy study.",
-    "comment": "Safety Signal: การไม่มีรูม่านตาเล็กไม่สามารถใช้ตัด Opioid overdose ในคนไข้ Respiratory depression ได้",
+    "comment": "Safety Signal: การไม่มีรูม่านตาเล็กไม่สามารถใช้ตัดประวัติการได้รับ Opioids ได้",
     "pmid": "42901744",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42901744/"
   },
   {
-    "date": "22 Oct",
+    "date": "23 Oct",
+    "title": "Point-of-Care Ultrasound After Medical Screening Exam Reduces Time to Ruptured Ectopic Pregnancy Diagnosis and Surgery.",
+    "comment": "Novel Tool: POCUS ช่วยลดเวลาวินิจฉัยและผ่าตัด Ruptured ectopic pregnancy ได้เร็วขึ้น",
+    "pmid": "42900937",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42900937/"
+  },
+  {
+    "date": "23 Oct",
+    "title": "Performance of GPT-5.5 thinking for Manchester Triage System-based emergency department triage: agreement with an expert reference standard and prediction of short-term outcomes.",
+    "comment": "Novel Tool: ประเมินความแม่นยำของ AI ในการทำ Triage ตามระบบ MTS",
+    "pmid": "42902219",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42902219/"
+  },
+  {
+    "date": "23 Oct",
+    "title": "Early hemodynamic changes after the use of push-dose noradrenaline in patients presenting to the emergency department with septic shock: a descriptive study.",
+    "comment": "Clinical Impact: ข้อมูลการตอบสนองทาง hemodynamic ของ push-dose noradrenaline ใน Septic shock",
+    "pmid": "42902161",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42902161/"
+  },
+  {
+    "date": "23 Oct",
     "title": "Negative pressure wound therapy for the prevention of surgical site complications in emergency laparotomies: an updated systematic review and meta-analysis.",
-    "comment": "หลักฐานสนับสนุนการใช้ NPWT เพื่อลดภาวะแทรกซ้อนหลังผ่าตัด Emergency laparotomy",
+    "comment": "Practice Changing: Meta-analysis การใช้ NPWT ป้องกันภาวะแทรกซ้อนหลังผ่าตัดฉุกเฉิน",
     "pmid": "42902330",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42902330/"
+  },
+  {
+    "date": "23 Oct",
+    "title": "Diagnostic accuracy of a prehospital 0/1-hour point of care high-sensitivity troponin testing pathway.",
+    "comment": "Practice Changing: ความแม่นยำของ POC hs-Troponin ในการคัดกรอง ACS ตั้งแต่ก่อนถึงโรงพยาบาล",
+    "pmid": "42901741",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42901741/"
+  },
+  {
+    "date": "23 Oct",
+    "title": "Intracranial lesion yield and downstream management after mild traumatic brain injury in emergency department patients receiving antiplatelet therapy: a two-center retrospective cohort study.",
+    "comment": "Safety Signal: อัตราการพบรอยโรคในสมองของผู้ป่วย mild TBI ที่กินยาต้านเกล็ดเลือด",
+    "pmid": "42902166",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42902166/"
+  },
+  {
+    "date": "23 Oct",
+    "title": "Evidence-based management of kawasaki disease in the emergency department.",
+    "comment": "Practice Changing: อัปเดตการดูแลผู้ป่วย Kawasaki disease ในบริบทของห้องฉุกเฉิน",
+    "pmid": "42902613",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42902613/"
+  },
+  {
+    "date": "23 Oct",
+    "title": "Diagnosing and treating influenza in the emergency department: an evidence-based update.",
+    "comment": "Practice Changing: อัปเดตการวินิจฉัยและรักษาไข้หวัดใหญ่ใน ER ตามหลักฐานเชิงประจักษ์",
+    "pmid": "42902612",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42902612/"
   },
   {
     "date": "22 Oct",
@@ -50,38 +92,10 @@
   },
   {
     "date": "22 Oct",
-    "title": "Performance of GPT-5.5 thinking for Manchester Triage System-based emergency department triage: agreement with an expert reference standard and prediction of short-term outcomes.",
-    "comment": "ประเมินความแม่นยำของ AI รุ่นล่าสุดในการคัดแยกผู้ป่วย (Triage) ตามมาตรฐาน MTS",
-    "pmid": "42902219",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42902219/"
-  },
-  {
-    "date": "22 Oct",
     "title": "Contrast-Enhanced NeuroPOCUS in Neurocritical Care: Overcoming Technical Barriers to Bedside Transcranial Ultrasound.",
     "comment": "เทคนิค NeuroPOCUS แบบ Contrast-Enhanced เพื่อเพิ่มประสิทธิภาพการตรวจข้างเตียง",
     "pmid": "42902103",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42902103/"
-  },
-  {
-    "date": "22 Oct",
-    "title": "Diagnostic accuracy of a prehospital 0/1-hour point of care high-sensitivity troponin testing pathway.",
-    "comment": "ความแม่นยำของโปรโตคอล hs-Troponin แบบ POC ในระยะก่อนถึงโรงพยาบาล",
-    "pmid": "42901741",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42901741/"
-  },
-  {
-    "date": "22 Oct",
-    "title": "Intracranial lesion yield and downstream management after mild traumatic brain injury in emergency department patients receiving antiplatelet therapy: a two-center retrospective cohort study.",
-    "comment": "ข้อมูลการตัดสินใจส่ง CT ในผู้ป่วย mild TBI ที่กินยาต้านเกล็ดเลือด",
-    "pmid": "42902166",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42902166/"
-  },
-  {
-    "date": "22 Oct",
-    "title": "Early hemodynamic changes after the use of push-dose noradrenaline in patients presenting to the emergency department with septic shock: a descriptive study.",
-    "comment": "ผลต่อระบบไหลเวียนโลหิตของการใช้ push-dose noradrenaline ใน Septic shock ที่ ER",
-    "pmid": "42902161",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42902161/"
   },
   {
     "date": "20 Oct",
@@ -474,19 +488,5 @@
     "comment": "แนวทางการใช้ D-dimer ประเมินความรุนแรงในโรคติดเชื้อทางเดินหายใจจากไวรัส",
     "pmid": "42883774",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42883774/"
-  },
-  {
-    "date": "17 Oct",
-    "title": "Occult Penetrating Trauma: A STEMI Mimic Hiding in Plain Sight.",
-    "comment": "Safety Signal: ระวังภาวะบาดเจ็บทะลุทรวงอกที่แสดงอาการคล้าย STEMI",
-    "pmid": "42886121",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42886121/"
-  },
-  {
-    "date": "17 Oct",
-    "title": "Transcatheter Adrenal Arterial Embolization for Life-Threatening Pheochromocytoma Crisis.",
-    "comment": "เทคนิคการรักษาภาวะวิกฤตจาก Pheochromocytoma ที่ช่วยรักษาชีวิตผู้ป่วยได้",
-    "pmid": "42886145",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42886145/"
   }
 ]
