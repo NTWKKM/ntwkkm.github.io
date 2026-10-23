@@ -2,51 +2,86 @@
   {
     "date": "23 Oct",
     "title": "Delay From Hypotension Onset to Appropriate Antifungal Therapy Initiation Is the Critical Determinant of Outcome in Candida Septic Shock.",
-    "comment": "เน้นย้ำความสำคัญของเวลาในการให้ยาต้านเชื้อราใน Candida septic shock เพื่อลดอัตราตาย",
+    "comment": "เน้นความเร็วในการให้ยา antifungal ใน Candida septic shock เพื่อลด mortality",
     "pmid": "42904906",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42904906/"
   },
   {
     "date": "23 Oct",
-    "title": "Beyond the Ladder: A 10-Domain Cognitive and Operational Toolkit to Humanise and Implement Acute Pain Guidelines at the Bedside.",
-    "comment": "เครื่องมือช่วยนำแนวทางจัดการความปวดเฉียบพลันไปใช้จริงที่ข้างเตียงให้มีประสิทธิภาพมากขึ้น",
-    "pmid": "42904831",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42904831/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Management and Surveillance of Immune Checkpoint Inhibitor Myocarditis: Managing the Aftermath: JACC CardioOncology State-of-the-Art Review.",
-    "comment": "แนวทางการดูแลและติดตามภาวะกล้ามเนื้อหัวใจอักเสบจากยาภูมิคุ้มกันบำบัด ซึ่งเป็นภาวะฉุกเฉินรุนแรง",
-    "pmid": "42904620",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42904620/"
-  },
-  {
-    "date": "23 Oct",
     "title": "Prehospital point-of-care ultrasound as a decision-support tool: A structured narrative review.",
-    "comment": "ทบทวนการใช้ POCUS นอกโรงพยาบาลเพื่อช่วยตัดสินใจในการรักษาผู้ป่วยฉุกเฉิน",
+    "comment": "การใช้ POCUS ในจุดเกิดเหตุเพื่อช่วยตัดสินใจรักษาทางคลินิก",
     "pmid": "42904388",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42904388/"
   },
   {
     "date": "23 Oct",
-    "title": "Optimizing antimicrobial stewardship indicators in the emergency department through the application of days of antibiotic spectrum coverage.",
-    "comment": "แนวทางการปรับปรุงการใช้ยาปฏิชีวนะใน ER เพื่อลดการดื้อยาและเพิ่มประสิทธิภาพการรักษา",
-    "pmid": "42904365",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42904365/"
+    "title": "Beyond the Ladder: A 10-Domain Cognitive and Operational Toolkit to Humanise and Implement Acute Pain Guidelines at the Bedside.",
+    "comment": "ชุดเครื่องมือช่วยนำแนวทางจัดการความปวดเฉียบพลันไปใช้จริงที่ข้างเตียง",
+    "pmid": "42904831",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42904831/"
+  },
+  {
+    "date": "23 Oct",
+    "title": "Brain edema progression rate on serial CT predicts neurological outcome after cardiac arrest: a region-specific biomarker of hypoxic-ischemic brain injury.",
+    "comment": "ใช้ serial CT ประเมิน brain edema เพื่อพยากรณ์ neurological outcome หลัง CA",
+    "pmid": "42904189",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42904189/"
+  },
+  {
+    "date": "23 Oct",
+    "title": "Management and Surveillance of Immune Checkpoint Inhibitor Myocarditis: Managing the Aftermath: JACC CardioOncology State-of-the-Art Review.",
+    "comment": "แนวทางการจัดการ ICI-myocarditis ซึ่งเป็นผลข้างเคียงรุนแรงที่ต้องระวังใน ER",
+    "pmid": "42904620",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42904620/"
+  },
+  {
+    "date": "23 Oct",
+    "title": "Structured Analgesia Pathways, Including Nurse-Initiated Approaches, for Acute Pain in Emergency Departments: A Systematic Review and Meta-Analysis.",
+    "comment": "การใช้ระบบ analgesia pathway และ nurse-initiated ช่วยลดความปวดใน ER",
+    "pmid": "42903479",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42903479/"
   },
   {
     "date": "23 Oct",
     "title": "Hospital resuscitation in patients with primary hypothermic cardiac arrest.",
-    "comment": "แนวทางการฟื้นคืนชีพผู้ป่วยหัวใจหยุดเต้นที่มีภาวะตัวเย็นจัด ซึ่งมีหลักการต่างจาก cardiac arrest ปกติ",
+    "comment": "แนวทางการกู้ชีพในผู้ป่วย cardiac arrest ที่มีภาวะตัวเย็นจัด",
     "pmid": "42904320",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42904320/"
   },
   {
     "date": "23 Oct",
-    "title": "Brain edema progression rate on serial CT predicts neurological outcome after cardiac arrest: a region-specific biomarker of hypoxic-ischemic brain injury.",
-    "comment": "ใช้การดูอัตราการบวมของสมองจาก CT serial เพื่อพยากรณ์ผลลัพธ์ทางระบบประสาทหลัง CPR",
-    "pmid": "42904189",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42904189/"
+    "title": "Optimizing antimicrobial stewardship indicators in the emergency department through the application of days of antibiotic spectrum coverage.",
+    "comment": "การปรับปรุงการใช้ยาปฏิชีวนะใน ER เพื่อลดเชื้อดื้อยา",
+    "pmid": "42904365",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42904365/"
+  },
+  {
+    "date": "23 Oct",
+    "title": "Evidence-based management of kawasaki disease in the emergency department.",
+    "comment": "อัปเดตการวินิจฉัยและรักษา Kawasaki disease ใน ER ตามหลักฐานเชิงประจักษ์",
+    "pmid": "42902613",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42902613/"
+  },
+  {
+    "date": "23 Oct",
+    "title": "Diagnosing and treating influenza in the emergency department: an evidence-based update.",
+    "comment": "อัปเดตแนวทางการดูแลผู้ป่วย Influenza ใน ER ให้ทันสมัย",
+    "pmid": "42902612",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42902612/"
+  },
+  {
+    "date": "23 Oct",
+    "title": "Overcoming inertia in anticoagulant reversal: the current evidence gap and need for critical assessment of factor replacement strategies.",
+    "comment": "วิเคราะห์ช่องว่างและกลยุทธ์การให้ reversal agents ในผู้ป่วยได้รับยา anticoagulant เกิน",
+    "pmid": "42903252",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42903252/"
+  },
+  {
+    "date": "23 Oct",
+    "title": "Chlorine Gas Exposure: Clinical Course, Outcomes, and Lessons Learned Following a Mass-Exposure Incident in Oman.",
+    "comment": "บทเรียนการจัดการ mass exposure ต่อก๊าซคลอรีนสำหรับเตรียมรับมืออุบัติภัยสารเคมี",
+    "pmid": "42904314",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42904314/"
   },
   {
     "date": "23 Oct",
@@ -54,34 +89,6 @@
     "comment": "แนวทางการใช้ Steroid อย่างสมเหตุสมผลเพื่อลดผลข้างเคียงและเพิ่มความปลอดภัยของผู้ป่วย",
     "pmid": "42904150",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42904150/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Structured Analgesia Pathways, Including Nurse-Initiated Approaches, for Acute Pain in Emergency Departments: A Systematic Review and Meta-Analysis.",
-    "comment": "การใช้ระบบจัดการความปวดแบบโครงสร้าง (รวมถึงพยาบาลเริ่มยาได้) ช่วยลดความปวดใน ER ได้ดีขึ้น",
-    "pmid": "42903479",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42903479/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Overcoming inertia in anticoagulant reversal: the current evidence gap and need for critical assessment of factor replacement strategies.",
-    "comment": "เตือนเรื่องความล่าช้าในการให้ยาแก้ฤทธิ์ยาต้านการแข็งตัวของเลือด ซึ่งส่งผลต่อพยากรณ์โรค",
-    "pmid": "42903252",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42903252/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Evidence-based management of kawasaki disease in the emergency department.",
-    "comment": "อัปเดตการวินิจฉัยและรักษาโรค Kawasaki ใน ER เพื่อป้องกันภาวะแทรกซ้อนทางหัวใจ",
-    "pmid": "42902613",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42902613/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Diagnosing and treating influenza in the emergency department: an evidence-based update.",
-    "comment": "อัปเดตแนวทางการตรวจวินิจฉัยและรักษาไข้หวัดใหญ่ใน ER ให้เป็นปัจจุบัน",
-    "pmid": "42902612",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42902612/"
   },
   {
     "date": "23 Oct",
@@ -481,12 +488,5 @@
     "comment": "ยืนยันผลของ POCUS ในการเพิ่มอัตราความสำเร็จของการเจาะหลังในเด็ก",
     "pmid": "42888024",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42888024/"
-  },
-  {
-    "date": "17 Oct",
-    "title": "Safeguarding in Emergency Care: Clarifying the Targeted 'Child-Check' Protocol.",
-    "comment": "ปรับปรุง protocol การคัดกรองความปลอดภัยเด็กใน ER ให้ชัดเจนขึ้นเพื่อลดความเสี่ยง",
-    "pmid": "42888527",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42888527/"
   }
 ]
