@@ -1,6 +1,90 @@
 [
   {
     "date": "24 Oct",
+    "title": "Tele-Resuscitation in Prehospital Care: Expanding Remote Guidance.",
+    "comment": "เพิ่มศักยภาพการกู้ชีพนอกโรงพยาบาลด้วยระบบแนะนำทางไกล ช่วยลดความผิดพลาดและเพิ่ม survival rate",
+    "pmid": "42919776",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42919776/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "18F-Fluorodeoxyglucose PET in Infective Endocarditis and Device-Related Infections.",
+    "comment": "ใช้ PET scan ช่วยวินิจฉัยการติดเชื้อที่ลิ้นหัวใจและอุปกรณ์ทางการแพทย์ เพิ่มความแม่นยำในการระบุจุดติดเชื้อ",
+    "pmid": "42919722",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42919722/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Reconsidering the emergency department's role in evaluating sexually transmitted infections and HIV during pregnancy.",
+    "comment": "ทบทวนบทบาท ER ในการคัดกรอง STI/HIV ในหญิงตั้งครรภ์ เพื่อป้องกันการส่งต่อที่ล่าช้า",
+    "pmid": "42919694",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42919694/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Development of an implementation package for asthma medication optimisation in the emergency department (AMEND): an evidence, theory and person-based approach.",
+    "comment": "แนวทางปรับปรุงการให้ยาพ่นใน ER เพื่อลดการกลับมานอนโรงพยาบาลซ้ำในผู้ป่วย Asthma",
+    "pmid": "42919613",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42919613/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Extreme weather events: A practical guide for clinicians.",
+    "comment": "คู่มือปฏิบัติสำหรับแพทย์ในการรับมือผู้ป่วยที่ได้รับผลกระทบจากสภาพอากาศรุนแรง (Heatstroke/Floods)",
+    "pmid": "42919471",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42919471/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Association of Acute Respiratory Distress Syndrome Radiographic Findings Identified by Machine Learning and Outcomes of Patients Receiving Invasive Mechanical Ventilation.",
+    "comment": "ใช้ AI วิเคราะห์ภาพรังสีใน ARDS เพื่อพยากรณ์ผลลัพธ์ในผู้ป่วยที่ใส่เครื่องช่วยหายใจ",
+    "pmid": "42919460",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42919460/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Brachial-to-Radial Pressure Gradient in Critically Ill Patients Treated With Vasoactive Agents: A Prospective Observational Study.",
+    "comment": "ใช้ความต่างความดันโลหิตประเมิน perfusion ในผู้ป่วยวิกฤตที่ได้รับยาเพิ่มความดัน",
+    "pmid": "42919451",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42919451/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Comparative Analysis of Tracheal Intubation-Associated Cardiac Arrest in 2015-2023: A Report From the National Emergency Airway Registry for Children Multicenter Registry.",
+    "comment": "ข้อมูลความปลอดภัยในการใส่ท่อช่วยหายใจในเด็ก เพื่อลดอุบัติการณ์ Cardiac arrest ระหว่างทำหัตถการ",
+    "pmid": "42919448",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42919448/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Pre-hospital care delays in trauma-related mass casualty incidents: a comparative international survey of high-income and low- and middle-income country perspectives.",
+    "comment": "วิเคราะห์จุดบอดของการส่งต่อผู้ป่วยอุบัติเหตุหมู่ เพื่อปรับปรุงระบบ Triage และ Transport",
+    "pmid": "42919409",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42919409/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Pre-hospital pulse pressure as an early predictor of active hemorrhage in trauma patients.",
+    "comment": "ใช้ Pulse pressure นอกโรงพยาบาลเป็นสัญญาณเตือนการเสียเลือดรุนแรงในผู้ป่วย Trauma",
+    "pmid": "42918714",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42918714/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Clinical triage concordance of a point-of-care high-sensitivity cardiac troponin I assay using the ESC 0/1-hour algorithm.",
+    "comment": "ทดสอบประสิทธิภาพ POCT hs-TnI ตาม algorithm 0/1 ชม. เพื่อความรวดเร็วในการวินิจฉัย AMI",
+    "pmid": "42918591",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42918591/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Urinary Proteomic Panel Distinguishes Acute Myocarditis from Acute Myocardial Infarction.",
+    "comment": "เครื่องมือใหม่ (Urinary panel) ช่วยแยกโรค Myocarditis ออกจาก AMI ลดการตรวจรุกล้ำที่เกินจำเป็น",
+    "pmid": "42918110",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42918110/"
+  },
+  {
+    "date": "24 Oct",
     "title": "Rapid bolus versus 3-h continuous infusion of 3% hypertonic saline for acute symptomatic hyponatremia.",
     "comment": "เปรียบเทียบการให้ Hypertonic saline ใน Hyponatremia ช่วยตัดสินใจเลือกวิธีให้ยาใน ER",
     "pmid": "42913073",
@@ -404,89 +488,5 @@
     "comment": "ใช้ ePVS เป็นตัวบ่งชี้พยากรณ์โรคและการต้องการเลือด/ปัจจัยการแข็งตัวของเลือดใน Polytrauma",
     "pmid": "42895603",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42895603/"
-  },
-  {
-    "date": "19 Oct",
-    "title": "Efficacy and Safety of Etomidate Versus Ketamine for Endotracheal Intubation in Critically Ill Patients: A Systematic Review and Meta-Analysis.",
-    "comment": "เปรียบเทียบยาเหนี่ยวนำการนำสอดท่อช่วยหายใจในผู้ป่วยวิกฤต มีผลต่อการเลือกยาใน ER",
-    "pmid": "42893350",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42893350/"
-  },
-  {
-    "date": "19 Oct",
-    "title": "A Drone-Integrated Artificial Intelligence-Based System for Mass-Casualty Triage and Remote Monitoring.",
-    "comment": "นวัตกรรม AI และโดรนเพื่อการ Triage ผู้บาดเจ็บจำนวนมากในสถานการณ์ภัยพิบัติ",
-    "pmid": "42895141",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42895141/"
-  },
-  {
-    "date": "19 Oct",
-    "title": "Procalcitonin-Guided Antimicrobial Therapy: Current Evidence for Clinical Decision-Making and Practical Limitations.",
-    "comment": "ทบทวนการใช้ PCT ในการตัดสินใจให้/หยุดยาฆ่าเชื้อ เพื่อลดการดื้อยา",
-    "pmid": "42894527",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42894527/"
-  },
-  {
-    "date": "19 Oct",
-    "title": "Palpitations in children and adolescents in the emergency department: a state-of-the-art narrative review of arrhythmia risk, diagnostic strategy, and disposition.",
-    "comment": "แนวทางการวินิจฉัยและจัดการอาการใจสั่นในเด็กและวัยรุ่นที่มา ER",
-    "pmid": "42894485",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42894485/"
-  },
-  {
-    "date": "19 Oct",
-    "title": "Assessing Medication Confounders Before Determination of Brain Death/Death by Neurologic Criteria: A Primer, with Opioids as a Worked Example.",
-    "comment": "ข้อควรระวังเรื่องยา (เช่น Opioids) ที่อาจรบกวนการวินิจฉัยสมองตาย",
-    "pmid": "42895303",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42895303/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Decompressive craniectomy in adults with moderate to severe traumatic brain injury: A systematic review and meta-analysis of randomised controlled trials.",
-    "comment": "ข้อมูลระดับ Meta-analysis เรื่องการผ่าตัดลดความดันในสมอง ซึ่งมีผลต่อการรอดชีวิตและพิการ",
-    "pmid": "42893097",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42893097/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Octreotide Plus Proton pump inhibitor (PPI) versus PPI alone in Non-Variceal Upper gastrointestinal (GI) Bleeding in intensive care unit (ICU): A Multi-Center Randomized Trial.",
-    "comment": "RCT ใหม่เกี่ยวกับการจัดการ GI bleed ที่ไม่ใช่ variceal ซึ่งอาจเปลี่ยนแนวทางการให้ยาใน ICU/ER",
-    "pmid": "42892527",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42892527/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Automated Calculation of the Pediatric Emergency Care Applied Research Network (PECARN) Intra-Abdominal Injury Rule from Unstructured Emergency Department Notes Using a Large Language Model.",
-    "comment": "การใช้ LLM ช่วยคำนวณ PECARN score จาก note เพื่อลดความผิดพลาดและเพิ่มความเร็วในการคัดกรองเด็ก",
-    "pmid": "42893265",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42893265/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Intimate Partner Violence and Suicide Risk among Women Presenting to Emergency Departments: A Systematic Review, Meta-Analysis, and Narrative Synthesis.",
-    "comment": "ระบุกลุ่มเสี่ยงสูงต่อการฆ่าตัวตายใน ER ที่ต้องได้รับการประเมินทางจิตเวชอย่างเร่งด่วน",
-    "pmid": "42891520",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42891520/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Prehospital extracorporeal cardiopulmonary resuscitation for refractory out-of-hospital cardiac arrest: a protocol for the Rapid prehospital ACcess to ECPR in Prague (RACE Prague) single-arm pilot feasibility study.",
-    "comment": "แนวทางการทำ ECPR ตั้งแต่ก่อนถึงโรงพยาบาลสำหรับ OHCA ที่ไม่ตอบสนองต่อการ CPR ปกติ",
-    "pmid": "42893205",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42893205/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "A systematic review of laxative use in critically unwell patients: Are we doing more harm than good?",
-    "comment": "ทบทวนความปลอดภัยของการใช้ยาถ่ายในผู้ป่วยวิกฤต ซึ่งอาจมีผลเสียมากกว่าประโยชน์",
-    "pmid": "42892790",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42892790/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Improving Arterial Blood Gas Sampling Practice in the Emergency Department: A Two-Cycle Clinical Audit.",
-    "comment": "ข้อมูลการปรับปรุงคุณภาพการเจาะ ABG ใน ER เพื่อลดภาวะแทรกซ้อนและเพิ่มความแม่นยำ",
-    "pmid": "42893309",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42893309/"
   }
 ]
