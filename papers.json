@@ -1,5 +1,82 @@
 [
   {
+    "date": "24 Oct",
+    "title": "Rapid bolus versus 3-h continuous infusion of 3% hypertonic saline for acute symptomatic hyponatremia.",
+    "comment": "เปรียบเทียบการให้ Hypertonic saline ใน Hyponatremia ช่วยตัดสินใจเลือกวิธีให้ยาใน ER",
+    "pmid": "42913073",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42913073/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Effect of AI-assisted radiographic fracture detection on paediatric emergency department length of stay through fracture exclusion: A before-after cohort study.",
+    "comment": "AI ช่วยลดระยะเวลาพำนักใน ER เด็กโดยช่วยคัดกรองภาวะกระดูกหัก",
+    "pmid": "42913113",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42913113/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Prehospital antibiotics and 28-day mortality in sepsis: where does the adjusted benefit come from?",
+    "comment": "วิเคราะห์ประโยชน์ของการให้ ATB ตั้งแต่ระยะก่อนถึงโรงพยาบาลในผู้ป่วย Sepsis",
+    "pmid": "42911831",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42911831/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "In-Hospital Outcomes of Acyclovir With or Without Corticosteroid for Herpes Simplex Encephalitis: A Nationwide Retrospective Cohort Study.",
+    "comment": "ข้อมูลการใช้ Steroid ร่วมกับ Acyclovir ใน HSE ซึ่งส่งผลต่อ Outcome ผู้ป่วย",
+    "pmid": "42913452",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42913452/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Rapid Transport to Extracorporeal CPR: Urging Caution Prior to Implementation.",
+    "comment": "คำเตือนเรื่องความปลอดภัยและความระมัดระวังในการนำส่งผู้ป่วยเพื่อทำ ECPR",
+    "pmid": "42911820",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42911820/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Q-AortaECG: A Quantum-Inspired Multi-Agent 12-Lead ECG System for Early Triage of Acute Aortic Syndrome.",
+    "comment": "เครื่องมือใหม่ช่วย Triage ผู้ป่วย Acute Aortic Syndrome จาก ECG ได้รวดเร็วขึ้น",
+    "pmid": "42912522",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42912522/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Otolin-1 for differentiating central and peripheral causes of acute continuous dizziness.",
+    "comment": "ตัวบ่งชี้ใหม่ช่วยแยกสาเหตุ Vertigo ระหว่าง Central และ Peripheral ใน ER",
+    "pmid": "42911946",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42911946/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Predictors of Survival in Extracorporeal Membrane Oxygenation Supported Immunocompromised Acute Respiratory Distress Syndrome Patients.",
+    "comment": "ปัจจัยพยากรณ์การรอดชีวิตในผู้ป่วย ARDS ที่ภูมิคุ้มกันบกพร่องและใช้ ECMO",
+    "pmid": "42912181",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42912181/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Deep learning-based detection of pneumoperitoneum on computed tomography: performance and clinical feasibility.",
+    "comment": "การใช้ AI ตรวจหา Pneumoperitoneum จาก CT scan เพื่อเพิ่มความแม่นยำในภาวะฉุกเฉิน",
+    "pmid": "42911392",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42911392/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Prognostic value of the blood urea nitrogen-to-albumin ratio for 28-day mortality in septic intensive care unit patients: a large-scale retrospective cohort study using the Medical Information Mart for Intensive Care IV database.",
+    "comment": "ใช้ BUN/Albumin ratio พยากรณ์การเสียชีวิตในผู้ป่วย Sepsis",
+    "pmid": "42912053",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42912053/"
+  },
+  {
+    "date": "24 Oct",
+    "title": "Post-COVID-19 Expansion of Streptococcus pyogenes Lineages Causing Toxic Shock Syndrome, Japan, 2023-2024.",
+    "comment": "สัญญาณความเสี่ยงการระบาดของ STSS จากเชื้อ S. pyogenes สายพันธุ์ใหม่",
+    "pmid": "42912439",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42912439/"
+  },
+  {
     "date": "23 Oct",
     "title": "Delay From Hypotension Onset to Appropriate Antifungal Therapy Initiation Is the Critical Determinant of Outcome in Candida Septic Shock.",
     "comment": "เน้นความเร็วในการให้ยา antifungal ใน Candida septic shock เพื่อลด mortality",
@@ -411,82 +488,5 @@
     "comment": "ข้อมูลการปรับปรุงคุณภาพการเจาะ ABG ใน ER เพื่อลดภาวะแทรกซ้อนและเพิ่มความแม่นยำ",
     "pmid": "42893309",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42893309/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Utility of Point-of-care Ultrasound in Clinical Care: A Narrative Review.",
-    "comment": "สรุปการใช้ POCUS ในคลินิก ซึ่งเป็นเครื่องมือสำคัญที่ช่วยในการวินิจฉัยรวดเร็วใน ER",
-    "pmid": "42891441",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42891441/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Longitudinal measurements of inflammatory mediators in patients at risk of sepsis in the Emergency Department.",
-    "comment": "การใช้ตัวบ่งชี้การอักเสบติดตามผลในผู้ป่วยเสี่ยง Sepsis เพื่อการวินิจฉัยและรักษาที่รวดเร็วขึ้น",
-    "pmid": "42892907",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42892907/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Development and validation of predictive models for undiagnosed Alzheimer's disease and related dementias in the emergency department.",
-    "comment": "เครื่องมือช่วยคัดกรองภาวะสมองเสื่อมที่ยังไม่ถูกวินิจฉัยใน ER เพื่อการจัดการที่เหมาะสม",
-    "pmid": "42891040",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42891040/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Interdisciplinary intervention (GAIN) vs. enhanced usual care for reducing severe post-concussion symptoms in adults 2-4 months post-injury: a stepped wedge cluster randomised controlled trial.",
-    "comment": " RCT แนวทางการลดอาการหลัง concussion ซึ่งส่งผลต่อการแนะนำผู้ป่วยที่ ER",
-    "pmid": "42891011",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42891011/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Immune checkpoint inhibitor-associated myocarditis: clinical and mechanistic insights.",
-    "comment": "Safety Signal เรื่อง myocarditis จากยา ICI ที่แพทย์ ER ต้องเฝ้าระวังและวินิจฉัยให้ทัน",
-    "pmid": "42892627",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42892627/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Pharmacogenetic Impact of CYP2C19 Variants on Diazepam Treatment Outcomes in Alcohol Withdrawal Syndrome.",
-    "comment": "ผลของพันธุกรรมต่อการตอบสนองต่อ Diazepam ใน Alcohol withdrawal ช่วยปรับโดสยาให้เหมาะสม",
-    "pmid": "42891844",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42891844/"
-  },
-  {
-    "date": "18 Oct",
-    "title": "Making blood work: Toward precision care after cardiac arrest.",
-    "comment": "แนวทาง Precision care หลัง cardiac arrest เพื่อเพิ่มอัตราการรอดชีวิต",
-    "pmid": "42892479",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42892479/"
-  },
-  {
-    "date": "17 Oct",
-    "title": "Diagnostic Accuracy of NT-proBNP thresholds in Dyspneic Patients in the Emergency Department according to patients' characteristics: A Systematic Review and Meta-Analysis.",
-    "comment": "ช่วยกำหนดจุดตัด NT-proBNP ในผู้ป่วยเหนื่อยที่ ER ตามลักษณะผู้ป่วยเพื่อความแม่นยำในการวินิจฉัย",
-    "pmid": "42888496",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42888496/"
-  },
-  {
-    "date": "17 Oct",
-    "title": "In older adults, \"mild\" by GCS does not mean low risk: Multicenter study of 1,157 patients with mild TBI and acute subdural hematoma.",
-    "comment": "เตือนว่า GCS ปกติในผู้สูงอายุไม่ได้แปลว่าความเสี่ยงต่ำใน TBI/SDH ให้ระวังการประเมินพลาด",
-    "pmid": "42886856",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42886856/"
-  },
-  {
-    "date": "17 Oct",
-    "title": "Neutrophil to lymphocyte ratio for predicting delayed neurologic sequelae caused by carbon monoxide poisoning: A systematic review and meta-analysis.",
-    "comment": "ใช้ NLR เป็นตัวพยากรณ์ภาวะแทรกซ้อนทางระบบประสาทที่เกิดขึ้นภายหลังในผู้ป่วยพิษ CO",
-    "pmid": "42888538",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42888538/"
-  },
-  {
-    "date": "17 Oct",
-    "title": "Does performing preprocedural point-of-care ultrasound improve success rate for lumbar punctures in paediatric patients?",
-    "comment": "ยืนยันผลของ POCUS ในการเพิ่มอัตราความสำเร็จของการเจาะหลังในเด็ก",
-    "pmid": "42888024",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42888024/"
   }
 ]
