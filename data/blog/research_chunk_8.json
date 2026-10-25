@@ -1,5 +1,65 @@
 [
   {
+    "id": "2d1ba464-60a7-812f-87df-c7d5571157a5",
+    "name": "Current guidelines in hypertension management with special focus on management of extremely high blood pressure: a systematic review",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41390616/",
+    "property_tag_2": "Emergency",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนและตรวจสอบแนวทางการจัดการโรคความดันโลหิตสูงฉบับต่างๆ ทั่วโลก โดยเน้นที่การจัดการภาวะวิกฤตความดันโลหิตสูง (Hypertensive crises) การดูแลในผู้ใหญ่และผู้สูงอายุ ภาวะแทรกซ้อน และการกำหนดเป้าหมายระดับความดันโลหิต\n- **วิธีการ:** ทำการสืบค้นข้อมูลอย่างเป็นระบบจากฐานข้อมูล PubMed, Scopus และ Web of Science ระหว่างปี 2010-2025 โดยคัดเลือกแนวทางปฏิบัติ (Guidelines) จำนวน 17 ฉบับ เพื่อรวบรวมข้อมูลเรื่องการจัดการความดันโลหิตสูง ยาที่ใช้ การติดตามผล และการรักษาผู้ป่วยที่มีความเสียหายต่ออวัยวะเป้าหมาย (End-Organ Damage)\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** พบว่าความดันโลหิต ≥ 180/120 mmHg ร่วมกับมีความเสียหายต่ออวัยวะเป้าหมายถือเป็นภาวะฉุกเฉินที่ต้องลดความดันลง 20-25% ภายในชั่วโมงแรก โดยโรคหลอดเลือดสมองขาดเลือด (Ischemic stroke) เป็นภาวะที่ถูกระบุถึงมากที่สุด (n=8) ซึ่งมีเป้าหมายความดันที่ 130-180/90-105 mmHg ทั้งนี้แนวทางปฏิบัติจำนวน 12 ฉบับ นิยามความดันโลหิตสูงไว้ที่ระดับ ≥ 130/80 ถึง ≥ 140/90 mmHg",
+    "property_tag_3": "Internal Medicine",
+    "property_tag_1": "Cardiology",
+    "property_last_edited_time": "2025-12-22T19:12:00.000Z",
+    "property_pmid": "41390616",
+    "property_name": "Current guidelines in hypertension management with special focus on management of extremely high blood pressure: a systematic review"
+  },
+  {
+    "id": "2d1ba464-60a7-81b0-a16d-d139cc8539d5",
+    "name": "Early prediction of antibiotic need and bacteremia risk in non-immunocompromised pediatric emergency patients using machine learning",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41387552/",
+    "property_tag_2": "Emergency",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อพัฒนากรอบการทำงานด้วย Machine Learning ในการช่วยตัดสินใจให้ยาปฏิชีวนะและทำนายความเสี่ยงของการติดเชื้อในกระแสเลือดในผู้ป่วยเด็กฉุกเฉินที่ไม่มีภาวะภูมิคุ้มกันบกพร่อง เพื่อเพิ่มความปลอดภัยและลดการใช้ยาเกินความจำเป็น\n- **วิธีการ:** ศึกษาข้อมูลย้อนหลังจากเวชระเบียนอิเล็กทรอนิกส์ของผู้ป่วยเด็ก 5,706 ราย (อายุ 3 เดือน - 17 ปี) จากแผนกฉุกเฉิน 6 แห่ง โดยใช้โมเดล XGBoost สร้างการทำนาย 2 ส่วน คือ การทำนายภาวะทรุดลงทางคลินิกในกลุ่มที่ไม่ได้เริ่มยาปฏิชีวนะ และการทำนายโอกาสพบเชื้อในกระแสเลือดในกลุ่มที่ได้รับยา\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** โมเดลมีประสิทธิภาพสูง โดยแสดงค่าพื้นที่ใต้กราฟ (AUC) ในระดับสูงและมีค่าการทำนายผลลบ (Negative Predictive Value) มากกว่า 96% ปัจจัยสำคัญที่ใช้ในการทำนาย ได้แก่ การใช้ออกซิเจนเสริม ไข้ ระดับความอิ่มตัวของออกซิเจนต่ำ อายุ และค่าทางห้องปฏิบัติการที่ผิดปกติ",
+    "property_tag_3": "AI",
+    "property_tag_1": "Pediatrics",
+    "property_last_edited_time": "2025-12-22T19:11:00.000Z",
+    "property_pmid": "41387552",
+    "property_name": "Early prediction of antibiotic need and bacteremia risk in non-immunocompromised pediatric emergency patients using machine learning"
+  },
+  {
+    "id": "2d1ba464-60a7-8101-84f3-c706fd12b0c5",
+    "name": "A narrative review of the diabetic ketoacidosis and hyperosmolar hyperglycemic state overlap syndrome.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41272457/",
+    "property_tag_2": "Endocrinology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อสังเคราะห์และรวบรวมข้อมูลหลักฐานปัจจุบันเกี่ยวกับระบาดวิทยา พยาธิสรีรวิทยา และการจัดการภาวะคาบเกี่ยวระหว่าง DKA และ HHS ในผู้ป่วยเบาหวานชนิดที่ 1 และ 2 ทั้งในกลุ่มเด็กและผู้ใหญ่\n- **วิธีการ:** เป็นการทบทวนวรรณกรรมแบบบรรยาย (Narrative review) ที่มุ่งเน้นการวิเคราะห์ความท้าทายในการวินิจฉัย การรักษา และผลลัพธ์ทางคลินิกที่แตกต่างกันในแต่ละกลุ่มผู้ป่วย\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ภาวะคาบเกี่ยวนี้มีความเสี่ยงต่อการเสียชีวิตและภาวะแทรกซ้อนรุนแรง (เช่น สมองบวม ลิ่มเลือดอุดตัน ไตวาย) สูงกว่าการเกิด DKA หรือ HHS เพียงอย่างเดียว ปัจจุบันยังไม่มีแนวทางการรักษาที่เป็นมาตรฐานสากล การดูแลรักษาจึงต้องปรับสมดุลการให้สารน้ำ อินซูลิน และเกลือแร่ให้เหมาะสมกับผู้ป่วยแต่ละราย",
+    "property_tag_3": "Pediatrics",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2025-12-22T16:05:00.000Z",
+    "property_pmid": "41272457",
+    "property_name": "A narrative review of the diabetic ketoacidosis and hyperosmolar hyperglycemic state overlap syndrome."
+  },
+  {
+    "id": "2d1ba464-60a7-818d-91bf-d1abe3b2324a",
+    "name": "What are we waiting for? A review of early basal insulin therapy in diabetic ketoacidosis management.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/37531711/",
+    "property_tag_2": "Endocrinology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อทบทวนวรรณกรรมและประเมินเหตุผลสนับสนุนการเริ่มให้ยา basal insulin ตั้งแต่ระยะแรก (early basal insulin) ในการดูแลรักษาผู้ป่วยภาวะเลือดเป็นกรดจากเบาหวาน (DKA)\n- **วิธีการ:** เป็นบทความทบทวนวรรณกรรม (Review article) ที่เปรียบเทียบแนวทางเวชปฏิบัติปัจจุบันของ American Diabetes Association (ADA) กับแนวทางของ Joint British Society ที่เพิ่งปรับปรุงใหม่เกี่ยวกับการบริหารยาอินซูลิน\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** การให้ basal insulin ตั้งแต่ระยะแรกสัมพันธ์กับการลดการเกิดภาวะน้ำตาลในเลือดสูงซ้ำ (rebound hyperglycemia) ช่วยลดระยะเวลาในการหายจากภาวะ DKA ลดปริมาณการใช้อินซูลินทางหลอดเลือดดำ และลดระยะเวลาการนอนโรงพยาบาล โดยไม่เพิ่มความเสี่ยงต่อการเกิดภาวะน้ำตาลในเลือดต่ำหรือโพแทสเซียมในเลือดต่ำ",
+    "property_tag_3": "Pharmacology",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2025-12-22T16:05:00.000Z",
+    "property_pmid": "37531711",
+    "property_name": "What are we waiting for? A review of early basal insulin therapy in diabetic ketoacidosis management."
+  },
+  {
+    "id": "2d1ba464-60a7-811c-a9a3-e483cc61e6ce",
+    "name": "Spin Control: Reframing Dizziness Evaluation in the Emergency Department.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41389047/",
+    "property_tag_2": "Neurology",
+    "property_comment": "- **วัตถุประสงค์:** เนื่องจากบทความนี้เป็นบทบรรณาธิการ (Editorial) จึงไม่มีบทคัดย่อที่ระบุวัตถุประสงค์การวิจัยโดยละเอียด แต่เนื้อหาหลักมุ่งเน้นการนำเสนอแนวคิดใหม่หรือการปรับปรุงกระบวนการประเมินผู้ป่วยที่มีอาการเวียนศีรษะในแผนกฉุกเฉิน\n- **วิธีการ:** ไม่ระบุข้อมูลระเบียบวิธีวิจัยเนื่องจากเป็นบทความประเภทแสดงความคิดเห็นและไม่มีบทคัดย่อ\n- **ผลลัพธ์และผลวิเคระาห์ทางสถิติ:** ไม่ระบุผลการศึกษาหรือข้อมูลทางสถิติเนื่องจากเป็นบทความประเภทแสดงความคิดเห็นและไม่มีบทคัดย่อ",
+    "property_tag_3": "Diagnosis",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2025-12-22T16:04:00.000Z",
+    "property_pmid": "41389047",
+    "property_name": "Spin Control: Reframing Dizziness Evaluation in the Emergency Department."
+  },
+  {
     "id": "2d1ba464-60a7-816b-86d9-f384ac659648",
     "name": "Sepsis and septic shock case identification from electronic health records: an open-source workflow and comparison of cohorts by criteria.",
     "url": "https://pubmed.ncbi.nlm.nih.gov/41388426/",
