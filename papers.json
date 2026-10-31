@@ -1,6 +1,83 @@
 [
   {
     "date": "31 Oct",
+    "title": "Comparative Efficacy and Safety of Corticosteroids vs. No Corticosteroids in Septic Shock Intensive Care Unit Patients: A Systematic Review and Meta-Analysis.",
+    "comment": "ประเมินซ้ำการใช้ Steroid ใน Septic shock ซึ่งเป็นประเด็นถกเถียงสูงใน ICU/ER",
+    "pmid": "42964225",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42964225/"
+  },
+  {
+    "date": "31 Oct",
+    "title": "The Pharmacologic Management of Cardiac Arrest.",
+    "comment": "Update การใช้ยาใน Cardiac arrest ซึ่งเป็น Standard of care ที่ต้องแม่นยำ",
+    "pmid": "42963150",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42963150/"
+  },
+  {
+    "date": "31 Oct",
+    "title": "Defibrillation in the Cardiac Arrest Patient.",
+    "comment": "ทบทวนหลักการ Defibrillation เพื่อเพิ่ม survival rate ในผู้ป่วย Cardiac arrest",
+    "pmid": "42963149",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42963149/"
+  },
+  {
+    "date": "31 Oct",
+    "title": "Missed abdominal injuries on initial trauma CT: pitfalls, mimickers and practical pearls.",
+    "comment": "ลด Error ในการอ่าน CT trauma ช่วยให้ไม่พลาดการวินิจฉัยที่วิกฤต",
+    "pmid": "42963514",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42963514/"
+  },
+  {
+    "date": "31 Oct",
+    "title": "Empirical linezolid target attainment in critically ill patients: integrating local susceptibility data and dosing strategies.",
+    "comment": "แนวทางการปรับโดส Linezolid ในผู้ป่วยวิกฤตเพื่อประสิทธิภาพสูงสุดในการรักษา",
+    "pmid": "42963486",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42963486/"
+  },
+  {
+    "date": "31 Oct",
+    "title": "Sepsis-Induced Coagulopathy (SIC) Update 2026: Simplifying the Diagnosis and Dynamic Monitoring of Sepsis-Associated DIC.",
+    "comment": "Update เกณฑ์วินิจฉัยและติดตาม SIC/DIC ใน Sepsis ให้ง่ายและใช้ได้จริง",
+    "pmid": "42962682",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42962682/"
+  },
+  {
+    "date": "31 Oct",
+    "title": "Outpatient management of uncomplicated acute diverticulitis: experience after implementing a protocol with selective antibiotic omission.",
+    "comment": "เปลี่ยนแนวทางรักษา diverticulitis แบบไม่ซับซ้อน โดยพิจารณาการงดยาปฏิชีวนะ",
+    "pmid": "42963293",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42963293/"
+  },
+  {
+    "date": "31 Oct",
+    "title": "Negative Pressure Wound Therapy for Emergency Laparotomy: A Meta-Analysis With Trial Sequential Analysis.",
+    "comment": "ข้อมูลสนับสนุนการใช้ NPWT ในแผลผ่าตัดฉุกเฉินเพื่อลด complication",
+    "pmid": "42962611",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42962611/"
+  },
+  {
+    "date": "31 Oct",
+    "title": "Ticagrelor pretreatment and angiographic no-reflow in STEMI: a multicentre observational study.",
+    "comment": "ผลของ Ticagrelor ต่อปรากฏการณ์ no-reflow ใน STEMI มีผลต่อการตัดสินใจให้ยา",
+    "pmid": "42962950",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42962950/"
+  },
+  {
+    "date": "31 Oct",
+    "title": "The Role of Oxygen Therapy in Acute Exacerbations of Chronic Pulmonary Diseases.",
+    "comment": "ทบทวนการให้ Oxygen ใน AE-COPD เพื่อป้องกัน hypercapnia และให้ dose ที่เหมาะสม",
+    "pmid": "42962680",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42962680/"
+  },
+  {
+    "date": "31 Oct",
+    "title": "Awake intubation in a Japanese tertiary emergency department: a single-center retrospective descriptive study.",
+    "comment": "เทคนิคการทำ Awake intubation ใน ER สำหรับผู้ป่วย Difficult airway",
+    "pmid": "42962443",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42962443/"
+  },
+  {
+    "date": "31 Oct",
     "title": "Opioid-free analgesia for acute renal colic: a randomized, double-blind, head-to-head comparison of intravenous ibuprofen, dexketoprofen trometamol and paracetamol in the emergency department.",
     "comment": "เปรียบเทียบยาแก้ปวด non-opioid ใน renal colic ใช้ปรับเปลี่ยน drug of choice ใน ER ได้",
     "pmid": "42961621",
@@ -22,38 +99,10 @@
   },
   {
     "date": "31 Oct",
-    "title": "Sepsis-Induced Coagulopathy (SIC) Update 2026: Simplifying the Diagnosis and Dynamic Monitoring of Sepsis-Associated DIC.",
-    "comment": "แนวทางใหม่ในการวินิจฉัยและติดตาม SIC ในผู้ป่วย sepsis ให้ง่ายและแม่นยำขึ้น",
-    "pmid": "42962682",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42962682/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Ticagrelor pretreatment and angiographic no-reflow in STEMI: a multicentre observational study.",
-    "comment": "ข้อมูลผลของ Ticagrelor ต่อภาวะ no-reflow ใน STEMI มีผลต่อการเลือก antiplatelet",
-    "pmid": "42962950",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42962950/"
-  },
-  {
-    "date": "31 Oct",
     "title": "Cefiderocol for the treatment of bloodstream infection due to MBL-producing Enterobacterales: a single-center retrospective cohort.",
     "comment": "การใช้ยาฆ่าเชื้อตัวใหม่ในเชื้อดื้อยาขั้นรุนแรง (MBL) สำหรับภาวะ bloodstream infection",
     "pmid": "42962939",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42962939/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "The Pharmacologic Management of Cardiac Arrest.",
-    "comment": "อัปเดตการใช้ยาในการกู้ชีพซึ่งเป็นพื้นฐานสำคัญของ ER",
-    "pmid": "42963150",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42963150/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Defibrillation in the Cardiac Arrest Patient.",
-    "comment": "อัปเดตแนวทางการช็อกไฟฟ้าในผู้ป่วย cardiac arrest เพื่อเพิ่ม survival rate",
-    "pmid": "42963149",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42963149/"
   },
   {
     "date": "31 Oct",
@@ -439,54 +488,5 @@
     "comment": "Novel Tool: POCUS ช่วยลดเวลาวินิจฉัยและผ่าตัด Ruptured ectopic pregnancy ได้เร็วขึ้น",
     "pmid": "42900937",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42900937/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Performance of GPT-5.5 thinking for Manchester Triage System-based emergency department triage: agreement with an expert reference standard and prediction of short-term outcomes.",
-    "comment": "Novel Tool: ประเมินความแม่นยำของ AI ในการทำ Triage ตามระบบ MTS",
-    "pmid": "42902219",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42902219/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Early hemodynamic changes after the use of push-dose noradrenaline in patients presenting to the emergency department with septic shock: a descriptive study.",
-    "comment": "Clinical Impact: ข้อมูลการตอบสนองทาง hemodynamic ของ push-dose noradrenaline ใน Septic shock",
-    "pmid": "42902161",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42902161/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Negative pressure wound therapy for the prevention of surgical site complications in emergency laparotomies: an updated systematic review and meta-analysis.",
-    "comment": "Practice Changing: Meta-analysis การใช้ NPWT ป้องกันภาวะแทรกซ้อนหลังผ่าตัดฉุกเฉิน",
-    "pmid": "42902330",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42902330/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Diagnostic accuracy of a prehospital 0/1-hour point of care high-sensitivity troponin testing pathway.",
-    "comment": "Practice Changing: ความแม่นยำของ POC hs-Troponin ในการคัดกรอง ACS ตั้งแต่ก่อนถึงโรงพยาบาล",
-    "pmid": "42901741",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42901741/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Intracranial lesion yield and downstream management after mild traumatic brain injury in emergency department patients receiving antiplatelet therapy: a two-center retrospective cohort study.",
-    "comment": "Safety Signal: อัตราการพบรอยโรคในสมองของผู้ป่วย mild TBI ที่กินยาต้านเกล็ดเลือด",
-    "pmid": "42902166",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42902166/"
-  },
-  {
-    "date": "22 Oct",
-    "title": "Clinical and Financial Value of Cardiac Point-of-Care Ultrasound During Traumatic Cardiac Arrest.",
-    "comment": "มูลค่าทางคลินิกของการใช้ Cardiac POCUS ในผู้ป่วย Traumatic Cardiac Arrest",
-    "pmid": "42900951",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42900951/"
-  },
-  {
-    "date": "22 Oct",
-    "title": "Contrast-Enhanced NeuroPOCUS in Neurocritical Care: Overcoming Technical Barriers to Bedside Transcranial Ultrasound.",
-    "comment": "เทคนิค NeuroPOCUS แบบ Contrast-Enhanced เพื่อเพิ่มประสิทธิภาพการตรวจข้างเตียง",
-    "pmid": "42902103",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42902103/"
   }
 ]
