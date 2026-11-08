@@ -1,5 +1,75 @@
 [
   {
+    "date": "8 Nov",
+    "title": "Early recurrence of febrile seizures in the pediatric emergency department: development and internal validation of FSERS, a practical bedside risk score.",
+    "comment": "Bedside risk score สำหรับประเมินการกลับเป็นซ้ำของ Febrile Seizure ใช้คัดกรองผู้ป่วยใน ER ได้ทันที",
+    "pmid": "42998584",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42998584/"
+  },
+  {
+    "date": "8 Nov",
+    "title": "Association of tranexamic acid with early death or massive transfusion after severe pelvic ring fractures: A nationwide registry-based cohort study.",
+    "comment": "ข้อมูลความเสี่ยง/ประสิทธิผลของ TXA ใน pelvic fracture รุนแรง มีผลต่อการตัดสินใจให้ยาใน Trauma",
+    "pmid": "42998459",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42998459/"
+  },
+  {
+    "date": "8 Nov",
+    "title": "Point-of-Care Ultrasound for Suspected Rib Fractures in Blunt Thoracic Trauma: A Proposed Emergency Department Protocol.",
+    "comment": "โปรโตคอล POCUS สำหรับ rib fractures ช่วยลดการส่ง CT และเพิ่มความรวดเร็วในการวินิจฉัยที่ ER",
+    "pmid": "42997642",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42997642/"
+  },
+  {
+    "date": "8 Nov",
+    "title": "Analysis of tranexamic acid in hemoptysis: effectiveness in a noninterventional evaluation (ATHENE).",
+    "comment": "ประเมินการใช้ TXA ในผู้ป่วย Hemoptysis ซึ่งเป็นภาวะฉุกเฉินที่พบบ่อยใน ER",
+    "pmid": "42998371",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42998371/"
+  },
+  {
+    "date": "8 Nov",
+    "title": "Smart Alerting in Smartphone-Based First Responder Systems and Arrival Before Emergency Medical Services:The ALARM Randomized Clinical Trial.",
+    "comment": "นวัตกรรมระบบ Alert First Responder เพื่อให้ถึงที่เกิดเหตุก่อน EMS เพิ่มโอกาสรอดชีวิต",
+    "pmid": "42998307",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42998307/"
+  },
+  {
+    "date": "8 Nov",
+    "title": "Upper airway morphometry in acute neck infections: Clinical associations and deep learning-based segmentation.",
+    "comment": "ใช้ AI วิเคราะห์ทางเดินหายใจใน acute neck infection ช่วยประเมินความเสี่ยง airway obstruction",
+    "pmid": "42998630",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42998630/"
+  },
+  {
+    "date": "8 Nov",
+    "title": "To cradle or not: assessing the use of a lumbar puncture cradle on lumbar puncture success rates.",
+    "comment": "ประเมินการใช้ cradle ในการทำ LP เพื่อเพิ่ม success rate ลดความล้มเหลวในการทำหัตถการ",
+    "pmid": "42998213",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42998213/"
+  },
+  {
+    "date": "8 Nov",
+    "title": "Long COVID: A Modified Delphi Consensus on Definition, Burden, Diagnosis and Management in Southeast Asia.",
+    "comment": "Consensus การจัดการ Long COVID ในภูมิภาค SEA ใช้เป็นแนวทางวินิจฉัยและส่งต่อผู้ป่วย",
+    "pmid": "42998216",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42998216/"
+  },
+  {
+    "date": "8 Nov",
+    "title": "Beyond endotoxin removal: redefining the role of polymyxin B hemoadsorption in septic shock.",
+    "comment": "ทบทวนบทบาท Polymyxin B hemoadsorption ใน Septic shock เพื่อปรับปรุงการรักษาภาวะ shock",
+    "pmid": "42996703",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42996703/"
+  },
+  {
+    "date": "8 Nov",
+    "title": "Design and application of PPTN-based fluorescence polarization probe for P2Y14 receptor antagonist screening.",
+    "comment": "เครื่องมือใหม่ในการตรวจคัดกรอง receptor ที่เกี่ยวข้องกับการอักเสบ (Novel Tool)",
+    "pmid": "42998543",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/42998543/"
+  },
+  {
     "date": "31 Oct",
     "title": "Comparative Efficacy and Safety of Corticosteroids vs. No Corticosteroids in Septic Shock Intensive Care Unit Patients: A Systematic Review and Meta-Analysis.",
     "comment": "ประเมินซ้ำการใช้ Steroid ใน Septic shock ซึ่งเป็นประเด็นถกเถียงสูงใน ICU/ER",
@@ -418,75 +488,5 @@
     "comment": "การปรับปรุงการใช้ยาปฏิชีวนะใน ER เพื่อลดเชื้อดื้อยา",
     "pmid": "42904365",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42904365/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Evidence-based management of kawasaki disease in the emergency department.",
-    "comment": "อัปเดตการวินิจฉัยและรักษา Kawasaki disease ใน ER ตามหลักฐานเชิงประจักษ์",
-    "pmid": "42902613",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42902613/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Diagnosing and treating influenza in the emergency department: an evidence-based update.",
-    "comment": "อัปเดตแนวทางการดูแลผู้ป่วย Influenza ใน ER ให้ทันสมัย",
-    "pmid": "42902612",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42902612/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Overcoming inertia in anticoagulant reversal: the current evidence gap and need for critical assessment of factor replacement strategies.",
-    "comment": "วิเคราะห์ช่องว่างและกลยุทธ์การให้ reversal agents ในผู้ป่วยได้รับยา anticoagulant เกิน",
-    "pmid": "42903252",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42903252/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Chlorine Gas Exposure: Clinical Course, Outcomes, and Lessons Learned Following a Mass-Exposure Incident in Oman.",
-    "comment": "บทเรียนการจัดการ mass exposure ต่อก๊าซคลอรีนสำหรับเตรียมรับมืออุบัติภัยสารเคมี",
-    "pmid": "42904314",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42904314/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Rational Corticosteroid Use: An Evidence-Based Narrative Review of Steroid Stewardship to Enhance Patient Safety Across Healthcare Settings.",
-    "comment": "แนวทางการใช้ Steroid อย่างสมเหตุสมผลเพื่อลดผลข้างเคียงและเพิ่มความปลอดภัยของผู้ป่วย",
-    "pmid": "42904150",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42904150/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Emergency Department Evaluation and Care of Hepatic Encephalopathy: ACEP Expert Panel Recommendations.",
-    "comment": "แนวทางปฏิบัติมาตรฐานจาก Expert Panel สำหรับจัดการ Hepatic Encephalopathy ใน ER",
-    "pmid": "42900941",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42900941/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Intravenous ibuprofen versus ketorolac for acute low back pain in the emergency department: a triple-blind randomized clinical trial.",
-    "comment": "RCT เปรียบเทียบประสิทธิภาพยาแก้ปวดสองชนิดสำหรับ Acute low back pain ใน ER",
-    "pmid": "42902081",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42902081/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Intravenous Ketamine for Depressed and Suicidal Adolescents in the Emergency Department: A Randomized Double-Blind Trial.",
-    "comment": "RCT การใช้ IV Ketamine รักษาภาวะซึมเศร้าและเสี่ยงฆ่าตัวตายในวัยรุ่นที่มา ER",
-    "pmid": "42900929",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42900929/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Absence of miosis does not exclude opioid exposure in emergency department patients with respiratory depression: a diagnostic accuracy study.",
-    "comment": "Safety Signal: การไม่มีรูม่านตาเล็กไม่สามารถใช้ตัดประวัติการได้รับ Opioids ได้",
-    "pmid": "42901744",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42901744/"
-  },
-  {
-    "date": "23 Oct",
-    "title": "Point-of-Care Ultrasound After Medical Screening Exam Reduces Time to Ruptured Ectopic Pregnancy Diagnosis and Surgery.",
-    "comment": "Novel Tool: POCUS ช่วยลดเวลาวินิจฉัยและผ่าตัด Ruptured ectopic pregnancy ได้เร็วขึ้น",
-    "pmid": "42900937",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42900937/"
   }
 ]
