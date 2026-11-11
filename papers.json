@@ -1,5 +1,75 @@
 [
   {
+    "date": "11 Nov",
+    "title": "Ketamine Vs. Etomidates and Cardiovascular Collapse During Emergency Tracheal Intubation: A Secondary Analysis of the DEVICE and PREOXI Trials.",
+    "comment": "เปรียบเทียบยาฉีดนำสลบในภาวะวิกฤต ข้อมูลสำคัญสำหรับการตัดสินใจเลือกยาในห้องฉุกเฉินเพื่อป้องกันภาวะช็อก",
+    "pmid": "43007299",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43007299/"
+  },
+  {
+    "date": "11 Nov",
+    "title": "Diagnostic accuracy of prehospital capillary high-sensitivity cardiac troponin I in patients with acute chest pain: the prospective multicenter VALIDATE study.",
+    "comment": "การเจาะ Troponin ปลายนิ้วหน้างานช่วยคัดกรอง ACS ได้รวดเร็ว มีนัยสำคัญต่อการตัดสินใจส่งต่อและบริหารจัดการเวลา",
+    "pmid": "43007266",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43007266/"
+  },
+  {
+    "date": "11 Nov",
+    "title": "Acute aortic syndrome rule-out criteria: development and external validation.",
+    "comment": "เกณฑ์ใหม่ช่วยคัดกรอง Acute Aortic Syndrome ใน ER ลดการทำ CT Scan ที่ไม่จำเป็นอย่างปลอดภัย",
+    "pmid": "43006790",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43006790/"
+  },
+  {
+    "date": "11 Nov",
+    "title": "Operationalizing High-Sensitivity Cardiac Troponin Pathways.",
+    "comment": "แนวทางปฏิบัติที่ชัดเจนในการใช้ hs-Troponin ช่วยลดระยะเวลารอคอย (LOS) ในผู้ป่วย Chest pain ที่ห้องฉุกเฉิน",
+    "pmid": "43007682",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43007682/"
+  },
+  {
+    "date": "11 Nov",
+    "title": "Elevated Neutrophil-to-Lymphocyte Ratio Predicts Early Aggravation of Organ Dysfunction in Septic Patients in the Emergency Department.",
+    "comment": "ใช้ NLR ratio เป็น biomarker ง่ายๆ ในการประเมินความเสี่ยง sepsis รุนแรงในผู้ป่วยห้องฉุกเฉิน",
+    "pmid": "43007330",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43007330/"
+  },
+  {
+    "date": "11 Nov",
+    "title": "High-Sensitivity Troponin Pathway and Emergency Department Length of Stay.",
+    "comment": "ยืนยันผลกระทบของโปรโตคอล hs-Troponin ต่อการลดระยะเวลาอยู่ใน ER ซึ่งสำคัญต่อประสิทธิภาพการทำงาน",
+    "pmid": "43007673",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43007673/"
+  },
+  {
+    "date": "11 Nov",
+    "title": "Neurological Pupil Index and Delirium at Emergency Department Presentation: A Retrospective Analysis of Prospectively Collected Data.",
+    "comment": "การใช้ค่า NPi ช่วยประเมินภาวะ delirium ใน ER ช่วยแยกแยะสาเหตุความผิดปกติทางสมองได้ดีขึ้น",
+    "pmid": "43007244",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43007244/"
+  },
+  {
+    "date": "11 Nov",
+    "title": "Utilization of Medications for Alcohol Use Disorder in United States Emergency Departments.",
+    "comment": "ข้อมูลการใช้ยารักษาภาวะติดแอลกอฮอล์ใน ER ช่วยชี้ช่องทางการดูแลผู้ป่วยกลุ่มนี้ที่มีความเสี่ยงสูง",
+    "pmid": "43007247",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43007247/"
+  },
+  {
+    "date": "11 Nov",
+    "title": "Explainable Machine Learning for Predicting Hospital Admission at Emergency Department Triage: Retrospective Cohort Study.",
+    "comment": "AI ที่อธิบายเหตุผลได้ช่วยตัดสินใจรับผู้ป่วยเข้า Admit ที่จุดคัดกรอง เพิ่มความแม่นยำในการ triage",
+    "pmid": "43008270",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43008270/"
+  },
+  {
+    "date": "11 Nov",
+    "title": "Revisiting Mcconnell's Sign: Right Ventricular Infarction in the Absence of Pulmonary Embolism.",
+    "comment": "เตือนสติแพทย์ ER ว่า McConnell sign ไม่จำเพาะกับ PE อาจเกิดจาก RV Infarction ได้ ต้องระวังการวินิจฉัยผิดพลาด",
+    "pmid": "43005834",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43005834/"
+  },
+  {
     "date": "10 Nov",
     "title": "Prehospital Extracorporeal Life Support in Refractory Out-of-Hospital Cardiac Arrest.",
     "comment": "Technique ขั้นสูงสำหรับ OHCA ที่ไม่ตอบสนองต่อการกู้ชีพปกติ เพิ่มโอกาสรอดชีวิต",
@@ -418,75 +488,5 @@
     "comment": "ใช้ Pulse pressure นอกโรงพยาบาลเป็นสัญญาณเตือนการเสียเลือดรุนแรงในผู้ป่วย Trauma",
     "pmid": "42918714",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42918714/"
-  },
-  {
-    "date": "24 Oct",
-    "title": "Clinical triage concordance of a point-of-care high-sensitivity cardiac troponin I assay using the ESC 0/1-hour algorithm.",
-    "comment": "ทดสอบประสิทธิภาพ POCT hs-TnI ตาม algorithm 0/1 ชม. เพื่อความรวดเร็วในการวินิจฉัย AMI",
-    "pmid": "42918591",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42918591/"
-  },
-  {
-    "date": "24 Oct",
-    "title": "Urinary Proteomic Panel Distinguishes Acute Myocarditis from Acute Myocardial Infarction.",
-    "comment": "เครื่องมือใหม่ (Urinary panel) ช่วยแยกโรค Myocarditis ออกจาก AMI ลดการตรวจรุกล้ำที่เกินจำเป็น",
-    "pmid": "42918110",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42918110/"
-  },
-  {
-    "date": "24 Oct",
-    "title": "Rapid bolus versus 3-h continuous infusion of 3% hypertonic saline for acute symptomatic hyponatremia.",
-    "comment": "เปรียบเทียบการให้ Hypertonic saline ใน Hyponatremia ช่วยตัดสินใจเลือกวิธีให้ยาใน ER",
-    "pmid": "42913073",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42913073/"
-  },
-  {
-    "date": "24 Oct",
-    "title": "Effect of AI-assisted radiographic fracture detection on paediatric emergency department length of stay through fracture exclusion: A before-after cohort study.",
-    "comment": "AI ช่วยลดระยะเวลาพำนักใน ER เด็กโดยช่วยคัดกรองภาวะกระดูกหัก",
-    "pmid": "42913113",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42913113/"
-  },
-  {
-    "date": "24 Oct",
-    "title": "Prehospital antibiotics and 28-day mortality in sepsis: where does the adjusted benefit come from?",
-    "comment": "วิเคราะห์ประโยชน์ของการให้ ATB ตั้งแต่ระยะก่อนถึงโรงพยาบาลในผู้ป่วย Sepsis",
-    "pmid": "42911831",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42911831/"
-  },
-  {
-    "date": "24 Oct",
-    "title": "In-Hospital Outcomes of Acyclovir With or Without Corticosteroid for Herpes Simplex Encephalitis: A Nationwide Retrospective Cohort Study.",
-    "comment": "ข้อมูลการใช้ Steroid ร่วมกับ Acyclovir ใน HSE ซึ่งส่งผลต่อ Outcome ผู้ป่วย",
-    "pmid": "42913452",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42913452/"
-  },
-  {
-    "date": "24 Oct",
-    "title": "Rapid Transport to Extracorporeal CPR: Urging Caution Prior to Implementation.",
-    "comment": "คำเตือนเรื่องความปลอดภัยและความระมัดระวังในการนำส่งผู้ป่วยเพื่อทำ ECPR",
-    "pmid": "42911820",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42911820/"
-  },
-  {
-    "date": "24 Oct",
-    "title": "Q-AortaECG: A Quantum-Inspired Multi-Agent 12-Lead ECG System for Early Triage of Acute Aortic Syndrome.",
-    "comment": "เครื่องมือใหม่ช่วย Triage ผู้ป่วย Acute Aortic Syndrome จาก ECG ได้รวดเร็วขึ้น",
-    "pmid": "42912522",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42912522/"
-  },
-  {
-    "date": "24 Oct",
-    "title": "Otolin-1 for differentiating central and peripheral causes of acute continuous dizziness.",
-    "comment": "ตัวบ่งชี้ใหม่ช่วยแยกสาเหตุ Vertigo ระหว่าง Central และ Peripheral ใน ER",
-    "pmid": "42911946",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42911946/"
-  },
-  {
-    "date": "24 Oct",
-    "title": "Predictors of Survival in Extracorporeal Membrane Oxygenation Supported Immunocompromised Acute Respiratory Distress Syndrome Patients.",
-    "comment": "ปัจจัยพยากรณ์การรอดชีวิตในผู้ป่วย ARDS ที่ภูมิคุ้มกันบกพร่องและใช้ ECMO",
-    "pmid": "42912181",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42912181/"
   }
 ]
