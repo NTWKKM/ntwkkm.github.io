@@ -51,15 +51,15 @@
 
     <a href="#papers-section" class="skip-to-content">Skip to content</a>
 
-    <header class="site-header on-navy" role="banner">
-        <nav class="container header-content" aria-label="Main navigation">
+    <header class="masthead container">
+        <div class="masthead-inner">
             <div class="brand-group">
                 <h1>NTWKKM</h1>
-                <p>Emergency Medicine & Clinical Informatics</p>
+                <p class="masthead-sub">Emergency Medicine &amp; Clinical Informatics</p>
             </div>
 
-            <div class="controls">
-                <a href="blog.html" class="nav-highlight" aria-label="Research Blog">
+            <nav class="masthead-controls" aria-label="Main navigation">
+                <a href="blog.html" class="masthead-link" aria-label="Research Blog">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                     <span>Research Blog</span>
                 </a>
@@ -69,29 +69,28 @@
                 <a href="https://github.com/NTWKKM" target="_blank" rel="noopener noreferrer" class="icon-btn social-link" aria-label="GitHub Profile">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
                 </a>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
 
-    <main class="container page-grid" role="main">
+    <main class="container page-sections">
 
-        <section id="papers-section" aria-labelledby="papers-title">
-            <div class="section-header">
+        <section id="papers-section" class="papers-split" aria-labelledby="papers-title">
+            <div class="section-aside">
                 <h2 class="section-title" id="papers-title">Latest Research Papers</h2>
-                <p class="section-meta" id="papers-meta"></p>
+                <p class="section-meta mono" id="papers-meta"></p>
+                <div class="section-actions">
+                    <a class="btn btn-primary" href="blog.html">Open the research reader</a>
+                    <button type="button" class="btn" id="papers-more" hidden></button>
+                </div>
             </div>
 
             <div id="paper-container" class="paper-ledger" aria-live="polite" aria-busy="true"></div>
-
-            <div class="section-actions">
-                <button type="button" class="btn" id="papers-more" hidden></button>
-                <a class="btn btn-primary" href="blog.html">Open the research reader</a>
-            </div>
         </section>
 
-        <section id="works-section" aria-labelledby="works-title">
+        <section id="works-section" class="works-section" aria-labelledby="works-title">
             <div class="section-header">
-                <h2 class="section-title" id="works-title">Clinical Systems & Tools</h2>
+                <h2 class="section-title" id="works-title">Clinical Systems &amp; Tools</h2>
             </div>
 
             <div class="portfolio-grid" id="projects-container" aria-busy="true"></div>
@@ -101,8 +100,7 @@
 
     <footer class="site-footer container">
         <p>
-            &copy; 2025-<span id="footer-year">2026</span> <a href="https://github.com/NTWKKM/" target="_blank" rel="noopener noreferrer">NTWKKM</a>.
-            All Rights Reserved.
+            &copy; 2025-<span id="footer-year">2026</span> <a href="https://github.com/NTWKKM/" target="_blank" rel="noopener noreferrer">NTWKKM</a>
         </p>
         <p class="footer-note">Bridging Clinical Practice with Digital Innovation.</p>
     </footer>
