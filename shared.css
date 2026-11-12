@@ -75,13 +75,6 @@
     --card-hover-border:   #1e3c72;
     --card-hover-icon-bg:  rgba(30, 60, 114, 0.08);
 
-    /* The navy band: the one place a gradient is allowed (DESIGN.md 4.2) */
-    --nav-from:       #1e3c72;
-    --nav-to:         #2a5298;
-    --nav-ink:        #F0EDE5;
-    --nav-ink-soft:   #d6d2c6;
-    --nav-hover:      rgba(240, 237, 229, 0.14);
-
     --state-ok:       #4d5c32;
     --state-warn:     #8a6220;
     --highlight:      rgba(251, 191, 36, 0.35);
@@ -97,7 +90,7 @@
     color-scheme: dark;
 
     /* Titanium Navy (dark) */
-    --ink:            #121E36;
+    --ink:            #E2E8F0;
     --signal-orange:  #FF7A45;
     --signal-ink:     #FF7A45;
     --primary:        #93c5fd;
@@ -225,10 +218,6 @@ time {
 :focus-visible {
     outline: 2px solid var(--primary);
     outline-offset: 2px;
-}
-
-.on-navy :focus-visible {
-    outline-color: var(--nav-ink);
 }
 
 .skip-to-content {

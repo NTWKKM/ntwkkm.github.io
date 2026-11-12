@@ -84,13 +84,12 @@ Muted tones, applied **text-only** (never as solid background badges).
 - **Active list item** (`.article-list-item.active`): `var(--bg-paper-list)` background with a 3px inset left edge of `var(--text-main)`.
 - **Spacing:** the 4px scale tokens `--s-1` to `--s-16` only.
 
-### 4.2. Navigation Bar
+### 4.2. Navigation & Masthead
 
-- The homepage header is the only area permitted a gradient: `linear-gradient(135deg, var(--nav-from), var(--nav-to))`. The reader has no band; its list header carries the brand link.
-- Text and icons on the band use `--nav-ink` (`#F0EDE5`) in both themes; hover is `--nav-hover`.
+- **No Gradient Topbar:** Neither the homepage nor the reader uses a full-bleed navy gradient bar. Both pages sit directly on `--bg-body` (`#ECECEE` light / `#121E36` dark).
+- **Homepage Masthead:** The homepage opens with an editorial masthead (`NTWKKM` display title and subtitle left, quiet right-aligned controls for `Research Blog`, `#theme-toggle`, and GitHub), anchored by a `1px solid var(--text-main)` bottom rule. The reader (`blog.html`) carries its brand link inside the sidebar header.
 - **Favicons / Icons:** SVGs used in favicons are standardized to the Rams color palette (background `#1e3c72`, rounded corners `rx="4"`, and warm off-white text `#F0EDE5`), ensuring brand alignment down to the browser tab indicator. Standard PWA icons retain rounded corners (`rx`), while maskable PWA icons use flat, full-bleed squares (`rx="0"`) with scaled-down text to prevent clipping in circular/squircle shapes.
-- Controls on the band are borderless (`.icon-btn`, `.nav-highlight`).
-- **Mobile:** band controls collapse to 44px icon buttons at the right edge.
+- **Mobile:** Masthead controls maintain 44px touch targets at the right edge; `Research Blog` collapses to an icon button on narrow screens (`<= 640px`).
 
 ### 4.3. Badges and Chips
 
