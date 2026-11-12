@@ -1,5 +1,5 @@
 /* Hallmark · v2.0.0 · built: the project · redesign: full · scope: app · system: DESIGN.md (locked) · theme: Slate and Titanium Navy (brand) · genre: modern-minimal · hero: none (app screens) · signature: the dated paper ledger */
-/* critique: one navy band, one orange signal, lists instead of card grids; the reader leads with the paper, filters stay folded until asked for */
+/* critique: 4-color clinical semantic palette (navy, vermilion, teal, ochre) over neutral Slate/Titanium Navy surfaces; lists instead of card grids; the reader leads with the paper, filters stay folded until asked for */
 /* Hallmark · waive 39b · .article-list-item holds a three-line title · list rows are buttons for keyboard reach, not single-line controls */
 /* Hallmark · dropped ${sanitizeURL(paper.link)}, https://pubmed.ncbi.nlm.nih.gov/43007682/ · both are data-driven links still rendered from papers.json and the index */
 /* Hallmark · dropped onclick="location.reload()", onclick="selectTag('all')", #citation-popover-dialog, #more-tags-btn · inline handlers became delegated listeners and the popover became a native dialog */
@@ -50,6 +50,23 @@
     --primary-hover:  #49628d;
     --on-primary:     #ffffff;
 
+    /* 4-Color Clinical Editorial Semantic Accents (light) */
+    --accent-navy:           #1e3c72;
+    --accent-navy-mark:      #1e3c72;
+    --accent-navy-tint:      rgba(30, 60, 114, 0.09);
+
+    --accent-vermilion:      #b5360f;
+    --accent-vermilion-mark: #d84315;
+    --accent-vermilion-tint: rgba(216, 67, 21, 0.10);
+
+    --accent-teal:           #0d6565;
+    --accent-teal-mark:      #0f766e;
+    --accent-teal-tint:      rgba(13, 101, 101, 0.09);
+
+    --accent-ochre:          #8a560e;
+    --accent-ochre-mark:     #b47116;
+    --accent-ochre-tint:     rgba(180, 113, 22, 0.10);
+
     --bg-body:        #ECECEE;
     --bg-card:        #FFFFFF;
     --bg-sidebar:     #F7F7F8;
@@ -96,6 +113,23 @@
     --primary:        #93c5fd;
     --primary-hover:  #bfdbfe;
     --on-primary:     #121E36;
+
+    /* 4-Color Clinical Editorial Semantic Accents (dark) */
+    --accent-navy:           #93C5FD;
+    --accent-navy-mark:      #60A5FA;
+    --accent-navy-tint:      rgba(147, 197, 253, 0.16);
+
+    --accent-vermilion:      #FF8559;
+    --accent-vermilion-mark: #FF7A45;
+    --accent-vermilion-tint: rgba(255, 133, 89, 0.16);
+
+    --accent-teal:           #5EEAD4;
+    --accent-teal-mark:      #2DD4BF;
+    --accent-teal-tint:      rgba(94, 234, 212, 0.15);
+
+    --accent-ochre:          #FBBF24;
+    --accent-ochre-mark:     #F59E0B;
+    --accent-ochre-tint:     rgba(251, 191, 36, 0.15);
 
     --bg-body:        #121E36;
     --bg-card:        #1C2D4F;
@@ -440,5 +474,38 @@ dialog::backdrop {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/* --- Semantic 4-tone binding --- */
+[data-tone="navy"] {
+    --tone-ink:  var(--accent-navy);
+    --tone-mark: var(--accent-navy-mark);
+    --tone-tint: var(--accent-navy-tint);
+}
+
+[data-tone="vermilion"] {
+    --tone-ink:  var(--accent-vermilion);
+    --tone-mark: var(--accent-vermilion-mark);
+    --tone-tint: var(--accent-vermilion-tint);
+}
+
+[data-tone="teal"] {
+    --tone-ink:  var(--accent-teal);
+    --tone-mark: var(--accent-teal-mark);
+    --tone-tint: var(--accent-teal-tint);
+}
+
+[data-tone="ochre"] {
+    --tone-ink:  var(--accent-ochre);
+    --tone-mark: var(--accent-ochre-mark);
+    --tone-tint: var(--accent-ochre-tint);
+}
+
+@media (forced-colors: active) {
+    [data-tone] {
+        --tone-ink:  CanvasText;
+        --tone-mark: Highlight;
+        --tone-tint: Canvas;
     }
 }

@@ -311,7 +311,7 @@ All JSON data is escaped (`escapeHTML`) or protocol-checked (`sanitizeURL`) befo
 
 ## Caching & Offline Resilience
 
-Service worker `sw.js` (cache version `v6`):
+Service worker `sw.js` (cache version `v7`):
 
 - **Handles only this repo's files:** the shell (`/`, `index.*`, `blog.*`, `shared.*`, `manifest.json`) and the data (`papers.json`, `projects.json`, `blog_index.json`, `data/blog/*`). Its scope is `/`, which also covers sibling project sites (`/pl/`, `/er-hub/`, ...); those requests pass through untouched.
 - **Network-first with a 4 s timeout, cache fallback** for both groups. Readers get current code and data when the network answers within 4 s. A slower response is still used to refresh the cache, but that load is served from the cached copy, so a reader on a slow connection can see the previous version while online. Offline readers get the last good copy (papers whose chunk was fetched before); `papers.json` and `projects.json` are precached at install.
