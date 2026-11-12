@@ -1,229 +1,129 @@
 /**
- * Service Worker for NTWKKM Personal Website
- * Provides offline support with cache-first strategy for static assets
- * and network-first with cache fallback for dynamic content.
+ * Service worker for ntwkkm.github.io (homepage and research reader only).
+ *
+ * Strategy: network-first with a short timeout, cache as the fallback.
+ * A reader on hospital Wi-Fi always gets the current code and data when the
+ * network answers, and the last good copy when it does not.
+ *
+ * Scope note: this worker is registered at "/", which also covers the sibling
+ * project sites published under the same origin (/pl/, /er-hub/, /er-ped/ ...).
+ * Those requests are deliberately left alone so a clinical tool is never
+ * served from a stale copy held by this worker.
  */
 
-const STATIC_CACHE = 'ntwkkm-static-v5';
-const DYNAMIC_CACHE = 'ntwkkm-dynamic-v5';
+const VERSION = 'v6';
+const SHELL_CACHE = `ntwkkm-shell-${VERSION}`;
+const DATA_CACHE = `ntwkkm-data-${VERSION}`;
 const FONTS_CACHE = 'ntwkkm-fonts-v1';
+const KEEP = [SHELL_CACHE, DATA_CACHE, FONTS_CACHE];
 
-// Static assets to cache on install
-const STATIC_ASSETS = [
+const NETWORK_TIMEOUT_MS = 4000;
+
+const SHELL = [
     '/',
     '/index.html',
     '/index.css',
+    '/index.js',
     '/blog.html',
     '/blog.css',
+    '/blog.js',
     '/shared.css',
     '/shared.js',
-    '/manifest.json'
+    '/manifest.json',
 ];
 
-// Dynamic content that should be network-first
-const DYNAMIC_PATHS = [
-    '/papers.json',
-    '/projects.json',
-    '/blog_index.json',
-    '/data/blog/'
-];
+const DATA_FILES = ['/papers.json', '/projects.json', '/blog_index.json'];
+const DATA_PREFIX = '/data/blog/';
 
-// Install event - cache static assets
+const isShell = pathname => SHELL.includes(pathname);
+const isData = pathname => DATA_FILES.includes(pathname) || pathname.startsWith(DATA_PREFIX);
+
 self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open(STATIC_CACHE)
-            .then((cache) => {
-                console.log('[SW] Caching static assets');
-                return cache.addAll(STATIC_ASSETS);
-            })
-            .then(() => {
-                console.log('[SW] Static assets cached');
-                return self.skipWaiting();
-            })
-            .catch((error) => {
-                console.error('[SW] Failed to cache static assets:', error);
-                throw error;
-            })
+        caches.open(SHELL_CACHE)
+            .then(cache => cache.addAll(SHELL))
+            .then(() => self.skipWaiting())
     );
 });
 
-// Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys()
-            .then((cacheNames) => {
-                return Promise.all(
-                    cacheNames
-                        .filter((name) => name !== STATIC_CACHE && name !== DYNAMIC_CACHE && name !== FONTS_CACHE)
-                        .map((name) => {
-                            console.log('[SW] Deleting old cache:', name);
-                            return caches.delete(name);
-                        })
-                );
-            })
-            .then(() => {
-                console.log('[SW] Service worker activated');
-                return self.clients.claim();
-            })
+            .then(names => Promise.all(names.filter(n => !KEEP.includes(n)).map(n => caches.delete(n))))
+            .then(() => self.clients.claim())
     );
 });
 
-// Fetch event - implement caching strategies
-self.addEventListener('fetch', (event) => {
-    const url = event.request.url;
-    const pathname = new URL(url).pathname;
+/**
+ * Network first; fall back to the cache on failure or after the timeout.
+ * Entries are stored under the URL without its query string, so cache-busting
+ * parameters never create duplicate copies.
+ */
+async function networkFirst(request, cacheName) {
+    const url = new URL(request.url);
+    const key = url.origin + url.pathname;
+    const cache = await caches.open(cacheName);
 
-    // Skip non-GET requests
-    if (event.request.method !== 'GET') {
-        return;
-    }
+    // Revalidate with the server instead of trusting the HTTP cache, so a
+    // deploy is picked up on the next load (a 304 keeps this cheap).
+    const fromNetwork = fetch(url.href, { cache: 'no-cache' }).then((response) => {
+        if (response.ok) cache.put(key, response.clone());
+        return response;
+    });
 
-    // Skip cross-origin requests except for fonts and CDN
-    if (!url.startsWith(self.location.origin)) {
-        // Cache Google Fonts
-        if (url.includes('fonts.googleapis.com') || url.includes('fonts.gstatic.com')) {
-            event.respondWith(
-                caches.open(FONTS_CACHE)
-                    .then((cache) => {
-                        return cache.match(event.request)
-                            .then((cachedResponse) => {
-                                if (cachedResponse) {
-                                    return cachedResponse;
-                                }
+    const timeout = new Promise(resolve => setTimeout(resolve, NETWORK_TIMEOUT_MS, null));
 
-                                return fetch(event.request)
-                                    .then((networkResponse) => {
-                                        if (networkResponse.ok) {
-                                            cache.put(event.request, networkResponse.clone());
-                                        }
-                                        return networkResponse;
-                                    })
-                                    .catch(() => {
-                                        // Return offline indicator for fonts
-                                        return new Response('', { status: 404 });
-                                    });
-                            });
-                    })
-            );
-            return;
+    try {
+        const winner = await Promise.race([fromNetwork, timeout]);
+        if (winner && winner.ok) return winner;
+        const cached = await cache.match(key);
+        if (cached) return cached;
+        // Nothing cached: wait for the network however slow, or surface its error.
+        return winner || await fromNetwork;
+    } catch (error) {
+        const cached = await cache.match(key);
+        if (cached) return cached;
+        if (request.mode === 'navigate') {
+            const fallback = url.pathname.startsWith('/blog') ? '/blog.html' : '/index.html';
+            const page = await cache.match(url.origin + fallback) || await cache.match(fallback);
+            if (page) return page;
         }
+        throw error;
+    }
+}
+
+async function cacheFirst(request, cacheName) {
+    const cache = await caches.open(cacheName);
+    const cached = await cache.match(request);
+    if (cached) return cached;
+    const response = await fetch(request);
+    if (response.ok) cache.put(request, response.clone());
+    return response;
+}
+
+self.addEventListener('fetch', (event) => {
+    const { request } = event;
+    if (request.method !== 'GET') return;
+
+    const url = new URL(request.url);
+
+    if (url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com') {
+        event.respondWith(cacheFirst(request, FONTS_CACHE));
         return;
     }
 
-    // Check if this is a dynamic path (network-first)
-    const isDynamic = DYNAMIC_PATHS.some(path => pathname.startsWith(path) || pathname === path);
+    if (url.origin !== self.location.origin) return;
 
-    if (isDynamic) {
-        // Network-first strategy for dynamic content
-        event.respondWith(
-            fetch(event.request)
-                .then((networkResponse) => {
-                    // Cache successful responses
-                    if (networkResponse.ok) {
-                        const responseClone = networkResponse.clone();
-                        caches.open(DYNAMIC_CACHE)
-                            .then((cache) => cache.put(event.request, responseClone));
-                    }
-                    return networkResponse;
-                })
-                .catch(() => {
-                    // Fallback to cache if network fails (ignore query string cache busters)
-                    return caches.match(event.request, { ignoreSearch: true })
-                        .then((cachedResponse) => {
-                            if (cachedResponse) {
-                                console.log('[SW] Serving from cache (offline):', pathname);
-                                return cachedResponse;
-                            }
-
-                            // Return offline page for HTML requests
-                            if (event.request.destination === 'document') {
-                                if (pathname.includes('/blog')) {
-                                    return caches.match('/blog.html', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
-                                }
-                                return caches.match('/index.html', { ignoreSearch: true });
-                            }
-
-                            // Return error response for other requests
-                            return new Response(JSON.stringify({
-                                error: 'offline',
-                                message: 'You are offline and this resource is not cached.'
-                            }), {
-                                status: 503,
-                                headers: { 'Content-Type': 'application/json' }
-                            });
-                        });
-                })
-        );
-    } else {
-        // Cache-first strategy for static assets
-        event.respondWith(
-            caches.match(event.request, { ignoreSearch: true })
-                .then((cachedResponse) => {
-                    if (cachedResponse) {
-                        // Return cached version but fetch fresh version in background
-                        fetch(event.request)
-                            .then((networkResponse) => {
-                                if (networkResponse.ok) {
-                                    caches.open(STATIC_CACHE)
-                                        .then((cache) => cache.put(event.request, networkResponse));
-                                }
-                            })
-                            .catch(() => {
-                                // Silently fail for background updates
-                            });
-
-                        return cachedResponse;
-                    }
-
-                    // Not in cache, fetch from network
-                    return fetch(event.request)
-                        .then((networkResponse) => {
-                            if (networkResponse.ok) {
-                                const responseClone = networkResponse.clone();
-                                caches.open(STATIC_CACHE)
-                                    .then((cache) => cache.put(event.request, responseClone));
-                            }
-                            return networkResponse;
-                        })
-                        .catch(() => {
-                            // Return offline page for HTML requests
-                            if (event.request.destination === 'document') {
-                                if (pathname.includes('/blog')) {
-                                    return caches.match('/blog.html', { ignoreSearch: true }) || caches.match('/index.html', { ignoreSearch: true });
-                                }
-                                return caches.match('/index.html', { ignoreSearch: true });
-                            }
-
-                            return new Response('Offline', { status: 503 });
-                        });
-                })
-        );
+    if (isShell(url.pathname)) {
+        event.respondWith(networkFirst(request, SHELL_CACHE));
+    } else if (isData(url.pathname)) {
+        event.respondWith(networkFirst(request, DATA_CACHE));
     }
+    // Anything else, including sibling project sites, goes straight to the network.
 });
 
-// Handle messages from main thread
 self.addEventListener('message', (event) => {
-    if (event.data && event.data.type === 'SKIP_WAITING') {
-        self.skipWaiting();
-    }
-
     if (event.data && event.data.type === 'CLEAR_CACHE') {
-        event.waitUntil(
-            caches.keys().then((names) => {
-                return Promise.all(names.map((name) => caches.delete(name)));
-            })
-        );
+        event.waitUntil(caches.keys().then(names => Promise.all(names.map(n => caches.delete(n)))));
     }
 });
-
-// Background sync for offline actions (future use)
-// self.addEventListener('sync', (event) => {
-//     if (event.tag === 'sync-data') {
-//         event.waitUntil(
-//             Promise.resolve().then(() => {
-//                 // Future: sync offline data when back online
-//                 console.log('[SW] Background sync triggered');
-//             })
-//         );
-//     }
-// });

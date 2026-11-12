@@ -1,14 +1,13 @@
-// shared.js
+// shared.js - utilities used by both pages (index.js, blog.js)
 
 // ===========================================================================
-// UTILITY FUNCTIONS
+// UTILITIES
 // ===========================================================================
 
 /**
  * Debounce a function call
- * @param {Function} fn - Function to debounce
- * @param {number} delay - Delay in milliseconds
- * @returns {Function} Debounced function
+ * @param {Function} fn
+ * @param {number} delay - milliseconds
  */
 function debounce(fn, delay = 300) {
     let timer;
@@ -16,220 +15,6 @@ function debounce(fn, delay = 300) {
         clearTimeout(timer);
         timer = setTimeout(() => fn.apply(this, args), delay);
     };
-}
-
-/**
- * Format a date string as a human-readable relative time
- * @param {string|Date} date - Date to format
- * @returns {string} Relative time string (e.g. "2h ago", "3 days ago")
- */
-function formatRelativeTime(date) {
-    if (!date) return '';
-    const now = Date.now();
-    const then = new Date(date).getTime();
-    if (isNaN(then)) return '';
-    const diffMs = now - then;
-    const seconds = Math.floor(diffMs / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-    const weeks = Math.floor(days / 7);
-
-    if (seconds < 60) return 'just now';
-    if (minutes < 60) return `${minutes}m ago`;
-    if (hours < 24) return `${hours}h ago`;
-    if (days < 7) return `${days}d ago`;
-    if (weeks < 4) return `${weeks}w ago`;
-    return new Date(then).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-}
-
-// ===========================================================================
-// ERROR HANDLING & RESILIENCE
-// ===========================================================================
-
-/**
- * Fetch with exponential backoff and fallback support
- * @param {string} url - The URL to fetch
- * @param {*} fallbackData - Data to return if all retries fail
- * @param {number} maxRetries - Maximum number of retry attempts
- * @returns {Promise<*>} The fetched data or fallback
- */
-async function fetchWithFallback(url, fallbackData = null, maxRetries = 2) {
-    let lastError = null;
-
-    for (let i = 0; i < maxRetries; i++) {
-        try {
-            const response = await fetch(url);
-            if (!response.ok) {
-                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-            }
-            return await response.json();
-        } catch (error) {
-            lastError = error;
-            console.warn(`[Fetch] Attempt ${i + 1}/${maxRetries} failed for ${url}:`, error.message);
-
-            if (i < maxRetries - 1) {
-                // Exponential backoff: 1s, 2s, 4s...
-                await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, i)));
-            }
-        }
-    }
-
-    console.error(`[Fetch] All ${maxRetries} attempts failed for ${url}. Using fallback.`);
-    return fallbackData;
-}
-
-/**
- * Create an error UI component for failed data loading
- * @param {string} message - Error message to display
- * @param {Function} retryCallback - Function to call on retry
- * @returns {string} HTML string for error state
- */
-function createErrorUI(message, retryCallback) {
-    const retryId = `retry-${Date.now()}`;
-
-    // Store callback for retry button and ensure cleanup
-    window[retryId] = () => {
-        retryCallback();
-        delete window[retryId];
-    };
-
-    return `
-    <div class="error-state" role="alert" aria-live="polite">
-      <div class="error-icon" aria-hidden="true">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-          <line x1="12" y1="9" x2="12" y2="13"></line>
-          <line x1="12" y1="17" x2="12.01" y2="17"></line>
-        </svg>
-      </div>
-      <h3 class="error-title">Loading Failed</h3>
-      <p class="error-message">${escapeHTML(message)}</p>
-      <button 
-        class="retry-btn" 
-        onclick="window['${retryId}']()"
-        aria-label="Retry loading content"
-      >
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;">
-          <polyline points="23 4 23 10 17 10"></polyline>
-          <polyline points="1 20 1 14 7 14"></polyline>
-          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-        </svg>
-        Retry
-      </button>
-    </div>
-  `;
-}
-
-/**
- * Create a loading skeleton UI
- * @param {number} count - Number of skeleton items
- * @param {string} type - Type of skeleton ('card', 'list', 'text')
- * @returns {string} HTML string for skeleton loading state
- */
-function createSkeletonUI(count = 3, type = 'card') {
-    let html = '<div class="skeleton-container">';
-
-    for (let i = 0; i < count; i++) {
-        if (type === 'card') {
-            html += `
-        <div class="skeleton-card" style="animation-delay: ${i * 0.1}s">
-          <div class="skeleton-line w-60"></div>
-          <div class="skeleton-line w-80"></div>
-          <div class="skeleton-line w-40"></div>
-        </div>
-      `;
-        } else if (type === 'list') {
-            html += `
-        <div class="skeleton-list-item">
-          <div class="skeleton-line w-70"></div>
-          <div class="skeleton-line w-40"></div>
-        </div>
-      `;
-        } else {
-            html += `<div class="skeleton-line"></div>`;
-        }
-    }
-
-    html += '</div>';
-    return html;
-}
-
-// ===========================================================================
-// ACCESSIBILITY UTILITIES
-// ===========================================================================
-
-/**
- * Announce a message to screen readers
- * @param {string} message - Message to announce
- * @param {string} priority - 'polite' or 'assertive'
- */
-function announceToScreenReader(message, priority = 'polite') {
-    const announcement = document.getElementById('sr-announcer');
-    if (announcement) {
-        announcement.setAttribute('aria-live', priority);
-        announcement.textContent = message;
-
-        // Clear after announcement
-        setTimeout(() => {
-            announcement.textContent = '';
-        }, 1000);
-    }
-}
-
-/**
- * Initialize screen reader announcer element
- */
-function initScreenReaderAnnouncer() {
-    if (!document.getElementById('sr-announcer')) {
-        const announcer = document.createElement('div');
-        announcer.id = 'sr-announcer';
-        announcer.setAttribute('role', 'status');
-        announcer.setAttribute('aria-live', 'polite');
-        announcer.setAttribute('aria-atomic', 'true');
-        announcer.className = 'sr-only';
-        document.body.appendChild(announcer);
-    }
-}
-
-
-
-// ===========================================================================
-// 1. DARK MODE LOGIC
-// ===========================================================================
-function initSharedTheme() {
-    const toggleBtn = document.getElementById('theme-toggle');
-    const htmlElement = document.documentElement;
-
-    if (!toggleBtn) return;
-
-    const sunIcon = `<svg viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000 1.41.996.996 0 001.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06z"/></svg>`;
-    const moonIcon = `<svg viewBox="0 0 24 24"><path d="M9.37 5.51A7.35 7.35 0 009.1 7.5c0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27A7.014 7.014 0 0112 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49zM12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>`;
-
-    // Auto-detect system preference on first visit
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = localStorage.getItem('theme') || (systemPrefersDark ? 'dark' : 'light');
-    htmlElement.setAttribute('data-theme', savedTheme);
-    toggleBtn.innerHTML = savedTheme === 'dark' ? sunIcon : moonIcon;
-
-    toggleBtn.addEventListener('click', () => {
-        const toggleTheme = () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            toggleBtn.innerHTML = newTheme === 'dark' ? sunIcon : moonIcon;
-        };
-
-        // Use View Transitions API if supported and user hasn't disabled motion
-        if (!document.startViewTransition || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            toggleTheme();
-        } else {
-            document.startViewTransition(() => {
-                toggleTheme();
-            });
-        }
-    });
 }
 
 function escapeHTML(str) {
@@ -249,129 +34,184 @@ function sanitizeURL(url) {
     catch { return '#'; }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    initSharedTheme();
-    initScrollAnimationFallback();
-    initNetworkStatus();
-    initPwaUpdateNotifier();
+/**
+ * Fetch JSON with retries and exponential backoff.
+ * Requests revalidate with the server (`cache: 'no-cache'`), so fresh data
+ * arrives without cache-busting query strings.
+ * @param {string} url
+ * @param {*} fallbackData - returned when every attempt fails
+ * @param {number} maxRetries
+ */
+async function fetchWithFallback(url, fallbackData = null, maxRetries = 2) {
+    for (let i = 0; i < maxRetries; i++) {
+        try {
+            const response = await fetch(url, { cache: 'no-cache' });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return await response.json();
+        } catch (error) {
+            console.warn(`[Fetch] Attempt ${i + 1}/${maxRetries} failed for ${url}:`, error.message);
+            if (i < maxRetries - 1) {
+                await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, i)));
+            }
+        }
+    }
+    return fallbackData;
+}
+
+// ===========================================================================
+// LOADING AND ERROR STATES
+// ===========================================================================
+
+const retryCallbacks = new Map();
+let retrySeq = 0;
+
+/**
+ * Error block with a retry button. The callback is held in a registry and
+ * dispatched by one delegated listener, so no handler lives in the markup.
+ * @param {string} message
+ * @param {Function} retryCallback
+ * @returns {string} HTML
+ */
+function createErrorUI(message, retryCallback) {
+    const id = String(++retrySeq);
+    retryCallbacks.set(id, retryCallback);
+    return `
+    <div class="error-state" role="alert">
+      <svg class="error-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+      <h3 class="error-title">Loading failed</h3>
+      <p class="error-message">${escapeHTML(message)}</p>
+      <button type="button" class="btn retry-btn" data-retry="${id}">Try again</button>
+    </div>`;
+}
+
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-retry]');
+    if (!btn) return;
+    const callback = retryCallbacks.get(btn.dataset.retry);
+    retryCallbacks.delete(btn.dataset.retry);
+    if (callback) callback();
 });
 
-// ===========================================================================
-// SCROLL ANIMATION FALLBACK
-// ===========================================================================
-function initScrollAnimationFallback() {
-    // Only apply if the browser doesn't support native scroll-driven animations
-    if (window.CSS && CSS.supports && !CSS.supports('(animation-timeline: view()) and (animation-range: entry)')) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target); // Animate only once
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.animate-entry').forEach(el => {
-            observer.observe(el);
-        });
-    }
+/**
+ * Skeleton placeholder
+ * @param {number} count
+ * @param {'card'|'list'} type
+ * @returns {string} HTML
+ */
+function createSkeletonUI(count = 3, type = 'card') {
+    const item = type === 'list'
+        ? '<div class="skeleton-list-item"><div class="skeleton-line w-70"></div><div class="skeleton-line w-40"></div></div>'
+        : '<div class="skeleton-card"><div class="skeleton-line w-60"></div><div class="skeleton-line w-80"></div><div class="skeleton-line w-40"></div></div>';
+    return `<div class="skeleton-container" aria-hidden="true">${item.repeat(count)}</div>`;
 }
 
 // ===========================================================================
-// HAPTIC FEEDBACK (Web Vibration API)
+// ACCESSIBILITY
 // ===========================================================================
+
+function initScreenReaderAnnouncer() {
+    if (document.getElementById('sr-announcer')) return;
+    const announcer = document.createElement('div');
+    announcer.id = 'sr-announcer';
+    announcer.setAttribute('role', 'status');
+    announcer.setAttribute('aria-live', 'polite');
+    announcer.setAttribute('aria-atomic', 'true');
+    announcer.className = 'sr-only';
+    document.body.appendChild(announcer);
+}
+
+function announceToScreenReader(message, priority = 'polite') {
+    const announcer = document.getElementById('sr-announcer');
+    if (!announcer) return;
+    announcer.setAttribute('aria-live', priority);
+    announcer.textContent = message;
+    setTimeout(() => { announcer.textContent = ''; }, 1000);
+}
+
 function triggerHaptic(type = 'light') {
     if (!('vibrate' in navigator)) return;
-    try {
-        if (type === 'light') navigator.vibrate(20);
-        else if (type === 'medium') navigator.vibrate(40);
-        else if (type === 'error') navigator.vibrate([40, 60, 40]);
-        else if (type === 'success') navigator.vibrate([30, 40, 30]);
-    } catch (e) {
-        // Silently ignore if restricted by permissions
-    }
+    const patterns = { light: 20, medium: 40, error: [40, 60, 40], success: [30, 40, 30] };
+    try { navigator.vibrate(patterns[type] || 20); } catch (e) { /* blocked by permissions */ }
 }
 
 // ===========================================================================
-// OFFLINE NETWORK STATUS LISTENER
+// THEME
 // ===========================================================================
-function initNetworkStatus() {
-    let offlinePill = document.getElementById('offline-pill');
-    if (!offlinePill) {
-        offlinePill = document.createElement('div');
-        offlinePill.id = 'offline-pill';
-        offlinePill.className = 'offline-pill';
-        offlinePill.setAttribute('role', 'status');
-        offlinePill.innerHTML = `<span class="offline-pill-dot"></span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:5px;vertical-align:-1px;"><path d="M1 1l22 22"></path><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path><path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>Offline Mode - Using Cached Records`;
-        document.body.appendChild(offlinePill);
-    }
 
-    const updateStatus = () => {
-        if (navigator.onLine) {
-            offlinePill.classList.remove('is-offline');
-        } else {
-            offlinePill.classList.add('is-offline');
-            triggerHaptic('medium');
-        }
+function initSharedTheme() {
+    const toggleBtn = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+    if (!toggleBtn) return;
+
+    const sunIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37a.996.996 0 00-1.41 0 .996.996 0 000 1.41l1.06 1.06c.39.39 1.03.39 1.41 0a.996.996 0 000-1.41l-1.06-1.06zm1.06-10.96a.996.996 0 000-1.41.996.996 0 00-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36a.996.996 0 000 1.41.996.996 0 001.41 0l1.06-1.06c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06z"/></svg>';
+    const moonIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.37 5.51A7.35 7.35 0 009.1 7.5c0 4.08 3.32 7.4 7.4 7.4.68 0 1.35-.09 1.99-.27A7.014 7.014 0 0112 19c-3.86 0-7-3.14-7-7 0-2.93 1.81-5.45 4.37-6.49zM12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>';
+
+    const paint = (theme) => {
+        root.setAttribute('data-theme', theme);
+        toggleBtn.innerHTML = theme === 'dark' ? sunIcon : moonIcon;
+        toggleBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     };
 
-    window.addEventListener('online', updateStatus);
-    window.addEventListener('offline', updateStatus);
-    if (!navigator.onLine) updateStatus();
+    // The inline head script has already set the attribute; keep the two in step.
+    paint(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+
+    toggleBtn.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        // Applied synchronously: the switch must never wait on an animation.
+        paint(next);
+        try { localStorage.setItem('theme', next); } catch (e) { /* private mode */ }
+    });
 }
 
 // ===========================================================================
-// PWA SERVICE WORKER UPDATE NOTIFIER
+// NETWORK STATUS AND SERVICE WORKER
 // ===========================================================================
-function initPwaUpdateNotifier() {
+
+function initNetworkStatus() {
+    const pill = document.createElement('div');
+    pill.id = 'offline-pill';
+    pill.className = 'offline-pill';
+    pill.setAttribute('role', 'status');
+    pill.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l22 22"></path><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path><path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>Offline. Showing saved copies.';
+    document.body.appendChild(pill);
+
+    const update = () => pill.classList.toggle('is-offline', !navigator.onLine);
+    window.addEventListener('online', update);
+    window.addEventListener('offline', update);
+    update();
+}
+
+/**
+ * Register the service worker and offer a reload when a new version takes
+ * over. The page never reloads by itself: a reader is not interrupted
+ * mid-article, and a first visit (no previous controller) shows nothing.
+ */
+function initServiceWorker() {
     if (!('serviceWorker' in navigator)) return;
+    const hadController = Boolean(navigator.serviceWorker.controller);
 
-    let updateBar = null;
-
-    function showUpdateToast(registration) {
-        if (document.getElementById('pwa-update-bar')) return;
-
-        updateBar = document.createElement('div');
-        updateBar.id = 'pwa-update-bar';
-        updateBar.className = 'pwa-update-bar show';
-        updateBar.setAttribute('role', 'alert');
-        updateBar.innerHTML = `
-            <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px;vertical-align:-1px;"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>New research updates available</span>
-            <button class="pwa-update-btn" id="pwa-refresh-btn">Update Now</button>
-        `;
-        document.body.appendChild(updateBar);
-
-        const btn = document.getElementById('pwa-refresh-btn');
-        if (btn) {
-            btn.addEventListener('click', () => {
-                if (registration && registration.waiting) {
-                    registration.waiting.postMessage({ type: 'SKIP_WAITING' });
-                }
-                window.location.reload();
-            });
-        }
-    }
-
-    navigator.serviceWorker.ready.then((registration) => {
-        registration.addEventListener('updatefound', () => {
-            const newWorker = registration.installing;
-            if (newWorker) {
-                newWorker.addEventListener('statechange', () => {
-                    if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                        showUpdateToast(registration);
-                    }
-                });
-            }
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch((error) => {
+            console.warn('[PWA] Service worker registration failed:', error);
         });
     });
 
-    let refreshing = false;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (!refreshing) {
-            refreshing = true;
-            window.location.reload();
-        }
+        if (!hadController || document.getElementById('pwa-update-bar')) return;
+        const bar = document.createElement('div');
+        bar.id = 'pwa-update-bar';
+        bar.className = 'pwa-update-bar';
+        bar.setAttribute('role', 'status');
+        bar.innerHTML = '<span>A new version is ready.</span><button type="button" class="btn btn-primary pwa-update-btn" id="pwa-refresh-btn">Reload</button>';
+        document.body.appendChild(bar);
+        document.getElementById('pwa-refresh-btn').addEventListener('click', () => window.location.reload());
     });
 }
 
+initServiceWorker();
 
+document.addEventListener('DOMContentLoaded', () => {
+    initScreenReaderAnnouncer();
+    initSharedTheme();
+    initNetworkStatus();
+});

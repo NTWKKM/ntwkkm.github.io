@@ -1,74 +1,87 @@
 [
   {
-    "title": "NTWK Coffee Science",
-    "desc": "Coffee science deep research notebook & analysis portal.",
-    "icon": "☕",
-    "url": "https://ntwkkm.github.io/ntwcoff/"
-  },
-  {
     "title": "ER Standing Order Hub",
     "desc": "Emergency standing orders & clinical protocols.",
-    "icon": "⚕️",
+    "category": "Clinical tools",
+    "icon": "clipboard",
     "url": "https://ntwkkm.github.io/er-hub/"
   },
   {
     "title": "ER-PED Workstation",
     "desc": "Pediatric emergency calculator workstation.",
-    "icon": "🩺",
+    "category": "Clinical tools",
+    "icon": "stethoscope",
     "url": "https://ntwkkm.github.io/er-ped/"
-  },
-  {
-    "title": "Toxico Course Bookmarks",
-    "desc": "Toxicology course bookmarks & reference links.",
-    "icon": "🧪",
-    "url": "https://ntwkkm.github.io/toxico/"
   },
   {
     "title": "Acetaminophen Tox",
     "desc": "Interactive nomogram & protocol.",
-    "icon": "💊",
+    "category": "Clinical tools",
+    "icon": "pill",
     "url": "https://acetatox.netlify.app/"
-  },
-  {
-    "title": "VentSim",
-    "desc": "Mechanical ventilator simulator.",
-    "icon": "🫁",
-    "url": "https://ventsim.vercel.app/"
-  },
-  {
-    "title": "Shock Sim",
-    "desc": "Hemodynamic changes visualizer.",
-    "icon": "💓",
-    "url": "https://shocksimulation.vercel.app/"
   },
   {
     "title": "MNRH Refer",
     "desc": "Inter-hospital referral system.",
-    "icon": "🚑",
+    "category": "Clinical tools",
+    "icon": "ambulance",
     "url": "https://mnrhrefer.vercel.app/"
   },
   {
     "title": "Stroke Protocol V1",
     "desc": "Archive version of rtPA tools.",
-    "icon": "🕒",
+    "category": "Clinical tools",
+    "icon": "clock",
+    "status": "Archived",
     "url": "https://rtpamnrh.vercel.app/"
   },
   {
-    "title": "NTWKKM Knowledge Vault",
-    "desc": "Clinical informatics dashboard & automated resource hub.",
-    "icon": "🛡️",
-    "url": "https://ntwkkm.github.io/pl/"
+    "title": "VentSim",
+    "desc": "Mechanical ventilator simulator.",
+    "category": "Simulators",
+    "icon": "lungs",
+    "url": "https://ventsim.vercel.app/"
+  },
+  {
+    "title": "Shock Sim",
+    "desc": "Hemodynamic changes visualizer.",
+    "category": "Simulators",
+    "icon": "pulse",
+    "url": "https://shocksimulation.vercel.app/"
   },
   {
     "title": "Medical Stat Tool",
     "desc": "Interactive Shiny application for medical statistics and clinical research.",
-    "icon": "🏥",
+    "category": "Research & statistics",
+    "icon": "chart",
     "url": "https://ntwkkm-shinystat.hf.space/"
   },
   {
     "title": "Med Statistics",
     "desc": "Easy online calculator for medical stats.",
-    "icon": "📊",
+    "category": "Research & statistics",
+    "icon": "calculator",
     "url": "https://medstat.app/"
+  },
+  {
+    "title": "NTWKKM Knowledge Vault",
+    "desc": "Clinical informatics dashboard & automated resource hub.",
+    "category": "Knowledge & notes",
+    "icon": "vault",
+    "url": "https://ntwkkm.github.io/pl/"
+  },
+  {
+    "title": "Toxico Course Bookmarks",
+    "desc": "Toxicology course bookmarks & reference links.",
+    "category": "Knowledge & notes",
+    "icon": "flask",
+    "url": "https://ntwkkm.github.io/toxico/"
+  },
+  {
+    "title": "NTWK Coffee Science",
+    "desc": "Coffee science deep research notebook & analysis portal.",
+    "category": "Knowledge & notes",
+    "icon": "cup",
+    "url": "https://ntwkkm.github.io/ntwcoff/"
   }
 ]
