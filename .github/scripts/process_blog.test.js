@@ -64,3 +64,21 @@ test('study design is read from the summary line', () => {
     assert.strictEqual(d('ไม่ระบุข้อมูลในบทคัดย่อ'), null);
     assert.strictEqual(designId(post('a', '1')), null);
 });
+
+test('the Thai study design label is read like the English one', () => {
+    const p = post('a', '1', { property_comment: '- วัตถุประสงค์: x\n- รูปแบบการศึกษา: Retrospective cohort study' });
+    assert.strictEqual(designId(p), 'cohort');
+});
+
+test('an unreadable listed chunk stops the run before anything is written', () => {
+    const fs = require('node:fs'), os = require('node:os'), path = require('node:path');
+    const { execFileSync } = require('node:child_process');
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'blog-'));
+    fs.mkdirSync(path.join(root, 'data/blog'), { recursive: true });
+    fs.writeFileSync(path.join(root, 'blog_index.json'), JSON.stringify(['data/blog/research_chunk_1.json']));
+    fs.writeFileSync(path.join(root, 'data/blog/research_chunk_1.json'), '[{"id": "a", ');
+    assert.throws(() => execFileSync(process.execPath, [path.join(__dirname, 'process_blog.js'), '--reindex'],
+        { env: { ...process.env, BLOG_ROOT_DIR: root }, stdio: 'pipe' }));
+    assert.strictEqual(fs.existsSync(path.join(root, 'data/blog/index.json')), false);
+    fs.rmSync(root, { recursive: true, force: true });
+});

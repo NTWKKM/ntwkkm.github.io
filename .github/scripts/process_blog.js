@@ -59,13 +59,22 @@ function extractPmid(post) {
     return null;
 }
 
-/** Load every chunk listed in blog_index.json as [{ number, posts }]. */
+/**
+ * Load every chunk listed in blog_index.json as [{ number, posts }].
+ * A listed chunk that is missing or unparseable throws: skipping it would
+ * drop its posts from the index and let new posts reuse its slot. The throw
+ * happens before anything is written, so the files on disk stay as they were.
+ */
 function loadChunks() {
     const list = readJSON(INDEX_FILE, []);
     const chunks = [];
     list.forEach((rel, i) => {
-        const data = readJSON(path.join(ROOT_DIR, rel), null);
-        if (data === null) return;
+        let data;
+        try {
+            data = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, rel), 'utf8'));
+        } catch (e) {
+            throw new Error(`Cannot read chunk ${rel} listed in blog_index.json: ${e.message}`);
+        }
         const m = rel.match(/research_chunk_(\d+)\.json$/);
         chunks.push({
             number: m ? Number(m[1]) : i + 1,
@@ -200,4 +209,4 @@ function run() {
 
 if (require.main === module) run();
 
-module.exports = { mergeUpdates, buildPostIndex, extractPmid, ITEMS_PER_FILE };
+module.exports = { loadChunks, mergeUpdates, buildPostIndex, extractPmid, ITEMS_PER_FILE };

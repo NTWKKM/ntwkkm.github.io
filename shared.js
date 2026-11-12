@@ -184,11 +184,13 @@ function initNetworkStatus() {
 /**
  * Register the service worker and offer a reload when a new version takes
  * over. The page never reloads by itself: a reader is not interrupted
- * mid-article, and a first visit (no previous controller) shows nothing.
+ * mid-article, and the first controller a tab gains shows nothing.
  */
 function initServiceWorker() {
     if (!('serviceWorker' in navigator)) return;
-    const hadController = Boolean(navigator.serviceWorker.controller);
+    // False on a first visit; flips once this tab is claimed, so only a later
+    // change (a new deploy taking over) offers the reload.
+    let controlled = Boolean(navigator.serviceWorker.controller);
 
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js').catch((error) => {
@@ -197,7 +199,8 @@ function initServiceWorker() {
     });
 
     navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (!hadController || document.getElementById('pwa-update-bar')) return;
+        if (!controlled) { controlled = true; return; }
+        if (document.getElementById('pwa-update-bar')) return;
         const bar = document.createElement('div');
         bar.id = 'pwa-update-bar';
         bar.className = 'pwa-update-bar';

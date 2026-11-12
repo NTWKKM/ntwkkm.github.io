@@ -6,7 +6,8 @@
  * small, fixed facets at build time:
  *
  *   - specialty    (multi-label, from tags first, then the title)
- *   - study design (single label, from the "Study Design:" line of the summary)
+ *   - study design (single label, from the "Study Design:" or "รูปแบบการศึกษา:"
+ *                   line of the summary)
  *
  * The raw tags stay untouched in the chunk files; only the generated index
  * carries the facets. To add or rename a category, edit the lists below and run
@@ -88,7 +89,7 @@ function specialtiesOf(post) {
  * @returns {number} position in DESIGNS, or -1
  */
 function designOf(post) {
-    const m = String(post.property_comment || '').match(/Study Design\**\s*[:：]\**\s*(.+)/i);
+    const m = String(post.property_comment || '').match(/(?:Study Design|รูปแบบการศึกษา)\**\s*[:：]\**\s*(.+)/i);
     if (!m) return -1;
     const value = m[1].replace(/\*+/g, '').trim();
     if (!value || NOT_STATED.test(value)) return -1;

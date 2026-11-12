@@ -313,10 +313,10 @@ All JSON data is escaped (`escapeHTML`) or protocol-checked (`sanitizeURL`) befo
 Service worker `sw.js` (cache version `v6`):
 
 - **Handles only this repo's files:** the shell (`/`, `index.*`, `blog.*`, `shared.*`, `manifest.json`) and the data (`papers.json`, `projects.json`, `blog_index.json`, `data/blog/*`). Its scope is `/`, which also covers sibling project sites (`/pl/`, `/er-hub/`, ...); those requests pass through untouched.
-- **Network-first with a 4 s timeout, cache fallback** for both groups. Online readers always get current code and data; offline readers get the last good copy (papers whose chunk was fetched before).
+- **Network-first with a 4 s timeout, cache fallback** for both groups. Readers get current code and data when the network answers within 4 s. A slower response is still used to refresh the cache, but that load is served from the cached copy, so a reader on a slow connection can see the previous version while online. Offline readers get the last good copy (papers whose chunk was fetched before); `papers.json` and `projects.json` are precached at install.
 - **Cache keys drop the query string**, so no parameter can create duplicate entries.
 - **Google Fonts:** cache-first in `ntwkkm-fonts-v1`.
-- **Updates:** the worker activates immediately; a page that was already controlled shows a "A new version is ready / Reload" bar. It never reloads by itself.
+- **Updates:** the worker activates immediately. The first time a tab gains a controller nothing is shown; any later controller change in that tab shows a "A new version is ready / Reload" bar. It never reloads by itself.
 - Bump `VERSION` in `sw.js` when the shell file list changes.
 
 ## PWA

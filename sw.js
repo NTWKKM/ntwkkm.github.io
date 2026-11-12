@@ -33,6 +33,9 @@ const SHELL = [
 ];
 
 const DATA_FILES = ['/papers.json', '/projects.json', '/blog_index.json'];
+// Fetched by the homepage before a first-visit worker controls it, so they are
+// precached at install; otherwise a second visit offline would have no data.
+const DATA_PRECACHE = ['/papers.json', '/projects.json'];
 const DATA_PREFIX = '/data/blog/';
 
 const isShell = pathname => SHELL.includes(pathname);
@@ -42,6 +45,9 @@ self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(SHELL_CACHE)
             .then(cache => cache.addAll(SHELL))
+            // Best effort: missing data must not block the shell from installing.
+            .then(() => caches.open(DATA_CACHE))
+            .then(cache => cache.addAll(DATA_PRECACHE).catch(() => {}))
             .then(() => self.skipWaiting())
     );
 });
@@ -59,17 +65,25 @@ self.addEventListener('activate', (event) => {
  * Entries are stored under the URL without its query string, so cache-busting
  * parameters never create duplicate copies.
  */
-async function networkFirst(request, cacheName) {
+async function networkFirst(event, cacheName) {
+    const { request } = event;
     const url = new URL(request.url);
     const key = url.origin + url.pathname;
     const cache = await caches.open(cacheName);
 
     // Revalidate with the server instead of trusting the HTTP cache, so a
     // deploy is picked up on the next load (a 304 keeps this cheap).
+    // A failed cache write is swallowed on its own: it must not turn a good
+    // network response into an error.
+    let written = Promise.resolve();
     const fromNetwork = fetch(url.href, { cache: 'no-cache' }).then((response) => {
-        if (response.ok) cache.put(key, response.clone());
+        if (response.ok) written = cache.put(key, response.clone()).catch(() => {});
         return response;
     });
+
+    // Keep the worker alive until the refresh and its cache write finish, even
+    // when the timeout below has already answered from the cache.
+    event.waitUntil(fromNetwork.then(() => written, () => {}));
 
     const timeout = new Promise(resolve => setTimeout(resolve, NETWORK_TIMEOUT_MS, null));
 
@@ -115,9 +129,9 @@ self.addEventListener('fetch', (event) => {
     if (url.origin !== self.location.origin) return;
 
     if (isShell(url.pathname)) {
-        event.respondWith(networkFirst(request, SHELL_CACHE));
+        event.respondWith(networkFirst(event, SHELL_CACHE));
     } else if (isData(url.pathname)) {
-        event.respondWith(networkFirst(request, DATA_CACHE));
+        event.respondWith(networkFirst(event, DATA_CACHE));
     }
     // Anything else, including sibling project sites, goes straight to the network.
 });

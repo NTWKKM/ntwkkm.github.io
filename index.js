@@ -61,7 +61,7 @@ async function fetchPapers() {
             const title = escapeHTML(stripMarkdown(paper.title));
             return `
                 <li class="paper-card">
-                    <a href="${sanitizeURL(paper.link)}" class="paper-link" target="_blank" rel="noopener noreferrer">
+                    <a href="${escapeHTML(sanitizeURL(paper.link))}" class="paper-link" target="_blank" rel="noopener noreferrer">
                         <span class="paper-title">${title}</span>${EXTERNAL_ICON}
                     </a>
                     <p class="paper-comment thai-text" lang="th">${escapeHTML(stripMarkdown(paper.comment))}</p>
@@ -122,7 +122,7 @@ async function fetchProjects() {
             <ul class="project-list" role="list">
                 ${items.map(project => `
                 <li>
-                    <a class="project-card" href="${sanitizeURL(project.url)}" target="_blank" rel="noopener noreferrer">
+                    <a class="project-card" href="${escapeHTML(sanitizeURL(project.url))}" target="_blank" rel="noopener noreferrer">
                         <span class="project-icon">${svg(ICONS[project.icon] || ICONS.layers)}</span>
                         <span class="project-body">
                             <span class="project-title">${escapeHTML(project.title)}${project.status ? ` <span class="project-status">${escapeHTML(project.status)}</span>` : ''}</span>
