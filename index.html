@@ -75,22 +75,33 @@
 
     <main class="container page-sections">
 
-        <section id="papers-section" class="papers-split" aria-labelledby="papers-title">
-            <div class="section-aside">
-                <h2 class="section-title" id="papers-title">Latest Research Papers</h2>
-                <p class="section-meta mono" id="papers-meta"></p>
-                <div class="section-actions">
-                    <a class="btn btn-primary" href="blog.html">Open the research reader</a>
-                    <button type="button" class="btn" id="papers-more" hidden></button>
+        <section id="papers-section" class="papers-section" aria-roledescription="carousel" aria-labelledby="papers-title">
+            <div class="section-header">
+                <div class="section-heading">
+                    <h2 class="section-title" id="papers-title">Latest Research Papers</h2>
+                    <p class="section-meta mono" id="papers-meta"></p>
                 </div>
+                <nav class="paper-pager" id="papers-pager" aria-label="Paper pages" hidden>
+                    <button type="button" class="paper-nav-btn" data-direction="previous" aria-label="Previous papers">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <div class="paper-dots" id="papers-dots"></div>
+                    <button type="button" class="paper-nav-btn" data-direction="next" aria-label="Next papers">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </nav>
             </div>
 
-            <div id="paper-container" class="paper-ledger" aria-live="polite" aria-busy="true"></div>
+            <div id="paper-container" class="paper-track" tabindex="0" role="group" aria-label="Research paper pages" aria-busy="true"></div>
+            <p class="sr-only" id="papers-status" role="status" aria-live="polite"></p>
         </section>
 
         <section id="works-section" class="works-section" aria-labelledby="works-title">
             <div class="section-header">
-                <h2 class="section-title" id="works-title">Clinical Systems &amp; Tools</h2>
+                <div class="section-heading">
+                    <h2 class="section-title" id="works-title">Clinical Systems &amp; Tools</h2>
+                    <p class="section-meta mono" id="works-meta"></p>
+                </div>
             </div>
 
             <div class="portfolio-grid" id="projects-container" aria-busy="true"></div>

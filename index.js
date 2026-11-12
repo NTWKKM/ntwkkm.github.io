@@ -1,7 +1,8 @@
 // index.js - homepage: the paper ledger and the tools index
 'use strict';
 
-const INITIAL_PAPERS = 10;
+const PAPERS_PER_PAGE = 6;
+let carouselAbort = null;
 
 // Icon keys used by projects.json ("icon" field). Add a key here, then use it there.
 const ICONS = {
@@ -29,11 +30,193 @@ const EXTERNAL_ICON = svg('<path d="M7 17L17 7M17 7H7M17 7V17"/>', 14);
 const stripMarkdown = str => String(str || '').replace(/\*\*/g, '').trim();
 
 // ---------------------------------------------------------------------------
-// Latest papers: a ledger grouped by curation date
+// Latest papers: horizontal paged ledger with scroll-snap and dot marks
 // ---------------------------------------------------------------------------
+function setupPaperCarousel(track, pager, dotsContainer, statusEl, totalPages) {
+    if (carouselAbort) carouselAbort.abort();
+    carouselAbort = new AbortController();
+    const { signal } = carouselAbort;
+
+    const slides = Array.from(track.querySelectorAll('.paper-slide'));
+    const dots = Array.from(dotsContainer.querySelectorAll('.paper-dot'));
+    const prevBtn = pager.querySelector('[data-direction="previous"]');
+    const nextBtn = pager.querySelector('[data-direction="next"]');
+
+    let currentIndex = 0;
+    let settledIndex = 0;
+    let pendingTarget = null;
+    let suppressAbortUntil = 0;
+    let rafId = 0;
+    let settleTimer = 0;
+    let suppressClick = false;
+
+    const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const updateDots = (active) => {
+        if (active === currentIndex && dots[active]?.getAttribute('aria-current') === 'true') return;
+        currentIndex = active;
+        dots.forEach((dot, idx) => {
+            dot.setAttribute('aria-current', idx === active ? 'true' : 'false');
+        });
+    };
+
+    const nearestSlideIndex = () => {
+        const left = track.scrollLeft;
+        let best = 0;
+        let bestDist = Infinity;
+        for (let i = 0; i < slides.length; i += 1) {
+            const dist = Math.abs(slides[i].offsetLeft - left);
+            if (dist < bestDist) {
+                bestDist = dist;
+                best = i;
+            }
+        }
+        return best;
+    };
+
+    const onSettle = () => {
+        clearTimeout(settleTimer);
+        if (
+            pendingTarget !== null
+            && performance.now() < suppressAbortUntil
+            && Math.abs(slides[pendingTarget].offsetLeft - track.scrollLeft) > 8
+        ) {
+            return;
+        }
+        pendingTarget = null;
+        suppressAbortUntil = 0;
+        const settled = nearestSlideIndex();
+        updateDots(settled);
+        if (settled !== settledIndex) {
+            settledIndex = settled;
+            if (statusEl) statusEl.textContent = `Page ${settled + 1} of ${totalPages}`;
+        }
+    };
+
+    const goTo = (index) => {
+        const target = ((index % totalPages) + totalPages) % totalPages;
+        const reduced = prefersReducedMotion();
+        pendingTarget = target;
+        suppressAbortUntil = reduced ? 0 : performance.now() + 80;
+        updateDots(target);
+        track.scrollTo({
+            left: slides[target].offsetLeft,
+            behavior: reduced ? 'auto' : 'smooth',
+        });
+        if (reduced) onSettle();
+    };
+
+    dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => goTo(idx), { signal });
+    });
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            const base = pendingTarget !== null ? pendingTarget : currentIndex;
+            goTo(base - 1);
+        }, { signal });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const base = pendingTarget !== null ? pendingTarget : currentIndex;
+            goTo(base + 1);
+        }, { signal });
+    }
+
+    track.addEventListener('keydown', (e) => {
+        if (e.target !== track) return;
+        if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            goTo((pendingTarget !== null ? pendingTarget : currentIndex) - 1);
+        } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            goTo((pendingTarget !== null ? pendingTarget : currentIndex) + 1);
+        }
+    }, { signal });
+
+    const supportsScrollEnd = 'onscrollend' in window;
+    track.addEventListener('scroll', () => {
+        if (pendingTarget === null && !rafId) {
+            rafId = requestAnimationFrame(() => {
+                rafId = 0;
+                if (pendingTarget === null) updateDots(nearestSlideIndex());
+            });
+        }
+        if (!supportsScrollEnd) {
+            clearTimeout(settleTimer);
+            settleTimer = setTimeout(onSettle, 140);
+        }
+    }, { passive: true, signal });
+
+    if (supportsScrollEnd) {
+        track.addEventListener('scrollend', onSettle, { signal });
+    }
+
+    const clearPendingTarget = () => {
+        pendingTarget = null;
+        suppressAbortUntil = 0;
+    };
+    track.addEventListener('touchstart', clearPendingTarget, { passive: true, signal });
+    track.addEventListener('wheel', clearPendingTarget, { passive: true, signal });
+
+    // Threshold-gated mouse drag (> 5px) so clicking links or selecting text stays clean.
+    let pointerDown = false;
+    let dragging = false;
+    let startX = 0;
+    let startScroll = 0;
+
+    track.addEventListener('pointerdown', (e) => {
+        if (e.pointerType !== 'mouse' || e.button !== 0) return;
+        pointerDown = true;
+        dragging = false;
+        suppressClick = false;
+        startX = e.clientX;
+        startScroll = track.scrollLeft;
+    }, { signal });
+
+    window.addEventListener('pointermove', (e) => {
+        if (!pointerDown) return;
+        const dx = e.clientX - startX;
+        if (!dragging && Math.abs(dx) > 5) {
+            dragging = true;
+            suppressClick = true;
+            pendingTarget = null;
+            track.classList.add('is-dragging');
+        }
+        if (dragging) {
+            track.scrollLeft = startScroll - dx;
+        }
+    }, { signal });
+
+    const endDrag = () => {
+        if (!pointerDown) return;
+        pointerDown = false;
+        if (dragging) {
+            dragging = false;
+            track.classList.remove('is-dragging');
+            goTo(nearestSlideIndex());
+        }
+    };
+
+    window.addEventListener('pointerup', endDrag, { signal });
+    window.addEventListener('pointercancel', endDrag, { signal });
+
+    track.addEventListener('click', (e) => {
+        if (!suppressClick) return;
+        suppressClick = false;
+        e.preventDefault();
+        e.stopPropagation();
+    }, { capture: true, signal });
+
+    updateDots(0);
+}
+
 async function fetchPapers() {
     const container = document.getElementById('paper-container');
-    const moreBtn = document.getElementById('papers-more');
+    const pager = document.getElementById('papers-pager');
+    const dotsContainer = document.getElementById('papers-dots');
+    const statusEl = document.getElementById('papers-status');
     container.setAttribute('aria-busy', 'true');
     container.innerHTML = createSkeletonUI(4, 'card');
 
@@ -41,52 +224,46 @@ async function fetchPapers() {
     container.setAttribute('aria-busy', 'false');
 
     if (!Array.isArray(papers) || papers.length === 0) {
+        if (pager) pager.hidden = true;
         container.innerHTML = createErrorUI('Failed to load latest papers. Please check your connection and try again.', fetchPapers);
         return;
     }
 
-    // Group consecutive papers that share a date; the file is newest first.
-    const days = [];
-    papers.forEach((paper) => {
-        const last = days[days.length - 1];
-        if (last && last.date === paper.date) last.papers.push(paper);
-        else days.push({ date: paper.date, papers: [paper] });
-    });
+    const pages = [];
+    for (let i = 0; i < papers.length; i += PAPERS_PER_PAGE) {
+        pages.push(papers.slice(i, i + PAPERS_PER_PAGE));
+    }
 
-    let shown = 0;
-    container.innerHTML = days.map((day) => {
-        const collapsed = shown >= INITIAL_PAPERS;
-        shown += day.papers.length;
-        const items = day.papers.map((paper) => {
+    container.innerHTML = pages.map((pagePapers, pageIndex) => {
+        const items = pagePapers.map((paper) => {
             const title = escapeHTML(stripMarkdown(paper.title));
             return `
                 <li class="paper-card">
-                    <a href="${escapeHTML(sanitizeURL(paper.link))}" class="paper-link" target="_blank" rel="noopener noreferrer">
-                        <span class="paper-title">${title}</span>${EXTERNAL_ICON}
-                    </a>
-                    <p class="paper-comment thai-text" lang="th">${escapeHTML(stripMarkdown(paper.comment))}</p>
+                    <time class="paper-date mono">${escapeHTML(paper.date)}</time>
+                    <div class="paper-body">
+                        <a href="${escapeHTML(sanitizeURL(paper.link))}" class="paper-link" target="_blank" rel="noopener noreferrer">
+                            <span class="paper-title">${title}</span>${EXTERNAL_ICON}
+                        </a>
+                        <p class="paper-comment thai-text" lang="th">${escapeHTML(stripMarkdown(paper.comment))}</p>
+                    </div>
                 </li>`;
         }).join('');
         return `
-            <div class="paper-day"${collapsed ? ' hidden' : ''}>
-                <p class="paper-date mono">${escapeHTML(day.date)}</p>
+            <div class="paper-slide" role="group" aria-roledescription="slide" aria-label="Page ${pageIndex + 1} of ${pages.length}">
                 <ul class="paper-list" role="list">${items}</ul>
             </div>`;
     }).join('');
 
     document.getElementById('papers-meta').textContent = `${papers.length} papers, latest ${papers[0].date}`;
 
-    const hiddenDays = container.querySelectorAll('.paper-day[hidden]');
-    if (hiddenDays.length > 0) {
-        moreBtn.hidden = false;
-        moreBtn.textContent = `Show all ${papers.length} papers`;
-        moreBtn.onclick = () => {
-            hiddenDays.forEach((day) => { day.hidden = false; });
-            moreBtn.hidden = true;
-            const firstNew = hiddenDays[0].querySelector('a');
-            if (firstNew) firstNew.focus();
-            announceToScreenReader(`Showing all ${papers.length} papers`);
-        };
+    if (pager && dotsContainer && pages.length > 1) {
+        dotsContainer.innerHTML = pages.map((_, idx) => `
+            <button type="button" class="paper-dot" aria-label="Page ${idx + 1} of ${pages.length}" aria-current="${idx === 0 ? 'true' : 'false'}"></button>
+        `).join('');
+        pager.hidden = false;
+        setupPaperCarousel(container, pager, dotsContainer, statusEl, pages.length);
+    } else if (pager) {
+        pager.hidden = true;
     }
 
     announceToScreenReader(`Loaded ${papers.length} research papers`);
@@ -115,6 +292,9 @@ async function fetchProjects() {
         if (!groups.has(key)) groups.set(key, []);
         groups.get(key).push(project);
     });
+
+    const worksMeta = document.getElementById('works-meta');
+    if (worksMeta) worksMeta.textContent = `${projects.length} systems, ${groups.size} groups`;
 
     container.innerHTML = Array.from(groups, ([category, items]) => `
         <div class="project-group">
