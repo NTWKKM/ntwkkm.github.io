@@ -31,15 +31,6 @@ const UPDATES_FILE = path.join(ROOT_DIR, 'latest_updates.json');
 
 const chunkPath = n => `data/blog/research_chunk_${n}.json`;
 
-function readJSON(file, fallback) {
-    try {
-        return JSON.parse(fs.readFileSync(file, 'utf8'));
-    } catch (e) {
-        if (e.code !== 'ENOENT') console.error(`Error reading ${file}:`, e.message);
-        return fallback;
-    }
-}
-
 /** Write only when the content differs, so unchanged chunks produce no diff. */
 function writeIfChanged(file, content) {
     if (fs.existsSync(file) && fs.readFileSync(file, 'utf8') === content) return false;
@@ -61,12 +52,24 @@ function extractPmid(post) {
 
 /**
  * Load every chunk listed in blog_index.json as [{ number, posts }].
- * A listed chunk that is missing or unparseable throws: skipping it would
+ * An absent manifest gives an empty start. An unreadable manifest throws, and
+ * so does a listed chunk that is missing or unparseable: skipping it would
  * drop its posts from the index and let new posts reuse its slot. The throw
  * happens before anything is written, so the files on disk stay as they were.
  */
 function loadChunks() {
-    const list = readJSON(INDEX_FILE, []);
+    // No manifest yet is a valid first run. A manifest that exists but cannot
+    // be read is not: treating it as empty would restart at chunk 1 and
+    // overwrite real data.
+    let list = [];
+    if (fs.existsSync(INDEX_FILE)) {
+        try {
+            list = JSON.parse(fs.readFileSync(INDEX_FILE, 'utf8'));
+        } catch (e) {
+            throw new Error(`Cannot read blog_index.json: ${e.message}`);
+        }
+        if (!Array.isArray(list)) throw new Error('blog_index.json must be a JSON array of chunk paths');
+    }
     const chunks = [];
     list.forEach((rel, i) => {
         let data;

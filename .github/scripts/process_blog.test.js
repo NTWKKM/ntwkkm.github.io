@@ -82,3 +82,27 @@ test('an unreadable listed chunk stops the run before anything is written', () =
     assert.strictEqual(fs.existsSync(path.join(root, 'data/blog/index.json')), false);
     fs.rmSync(root, { recursive: true, force: true });
 });
+
+test('a corrupt manifest stops the run; an absent one starts empty', () => {
+    const fs = require('node:fs'), os = require('node:os'), path = require('node:path');
+    const { execFileSync } = require('node:child_process');
+    const script = path.join(__dirname, 'process_blog.js');
+    const runIn = root => execFileSync(process.execPath, [script, '--reindex'],
+        { env: { ...process.env, BLOG_ROOT_DIR: root }, stdio: 'pipe' });
+
+    const bad = fs.mkdtempSync(path.join(os.tmpdir(), 'blog-'));
+    fs.mkdirSync(path.join(bad, 'data/blog'), { recursive: true });
+    fs.writeFileSync(path.join(bad, 'blog_index.json'), '["data/blog/research_chunk_1.json"');
+    const chunk = path.join(bad, 'data/blog/research_chunk_1.json');
+    fs.writeFileSync(chunk, '[{"id":"keep"}]');
+    assert.throws(() => runIn(bad));
+    assert.strictEqual(fs.readFileSync(chunk, 'utf8'), '[{"id":"keep"}]');
+    assert.strictEqual(fs.existsSync(path.join(bad, 'data/blog/index.json')), false);
+
+    const fresh = fs.mkdtempSync(path.join(os.tmpdir(), 'blog-'));
+    runIn(fresh);
+    assert.strictEqual(JSON.parse(fs.readFileSync(path.join(fresh, 'data/blog/index.json'), 'utf8')).count, 0);
+
+    fs.rmSync(bad, { recursive: true, force: true });
+    fs.rmSync(fresh, { recursive: true, force: true });
+});
