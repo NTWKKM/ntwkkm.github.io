@@ -143,6 +143,7 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 2px;
+    min-width: 0;
 }
 
 .paper-dot {
@@ -150,7 +151,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 20px;
+    width: 24px;
     height: 28px;
     touch-action: manipulation;
     transition: width 0.2s var(--ease);
@@ -170,7 +171,7 @@
 }
 
 .paper-dot[aria-current="true"] {
-    width: 24px;
+    width: 28px;
 }
 
 .paper-dot[aria-current="true"]::after {
@@ -489,12 +490,12 @@
     }
 
     .paper-dot {
-        width: 18px;
+        width: 24px;
         height: 32px;
     }
 
     .paper-dot[aria-current="true"] {
-        width: 22px;
+        width: 24px;
     }
 
     .paper-card {

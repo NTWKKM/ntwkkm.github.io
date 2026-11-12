@@ -45,6 +45,7 @@ function setupPaperCarousel(track, pager, dotsContainer, statusEl, totalPages) {
     let currentIndex = 0;
     let settledIndex = 0;
     let pendingTarget = null;
+    let suppressAbortUntil = 0;
     let rafId = 0;
     let settleTimer = 0;
     let suppressClick = false;
@@ -75,11 +76,16 @@ function setupPaperCarousel(track, pager, dotsContainer, statusEl, totalPages) {
 
     const onSettle = () => {
         clearTimeout(settleTimer);
-        if (pendingTarget !== null && Math.abs(slides[pendingTarget].offsetLeft - track.scrollLeft) > 8) {
+        if (
+            pendingTarget !== null
+            && performance.now() < suppressAbortUntil
+            && Math.abs(slides[pendingTarget].offsetLeft - track.scrollLeft) > 8
+        ) {
             return;
         }
-        const settled = pendingTarget !== null ? pendingTarget : nearestSlideIndex();
         pendingTarget = null;
+        suppressAbortUntil = 0;
+        const settled = nearestSlideIndex();
         updateDots(settled);
         if (settled !== settledIndex) {
             settledIndex = settled;
@@ -91,6 +97,7 @@ function setupPaperCarousel(track, pager, dotsContainer, statusEl, totalPages) {
         const target = ((index % totalPages) + totalPages) % totalPages;
         const reduced = prefersReducedMotion();
         pendingTarget = target;
+        suppressAbortUntil = reduced ? 0 : performance.now() + 80;
         updateDots(target);
         track.scrollTo({
             left: slides[target].offsetLeft,
@@ -145,6 +152,13 @@ function setupPaperCarousel(track, pager, dotsContainer, statusEl, totalPages) {
     if (supportsScrollEnd) {
         track.addEventListener('scrollend', onSettle, { signal });
     }
+
+    const clearPendingTarget = () => {
+        pendingTarget = null;
+        suppressAbortUntil = 0;
+    };
+    track.addEventListener('touchstart', clearPendingTarget, { passive: true, signal });
+    track.addEventListener('wheel', clearPendingTarget, { passive: true, signal });
 
     // Threshold-gated mouse drag (> 5px) so clicking links or selecting text stays clean.
     let pointerDown = false;
