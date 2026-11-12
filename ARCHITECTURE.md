@@ -294,8 +294,8 @@ All JSON data is escaped (`escapeHTML`) or protocol-checked (`sanitizeURL`) befo
 ## Homepage (index.html)
 
 - **Editorial masthead:** Flat header directly on `--bg-body` (no navy gradient topbar) with `NTWKKM` display title and subtitle left, `Research Blog`, `#theme-toggle`, and GitHub right, anchored by a `1px solid var(--text-main)` bottom rule.
-- **Split paper ledger (`#papers-section`):** Sticky left rail (`Latest Research Papers`, `#papers-meta`, primary `Open the research reader` link, and `Show all N papers` toggle) paired with `papers.json` grouped by curation date on the right. The first days (≥10 papers) show; no carousel, no auto-scroll.
-- **Asymmetric tools bento (`#works-section`):** `projects.json` grouped by `category` below the ledger — `Clinical tools` spans two rows beside `Simulators` and `Research & statistics`, with `Knowledge & notes` spanning three horizontal columns underneath.
+- **Two-column paper ledger (`#papers-section`):** Full-width section header (`Latest Research Papers`, `#papers-meta`, primary `Open the research reader` link, and `Show all N papers` toggle) above `papers.json` grouped by curation date in a two-column desktop grid (`≥860px`). Shows the newest 6 papers initially so the ledger and tools directory share comparable vertical weight; no carousel, no auto-scroll.
+- **Asymmetric tools bento (`#works-section`):** `projects.json` grouped by `category` (`#works-meta` summary count in header) below the ledger — `Clinical tools` spans two rows beside `Simulators` and `Research & statistics`, with `Knowledge & notes` spanning three horizontal columns underneath.
 
 ## Research Reader (blog.html)
 

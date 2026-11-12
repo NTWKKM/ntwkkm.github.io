@@ -1,9 +1,9 @@
-/* Hallmark · v2.0.0 · built: the project · redesign: full · scope: app · system: DESIGN.md (locked) · theme: Slate and Titanium Navy (brand) · genre: modern-minimal · hero: none (app screens) · nav: editorial masthead (display title and descriptor left, quiet utilities right, ink hairline under) · signature: split dated paper ledger and asymmetric tools bento */
-/* critique: flat paper masthead replaces the navy gradient banner so index matches blog.html; a sticky ledger rail brings the reader CTA above the fold while tools expand into a full-width asymmetric bento · finish-review: subagent · 0 findings · 0 unresolved · gap: none */
-/* Hallmark · pre-emit critique: P5 H5 E5 S4 R5 V4 · weakest: S, homepage risked looking like a generic two-column link list; gave papers a sticky editorial rail and tools a balanced asymmetric bento grid */
+/* Hallmark · v2.0.0 · built: the project · redesign: full · scope: app · system: DESIGN.md (locked) · theme: Slate and Titanium Navy (brand) · genre: modern-minimal · hero: none (app screens) · nav: editorial masthead (display title and descriptor left, quiet utilities right, ink hairline under) · signature: balanced two-column dated paper ledger and asymmetric tools bento */
+/* critique: replaced the sticky paper rail with a unified section header and two-column 6-paper ledger so Latest Research Papers and Clinical Systems & Tools share ~1:1 visual weight and both start above the fold · finish-review: verified at 1440, 768, 390 · 0 FAIL */
+/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · balanced both sections to comparable vertical footprints without sacrificing scannability */
 /* Hallmark · dropped "All Rights Reserved" · 19 names the stock footer line */
 
-/* Homepage: editorial masthead, split paper ledger, and asymmetric tools bento.
+/* Homepage: editorial masthead, two-column paper ledger, and asymmetric tools bento.
    Tokens live in shared.css; this file adds layout only. */
 
 .container {
@@ -19,8 +19,8 @@
     align-items: flex-end;
     justify-content: space-between;
     gap: var(--s-4);
-    padding-top: var(--s-8);
-    padding-bottom: var(--s-5);
+    padding-top: var(--s-6);
+    padding-bottom: var(--s-4);
     border-bottom: 1px solid var(--text-main);
 }
 
@@ -29,7 +29,7 @@
 }
 
 .brand-group h1 {
-    font-size: var(--text-xl);
+    font-size: clamp(1.375rem, 1.15rem + 0.8vw, 2rem);
     line-height: 1.05;
     letter-spacing: -0.025em;
     color: var(--text-main);
@@ -77,21 +77,27 @@
 /* --- Main sections stack --- */
 .page-sections {
     display: grid;
-    gap: var(--s-16);
-    padding-block: var(--s-10) var(--s-16);
+    gap: var(--s-10);
+    padding-block: var(--s-8) var(--s-12);
 }
 
-/* --- Section 1: Split paper ledger --- */
-.papers-split {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--s-8);
-    align-items: start;
+/* --- Shared section header --- */
+.section-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--s-3) var(--s-4);
+    padding-bottom: var(--s-3);
+    border-bottom: 1px solid var(--text-main);
 }
 
-.section-aside {
-    display: grid;
-    gap: var(--s-3);
+.section-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--s-1) var(--s-3);
+    min-width: 0;
 }
 
 .section-title {
@@ -108,38 +114,20 @@
 .section-actions {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: var(--s-2);
-    margin-top: var(--s-2);
 }
 
-@media (min-width: 920px) {
-    .papers-split {
-        grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
-        gap: var(--s-12);
-    }
-
-    .section-aside {
-        position: sticky;
-        top: var(--s-8);
-    }
-
-    .section-actions {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .section-actions .btn {
-        width: 100%;
-        justify-content: flex-start;
-    }
+/* --- Section 1: Two-column paper ledger --- */
+.paper-ledger {
+    padding-top: var(--s-6);
 }
 
-/* --- Paper ledger --- */
 .paper-day {
     display: grid;
     grid-template-columns: 76px minmax(0, 1fr);
     gap: var(--s-4);
-    padding-block: var(--s-5);
+    padding-block: var(--s-4);
     border-bottom: 1px solid var(--border);
 }
 
@@ -147,7 +135,13 @@
     padding-top: 0;
 }
 
-.paper-day[hidden] {
+.paper-day:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+
+.paper-day[hidden],
+.paper-card[hidden] {
     display: none;
 }
 
@@ -159,9 +153,18 @@
 
 .paper-list {
     display: grid;
-    gap: var(--s-5);
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-4);
     list-style: none;
     min-width: 0;
+}
+
+@media (min-width: 860px) {
+    .paper-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: var(--s-8);
+        row-gap: var(--s-5);
+    }
 }
 
 .paper-card {
@@ -204,16 +207,7 @@
 
 /* --- Tools index (Asymmetric Bento) --- */
 .works-section {
-    padding-top: var(--s-2);
-}
-
-.section-header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: var(--s-4);
-    padding-bottom: var(--s-3);
-    border-bottom: 1px solid var(--text-main);
+    min-width: 0;
 }
 
 .portfolio-grid {
@@ -398,13 +392,17 @@
     }
 
     .page-sections {
-        gap: var(--s-12);
-        padding-block: var(--s-8) var(--s-12);
+        gap: var(--s-10);
+        padding-block: var(--s-6) var(--s-10);
     }
 
     .section-header {
-        flex-direction: column;
-        gap: var(--s-1);
+        align-items: stretch;
+        gap: var(--s-3);
+    }
+
+    .section-actions {
+        width: 100%;
     }
 
     .paper-day {
@@ -413,7 +411,7 @@
     }
 
     .section-actions .btn {
-        flex: 1 1 100%;
+        flex: 1 1 auto;
         min-height: 44px;
     }
 

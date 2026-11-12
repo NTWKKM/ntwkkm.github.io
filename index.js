@@ -1,7 +1,7 @@
 // index.js - homepage: the paper ledger and the tools index
 'use strict';
 
-const INITIAL_PAPERS = 10;
+const INITIAL_PAPERS = 6;
 
 // Icon keys used by projects.json ("icon" field). Add a key here, then use it there.
 const ICONS = {
@@ -55,12 +55,13 @@ async function fetchPapers() {
 
     let shown = 0;
     container.innerHTML = days.map((day) => {
-        const collapsed = shown >= INITIAL_PAPERS;
-        shown += day.papers.length;
+        const dayCollapsed = shown >= INITIAL_PAPERS;
         const items = day.papers.map((paper) => {
+            const itemCollapsed = !dayCollapsed && shown >= INITIAL_PAPERS;
+            shown += 1;
             const title = escapeHTML(stripMarkdown(paper.title));
             return `
-                <li class="paper-card">
+                <li class="paper-card"${itemCollapsed ? ' hidden' : ''}>
                     <a href="${escapeHTML(sanitizeURL(paper.link))}" class="paper-link" target="_blank" rel="noopener noreferrer">
                         <span class="paper-title">${title}</span>${EXTERNAL_ICON}
                     </a>
@@ -68,7 +69,7 @@ async function fetchPapers() {
                 </li>`;
         }).join('');
         return `
-            <div class="paper-day"${collapsed ? ' hidden' : ''}>
+            <div class="paper-day"${dayCollapsed ? ' hidden' : ''}>
                 <p class="paper-date mono">${escapeHTML(day.date)}</p>
                 <ul class="paper-list" role="list">${items}</ul>
             </div>`;
@@ -76,14 +77,15 @@ async function fetchPapers() {
 
     document.getElementById('papers-meta').textContent = `${papers.length} papers, latest ${papers[0].date}`;
 
-    const hiddenDays = container.querySelectorAll('.paper-day[hidden]');
-    if (hiddenDays.length > 0) {
+    const hiddenNodes = container.querySelectorAll('.paper-day[hidden], .paper-card[hidden]');
+    if (hiddenNodes.length > 0) {
         moreBtn.hidden = false;
         moreBtn.textContent = `Show all ${papers.length} papers`;
         moreBtn.onclick = () => {
-            hiddenDays.forEach((day) => { day.hidden = false; });
+            const firstReveal = hiddenNodes[0];
+            hiddenNodes.forEach((node) => { node.hidden = false; });
             moreBtn.hidden = true;
-            const firstNew = hiddenDays[0].querySelector('a');
+            const firstNew = firstReveal.querySelector('a');
             if (firstNew) firstNew.focus();
             announceToScreenReader(`Showing all ${papers.length} papers`);
         };
@@ -115,6 +117,9 @@ async function fetchProjects() {
         if (!groups.has(key)) groups.set(key, []);
         groups.get(key).push(project);
     });
+
+    const worksMeta = document.getElementById('works-meta');
+    if (worksMeta) worksMeta.textContent = `${projects.length} systems, ${groups.size} groups`;
 
     container.innerHTML = Array.from(groups, ([category, items]) => `
         <div class="project-group">
