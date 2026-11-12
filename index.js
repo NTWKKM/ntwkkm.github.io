@@ -84,7 +84,7 @@ async function fetchPapers() {
             hiddenDays.forEach((day) => { day.hidden = false; });
             moreBtn.hidden = true;
             const firstNew = hiddenDays[0].querySelector('a');
-            if (firstNew) firstNew.focus({ preventScroll: true });
+            if (firstNew) firstNew.focus();
             announceToScreenReader(`Showing all ${papers.length} papers`);
         };
     }
