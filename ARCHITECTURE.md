@@ -294,7 +294,7 @@ All JSON data is escaped (`escapeHTML`) or protocol-checked (`sanitizeURL`) befo
 ## Homepage (index.html)
 
 - **Editorial masthead:** Flat header directly on `--bg-body` (no navy gradient topbar) with `NTWKKM` display title and subtitle left, `Research Blog`, `#theme-toggle`, and GitHub right, anchored by a `1px solid var(--text-main)` bottom rule.
-- **Two-column paper ledger (`#papers-section`):** Full-width section header (`Latest Research Papers`, `#papers-meta`, primary `Open the research reader` link, and `Show all N papers` toggle) above `papers.json` grouped by curation date in a two-column desktop grid (`≥860px`). Shows the newest 6 papers initially so the ledger and tools directory share comparable vertical weight; no carousel, no auto-scroll.
+- **Horizontal paged paper ledger (`#papers-section`):** Full-width section header (`Latest Research Papers`, `#papers-meta`, and dot-mark pager `#papers-pager` with previous/next controls) above a native CSS `scroll-snap` horizontal track (`#paper-container`). Chunks `papers.json` into pages of 6 papers (3 rows × 2 columns on desktop `≥860px`); no auto-scroll, no `Open the research reader` or `Show all` buttons.
 - **Asymmetric tools bento (`#works-section`):** `projects.json` grouped by `category` (`#works-meta` summary count in header) below the ledger — `Clinical tools` spans two rows beside `Simulators` and `Research & statistics`, with `Knowledge & notes` spanning three horizontal columns underneath.
 
 ## Research Reader (blog.html)
