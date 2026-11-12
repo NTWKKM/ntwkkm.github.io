@@ -508,10 +508,4 @@ dialog::backdrop {
         --tone-mark: Highlight;
         --tone-tint: Canvas;
     }
-
-    .paper-dot[aria-current="true"]::after,
-    .reading-progress-bar,
-    .section-heading::before {
-        background: Highlight;
-    }
 }

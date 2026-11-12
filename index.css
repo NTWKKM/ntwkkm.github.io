@@ -534,3 +534,12 @@
         min-height: 56px;
     }
 }
+
+@media (forced-colors: active) {
+    .paper-dot[aria-current="true"]::after,
+    .section-heading::before,
+    #papers-section .section-heading::before,
+    #works-section .section-heading::before {
+        background: Highlight;
+    }
+}

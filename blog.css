@@ -833,3 +833,9 @@
         min-height: 44px;
     }
 }
+
+@media (forced-colors: active) {
+    .reading-progress-bar {
+        background: Highlight;
+    }
+}
