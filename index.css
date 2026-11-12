@@ -88,8 +88,6 @@
     align-items: flex-end;
     justify-content: space-between;
     gap: var(--s-3) var(--s-4);
-    padding-bottom: var(--s-3);
-    border-bottom: 1px solid var(--text-main);
 }
 
 .section-heading {
@@ -286,6 +284,8 @@
 /* --- Tools index (Asymmetric Bento) --- */
 .works-section {
     min-width: 0;
+    padding-top: var(--s-8);
+    border-top: 1px solid var(--border);
 }
 
 .portfolio-grid {
