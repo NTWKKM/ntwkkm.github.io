@@ -69,11 +69,13 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- blog_index.json
 |-- blog.css
 |-- blog.html
+|-- blog.js
 |-- Braun-theme.md
 |-- CONTEXT.md
 |-- DESIGN.md
 |-- index.css
 |-- index.html
+|-- index.js
 |-- manifest.json
 |-- papers.json
 |-- projects.json
