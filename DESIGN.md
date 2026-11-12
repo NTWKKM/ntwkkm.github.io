@@ -13,7 +13,7 @@ This document serves as the **core design guideline** for any AI agent or develo
 - **Nothing Moves By Itself**: No auto-scroll, no scroll-triggered reveals. Motion answers the pointer or a state change and lasts 0.15 to 0.25s.
 - **Interactive & Quiet**: Elements react smoothly to user hover (subtle border color highlights and shadow shifts) while preserving strict layout stability.
 - **First-Class Dark Mode (Ergonomic Navy)**: Dark mode preserves the signature deep navy canvas (`#121E36`) with elevated surfaces (`#1C2D4F`). To prevent eye fatigue and glare during long clinical sessions, text is rendered in soft slate white (`#E2E8F0`, contrast 10.8:1 PASS AAA) instead of harsh 100% white.
-- **Accent Restraint**: Only ONE accent color (`--signal-orange`) exists. It must be used sparingly for high-priority or critical items only (e.g., status errors, highlights). Do not use it decoratively or for standard call-to-actions.
+- **Accent System (4-Color Clinical Editorial Multi-Accent)**: Four semantic accent families (`--accent-navy`, `--accent-vermilion`, `--accent-teal`, `--accent-ochre`) provide clear category separation and visual hierarchy over neutral Slate / Titanium Navy surfaces via **Minimal Semantic Touches** (icon badges, 2px–3px sentinel borders, text-only tags, and section rail accents). Primary backgrounds remain neutral (`--bg-body`, `--bg-card`, `--bg-sidebar`).
 
 ---
 
@@ -46,6 +46,11 @@ All colors MUST be referenced via CSS variables defined in `:root` and `[data-th
 - Surface Contrast (Canvas vs Card): 1.18:1 (Clean, modern card separation)
 - Accent Signal (`--signal-orange`): `#d84315`; as small text use `--signal-ink` `#b5360f` (5.9:1 on white)
 - Shared Card Hover Tokens: `--card-hover-bg: #F8F8FA`, `--card-hover-border: #1E3C72`, `--card-hover-icon-bg: rgba(30, 60, 114, 0.08)`
+- Semantic 4-Color Palette (Text Ink >= 5.0:1 / Mark & Border / Soft Icon Tint):
+  - **Clinical Navy** (`--accent-navy`): `#1E3C72` (`9.15:1`–`10.80:1`) / mark `#1E3C72` / tint `rgba(30, 60, 114, 0.09)` — Clinical tools, Objective & Methods, PMIDs
+  - **Signal Vermilion** (`--accent-vermilion`): `#B5360F` (`5.09:1`–`6.00:1`) / mark `#D84315` / tint `rgba(216, 67, 21, 0.10)` — Simulators, Resuscitation/Critical Care, Clinical relevance, Active pager/item sentinels
+  - **Surgical Teal** (`--accent-teal`): `#0D6565` (`5.80:1`–`6.85:1`) / mark `#0F766E` / tint `rgba(13, 101, 101, 0.09)` — Research & statistics, Results & Study design, Paper ledger dates
+  - **Warm Ochre** (`--accent-ochre`): `#8A560E` (`5.21:1`–`6.14:1`) / mark `#B47116` / tint `rgba(180, 113, 22, 0.10)` — Knowledge & notes, Neuro/Ops/Geri/Psych/EMS specialties, Archived status
 
 ### 3.2. Dark Theme (Titanium Precision Navy - Ergonomic Tone 1)
 
@@ -61,16 +66,15 @@ All colors MUST be referenced via CSS variables defined in `:root` and `[data-th
 - Accent Signal (`--signal-orange`): `#FF7A45`
 - Primary Link/Action (`--primary`): `#93c5fd`
 - Shared Card Hover Tokens: `--card-hover-bg: #243B68`, `--card-hover-border: #4E78BC`, `--card-hover-icon-bg: rgba(147, 197, 253, 0.20)`
+- Semantic 4-Color Palette (Text Ink >= 5.6:1 / Mark & Border / Soft Icon Tint):
+  - **Clinical Navy** (`--accent-navy`): `#93C5FD` (`7.57:1`–`9.21:1`) / mark `#60A5FA` / tint `rgba(147, 197, 253, 0.16)`
+  - **Signal Vermilion** (`--accent-vermilion`): `#FF8559` (`5.69:1`–`6.92:1`) / mark `#FF7A45` / tint `rgba(255, 133, 89, 0.16)`
+  - **Surgical Teal** (`--accent-teal`): `#5EEAD4` (`9.23:1`–`11.22:1`) / mark `#2DD4BF` / tint `rgba(94, 234, 212, 0.15)`
+  - **Warm Ochre** (`--accent-ochre`): `#FBBF24` (`8.18:1`–`9.95:1`) / mark `#F59E0B` / tint `rgba(251, 191, 36, 0.15)`
 
-### 3.3. Category / Tag Colors
+### 3.3. Category / Tag Semantic Binding (`[data-tone]`)
 
-Muted tones, applied **text-only** (never as solid background badges).
-
-- Ochre: `#b8873a` (e.g., Neuro)
-- Slate: `#3a5566` (e.g., Cardiac, Pulmonary)
-- Olive: `#5a6b3b` (e.g., Anticoag, Procedural)
-- Brick: `#8a3a2a` (e.g., Tox)
-- Graphite: `#4a4a4a` (e.g., Tools)
+Four tones bound via `[data-tone="navy|vermilion|teal|ochre"]` in `shared.css` (`--tone-ink`, `--tone-mark`, `--tone-tint`). Chips and tags keep `--bg-card` backgrounds with `--tone-ink` text and a `2px` `--tone-mark` left sentinel border (never solid colored chip backgrounds). Soft `--tone-tint` fills are reserved strictly for 36×36px tool icon badges (`.project-icon`). `@media (forced-colors: active)` maps `--tone-ink` / `--tone-mark` / `--tone-tint` to `CanvasText` / `Highlight` / `Canvas`.
 
 ---
 

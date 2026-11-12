@@ -23,7 +23,7 @@
 
 .reading-progress-bar {
     height: 100%;
-    background: var(--primary);
+    background: linear-gradient(90deg, var(--accent-navy-mark) 0%, var(--accent-teal-mark) 55%, var(--accent-vermilion-mark) 100%);
     transform: scaleX(0);
     transform-origin: left;
 }
@@ -214,11 +214,20 @@
     border-color: var(--border-strong);
 }
 
+.filter-tag[data-tone]:not([aria-pressed="true"]) {
+    color: var(--tone-ink);
+    border-left: 2px solid var(--tone-mark);
+}
+
 .filter-tag[aria-pressed="true"],
 .citation-format-tab[aria-pressed="true"] {
     color: var(--bg-card);
     background: var(--text-main);
     border-color: var(--text-main);
+}
+
+.filter-tag[data-tone][aria-pressed="true"] {
+    border-left: 2px solid var(--tone-mark);
 }
 
 .tag-count {
@@ -275,7 +284,7 @@
 
 .article-list-item.active {
     background: var(--bg-paper-list);
-    box-shadow: inset 3px 0 0 var(--text-main);
+    box-shadow: inset 3px 0 0 var(--accent-vermilion-mark);
 }
 
 .list-title {
@@ -301,6 +310,11 @@
     text-align: right;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.list-spec[data-tone] {
+    color: var(--tone-ink);
+    font-weight: 600;
 }
 
 .list-empty {
@@ -416,6 +430,15 @@
     display: none;
 }
 
+#post-id {
+    color: var(--accent-navy);
+}
+
+#post-design {
+    color: var(--accent-teal);
+    font-weight: 600;
+}
+
 .article-title {
     margin-top: var(--s-3);
     font-size: var(--text-xl);
@@ -440,6 +463,11 @@
     border: 1px solid var(--border-strong);
     border-radius: var(--radius-sm);
     transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.tag-badge[data-tone] {
+    color: var(--tone-ink);
+    border-left: 2px solid var(--tone-mark);
 }
 
 .tag-badge:hover {
@@ -494,17 +522,28 @@
     margin-top: var(--s-3);
 }
 
+.section-objective .sec-header,
+.section-methods .sec-header {
+    color: var(--accent-navy);
+}
+
+.section-results .sec-header,
+.section-study-design .sec-header {
+    color: var(--accent-teal);
+}
+
 /* The takeaway a clinician came for: the one section set on a card */
 .section-clinical-relevance {
     margin-top: var(--s-6);
     padding: var(--s-5);
     background: var(--bg-card);
     border: 1px solid var(--border);
+    border-top: 2px solid var(--accent-vermilion-mark);
     border-radius: var(--radius);
 }
 
 .section-clinical-relevance .sec-header {
-    color: var(--signal-ink);
+    color: var(--accent-vermilion);
 }
 
 .summary-missing {

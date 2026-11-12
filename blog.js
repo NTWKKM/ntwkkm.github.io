@@ -12,6 +12,29 @@ const chunkUrl = n => `./data/blog/research_chunk_${n}.json`;
 const MOBILE = window.matchMedia('(max-width: 1024px)');
 const $ = id => document.getElementById(id);
 
+const SPECIALTY_TONES = {
+    cardio: 'navy',
+    resus: 'vermilion',
+    airway: 'navy',
+    neuro: 'ochre',
+    trauma: 'vermilion',
+    infect: 'vermilion',
+    tox: 'vermilion',
+    peds: 'navy',
+    geri: 'ochre',
+    surg: 'navy',
+    metab: 'teal',
+    heme: 'navy',
+    psych: 'ochre',
+    obgyn: 'navy',
+    imaging: 'teal',
+    ai: 'teal',
+    ems: 'ochre',
+    ops: 'ochre',
+};
+
+const specialtyTone = idx => SPECIALTY_TONES[state.specialties[idx]?.id] || 'navy';
+
 const state = {
     posts: [],            // newest first
     byId: new Map(),
@@ -140,13 +163,13 @@ function renderFacets() {
         if (post.design !== -1) designCounts[post.design]++;
     });
 
-    const chip = (kind, value, label, count) =>
-        `<button type="button" class="filter-tag" data-${kind}="${value}" aria-pressed="false">${escapeHTML(label)} <span class="tag-count">${count}</span></button>`;
+    const chip = (kind, value, label, count, tone) =>
+        `<button type="button" class="filter-tag" data-${kind}="${value}" data-tone="${tone}" aria-pressed="false">${escapeHTML(label)} <span class="tag-count">${count}</span></button>`;
 
     $('filter-tags-container').innerHTML = state.specialties
-        .map((s, i) => (specCounts[i] ? chip('spec', i, s.label, specCounts[i]) : '')).join('');
+        .map((s, i) => (specCounts[i] ? chip('spec', i, s.label, specCounts[i], specialtyTone(i)) : '')).join('');
     $('design-tags-container').innerHTML = state.designs
-        .map((d, i) => (designCounts[i] ? chip('design', i, d.label, designCounts[i]) : '')).join('');
+        .map((d, i) => (designCounts[i] ? chip('design', i, d.label, designCounts[i], 'teal') : '')).join('');
 }
 
 function renderFacetState() {
@@ -187,11 +210,13 @@ function renderList() {
 
     const start = (state.page - 1) * PAGE_SIZE;
     list.innerHTML = state.filtered.slice(start, start + PAGE_SIZE).map((post) => {
-        const where = post.spec.length ? state.specialties[post.spec[0]].label : '';
+        const specIdx = post.spec[0];
+        const where = post.spec.length ? state.specialties[specIdx].label : '';
+        const specAttr = post.spec.length ? ` class="list-spec" data-tone="${specialtyTone(specIdx)}"` : '';
         return `
             <button type="button" role="listitem" class="article-list-item${post.id === state.currentId ? ' active' : ''}" data-id="${escapeHTML(post.id)}"${post.id === state.currentId ? ' aria-current="true"' : ''}>
                 <span class="list-title">${highlightText(post.title, state.query)}</span>
-                <span class="list-meta"><span class="mono">${escapeHTML(post.date)}</span><span>${escapeHTML(where)}</span></span>
+                <span class="list-meta"><span class="mono">${escapeHTML(post.date)}</span><span${specAttr}>${escapeHTML(where)}</span></span>
             </button>`;
     }).join('');
     updatePagination();
@@ -283,7 +308,7 @@ async function loadArticle(post, pushHistory = true) {
     $('post-title').textContent = post.title;
 
     $('post-tags').innerHTML =
-        post.spec.map(i => `<button type="button" class="tag-badge" data-spec="${i}">${escapeHTML(state.specialties[i].label)}</button>`).join('') +
+        post.spec.map(i => `<button type="button" class="tag-badge" data-spec="${i}" data-tone="${specialtyTone(i)}">${escapeHTML(state.specialties[i].label)}</button>`).join('') +
         post.tags.map(tag => `<button type="button" class="tag-link" data-tag="${escapeHTML(tag)}">${escapeHTML(tag)}</button>`).join('');
 
     const link = $('post-link');
