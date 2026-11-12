@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Run data pipeline tests
+        run: node --test .github/scripts/*.test.js
+
       - name: Install Puppeteer
         run: npm install puppeteer
 

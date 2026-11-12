@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+    <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
     <title>Medical Research Blog | NTWKKM</title>
     <meta name="description"
         content="Curated medical research papers with Thai-language commentary. Emergency Medicine, Clinical Informatics, and evidence-based practice.">
@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Sarabun:wght@300;400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&family=JetBrains+Mono:wght@400&family=Sarabun:wght@400;600&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="shared.css">
     <link rel="manifest" href="manifest.json">
@@ -50,1147 +50,149 @@
 
 <body>
 
-    <div class="container" id="app-container">
+    <a href="#article-view" class="skip-to-content">Skip to paper</a>
 
-        <button id="sidebar-open-btn" class="sidebar-open-btn">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px;"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg><span>Show Menu</span>
-        </button>
+    <div class="reading-progress" aria-hidden="true"><div class="reading-progress-bar"></div></div>
+
+    <div class="container" id="app-container">
 
         <div id="sidebar-overlay" class="sidebar-overlay"></div>
 
-        <aside class="sidebar" id="sidebar">
+        <aside class="sidebar" id="sidebar" aria-label="Paper list">
             <div class="sidebar-header">
-                <a href="https://ntwkkm.github.io/" class="brand" aria-label="Back to Home">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg><span> Research Hub</span>
-                </a>
+                <div class="sidebar-top">
+                    <a href="./" class="brand" aria-label="Back to Home">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg><span>Research Hub</span>
+                    </a>
 
-                <div class="header-actions">
-                    <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
-                    </button>
-                    <button id="sidebar-close-btn" class="icon-btn" aria-label="Collapse sidebar">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                    </button>
+                    <div class="header-actions">
+                        <button type="button" id="theme-toggle" class="icon-btn theme-btn" aria-label="Switch theme"></button>
+                        <button type="button" id="sidebar-close-btn" class="icon-btn" aria-label="Collapse sidebar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                    </div>
                 </div>
 
                 <div class="search-container">
-                    <span class="search-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
-                    <input type="text" id="search-input" class="search-input" placeholder="Search papers..."
-                        aria-label="Search articles">
+                    <span class="search-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></span>
+                    <input type="search" id="search-input" class="search-input" placeholder="Search papers" aria-label="Search articles" autocomplete="off" spellcheck="false">
+                    <kbd class="search-key" aria-hidden="true">/</kbd>
                 </div>
 
-                <label class="filter-tags-label">Topics <span id="active-filters-badge"
-                        class="active-filters-badge"></span></label>
-                <div class="filter-tags-wrapper">
-                    <div class="filter-tags" id="filter-tags-container">
-                        <span class="filter-tag active" data-tag="all">All</span>
-                    </div>
-                    <div class="more-tags-dropdown" id="more-tags-dropdown"></div>
+                <button type="button" id="filters-toggle" class="filters-toggle" aria-expanded="false" aria-controls="filters-panel">
+                    <span class="filter-tags-label">Topics</span>
+                    <span id="active-filters-badge" class="active-filters-badge" hidden></span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+
+                <div id="filters-panel" class="filters-panel" hidden>
+                    <p class="facet-label" id="facet-specialty">Specialty</p>
+                    <div class="filter-tags" id="filter-tags-container" role="group" aria-labelledby="facet-specialty"></div>
+                    <p class="facet-label" id="facet-design">Study design</p>
+                    <div class="filter-tags" id="design-tags-container" role="group" aria-labelledby="facet-design"></div>
+                    <button type="button" class="btn" id="clear-filters" hidden>Clear filters</button>
                 </div>
             </div>
 
             <div class="sidebar-content">
                 <div class="article-list-section">
-                    <label class="articles-label">Papers List</label>
-                    <div id="loading-indicator" class="skeleton-loader" style="display: none;">
-                        <div class="skeleton-item">
-                            <div class="skeleton-line" style="width:70%"></div>
-                            <div class="skeleton-line" style="width:40%"></div>
-                        </div>
-                        <div class="skeleton-item">
-                            <div class="skeleton-line" style="width:80%"></div>
-                            <div class="skeleton-line" style="width:30%"></div>
-                        </div>
-                        <div class="skeleton-item">
-                            <div class="skeleton-line" style="width:60%"></div>
-                            <div class="skeleton-line" style="width:50%"></div>
-                        </div>
+                    <h2 class="articles-label"><span class="sr-only">Papers List</span><span id="result-count" aria-live="polite"></span></h2>
+                    <div id="loading-indicator" class="skeleton-container" hidden>
+                        <div class="skeleton-list-item"><div class="skeleton-line w-70"></div><div class="skeleton-line w-40"></div></div>
+                        <div class="skeleton-list-item"><div class="skeleton-line w-80"></div><div class="skeleton-line w-40"></div></div>
+                        <div class="skeleton-list-item"><div class="skeleton-line w-60"></div><div class="skeleton-line w-40"></div></div>
                     </div>
-                    <div id="sidebar-list"></div>
+                    <div id="sidebar-list" role="list"></div>
                 </div>
             </div>
 
             <div class="sidebar-footer">
-                <button id="prev-btn" class="pagination-btn" aria-label="Previous page">← Prev</button>
-                <span id="page-info" class="page-info">1 / 1</span>
-                <button id="next-btn" class="pagination-btn" aria-label="Next page">Next →</button>
+                <button type="button" id="prev-btn" class="icon-btn pagination-btn" aria-label="Previous page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                <span id="page-info" class="page-info mono"></span>
+                <button type="button" id="next-btn" class="icon-btn pagination-btn" aria-label="Next page"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
             </div>
         </aside>
 
         <main class="main-content">
-            <div id="toc-container" class="toc-container">
-                <div class="toc-title">On this page</div>
-                <div id="toc-list"></div>
-            </div>
+            <div class="reader-toolbar">
+                <button type="button" id="sidebar-open-btn" class="btn sidebar-open-btn" aria-controls="sidebar">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg><span>Show Menu</span>
+                </button>
 
-            <div id="empty-state" class="empty-state">
-                <div class="empty-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
-                <h3>Select a research paper</h3>
-                <p>Choose from the list on the left to view full details.</p>
-            </div>
-
-            <article id="article-view" class="article-view">
-                <div class="article-meta">
-                    <span class="meta-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px;vertical-align:-1px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><span id="post-date">...</span></span>
-                    <span class="meta-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px;vertical-align:-1px;"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg><span id="post-id" style="font-family: monospace;"></span></span>
-                    <span id="reading-time" class="reading-time-pill meta-item" title="Estimated reading time"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px;vertical-align:-1px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><span id="reading-time-val">...</span></span>
-                    <div class="font-size-controls" aria-label="Font size controls">
-                        <button id="font-decrease" class="font-ctrl-btn" aria-label="Decrease font size" title="Smaller font">A-</button>
-                        <button id="font-increase" class="font-ctrl-btn" aria-label="Increase font size" title="Larger font">A+</button>
+                <div class="toolbar-actions">
+                    <div class="font-size-controls" role="group" aria-label="Font size controls">
+                        <button type="button" id="font-decrease" class="icon-btn font-ctrl-btn" aria-label="Decrease font size" title="Smaller font">A-</button>
+                        <button type="button" id="font-increase" class="icon-btn font-ctrl-btn" aria-label="Increase font size" title="Larger font">A+</button>
                     </div>
-                    <button id="citation-btn" class="citation-btn" title="Copy Citation">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:4px;"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>Cite
-                    </button>
+                    <button type="button" id="citation-btn" class="btn citation-btn" title="Copy Citation"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>Cite</button>
                     <div class="article-navigation">
-                        <button id="nav-prev-article" class="nav-btn" aria-label="Previous Article"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                        <button id="nav-next-article" class="nav-btn" aria-label="Next Article"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                        <button type="button" id="nav-prev-article" class="icon-btn nav-btn" aria-label="Previous Article"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                        <button type="button" id="nav-next-article" class="icon-btn nav-btn" aria-label="Next Article"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
                     </div>
                 </div>
+            </div>
 
-                <h1 class="article-title" id="post-title">...</h1>
-
-                <div id="post-tags" class="tags-container"></div>
-
-                <div id="formatted-summary-container"></div>
-
-                <div id="related-papers" class="related-papers-section heavy-section-deferred" style="display:none;">
-                    <div class="related-header">Related Papers</div>
-                    <div id="related-grid" class="related-grid"></div>
+            <div class="reader-grid">
+                <div id="empty-state" class="empty-state">
+                    <h3>Select a research paper</h3>
+                    <p>Choose from the list on the left to view full details.</p>
                 </div>
 
-                <a href="#" target="_blank" rel="noopener noreferrer" id="post-link" class="pubmed-link">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>View Full Paper
-                </a>
-            </article>
+                <article id="article-view" class="article-view" tabindex="-1" hidden>
+                    <p class="article-meta">
+                        <time id="post-date" class="meta-item"></time>
+                        <span id="post-id" class="meta-item mono"></span>
+                        <span id="post-design" class="meta-item"></span>
+                        <span id="reading-time" class="meta-item" hidden><span id="reading-time-val"></span></span>
+                    </p>
+
+                    <h1 class="article-title" id="post-title"></h1>
+
+                    <div id="post-tags" class="tags-container"></div>
+
+                    <div id="formatted-summary-container"></div>
+
+                    <a href="#" target="_blank" rel="noopener noreferrer" id="post-link" class="btn btn-primary pubmed-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>View on PubMed
+                    </a>
+
+                    <section id="related-papers" class="related-papers-section" aria-labelledby="related-title" hidden>
+                        <h2 class="related-header" id="related-title">Related Papers</h2>
+                        <div id="related-grid" class="related-grid"></div>
+                    </section>
+                </article>
+
+                <nav id="toc-container" class="toc-container" aria-labelledby="toc-title" hidden>
+                    <p class="toc-title" id="toc-title">On this page</p>
+                    <div id="toc-list"></div>
+                </nav>
+            </div>
         </main>
 
-        <!-- Mobile Bottom Navigation (Thumb-Zone Ergonomics) -->
         <nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="Mobile navigation bar">
-            <button id="mob-nav-menu" class="mob-btn" aria-label="Papers Menu">
-                <span class="mob-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></span>
-                <span class="mob-text">Papers</span>
-            </button>
-            <button id="mob-nav-prev" class="mob-btn" aria-label="Previous Article">
-                <span class="mob-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg></span>
-                <span class="mob-text">Prev</span>
-            </button>
-            <button id="mob-nav-cite" class="mob-btn" aria-label="Cite Paper">
-                <span class="mob-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></span>
-                <span class="mob-text">Cite</span>
-            </button>
-            <button id="mob-nav-next" class="mob-btn" aria-label="Next Article">
-                <span class="mob-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></span>
-                <span class="mob-text">Next</span>
-            </button>
+            <button type="button" id="mob-nav-menu" class="mob-btn" aria-label="Papers Menu" aria-controls="sidebar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg><span class="mob-text">Papers</span></button>
+            <button type="button" id="mob-nav-prev" class="mob-btn" aria-label="Previous Article"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg><span class="mob-text">Prev</span></button>
+            <button type="button" id="mob-nav-cite" class="mob-btn" aria-label="Cite Paper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg><span class="mob-text">Cite</span></button>
+            <button type="button" id="mob-nav-next" class="mob-btn" aria-label="Next Article"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg><span class="mob-text">Next</span></button>
         </nav>
     </div>
 
+    <dialog id="citation-dialog" class="citation-dialog" aria-labelledby="citation-title">
+        <div class="citation-modal-header">
+            <h2 class="citation-modal-title" id="citation-title">Cite Research Paper</h2>
+            <button type="button" class="icon-btn" id="citation-close-btn" aria-label="Close citation modal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
+        </div>
+        <div class="citation-format-tabs" role="group" aria-label="Citation format">
+            <button type="button" class="btn citation-format-tab" data-format="vancouver" aria-pressed="true">Vancouver</button>
+            <button type="button" class="btn citation-format-tab" data-format="apa" aria-pressed="false">APA 7th</button>
+            <button type="button" class="btn citation-format-tab" data-format="bibtex" aria-pressed="false">BibTeX</button>
+            <button type="button" class="btn citation-format-tab" data-format="markdown" aria-pressed="false">Markdown</button>
+        </div>
+        <textarea class="citation-text-area mono" id="citation-text" readonly rows="5" aria-label="Citation text"></textarea>
+        <p class="citation-note">Authors, journal and year are not stored here. Add them from PubMed before citing formally.</p>
+        <button type="button" class="btn btn-primary" id="citation-copy-btn">Copy citation</button>
+    </dialog>
+
     <script src="shared.js"></script>
-    <script>
-        // Register Service Worker for PWA offline support
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then((registration) => {
-                        console.log('[PWA] ServiceWorker registered:', registration.scope);
-                    })
-                    .catch((error) => {
-                        console.log('[PWA] ServiceWorker registration failed:', error);
-                    });
-            });
-        }
-
-        // Search Optimization Utilities (moved from shared.js)
-        function fuzzyMatch(query, text) {
-            if (!query) return true;
-            if (!text) return false;
-            
-            const lowerQuery = query.toLowerCase().replace(/\s+/g, '');
-            const lowerText = text.toLowerCase();
-            
-            let queryIndex = 0;
-            for (let i = 0; i < lowerText.length; i++) {
-                if (lowerText[i] === lowerQuery[queryIndex]) {
-                    queryIndex++;
-                    if (queryIndex === lowerQuery.length) return true;
-                }
-            }
-            return false;
-        }
-
-        function highlightText(text, query) {
-            if (!query || !text) return escapeHTML(text);
-            
-            const terms = query.toLowerCase().trim().split(/\s+/).filter(t => t.length > 0);
-            if (terms.length === 0) return escapeHTML(text);
-            
-            const regex = new RegExp(`(${terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'gi');
-            const parts = String(text).split(regex);
-            
-            return parts.map((part, index) => {
-                const escaped = escapeHTML(part);
-                if (index % 2 === 1) {
-                    return `<span class="search-highlight">${escaped}</span>`;
-                }
-                return escaped;
-            }).join('');
-        }
-
-        // Global State
-        let allPosts = [];
-        let filteredPosts = [];
-        let currentPage = 1;
-        const itemsPerPage = 10;
-        let activeTags = new Set();  // empty = show all (multi-select)
-        let currentPostId = null;
-        let tocObserver = null;
-
-        const CACHE_KEY = 'research_blog_data_v2';
-        const CACHE_DURATION = 1000 * 60 * 5; // 5 minutes
-
-        // Step 1: Tag normalization - merge near-duplicate AI-generated tags
-        const TAG_NORMALIZATION = {
-            'Emergency': 'Emergency Medicine',
-            'Infectious Disease': 'Infectious Diseases',
-            'Artificial Intelligence': 'AI',
-            'Artificial intelligence': 'AI',
-            'Machine Learning': 'AI',
-            'Critical care': 'Critical Care',
-            'Public health': 'Public Health',
-            'Internal medicine': 'Internal Medicine',
-            'Pain management': 'Pain Management',
-            'Drug discovery': 'Drug Discovery',
-        };
-        const TOP_TAGS_COUNT = 12;
-
-        // Initialize screen reader announcer
-        document.addEventListener('DOMContentLoaded', () => {
-            initScreenReaderAnnouncer();
-        });
-
-        // ===========================================================================
-        // READING PROGRESS INDICATOR
-        // ===========================================================================
-        function initReadingProgress() {
-            const progressBar = document.createElement('div');
-            progressBar.className = 'reading-progress';
-            progressBar.innerHTML = '<div class="reading-progress-bar"></div>';
-            document.body.prepend(progressBar);
-
-            const progressBarFill = progressBar.querySelector('.reading-progress-bar');
-            const mainContent = document.querySelector('.main-content');
-            if (!mainContent) return;
-
-            window.updateReadingProgress = () => {
-                const articleView = document.getElementById('article-view');
-                if (!articleView || !articleView.classList.contains('visible')) {
-                    progressBar.style.display = 'none';
-                    return;
-                }
-
-                let scrollTop, scrollHeight;
-                if (window.innerWidth > 1024) {
-                    scrollTop = mainContent.scrollTop;
-                    scrollHeight = mainContent.scrollHeight - mainContent.clientHeight;
-                } else {
-                    scrollTop = window.scrollY || document.documentElement.scrollTop;
-                    scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-                }
-
-                const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-                progressBarFill.style.width = `${Math.min(100, Math.max(0, progress))}%`;
-                progressBar.style.display = 'block';
-            };
-
-            mainContent.addEventListener('scroll', window.updateReadingProgress);
-            window.addEventListener('scroll', window.updateReadingProgress);
-            window.addEventListener('resize', () => {
-                if (window.updateReadingProgress) window.updateReadingProgress();
-                if (window.innerWidth > 1024) {
-                    const overlay = document.getElementById('sidebar-overlay');
-                    if (overlay) {
-                        overlay.classList.remove('visible');
-                        overlay.setAttribute('aria-hidden', 'true');
-                    }
-                }
-                clearTimeout(window.tocResizeTimeout);
-                window.tocResizeTimeout = setTimeout(() => {
-                    generateToC();
-                }, 100);
-            });
-        }
-
-        // ===========================================================================
-        // CITATION EXPORT (4 Formats: APA, Vancouver, BibTeX, Markdown)
-        // ===========================================================================
-        function generateCitation(post, format = 'apa') {
-            if (!post) return '';
-            const authors = post.authors || 'NTWKKM et al.';
-            const year = post.date ? new Date(post.date).getFullYear() : '2026';
-            const title = post.title || 'Untitled';
-            const url = post.link || post.url || `https://ntwkkm.github.io/blog.html?id=${post.id}`;
-            const pmid = post.pmid || '';
-            const accessed = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-
-            switch (format) {
-                case 'bibtex':
-                    return `@article{pmid_${pmid || post.id},
-  author = {${authors}},
-  title = {${title}},
-  journal = {Medical Research Hub (NTWKKM)},
-  year = {${year}},
-  pmid = {${pmid || 'N/A'}},
-  url = {${url}},
-  note = {Accessed: ${accessed}}
-}`;
-                case 'vancouver':
-                    return `${authors}. ${title}. ${pmid ? `PMID: ${pmid}. ` : ''}${year} [cited ${accessed}]. Available from: ${url}`;
-                case 'markdown':
-                    return `[${authors} (${year}). ${title}](${url})`;
-                case 'apa':
-                default:
-                    return `${authors} (${year}). ${title}${pmid ? `. PMID: ${pmid}` : ''}. Retrieved ${accessed}, from ${url}`;
-            }
-        }
-
-        let currentCitationFormat = 'apa';
-        let currentCitationPost = null;
-
-        const citationCopySvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px;vertical-align:-1px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
-
-        function openCitationModal(post) {
-            currentCitationPost = post;
-            let dialog = document.getElementById('citation-popover-dialog');
-            if (dialog) dialog.remove();
-
-            dialog = document.createElement('dialog');
-            dialog.id = 'citation-popover-dialog';
-            dialog.className = 'citation-popover-dialog';
-            dialog.setAttribute('popover', 'auto');
-            dialog.innerHTML = `
-                <div class="citation-modal-box" role="dialog" aria-label="Citation options">
-                    <div class="citation-modal-header">
-                        <h3 class="citation-modal-title">Cite Research Paper</h3>
-                        <button class="citation-modal-close" id="citation-close-btn" aria-label="Close citation modal" title="Close">✕</button>
-                    </div>
-                    <div class="citation-format-tabs" role="tablist">
-                        <button class="citation-format-tab active" data-format="apa" role="tab" aria-selected="true">APA 7th</button>
-                        <button class="citation-format-tab" data-format="vancouver" role="tab" aria-selected="false">Vancouver</button>
-                        <button class="citation-format-tab" data-format="bibtex" role="tab" aria-selected="false">BibTeX</button>
-                        <button class="citation-format-tab" data-format="markdown" role="tab" aria-selected="false">Markdown</button>
-                    </div>
-                    <textarea class="citation-text-area" id="citation-text" readonly aria-label="Citation text">${escapeHTML(generateCitation(post, currentCitationFormat))}</textarea>
-                    <div class="citation-modal-footer">
-                        <button class="citation-copy-btn" id="citation-copy-btn" aria-label="Copy citation to clipboard">
-                            ${citationCopySvg}Copy Citation
-                        </button>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(dialog);
-
-            const closeBtn = dialog.querySelector('#citation-close-btn');
-            closeBtn.onclick = () => {
-                if (dialog.hidePopover) dialog.hidePopover();
-                else dialog.close();
-            };
-
-            dialog.querySelectorAll('.citation-format-tab').forEach(tab => {
-                tab.onclick = () => switchCitationFormat(tab.dataset.format, tab);
-            });
-
-            dialog.querySelector('#citation-copy-btn').onclick = copyCitationText;
-
-            if (dialog.showPopover) {
-                dialog.showPopover();
-            } else if (dialog.showModal) {
-                dialog.showModal();
-            }
-        }
-
-        function switchCitationFormat(format, btn) {
-            currentCitationFormat = format;
-            const textArea = document.getElementById('citation-text');
-            if (textArea && currentCitationPost) {
-                textArea.value = generateCitation(currentCitationPost, format);
-            }
-
-            document.querySelectorAll('.citation-format-tab').forEach(tab => {
-                tab.classList.toggle('active', tab === btn);
-                tab.setAttribute('aria-selected', tab === btn ? 'true' : 'false');
-            });
-        }
-
-        function copyCitationText() {
-            const textArea = document.getElementById('citation-text');
-            if (!textArea) return;
-            navigator.clipboard.writeText(textArea.value).then(() => {
-                const btn = document.getElementById('citation-copy-btn');
-                if (btn) {
-                    btn.classList.add('copied');
-                    btn.innerHTML = '✓ Copied!';
-                    triggerHaptic('success');
-                    setTimeout(() => {
-                        btn.classList.remove('copied');
-                        btn.innerHTML = `${citationCopySvg}Copy Citation`;
-                    }, 2000);
-                }
-                announceToScreenReader('Citation copied to clipboard');
-            }).catch(err => {
-                console.error('Failed to copy clipboard: ', err);
-            });
-        }
-
-
-
-        // ===========================================================================
-        // MAIN DATA LOADING
-        // ===========================================================================
-        document.addEventListener('DOMContentLoaded', async () => {
-            // Initialize reading progress
-            initReadingProgress();
-
-            // Collapse sidebar on page load if mobile
-            if (window.innerWidth <= 1024) {
-                document.getElementById('sidebar').classList.add('collapsed');
-                document.getElementById('app-container').classList.add('sidebar-hidden');
-            }
-
-            const loadingEl = document.getElementById('loading-indicator');
-            loadingEl.style.display = 'block';
-
-            try {
-                let rawData = null;
-                const cached = localStorage.getItem(CACHE_KEY);
-
-                if (cached) {
-                    try {
-                        const parsedCache = JSON.parse(cached);
-                        if (Date.now() - parsedCache.timestamp < CACHE_DURATION) {
-                            console.log("Using cached data");
-                            rawData = parsedCache.data;
-                        }
-                    } catch (e) { console.warn("Cache error"); }
-                }
-
-                if (!rawData) {
-                    // 1. Fetch the list of JSON files from blog_index.json (cache-busted)
-                    const cacheBuster = `?v=${Date.now()}`;
-
-                    // Use fetchWithFallback for resilience
-                    const fileList = await fetchWithFallback('./blog_index.json' + cacheBuster, []);
-
-                    if (!fileList.length) {
-                        throw new Error('No blog data files found');
-                    }
-
-                    // 2. Fetch data from all files concurrently
-                    const fetchPromises = fileList.map(file =>
-                        fetchWithFallback(`./${file}${cacheBuster}`, [])
-                    );
-                    const allFilesData = await Promise.all(fetchPromises);
-
-                    // 3. Flatten and combine data from all sources
-                    rawData = allFilesData.flat();
-
-                    if (!rawData.length) {
-                        throw new Error('No blog posts found');
-                    }
-
-                    localStorage.setItem(CACHE_KEY, JSON.stringify({
-                        timestamp: Date.now(),
-                        data: rawData
-                    }));
-                }
-
-                const rawList = Array.isArray(rawData) ? rawData : (rawData.data || []);
-
-                allPosts = rawList.map(item => {
-                    const tags = [item.property_tag_1, item.property_tag_2, item.property_tag_3]
-                        .filter(t => t && t.trim() !== "")
-                        .map(t => TAG_NORMALIZATION[t.trim()] || t.trim())
-                        .filter((t, i, arr) => arr.indexOf(t) === i); // dedupe after normalization
-                    let dateStr = "";
-                    let timestamp = 0;
-                    if (item.property_last_edited_time) {
-                        const d = new Date(item.property_last_edited_time);
-                        timestamp = d.getTime();
-                        dateStr = d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-                    }
-
-                    return {
-                        id: item.id,
-                        title: item.name,
-                        summary: item.property_comment,
-                        objective: item.property_objective || null,
-                        method: item.property_method || null,
-                        result: item.property_result || item.property_conclusion || null,
-                        date: dateStr,
-                        timestamp: timestamp,
-                        tags: tags,
-                        link: item.url,
-                        pmid: item.property_pmid,
-                        authors: item.property_authors || item.authors || null
-                    };
-                });
-
-                allPosts.sort((a, b) => b.timestamp - a.timestamp);
-                filteredPosts = [...allPosts];
-
-                initTags(allPosts);
-                renderSidebar();
-                setupEventListeners();
-                handleRouting();
-
-            } catch (error) {
-                console.error("Error:", error);
-                document.getElementById('sidebar-list').innerHTML = `
-                    <div style="padding:20px; text-align:center; color:var(--text-muted); display:flex; flex-direction:column; align-items:center; gap:10px;">
-                        <span>Failed to load data.</span>
-                        <button onclick="location.reload()" class="pagination-btn" style="cursor:pointer; width:auto; border-radius:50px; font-size:0.8rem; padding:6px 16px;">Retry ↻</button>
-                    </div>`;
-            } finally {
-                loadingEl.style.display = 'none';
-            }
-        });
-
-
-        function closeSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const container = document.getElementById('app-container');
-            const overlay = document.getElementById('sidebar-overlay');
-            if (sidebar) sidebar.classList.add('collapsed');
-            if (container) container.classList.add('sidebar-hidden');
-            if (overlay) {
-                overlay.classList.remove('visible');
-                overlay.setAttribute('aria-hidden', 'true');
-            }
-        }
-
-        function openSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const container = document.getElementById('app-container');
-            const overlay = document.getElementById('sidebar-overlay');
-            if (sidebar) sidebar.classList.remove('collapsed');
-            if (container) container.classList.remove('sidebar-hidden');
-            if (overlay && window.innerWidth <= 1024) {
-                overlay.classList.add('visible');
-                overlay.setAttribute('aria-hidden', 'false');
-            }
-        }
-
-        function setupEventListeners() {
-            document.getElementById('search-input').addEventListener('input', debounce((e) => handleFilter(e.target.value), 300));
-            document.getElementById('prev-btn').addEventListener('click', () => changePage(-1));
-            document.getElementById('next-btn').addEventListener('click', () => changePage(1));
-
-            // Sidebar Toggle
-            const overlay = document.getElementById('sidebar-overlay');
-
-            document.getElementById('sidebar-close-btn').addEventListener('click', closeSidebar);
-            document.getElementById('sidebar-open-btn').addEventListener('click', openSidebar);
-            if (overlay) overlay.addEventListener('click', closeSidebar);
-
-            // Article Nav
-            document.getElementById('nav-prev-article').addEventListener('click', () => navigateArticle(-1));
-            document.getElementById('nav-next-article').addEventListener('click', () => navigateArticle(1));
-
-            // Setup Citation Button
-            document.getElementById('citation-btn').addEventListener('click', () => {
-                const post = allPosts.find(p => p.id === currentPostId);
-                if (post) openCitationModal(post);
-            });
-
-            // Font Size Adjuster Controls
-            let currentFontSize = 1;
-            const applyFontSize = (size) => {
-                currentFontSize = Math.min(Math.max(size, 0.8), 1.5);
-                const articleView = document.getElementById('article-view');
-                if (articleView) {
-                    articleView.style.setProperty('--reader-scale', currentFontSize);
-                }
-                try { localStorage.setItem('reader_font_size', currentFontSize.toFixed(2)); } catch(e) {}
-            };
-            try {
-                const savedFontSize = parseFloat(localStorage.getItem('reader_font_size'));
-                if (!isNaN(savedFontSize) && savedFontSize >= 0.8 && savedFontSize <= 1.5) {
-                    applyFontSize(savedFontSize);
-                }
-            } catch(e) {}
-
-            document.getElementById('font-decrease')?.addEventListener('click', () => {
-                applyFontSize(currentFontSize - 0.1);
-                triggerHaptic('light');
-            });
-            document.getElementById('font-increase')?.addEventListener('click', () => {
-                applyFontSize(currentFontSize + 0.1);
-                triggerHaptic('light');
-            });
-
-            // Mobile Bottom Navigation Bar Handlers
-            document.getElementById('mob-nav-menu')?.addEventListener('click', () => {
-                openSidebar();
-                triggerHaptic('light');
-            });
-            document.getElementById('mob-nav-prev')?.addEventListener('click', () => {
-                navigateArticle(-1);
-                triggerHaptic('light');
-            });
-            document.getElementById('mob-nav-cite')?.addEventListener('click', () => {
-                const post = allPosts.find(p => p.id === currentPostId);
-                if (post) openCitationModal(post);
-                triggerHaptic('light');
-            });
-            document.getElementById('mob-nav-next')?.addEventListener('click', () => {
-                navigateArticle(1);
-                triggerHaptic('light');
-            });
-
-            // Keyboard shortcuts (ArrowLeft/Right for articles, / for search, Escape to dismiss)
-            document.addEventListener('keydown', (e) => {
-                const tag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
-                const isInput = tag === 'input' || tag === 'textarea' || tag === 'select' || (document.activeElement && document.activeElement.isContentEditable);
-                
-                if (isInput) {
-                    if (e.key === 'Escape') {
-                        document.activeElement.blur();
-                        if (window.innerWidth <= 1024) {
-                            closeSidebar();
-                        }
-                    }
-                    return;
-                }
-                const citationDialog = document.getElementById('citation-popover-dialog');
-                if (citationDialog?.open) return;
-                try {
-                    if (citationDialog?.matches(':popover-open')) return;
-                } catch (_) {}
-
-                if (e.key === 'ArrowLeft') {
-                    navigateArticle(-1);
-                } else if (e.key === 'ArrowRight') {
-                    navigateArticle(1);
-                } else if (e.key === '/') {
-                    if (e.ctrlKey || e.metaKey || e.altKey) return;
-                    e.preventDefault();
-                    const sidebar = document.getElementById('sidebar');
-                    if (window.innerWidth <= 1024 || (sidebar && sidebar.classList.contains('collapsed'))) {
-                        openSidebar();
-                    }
-                    const searchInput = document.getElementById('search-input');
-                    if (searchInput) {
-                        searchInput.focus();
-                        searchInput.select();
-                    }
-                } else if (e.key === 'Escape' && window.innerWidth <= 1024) {
-                    closeSidebar();
-                }
-            });
-        }
-
-        // Step 2 & 3: Top-N pills with count badges + More dropdown
-        function initTags(posts) {
-            const tagCounts = new Map();
-            posts.forEach(p => {
-                if (p.tags) p.tags.forEach(t => {
-                    tagCounts.set(t, (tagCounts.get(t) || 0) + 1);
-                });
-            });
-
-            // Sort by count descending, then alphabetically
-            const sortedTags = Array.from(tagCounts.entries())
-                .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-
-            const topTags = sortedTags.slice(0, TOP_TAGS_COUNT);
-            const moreTags = sortedTags.slice(TOP_TAGS_COUNT);
-
-            const container = document.getElementById('filter-tags-container');
-            container.innerHTML = '';
-
-            // "All" pill
-            const allPill = createTagPill('all', 'All', posts.length);
-            allPill.classList.add('active');
-            container.appendChild(allPill);
-
-            // Top-N tag pills
-            topTags.forEach(([tag, count]) => {
-                container.appendChild(createTagPill(tag, tag, count));
-            });
-
-            // "More" toggle if remaining tags exist
-            const dropdown = document.getElementById('more-tags-dropdown');
-            dropdown.innerHTML = '';
-
-            if (moreTags.length > 0) {
-                const moreBtn = document.createElement('span');
-                moreBtn.className = 'filter-tag more-btn';
-                moreBtn.id = 'more-tags-btn';
-                moreBtn.innerHTML = `More <span class="tag-count">(${moreTags.length})</span> ▾`;
-                moreBtn.onclick = (e) => {
-                    e.stopPropagation();
-                    moreBtn.classList.toggle('open');
-                    dropdown.classList.toggle('open');
-                    moreBtn.innerHTML = dropdown.classList.contains('open')
-                        ? `Less ▴`
-                        : `More <span class="tag-count">(${moreTags.length})</span> ▾`;
-                };
-                container.appendChild(moreBtn);
-
-                // Render dropdown tags
-                moreTags.forEach(([tag, count]) => {
-                    dropdown.appendChild(createTagPill(tag, tag, count));
-                });
-            }
-        }
-
-        function createTagPill(dataTag, label, count) {
-            const span = document.createElement('span');
-            span.className = 'filter-tag';
-            span.dataset.tag = dataTag;
-            if (dataTag === 'all') {
-                span.innerHTML = `${escapeHTML(label)} <span class="tag-count">(${count})</span>`;
-            } else {
-                span.innerHTML = `${escapeHTML(label)} <span class="tag-count">(${count})</span>`;
-            }
-            span.onclick = () => selectTag(dataTag);
-            // Restore active state if previously selected
-            if (activeTags.has(dataTag)) span.classList.add('active');
-            return span;
-        }
-
-        // Step 4: Multi-select toggle (OR logic)
-        function selectTag(tag) {
-            if (tag === 'all') {
-                activeTags.clear();
-            } else {
-                if (activeTags.has(tag)) {
-                    activeTags.delete(tag);
-                } else {
-                    activeTags.add(tag);
-                }
-            }
-            refreshTagUI();
-            updateURLState();
-            document.getElementById('search-input').value = '';
-            handleFilter('');
-        }
-
-        function refreshTagUI() {
-            document.querySelectorAll('.filter-tag').forEach(el => {
-                if (el.classList.contains('more-btn')) return;
-                if (el.dataset.tag === 'all') {
-                    el.classList.toggle('active', activeTags.size === 0);
-                } else if (el.dataset.tag) {
-                    el.classList.toggle('active', activeTags.has(el.dataset.tag));
-                }
-            });
-            // Update active filters badge
-            const badge = document.getElementById('active-filters-badge');
-            if (activeTags.size > 0) {
-                badge.classList.add('visible');
-                badge.innerHTML = `(${activeTags.size} active) <button class="clear-filters-btn" onclick="selectTag('all')" title="Clear all filters">✕</button>`;
-            } else {
-                badge.classList.remove('visible');
-                badge.innerHTML = '';
-            }
-        }
-
-        function handleFilter(query) {
-            const lowerQuery = query.toLowerCase();
-            filteredPosts = allPosts.filter(post => {
-                // Step 4: Multi-select OR logic - matches if ANY active tag is in the post's tags
-                const matchesTag = activeTags.size === 0 || (post.tags && post.tags.some(t => activeTags.has(t)));
-                // Enhanced search: title, ID, summary, objective, method, result, and tags
-                const matchesSearch = fuzzyMatch(lowerQuery, post.title) ||
-                    fuzzyMatch(lowerQuery, post.id) ||
-                    fuzzyMatch(lowerQuery, post.summary) ||
-                    fuzzyMatch(lowerQuery, post.objective) ||
-                    fuzzyMatch(lowerQuery, post.method) ||
-                    fuzzyMatch(lowerQuery, post.result) ||
-                    (post.tags && post.tags.some(t => t.toLowerCase().includes(lowerQuery)));
-                return matchesTag && matchesSearch;
-            });
-            currentPage = 1;
-            renderSidebar();
-        }
-
-        function renderSidebar() {
-            if (!document.startViewTransition) {
-                _renderSidebarContent();
-                return;
-            }
-            document.startViewTransition(() => {
-                _renderSidebarContent();
-            });
-        }
-
-        function _renderSidebarContent() {
-            const listContainer = document.getElementById('sidebar-list');
-            listContainer.innerHTML = '';
-
-            if (filteredPosts.length === 0) {
-                listContainer.innerHTML = '<div style="text-align:center; margin-top:30px; color:#94a3b8; font-size:0.9rem;">No results found.</div>';
-                updatePaginationControls();
-                return;
-            }
-
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const pageItems = filteredPosts.slice(startIndex, startIndex + itemsPerPage);
-
-            pageItems.forEach(post => {
-                const item = document.createElement('div');
-                item.className = 'article-list-item';
-                // Assign a unique view-transition-name to each item if possible, but for lists usually a container transition is fine.
-                // We'll rely on the default container cross-fade for now.
-                if (post.id === currentPostId) item.classList.add('active');
-                item.dataset.id = post.id;
-                
-                const searchQuery = document.getElementById('search-input').value;
-                const highlightedTitle = highlightText(post.title, searchQuery);
-                
-                item.innerHTML = `<div class="list-title">${highlightedTitle}</div><div class="list-meta"><span>${escapeHTML(post.date)}</span></div>`;
-                item.onclick = () => loadArticle(post);
-                listContainer.appendChild(item);
-            });
-            updatePaginationControls();
-        }
-
-        function updatePaginationControls() {
-            const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
-            document.getElementById('page-info').textContent = `${currentPage} / ${totalPages || 1}`;
-            document.getElementById('prev-btn').disabled = currentPage === 1;
-            document.getElementById('next-btn').disabled = currentPage >= totalPages || totalPages === 0;
-        }
-
-        function changePage(delta) {
-            currentPage += delta;
-            renderSidebar();
-            document.querySelector('.sidebar-content').scrollTop = 0;
-        }
-
-        function clearArticle() {
-            currentPostId = null;
-            document.title = "Medical Research Blog";
-            document.getElementById('empty-state').style.display = 'flex';
-            document.getElementById('article-view').classList.remove('visible');
-            document.querySelectorAll('.article-list-item').forEach(el => el.classList.remove('active'));
-            document.getElementById('toc-list').innerHTML = '';
-            if (tocObserver) {
-                tocObserver.disconnect();
-                tocObserver = null;
-            }
-            if (window.updateReadingProgress) window.updateReadingProgress();
-        }
-
-        function loadArticle(post, pushHistory = true) {
-            currentPostId = post.id;
-            document.title = `${post.title} | Medical Research Blog`;
-
-            document.getElementById('empty-state').style.display = 'none';
-            const articleView = document.getElementById('article-view');
-            articleView.classList.remove('visible');
-
-            document.getElementById('post-date').textContent = post.date;
-            document.getElementById('post-id').textContent = post.id;
-            document.getElementById('post-title').textContent = post.title;
-
-            // Calculate estimated reading time
-            const rawContent = `${post.title || ''} ${post.summary || ''} ${post.objective || ''} ${post.method || ''} ${post.result || ''}`;
-            const wordCount = rawContent.trim().split(/\s+/).filter(Boolean).length;
-            const charCount = rawContent.length;
-            const estMin = Math.max(1, Math.ceil(wordCount / 180 + charCount / 1000));
-            const readingTimeVal = document.getElementById('reading-time-val');
-            if (readingTimeVal) readingTimeVal.textContent = `${estMin} min read`;
-
-            const tagsContainer = document.getElementById('post-tags');
-            tagsContainer.innerHTML = '';
-            if (post.tags && post.tags.length > 0) {
-                post.tags.forEach(tag => {
-                    const tagEl = document.createElement('span');
-                    tagEl.className = 'tag-badge';
-                    tagEl.textContent = tag;
-                    tagEl.onclick = (e) => { e.stopPropagation(); selectTag(tag); };
-                    tagsContainer.appendChild(tagEl);
-                });
-            } else {
-                tagsContainer.innerHTML = '<span style="color:#cbd5e1; font-size:0.8rem;">No tags</span>';
-            }
-
-            // Render Content
-            const summaryContainer = document.getElementById('formatted-summary-container');
-            summaryContainer.innerHTML = parseContent(post);
-
-            // Generate ToC AFTER content is rendered
-            generateToC();
-
-            // Render Related Papers
-            renderRelatedPapers(post);
-
-            const linkBtn = document.getElementById('post-link');
-            const bookSvg = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>`;
-            if (post.pmid) {
-                linkBtn.href = `https://pubmed.ncbi.nlm.nih.gov/${post.pmid}/`;
-                linkBtn.innerHTML = `${bookSvg}View on PubMed`;
-                linkBtn.style.display = 'inline-flex';
-            } else if (post.link) {
-                linkBtn.href = sanitizeURL(post.link);
-                linkBtn.innerHTML = `${bookSvg}Read Source`;
-                linkBtn.style.display = 'inline-flex';
-            } else {
-                linkBtn.style.display = 'none';
-            }
-
-            document.querySelectorAll('.article-list-item').forEach(el => el.classList.remove('active'));
-            const activeEl = document.querySelector(`.article-list-item[data-id="${post.id}"]`);
-            if (activeEl) activeEl.classList.add('active');
-
-            // Step 5: Preserve tag state in URL when navigating articles
-            if (pushHistory) {
-                const params = new URLSearchParams();
-                params.set('id', post.id);
-                if (activeTags.size > 0) params.set('tag', Array.from(activeTags).join(','));
-                const newUrl = `${window.location.pathname}?${params.toString()}`;
-                history.pushState({ id: post.id }, '', newUrl);
-            }
-            updateNavButtonsState();
-
-            setTimeout(() => {
-                articleView.classList.add('visible');
-                if (window.updateReadingProgress) window.updateReadingProgress();
-            }, 50);
-            document.querySelector('.main-content').scrollTop = 0;
-            window.scrollTo(0, 0); // For mobile
-
-            // Auto-collapse sidebar on mobile select
-            if (window.innerWidth <= 1024) {
-                closeSidebar();
-            }
-        }
-
-        /* --- 3. DYNAMIC ToC LOGIC --- */
-        function generateToC() {
-            const tocContainer = document.getElementById('toc-container');
-            const tocList = document.getElementById('toc-list');
-            tocList.innerHTML = '';
-
-            const headers = document.querySelectorAll('.sec-header');
-
-            if (tocObserver) {
-                tocObserver.disconnect();
-                tocObserver = null;
-            }
-
-            if (headers.length > 0 && window.innerWidth > 1200) {
-                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                const scrollBehavior = prefersReducedMotion ? 'auto' : 'smooth';
-                tocContainer.style.display = 'block';
-                headers.forEach((header, index) => {
-                    header.id = `section-${index}`; // Assign ID for anchor
-                    const link = document.createElement('a');
-                    link.className = 'toc-link';
-                    link.textContent = header.textContent;
-                    link.setAttribute('href', `#section-${index}`);
-                    link.onclick = (e) => {
-                        e.preventDefault();
-                        header.scrollIntoView({ behavior: scrollBehavior, block: 'start' });
-                        document.querySelectorAll('.toc-link').forEach(el => el.classList.remove('active'));
-                        link.classList.add('active');
-                    };
-                    tocList.appendChild(link);
-                });
-
-                // Setup dynamic intersection observer to track active section while scrolling
-                tocObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const targetId = entry.target.id;
-                            document.querySelectorAll('.toc-link').forEach(link => {
-                                if (link.getAttribute('href') === `#${targetId}`) {
-                                    link.classList.add('active');
-                                    link.scrollIntoView({ behavior: scrollBehavior, block: 'nearest' });
-                                } else {
-                                    link.classList.remove('active');
-                                }
-                            });
-                        }
-                    });
-                }, {
-                    root: document.querySelector('.main-content') || null,
-                    rootMargin: '-80px 0px -70% 0px',
-                    threshold: 0
-                });
-
-                headers.forEach(header => tocObserver.observe(header));
-            } else {
-                tocContainer.style.display = 'none';
-            }
-        }
-
-        /* --- 2. RELATED PAPERS LOGIC --- */
-        function renderRelatedPapers(currentPost) {
-            const container = document.getElementById('related-papers');
-            const grid = document.getElementById('related-grid');
-            grid.innerHTML = '';
-
-            // Find overlapping tags, excluding current post
-            const related = allPosts.filter(p =>
-                p.id !== currentPost.id &&
-                p.tags && currentPost.tags &&
-                p.tags.some(t => currentPost.tags.includes(t))
-            ).slice(0, 3); // Top 3
-
-            if (related.length > 0) {
-                container.style.display = 'block';
-                related.forEach(p => {
-                    const card = document.createElement('div');
-                    card.className = 'related-card';
-                    card.innerHTML = `<div class="related-title">${escapeHTML(p.title)}</div><div class="related-date">${escapeHTML(p.date)}</div>`;
-                    card.onclick = () => loadArticle(p);
-                    grid.appendChild(card);
-                });
-            } else {
-                container.style.display = 'none';
-            }
-        }
-
-        function navigateArticle(direction) {
-            if (!currentPostId || filteredPosts.length === 0) return;
-            const currentIndex = filteredPosts.findIndex(p => p.id === currentPostId);
-            if (currentIndex === -1) return;
-            const newIndex = currentIndex + direction;
-            if (newIndex >= 0 && newIndex < filteredPosts.length) {
-                loadArticle(filteredPosts[newIndex]);
-            }
-        }
-
-        function updateNavButtonsState() {
-            const currentIndex = filteredPosts.findIndex(p => p.id === currentPostId);
-            document.getElementById('nav-prev-article').disabled = (currentIndex <= 0);
-            document.getElementById('nav-next-article').disabled = (currentIndex >= filteredPosts.length - 1);
-        }
-
-        function parseContent(post) {
-            if (post.objective || post.method || post.result) {
-                let html = '';
-                if (post.objective) html += `<div class="research-section"><div class="sec-header">Objective</div><div class="sec-content">${escapeHTML(post.objective).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div></div>`;
-                if (post.method) html += `<div class="research-section"><div class="sec-header">Methods</div><div class="sec-content">${escapeHTML(post.method).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div></div>`;
-                if (post.result) html += `<div class="research-section conclusion-section"><div class="sec-header">Results & Conclusion</div><div class="sec-content">${escapeHTML(post.result).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</div></div>`;
-                return html;
-            }
-            return parseSummaryToSections(post.summary);
-        }
-
-        function parseSummaryToSections(text) {
-            if (!text) return '<p style="color:var(--text-muted); font-style:italic;">No summary content available.</p>';
-            const lines = text.split(/\n/);
-            let html = '';
-            lines.forEach(line => {
-                let cleanLine = line.trim().replace(/^(?:[-•](?:\s+|$)|\*\s+)/, '');
-                if (!cleanLine) return;
-
-                let sectionTitle = "";
-                let sectionContent = cleanLine;
-
-                if (cleanLine.match(/^(\*\*)?(?:วัตถุประสงค์|Objective(?=\*\*|[:：]|\s|$))/i)) sectionTitle = "Objective";
-                else if (cleanLine.match(/^(\*\*)?(?:วิธีการ|Method(?:s)?(?=\*\*|[:：]|\s|$))/i)) sectionTitle = "Methods";
-                else if (cleanLine.match(/^(\*\*)?(?:ผลลัพธ์|Result(?:s)?(?=\*\*|[:：]|\s|$)|Conclusion(?:s)?(?=\*\*|[:：]|\s|$)|สรุป|ผลวิเคราะห์)/i)) sectionTitle = "Results & Conclusion";
-
-                if (sectionTitle) {
-                    sectionContent = cleanLine.replace(/^(?:\*\*(?:Results\s*(?:&|&amp;)\s*Conclusion|วัตถุประสงค์|Objective|วิธีการ|Methods|Method|Results|Result|Conclusions|Conclusion|สรุป|ผลลัพธ์[^\s:*]*|ผลวิเคราะห์)(?=\*\*|[:：]|\s).*?[:：]?\*\*[:：]?|(?:Results\s*(?:&|&amp;)\s*Conclusion|วัตถุประสงค์|Objective|วิธีการ|Methods|Method|Results|Result|Conclusions|Conclusion|สรุป|ผลลัพธ์[^\s:*]*|ผลวิเคราะห์)(?:[:：]|\s+|$))\s*/i, '').trim();
-                    // Sanitize first, then allow bold formatting
-                    const safeSectionContent = escapeHTML(sectionContent).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                    const sectionClass = (sectionTitle === "Results & Conclusion") ? "research-section conclusion-section" : "research-section";
-                    html += `<div class="${sectionClass}"><div class="sec-header">${sectionTitle}</div><div class="sec-content">${safeSectionContent}</div></div>`;
-                } else {
-                    // Sanitize first, then allow bold formatting
-                    const formattedContent = escapeHTML(cleanLine).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                    html += `<div class="research-section"><div class="sec-content">${formattedContent}</div></div>`;
-                }
-            });
-            return html;
-        }
-
-        // Step 5: URL state sync - restore tags from ?tag= param
-        function handleRouting() {
-            const params = new URLSearchParams(window.location.search);
-
-            // Restore tag state from URL
-            const tagParam = params.get('tag');
-            if (tagParam) {
-                tagParam.split(',').forEach(t => {
-                    const trimmed = t.trim();
-                    if (trimmed) activeTags.add(trimmed);
-                });
-                refreshTagUI();
-                handleFilter('');
-            }
-
-            // Load specific article if ID present, otherwise load the latest one
-            const id = params.get('id');
-            if (id && allPosts.length > 0) {
-                const post = allPosts.find(p => p.id === id);
-                if (post) {
-                    loadArticle(post, false);
-                } else if (filteredPosts.length > 0) {
-                    loadArticle(filteredPosts[0], false);
-                }
-            } else if (filteredPosts.length > 0) {
-                loadArticle(filteredPosts[0], false);
-            }
-        }
-
-        function updateURLState() {
-            const params = new URLSearchParams(window.location.search);
-            if (activeTags.size > 0) {
-                params.set('tag', Array.from(activeTags).join(','));
-            } else {
-                params.delete('tag');
-            }
-            const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
-            history.replaceState(history.state, '', newUrl);
-        }
-
-        window.onpopstate = function (event) {
-            // Restore tags from URL on back/forward
-            const params = new URLSearchParams(window.location.search);
-            activeTags.clear();
-            const tagParam = params.get('tag');
-            if (tagParam) {
-                tagParam.split(',').forEach(t => {
-                    const trimmed = t.trim();
-                    if (trimmed) activeTags.add(trimmed);
-                });
-            }
-            refreshTagUI();
-            handleFilter(document.getElementById('search-input').value || '');
-
-            if (event.state && event.state.id) {
-                const post = allPosts.find(p => p.id === event.state.id);
-                if (post) {
-                    loadArticle(post, false);
-                } else if (filteredPosts.length > 0) {
-                    loadArticle(filteredPosts[0], false);
-                } else {
-                    clearArticle();
-                }
-            } else {
-                // If there's an id in URL parameters
-                const id = params.get('id');
-                if (id) {
-                    const post = allPosts.find(p => p.id === id);
-                    if (post) {
-                        loadArticle(post, false);
-                        return;
-                    }
-                }
-                if (filteredPosts.length > 0) {
-                    loadArticle(filteredPosts[0], false);
-                } else {
-                    clearArticle();
-                }
-            }
-        };
-
-    </script>
+    <script src="blog.js"></script>
 </body>
 
 </html>

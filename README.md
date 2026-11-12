@@ -17,7 +17,7 @@ A unified portfolio and clinical tool hub for an **Emergency Medicine Physician 
 - **📝 Research Blog & Knowledge Base (`blog.html`)**: Interactive clinical informatics and research articles automatically synchronized and chunked from Notion databases.
 - **🛡️ NTWKKM Knowledge Vault (`/pl/`)**: Integrated knowledge repository and clinical informatics resource dashboard.
 - **⚡ Offline-First PWA**: Progressive Web App with Service Worker (`sw.js`) caching strategies, zero-cloud dependency for local utilities, and resilient fallback states.
-- **🎨 Minimal Braun Aesthetic**: Clean, high-legibility interface built on Vanilla HTML5, CSS custom properties, and WCAG 2.1 AA accessible typography.
+- **🎨 Slate & Titanium Navy**: Clean, high-legibility interface built on Vanilla HTML5, CSS custom properties, and WCAG 2.1 AA accessible typography.
 
 ---
 
@@ -43,10 +43,10 @@ A unified portfolio and clinical tool hub for an **Emergency Medicine Physician 
 ## 🛠️ Architecture & Tech Stack
 
 - **Frontend Core**: Vanilla HTML5, CSS3 (Modular Tokens, No Framework Overhead), Vanilla ES6+ JavaScript.
-- **PWA & Offline Resilience**: Service Worker (`sw.js`) with cache-first and network-first hybrid caching strategies.
+- **PWA & Offline Resilience**: Service Worker (`sw.js`), network-first with cache fallback, limited to this site's own files.
 - **Automated Data Pipelines**:
   - **PubMed Pipeline**: Daily EM literature digest pushed automatically into `papers.json`.
-  - **Notion Sync Pipeline**: Research articles fetched and chunked into `data/blog/*.json` with `blog_index.json`.
+  - **Notion Sync Pipeline**: Research articles merged into append-only chunks (`data/blog/research_chunk_*.json`) with a compact list index (`data/blog/index.json`) carrying specialty and study-design facets.
 - **Security & Privacy**: Zero-PHI enforcement and strict Content Security Policies.
 
 ---

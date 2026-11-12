@@ -1,153 +1,215 @@
+/**
+ * Blog data processor.
+ *
+ *   node .github/scripts/process_blog.js            merge latest_updates.json, then index
+ *   node .github/scripts/process_blog.js --reindex  rebuild data/blog/index.json only
+ *
+ * Outputs
+ *   data/blog/research_chunk_N.json  full records, at most ITEMS_PER_FILE each
+ *   data/blog/index.json             one compact row per post, for the reader's list
+ *   blog_index.json                  list of chunk paths (kept for compatibility)
+ *
+ * Chunks are append-only: a post stays in the chunk it was first written to and
+ * new posts go to the last chunk until it is full. Only the files that really
+ * changed are rewritten, so a daily run touches one chunk instead of all of them.
+ * Ordering is not stored in the chunks; the reader sorts by timestamp from the index.
+ */
+
 const fs = require('fs');
 const path = require('path');
+const { SPECIALTIES, DESIGNS, rawTags, specialtiesOf, designOf } = require('./taxonomy');
 
-// ตั้งค่าจำนวนโพสต์สูงสุดต่อ 1 ไฟล์ (เปลี่ยนได้ตามต้องการ)
-const ITEMS_PER_FILE = 200; 
+const ITEMS_PER_FILE = 200;
 
-// กำหนด path พื้นฐาน
-const ROOT_DIR = path.join(__dirname, '../../');
-const DATA_DIR = path.join(ROOT_DIR, 'data/blog'); // โฟลเดอร์สำหรับเก็บไฟล์แบ่งส่วน
+const ROOT_DIR = process.env.BLOG_ROOT_DIR
+    ? path.resolve(process.env.BLOG_ROOT_DIR)
+    : path.join(__dirname, '../../');
+const DATA_DIR = path.join(ROOT_DIR, 'data/blog');
 const INDEX_FILE = path.join(ROOT_DIR, 'blog_index.json');
+const POST_INDEX_FILE = path.join(DATA_DIR, 'index.json');
 const UPDATES_FILE = path.join(ROOT_DIR, 'latest_updates.json');
 
-// สร้างโฟลเดอร์ data/blog/ ถ้ายังไม่มี
-if (!fs.existsSync(DATA_DIR)) {
+const chunkPath = n => `data/blog/research_chunk_${n}.json`;
+
+/** Write only when the content differs, so unchanged chunks produce no diff. */
+function writeIfChanged(file, content) {
+    if (fs.existsSync(file) && fs.readFileSync(file, 'utf8') === content) return false;
+    fs.writeFileSync(file, content);
+    return true;
+}
+
+function extractPmid(post) {
+    if (post.property_pmid) {
+        const pmid = String(post.property_pmid).trim();
+        if (/^\d+$/.test(pmid)) return pmid;
+    }
+    if (post.property_pubmed) {
+        const match = String(post.property_pubmed).match(/\/(\d+)\/?$/);
+        if (match) return match[1];
+    }
+    return null;
+}
+
+/**
+ * Load every chunk listed in blog_index.json as [{ number, posts }].
+ * An absent manifest gives an empty start. An unreadable manifest throws, and
+ * so does a listed chunk that is missing or unparseable: skipping it would
+ * drop its posts from the index and let new posts reuse its slot. The throw
+ * happens before anything is written, so the files on disk stay as they were.
+ */
+function loadChunks() {
+    // No manifest yet is a valid first run. A manifest that exists but cannot
+    // be read is not: treating it as empty would restart at chunk 1 and
+    // overwrite real data.
+    let list = [];
+    if (fs.existsSync(INDEX_FILE)) {
+        try {
+            list = JSON.parse(fs.readFileSync(INDEX_FILE, 'utf8'));
+        } catch (e) {
+            throw new Error(`Cannot read blog_index.json: ${e.message}`);
+        }
+        if (!Array.isArray(list)) throw new Error('blog_index.json must be a JSON array of chunk paths');
+    }
+    const chunks = [];
+    list.forEach((rel, i) => {
+        let data;
+        try {
+            data = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, rel), 'utf8'));
+        } catch (e) {
+            throw new Error(`Cannot read chunk ${rel} listed in blog_index.json: ${e.message}`);
+        }
+        const m = rel.match(/research_chunk_(\d+)\.json$/);
+        chunks.push({
+            number: m ? Number(m[1]) : i + 1,
+            posts: Array.isArray(data) ? data : data.data || [],
+        });
+    });
+    return chunks.sort((a, b) => a.number - b.number);
+}
+
+/**
+ * Merge updates into the chunks in place.
+ * Same Notion id: the record is replaced where it already lives.
+ * New id with a known PMID: skipped as duplicate content.
+ * New id: appended to the last chunk, opening a new one when it is full.
+ */
+function mergeUpdates(chunks, updates) {
+    const where = new Map();   // id -> [chunk, position]
+    const pmids = new Set();
+    chunks.forEach(chunk => chunk.posts.forEach((post, pos) => {
+        if (!post || !post.id) return;
+        where.set(post.id, [chunk, pos]);
+        const pmid = extractPmid(post);
+        if (pmid) pmids.add(pmid);
+    }));
+
+    const stats = { updated: 0, added: 0, skipped: 0 };
+    updates.forEach(post => {
+        if (!post || !post.id) return;
+        const pmid = extractPmid(post);
+        const known = where.get(post.id);
+        if (known) {
+            known[0].posts[known[1]] = post;
+            stats.updated++;
+        } else if (pmid && pmids.has(pmid)) {
+            stats.skipped++;
+            return;
+        } else {
+            let last = chunks[chunks.length - 1];
+            if (!last || last.posts.length >= ITEMS_PER_FILE) {
+                last = { number: last ? last.number + 1 : 1, posts: [] };
+                chunks.push(last);
+            }
+            last.posts.push(post);
+            where.set(post.id, [last, last.posts.length - 1]);
+            stats.added++;
+        }
+        if (pmid) pmids.add(pmid);
+    });
+    return stats;
+}
+
+/**
+ * Compact list index. Each row is a fixed-position array to keep the file
+ * small: [id, title, timestampMs, pmid, chunkNumber, specialtyIdx[], designIdx, tags[]]
+ */
+function buildPostIndex(chunks) {
+    const rows = [];
+    chunks.forEach(chunk => chunk.posts.forEach(post => {
+        if (!post || !post.id) return;
+        rows.push([
+            post.id,
+            String(post.name || post.property_name || '').trim(),
+            new Date(post.property_last_edited_time || 0).getTime() || 0,
+            extractPmid(post) || '',
+            chunk.number,
+            specialtiesOf(post),
+            designOf(post),
+            rawTags(post),
+        ]);
+    }));
+    rows.sort((a, b) => b[2] - a[2] || (a[0] < b[0] ? -1 : 1));
+    return {
+        version: 1,
+        count: rows.length,
+        fields: ['id', 'title', 'ts', 'pmid', 'chunk', 'specialties', 'design', 'tags'],
+        specialties: SPECIALTIES.map(s => ({ id: s.id, label: s.label })),
+        designs: DESIGNS.map(d => ({ id: d.id, label: d.label })),
+        posts: rows,
+    };
+}
+
+function writeAll(chunks) {
     fs.mkdirSync(DATA_DIR, { recursive: true });
+    let rewritten = 0;
+    chunks.forEach(chunk => {
+        const file = path.join(ROOT_DIR, chunkPath(chunk.number));
+        if (writeIfChanged(file, JSON.stringify(chunk.posts, null, 2))) rewritten++;
+    });
+    writeIfChanged(INDEX_FILE, JSON.stringify(chunks.map(c => chunkPath(c.number)), null, 2));
+    const index = buildPostIndex(chunks);
+    // One row per line: small on disk, and a daily diff stays a few lines long.
+    const body = index.posts.map(r => JSON.stringify(r)).join(',\n');
+    const head = JSON.stringify({ ...index, posts: [] }).replace(/"posts":\[\]\}$/, '"posts":[\n');
+    writeIfChanged(POST_INDEX_FILE, `${head}${body}\n]}\n`);
+    return { rewritten, count: index.count };
 }
 
 function run() {
-    // 1. ตรวจสอบว่ามีไฟล์อัปเดตใหม่จาก n8n หรือไม่
+    const reindexOnly = process.argv.includes('--reindex');
+    const chunks = loadChunks();
+
+    if (reindexOnly) {
+        const out = writeAll(chunks);
+        console.log(`Reindexed ${out.count} posts from ${chunks.length} chunks.`);
+        return;
+    }
+
     if (!fs.existsSync(UPDATES_FILE)) {
-        console.log("No new updates found. Skipping process.");
+        console.log('No new updates found. Skipping process.');
         return;
     }
 
-    // 2. โหลดข้อมูลอัปเดตล่าสุด (ที่ n8n ส่งมา)
-    const updatesRaw = fs.readFileSync(UPDATES_FILE, 'utf8');
-    let updates = [];
+    let updates;
     try {
-        updates = JSON.parse(updatesRaw);
+        updates = JSON.parse(fs.readFileSync(UPDATES_FILE, 'utf8'));
     } catch (e) {
-        console.error("Error parsing latest_updates.json:", e);
-        return;
+        // Fail the job: a silent return would let the workflow commit nothing
+        // and delete the input, losing the batch without a red run.
+        console.error('Error parsing latest_updates.json:', e.message);
+        process.exit(1);
     }
+    if (!Array.isArray(updates)) updates = updates.data || [];
 
-    // 3. โหลดไฟล์ Index เพื่อดูว่ามีไฟล์เก่าอะไรอยู่บ้าง
-    let indexData = [];
-    if (fs.existsSync(INDEX_FILE)) {
-        try {
-            indexData = JSON.parse(fs.readFileSync(INDEX_FILE, 'utf8'));
-        } catch (e) {
-            console.error("Error parsing blog_index.json:", e);
-        }
-    }
-
-    // 4. โหลดข้อมูลเก่าทั้งหมดมารวมกันอย่างปลอดภัย (ยังไม่ลบไฟล์เก่าจนกว่าจะเขียนไฟล์ใหม่เสร็จ)
-    let allPosts = [];
-    let existingFiles = [];
-    indexData.forEach(fileRelativePath => {
-        const filePath = path.join(ROOT_DIR, fileRelativePath);
-        if (fs.existsSync(filePath)) {
-            try {
-                const fileData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-                allPosts = allPosts.concat(Array.isArray(fileData) ? fileData : fileData.data || []);
-                existingFiles.push(filePath);
-            } catch (e) {
-                console.error(`Error reading ${filePath}:`, e);
-            }
-        }
-    });
-
-    // 5. สร้าง Map เพื่อ Merge ข้อมูล (เอา ID เป็น Key ป้องกันข้อมูลซ้ำ)
-    let postMap = new Map();
-
-    // Helper: ดึง PMID จาก property_pmid หรือ property_pubmed URL
-    function extractPmid(post) {
-        // ลองดึงจาก property_pmid ก่อน (ค่าตรงๆ)
-        if (post.property_pmid) {
-            const pmid = String(post.property_pmid).trim();
-            if (/^\d+$/.test(pmid)) return pmid;
-        }
-        // ลองดึงจาก property_pubmed URL (e.g., https://pubmed.ncbi.nlm.nih.gov/12345678/)
-        if (post.property_pubmed) {
-            const match = String(post.property_pubmed).match(/\/(\d+)\/?$/);
-            if (match) return match[1];
-        }
-        return null;
-    }
-
-    // Secondary dedup: PMID-based (ป้องกัน paper เดียวกันที่มี Notion ID ต่างกัน)
-    let pmidSet = new Set();
-    
-    // ใส่ข้อมูลเก่าลงไปก่อน
-    allPosts.forEach(post => {
-        if (post && post.id) {
-            postMap.set(post.id, post);
-            const pmid = extractPmid(post);
-            if (pmid) pmidSet.add(pmid);
-        }
-    });
-    
-    // ใส่ข้อมูลใหม่ทับลงไป (ถ้า ID ซ้ำจะถูกอัปเดต ถ้าเป็น ID ใหม่จะถูกเพิ่ม)
-    // PMID dedup: ถ้า PMID ซ้ำแต่ Notion ID ต่างกัน ให้ข้ามเพื่อป้องกัน duplicate content
-    let pmidDuplicatesSkipped = 0;
-    updates.forEach(post => {
-        if (post && post.id) {
-            const pmid = extractPmid(post);
-            
-            // ถ้า PMID ซ้ำกับของเก่า แต่ Notion ID ต่างกัน → skip (duplicate content)
-            if (pmid && pmidSet.has(pmid) && !postMap.has(post.id)) {
-                pmidDuplicatesSkipped++;
-                return;
-            }
-            
-            postMap.set(post.id, post);
-            if (pmid) pmidSet.add(pmid);
-        }
-    });
-    
-    if (pmidDuplicatesSkipped > 0) {
-        console.log(`Skipped ${pmidDuplicatesSkipped} PMID-duplicate entries.`);
-    }
-
-    // 6. แปลงกลับเป็น Array และเรียงลำดับตามเวลาอัปเดตล่าสุด (ล่าสุดอยู่บน)
-    let mergedPosts = Array.from(postMap.values());
-    mergedPosts.sort((a, b) => {
-        const timeA = new Date(a.property_last_edited_time || 0).getTime() || 0;
-        const timeB = new Date(b.property_last_edited_time || 0).getTime() || 0;
-        return timeB - timeA; 
-    });
-
-    // 7. ตัดแบ่งข้อมูลเป็นก้อนๆ (Chunking) และบันทึกลงโฟลเดอร์ data/blog/
-    let newIndex = [];
-    let writtenFiles = new Set();
-    for (let i = 0; i < mergedPosts.length; i += ITEMS_PER_FILE) {
-        const chunk = mergedPosts.slice(i, i + ITEMS_PER_FILE);
-        const fileName = `research_chunk_${Math.floor(i / ITEMS_PER_FILE) + 1}.json`;
-        const relativePath = `data/blog/${fileName}`; // เก็บ path แบบสัมพันธ์
-        const fullChunkPath = path.join(ROOT_DIR, relativePath);
-        
-        fs.writeFileSync(fullChunkPath, JSON.stringify(chunk, null, 2));
-        newIndex.push(relativePath);
-        writtenFiles.add(fullChunkPath);
-    }
-
-    // 8. ลบไฟล์เก่าที่ไม่ได้ใช้ออก (เฉพาะไฟล์ที่ไม่อยู่ใน writtenFiles)
-    existingFiles.forEach(oldFile => {
-        if (!writtenFiles.has(oldFile) && fs.existsSync(oldFile)) {
-            try {
-                fs.unlinkSync(oldFile);
-                console.log(`Cleaned up obsolete chunk: ${path.basename(oldFile)}`);
-            } catch (e) {
-                console.warn(`Could not remove obsolete chunk ${oldFile}:`, e);
-            }
-        }
-    });
-
-    // 9. อัปเดต blog_index.json ให้ชี้ไปที่ Path ไฟล์ใหม่ทั้งหมด
-    fs.writeFileSync(INDEX_FILE, JSON.stringify(newIndex, null, 2));
-
-    console.log(`Successfully processed ${mergedPosts.length} posts into ${newIndex.length} files.`);
+    const stats = mergeUpdates(chunks, updates);
+    const out = writeAll(chunks);
+    console.log(
+        `Processed ${out.count} posts in ${chunks.length} chunks ` +
+        `(${stats.added} added, ${stats.updated} updated, ${stats.skipped} PMID duplicates skipped, ` +
+        `${out.rewritten} chunk file(s) rewritten).`
+    );
 }
 
-run();
+if (require.main === module) run();
+
+module.exports = { loadChunks, mergeUpdates, buildPostIndex, extractPmid, ITEMS_PER_FILE };

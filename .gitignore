@@ -18,3 +18,7 @@ n8n-github-notion_db/
 # Python bytecode
 __pycache__/
 *.pyc
+
+# Local tooling (agent preview config, design-lint records)
+.claude/
+.hallmark/

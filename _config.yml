@@ -9,6 +9,7 @@ exclude:
   - DESIGN.md
   - Braun-theme.md
   - README.md
+  - soul
   # --- เอกสารชุดเดียวกันที่อยู่ใน private repo pl/ (หลัง checkout) ---
   - pl/ARCHITECTURE.md
   - pl/CONTEXT.md
