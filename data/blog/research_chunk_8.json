@@ -698,7 +698,8 @@
     "property_tag_1": "Emergency Medicine",
     "property_last_edited_time": "2026-11-12T12:02:00.000Z",
     "property_pmid": "43016157",
-    "property_name": "Clinical risk factors associated with acute hypertension-mediated organ damage in patients presenting with severe hypertension: A retrospective cohort study from Qatar."
+    "property_name": "Clinical risk factors associated with acute hypertension-mediated organ damage in patients presenting with severe hypertension: A retrospective cohort study from Qatar.",
+    "first_seen": "2026-11-12T12:02:00.000Z"
   },
   {
     "id": "416ba464-60a7-8190-8293-dc66f72a2d4a",
@@ -712,7 +713,8 @@
     "property_tag_1": "Emergency Medicine",
     "property_last_edited_time": "2026-11-12T12:02:00.000Z",
     "property_pmid": "43015990",
-    "property_name": "Development of an Early Prediction Model for In-Hospital Pneumonia in Adult Patients With Blunt Chest Trauma and Rib Fractures: A Clinical Risk Stratification Study."
+    "property_name": "Development of an Early Prediction Model for In-Hospital Pneumonia in Adult Patients With Blunt Chest Trauma and Rib Fractures: A Clinical Risk Stratification Study.",
+    "first_seen": "2026-11-12T12:02:00.000Z"
   },
   {
     "id": "416ba464-60a7-81fa-a061-cbcd04214b03",
@@ -726,7 +728,8 @@
     "property_tag_1": "Emergency Medicine",
     "property_last_edited_time": "2026-11-12T12:01:00.000Z",
     "property_pmid": "43016090",
-    "property_name": "Development of a Kyphosis Cardiopulmonary Resuscitation Technique in Patients with Spinal Mobility Restriction Due to Ankylosing Spondylitis"
+    "property_name": "Development of a Kyphosis Cardiopulmonary Resuscitation Technique in Patients with Spinal Mobility Restriction Due to Ankylosing Spondylitis",
+    "first_seen": "2026-11-12T12:01:00.000Z"
   },
   {
     "id": "416ba464-60a7-817e-889a-c4aee51f610b",
@@ -740,7 +743,8 @@
     "property_tag_1": "Emergency Medicine",
     "property_last_edited_time": "2026-11-12T12:00:00.000Z",
     "property_pmid": "43015788",
-    "property_name": "Diuretic-associated admissions to the emergency department - too hot to handle? Results from the ADRED-study."
+    "property_name": "Diuretic-associated admissions to the emergency department - too hot to handle? Results from the ADRED-study.",
+    "first_seen": "2026-11-12T12:00:00.000Z"
   },
   {
     "id": "416ba464-60a7-8149-a4bd-d7890f185d7a",
@@ -754,6 +758,127 @@
     "property_tag_1": "Cardiology",
     "property_last_edited_time": "2026-11-12T11:59:00.000Z",
     "property_pmid": "43015212",
-    "property_name": "Clinical impact of blood loss during mechanical thrombus aspiration for pulmonary embolism intervention, a sub-analysis of the USAT IH-PE registry."
+    "property_name": "Clinical impact of blood loss during mechanical thrombus aspiration for pulmonary embolism intervention, a sub-analysis of the USAT IH-PE registry.",
+    "first_seen": "2026-11-12T11:59:00.000Z"
+  },
+  {
+    "id": "417ba464-60a7-8100-b11b-f75c554dd3da",
+    "name": "Multimodal Nonopioid Analgesia Versus Opioid-First Approaches for Acute Pain in the Emergency Department: A Systematic Review of Randomized Controlled Trials.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/43019972/",
+    "property_date": null,
+    "property_tag_2": "Pain Management",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินว่าแนวทางการรักษาด้วย nonopioid หรือ opioid-sparing analgesia ให้ผลลัพธ์ในการระงับปวดที่เท่าเทียมหรือดีกว่า opioid-first regimens สำหรับผู้ป่วยที่มีอาการปวดเฉียบพลันในแผนกฉุกเฉิน รวมถึงประเมินด้านความปลอดภัย\n- **วิธีการ:** รวบรวมข้อมูลจากการศึกษาแบบ RCT ระหว่างปี 2010 ถึง 2026 โดยศึกษาผู้ป่วยผู้ใหญ่ที่มีอาการปวดเฉียบพลันจาก renal colic, trauma/musculoskeletal injury หรือ primary headache\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** จากการศึกษา 17 รายการ (n = 7288) พบว่า ibuprofen-acetaminophen ให้ผลระงับปวดเทียบเท่า opioid-acetaminophen ในกลุ่ม musculoskeletal pain สำหรับ migraine พบว่า prochlorperazine-diphenhydramine ให้ผลลัพธ์ดีกว่า hydromorphone (86% เทียบกับ 52%) ส่วนใน renal colic พบว่า intramuscular diclofenac และ intravenous paracetamol ให้ผลเทียบเท่าหรือดีกว่า morphine โดยมี adverse event ต่ำกว่า\n- **Study Design:** Systematic review\n- **Clinical Relevance:** การใช้ nonopioid เป็นทางเลือกหลักช่วยลดการใช้ opioid และผลข้างเคียงได้อย่างมีประสิทธิภาพ",
+    "property_status": "Not started",
+    "property_tag_3": "Pharmacology",
+    "property_tag_1": "Emergency Medicine",
+    "property_last_edited_time": "2026-11-13T11:20:00.000Z",
+    "property_pmid": "43019972",
+    "property_name": "Multimodal Nonopioid Analgesia Versus Opioid-First Approaches for Acute Pain in the Emergency Department: A Systematic Review of Randomized Controlled Trials.",
+    "first_seen": "2026-11-13T11:20:00.000Z"
+  },
+  {
+    "id": "417ba464-60a7-819e-a2ab-c9aa1f24d13e",
+    "name": "Covert brain infarction in the emergency department: incidence and outcomes.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/43021016/",
+    "property_date": null,
+    "property_tag_2": "Neurology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาความชุก การจัดการ และผลลัพธ์ในระยะเวลาหนึ่งปีของผู้ป่วยที่มีภาวะ Covert brain infarction (CBI) ซึ่งตรวจพบระหว่างการทำ neuroimaging ในแผนกฉุกเฉินด้วยสาเหตุอื่นที่ไม่ใช่ stroke หรือ TIA\n- **วิธีการ:** เป็นการศึกษาแบบ retrospective observational cohort รวบรวมข้อมูลผู้ป่วยอายุ 50 ปีขึ้นไปที่ได้รับการทำ CT scan ในแผนกฉุกเฉินของโรงพยาบาลมหาวิทยาลัยสองแห่งในปี 2022 โดยคัดผู้ที่มีประวัติ stroke, TIA, เลือดออกในสมอง หรือได้รับการวินิจฉัยว่าเป็น stroke/TIA ออก\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** พบผู้ป่วย CBI จำนวน 102 ราย (1.6%) จากกลุ่มตัวอย่าง 6,535 ราย ผู้ป่วยมีปัจจัยเสี่ยงหลอดเลือดสูง (ความดันโลหิตสูง 62.7%, ไขมันในเลือดผิดปกติ 45.1%, ภาวะหัวใจห้องบนสั่นพลิ้ว 26.5%) โดย 91.7% ของผู้ป่วยที่จำหน่ายจากแผนกฉุกเฉินไม่ได้รับการปรับเปลี่ยนแผนการรักษา ในระยะเวลาหนึ่งปี พบอุบัติการณ์เกิด stroke/TIA 1.0%, กล้ามเนื้อหัวใจขาดเลือด 3.9%, พบภาวะหัวใจห้องบนสั่นพลิ้วใหม่ 2.0% และอัตราการเสียชีวิต 13.7%\n- **Study Design:** Retrospective observational cohort study\n- **Clinical Relevance:** แพทย์ควรให้ความสำคัญกับการจัดการและการส่งต่อผู้ป่วยที่พบ CBI ในแผนกฉุกเฉิน",
+    "property_status": "Not started",
+    "property_tag_3": "Stroke Prevention",
+    "property_tag_1": "Emergency Medicine",
+    "property_last_edited_time": "2026-11-13T11:20:00.000Z",
+    "property_pmid": "43021016",
+    "property_name": "Covert brain infarction in the emergency department: incidence and outcomes.",
+    "first_seen": "2026-11-13T11:20:00.000Z"
+  },
+  {
+    "id": "417ba464-60a7-81ca-a1a0-eab02612b43a",
+    "name": "Age-modified shock index for predicting in-hospital outcomes in patients with ST elevated myocardial infarction undergoing primary percutaneous coronary intervention.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/43021064/",
+    "property_date": null,
+    "property_tag_2": "Emergency Medicine",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อเปรียบเทียบความแม่นยำของ SI, MSI และ A-MSI ในการทำนายอัตราการเสียชีวิตในโรงพยาบาลสำหรับผู้ป่วย STEMI ที่เข้ารับการรักษาด้วย primary PCI\n- **วิธีการ:** ศึกษาในผู้ป่วย STEMI จำนวน 746 รายที่ทำ primary PCI โดยคำนวณค่า SI (HR/SBP), MSI (HR/MAP) และ A-MSI (Age x MSI) เพื่อหาความสัมพันธ์กับอัตราการเสียชีวิตในโรงพยาบาล\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** พบผู้ป่วยเสียชีวิต 39 ราย (5.2%) โดย A-MSI มีค่า AUC สูงสุดที่ 0.726 (เปรียบเทียบกับ SI 0.662, MSI 0.692 และ TIMI score 0.636) และมีจุดตัดที่เหมาะสมคือ A-MSI ≥ 70\n- **Study Design:** Cohort study\n- **Clinical Relevance:** ใช้ A-MSI ประเมินความเสี่ยงผู้ป่วย STEMI ได้ง่ายและแม่นยำในห้องฉุกเฉิน",
+    "property_status": "Not started",
+    "property_tag_3": "Risk Stratification",
+    "property_tag_1": "Cardiology",
+    "property_last_edited_time": "2026-11-13T11:19:00.000Z",
+    "property_pmid": "43021064",
+    "property_name": "Age-modified shock index for predicting in-hospital outcomes in patients with ST elevated myocardial infarction undergoing primary percutaneous coronary intervention.",
+    "first_seen": "2026-11-13T11:19:00.000Z"
+  },
+  {
+    "id": "417ba464-60a7-819a-9e82-d1304f5a892b",
+    "name": "Prehospital Reverse Shock Index multiplied by the Glasgow Coma Scale score (rSIG) as a predictor of urgent interventions in trauma patients: a retrospective cohort study.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/43020495/",
+    "property_date": null,
+    "property_tag_2": "Emergency Medicine",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินประสิทธิภาพของ rSIG ในการทำนายความต้องการการรักษาเร่งด่วนในผู้ป่วยอุบัติเหตุ\n- **วิธีการ:** การศึกษาย้อนหลังในกลุ่มผู้ป่วยอุบัติเหตุ (Retrospective cohort study)\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** ไม่ปรากฏข้อมูลใน Abstract\n- **Study Design:** Retrospective cohort study\n- **Clinical Relevance:** ช่วยคัดกรองผู้ป่วยอุบัติเหตุที่ต้องการการรักษาเร่งด่วนได้อย่างแม่นยำยิ่งขึ้นในระยะก่อนถึงโรงพยาบาล",
+    "property_status": "Not started",
+    "property_tag_3": "Triage",
+    "property_tag_1": "Trauma",
+    "property_last_edited_time": "2026-11-13T11:18:00.000Z",
+    "property_pmid": "43020495",
+    "property_name": "Prehospital Reverse Shock Index multiplied by the Glasgow Coma Scale score (rSIG) as a predictor of urgent interventions in trauma patients: a retrospective cohort study.",
+    "first_seen": "2026-11-13T11:18:00.000Z"
+  },
+  {
+    "id": "417ba464-60a7-819a-9dc3-eead53a1a470",
+    "name": "Effect modification by arterial pH on the association between extracorporeal cardiopulmonary resuscitation and neurological outcomes after out-of-hospital cardiac arrest with shockable rhythm: A multicenter registry study.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/43019616/",
+    "property_date": null,
+    "property_tag_2": "Resuscitation",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินว่าค่า arterial pH มีผลต่อความสัมพันธ์ระหว่างการทำ ECPR กับผลลัพธ์ทางระบบประสาทของผู้ป่วย OHCA ที่มี initial shockable rhythm หรือไม่\n- **วิธีการ:** เป็นการวิเคราะห์ย้อนหลังจากฐานข้อมูล Korean Cardiac Arrest Research Consortium โดยศึกษาผู้ป่วย OHCA ที่มี initial shockable rhythm และมีการวัดค่า arterial blood gas หลังถึงห้องฉุกเฉิน นำมาวิเคราะห์ด้วย multivariable logistic regression และ propensity score matching\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** จากผู้ป่วย 2183 ราย พบว่า ECPR ให้ผลดีต่อระบบประสาทอย่างมีนัยสำคัญในกลุ่ม low pH (aOR 7.34) และ medium pH (aOR 2.07) แต่ไม่พบความสัมพันธ์ดังกล่าวในกลุ่ม high pH (p for interaction = 0.004)\n- **Study Design:** Retrospective multicenter registry study (Cohort study)\n- **Clinical Relevance:** ใช้ค่า arterial pH ประเมินโอกาสได้รับประโยชน์จากการทำ ECPR ในผู้ป่วย OHCA ได้",
+    "property_status": "Not started",
+    "property_tag_3": "Cardiology",
+    "property_tag_1": "Emergency Medicine",
+    "property_last_edited_time": "2026-11-13T11:18:00.000Z",
+    "property_pmid": "43019616",
+    "property_name": "Effect modification by arterial pH on the association between extracorporeal cardiopulmonary resuscitation and neurological outcomes after out-of-hospital cardiac arrest with shockable rhythm: A multicenter registry study.",
+    "first_seen": "2026-11-13T11:18:00.000Z"
+  },
+  {
+    "id": "417ba464-60a7-8168-96b8-cddc62dd4e4f",
+    "name": "Defining organized cardiac motion and cardiac standstill in cardiac arrest using point of care ultrasound: A Delphi study.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/43019615/",
+    "property_date": null,
+    "property_tag_2": "Cardiology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อกำหนดนิยามของ organized cardiac motion (OCM) และ cardiac standstill (CS) โดยใช้ point-of-care ultrasound (POCUS) ระหว่างภาวะ cardiac arrest และให้คำแนะนำเกี่ยวกับการนำไปใช้ทางคลินิก\n- **วิธีการ:** พัฒนากลุ่มข้อความโดยคณะกรรมการผู้เชี่ยวชาญ และใช้ Delphi methodology กับผู้เชี่ยวชาญ 20 คน ผ่านการลงคะแนน 3 รอบเพื่อหาฉันทามติ\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** ผู้เชี่ยวชาญลงมติเห็นชอบใน 64 ข้อความ โดยนิยาม OCM คือการบีบตัวประสานกันที่มีการเปลี่ยนแปลงขนาดห้องหัวใจห้องล่างซ้าย (หรือห้องล่างขวาหากไม่เห็นห้องซ้าย) และ CS คือการไม่มีการเคลื่อนไหวของหัวใจทั้งหมดหรือมีการเคลื่อนไหวของลิ้นหัวใจเพียงอย่างเดียว\n- **Study Design:** Delphi study\n- **Clinical Relevance:** ช่วยมาตรฐานการใช้ POCUS และนำทางช่วยเหลือการกู้ชีพใน ER",
+    "property_status": "Not started",
+    "property_tag_3": "Ultrasound",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2026-11-13T11:13:00.000Z",
+    "property_pmid": "43019615",
+    "property_name": "Defining organized cardiac motion and cardiac standstill in cardiac arrest using point of care ultrasound: A Delphi study.",
+    "first_seen": "2026-11-13T11:13:00.000Z"
+  },
+  {
+    "id": "417ba464-60a7-81dd-b36b-f9c3ffea25e3",
+    "name": "The occult hypoperfusion index: a bedside formula to identify undetected critical illness.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/43021336/",
+    "property_date": null,
+    "property_tag_2": "Critical Care",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อศึกษาโครงสร้างสหสัมพันธ์ของกลุ่มที่จำแนกความรุนแรงด้วย mSOFA คลาดเคลื่อน และเพื่อพัฒนา ตรวจสอบความถูกต้องภายในและภายนอกสำหรับ Occult Hypoperfusion Index (OHI) ในการระบุภาวะเจ็บป่วยวิกฤตที่ตรวจไม่พบในผู้ป่วยกลุ่มอาการน้อยตาม mSOFA\n- **วิธีการ:** เป็นการศึกษาแบบ Prospective multicenter cohort study ในผู้ป่วยฉุกเฉินผู้ใหญ่ที่ได้รับการดูแลโดยหน่วยแพทย์ฉุกเฉิน (EMS) โดยคำนวณคะแนน prehospital mSOFA และประเมินผลลัพธ์การเสียชีวิตภายใน 48 ชั่วโมง รวมถึงการนำดัชนีไปทดสอบกับกลุ่มตัวอย่างอิสระภายนอก\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** จากผู้ป่วย 16,106 ราย มีผู้เสียชีวิต 933 ราย (5.8%) กลุ่ม false negative มีความสัมพันธ์ของ lactate-GCS ที่ $\\rho$=+0.616 นำมาสร้างสูตร OHI = lactate $\\times$ (16 - GCS) ในกลุ่มผู้ป่วยที่มี mSOFA < 5 (n=13,122) OHI ให้พื้นที่ใต้กราฟ ROC (AUC) เท่ากับ 0.851 (95% CI, 0.816-0.885) ซึ่งสูงกว่า lactate หรือ GCS เพียงอย่างเดียวอย่างมีนัยสำคัญ และในการตรวจสอบภายนอก (n=802) ให้ AUC เท่ากับ 0.861 (95% CI, 0.699-0.990) ความไว 80.0% และความจำเพาะ 74.8%\n- **Study Design:** Prospective multicenter cohort study\n- **Clinical Relevance:** ใช้ OHI ประเมินภาวะวิกฤตซ่อนเร้นในผู้ป่วยฉุกเฉินอาการน้อย",
+    "property_status": "Not started",
+    "property_tag_3": "Biomarkers",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2026-11-13T11:13:00.000Z",
+    "property_pmid": "43021336",
+    "property_name": "The occult hypoperfusion index: a bedside formula to identify undetected critical illness.",
+    "first_seen": "2026-11-13T11:13:00.000Z"
+  },
+  {
+    "id": "417ba464-60a7-81e0-89ab-f874df084ebe",
+    "name": "Investigation of the ability of JAM-A molecule to predict clinical outcome, mortality, and symptom onset in patients with acute stroke: a prospective observational single-center cohort study.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/43021094/",
+    "property_date": null,
+    "property_tag_2": "Neurology",
+    "property_comment": "- **วัตถุประสงค์:** เพื่อประเมินความสัมพันธ์ระหว่างระดับ serum JAM-A กับการรอดชีวิตในโรงพยาบาล อัตราการเสียชีวิตที่ 6 เดือน และความสัมพันธ์กับเวลาตั้งแต่เริ่มมีอาการในผู้ป่วย acute ischemic stroke\n- **วิธีการ:** เป็นการศึกษาแบบ prospective, single-center ในผู้ป่วย acute ischemic stroke จำนวน 70 คนที่มาแผนกฉุกเฉิน วัดระดับ serum JAM-A จากเลือดดำที่รับเข้าโรงพยาบาล พร้อมประเมินลักษณะทางประชากร โรคร่วม ตำแหน่งการอุดตันของหลอดเลือด คะแนน ASPECT และวิธีการรักษา\n- **ผลลัพธ์และผลวิเคราะห์ทางสถิติ:** ผู้ป่วยรอดชีวิต 53 คน (75%) และเสียชีวิตที่ 6 เดือน 21 คน (อัตราการเสียชีวิต 30%) อายุ ค่า BUN และ AST สูงกว่าอย่างมีนัยสำคัญในกลุ่มที่เสียชีวิต การอุดตันของหลอดเลือดส่วนปลายพบบ่อยกว่าในกลุ่มที่รอดชีวิต ในการวิเคราะห์พหuตัวแปรพบว่าอายุและตำแหน่งการอุดตันแบบ distal occlusion เป็นตัวทำนายอิสระ ระดับ JAM-A ไม่มีassociation กับอัตราการเสียชีวิตที่ 6 เดือน (P=0.883) และไม่มี correlation กับเวลาตั้งแต่เริ่มมีอาการ\n- **Study Design:** Prospective observational cohort study\n- **Clinical Relevance:** ระดับ serum JAM-A ไม่สามารถใช้ทำนายการรอดชีวิตหรือการเสียชีวิตในผู้ป่วย acute stroke ได้",
+    "property_status": "Not started",
+    "property_tag_3": "Stroke",
+    "property_tag_1": "Emergency",
+    "property_last_edited_time": "2026-11-13T11:12:00.000Z",
+    "property_pmid": "43021094",
+    "property_name": "Investigation of the ability of JAM-A molecule to predict clinical outcome, mortality, and symptom onset in patients with acute stroke: a prospective observational single-center cohort study.",
+    "first_seen": "2026-11-13T11:12:00.000Z"
   }
 ]
