@@ -7,6 +7,12 @@ on:
     branches: [ "main" ]
   workflow_dispatch:
   workflow_call:
+    inputs:
+      ref:
+        description: Commit to check out. Empty means the commit that triggered the run.
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -18,6 +24,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4

@@ -268,8 +268,8 @@ The NTWKKM Knowledge Vault is an automated, dynamic resource hub and clinical in
 
 | Workflow | Trigger | Concurrency Group | Purpose |
 | --- | --- | --- | --- |
-| `process-blog-data.yml` | Push to `latest_updates.json` or manual | `blog-data-processing` | Merge, deduplicate, chunk blog data; rebases onto `main` and retries the push up to 3 times |
-| `pages-build-deployment.yml` | Push to `main`, manual, or `repository_dispatch` | `pages` | Run `browser-test.yml` as a gate, then build, fetch private `pl` repo, and deploy to Pages |
+| `process-blog-data.yml` | Push to `latest_updates.json` or manual | `blog-data-processing` | Merge, deduplicate, chunk blog data. Runs on `main` only and starts from its tip. Rebases onto `main` before pushing, up to 3 attempts; an aborted rebase never carries into the next attempt. If n8n pushed a new `latest_updates.json` meanwhile, that batch is kept for the run its push queued. Hands the pushed SHA to the deploy, which tests and builds exactly that commit |
+| `pages-build-deployment.yml` | Push to `main`, manual, `repository_dispatch`, or called with an optional `ref` | `pages` | Run `browser-test.yml` as a gate, then build (both check out `ref` when given, else the triggering commit), fetch private `pl` repo, and deploy to Pages |
 | `browser-test.yml` | Pull request, manual, or called by the deploy workflow | none | Unit tests, CSS lint, browser tests; a failure stops the deploy |
 | `update-readme.yml` | Push to `main` (ignores `README.md`, `latest_updates.json`) | `readme-update` | Auto-generate repository tree in README |
 
