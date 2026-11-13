@@ -112,14 +112,18 @@ function setupPaperCarousel(track, pager, dotsContainer, statusEl, totalPages) {
 
     const goTo = (index) => {
         const target = ((index % totalPages) + totalPages) % totalPages;
-        const reduced = prefersReducedMotion();
+        const destLeft = slides[target].offsetLeft;
+        const alreadyAtTarget = Math.abs(destLeft - track.scrollLeft) < 1;
+        const reduced = prefersReducedMotion() || alreadyAtTarget;
         pendingTarget = target;
         suppressAbortUntil = reduced ? 0 : performance.now() + 80;
         updateDots(target);
-        track.scrollTo({
-            left: slides[target].offsetLeft,
-            behavior: reduced ? 'auto' : 'smooth',
-        });
+        if (!alreadyAtTarget) {
+            track.scrollTo({
+                left: destLeft,
+                behavior: reduced ? 'auto' : 'smooth',
+            });
+        }
         if (reduced) onSettle();
     };
 

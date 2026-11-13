@@ -9,6 +9,7 @@
 }
 
 .main-content {
+    grid-column: 2;
     min-width: 0;
 }
 
@@ -30,8 +31,10 @@
 
 /* --- Sidebar --- */
 .sidebar {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 60;
+    width: 360px;
     display: grid;
     grid-template-rows: auto minmax(0, 1fr) auto;
     height: 100dvh;
@@ -339,6 +342,7 @@
     align-items: center;
     justify-content: space-between;
     padding: var(--s-2) var(--s-3);
+    color: var(--text-secondary);
     background: var(--bg-sidebar);
     border-top: 1px solid var(--border);
 }
@@ -363,8 +367,27 @@
     border-bottom: 1px solid var(--border);
 }
 
-.sidebar-open-btn {
+.sidebar-open-btn,
+.toolbar-home {
     display: none;
+}
+
+.toolbar-home {
+    align-items: center;
+    gap: var(--s-2);
+    min-height: 36px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: var(--radius);
+}
+
+.toolbar-home svg {
+    color: var(--primary);
+}
+
+.toolbar-home:hover span {
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .toolbar-actions {
@@ -539,6 +562,7 @@
     letter-spacing: 0;
     line-height: 1.5;
     color: var(--text-muted);
+    scroll-margin-top: 80px;
 }
 
 .sec-content {
@@ -565,6 +589,7 @@
 .section-clinical-relevance {
     margin-top: var(--s-6);
     padding: var(--s-5);
+    color: var(--text-main);
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-top: 2px solid var(--accent-vermilion-mark);
@@ -591,6 +616,7 @@
 /* --- Related papers --- */
 .related-papers-section {
     margin-top: var(--s-12);
+    scroll-margin-top: 80px;
 }
 
 .related-papers-section[hidden] {
@@ -730,11 +756,16 @@
         grid-template-columns: minmax(0, 1fr);
     }
 
+    .sidebar-hidden .main-content {
+        grid-column: 1;
+    }
+
     .sidebar-hidden .sidebar {
         display: none;
     }
 
-    .sidebar-hidden .sidebar-open-btn {
+    .sidebar-hidden .sidebar-open-btn,
+    .sidebar-hidden .toolbar-home {
         display: inline-flex;
     }
 }
@@ -745,12 +776,13 @@
         grid-template-columns: minmax(0, 1fr);
     }
 
+    .main-content {
+        grid-column: 1;
+    }
+
     .sidebar {
-        position: fixed;
-        inset: 0 auto 0 0;
         z-index: 210;
         width: min(380px, 90%);
-        box-shadow: var(--shadow-hover);
         transition: transform 0.25s var(--ease), visibility 0.25s;
     }
 
@@ -784,6 +816,15 @@
     .reader-toolbar .citation-btn,
     .reader-toolbar .article-navigation {
         display: none;
+    }
+
+    .toolbar-home {
+        display: inline-flex;
+        min-height: 44px;
+    }
+
+    .sec-header {
+        scroll-margin-bottom: 72px;
     }
 
     .reader-grid {
@@ -833,8 +874,8 @@
    landscape has the docked layout and still needs finger-sized controls. */
 @media (pointer: coarse) {
     .icon-btn {
-        width: 44px;
-        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
     }
 
     .filter-tag {

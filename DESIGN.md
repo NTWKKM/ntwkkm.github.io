@@ -93,8 +93,7 @@ Four tones bound via `[data-tone="navy|vermilion|teal|ochre"]` in `shared.css` (
 ### 4.2. Navigation & Masthead
 
 - **No Gradient Topbar:** Neither the homepage nor the reader uses a full-bleed navy gradient bar. Both pages sit directly on `--bg-body` (`#ECECEE` light / `#121E36` dark).
-- **Homepage Masthead:** The homepage opens with an editorial masthead (`NTWKKM` display title and subtitle left, quiet right-aligned controls for `Research Blog`, `#theme-toggle`, and GitHub), anchored by a `1px solid var(--text-main)` bottom rule. The reader (`blog.html`) carries its brand link inside the sidebar header.
-- **About line:** one sentence under the masthead rule (`.masthead-about`, `--text-secondary`, at most 64ch) says who the site belongs to and what it holds. It replaces a footer slogan; the footer states facts only.
+- **Homepage Masthead:** The homepage opens with an editorial masthead (`NTWKKM` display title and subtitle left, quiet right-aligned controls for `Research Blog`, `#theme-toggle`, and GitHub), anchored by a `1px solid var(--text-main)` bottom rule; the footer states facts only. The reader (`blog.html`) carries its brand link inside the sidebar header and surfaces a compact home link (`.toolbar-home`) in the reader toolbar when the sidebar is collapsed or on narrow screens.
 - **Favicons / Icons:** SVGs used in favicons are standardized to the Rams color palette (background `#1e3c72`, rounded corners `rx="4"`, and warm off-white text `#F0EDE5`), ensuring brand alignment down to the browser tab indicator. The PWA icons are PNG files in `assets/icons/` in the same two colours: standard icons keep rounded corners, while maskable icons and the iOS `apple-touch-icon` are flat, full-bleed squares with a smaller letter so a circular or squircle mask does not clip it.
 - **Mobile:** Masthead controls maintain 44px touch targets at the right edge; `Research Blog` collapses to an icon button on narrow screens (`<= 640px`).
 

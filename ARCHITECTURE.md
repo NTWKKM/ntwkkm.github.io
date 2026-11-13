@@ -303,7 +303,7 @@ All JSON data is escaped (`escapeHTML`) or protocol-checked (`sanitizeURL`) befo
 
 ## Homepage (index.html)
 
-- **Editorial masthead:** Flat header directly on `--bg-body` (no navy gradient topbar) with `NTWKKM` display title and subtitle left, `Research Blog`, `#theme-toggle`, and GitHub right, anchored by a `1px solid var(--text-main)` bottom rule. Under the rule, `.masthead-about` states in one sentence who the site belongs to and what it holds, with a GitHub link; the footer carries only the year and that link.
+- **Editorial masthead:** Flat header directly on `--bg-body` (no navy gradient topbar) with `NTWKKM` display title and subtitle left, `Research Blog`, `#theme-toggle`, and GitHub right, anchored by a `1px solid var(--text-main)` bottom rule; the footer carries only the year and GitHub link.
 - **Horizontal paged paper ledger (`#papers-section`):** Full-width section header (`Latest research papers`, `#papers-meta`, and dot-mark pager `#papers-pager` with previous/next controls; at `<= 640px` the dots give way to a `1 / 12` count between two 44px buttons) above a native CSS `scroll-snap` horizontal track (`#paper-container`). Chunks `papers.json` into pages of 6 papers (3 rows × 2 columns on desktop `≥860px`); no auto-scroll, no `Open the research reader` or `Show all` buttons. Slides other than the one in view are `inert`, so Tab passes through one page of papers, not all 70. A line under the track states that the papers are chosen and annotated by AI.
 - **Asymmetric tools bento (`#works-section`):** `projects.json` grouped by `category` (`#works-meta` summary count in header) below the ledger — `Clinical tools` spans two rows beside `Simulators` and `Research & statistics`, with `Knowledge & notes` spanning three horizontal columns underneath.
 
@@ -317,7 +317,7 @@ All JSON data is escaped (`escapeHTML`) or protocol-checked (`sanitizeURL`) befo
 - **Summary sections:** `parseSummary()` in `blog.js` turns the AI summary into Objective / Methods / Results / Study design / Clinical relevance. A line is a heading only when a known label (Thai or English) is followed by a colon.
 - **Citation:** Vancouver, APA, BibTeX, Markdown, built from title + PMID only. Authors, journal and year are not stored, so none are printed; the dialog says so.
 - **List:** 20 per page; the page follows the open paper when stepping with the arrow buttons or ← / → keys. `/` focuses search, `Esc` closes the drawer.
-- **Layout:** ≥900px the list is docked and can be folded; below that it is an off-canvas drawer (`inert` while closed) and Papers / Prev / Cite / Next move to a bottom bar. While the drawer is open the article and the bottom bar are `inert`; closing it returns focus to the control that opened it.
+- **Layout:** ≥900px the list is docked as a fixed rail beside `.main-content` and can be folded (revealing `#sidebar-open-btn` and `.toolbar-home` in `.reader-toolbar`); below that it is an off-canvas drawer (`inert` while closed), `.toolbar-home` surfaces navigation in the top bar, and Papers / Prev / Cite / Next move to a bottom bar. While the drawer is open the article and the bottom bar are `inert`; closing it returns focus to the control that opened it.
 - **Provenance and date:** a line above the summary states that it was written by AI from the PubMed abstract. The date reads `Added <date>`: when the paper entered the library, not when it was published.
 
 ## Caching & Offline Resilience
