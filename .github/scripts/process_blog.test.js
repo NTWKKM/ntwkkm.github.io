@@ -98,6 +98,8 @@ test('with no design line, the title decides, and only when it names a design', 
     assert.strictEqual(t('Outcomes in a non-randomized cohort of trauma patients'), 'cohort');
     assert.strictEqual(t('Tension pneumocephalus: a case report'), 'case');
     assert.strictEqual(t('Operationalizing troponin pathways'), null);
+    // An empty design line falls back to the title instead of reading the next line.
+    assert.strictEqual(designId(post('a', '1', { name: 'A randomized trial of X', property_comment: '- Study Design:\n- Clinical Relevance: useful' })), 'rct');
     // A stated design still wins over the title.
     assert.strictEqual(designId(post('a', '1', { name: 'A systematic review', property_comment: '- Study Design: Cohort study' })), 'cohort');
 });

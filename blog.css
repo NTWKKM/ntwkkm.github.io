@@ -343,6 +343,20 @@
     border-top: 1px solid var(--border);
 }
 
+/* Without JavaScript the list is never filled and the drawer can never be
+   closed; hide it so the fixed panel does not cover the <noscript> notice. */
+html:not(.js) .sidebar {
+    display: none;
+}
+
+html:not(.js) #app-container {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+html:not(.js) .main-content {
+    grid-column: 1;
+}
+
 .page-info {
     font-size: var(--text-xs);
     color: var(--text-secondary);

@@ -113,7 +113,9 @@ function specialtiesOf(post) {
  * @returns {number} position in DESIGNS, or -1
  */
 function designOf(post) {
-    const m = String(post.property_comment || '').match(/(?:Study Design|รูปแบบการศึกษา)\**\s*[:：]\**\s*(.+)/i);
+    // Horizontal whitespace only, and the value may be empty: "\s" would cross
+    // the line break of an empty "Study Design:" line and read the next section.
+    const m = String(post.property_comment || '').match(/(?:Study Design|รูปแบบการศึกษา)\**[ \t]*[:：]\**[ \t]*(.*)/i);
     if (!m) return designFromTitle(post);
     const value = m[1].replace(/\*+/g, '').trim();
     if (!value || NOT_STATED.test(value)) return designFromTitle(post);

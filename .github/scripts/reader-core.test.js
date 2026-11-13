@@ -49,7 +49,9 @@ test('a label without a colon is prose, not a heading', () => {
 
 test('citations carry title and PMID only, in each format', () => {
     const post = { id: 'abcdef12-3456', title: 'A trial of X.', pmid: '123' };
-    const now = new Date('2026-11-13T00:00:00Z');
+    // Local noon: generateCitation formats in local time, so a UTC fixture
+    // would read as 12 November on any host west of UTC.
+    const now = new Date(2026, 10, 13, 12);
     assert.strictEqual(generateCitation(post, 'vancouver', now),
         'A trial of X. PubMed PMID: 123. Available from: https://pubmed.ncbi.nlm.nih.gov/123/ [cited 13 Nov 2026].');
     assert.strictEqual(generateCitation(post, 'markdown', now), '[A trial of X](https://pubmed.ncbi.nlm.nih.gov/123/) (PMID 123)');

@@ -5,8 +5,9 @@ env:
 
 on:
   push:
+    branches: [ main ]
     paths:
-      - 'latest_updates.json' # runs only when n8n updates this file
+      - 'latest_updates.json' # runs only when n8n updates this file on main
   workflow_dispatch: # allow a manual run from GitHub
 
 permissions:
@@ -19,6 +20,9 @@ concurrency:
 
 jobs:
   process-and-chunk:
+    # The commit step pushes to main. A run started from another branch
+    # (a manual dispatch) would carry that branch's commits onto main with it.
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     outputs:
       pushed: ${{ steps.commit.outputs.pushed }}

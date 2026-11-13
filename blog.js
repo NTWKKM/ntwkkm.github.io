@@ -243,8 +243,14 @@ function setRouteNotice(missing) {
     }
 }
 
-async function loadArticle(post, pushHistory = true) {
-    setRouteNotice(null);
+/**
+ * @param {object} post
+ * @param {boolean} pushHistory
+ * @param {{ keepNotice?: boolean }} options - keepNotice: a retry of the same
+ *   paper, which must not drop the "linked paper is not held" notice
+ */
+async function loadArticle(post, pushHistory = true, { keepNotice = false } = {}) {
+    if (!keepNotice) setRouteNotice(null);
     state.currentId = post.id;
     document.title = `${post.title} | Medical Research Blog`;
 
@@ -307,7 +313,7 @@ async function loadArticle(post, pushHistory = true) {
         console.error('[Reader] Could not load paper:', error);
         container.innerHTML = createErrorUI(
             'This summary could not be loaded. Check your connection, or open the paper on PubMed.',
-            () => loadArticle(post, false)
+            () => loadArticle(post, false, { keepNotice: true })
         );
     }
 }
