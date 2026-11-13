@@ -1,5 +1,61 @@
 [
   {
+    "date": "13 Nov",
+    "title": "Multimodal Nonopioid Analgesia Versus Opioid-First Approaches for Acute Pain in the Emergency Department: A Systematic Review of Randomized Controlled Trials.",
+    "comment": "เปรียบเทียบยาแก้ปวด Non-opioid กับ Opioid ใน ER เปลี่ยนแนวทางการจัดการ acute pain ลดการใช้ยาเสพติด",
+    "pmid": "43019972",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43019972/"
+  },
+  {
+    "date": "13 Nov",
+    "title": "Covert brain infarction in the emergency department: incidence and outcomes.",
+    "comment": "รายงานอุบัติการณ์และผลลัพธ์ของภาวะสมองขาดเลือดเงียบในผู้ป่วย ER มีผลต่อการวินิจฉัยและป้องกัน stroke ซ้ำ",
+    "pmid": "43021016",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43021016/"
+  },
+  {
+    "date": "13 Nov",
+    "title": "Age-modified shock index for predicting in-hospital outcomes in patients with ST elevated myocardial infarction undergoing primary percutaneous coronary intervention.",
+    "comment": "ใช้ Age-modified shock index ทำนายผลลัพธ์ในผู้ป่วย STEMI ประเมินความรุนแรงและ ภาวะช็อกได้แม่นยำขึ้น",
+    "pmid": "43021064",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43021064/"
+  },
+  {
+    "date": "13 Nov",
+    "title": "Prehospital Reverse Shock Index multiplied by the Glasgow Coma Scale score (rSIG) as a predictor of urgent interventions in trauma patients: a retrospective cohort study.",
+    "comment": "ใช้ดัชนี rSIG หน้างานพรีฮอสพิทอลทำนายความจำเป็นในการทำหัตถการเร่งด่วนในผู้ป่วยอุบัติเหตุ",
+    "pmid": "43020495",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43020495/"
+  },
+  {
+    "date": "13 Nov",
+    "title": "Effect modification by arterial pH on the association between extracorporeal cardiopulmonary resuscitation and neurological outcomes after out-of-hospital cardiac arrest with shockable rhythm: A multicenter registry study.",
+    "comment": "ชี้ว่า pH ของเลือดแดงมีผลต่อผลลัพธ์ทางระบบประสาทหลังทำ ECPR ในผู้ป่วยหัวใจหยุดเต้น",
+    "pmid": "43019616",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43019616/"
+  },
+  {
+    "date": "13 Nov",
+    "title": "Defining organized cardiac motion and cardiac standstill in cardiac arrest using point of care ultrasound: A Delphi study.",
+    "comment": "สร้างคำนิยาม POCUS มาตรฐานสำหรับการเคลื่อนไหวหัวใจในภาวะหัวใจหยุดเต้น มีประโยชน์สูงหน้างาน CPR",
+    "pmid": "43019615",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43019615/"
+  },
+  {
+    "date": "13 Nov",
+    "title": "The occult hypoperfusion index: a bedside formula to identify undetected critical illness.",
+    "comment": "สูตรประเมินภาวะเลือดไปเลี้ยงเนื้อเยื่อไม่พอซ่อนเร้น ช่วยคัดกรองผู้ป่วยวิกฤตที่ดูภายนอกปกติใน ER",
+    "pmid": "43021336",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43021336/"
+  },
+  {
+    "date": "13 Nov",
+    "title": "Investigation of the ability of JAM-A molecule to predict clinical outcome, mortality, and symptom onset in patients with acute stroke: a prospective observational single-center cohort study.",
+    "comment": "ศึกษาโมเลกุล JAM-A เพื่อทำนายผลลัพธ์และการเสียชีวิตในผู้ป่วยเฉียบพลันโรคหลอดเลือดสมอง",
+    "pmid": "43021094",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43021094/"
+  },
+  {
     "date": "12 Nov",
     "title": "Optimizing Sepsis Time Zero Definitions Through Associations between Antibiotic Timing and Mortality.",
     "comment": "ช่วยระบุนิยาม Time Zero ใน Sepsis ให้ชัดเจน เพื่อประเมินผลของการให้ยาปฏิชีวนะต่ออัตราการเสียชีวิตได้แม่นยำขึ้น",
@@ -432,61 +488,5 @@
     "comment": "แนวทางการจัดการผู้ป่วย Stroke ที่ล้มเหลวจากการทำ MT ช่วยลดการรักษาที่สูญเปล่า",
     "pmid": "42924239",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42924239/"
-  },
-  {
-    "date": "25 Oct",
-    "title": "Cenobamate in super-refractory status epilepticus: current evidence from a patient-level synthesis.",
-    "comment": "ยาทางเลือกใหม่สำหรับรักษาภาวะชักดื้อยาขั้นรุนแรง (Super-refractory SE) ใน ER",
-    "pmid": "42924157",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42924157/"
-  },
-  {
-    "date": "25 Oct",
-    "title": "Advances in the Diagnosis and Treatment of Pediatric Sepsis-Associated Acute Kidney Injury.",
-    "comment": "อัปเดตการวินิจฉัยและรักษา AKI จาก Sepsis ในเด็ก ซึ่งมีความซับซ้อนและวิกฤต",
-    "pmid": "42923755",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42923755/"
-  },
-  {
-    "date": "25 Oct",
-    "title": "Next-generation point-of-care diagnostics for urinary tract infections: a systematic review of rapid pathogen detection methods.",
-    "comment": "รีวิวเครื่องมือ POC ใหม่ที่ช่วยระบุเชื้อ UTI ได้รวดเร็ว ลดการใช้ยาปฏิชีวนะแบบหว่าน",
-    "pmid": "42923460",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42923460/"
-  },
-  {
-    "date": "25 Oct",
-    "title": "Clinical and radiographic features of fractures raising suspicion of non-accidental trauma in young children: A retrospective emergency department study.",
-    "comment": "จุดสังเกตทางรังสีและคลินิกเพื่อคัดกรองการถูกทารุณกรรมเด็ก (Child Abuse) ใน ER",
-    "pmid": "42923422",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42923422/"
-  },
-  {
-    "date": "25 Oct",
-    "title": "Development and external validation of a risk prediction model for early peripheral intravenous catheter failure in outpatients and emergency department patients receiving consecutive infusion therapy.",
-    "comment": "Model ทำนายการล้มเหลวของ IV catheter ช่วยวางแผนการให้สารน้ำในผู้ป่วย ER",
-    "pmid": "42923372",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42923372/"
-  },
-  {
-    "date": "25 Oct",
-    "title": "Case Report: Staged alteplase administration under VA-ECMO support for high-risk pulmonary embolism with severe thrombocytopenia.",
-    "comment": "เทคนิคการให้ Alteplase ในผู้ป่วย PE รุนแรงที่ใส่ ECMO และมีเกล็ดเลือดต่ำ",
-    "pmid": "42923273",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42923273/"
-  },
-  {
-    "date": "25 Oct",
-    "title": "Vertebral artery injury in patients presenting to the emergency department with cervical spine fractures: national trends, predictors, and cerebrovascular outcomes.",
-    "comment": "ปัจจัยทำนายการบาดเจ็บของ Vertebral artery ในผู้ป่วย C-spine fracture เพื่อป้องกัน Stroke",
-    "pmid": "42921393",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42921393/"
-  },
-  {
-    "date": "25 Oct",
-    "title": "Diagnostic Accuracy of Computed Tomography for Radiographically Occult Scaphoid Fractures and Concordance With Magnetic Resonance Imaging: A Systematic Review.",
-    "comment": "ยืนยันความแม่นยำของ CT ในการหา Scaphoid fracture ที่ X-ray ปกติ",
-    "pmid": "42921628",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42921628/"
   }
 ]
