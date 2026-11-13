@@ -9,6 +9,6 @@
         "lint": "node .github/scripts/lint-css.js"
     },
     "devDependencies": {
-        "puppeteer": "^24.0.0"
+        "puppeteer": "25.16.0"
     }
 }
