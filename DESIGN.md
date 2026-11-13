@@ -1,6 +1,6 @@
 # NTWKKM Design System & Guidelines (DESIGN.md)
 
-Last updated: *2026-11-12*
+Last updated: *2026-11-13*
 
 This document serves as the **core design guideline** for any AI agent or developer modifying or creating new interfaces maintained in this repository (`index`, `blog`). All UI implementations MUST adhere strictly to these principles to maintain a cohesive, premium, and matte aesthetic across these modules. Note that the separately maintained `/pl/` sub-app follows its own dedicated design guidelines in the private `NTWKKM/pl` repository.
 
@@ -13,7 +13,7 @@ This document serves as the **core design guideline** for any AI agent or develo
 - **Nothing Moves By Itself**: No auto-scroll, no scroll-triggered reveals. Motion answers the pointer or a state change and lasts 0.15 to 0.25s.
 - **Interactive & Quiet**: Elements react smoothly to user hover (subtle border color highlights and shadow shifts) while preserving strict layout stability.
 - **First-Class Dark Mode (Ergonomic Navy)**: Dark mode preserves the signature deep navy canvas (`#121E36`) with elevated surfaces (`#1C2D4F`). To prevent eye fatigue and glare during long clinical sessions, text is rendered in soft slate white (`#E2E8F0`, contrast 10.8:1 PASS AAA) instead of harsh 100% white.
-- **Accent System (4-Color Clinical Editorial Multi-Accent)**: Four semantic accent families (`--accent-navy`, `--accent-vermilion`, `--accent-teal`, `--accent-ochre`) provide clear category separation and visual hierarchy over neutral Slate / Titanium Navy surfaces via **Minimal Semantic Touches** (icon badges, 2px–3px sentinel borders, text-only tags, and section rail accents). Primary backgrounds remain neutral (`--bg-body`, `--bg-card`, `--bg-sidebar`).
+- **Monochrome Print Editorial (Slate & Titanium Navy)**: Category colors and decorative colored left/top border stripes are retired in favor of monochrome Slate ink (`--text-main`, `--text-secondary`, `--text-muted`), Titanium Navy links/indicators (`--primary`), `1px solid var(--text-main)` section/index rules, and crisp `1px solid var(--border)` / `--border-strong` boundaries. Error icons reserve `--signal-orange`.
 
 ---
 
@@ -46,13 +46,9 @@ All colors MUST be referenced via CSS variables defined in `:root` and `[data-th
 - Border Strong (`--border-strong`): `#8E8E93` (edges of inputs and buttons, 3:1 on white)
 - Card Shadow (`--shadow`): `0 4px 20px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.04)`
 - Surface Contrast (Canvas vs Card): 1.18:1 (Clean, modern card separation)
-- Accent Signal (`--signal-orange`): `#d84315`; as small text use `--accent-vermilion` `#b5360f` (5.9:1 on white)
+- Active Row / Selection Surface (`--bg-paper-list`): `#E8E8EE`
+- Error Signal (`--signal-orange`): `#d84315` (used on `.error-icon`)
 - Shared Card Hover Tokens: `--card-hover-bg: #F8F8FA`, `--card-hover-border: #1E3C72`, `--card-hover-icon-bg: rgba(30, 60, 114, 0.08)`
-- Semantic 4-Color Palette (Text Ink >= 5.0:1 / Mark & Border / Soft Icon Tint):
-  - **Clinical Navy** (`--accent-navy`): `#1E3C72` (`9.15:1`–`10.80:1`) / mark `#1E3C72` / tint `rgba(30, 60, 114, 0.09)` — Clinical tools, Objective & Methods, PMIDs
-  - **Signal Vermilion** (`--accent-vermilion`): `#B5360F` (`5.09:1`–`6.00:1`) / mark `#D84315` / tint `rgba(216, 67, 21, 0.10)` — Simulators, Resuscitation/Critical Care, Clinical relevance, Active pager/item sentinels
-  - **Surgical Teal** (`--accent-teal`): `#0D6565` (`5.80:1`–`6.85:1`) / mark `#0F766E` / tint `rgba(13, 101, 101, 0.09)` — Research & statistics, Results & Study design, Paper ledger dates
-  - **Warm Ochre** (`--accent-ochre`): `#8A560E` (`5.21:1`–`6.14:1`) / mark `#B47116` / tint `rgba(180, 113, 22, 0.10)` — Knowledge & notes, Neuro/Ops/Geri/Psych/EMS specialties, Archived status
 
 ### 3.2. Dark Theme (Titanium Precision Navy - Ergonomic Tone 1)
 
@@ -65,18 +61,10 @@ All colors MUST be referenced via CSS variables defined in `:root` and `[data-th
 - Border Strong (`--border-strong`): `#5C78AD`
 - Card Shadow (`--shadow`): `0 4px 20px rgba(6, 12, 24, 0.55), 0 1px 3px rgba(6, 12, 24, 0.30)`
 - Surface Contrast (Canvas vs Card): 1.26:1 (Sharp clinical layer separation)
-- Accent Signal (`--signal-orange`): `#FF7A45`
+- Active Row / Selection Surface (`--bg-paper-list`): `#22365E`
+- Error Signal (`--signal-orange`): `#FF7A45`
 - Primary Link/Action (`--primary`): `#93c5fd`
 - Shared Card Hover Tokens: `--card-hover-bg: #243B68`, `--card-hover-border: #4E78BC`, `--card-hover-icon-bg: rgba(147, 197, 253, 0.20)`
-- Semantic 4-Color Palette (Text Ink >= 5.6:1 / Mark & Border / Soft Icon Tint):
-  - **Clinical Navy** (`--accent-navy`): `#93C5FD` (`7.57:1`–`9.21:1`) / mark `#60A5FA` / tint `rgba(147, 197, 253, 0.16)`
-  - **Signal Vermilion** (`--accent-vermilion`): `#FF8559` (`5.69:1`–`6.92:1`) / mark `#FF7A45` / tint `rgba(255, 133, 89, 0.16)`
-  - **Surgical Teal** (`--accent-teal`): `#5EEAD4` (`9.23:1`–`11.22:1`) / mark `#2DD4BF` / tint `rgba(94, 234, 212, 0.15)`
-  - **Warm Ochre** (`--accent-ochre`): `#FBBF24` (`8.18:1`–`9.95:1`) / mark `#F59E0B` / tint `rgba(251, 191, 36, 0.15)`
-
-### 3.3. Category / Tag Semantic Binding (`[data-tone]`)
-
-Four tones bound via `[data-tone="navy|vermilion|teal|ochre"]` in `shared.css` (`--tone-ink`, `--tone-mark`, `--tone-tint`). Chips and tags keep `--bg-card` backgrounds with `--tone-ink` text and a `2px` `--tone-mark` left sentinel border (never solid colored chip backgrounds). Soft `--tone-tint` fills are reserved strictly for 36×36px tool icon badges (`.project-icon`). `@media (forced-colors: active)` maps `--tone-ink` / `--tone-mark` / `--tone-tint` to `CanvasText` / `Highlight` / `Canvas`.
 
 ---
 
@@ -86,8 +74,8 @@ Four tones bound via `[data-tone="navy|vermilion|teal|ochre"]` in `shared.css` (
 
 - **Border Radius**: `--radius: 4px` for outer cards, `--radius-sm: 2px` for inner elements, to give a harder industrial edge.
 - **Borders**: Thin `1px solid var(--border)`.
-- **Hover:** a list row changes its background to `var(--card-hover-bg)`; a title link turns `var(--primary)` and underlines; an external-link arrow nudges 2px up and right. Rows and cards do not lift or gain shadows. `.btn` darkens its border to `var(--card-hover-border)` and steps 1px down on press.
-- **Active list item** (`.article-list-item.active`): `var(--bg-paper-list)` background with a 3px inset left edge of `var(--text-main)`.
+- **Hover:** a list row shifts surface to `--bg-card` (homepage) or `--card-hover-bg`; a title turns `var(--primary)` and underlines; an external-link arrow nudges 2px up and right. Rows and cards do not lift, gain shadows, or draw colored side stripes. `.btn` darkens its border to `var(--card-hover-border)` and steps 1px down on press.
+- **Active list item** (`.article-list-item.active`): `var(--bg-paper-list)` background with a bold `var(--primary)` title (no colored edge bar).
 - **Spacing:** the 4px scale tokens `--s-1` to `--s-16` only.
 
 ### 4.2. Navigation & Masthead
@@ -99,7 +87,7 @@ Four tones bound via `[data-tone="navy|vermilion|teal|ochre"]` in `shared.css` (
 
 ### 4.3. Badges and Chips
 
-- Muted category colors are applied to text and borders only.
+- Monochrome Slate / Navy only: no multi-color accents or colored edge stripes.
 - Chips (`.filter-tag`, `.tag-badge`) use background `var(--bg-card)` and a 1px border; they are `<button>`s with `aria-pressed`.
 - Active filters use high-contrast ink: background `var(--text-main)`, color `var(--bg-card)`.
 
@@ -125,8 +113,8 @@ Four tones bound via `[data-tone="navy|vermilion|teal|ochre"]` in `shared.css` (
 1. [ ] "Use the shared Slate/Titanium tokens from `shared.css` (`var(--bg-body)`, `var(--bg-card)`, `var(--text-main)`, `var(--border)`, `var(--card-hover-bg)`, etc.). No hardcoded HEX/RGB and no literal `font-family` outside the token block."
 2. [ ] "Use `var(--font-ui)` for UI/Latin, `var(--font-thai)` for Thai, and `var(--font-mono)` for dates, PMIDs and counts."
 3. [ ] "Set card border radius to `4px` and small elements to `2px` for harder industrial edges."
-4. [ ] "Rows answer hover with `var(--card-hover-bg)`; no lifts, no shadows on in-flow content, never `transition: all`, animate only `transform`, `opacity` and colours."
-5. [ ] "Category tags/badges must be text-only colors, never solid colored backgrounds."
+4. [ ] "Rows answer hover with `var(--bg-card)` or `var(--card-hover-bg)`; no lifts, no shadows on in-flow content, never `transition: all`, animate only `transform`, `opacity` and colours."
+5. [ ] "Tags and badges stay monochrome Slate/Navy (`1px` neutral borders); never multi-colored edge stripes or saturated chip fills."
 6. [ ] "Ensure the layout is responsive and supports the Inverted Dark Theme color variables."
 7. [ ] "Run `node .github/scripts/lint-css.js` (also run in CI before every deploy), and `node ~/.claude/skills/hallmark/scripts/sloplint.mjs . --scope app --genre modern-minimal` when available; keep the stamp and waiver lines at the top of `shared.css`."
 8. [ ] "Every anchor link that opens in a new tab (`target="_blank"`) MUST strictly define `rel="noopener noreferrer"` to prevent tabnabbing security vulnerabilities."

@@ -26,13 +26,6 @@ const svg = (inner, size = 20) =>
 
 const EXTERNAL_ICON = svg('<path d="M7 17L17 7M17 7H7M17 7V17"/>', 14);
 
-const CATEGORY_TONES = {
-    'Clinical tools': 'navy',
-    'Simulators': 'vermilion',
-    'Research & statistics': 'teal',
-    'Knowledge & notes': 'ochre',
-};
-
 // AI summaries sometimes carry markdown bold markers; the ledger shows plain text.
 const stripMarkdown = str => String(str || '').replace(/\*\*/g, '').trim();
 
@@ -342,10 +335,8 @@ async function fetchProjects() {
     const worksMeta = document.getElementById('works-meta');
     if (worksMeta) worksMeta.textContent = `${projects.length} systems, ${groups.size} groups`;
 
-    container.innerHTML = Array.from(groups, ([category, items]) => {
-        const tone = CATEGORY_TONES[category] || 'navy';
-        return `
-        <div class="project-group" data-tone="${tone}">
+    container.innerHTML = Array.from(groups, ([category, items]) => `
+        <div class="project-group">
             <h3 class="project-group-title">${escapeHTML(category)}</h3>
             <ul class="project-list" role="list">
                 ${items.map(project => `
@@ -360,8 +351,7 @@ async function fetchProjects() {
                     </a>
                 </li>`).join('')}
             </ul>
-        </div>`;
-    }).join('');
+        </div>`).join('');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
