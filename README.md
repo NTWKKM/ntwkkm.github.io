@@ -58,6 +58,21 @@ A unified portfolio and clinical tool hub for an **Emergency Medicine Physician 
 This content reflects the repository structure (updated by GitHub Actions):
 
 ```text
+|-- assets /
+|   |-- fonts /
+|   |   |-- inter-tight-latin.woff2
+|   |   |-- jetbrains-mono-latin-400.woff2
+|   |   |-- sarabun-latin-400.woff2
+|   |   |-- sarabun-latin-600.woff2
+|   |   |-- sarabun-thai-400.woff2
+|   |   `-- sarabun-thai-600.woff2
+|   |-- icons /
+|   |   |-- apple-touch-icon.png
+|   |   |-- icon-192.png
+|   |   |-- icon-512.png
+|   |   |-- icon-maskable-192.png
+|   |   `-- icon-maskable-512.png
+|   `-- og.png
 |-- data /
 |   `-- blog /
 |       `-- (Chunked JSON files)
@@ -65,6 +80,7 @@ This content reflects the repository structure (updated by GitHub Actions):
 |   `-- audit_and_fix.md
 |-- _config.yml
 |-- .gitignore
+|-- .vercelignore
 |-- ARCHITECTURE.md
 |-- blog_index.json
 |-- blog.css
@@ -79,9 +95,12 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- manifest.json
 |-- papers.json
 |-- projects.json
+|-- reader-core.js
 |-- README.md
+|-- robots.txt
 |-- shared.css
 |-- shared.js
+|-- sitemap.xml
 `-- sw.js
 ```
 
