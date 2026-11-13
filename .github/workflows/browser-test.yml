@@ -31,12 +31,14 @@ jobs:
         run: node .github/scripts/lint-css.js
 
       # pnpm comes from the packageManager field in package.json.
+      # --ignore-scripts: pnpm 11 exits non-zero when a dependency's build
+      # script (here Puppeteer's Chrome download) has not been approved.
       - name: Install pinned dev dependencies
         run: |
           corepack enable
-          pnpm install --frozen-lockfile --ignore-workspace
+          pnpm install --frozen-lockfile --ignore-workspace --ignore-scripts
 
-      # Explicit, so it does not depend on pnpm's build-script policy.
+      # The download that script would have done, as an explicit step.
       - name: Install Chrome for Puppeteer
         run: pnpm exec puppeteer browsers install chrome
 
