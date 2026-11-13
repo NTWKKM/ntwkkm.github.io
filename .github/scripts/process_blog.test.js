@@ -61,6 +61,25 @@ test('dedupe drops a repeated Notion id and leaves records without a PMID alone'
     assert.deepStrictEqual(chunks[0].posts.map(p => p.id), ['a', 'x', 'y']);
 });
 
+test('dedupe keeps the earliest arrival date on the surviving record', () => {
+    // The survivor is the latest edit (June), but the paper first arrived in
+    // January through the copy that is dropped; one copy states first_seen.
+    const chunks = [
+        { number: 1, posts: [post('old', '7', { property_last_edited_time: '2026-03-01T00:00:00.000Z', first_seen: '2026-01-05T00:00:00.000Z' })] },
+        { number: 2, posts: [post('new', '7', { property_last_edited_time: '2026-06-01T00:00:00.000Z' })] },
+    ];
+    assert.strictEqual(dedupe(chunks), 1);
+    assert.strictEqual(chunks[1].posts[0].id, 'new');
+    assert.strictEqual(chunks[1].posts[0].first_seen, '2026-01-05T00:00:00.000Z');
+    const row = buildPostIndex(chunks).posts[0];
+    assert.strictEqual(new Date(row[2]).toISOString().slice(0, 10), '2026-01-05');
+
+    // Without first_seen, the earlier edit date of the dropped copy is the arrival.
+    const plain = [{ number: 1, posts: [post('a', '8', { property_last_edited_time: '2026-02-01T00:00:00.000Z' }), post('b', '8', { property_last_edited_time: '2026-04-01T00:00:00.000Z' })] }];
+    dedupe(plain);
+    assert.deepStrictEqual(plain[0].posts.map(p => [p.id, p.first_seen]), [['b', '2026-02-01T00:00:00.000Z']]);
+});
+
 test('the index is newest first and records each post\'s chunk', () => {
     const chunks = [
         { number: 1, posts: [post('old', '1')] },

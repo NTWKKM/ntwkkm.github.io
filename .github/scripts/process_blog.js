@@ -142,9 +142,13 @@ function mergeUpdates(chunks, updates) {
  * record. mergeUpdates stops new duplicates; this clears the ones written
  * before that check existed. The survivor stays in its own chunk and position
  * order, so the append-only rule still holds for every record that remains.
+ * The survivor is the most recently edited copy, but the paper arrived when
+ * its earliest copy did: that arrival date is carried onto the survivor as
+ * first_seen, so removing a duplicate never re-dates the paper.
  * @returns {number} how many records were removed
  */
 function dedupe(chunks) {
+    const arrival = post => new Date(post.first_seen || post.property_last_edited_time || 0).getTime() || 0;
     const entries = [];
     chunks.forEach(chunk => chunk.posts.forEach(post => {
         if (!post || !post.id) return;
@@ -153,14 +157,21 @@ function dedupe(chunks) {
     // Newest first; Array.prototype.sort is stable, so ties keep file order.
     entries.sort((a, b) => b.ts - a.ts);
 
-    const ids = new Set();
-    const pmids = new Set();
+    const byId = new Map();     // id -> surviving record
+    const byPmid = new Map();   // pmid -> surviving record
     const drop = new Set();
     entries.forEach(({ post }) => {
         const pmid = extractPmid(post);
-        if (ids.has(post.id) || (pmid && pmids.has(pmid))) { drop.add(post); return; }
-        ids.add(post.id);
-        if (pmid) pmids.add(pmid);
+        const survivor = byId.get(post.id) || (pmid && byPmid.get(pmid));
+        if (survivor) {
+            if (arrival(post) && (!arrival(survivor) || arrival(post) < arrival(survivor))) {
+                survivor.first_seen = post.first_seen || post.property_last_edited_time;
+            }
+            drop.add(post);
+            return;
+        }
+        byId.set(post.id, post);
+        if (pmid) byPmid.set(pmid, post);
     });
 
     chunks.forEach(chunk => { chunk.posts = chunk.posts.filter(post => !drop.has(post)); });

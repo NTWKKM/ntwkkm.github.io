@@ -279,7 +279,7 @@ The NTWKKM Knowledge Vault is an automated, dynamic resource hub and clinical in
 
 | Script | Purpose |
 | --- | --- |
-| `.github/scripts/process_blog.js` | Merge `latest_updates.json` into append-only chunks, deduplicate by Notion ID (primary) + PMID (secondary), write `data/blog/index.json` and `blog_index.json`. Exits non-zero on unparseable input. `--reindex` rebuilds the index only; `--dedupe` removes records that repeat a Notion ID or PMID (newest kept), then rebuilds the index |
+| `.github/scripts/process_blog.js` | Merge `latest_updates.json` into append-only chunks, deduplicate by Notion ID (primary) + PMID (secondary), write `data/blog/index.json` and `blog_index.json`. Exits non-zero on unparseable input. `--reindex` rebuilds the index only; `--dedupe` removes records that repeat a Notion ID or PMID (newest kept, with the earliest copy's arrival date as `first_seen`), then rebuilds the index |
 | `.github/scripts/taxonomy.js` | Fixed specialty list (multi-label, from tags then title) and study-design list (from the `Study Design:` summary line; when a summary has none, from wording in the title that names a design outright). Append new entries at the end: the index stores positions |
 | `.github/scripts/process_blog.test.js` | Unit tests for merge, chunking, index and taxonomy: `node --test .github/scripts/*.test.js` (run by `browser-test.yml`) |
 | `.github/scripts/reader-core.test.js` | Unit tests for `reader-core.js`, run by the same command |

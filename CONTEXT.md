@@ -154,7 +154,7 @@
 ### ADR-022: Unknown Paper Links Show a Notice; Legacy Duplicates Removed
 
 - **Context**: A link carrying an `id` or `pmid` that matched no paper fell through to the default paper (ADR-010) with no sign that it was a different one, so a shared link could present the wrong paper as the one shared. Separately, four PMIDs were held twice (1,465 records): `mergeUpdates` blocks a new record whose PMID is already present, but nothing removed pairs written before that check.
-- **Decision**: Keep the ADR-010 default, and show `#route-notice` above the paper when the link named one that is not held, linking to PubMed when a numeric PMID was given. Add `process_blog.js --dedupe`, which keeps the newest record per Notion ID and per PMID and removes the rest in place. Amends ADR-010.
+- **Decision**: Keep the ADR-010 default, and show `#route-notice` above the paper when the link named one that is not held, linking to PubMed when a numeric PMID was given. Add `process_blog.js --dedupe`, which keeps the newest record per Notion ID and per PMID, gives it the earliest arrival date among the copies as `first_seen`, and removes the rest in place. Amends ADR-010.
 - **Consequence**: 1,461 records, no repeated PMID. A removed Notion ID that n8n sends again is skipped by the existing PMID check. Old links to a removed record open the default paper under the notice.
 
 ### ADR-023: First-Seen Date and Stated AI Provenance
