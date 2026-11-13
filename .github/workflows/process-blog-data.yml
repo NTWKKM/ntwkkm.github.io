@@ -6,13 +6,13 @@ env:
 on:
   push:
     paths:
-      - 'latest_updates.json' # ทำงานอัตโนมัติเฉพาะเมื่อ n8n อัปเดตไฟล์นี้
-  workflow_dispatch: # อนุญาตให้กดรันแบบ Manual บน GitHub ได้
+      - 'latest_updates.json' # runs only when n8n updates this file
+  workflow_dispatch: # allow a manual run from GitHub
 
 permissions:
   contents: write
 
-# *** ป้องกันการ Push ชนกันของ GitHub Actions ***
+# Runs queue instead of overlapping, so two pushes never race.
 concurrency:
   group: blog-data-processing
   cancel-in-progress: false
@@ -33,32 +33,50 @@ jobs:
 
       - name: Run Data Processing Script
         id: process
-        # อ่าน latest_updates ก่อน merge + write chunks
+        # Reads latest_updates.json, merges it and writes the chunks.
         run: node .github/scripts/process_blog.js
 
       - name: Delete latest_updates.json
-        # สำคัญ: ลบไฟล์เสมอแม้ Run Data Processing Script จะ fail
+        # Always delete the input, even when processing failed.
         if: always()
         run: rm -f latest_updates.json
 
       - name: Commit and Push Changes
         id: commit
-        # สำคัญ: ต้องทำงานเสมอเพื่อ push การลบไฟล์ (หรือไฟล์ chunk ใหม่) ขึ้น GitHub
+        # Always runs, to push the deletion (and any new chunk files).
         if: always()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
           if [ "${{ steps.process.outcome }}" = "success" ]; then
-            # Processing สำเร็จ: Stage ทุกอย่าง (chunks ใหม่ + ลบไฟล์ input)
+            # Processing succeeded: stage everything (new chunks and the deleted input).
             git add -A
           else
-            # Processing ล้มเหลว: Stage เฉพาะการลบไฟล์ input เพื่อ cleanup
+            # Processing failed: stage only the deleted input, as cleanup.
             git add latest_updates.json
           fi
           
-          # ถ้ามีไฟล์ถูกแก้ไข ให้ commit และ push (ถ้าไม่มีการเปลี่ยนจะถูก skip ไป)
-          git diff --staged --quiet || (git commit -m "chore: auto-chunk blog data into folders and update index" && git push && echo "pushed=true" >> "$GITHUB_OUTPUT")
+          # Commit and push only when something is staged.
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore: auto-chunk blog data into folders and update index"
+
+          # main also receives n8n commits (papers.json) and the README
+          # auto-commit. Rebase onto whatever landed since checkout and retry,
+          # so a non-fast-forward push does not lose the processed batch.
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash origin main && git push origin HEAD:main; then
+              echo "pushed=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "Push attempt ${attempt} failed; retrying."
+            sleep $((attempt * 5))
+          done
+          echo "::error::Could not push processed blog data after 3 attempts."
+          exit 1
 
   deploy:
     needs: process-and-chunk

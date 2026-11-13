@@ -1,6 +1,6 @@
 # ARCHITECTURE.md — NTWKKM Personal Website
 
-**Last Updated:** 2026-11-12
+**Last Updated:** 2026-11-13
 
 ## Overview
 
@@ -13,11 +13,14 @@ Static personal website hosted on GitHub Pages (`ntwkkm.github.io`). Serves as a
 | `index.html` / `index.css` / `index.js` | Homepage — dated paper ledger + tools index grouped by category |
 | `blog.html` / `blog.css` / `blog.js` | Research reader — docked paper list, facets, one paper at a reading measure |
 | `pl/index.html` | `[NEW]` NTWKKM Knowledge Vault — Auto-synced from private `NTWKKM/pl` |
+| `reader-core.js` | The reader's pure logic (search scoring, highlighting, summary parsing, citations); no DOM access, loaded before `blog.js` and unit tested under Node |
+| `package.json` / `pnpm-lock.yaml` | Development tooling only (pinned Puppeteer, `test` / `test:browser` / `lint` scripts); excluded from the published site |
 | `manifest.json` | `[NEW]` PWA manifest — installable web app experience |
 | `sw.js` | `[NEW]` Service Worker — offline caching and resilience |
 | `_config.yml` | `[NEW]` Jekyll build config — excludes internal docs and metadata |
 | `shared.js` | Shared utilities (fetch with retry, error/skeleton UI, a11y announcer, theme, service worker registration) |
-| `shared.css` | Design tokens (the only place colours and fonts are declared), reset, buttons, shared components |
+| `assets/fonts/`, `assets/icons/` | Self-hosted woff2 fonts and PNG app icons |
+| `shared.css` | Design tokens and `@font-face` rules (the only place colours and fonts are declared), reset, buttons, shared components |
 
 ## Data Flow
 
@@ -42,6 +45,7 @@ Static Data:
   ├── papers.json            → Paper slider data (index.html, automated by Workflow 1)
   ├── data/blog/index.json   → Compact list index read by blog.html (auto-generated)
   ├── data/blog/research_chunk_*.json → Full records, fetched per paper on demand (auto-generated)
+  ├── data/blog/pmids.json   → Every PMID held (about 16 KB), read by index.html for its summary links (auto-generated)
   ├── blog_index.json        → List of chunk paths, read by process_blog.js (auto-generated)
   └── projects.json          → Tool entries with `category`, `icon`, optional `status` (manually maintained)
 
@@ -73,7 +77,8 @@ Path B — latest_updates.json (Workflow 3, daily 02:25):
 
 - `latest_updates.json` — **Ephemeral.** Pushed by n8n (Workflow 3), deleted by GitHub Actions `rm -f` safety step (`if: always()`). Must never be committed long-term.
 - `data/blog/research_chunk_*.json` — **Auto-generated, append-only.** A post stays in the chunk it was first written to; an update replaces it in place; new posts go to the highest-numbered chunk until it holds 200, then a new chunk opens. Files whose content did not change are not rewritten, so a daily run touches one chunk. Order inside a chunk carries no meaning. Never edit manually.
-- `data/blog/index.json` — **Auto-generated.** One row per post: `[id, title, timestampMs, pmid, chunkNumber, specialtyIdx[], designIdx, tags[]]`, newest first, plus the `specialties` and `designs` label lists the indexes point into. Rebuild without new data: `node .github/scripts/process_blog.js --reindex`.
+- `data/blog/index.json` — **Auto-generated.** One row per post: `[id, title, timestampMs, pmid, chunkNumber, specialtyIdx[], designIdx, tags[]]`, newest first. `timestampMs` is the record's `first_seen` (the date it first arrived, kept across later Notion edits), falling back to `property_last_edited_time` for records written before `first_seen` existed (ADR-023). The file also carries the `specialties` and `designs` label lists the indexes point into. Rebuild without new data: `node .github/scripts/process_blog.js --reindex`.
+- `data/blog/pmids.json` — **Auto-generated.** A sorted array of every PMID in the index. The homepage fetches it after the ledger has rendered and adds a `Read the Thai summary` link (`blog.html?pmid=`) to each paper the reader holds; if the file cannot be loaded the ledger is unchanged.
 - `blog_index.json` — **Auto-generated.** Chunk paths (e.g., `data/blog/research_chunk_1.json`). The reader no longer fetches it; the processor does. Never edit manually.
 - `projects.json` `icon` — a key of the `ICONS` map in `index.js`; an unknown key falls back to a generic icon. `category` groups the list in file order.
 - `papers.json` — **Automated.** Merged by Workflow 1 (dedup by link + PMID, cap 70 items, 2x/day). Do not edit manually.
@@ -263,8 +268,9 @@ The NTWKKM Knowledge Vault is an automated, dynamic resource hub and clinical in
 
 | Workflow | Trigger | Concurrency Group | Purpose |
 | --- | --- | --- | --- |
-| `process-blog-data.yml` | Push to `latest_updates.json` or manual | `blog-data-processing` | Merge, deduplicate, chunk blog data |
-| `pages-build-deployment.yml` | Push to `main`, manual, or `repository_dispatch` | `pages` | Build, fetch private `pl` repo, and deploy to Pages |
+| `process-blog-data.yml` | Push to `latest_updates.json` or manual | `blog-data-processing` | Merge, deduplicate, chunk blog data; rebases onto `main` and retries the push up to 3 times |
+| `pages-build-deployment.yml` | Push to `main`, manual, or `repository_dispatch` | `pages` | Run `browser-test.yml` as a gate, then build, fetch private `pl` repo, and deploy to Pages |
+| `browser-test.yml` | Pull request, manual, or called by the deploy workflow | none | Unit tests, CSS lint, browser tests; a failure stops the deploy |
 | `update-readme.yml` | Push to `main` (ignores `README.md`, `latest_updates.json`) | `readme-update` | Auto-generate repository tree in README |
 
 > **Concurrency:** All workflows use `cancel-in-progress: false` to ensure sequential execution. This prevents deployment conflicts when multiple n8n commits arrive in quick succession.
@@ -273,53 +279,62 @@ The NTWKKM Knowledge Vault is an automated, dynamic resource hub and clinical in
 
 | Script | Purpose |
 | --- | --- |
-| `.github/scripts/process_blog.js` | Merge `latest_updates.json` into append-only chunks, deduplicate by Notion ID (primary) + PMID (secondary), write `data/blog/index.json` and `blog_index.json`. Exits non-zero on unparseable input. `--reindex` rebuilds the index only |
-| `.github/scripts/taxonomy.js` | Fixed specialty list (multi-label, from tags then title) and study-design list (from the `Study Design:` summary line). Append new entries at the end: the index stores positions |
+| `.github/scripts/process_blog.js` | Merge `latest_updates.json` into append-only chunks, deduplicate by Notion ID (primary) + PMID (secondary), write `data/blog/index.json` and `blog_index.json`. Exits non-zero on unparseable input. `--reindex` rebuilds the index only; `--dedupe` removes records that repeat a Notion ID or PMID (newest kept), then rebuilds the index |
+| `.github/scripts/taxonomy.js` | Fixed specialty list (multi-label, from tags then title) and study-design list (from the `Study Design:` summary line; when a summary has none, from wording in the title that names a design outright). Append new entries at the end: the index stores positions |
 | `.github/scripts/process_blog.test.js` | Unit tests for merge, chunking, index and taxonomy: `node --test .github/scripts/*.test.js` (run by `browser-test.yml`) |
+| `.github/scripts/reader-core.test.js` | Unit tests for `reader-core.js`, run by the same command |
+| `.github/scripts/lint-css.js` | Fails on a literal colour or font family outside `shared.css`, and on a transition of `all`, `width`, `height`, `top` or `left` |
+| `.github/scripts/test-browser.js` | Loads both pages at 320, 768 and 1440px in headless Chrome; fails on a page error, an empty list, a showing error state, or content past the viewport |
 | `.github/scripts/generate_readme.js` | Generate repository file tree for README.md (collapses `data/blog/` to summary) |
 
 ## Theming
 
-All pages use `data-theme="light|dark"` on `<html>` with `localStorage.theme` persistence; first-time visitors inherit `prefers-color-scheme`. An inline script in `<head>` sets the attribute before first paint (no flash). Token values and usage rules live in `DESIGN.md`; `shared.css` is the only file that declares a colour or a font family.
+All pages use `data-theme="light|dark"` on `<html>` with `localStorage.theme` persistence (`shared.js` also sets `<meta name="theme-color">` to the current `--bg-body`); first-time visitors inherit `prefers-color-scheme`. An inline script in `<head>` sets the attribute before first paint (no flash). Token values and usage rules live in `DESIGN.md`; `shared.css` is the only file that declares a colour or a font family.
 
 ## Frontend Architecture
 
 - `shared.css` — tokens, reset, `.btn` / `.icon-btn`, skeleton and error states, offline pill, update bar, `<dialog>`, reduced motion.
 - `index.css`, `blog.css` — layout only, tokens only.
-- `shared.js` — `fetchWithFallback()` (retry with backoff, `cache: 'no-cache'` revalidation instead of cache-busting query strings), `createErrorUI()` (retry callbacks dispatched by one delegated listener), `createSkeletonUI()`, `escapeHTML()`, `sanitizeURL()`, `debounce()`, announcer, theme toggle, service worker registration.
-- `index.js`, `blog.js` — page logic, loaded as external files (cacheable, no inline handlers).
+- `shared.js` — `fetchWithFallback()` (retry with backoff, an 8 s limit on the wait for a response to start, `cache: 'no-cache'` revalidation instead of cache-busting query strings), `createErrorUI()` (retry callbacks dispatched by one delegated listener), `createSkeletonUI()`, `escapeHTML()`, `sanitizeURL()`, `debounce()`, announcer, theme toggle, service worker registration.
+- `index.js`, `blog.js` — page logic, loaded as external files (cacheable, no inline handlers). `blog.js` takes its pure functions from `reader-core.js`.
+- `shared.js` and `reader-core.js` also load under Node (their DOM start-up is skipped when there is no `document`), which is how the unit tests reach them.
 
 All JSON data is escaped (`escapeHTML`) or protocol-checked (`sanitizeURL`) before DOM injection; both are defined only in `shared.js`.
 
 ## Homepage (index.html)
 
-- **Editorial masthead:** Flat header directly on `--bg-body` (no navy gradient topbar) with `NTWKKM` display title and subtitle left, `Research Blog`, `#theme-toggle`, and GitHub right, anchored by a `1px solid var(--text-main)` bottom rule.
-- **Horizontal paged paper ledger (`#papers-section`):** Full-width section header (`Latest Research Papers`, `#papers-meta`, and dot-mark pager `#papers-pager` with previous/next controls) above a native CSS `scroll-snap` horizontal track (`#paper-container`). Chunks `papers.json` into pages of 6 papers (3 rows × 2 columns on desktop `≥860px`); no auto-scroll, no `Open the research reader` or `Show all` buttons.
+- **Editorial masthead:** Flat header directly on `--bg-body` (no navy gradient topbar) with `NTWKKM` display title and subtitle left, `Research Blog`, `#theme-toggle`, and GitHub right, anchored by a `1px solid var(--text-main)` bottom rule. Under the rule, `.masthead-about` states in one sentence who the site belongs to and what it holds, with a GitHub link; the footer carries only the year and that link.
+- **Horizontal paged paper ledger (`#papers-section`):** Full-width section header (`Latest research papers`, `#papers-meta`, and dot-mark pager `#papers-pager` with previous/next controls; at `<= 640px` the dots give way to a `1 / 12` count between two 44px buttons) above a native CSS `scroll-snap` horizontal track (`#paper-container`). Chunks `papers.json` into pages of 6 papers (3 rows × 2 columns on desktop `≥860px`); no auto-scroll, no `Open the research reader` or `Show all` buttons. Slides other than the one in view are `inert`, so Tab passes through one page of papers, not all 70. A line under the track states that the papers are chosen and annotated by AI.
 - **Asymmetric tools bento (`#works-section`):** `projects.json` grouped by `category` (`#works-meta` summary count in header) below the ledger — `Clinical tools` spans two rows beside `Simulators` and `Research & statistics`, with `Knowledge & notes` spanning three horizontal columns underneath.
 
 ## Research Reader (blog.html)
 
-- **Index-first loading:** start-up fetches `data/blog/index.json` (~370 KB, ~125 KB gzipped) and the one chunk holding the open paper. The other chunks load only when the reader focuses the search box (full-text search) and are cached in memory.
+- **Index-first loading:** start-up fetches `data/blog/index.json` (~370 KB, ~125 KB gzipped) and the one chunk holding the open paper. The other chunks load only when the reader types the first search character (full-text search; focusing the box or pressing `/` loads nothing) and are cached in memory.
 - **Facets:** Specialty (multi-select, OR) and Study design (single-select), folded behind the "Topics" control. Counts come from the index. Raw AI tags stay visible on each paper; clicking one searches for it.
 - **Search:** every term must appear as a substring (AND). Title hits rank above tag/PMID/specialty hits, above summary-only hits; ties stay newest first. Until the chunks arrive the status line reads "by title and tag".
 - **URL state:** `?id=` (paper), `?q=` (search), `?cat=` (specialty ids, comma-separated), `?design=` (design id), `?pmid=` (open by PMID). Legacy `?tag=` links are read as a search. Opening a paper pushes history; filter changes replace it.
-- **Default paper:** with no `id`, the first paper of the current list opens (ADR-010).
+- **Default paper:** with no `id`, the first paper of the current list opens (ADR-010). An `id` or `pmid` that matches no paper also opens the first paper, under a notice (`#route-notice`) saying the linked paper is not held, with a PubMed link when a PMID was given (ADR-022).
 - **Summary sections:** `parseSummary()` in `blog.js` turns the AI summary into Objective / Methods / Results / Study design / Clinical relevance. A line is a heading only when a known label (Thai or English) is followed by a colon.
 - **Citation:** Vancouver, APA, BibTeX, Markdown, built from title + PMID only. Authors, journal and year are not stored, so none are printed; the dialog says so.
 - **List:** 20 per page; the page follows the open paper when stepping with the arrow buttons or ← / → keys. `/` focuses search, `Esc` closes the drawer.
-- **Layout:** ≥1025px the list is docked and can be folded; below that it is an off-canvas drawer (`inert` while closed) and Papers / Prev / Cite / Next move to a bottom bar.
+- **Layout:** ≥900px the list is docked and can be folded; below that it is an off-canvas drawer (`inert` while closed) and Papers / Prev / Cite / Next move to a bottom bar. While the drawer is open the article and the bottom bar are `inert`; closing it returns focus to the control that opened it.
+- **Provenance and date:** a line above the summary states that it was written by AI from the PubMed abstract. The date reads `Added <date>`: when the paper entered the library, not when it was published.
 
 ## Caching & Offline Resilience
 
-Service worker `sw.js` (cache version `v7`):
+Service worker `sw.js` (cache version `v9`):
 
-- **Handles only this repo's files:** the shell (`/`, `index.*`, `blog.*`, `shared.*`, `manifest.json`) and the data (`papers.json`, `projects.json`, `blog_index.json`, `data/blog/*`). Its scope is `/`, which also covers sibling project sites (`/pl/`, `/er-hub/`, ...); those requests pass through untouched.
+- **Handles only this repo's files:** the shell (`/`, `index.*`, `blog.*`, `shared.*`, `reader-core.js`, `manifest.json`) and the data (`papers.json`, `projects.json`, `data/blog/*`). `/blog` is treated as `/blog.html`, the extensionless address GitHub Pages also serves. Its scope is `/`, which also covers sibling project sites (`/pl/`, `/er-hub/`, ...); those requests pass through untouched.
 - **Network-first with a 4 s timeout, cache fallback** for both groups. Readers get current code and data when the network answers within 4 s. A slower response is still used to refresh the cache, but that load is served from the cached copy, so a reader on a slow connection can see the previous version while online. Offline readers get the last good copy (papers whose chunk was fetched before); `papers.json` and `projects.json` are precached at install.
 - **Cache keys drop the query string**, so no parameter can create duplicate entries.
-- **Google Fonts:** cache-first in `ntwkkm-fonts-v1`.
+- **Fonts:** six self-hosted woff2 files in `assets/fonts/` (about 109 KB), declared by `@font-face` in `shared.css`. Precached at install and served cache-first from `ntwkkm-fonts-v2`. No request leaves this origin for fonts.
 - **Updates:** the worker activates immediately. The first time a tab gains a controller nothing is shown; any later controller change in that tab shows a "A new version is ready / Reload" bar. It never reloads by itself.
 - Bump `VERSION` in `sw.js` when the shell file list changes.
 
+## Sharing and Crawlers
+
+Both pages carry `og:image` (`assets/og.png`, 1200×630) and a large-image Twitter card. `robots.txt` allows everything except `/pl/` and names `sitemap.xml`, which lists the two pages. Papers are not separate URLs, so a shared `blog.html?id=` link previews as the reader, not as that paper.
+
 ## PWA
 
-`manifest.json`: installable, `theme_color` `#ECECEE`, SVG icons (32/192/512) with separate full-bleed maskable variants.
+`manifest.json`: installable, `theme_color` `#ECECEE`, PNG icons in `assets/icons/` (192 and 512, each with a full-bleed maskable variant). Both pages link `assets/icons/apple-touch-icon.png` (180px) for the iOS home screen. Orientation is not locked. The browser-tab favicon stays an inline SVG.

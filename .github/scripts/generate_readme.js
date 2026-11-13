@@ -7,7 +7,7 @@ const REPO_ROOT = path.join(__dirname, '../../');
 const START_MARKER = '[--- REPOSITORY-TREE-START ---]';
 const END_MARKER = '[--- REPOSITORY-TREE-END ---]';
 
-// Ignore directories/files (เพิ่มโฟลเดอร์ที่ไม่ต้องการให้โชว์ใน README)
+// Directories and files left out of the README tree
 const IGNORE_LIST = [
     '.git', 
     '.github', 
@@ -18,7 +18,8 @@ const IGNORE_LIST = [
     '.gemini', 
     'n8n-github-notion_db',
     'package.json', 
-    'package-lock.json'
+    'package-lock.json',
+    'pnpm-lock.yaml'
 ];
 
 function buildTree(dir, prefix = '') {
@@ -30,10 +31,10 @@ function buildTree(dir, prefix = '') {
         return treeStr;
     }
 
-    // กรองไฟล์ที่อยู่ใน IGNORE_LIST ออก
+    // Drop everything in IGNORE_LIST
     files = files.filter(f => !IGNORE_LIST.includes(f));
     
-    // เรียงลำดับ: โฟลเดอร์ขึ้นก่อน ไฟล์อยู่ทีหลัง ตามตัวอักษร
+    // Order: directories first, then files, each alphabetically
     files.sort((a, b) => {
         const aIsDir = fs.statSync(path.join(dir, a)).isDirectory();
         const bIsDir = fs.statSync(path.join(dir, b)).isDirectory();
@@ -51,7 +52,7 @@ function buildTree(dir, prefix = '') {
         
         if (isDir) {
             treeStr += `${prefix}${pointer}${file} /\n`;
-            // ถ้าโฟลเดอร์นั้นคือ data/blog ไม่ต้องเจาะลึกลงไปโชว์ไฟล์ย่อยๆ ทุกไฟล์ เพื่อไม่ให้ Tree รก
+            // data/blog is summarised in one line instead of listing every chunk file
             if (file === 'blog' && fullPath.includes('data')) {
                  treeStr += `${prefix + (isLast ? '    ' : '|   ')}\`-- (Chunked JSON files)\n`;
             } else {

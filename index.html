@@ -14,14 +14,17 @@
         content="Emergency Medicine physician & Clinical Informatics developer. Research papers, medical tools, and open-source projects.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ntwkkm.github.io/">
+    <meta property="og:image" content="https://ntwkkm.github.io/assets/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://ntwkkm.github.io/">
     <link rel="icon" type="image/svg+xml"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231e3c72'/%3E%3Ctext x='50%25' y='50%25' font-family='Inter,sans-serif' font-weight='800' font-size='18' fill='%23F0EDE5' text-anchor='middle' dominant-baseline='central'%3EN%3C/text%3E%3C/svg%3E">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&family=JetBrains+Mono:wght@400&family=Sarabun:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="shared.css">
     <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
     <meta name="theme-color" content="#ECECEE">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -52,6 +55,8 @@
 
     <a href="#papers-section" class="skip-to-content">Skip to content</a>
 
+    <noscript><p class="noscript-note">This page needs JavaScript to load its papers and tools. The projects are listed on <a href="https://github.com/NTWKKM">GitHub</a>.</p></noscript>
+
     <header class="masthead container">
         <div class="masthead-inner">
             <div class="brand-group">
@@ -72,6 +77,7 @@
                 </a>
             </nav>
         </div>
+        <p class="masthead-about">Emergency Medicine physician and Clinical Informatics developer. Research papers, medical tools, and open-source projects. <a href="https://github.com/NTWKKM" target="_blank" rel="noopener noreferrer">NTWKKM on GitHub</a></p>
     </header>
 
     <main class="container page-sections">
@@ -79,7 +85,7 @@
         <section id="papers-section" class="papers-section" aria-roledescription="carousel" aria-labelledby="papers-title">
             <div class="section-header">
                 <div class="section-heading">
-                    <h2 class="section-title" id="papers-title">Latest Research Papers</h2>
+                    <h2 class="section-title" id="papers-title">Latest research papers</h2>
                     <p class="section-meta mono" id="papers-meta"></p>
                 </div>
                 <nav class="paper-pager" id="papers-pager" aria-label="Paper pages" hidden>
@@ -87,6 +93,7 @@
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
                     </button>
                     <div class="paper-dots" id="papers-dots"></div>
+                    <span class="paper-count mono" id="papers-count" aria-hidden="true"></span>
                     <button type="button" class="paper-nav-btn" data-direction="next" aria-label="Next papers">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
                     </button>
@@ -95,12 +102,13 @@
 
             <div id="paper-container" class="paper-track" tabindex="0" role="group" aria-label="Research paper pages" aria-busy="true"></div>
             <p class="sr-only" id="papers-status" role="status" aria-live="polite"></p>
+            <p class="ai-note">Papers chosen and annotated by AI from PubMed. Check the original paper before acting on it.</p>
         </section>
 
         <section id="works-section" class="works-section" aria-labelledby="works-title">
             <div class="section-header">
                 <div class="section-heading">
-                    <h2 class="section-title" id="works-title">Clinical Systems &amp; Tools</h2>
+                    <h2 class="section-title" id="works-title">Clinical systems &amp; tools</h2>
                     <p class="section-meta mono" id="works-meta"></p>
                 </div>
             </div>
@@ -114,7 +122,6 @@
         <p>
             &copy; 2025-<span id="footer-year">2026</span> <a href="https://github.com/NTWKKM/" target="_blank" rel="noopener noreferrer">NTWKKM</a>
         </p>
-        <p class="footer-note">Bridging Clinical Practice with Digital Innovation.</p>
     </footer>
 
     <script src="shared.js"></script>

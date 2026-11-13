@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+# The knowledge vault is a private, passcode-protected app.
+Disallow: /pl/
+
+Sitemap: https://ntwkkm.github.io/sitemap.xml

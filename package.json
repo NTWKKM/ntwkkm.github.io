@@ -1,0 +1,14 @@
+{
+    "name": "ntwkkm.github.io",
+    "private": true,
+    "description": "Development tooling for the static site. Nothing here ships to the browser.",
+    "packageManager": "pnpm@11.5.0",
+    "scripts": {
+        "test": "node --test .github/scripts/*.test.js",
+        "test:browser": "node .github/scripts/test-browser.js",
+        "lint": "node .github/scripts/lint-css.js"
+    },
+    "devDependencies": {
+        "puppeteer": "^24.0.0"
+    }
+}

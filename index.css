@@ -1,5 +1,5 @@
 /* Hallmark · v2.0.0 · built: the project · redesign: full · scope: app · system: DESIGN.md (locked) · theme: Slate and Titanium Navy (brand) · genre: modern-minimal · hero: none (app screens) · nav: editorial masthead (display title and descriptor left, quiet utilities right, ink hairline under) · signature: horizontal scroll-snap paper ledger with dot marks and asymmetric tools bento */
-/* critique: replaced the paper CTA buttons with a native scroll-snap horizontal carousel driven by accessible dot marks so all 70 papers are browsable in place while keeping ~1:1 visual proportion with Clinical Systems & Tools · finish-review: verified at 1440, 768, 390 · 0 FAIL */
+/* critique: replaced the paper CTA buttons with a native scroll-snap horizontal carousel driven by accessible dot marks so all 70 papers are browsable in place while keeping ~1:1 visual proportion with Clinical Systems & Tools · finish-review: 2026-11-13 at 375 and 1024 · sloplint 1 FAIL open (56, blog.css: the two sticky elements are in separate grid columns) */
 /* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · balanced both sections to comparable vertical footprints without sacrificing scannability */
 /* Hallmark · dropped "All Rights Reserved" · 19 names the stock footer line */
 
@@ -74,9 +74,24 @@
     transform: translateY(1px);
 }
 
+/* One plain sentence on who this is and what is here */
+.masthead-about {
+    max-width: 64ch;
+    padding-top: var(--s-4);
+    color: var(--text-secondary);
+}
+
+.masthead-about a {
+    font-weight: 600;
+    color: var(--primary);
+    text-underline-offset: 3px;
+    white-space: nowrap;
+}
+
 /* --- Main sections stack --- */
 .page-sections {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--s-10);
     padding-block: var(--s-8) var(--s-12);
 }
@@ -172,7 +187,6 @@
     width: 24px;
     height: 28px;
     touch-action: manipulation;
-    transition: width 0.2s var(--ease);
 }
 
 .paper-dot::after {
@@ -181,7 +195,7 @@
     height: 7px;
     border-radius: 999px;
     background: var(--border-strong);
-    transition: width 0.2s var(--ease), background-color 0.15s ease;
+    transition: background-color 0.15s ease;
 }
 
 .paper-dot:hover::after {
@@ -195,6 +209,16 @@
 .paper-dot[aria-current="true"]::after {
     width: 16px;
     background: var(--accent-vermilion-mark);
+}
+
+.paper-count {
+    display: none;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.papers-section .ai-note {
+    margin-top: var(--s-5);
 }
 
 .paper-track {
@@ -298,6 +322,15 @@
     font-size: 0.9375rem;
     color: var(--text-secondary);
     max-width: 65ch;
+}
+
+.paper-summary-link {
+    display: inline-block;
+    padding-block: var(--s-1);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--primary);
+    text-underline-offset: 3px;
 }
 
 /* --- Tools index (Asymmetric Bento) --- */
@@ -512,17 +545,19 @@
         width: 100%;
     }
 
+    /* Twelve dots cannot each be a 44px target on a phone: show a count
+       between two full-size buttons instead. */
     .paper-dots {
-        justify-content: center;
+        display: none;
     }
 
-    .paper-dot {
-        width: 24px;
-        height: 32px;
+    .paper-count {
+        display: block;
     }
 
-    .paper-dot[aria-current="true"] {
-        width: 24px;
+    .paper-nav-btn {
+        width: 44px;
+        height: 44px;
     }
 
     .paper-card {

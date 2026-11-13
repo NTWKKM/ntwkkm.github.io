@@ -34,8 +34,12 @@ function sanitizeURL(url) {
     catch { return '#'; }
 }
 
+const FETCH_TIMEOUT_MS = 8000;
+
 /**
- * Fetch JSON with retries and exponential backoff.
+ * Fetch JSON with retries and exponential backoff. An attempt that gets no
+ * response within FETCH_TIMEOUT_MS is abandoned, so a stalled connection ends
+ * in the error state with its retry button instead of a skeleton that never resolves.
  * Requests revalidate with the server (`cache: 'no-cache'`), so fresh data
  * arrives without cache-busting query strings.
  * @param {string} url
@@ -44,11 +48,18 @@ function sanitizeURL(url) {
  */
 async function fetchWithFallback(url, fallbackData = null, maxRetries = 2) {
     for (let i = 0; i < maxRetries; i++) {
+        // The limit covers the wait for a response to start. Once headers
+        // arrive it is lifted, so a large file on a slow link is not cut off
+        // and downloaded again from the beginning.
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
         try {
-            const response = await fetch(url, { cache: 'no-cache' });
+            const response = await fetch(url, { cache: 'no-cache', signal: controller.signal });
+            clearTimeout(timer);
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
             return await response.json();
         } catch (error) {
+            clearTimeout(timer);
             console.warn(`[Fetch] Attempt ${i + 1}/${maxRetries} failed for ${url}:`, error.message);
             if (i < maxRetries - 1) {
                 await new Promise(resolve => setTimeout(resolve, 1000 * Math.pow(2, i)));
@@ -84,13 +95,16 @@ function createErrorUI(message, retryCallback) {
     </div>`;
 }
 
-document.addEventListener('click', (e) => {
-    const btn = e.target.closest('[data-retry]');
-    if (!btn) return;
-    const callback = retryCallbacks.get(btn.dataset.retry);
-    retryCallbacks.delete(btn.dataset.retry);
-    if (callback) callback();
-});
+// No document under `node --test`, where only the pure utilities are used.
+if (typeof document !== 'undefined') {
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-retry]');
+        if (!btn) return;
+        const callback = retryCallbacks.get(btn.dataset.retry);
+        retryCallbacks.delete(btn.dataset.retry);
+        if (callback) callback();
+    });
+}
 
 /**
  * Skeleton placeholder
@@ -150,6 +164,10 @@ function initSharedTheme() {
         root.setAttribute('data-theme', theme);
         toggleBtn.innerHTML = theme === 'dark' ? sunIcon : moonIcon;
         toggleBtn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+        // Browser chrome follows the page canvas in both themes.
+        const meta = document.querySelector('meta[name="theme-color"]');
+        const canvas = getComputedStyle(root).getPropertyValue('--bg-body').trim();
+        if (meta && canvas) meta.setAttribute('content', canvas);
     };
 
     // The inline head script has already set the attribute; keep the two in step.
@@ -211,10 +229,14 @@ function initServiceWorker() {
     });
 }
 
-initServiceWorker();
+if (typeof document !== 'undefined') {
+    initServiceWorker();
 
-document.addEventListener('DOMContentLoaded', () => {
-    initScreenReaderAnnouncer();
-    initSharedTheme();
-    initNetworkStatus();
-});
+    document.addEventListener('DOMContentLoaded', () => {
+        initScreenReaderAnnouncer();
+        initSharedTheme();
+        initNetworkStatus();
+    });
+}
+
+if (typeof module !== 'undefined' && module.exports) module.exports = { escapeHTML, sanitizeURL, debounce };

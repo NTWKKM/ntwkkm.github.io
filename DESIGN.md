@@ -25,6 +25,8 @@ We use a multi-font stack to separate UI labels, prose, Thai text, and technical
 - **Secondary Text (Thai Language)**: `Sarabun`
 - **Technical Data (Metrics, Logs, IDs, Status, Barcodes)**: `JetBrains Mono`, `Courier New`, monospace
 
+The three families are self-hosted: woff2 files in `assets/fonts/`, declared by `@font-face` at the top of `shared.css` with `font-display: swap`. Do not add a `<link>` to an external font service. A new weight or script means a new file there, a matching `@font-face`, and its name in the `FONTS` list of `sw.js`.
+
 Use the tokens, never a literal family: `var(--font-ui)`, `var(--font-thai)` (also applied by `.thai-text` / `lang="th"`, with 1.75 line height), `var(--font-mono)` (also `.mono` and `<time>`). Sizes come from `--text-xs` (12px) to `--text-xl`; running text is never below 12px. Labels and section headings are sentence case, untracked, never uppercase.
 
 ---
@@ -37,14 +39,14 @@ All colors MUST be referenced via CSS variables defined in `:root` and `[data-th
 
 - Canvas Background (`--bg-body`): `#ECECEE` (Neutral Cool Gray)
 - Card Container (`--bg-card`): `#FFFFFF` (Pure White)
-- Primary Text (`--text-main` / `--ink`): `#1d1d1f` on Card `#FFFFFF` (Contrast: 16.83:1, PASS WCAG AAA)
+- Primary Text (`--text-main`): `#1d1d1f` on Card `#FFFFFF` (Contrast: 16.83:1, PASS WCAG AAA)
 - Secondary Text (`--text-secondary` / `--graphite`): `#333333` on Canvas `#ECECEE` (Contrast: 10.71:1, PASS WCAG AAA)
 - Muted Text (`--text-muted`): `#636368` (5.0:1 on Canvas, 5.9:1 on Card, PASS WCAG AA Normal Text)
 - Card Border (`--border` / `--rule`): `1px solid #D8D8DC`
 - Border Strong (`--border-strong`): `#8E8E93` (edges of inputs and buttons, 3:1 on white)
 - Card Shadow (`--shadow`): `0 4px 20px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.04)`
 - Surface Contrast (Canvas vs Card): 1.18:1 (Clean, modern card separation)
-- Accent Signal (`--signal-orange`): `#d84315`; as small text use `--signal-ink` `#b5360f` (5.9:1 on white)
+- Accent Signal (`--signal-orange`): `#d84315`; as small text use `--accent-vermilion` `#b5360f` (5.9:1 on white)
 - Shared Card Hover Tokens: `--card-hover-bg: #F8F8FA`, `--card-hover-border: #1E3C72`, `--card-hover-icon-bg: rgba(30, 60, 114, 0.08)`
 - Semantic 4-Color Palette (Text Ink >= 5.0:1 / Mark & Border / Soft Icon Tint):
   - **Clinical Navy** (`--accent-navy`): `#1E3C72` (`9.15:1`–`10.80:1`) / mark `#1E3C72` / tint `rgba(30, 60, 114, 0.09)` — Clinical tools, Objective & Methods, PMIDs
@@ -92,7 +94,8 @@ Four tones bound via `[data-tone="navy|vermilion|teal|ochre"]` in `shared.css` (
 
 - **No Gradient Topbar:** Neither the homepage nor the reader uses a full-bleed navy gradient bar. Both pages sit directly on `--bg-body` (`#ECECEE` light / `#121E36` dark).
 - **Homepage Masthead:** The homepage opens with an editorial masthead (`NTWKKM` display title and subtitle left, quiet right-aligned controls for `Research Blog`, `#theme-toggle`, and GitHub), anchored by a `1px solid var(--text-main)` bottom rule. The reader (`blog.html`) carries its brand link inside the sidebar header.
-- **Favicons / Icons:** SVGs used in favicons are standardized to the Rams color palette (background `#1e3c72`, rounded corners `rx="4"`, and warm off-white text `#F0EDE5`), ensuring brand alignment down to the browser tab indicator. Standard PWA icons retain rounded corners (`rx`), while maskable PWA icons use flat, full-bleed squares (`rx="0"`) with scaled-down text to prevent clipping in circular/squircle shapes.
+- **About line:** one sentence under the masthead rule (`.masthead-about`, `--text-secondary`, at most 64ch) says who the site belongs to and what it holds. It replaces a footer slogan; the footer states facts only.
+- **Favicons / Icons:** SVGs used in favicons are standardized to the Rams color palette (background `#1e3c72`, rounded corners `rx="4"`, and warm off-white text `#F0EDE5`), ensuring brand alignment down to the browser tab indicator. The PWA icons are PNG files in `assets/icons/` in the same two colours: standard icons keep rounded corners, while maskable icons and the iOS `apple-touch-icon` are flat, full-bleed squares with a smaller letter so a circular or squircle mask does not clip it.
 - **Mobile:** Masthead controls maintain 44px touch targets at the right edge; `Research Blog` collapses to an icon button on narrow screens (`<= 640px`).
 
 ### 4.3. Badges and Chips
@@ -101,11 +104,17 @@ Four tones bound via `[data-tone="navy|vermilion|teal|ochre"]` in `shared.css` (
 - Chips (`.filter-tag`, `.tag-badge`) use background `var(--bg-card)` and a 1px border; they are `<button>`s with `aria-pressed`.
 - Active filters use high-contrast ink: background `var(--text-main)`, color `var(--bg-card)`.
 
-### 4.4. Buttons & Controls
+### 4.4. AI Provenance Note
+
+- Any block of AI-written text (reader summary, homepage paper comments) carries one `.ai-note` line: `--text-sm`, `--text-muted`, sentence case, no icon, no tinted background. It says what the AI did and tells the reader to check the original paper.
+- A date beside AI-summarized content is labelled for what it is (`Added 12 Nov 2026`), never left bare where it could be read as a publication date.
+
+### 4.5. Buttons & Controls
 
 - **Standard Button** (`.btn`): `var(--bg-card)`, border `var(--border-strong)`, 40px tall (44px on touch layouts).
 - **Primary Button** (`.btn.btn-primary`): solid ink (`var(--text-main)`), text `var(--bg-card)`, no shadow. One per view.
-- **Icon Button** (`.icon-btn`): 36px square (44px on touch layouts), borderless; always carries an `aria-label`.
+- **Icon Button** (`.icon-btn`): 36px square (44px where the pointer is coarse, whatever the width), borderless; always carries an `aria-label`.
+- **Pagers on phones:** a row of dots that cannot give each dot a 44px target is replaced at `<= 640px` by a mono count (`1 / 12`) between two 44px previous/next buttons.
 - Every clickable thing is a `<button>` or `<a>`; `:focus-visible` shows a 2px `var(--primary)` ring; `:disabled` is 45% opacity.
 
 ---
@@ -120,5 +129,5 @@ Four tones bound via `[data-tone="navy|vermilion|teal|ochre"]` in `shared.css` (
 4. [ ] "Rows answer hover with `var(--card-hover-bg)`; no lifts, no shadows on in-flow content, never `transition: all`, animate only `transform`, `opacity` and colours."
 5. [ ] "Category tags/badges must be text-only colors, never solid colored backgrounds."
 6. [ ] "Ensure the layout is responsive and supports the Inverted Dark Theme color variables."
-7. [ ] "Run `node ~/.claude/skills/hallmark/scripts/sloplint.mjs . --scope app --genre modern-minimal` when available; keep the stamp and waiver lines at the top of `shared.css`."
+7. [ ] "Run `node .github/scripts/lint-css.js` (also run in CI before every deploy), and `node ~/.claude/skills/hallmark/scripts/sloplint.mjs . --scope app --genre modern-minimal` when available; keep the stamp and waiver lines at the top of `shared.css`."
 8. [ ] "Every anchor link that opens in a new tab (`target="_blank"`) MUST strictly define `rel="noopener noreferrer"` to prevent tabnabbing security vulnerabilities."

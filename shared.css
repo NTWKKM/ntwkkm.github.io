@@ -12,6 +12,63 @@
    Every colour and font is a token here; page stylesheets add none.
    =================================================================== */
 
+/* --- Fonts: served from this origin so they load offline and nothing
+   third-party blocks first paint. Files are the Google Fonts woff2 subsets
+   (SIL Open Font License); Inter Tight is one variable file for 400 to 700. --- */
+@font-face {
+    font-family: "Inter Tight";
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("assets/fonts/inter-tight-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("assets/fonts/jetbrains-mono-latin-400.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "Sarabun";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("assets/fonts/sarabun-thai-400.woff2") format("woff2");
+    unicode-range: U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC;
+}
+
+@font-face {
+    font-family: "Sarabun";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("assets/fonts/sarabun-latin-400.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: "Sarabun";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("assets/fonts/sarabun-thai-600.woff2") format("woff2");
+    unicode-range: U+02D7, U+0303, U+0331, U+0E01-0E5B, U+200C-200D, U+25CC;
+}
+
+@font-face {
+    font-family: "Sarabun";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("assets/fonts/sarabun-latin-600.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
     color-scheme: light;
 
@@ -43,11 +100,8 @@
     --gutter: clamp(16px, 4vw, 40px);
 
     /* Slate (light) */
-    --ink:            #1d1d1f;
     --signal-orange:  #d84315;
-    --signal-ink:     #b5360f; /* the signal as small text, 5.9:1 on white */
     --primary:        #1e3c72;
-    --primary-hover:  #49628d;
     --on-primary:     #ffffff;
 
     /* 4-Color Clinical Editorial Semantic Accents (light) */
@@ -92,7 +146,6 @@
     --card-hover-border:   #1e3c72;
     --card-hover-icon-bg:  rgba(30, 60, 114, 0.08);
 
-    --state-ok:       #4d5c32;
     --state-warn:     #8a6220;
     --highlight:      rgba(251, 191, 36, 0.35);
     --backdrop:       rgba(18, 30, 54, 0.6);
@@ -107,11 +160,8 @@
     color-scheme: dark;
 
     /* Titanium Navy (dark) */
-    --ink:            #E2E8F0;
     --signal-orange:  #FF7A45;
-    --signal-ink:     #FF7A45;
     --primary:        #93c5fd;
-    --primary-hover:  #bfdbfe;
     --on-primary:     #121E36;
 
     /* 4-Color Clinical Editorial Semantic Accents (dark) */
@@ -153,7 +203,6 @@
     --card-hover-border:   #4E78BC;
     --card-hover-icon-bg:  rgba(147, 197, 253, 0.20);
 
-    --state-ok:       #abc585;
     --state-warn:     #e0b46d;
     --highlight:      rgba(251, 191, 36, 0.40);
     --backdrop:       rgba(6, 12, 24, 0.7);
@@ -400,6 +449,24 @@ time {
 
 .retry-btn {
     margin-top: var(--s-2);
+}
+
+/* --- AI provenance and no-script notes --- */
+.ai-note {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+}
+
+.noscript-note {
+    padding: var(--s-4) var(--gutter);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.noscript-note a {
+    font-weight: 600;
+    color: var(--primary);
+    text-underline-offset: 3px;
 }
 
 /* --- Search highlight --- */

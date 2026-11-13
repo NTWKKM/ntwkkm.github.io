@@ -264,6 +264,10 @@
     display: none;
 }
 
+.article-list {
+    list-style: none;
+}
+
 .article-list-item {
     display: grid;
     gap: var(--s-1);
@@ -418,6 +422,27 @@
     color: var(--text-main);
 }
 
+.route-notice {
+    margin-bottom: var(--s-6);
+    padding: var(--s-3) var(--s-4);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-left: 2px solid var(--accent-ochre-mark);
+    border-radius: var(--radius);
+}
+
+.route-notice[hidden] {
+    display: none;
+}
+
+.route-notice a {
+    font-weight: 600;
+    color: var(--primary);
+    text-underline-offset: 3px;
+}
+
 .article-meta {
     display: flex;
     flex-wrap: wrap;
@@ -489,8 +514,12 @@
     color: var(--primary);
 }
 
+.article-view .ai-note {
+    margin-top: var(--s-5);
+}
+
 #formatted-summary-container {
-    margin-top: var(--s-8);
+    margin-top: var(--s-4);
     border-top: 1px solid var(--text-main);
 }
 
@@ -696,7 +725,7 @@
     display: none;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 900px) {
     #app-container.sidebar-hidden {
         grid-template-columns: minmax(0, 1fr);
     }
@@ -711,7 +740,7 @@
 }
 
 /* --- Tablet and phone: the list becomes a drawer, actions move to the thumb --- */
-@media (max-width: 1024px) {
+@media (max-width: 899px) {
     #app-container {
         grid-template-columns: minmax(0, 1fr);
     }
@@ -750,15 +779,6 @@
     .sidebar-open .sidebar-overlay {
         opacity: 1;
         pointer-events: auto;
-    }
-
-    .icon-btn {
-        width: 44px;
-        height: 44px;
-    }
-
-    .filter-tag {
-        min-height: 36px;
     }
 
     .reader-toolbar .citation-btn,
@@ -806,6 +826,19 @@
 
     .pwa-update-bar {
         bottom: 72px;
+    }
+}
+
+/* Touch targets follow the input device, not the width: a tablet in
+   landscape has the docked layout and still needs finger-sized controls. */
+@media (pointer: coarse) {
+    .icon-btn {
+        width: 44px;
+        height: 44px;
+    }
+
+    .filter-tag {
+        min-height: 36px;
     }
 }
 
