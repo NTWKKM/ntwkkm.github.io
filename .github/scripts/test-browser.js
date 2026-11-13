@@ -48,6 +48,7 @@ const fs = require('fs');
     console.log(`Started local static server on http://localhost:${PORT}`);
 
     const launchArgs = process.env.CI ? ['--no-sandbox'] : [];
+    // PUPPETEER_EXECUTABLE_PATH, when set, is honoured by puppeteer.launch itself.
     browser = await puppeteer.launch({ headless: true, args: launchArgs });
     const page = await browser.newPage();
     
@@ -75,11 +76,39 @@ const fs = require('fs');
         console.log(`\n--- Testing ${target || 'index.html'} [Viewport: ${vp.name}] ---`);
         await page.setViewport({ width: vp.width, height: vp.height });
         await page.goto(fileUrl, { waitUntil: 'networkidle0', timeout: 30000 });
+
+        // What a reader must be able to see, and that nothing runs past the
+        // viewport (html clips overflow, so only a measurement catches it).
+        const problems = await page.evaluate((isReader) => {
+            const found = [];
+            const count = sel => document.querySelectorAll(sel).length;
+            if (isReader) {
+                if (count('.article-list-item') === 0) found.push('reader: the paper list is empty');
+                if (count('.research-section') === 0) found.push('reader: the open paper has no summary sections');
+                if (!document.getElementById('post-title').textContent.trim()) found.push('reader: the paper has no title');
+            } else {
+                if (count('.paper-card') === 0) found.push('home: no papers rendered');
+                if (count('.project-card') === 0) found.push('home: no tools rendered');
+            }
+            if (count('.error-state') > 0) found.push('an error state is showing');
+            const width = document.documentElement.clientWidth;
+            document.querySelectorAll('main, main section, .masthead-inner, .site-footer, .article-view').forEach((el) => {
+                const box = el.getBoundingClientRect();
+                if (box.width && box.right > width + 1) {
+                    found.push(`${el.id || el.className} runs ${Math.round(box.right - width)}px past the viewport`);
+                }
+            });
+            return found;
+        }, target === 'blog.html');
+        problems.forEach((problem) => {
+            console.log('ASSERTION FAILED:', problem);
+            pageErrors.push(new Error(`${target || 'index.html'} @ ${vp.name}: ${problem}`));
+        });
       }
     }
 
     if (pageErrors.length > 0) {
-      throw new Error(`Test failed with ${pageErrors.length} page errors.`);
+      throw new Error(`Test failed with ${pageErrors.length} page error(s) or failed assertion(s).`);
     }
     
     console.log('\n✅ All tests passed successfully.');

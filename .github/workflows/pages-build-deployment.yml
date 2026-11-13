@@ -16,6 +16,12 @@ on:
   repository_dispatch:
     types: [update-pl-site]
   workflow_call:
+    inputs:
+      ref:
+        description: Commit to test and deploy. Empty means the commit that triggered the run.
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -27,14 +33,29 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # A commit that fails the unit tests, the CSS lint or the browser tests is
+  # not deployed.
+  test:
+    uses: ./.github/workflows/browser-test.yml
+    with:
+      ref: ${{ inputs.ref }}
+    permissions:
+      contents: read
+
   build:
+    needs: test
     runs-on: ubuntu-latest
     steps:
+      # A caller passes the commit it just pushed. Without it, a run started by
+      # process-blog-data.yml would check out the commit that triggered that
+      # run, which does not contain the processed chunks.
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
 
-      # ดึงข้อมูลจาก Private Repository มาวางไว้ในโฟลเดอร์ pl/
-      # ไฟล์ tree_encrypted.json และ external_links_encrypted.json ถูกสร้างใน pl repo แล้ว
+      # Place the private repository under pl/. Its tree_encrypted.json and
+      # external_links_encrypted.json are already built in the pl repo.
       - name: Checkout private pl repository
         uses: actions/checkout@v4
         with:

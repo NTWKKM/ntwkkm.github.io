@@ -8,12 +8,12 @@ on:
       - main
     paths-ignore:
       - "README.md"
-      - "latest_updates.json" # ป้องกันไม่ให้รันตอน n8n เพิ่งส่งไฟล์มา (ให้รอ process-blog-data รันให้เสร็จก่อน)
+      - "latest_updates.json" # wait for process-blog-data to finish instead of running on the raw n8n push
   workflow_dispatch:
   workflow_call:
 
 permissions:
-  contents: write # ขอสิทธิ์ในการเขียนไฟล์ (Commit/Push)
+  contents: write # needed to commit and push README.md
 
 concurrency:
   group: readme-update
@@ -26,32 +26,32 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
-      # 1. Checkout โค้ด
+      # 1. Check out the code
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      # 2. ติดตั้ง Node.js
+      # 2. Install Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "24"
 
-      # ---> เพิ่มสเต็ปนี้: เพื่อดึงไฟล์ที่มีการอัปเดตล่าสุดป้องกันการ push ชนกัน <---
+      # Pull whatever landed since checkout, so the push below does not collide.
       - name: Pull latest changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git pull origin main --rebase
 
-      # 3. รันสคริปต์ Node.js เพื่อสร้าง README.md ใหม่
+      # 3. Regenerate README.md
       - name: Generate New README Content
         run: node .github/scripts/generate_readme.js
 
-      # 4. Commit และ Push Changes
+      # 4. Commit and push (third-party action, pinned to the v5 commit)
       - name: Commit and Push Changes
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@b863ae1933cb653a53c021fe36dbb774e1fb9403 # v5
         with:
           commit_message: "docs: Auto-update Repository Contents in README.md"
           file_pattern: "README.md"

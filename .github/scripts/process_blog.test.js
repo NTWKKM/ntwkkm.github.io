@@ -1,7 +1,7 @@
 // Run with: node --test ".github/scripts/*.test.js"
 const test = require('node:test');
 const assert = require('node:assert');
-const { mergeUpdates, buildPostIndex, ITEMS_PER_FILE } = require('./process_blog');
+const { mergeUpdates, dedupe, buildPostIndex, ITEMS_PER_FILE } = require('./process_blog');
 const { specialtiesOf, designOf, SPECIALTIES, DESIGNS } = require('./taxonomy');
 
 const post = (id, pmid, extra = {}) => ({
@@ -35,6 +35,51 @@ test('new posts fill the last chunk, then open the next one', () => {
     assert.deepStrictEqual(chunks[1].posts.map(p => p.id), ['n2']);
 });
 
+test('an edit keeps the date the paper first arrived', () => {
+    const chunks = [{ number: 1, posts: [post('a', '1')] }];
+    mergeUpdates(chunks, [post('n', '2', { property_last_edited_time: '2026-03-01T00:00:00.000Z' })]);
+    mergeUpdates(chunks, [
+        post('a', '1', { property_last_edited_time: '2026-09-09T00:00:00.000Z' }),
+        post('n', '2', { property_last_edited_time: '2026-10-10T00:00:00.000Z' }),
+    ]);
+    const dates = Object.fromEntries(buildPostIndex(chunks).posts.map(r => [r[0], new Date(r[2]).toISOString().slice(0, 10)]));
+    assert.deepStrictEqual(dates, { a: '2026-01-01', n: '2026-03-01' });
+});
+
+test('dedupe keeps the newest record of a repeated PMID, across chunks', () => {
+    const chunks = [
+        { number: 1, posts: [post('old', '7'), post('other', '8')] },
+        { number: 2, posts: [post('new', '7', { property_last_edited_time: '2026-06-01T00:00:00.000Z' })] },
+    ];
+    assert.strictEqual(dedupe(chunks), 1);
+    assert.deepStrictEqual(chunks.map(c => c.posts.map(p => p.id)), [['other'], ['new']]);
+});
+
+test('dedupe drops a repeated Notion id and leaves records without a PMID alone', () => {
+    const chunks = [{ number: 1, posts: [post('a', '1'), post('a', '1'), post('x', ''), post('y', '')] }];
+    assert.strictEqual(dedupe(chunks), 1);
+    assert.deepStrictEqual(chunks[0].posts.map(p => p.id), ['a', 'x', 'y']);
+});
+
+test('dedupe keeps the earliest arrival date on the surviving record', () => {
+    // The survivor is the latest edit (June), but the paper first arrived in
+    // January through the copy that is dropped; one copy states first_seen.
+    const chunks = [
+        { number: 1, posts: [post('old', '7', { property_last_edited_time: '2026-03-01T00:00:00.000Z', first_seen: '2026-01-05T00:00:00.000Z' })] },
+        { number: 2, posts: [post('new', '7', { property_last_edited_time: '2026-06-01T00:00:00.000Z' })] },
+    ];
+    assert.strictEqual(dedupe(chunks), 1);
+    assert.strictEqual(chunks[1].posts[0].id, 'new');
+    assert.strictEqual(chunks[1].posts[0].first_seen, '2026-01-05T00:00:00.000Z');
+    const row = buildPostIndex(chunks).posts[0];
+    assert.strictEqual(new Date(row[2]).toISOString().slice(0, 10), '2026-01-05');
+
+    // Without first_seen, the earlier edit date of the dropped copy is the arrival.
+    const plain = [{ number: 1, posts: [post('a', '8', { property_last_edited_time: '2026-02-01T00:00:00.000Z' }), post('b', '8', { property_last_edited_time: '2026-04-01T00:00:00.000Z' })] }];
+    dedupe(plain);
+    assert.deepStrictEqual(plain[0].posts.map(p => [p.id, p.first_seen]), [['b', '2026-02-01T00:00:00.000Z']]);
+});
+
 test('the index is newest first and records each post\'s chunk', () => {
     const chunks = [
         { number: 1, posts: [post('old', '1')] },
@@ -63,6 +108,19 @@ test('study design is read from the summary line', () => {
     assert.strictEqual(d('N/A (Editorial/Case Report)'), null);
     assert.strictEqual(d('ไม่ระบุข้อมูลในบทคัดย่อ'), null);
     assert.strictEqual(designId(post('a', '1')), null);
+});
+
+test('with no design line, the title decides, and only when it names a design', () => {
+    const t = name => designId(post('a', '1', { name }));
+    assert.strictEqual(t('Ketamine for agitation: a systematic review and meta-analysis'), 'sr');
+    assert.strictEqual(t('A Randomized Clinical Trial of early vasopressors'), 'rct');
+    assert.strictEqual(t('Outcomes in a non-randomized cohort of trauma patients'), 'cohort');
+    assert.strictEqual(t('Tension pneumocephalus: a case report'), 'case');
+    assert.strictEqual(t('Operationalizing troponin pathways'), null);
+    // An empty design line falls back to the title instead of reading the next line.
+    assert.strictEqual(designId(post('a', '1', { name: 'A randomized trial of X', property_comment: '- Study Design:\n- Clinical Relevance: useful' })), 'rct');
+    // A stated design still wins over the title.
+    assert.strictEqual(designId(post('a', '1', { name: 'A systematic review', property_comment: '- Study Design: Cohort study' })), 'cohort');
 });
 
 test('the Thai study design label is read like the English one', () => {
@@ -102,6 +160,7 @@ test('a corrupt manifest stops the run; an absent one starts empty', () => {
     const fresh = fs.mkdtempSync(path.join(os.tmpdir(), 'blog-'));
     runIn(fresh);
     assert.strictEqual(JSON.parse(fs.readFileSync(path.join(fresh, 'data/blog/index.json'), 'utf8')).count, 0);
+    assert.deepStrictEqual(JSON.parse(fs.readFileSync(path.join(fresh, 'data/blog/pmids.json'), 'utf8')), []);
 
     fs.rmSync(bad, { recursive: true, force: true });
     fs.rmSync(fresh, { recursive: true, force: true });

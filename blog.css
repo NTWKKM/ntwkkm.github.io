@@ -9,6 +9,7 @@
 }
 
 .main-content {
+    grid-column: 2;
     min-width: 0;
 }
 
@@ -17,25 +18,26 @@
     position: fixed;
     inset: 0 0 auto 0;
     z-index: 300;
-    height: 3px;
+    height: 2px;
     pointer-events: none;
 }
 
 .reading-progress-bar {
     height: 100%;
-    background: linear-gradient(90deg, var(--accent-navy-mark) 0%, var(--accent-teal-mark) 55%, var(--accent-vermilion-mark) 100%);
+    background: var(--primary);
     transform: scaleX(0);
     transform-origin: left;
 }
 
 /* --- Sidebar --- */
 .sidebar {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 60;
+    width: 360px;
     display: grid;
     grid-template-rows: auto minmax(0, 1fr) auto;
     height: 100dvh;
-    background: var(--bg-sidebar);
     border-right: 1px solid var(--border);
 }
 
@@ -43,6 +45,7 @@
     display: grid;
     gap: var(--s-3);
     padding: var(--s-4);
+    background: var(--bg-sidebar);
     border-bottom: 1px solid var(--border);
 }
 
@@ -214,20 +217,11 @@
     border-color: var(--border-strong);
 }
 
-.filter-tag[data-tone]:not([aria-pressed="true"]) {
-    color: var(--tone-ink);
-    border-left: 2px solid var(--tone-mark);
-}
-
 .filter-tag[aria-pressed="true"],
 .citation-format-tab[aria-pressed="true"] {
     color: var(--bg-card);
     background: var(--text-main);
     border-color: var(--text-main);
-}
-
-.filter-tag[data-tone][aria-pressed="true"] {
-    border-left: 2px solid var(--tone-mark);
 }
 
 .tag-count {
@@ -246,6 +240,7 @@
 .sidebar-content {
     overflow-y: auto;
     overscroll-behavior: contain;
+    background: var(--bg-sidebar);
 }
 
 .articles-label {
@@ -262,6 +257,10 @@
 
 #loading-indicator[hidden] {
     display: none;
+}
+
+.article-list {
+    list-style: none;
 }
 
 .article-list-item {
@@ -284,7 +283,11 @@
 
 .article-list-item.active {
     background: var(--bg-paper-list);
-    box-shadow: inset 3px 0 0 var(--accent-vermilion-mark);
+}
+
+.article-list-item.active .list-title {
+    color: var(--primary);
+    font-weight: 700;
 }
 
 .list-title {
@@ -312,8 +315,8 @@
     white-space: nowrap;
 }
 
-.list-spec[data-tone] {
-    color: var(--tone-ink);
+.list-spec {
+    color: var(--text-secondary);
     font-weight: 600;
 }
 
@@ -335,8 +338,23 @@
     align-items: center;
     justify-content: space-between;
     padding: var(--s-2) var(--s-3);
+    color: var(--text-secondary);
     background: var(--bg-sidebar);
     border-top: 1px solid var(--border);
+}
+
+/* Without JavaScript the list is never filled and the drawer can never be
+   closed; hide it so the fixed panel does not cover the <noscript> notice. */
+html:not(.js) .sidebar {
+    display: none;
+}
+
+html:not(.js) #app-container {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+html:not(.js) .main-content {
+    grid-column: 1;
 }
 
 .page-info {
@@ -359,8 +377,27 @@
     border-bottom: 1px solid var(--border);
 }
 
-.sidebar-open-btn {
+.sidebar-open-btn,
+.toolbar-home {
     display: none;
+}
+
+.toolbar-home {
+    align-items: center;
+    gap: var(--s-2);
+    min-height: 36px;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: var(--radius);
+}
+
+.toolbar-home svg {
+    color: var(--primary);
+}
+
+.toolbar-home:hover span {
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .toolbar-actions {
@@ -418,6 +455,26 @@
     color: var(--text-main);
 }
 
+.route-notice {
+    margin-bottom: var(--s-6);
+    padding: var(--s-3) var(--s-4);
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    background: var(--bg-card);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+}
+
+.route-notice[hidden] {
+    display: none;
+}
+
+.route-notice a {
+    font-weight: 600;
+    color: var(--primary);
+    text-underline-offset: 3px;
+}
+
 .article-meta {
     display: flex;
     flex-wrap: wrap;
@@ -431,11 +488,11 @@
 }
 
 #post-id {
-    color: var(--accent-navy);
+    color: var(--text-muted);
 }
 
 #post-design {
-    color: var(--accent-teal);
+    color: var(--primary);
     font-weight: 600;
 }
 
@@ -458,21 +515,16 @@
     padding: 0 var(--s-3);
     font-size: var(--text-sm);
     font-weight: 600;
-    color: var(--text-main);
+    color: var(--primary);
     background: var(--bg-card);
-    border: 1px solid var(--border-strong);
+    border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
-.tag-badge[data-tone] {
-    color: var(--tone-ink);
-    border-left: 2px solid var(--tone-mark);
-}
-
 .tag-badge:hover {
     background: var(--card-hover-bg);
-    border-color: var(--card-hover-border);
+    border-color: var(--border-strong);
 }
 
 .tag-link {
@@ -489,8 +541,12 @@
     color: var(--primary);
 }
 
+.article-view .ai-note {
+    margin-top: var(--s-5);
+}
+
 #formatted-summary-container {
-    margin-top: var(--s-8);
+    margin-top: var(--s-4);
     border-top: 1px solid var(--text-main);
 }
 
@@ -510,6 +566,7 @@
     letter-spacing: 0;
     line-height: 1.5;
     color: var(--text-muted);
+    scroll-margin-top: 80px;
 }
 
 .sec-content {
@@ -522,28 +579,19 @@
     margin-top: var(--s-3);
 }
 
-.section-objective .sec-header,
-.section-methods .sec-header {
-    color: var(--accent-navy);
-}
-
-.section-results .sec-header,
-.section-study-design .sec-header {
-    color: var(--accent-teal);
-}
-
 /* The takeaway a clinician came for: the one section set on a card */
 .section-clinical-relevance {
     margin-top: var(--s-6);
     padding: var(--s-5);
+    color: var(--text-main);
     background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-top: 2px solid var(--accent-vermilion-mark);
+    border: 1px solid var(--border-strong);
     border-radius: var(--radius);
 }
 
 .section-clinical-relevance .sec-header {
-    color: var(--accent-vermilion);
+    color: var(--primary);
+    font-weight: 700;
 }
 
 .summary-missing {
@@ -562,6 +610,7 @@
 /* --- Related papers --- */
 .related-papers-section {
     margin-top: var(--s-12);
+    scroll-margin-top: 80px;
 }
 
 .related-papers-section[hidden] {
@@ -696,32 +745,38 @@
     display: none;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 900px) {
     #app-container.sidebar-hidden {
         grid-template-columns: minmax(0, 1fr);
+    }
+
+    .sidebar-hidden .main-content {
+        grid-column: 1;
     }
 
     .sidebar-hidden .sidebar {
         display: none;
     }
 
-    .sidebar-hidden .sidebar-open-btn {
+    .sidebar-hidden .sidebar-open-btn,
+    .sidebar-hidden .toolbar-home {
         display: inline-flex;
     }
 }
 
 /* --- Tablet and phone: the list becomes a drawer, actions move to the thumb --- */
-@media (max-width: 1024px) {
+@media (max-width: 899px) {
     #app-container {
         grid-template-columns: minmax(0, 1fr);
     }
 
+    .main-content {
+        grid-column: 1;
+    }
+
     .sidebar {
-        position: fixed;
-        inset: 0 auto 0 0;
         z-index: 210;
         width: min(380px, 90%);
-        box-shadow: var(--shadow-hover);
         transition: transform 0.25s var(--ease), visibility 0.25s;
     }
 
@@ -752,18 +807,18 @@
         pointer-events: auto;
     }
 
-    .icon-btn {
-        width: 44px;
-        height: 44px;
-    }
-
-    .filter-tag {
-        min-height: 36px;
-    }
-
     .reader-toolbar .citation-btn,
     .reader-toolbar .article-navigation {
         display: none;
+    }
+
+    .toolbar-home {
+        display: inline-flex;
+        min-height: 44px;
+    }
+
+    .sec-header {
+        scroll-margin-bottom: 72px;
     }
 
     .reader-grid {
@@ -806,6 +861,19 @@
 
     .pwa-update-bar {
         bottom: 72px;
+    }
+}
+
+/* Touch targets follow the input device, not the width: a tablet in
+   landscape has the docked layout and still needs finger-sized controls. */
+@media (pointer: coarse) {
+    .icon-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .filter-tag {
+        min-height: 36px;
     }
 }
 

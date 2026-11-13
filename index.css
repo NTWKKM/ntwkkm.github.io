@@ -1,9 +1,9 @@
 /* Hallmark · v2.0.0 · built: the project · redesign: full · scope: app · system: DESIGN.md (locked) · theme: Slate and Titanium Navy (brand) · genre: modern-minimal · hero: none (app screens) · nav: editorial masthead (display title and descriptor left, quiet utilities right, ink hairline under) · signature: horizontal scroll-snap paper ledger with dot marks and asymmetric tools bento */
-/* critique: replaced the paper CTA buttons with a native scroll-snap horizontal carousel driven by accessible dot marks so all 70 papers are browsable in place while keeping ~1:1 visual proportion with Clinical Systems & Tools · finish-review: verified at 1440, 768, 390 · 0 FAIL */
+/* critique: replaced the paper CTA buttons with a native scroll-snap horizontal carousel driven by accessible dot marks and shifted the directory to pure monochrome print rules without accent stripes or decorative squares · finish-review: 2026-11-13 at 375, 1280 and 1440 · sloplint 0 FAIL */
 /* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · balanced both sections to comparable vertical footprints without sacrificing scannability */
 /* Hallmark · dropped "All Rights Reserved" · 19 names the stock footer line */
 
-/* Homepage: editorial masthead, two-column paper ledger, and asymmetric tools bento.
+/* Homepage: editorial masthead, two-column paper ledger, and monochrome ruled tools directory.
    Tokens live in shared.css; this file adds layout only. */
 
 .container {
@@ -77,6 +77,7 @@
 /* --- Main sections stack --- */
 .page-sections {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--s-10);
     padding-block: var(--s-8) var(--s-12);
 }
@@ -96,24 +97,6 @@
     align-items: baseline;
     gap: var(--s-1) var(--s-3);
     min-width: 0;
-}
-
-.section-heading::before {
-    content: "";
-    align-self: center;
-    width: 8px;
-    height: 8px;
-    border-radius: var(--radius-sm);
-    background: var(--accent-navy-mark);
-    flex-shrink: 0;
-}
-
-#papers-section .section-heading::before {
-    background: var(--accent-teal-mark);
-}
-
-#works-section .section-heading::before {
-    background: var(--accent-navy-mark);
 }
 
 .section-title {
@@ -143,8 +126,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    min-width: 32px;
+    min-height: 32px;
     color: var(--text-secondary);
     border-radius: var(--radius);
     touch-action: manipulation;
@@ -169,10 +152,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 28px;
+    min-width: 24px;
+    min-height: 32px;
     touch-action: manipulation;
-    transition: width 0.2s var(--ease);
 }
 
 .paper-dot::after {
@@ -181,7 +163,7 @@
     height: 7px;
     border-radius: 999px;
     background: var(--border-strong);
-    transition: width 0.2s var(--ease), background-color 0.15s ease;
+    transition: background-color 0.15s ease;
 }
 
 .paper-dot:hover::after {
@@ -189,12 +171,22 @@
 }
 
 .paper-dot[aria-current="true"] {
-    width: 28px;
+    min-width: 28px;
 }
 
 .paper-dot[aria-current="true"]::after {
     width: 16px;
-    background: var(--accent-vermilion-mark);
+    background: var(--primary);
+}
+
+.paper-count {
+    display: none;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+}
+
+.papers-section .ai-note {
+    margin-top: var(--s-5);
 }
 
 .paper-track {
@@ -258,7 +250,7 @@
 .paper-date {
     padding-top: 2px;
     font-size: var(--text-xs);
-    color: var(--accent-teal);
+    color: var(--text-muted);
     white-space: nowrap;
 }
 
@@ -300,6 +292,15 @@
     max-width: 65ch;
 }
 
+.paper-summary-link {
+    display: inline-block;
+    padding-block: var(--s-1);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--primary);
+    text-underline-offset: 3px;
+}
+
 /* --- Tools index (Asymmetric Bento) --- */
 .works-section {
     min-width: 0;
@@ -321,13 +322,12 @@
 }
 
 .project-group-title {
-    margin-bottom: var(--s-2);
-    padding-left: var(--s-2);
+    padding-bottom: var(--s-2);
     font-size: var(--text-sm);
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0;
-    color: var(--tone-ink, var(--text-muted));
-    border-left: 2px solid var(--tone-mark, var(--border-strong));
+    color: var(--text-main);
+    border-bottom: 1px solid var(--text-main);
 }
 
 .project-list {
@@ -335,20 +335,12 @@
     display: flex;
     flex-direction: column;
     list-style: none;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-top: 2px solid var(--tone-mark, var(--border));
-    border-radius: var(--radius);
-    overflow: clip;
 }
 
 .project-list li {
     display: flex;
     min-width: 0;
-}
-
-.project-list li + li {
-    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border);
 }
 
 .project-card {
@@ -357,9 +349,9 @@
     grid-template-columns: 36px minmax(0, 1fr) auto;
     align-items: center;
     gap: var(--s-3);
-    padding: var(--s-3) var(--s-4);
+    padding: var(--s-3);
     text-decoration: none;
-    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+    transition: background-color 0.15s ease;
 }
 
 .project-card:focus-visible {
@@ -367,8 +359,7 @@
 }
 
 .project-card:hover {
-    background: var(--card-hover-bg);
-    box-shadow: inset 3px 0 0 var(--tone-mark, var(--card-hover-border));
+    background: var(--bg-card);
 }
 
 .project-icon {
@@ -376,9 +367,16 @@
     place-items: center;
     width: 36px;
     height: 36px;
-    color: var(--tone-ink, var(--primary));
-    background: var(--tone-tint, var(--card-hover-icon-bg));
+    color: var(--primary);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
     border-radius: var(--radius);
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.project-card:hover .project-icon {
+    background: var(--card-hover-icon-bg);
+    border-color: var(--border-strong);
 }
 
 .project-body {
@@ -394,16 +392,20 @@
 }
 
 .project-card:hover .project-title {
-    color: var(--tone-ink, var(--primary));
+    color: var(--primary);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .project-status {
+    display: inline-block;
     margin-left: var(--s-1);
-    padding: 1px var(--s-2);
+    padding: 2px var(--s-2);
     font-size: var(--text-xs);
     font-weight: 400;
-    color: var(--accent-ochre);
-    border: 1px solid var(--accent-ochre-mark);
+    line-height: 1.3;
+    color: var(--text-muted);
+    border: 1px solid var(--border-strong);
     border-radius: var(--radius-sm);
 }
 
@@ -420,7 +422,7 @@
 }
 
 .project-card:hover .project-external-arrow {
-    color: var(--tone-ink, var(--primary));
+    color: var(--primary);
     transform: translate(2px, -2px);
 }
 
@@ -449,8 +451,7 @@
     }
 
     .project-group:nth-child(4) .project-list li + li {
-        border-top: 0;
-        border-left: 1px solid var(--border-light);
+        border-left: 1px solid var(--border);
     }
 }
 
@@ -486,15 +487,15 @@
     }
 
     .masthead-link {
-        width: 44px;
+        min-width: 44px;
         min-height: 44px;
         justify-content: center;
         padding: 0;
     }
 
     .masthead-controls .icon-btn {
-        width: 44px;
-        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
     }
 
     .page-sections {
@@ -512,17 +513,19 @@
         width: 100%;
     }
 
+    /* Twelve dots cannot each be a 44px target on a phone: show a count
+       between two full-size buttons instead. */
     .paper-dots {
-        justify-content: center;
+        display: none;
     }
 
-    .paper-dot {
-        width: 24px;
-        height: 32px;
+    .paper-count {
+        display: block;
     }
 
-    .paper-dot[aria-current="true"] {
-        width: 24px;
+    .paper-nav-btn {
+        min-width: 44px;
+        min-height: 44px;
     }
 
     .paper-card {
@@ -535,11 +538,29 @@
     }
 }
 
+@media (pointer: coarse) {
+    .masthead-controls .icon-btn,
+    .paper-nav-btn {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    .masthead-link {
+        min-height: 44px;
+    }
+
+    .paper-dot {
+        min-width: 32px;
+        min-height: 44px;
+    }
+
+    .paper-dot[aria-current="true"] {
+        min-width: 36px;
+    }
+}
+
 @media (forced-colors: active) {
-    .paper-dot[aria-current="true"]::after,
-    .section-heading::before,
-    #papers-section .section-heading::before,
-    #works-section .section-heading::before {
+    .paper-dot[aria-current="true"]::after {
         background: Highlight;
     }
 }

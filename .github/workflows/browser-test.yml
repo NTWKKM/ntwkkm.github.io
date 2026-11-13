@@ -1,29 +1,54 @@
-name: Browser UI Tests
+name: Tests
 
+# Runs on pull requests, and as the gate in front of every deploy
+# (pages-build-deployment.yml calls it and builds only when it passes).
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      ref:
+        description: Commit to check out. Empty means the commit that triggered the run.
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: read
 
 jobs:
-  puppeteer-test:
+  test:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
-      - name: Run data pipeline tests
+      - name: Run unit tests (data pipeline and reader logic)
         run: node --test .github/scripts/*.test.js
 
-      - name: Install Puppeteer
-        run: npm install puppeteer
+      - name: Lint stylesheets against DESIGN.md
+        run: node .github/scripts/lint-css.js
+
+      # pnpm comes from the packageManager field in package.json.
+      # --ignore-scripts: pnpm 11 exits non-zero when a dependency's build
+      # script (here Puppeteer's Chrome download) has not been approved.
+      - name: Install pinned dev dependencies
+        run: |
+          corepack enable
+          pnpm install --frozen-lockfile --ignore-workspace --ignore-scripts
+
+      # The download that script would have done, as an explicit step.
+      - name: Install Chrome for Puppeteer
+        run: pnpm exec puppeteer browsers install chrome
 
       - name: Run browser tests
         env:

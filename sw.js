@@ -11,10 +11,10 @@
  * served from a stale copy held by this worker.
  */
 
-const VERSION = 'v7';
+const VERSION = 'v9';
 const SHELL_CACHE = `ntwkkm-shell-${VERSION}`;
 const DATA_CACHE = `ntwkkm-data-${VERSION}`;
-const FONTS_CACHE = 'ntwkkm-fonts-v1';
+const FONTS_CACHE = 'ntwkkm-fonts-v2';
 const KEEP = [SHELL_CACHE, DATA_CACHE, FONTS_CACHE];
 
 const NETWORK_TIMEOUT_MS = 4000;
@@ -27,16 +27,33 @@ const SHELL = [
     '/blog.html',
     '/blog.css',
     '/blog.js',
+    '/reader-core.js',
     '/shared.css',
     '/shared.js',
     '/manifest.json',
 ];
 
-const DATA_FILES = ['/papers.json', '/projects.json', '/blog_index.json'];
+// Self-hosted woff2 files. Their names never change for the same content, so
+// they are served cache-first and precached for the first offline visit.
+const FONTS_PREFIX = '/assets/fonts/';
+const FONTS = [
+    'inter-tight-latin.woff2',
+    'jetbrains-mono-latin-400.woff2',
+    'sarabun-thai-400.woff2',
+    'sarabun-latin-400.woff2',
+    'sarabun-thai-600.woff2',
+    'sarabun-latin-600.woff2',
+].map(name => FONTS_PREFIX + name);
+
+const DATA_FILES = ['/papers.json', '/projects.json'];
 // Fetched by the homepage before a first-visit worker controls it, so they are
 // precached at install; otherwise a second visit offline would have no data.
 const DATA_PRECACHE = ['/papers.json', '/projects.json'];
 const DATA_PREFIX = '/data/blog/';
+
+// GitHub Pages also serves blog.html at /blog; both share one cache entry.
+const ALIASES = { '/blog': '/blog.html' };
+const canonical = pathname => ALIASES[pathname] || pathname;
 
 const isShell = pathname => SHELL.includes(pathname);
 const isData = pathname => DATA_FILES.includes(pathname) || pathname.startsWith(DATA_PREFIX);
@@ -48,6 +65,8 @@ self.addEventListener('install', (event) => {
             // Best effort: missing data must not block the shell from installing.
             .then(() => caches.open(DATA_CACHE))
             .then(cache => cache.addAll(DATA_PRECACHE).catch(() => {}))
+            .then(() => caches.open(FONTS_CACHE))
+            .then(cache => cache.addAll(FONTS).catch(() => {}))
             .then(() => self.skipWaiting())
     );
 });
@@ -68,7 +87,7 @@ self.addEventListener('activate', (event) => {
 async function networkFirst(event, cacheName) {
     const { request } = event;
     const url = new URL(request.url);
-    const key = url.origin + url.pathname;
+    const key = url.origin + canonical(url.pathname);
     const cache = await caches.open(cacheName);
 
     // Revalidate with the server instead of trusting the HTTP cache, so a
@@ -121,23 +140,18 @@ self.addEventListener('fetch', (event) => {
 
     const url = new URL(request.url);
 
-    if (url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com') {
+    if (url.origin !== self.location.origin) return;
+
+    if (url.pathname.startsWith(FONTS_PREFIX)) {
         event.respondWith(cacheFirst(request, FONTS_CACHE));
         return;
     }
 
-    if (url.origin !== self.location.origin) return;
-
-    if (isShell(url.pathname)) {
+    const pathname = canonical(url.pathname);
+    if (isShell(pathname)) {
         event.respondWith(networkFirst(event, SHELL_CACHE));
-    } else if (isData(url.pathname)) {
+    } else if (isData(pathname)) {
         event.respondWith(networkFirst(event, DATA_CACHE));
     }
     // Anything else, including sibling project sites, goes straight to the network.
-});
-
-self.addEventListener('message', (event) => {
-    if (event.data && event.data.type === 'CLEAR_CACHE') {
-        event.waitUntil(caches.keys().then(names => Promise.all(names.map(n => caches.delete(n)))));
-    }
 });

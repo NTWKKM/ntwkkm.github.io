@@ -26,13 +26,6 @@ const svg = (inner, size = 20) =>
 
 const EXTERNAL_ICON = svg('<path d="M7 17L17 7M17 7H7M17 7V17"/>', 14);
 
-const CATEGORY_TONES = {
-    'Clinical tools': 'navy',
-    'Simulators': 'vermilion',
-    'Research & statistics': 'teal',
-    'Knowledge & notes': 'ochre',
-};
-
 // AI summaries sometimes carry markdown bold markers; the ledger shows plain text.
 const stripMarkdown = str => String(str || '').replace(/\*\*/g, '').trim();
 
@@ -59,7 +52,16 @@ function setupPaperCarousel(track, pager, dotsContainer, statusEl, totalPages) {
 
     const prefersReducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    const countEl = pager.querySelector('.paper-count');
+
+    // Only the page in view takes focus, so Tab does not walk every paper of
+    // every off-screen page on its way to the tools below.
+    const markSlides = (active) => {
+        slides.forEach((slide, idx) => { slide.inert = idx !== active; });
+    };
+
     const updateDots = (active) => {
+        if (countEl) countEl.textContent = `${active + 1} / ${totalPages}`;
         if (active === currentIndex && dots[active]?.getAttribute('aria-current') === 'true') return;
         currentIndex = active;
         dots.forEach((dot, idx) => {
@@ -94,6 +96,7 @@ function setupPaperCarousel(track, pager, dotsContainer, statusEl, totalPages) {
         suppressAbortUntil = 0;
         const settled = nearestSlideIndex();
         updateDots(settled);
+        markSlides(settled);
         if (settled !== settledIndex) {
             settledIndex = settled;
             if (statusEl) statusEl.textContent = `Page ${settled + 1} of ${totalPages}`;
@@ -102,14 +105,18 @@ function setupPaperCarousel(track, pager, dotsContainer, statusEl, totalPages) {
 
     const goTo = (index) => {
         const target = ((index % totalPages) + totalPages) % totalPages;
-        const reduced = prefersReducedMotion();
+        const destLeft = slides[target].offsetLeft;
+        const alreadyAtTarget = Math.abs(destLeft - track.scrollLeft) < 1;
+        const reduced = prefersReducedMotion() || alreadyAtTarget;
         pendingTarget = target;
         suppressAbortUntil = reduced ? 0 : performance.now() + 80;
         updateDots(target);
-        track.scrollTo({
-            left: slides[target].offsetLeft,
-            behavior: reduced ? 'auto' : 'smooth',
-        });
+        if (!alreadyAtTarget) {
+            track.scrollTo({
+                left: destLeft,
+                behavior: reduced ? 'auto' : 'smooth',
+            });
+        }
         if (reduced) onSettle();
     };
 
@@ -217,6 +224,7 @@ function setupPaperCarousel(track, pager, dotsContainer, statusEl, totalPages) {
     }, { capture: true, signal });
 
     updateDots(0);
+    markSlides(0);
 }
 
 async function fetchPapers() {
@@ -245,7 +253,7 @@ async function fetchPapers() {
         const items = pagePapers.map((paper) => {
             const title = escapeHTML(stripMarkdown(paper.title));
             return `
-                <li class="paper-card">
+                <li class="paper-card" data-pmid="${escapeHTML(paper.pmid)}">
                     <time class="paper-date mono">${escapeHTML(paper.date)}</time>
                     <div class="paper-body">
                         <a href="${escapeHTML(sanitizeURL(paper.link))}" class="paper-link" target="_blank" rel="noopener noreferrer">
@@ -274,6 +282,30 @@ async function fetchPapers() {
     }
 
     announceToScreenReader(`Loaded ${papers.length} research papers`);
+    linkSummaries(container);
+}
+
+/**
+ * Papers that already have a full Thai summary in the research reader get a
+ * link to it. Runs after the ledger is on screen and fails silently: the
+ * links are an extra, and the ledger must never wait on them.
+ */
+async function linkSummaries(container) {
+    const pmids = await fetchWithFallback('./data/blog/pmids.json', null, 1);
+    if (!Array.isArray(pmids)) return;
+    const held = new Set(pmids);
+    container.querySelectorAll('.paper-card[data-pmid]').forEach((card) => {
+        const pmid = card.dataset.pmid;
+        if (!/^\d+$/.test(pmid) || !held.has(pmid) || card.querySelector('.paper-summary-link')) return;
+        const link = document.createElement('a');
+        link.className = 'paper-summary-link';
+        link.href = `blog.html?pmid=${pmid}`;
+        link.textContent = 'Read the Thai summary';
+        // Thirty-odd links share that text; name each by its paper for screen readers.
+        const title = card.querySelector('.paper-title');
+        if (title) link.setAttribute('aria-label', `Read the Thai summary of ${title.textContent}`);
+        card.querySelector('.paper-body').appendChild(link);
+    });
 }
 
 // ---------------------------------------------------------------------------
@@ -303,10 +335,8 @@ async function fetchProjects() {
     const worksMeta = document.getElementById('works-meta');
     if (worksMeta) worksMeta.textContent = `${projects.length} systems, ${groups.size} groups`;
 
-    container.innerHTML = Array.from(groups, ([category, items]) => {
-        const tone = CATEGORY_TONES[category] || 'navy';
-        return `
-        <div class="project-group" data-tone="${tone}">
+    container.innerHTML = Array.from(groups, ([category, items]) => `
+        <div class="project-group">
             <h3 class="project-group-title">${escapeHTML(category)}</h3>
             <ul class="project-list" role="list">
                 ${items.map(project => `
@@ -321,8 +351,7 @@ async function fetchProjects() {
                     </a>
                 </li>`).join('')}
             </ul>
-        </div>`;
-    }).join('');
+        </div>`).join('');
 }
 
 document.addEventListener('DOMContentLoaded', () => {

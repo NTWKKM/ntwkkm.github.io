@@ -1,0 +1,8 @@
+# This is a static site: Vercel should publish the files as they are.
+# package.json and the lockfile exist only for development tooling (the
+# browser test). Left visible, they make Vercel treat the repository as a
+# Node project and run an install it does not need.
+package.json
+pnpm-lock.yaml
+node_modules
+.github

@@ -5,26 +5,35 @@ env:
 
 on:
   push:
+    branches: [ main ]
     paths:
-      - 'latest_updates.json' # ทำงานอัตโนมัติเฉพาะเมื่อ n8n อัปเดตไฟล์นี้
-  workflow_dispatch: # อนุญาตให้กดรันแบบ Manual บน GitHub ได้
+      - 'latest_updates.json' # runs only when n8n updates this file on main
+  workflow_dispatch: # allow a manual run from GitHub
 
 permissions:
   contents: write
 
-# *** ป้องกันการ Push ชนกันของ GitHub Actions ***
+# Runs queue instead of overlapping, so two pushes never race.
 concurrency:
   group: blog-data-processing
   cancel-in-progress: false
 
 jobs:
   process-and-chunk:
+    # The commit step pushes to main. A run started from another branch
+    # (a manual dispatch) would carry that branch's commits onto main with it.
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     outputs:
       pushed: ${{ steps.commit.outputs.pushed }}
+      sha: ${{ steps.commit.outputs.sha }}
     steps:
+      # main's tip, not the triggering commit: a run queued behind another
+      # must start from the chunks that run already published.
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -33,37 +42,79 @@ jobs:
 
       - name: Run Data Processing Script
         id: process
-        # อ่าน latest_updates ก่อน merge + write chunks
+        # Reads latest_updates.json, merges it and writes the chunks.
         run: node .github/scripts/process_blog.js
 
       - name: Delete latest_updates.json
-        # สำคัญ: ลบไฟล์เสมอแม้ Run Data Processing Script จะ fail
+        # Always delete the input, even when processing failed.
         if: always()
         run: rm -f latest_updates.json
 
       - name: Commit and Push Changes
         id: commit
-        # สำคัญ: ต้องทำงานเสมอเพื่อ push การลบไฟล์ (หรือไฟล์ chunk ใหม่) ขึ้น GitHub
+        # Always runs, to push the deletion (and any new chunk files).
         if: always()
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
           if [ "${{ steps.process.outcome }}" = "success" ]; then
-            # Processing สำเร็จ: Stage ทุกอย่าง (chunks ใหม่ + ลบไฟล์ input)
+            # Processing succeeded: stage everything (new chunks and the deleted input).
             git add -A
           else
-            # Processing ล้มเหลว: Stage เฉพาะการลบไฟล์ input เพื่อ cleanup
+            # Processing failed: stage only the deleted input, as cleanup.
             git add latest_updates.json
           fi
           
-          # ถ้ามีไฟล์ถูกแก้ไข ให้ commit และ push (ถ้าไม่มีการเปลี่ยนจะถูก skip ไป)
-          git diff --staged --quiet || (git commit -m "chore: auto-chunk blog data into folders and update index" && git push && echo "pushed=true" >> "$GITHUB_OUTPUT")
+          # Commit and push only when something is staged.
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+          git commit -m "chore: auto-chunk blog data into folders and update index"
+
+          # main also receives n8n commits (papers.json, a newer
+          # latest_updates.json) and the README auto-commit. Rebase onto
+          # whatever landed since checkout, then push.
+          #
+          # A rebase can stop on one expected conflict: this commit deletes
+          # latest_updates.json while n8n pushed a new batch to it. Keep the
+          # new batch (during a rebase "ours" is origin/main); the run that
+          # push queued processes it. Any other conflict cannot be settled
+          # here: abort, so the next attempt starts clean, and fail at the end.
+          for attempt in 1 2 3; do
+            git fetch origin main
+            if ! git rebase origin/main; then
+              conflicts=$(git diff --name-only --diff-filter=U)
+              if [ "$conflicts" = "latest_updates.json" ]; then
+                git checkout --ours -- latest_updates.json
+                git add latest_updates.json
+                GIT_EDITOR=true git rebase --continue || git rebase --abort
+              else
+                echo "::warning::Rebase conflict in: ${conflicts}"
+                git rebase --abort
+              fi
+            fi
+            # Push only a finished rebase; the output reports what was published.
+            if [ ! -d "$(git rev-parse --git-path rebase-merge)" ] \
+              && git merge-base --is-ancestor origin/main HEAD \
+              && git push origin HEAD:main; then
+              echo "pushed=true" >> "$GITHUB_OUTPUT"
+              echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "Push attempt ${attempt} failed; retrying."
+            sleep $((attempt * 5))
+          done
+          echo "::error::Could not publish processed blog data after 3 attempts."
+          exit 1
 
   deploy:
     needs: process-and-chunk
     if: ${{ needs.process-and-chunk.outputs.pushed == 'true' }}
     uses: ./.github/workflows/pages-build-deployment.yml
+    with:
+      ref: ${{ needs.process-and-chunk.outputs.sha }}
     secrets: inherit
     permissions:
       contents: read

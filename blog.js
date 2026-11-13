@@ -9,31 +9,12 @@
 const PAGE_SIZE = 20;
 const INDEX_URL = './data/blog/index.json';
 const chunkUrl = n => `./data/blog/research_chunk_${n}.json`;
-const MOBILE = window.matchMedia('(max-width: 1024px)');
+const MOBILE = window.matchMedia('(max-width: 899px)');
 const $ = id => document.getElementById(id);
-
-const SPECIALTY_TONES = {
-    cardio: 'navy',
-    resus: 'vermilion',
-    airway: 'navy',
-    neuro: 'ochre',
-    trauma: 'vermilion',
-    infect: 'vermilion',
-    tox: 'vermilion',
-    peds: 'navy',
-    geri: 'ochre',
-    surg: 'navy',
-    metab: 'teal',
-    heme: 'navy',
-    psych: 'ochre',
-    obgyn: 'navy',
-    imaging: 'teal',
-    ai: 'teal',
-    ems: 'ochre',
-    ops: 'ochre',
-};
-
-const specialtyTone = idx => SPECIALTY_TONES[state.specialties[idx]?.id] || 'navy';
+// Pure logic lives in reader-core.js so it can be unit tested.
+const { tokenize, scorePost, highlightText, inline, parseSummary, generateCitation } = readerCore;
+// Same text as the #empty-state paragraph in blog.html.
+const EMPTY_HINT = 'Choose from the list on the left to view full details.';
 
 const state = {
     posts: [],            // newest first
@@ -61,6 +42,7 @@ function rowToPost([id, title, ts, pmid, chunk, spec, design, tags]) {
     const labels = spec.map(i => state.specialties[i]?.label || '');
     return {
         id, title, ts, pmid, chunk, spec, design, tags, date,
+        iso: ts ? new Date(ts).toISOString() : '',
         titleLc: title.toLowerCase(),
         hay: [title, pmid, ...tags, ...labels].join(' ').toLowerCase(),
     };
@@ -110,7 +92,7 @@ async function ensureFullText() {
  * hits, which rank above hits found only in the summary; ties keep date order.
  */
 function applyFilters() {
-    const tokens = state.query.toLowerCase().split(/\s+/).filter(Boolean);
+    const tokens = tokenize(state.query);
     const scored = [];
 
     for (const post of state.posts) {
@@ -118,16 +100,11 @@ function applyFilters() {
         if (state.design !== -1 && post.design !== state.design) continue;
 
         let score = 0;
-        let matched = true;
         if (tokens.length) {
-            const body = state.fullText ? state.fullText.get(post.id) || '' : '';
-            for (const token of tokens) {
-                if (post.titleLc.includes(token)) score += 2;
-                else if (post.hay.includes(token)) score += 1;
-                else if (!body.includes(token)) { matched = false; break; }
-            }
+            score = scorePost(post, tokens, state.fullText ? state.fullText.get(post.id) || '' : '');
+            if (score === -1) continue;
         }
-        if (matched) scored.push({ post, score });
+        scored.push({ post, score });
     }
 
     // Array.prototype.sort is stable, so equal scores stay newest first.
@@ -143,15 +120,6 @@ function applyFilters() {
     updateNavButtons();
 }
 
-function highlightText(text, query) {
-    const terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
-    if (!terms.length || !text) return escapeHTML(text);
-    const pattern = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
-    return String(text).split(new RegExp(`(${pattern})`, 'gi'))
-        .map((part, i) => (i % 2 === 1 ? `<mark class="search-highlight">${escapeHTML(part)}</mark>` : escapeHTML(part)))
-        .join('');
-}
-
 // ---------------------------------------------------------------------------
 // Sidebar rendering
 // ---------------------------------------------------------------------------
@@ -163,13 +131,13 @@ function renderFacets() {
         if (post.design !== -1) designCounts[post.design]++;
     });
 
-    const chip = (kind, value, label, count, tone) =>
-        `<button type="button" class="filter-tag" data-${kind}="${value}" data-tone="${tone}" aria-pressed="false">${escapeHTML(label)} <span class="tag-count">${count}</span></button>`;
+    const chip = (kind, value, label, count) =>
+        `<button type="button" class="filter-tag" data-${kind}="${value}" aria-pressed="false">${escapeHTML(label)} <span class="tag-count">${count}</span></button>`;
 
     $('filter-tags-container').innerHTML = state.specialties
-        .map((s, i) => (specCounts[i] ? chip('spec', i, s.label, specCounts[i], specialtyTone(i)) : '')).join('');
+        .map((s, i) => (specCounts[i] ? chip('spec', i, s.label, specCounts[i]) : '')).join('');
     $('design-tags-container').innerHTML = state.designs
-        .map((d, i) => (designCounts[i] ? chip('design', i, d.label, designCounts[i], 'teal') : '')).join('');
+        .map((d, i) => (designCounts[i] ? chip('design', i, d.label, designCounts[i]) : '')).join('');
 }
 
 function renderFacetState() {
@@ -200,10 +168,10 @@ function renderList() {
     const list = $('sidebar-list');
     if (state.filtered.length === 0) {
         list.innerHTML = `
-            <div class="list-empty">
+            <li class="list-empty">
                 <p>No papers match.</p>
                 <button type="button" class="btn" id="reset-search">Clear search and filters</button>
-            </div>`;
+            </li>`;
         updatePagination();
         return;
     }
@@ -212,12 +180,12 @@ function renderList() {
     list.innerHTML = state.filtered.slice(start, start + PAGE_SIZE).map((post) => {
         const specIdx = post.spec[0];
         const where = post.spec.length ? state.specialties[specIdx].label : '';
-        const specAttr = post.spec.length ? ` class="list-spec" data-tone="${specialtyTone(specIdx)}"` : '';
+        const specAttr = post.spec.length ? ' class="list-spec"' : '';
         return `
-            <button type="button" role="listitem" class="article-list-item${post.id === state.currentId ? ' active' : ''}" data-id="${escapeHTML(post.id)}"${post.id === state.currentId ? ' aria-current="true"' : ''}>
+            <li><button type="button" class="article-list-item${post.id === state.currentId ? ' active' : ''}" data-id="${escapeHTML(post.id)}"${post.id === state.currentId ? ' aria-current="true"' : ''}>
                 <span class="list-title">${highlightText(post.title, state.query)}</span>
                 <span class="list-meta"><span class="mono">${escapeHTML(post.date)}</span><span${specAttr}>${escapeHTML(where)}</span></span>
-            </button>`;
+            </button></li>`;
     }).join('');
     updatePagination();
 }
@@ -241,42 +209,6 @@ function changePage(delta) {
 // ---------------------------------------------------------------------------
 // Article
 // ---------------------------------------------------------------------------
-const SECTION_RULES = [
-    ['Objective', /^(?:วัตถุประสงค์|objectives?)/i],
-    ['Methods', /^(?:วิธีการ[^:：]{0,30}|methods?)/i],
-    ['Results', /^(?:ผลลัพธ์[^:：]{0,50}|ผลวิเคราะห์[^:：]{0,40}|สรุป[^:：]{0,30}|results?(?:\s*(?:&|and)\s*conclusions?)?|conclusions?)/i],
-    ['Study design', /^(?:study design|รูปแบบการศึกษา)/i],
-    ['Clinical relevance', /^(?:clinical relevance|ความสำคัญทางคลินิก)/i],
-];
-
-// Escape first, then allow the one piece of markdown the summaries use.
-const inline = text => escapeHTML(text).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-
-/**
- * Split an AI summary into headed sections. A line is a heading only when a
- * known label is followed by a colon; any other line continues the section above.
- * @returns {{ title: string, paragraphs: string[] }[]}
- */
-function parseSummary(text) {
-    const sections = [];
-    String(text || '').split(/\n/).forEach((raw) => {
-        const line = raw.trim().replace(/^(?:[-•]\s*|\*\s+)/, '').trim();
-        if (!line) return;
-        const bare = line.replace(/^\*\*\s*/, '');
-
-        for (const [title, pattern] of SECTION_RULES) {
-            const m = bare.match(new RegExp(`${pattern.source}\\s*\\**\\s*[:：]\\s*\\**\\s*`, 'i'));
-            if (m && m.index === 0) {
-                sections.push({ title, paragraphs: [bare.slice(m[0].length).trim()] });
-                return;
-            }
-        }
-        if (sections.length) sections[sections.length - 1].paragraphs.push(line);
-        else sections.push({ title: '', paragraphs: [line] });
-    });
-    return sections;
-}
-
 function renderSummary(text) {
     const sections = parseSummary(text);
     if (!sections.length) return '<p class="summary-missing">No summary is stored for this paper.</p>';
@@ -291,7 +223,34 @@ function renderSummary(text) {
     }).join('');
 }
 
-async function loadArticle(post, pushHistory = true) {
+/**
+ * Tell the reader that the link they followed points at a paper this library
+ * does not hold, instead of silently showing a different one.
+ * @param {{ pmid?: string } | null} missing - null hides the notice
+ */
+function setRouteNotice(missing) {
+    const notice = $('route-notice');
+    notice.hidden = !missing;
+    if (!missing) { notice.textContent = ''; return; }
+    notice.textContent = 'The linked paper is not in this library. Showing the latest paper instead. ';
+    if (/^\d+$/.test(missing.pmid || '')) {
+        const link = document.createElement('a');
+        link.href = `https://pubmed.ncbi.nlm.nih.gov/${missing.pmid}/`;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = `Open PMID ${missing.pmid} on PubMed`;
+        notice.appendChild(link);
+    }
+}
+
+/**
+ * @param {object} post
+ * @param {boolean} pushHistory
+ * @param {{ keepNotice?: boolean }} options - keepNotice: a retry of the same
+ *   paper, which must not drop the "linked paper is not held" notice
+ */
+async function loadArticle(post, pushHistory = true, { keepNotice = false } = {}) {
+    if (!keepNotice) setRouteNotice(null);
     state.currentId = post.id;
     document.title = `${post.title} | Medical Research Blog`;
 
@@ -299,7 +258,9 @@ async function loadArticle(post, pushHistory = true) {
     const view = $('article-view');
     view.hidden = false;
 
-    $('post-date').textContent = post.date;
+    // The date a paper entered this library, not its publication date.
+    $('post-date').textContent = post.date ? `Added ${post.date}` : '';
+    $('post-date').dateTime = post.iso;
     $('post-id').textContent = post.pmid ? `PMID ${post.pmid}` : '';
     $('post-id').hidden = !post.pmid;
     $('post-design').textContent = post.design !== -1 ? state.designs[post.design].label : '';
@@ -308,7 +269,7 @@ async function loadArticle(post, pushHistory = true) {
     $('post-title').textContent = post.title;
 
     $('post-tags').innerHTML =
-        post.spec.map(i => `<button type="button" class="tag-badge" data-spec="${i}" data-tone="${specialtyTone(i)}">${escapeHTML(state.specialties[i].label)}</button>`).join('') +
+        post.spec.map(i => `<button type="button" class="tag-badge" data-spec="${i}">${escapeHTML(state.specialties[i].label)}</button>`).join('') +
         post.tags.map(tag => `<button type="button" class="tag-link" data-tag="${escapeHTML(tag)}">${escapeHTML(tag)}</button>`).join('');
 
     const link = $('post-link');
@@ -352,7 +313,7 @@ async function loadArticle(post, pushHistory = true) {
         console.error('[Reader] Could not load paper:', error);
         container.innerHTML = createErrorUI(
             'This summary could not be loaded. Check your connection, or open the paper on PubMed.',
-            () => loadArticle(post, false)
+            () => loadArticle(post, false, { keepNotice: true })
         );
     }
 }
@@ -427,26 +388,6 @@ function updateReadingProgress() {
 // Citation
 // ---------------------------------------------------------------------------
 
-/**
- * Only the title and PMID are stored here. Authors, journal and year are not,
- * so the citation carries none rather than inventing them.
- */
-function generateCitation(post, format = 'vancouver') {
-    const url = post.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${post.pmid}/` : `https://ntwkkm.github.io/blog.html?id=${post.id}`;
-    const title = post.title.replace(/\.$/, '');
-    const accessed = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-    switch (format) {
-        case 'apa':
-            return `${title}. (n.d.). PubMed.${post.pmid ? ` PMID ${post.pmid}.` : ''} Retrieved ${accessed}, from ${url}`;
-        case 'bibtex':
-            return `@misc{pmid${post.pmid || post.id.slice(0, 8)},\n  title = {${title}},\n  howpublished = {PubMed},\n  note = {${post.pmid ? `PMID: ${post.pmid}. ` : ''}Accessed: ${accessed}},\n  url = {${url}}\n}`;
-        case 'markdown':
-            return `[${title}](${url})${post.pmid ? ` (PMID ${post.pmid})` : ''}`;
-        default:
-            return `${title}. ${post.pmid ? `PubMed PMID: ${post.pmid}. ` : ''}Available from: ${url} [cited ${accessed}].`;
-    }
-}
-
 let citationFormat = 'vancouver';
 
 function renderCitation() {
@@ -486,12 +427,19 @@ function syncSidebar() {
     const app = $('app-container');
     const visible = MOBILE.matches ? app.classList.contains('sidebar-open') : !app.classList.contains('sidebar-hidden');
     $('sidebar').inert = !visible;
+    // An open drawer is modal: nothing behind its backdrop may take focus.
+    const modal = MOBILE.matches && visible;
+    document.querySelector('.main-content').inert = modal;
+    $('mobile-bottom-nav').inert = modal;
     $('sidebar-open-btn').setAttribute('aria-expanded', String(visible));
     $('mob-nav-menu').setAttribute('aria-expanded', String(visible));
 }
 
+let sidebarOpener = null;
+
 function openSidebar() {
     const app = $('app-container');
+    if (MOBILE.matches && !app.classList.contains('sidebar-open')) sidebarOpener = document.activeElement;
     app.classList.remove('sidebar-hidden');
     app.classList.add('sidebar-open');
     syncSidebar();
@@ -500,9 +448,16 @@ function openSidebar() {
 
 function closeSidebar() {
     const app = $('app-container');
+    const hadFocus = $('sidebar').contains(document.activeElement);
     app.classList.add('sidebar-hidden');
     app.classList.remove('sidebar-open');
     syncSidebar();
+    // Focus inside a closing sidebar would be lost; hand it to what opened the
+    // drawer, or on desktop to the button that brings the list back.
+    if (!hadFocus) return;
+    if (!MOBILE.matches) $('sidebar-open-btn').focus();
+    else if (sidebarOpener && sidebarOpener.isConnected && sidebarOpener !== document.body) sidebarOpener.focus();
+    else $('mob-nav-menu').focus();
 }
 
 // ---------------------------------------------------------------------------
@@ -535,14 +490,19 @@ function readURL() {
 function route() {
     const params = readURL();
     applyFilters();
-    const wanted = state.byId.get(params.get('id'))
-        || (params.get('pmid') && state.posts.find(p => p.pmid === params.get('pmid')));
+    const wantedId = params.get('id');
+    const wantedPmid = params.get('pmid');
+    const wanted = state.byId.get(wantedId)
+        || (wantedPmid && state.posts.find(p => p.pmid === wantedPmid));
     const post = wanted || state.filtered[0];
     if (!post) { clearArticle(); return; }
     // Bring the list to the page that holds the open paper.
     const at = state.filtered.indexOf(post);
     if (at !== -1) { state.page = Math.floor(at / PAGE_SIZE) + 1; }
     loadArticle(post, false);
+    // After loadArticle, which clears the notice: a link that named a paper
+    // we do not hold must say so rather than pass off the default as that paper.
+    if (!wanted && (wantedId || wantedPmid)) setRouteNotice({ pmid: wantedPmid || '' });
     renderList();
 }
 
@@ -556,7 +516,8 @@ function onFiltersChanged() {
 // ---------------------------------------------------------------------------
 function setupEventListeners() {
     const search = $('search-input');
-    search.addEventListener('focus', ensureFullText, { once: true });
+    // Full text (every chunk, several megabytes) loads on the first typed
+    // character, not on focus: pressing "/" alone must not start that download.
     search.addEventListener('input', debounce(() => {
         state.query = search.value.trim();
         if (state.query) ensureFullText();
@@ -674,8 +635,9 @@ function setupEventListeners() {
             return;
         }
         if (e.ctrlKey || e.metaKey || e.altKey) return;
-        if (e.key === 'ArrowLeft') navigateArticle(-1);
-        else if (e.key === 'ArrowRight') navigateArticle(1);
+        // Shift+Arrow extends a text selection; it must not change the paper.
+        if (e.key === 'ArrowLeft' && !e.shiftKey) navigateArticle(-1);
+        else if (e.key === 'ArrowRight' && !e.shiftKey) navigateArticle(1);
         else if (e.key === '/') {
             e.preventDefault();
             openSidebar();
@@ -700,11 +662,13 @@ async function init() {
 
     if (!index || !Array.isArray(index.posts) || index.posts.length === 0) {
         $('result-count').textContent = '';
-        $('sidebar-list').innerHTML = createErrorUI('The paper list could not be loaded. Check your connection and try again.', init);
+        $('sidebar-list').innerHTML = `<li>${createErrorUI('The paper list could not be loaded. Check your connection and try again.', init)}</li>`;
         clearArticle();
         $('empty-state').querySelector('p').textContent = 'The paper list could not be loaded.';
         return;
     }
+    // A retry that succeeds must not leave the failure text in the empty state.
+    $('empty-state').querySelector('p').textContent = EMPTY_HINT;
 
     state.specialties = index.specialties || [];
     state.designs = index.designs || [];

@@ -58,6 +58,29 @@ const DESIGN_PRIORITY = ['sr', 'case-control', 'case', 'rct', 'dx', 'cross', 'co
 
 const NOT_STATED = /^(n\/?a\b|ไม่ระบุ|ไม่มี|not (stated|specified|reported|applicable)|unknown|-+$)/i;
 
+// About a third of the summaries carry no "Study Design:" line. For those the
+// title is consulted, with narrower patterns than the summary line gets: a
+// title is prose, so only wording that names a design outright counts, and
+// there is no catch-all ("other" is never guessed from a title).
+const TITLE_DESIGNS = [
+    ['sr', /systematic review|meta-?analys[ei]s|scoping review|umbrella review/],
+    ['case-control', /case[- ]control/],
+    ['case', /case reports?\b|case series/],
+    ['rct', /(?<!non[- ]?)randomi[sz]ed|\brct\b/],
+    ['dx', /diagnostic accuracy|external validation|prediction model|prognostic model/],
+    ['cross', /cross[- ]sectional|\bsurvey\b/],
+    ['cohort', /cohort|retrospective|prospective|registry/],
+    ['review', /narrative review|guidelines?\b|consensus|position statement|\breview\b/],
+];
+
+function designFromTitle(post) {
+    const title = String(post.name || post.property_name || '').toLowerCase();
+    for (const [id, pattern] of TITLE_DESIGNS) {
+        if (pattern.test(title)) return DESIGNS.findIndex(d => d.id === id);
+    }
+    return -1;
+}
+
 function rawTags(post) {
     return [post.property_tag_1, post.property_tag_2, post.property_tag_3]
         .map(t => (t || '').trim())
@@ -85,14 +108,17 @@ function specialtiesOf(post) {
 }
 
 /**
- * Study design index for a post, or -1 when the summary does not state one.
+ * Study design index for a post: from the summary line when it states one,
+ * otherwise from the title, otherwise -1.
  * @returns {number} position in DESIGNS, or -1
  */
 function designOf(post) {
-    const m = String(post.property_comment || '').match(/(?:Study Design|รูปแบบการศึกษา)\**\s*[:：]\**\s*(.+)/i);
-    if (!m) return -1;
+    // Horizontal whitespace only, and the value may be empty: "\s" would cross
+    // the line break of an empty "Study Design:" line and read the next section.
+    const m = String(post.property_comment || '').match(/(?:Study Design|รูปแบบการศึกษา)\**[ \t]*[:：]\**[ \t]*(.*)/i);
+    if (!m) return designFromTitle(post);
     const value = m[1].replace(/\*+/g, '').trim();
-    if (!value || NOT_STATED.test(value)) return -1;
+    if (!value || NOT_STATED.test(value)) return designFromTitle(post);
     const text = value.toLowerCase();
     for (const id of DESIGN_PRIORITY) {
         const i = DESIGNS.findIndex(d => d.id === id);

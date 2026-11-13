@@ -3,10 +3,12 @@
  *
  *   node .github/scripts/process_blog.js            merge latest_updates.json, then index
  *   node .github/scripts/process_blog.js --reindex  rebuild data/blog/index.json only
+ *   node .github/scripts/process_blog.js --dedupe   drop repeated ids and PMIDs, then index
  *
  * Outputs
  *   data/blog/research_chunk_N.json  full records, at most ITEMS_PER_FILE each
  *   data/blog/index.json             one compact row per post, for the reader's list
+ *   data/blog/pmids.json             every PMID held, for the homepage's summary links
  *   blog_index.json                  list of chunk paths (kept for compatibility)
  *
  * Chunks are append-only: a post stays in the chunk it was first written to and
@@ -27,6 +29,7 @@ const ROOT_DIR = process.env.BLOG_ROOT_DIR
 const DATA_DIR = path.join(ROOT_DIR, 'data/blog');
 const INDEX_FILE = path.join(ROOT_DIR, 'blog_index.json');
 const POST_INDEX_FILE = path.join(DATA_DIR, 'index.json');
+const PMIDS_FILE = path.join(DATA_DIR, 'pmids.json');
 const UPDATES_FILE = path.join(ROOT_DIR, 'latest_updates.json');
 
 const chunkPath = n => `data/blog/research_chunk_${n}.json`;
@@ -109,6 +112,10 @@ function mergeUpdates(chunks, updates) {
         const pmid = extractPmid(post);
         const known = where.get(post.id);
         if (known) {
+            // Notion only reports when a page was last edited. Carry the date
+            // the paper first arrived, so an edit does not re-date or reorder it.
+            const previous = known[0].posts[known[1]];
+            post.first_seen = previous.first_seen || previous.property_last_edited_time || post.property_last_edited_time;
             known[0].posts[known[1]] = post;
             stats.updated++;
         } else if (pmid && pmids.has(pmid)) {
@@ -120,6 +127,7 @@ function mergeUpdates(chunks, updates) {
                 last = { number: last ? last.number + 1 : 1, posts: [] };
                 chunks.push(last);
             }
+            post.first_seen = post.first_seen || post.property_last_edited_time;
             last.posts.push(post);
             where.set(post.id, [last, last.posts.length - 1]);
             stats.added++;
@@ -127,6 +135,47 @@ function mergeUpdates(chunks, updates) {
         if (pmid) pmids.add(pmid);
     });
     return stats;
+}
+
+/**
+ * Remove records that repeat a Notion id or a PMID already held by a newer
+ * record. mergeUpdates stops new duplicates; this clears the ones written
+ * before that check existed. The survivor stays in its own chunk and position
+ * order, so the append-only rule still holds for every record that remains.
+ * The survivor is the most recently edited copy, but the paper arrived when
+ * its earliest copy did: that arrival date is carried onto the survivor as
+ * first_seen, so removing a duplicate never re-dates the paper.
+ * @returns {number} how many records were removed
+ */
+function dedupe(chunks) {
+    const arrival = post => new Date(post.first_seen || post.property_last_edited_time || 0).getTime() || 0;
+    const entries = [];
+    chunks.forEach(chunk => chunk.posts.forEach(post => {
+        if (!post || !post.id) return;
+        entries.push({ post, ts: new Date(post.property_last_edited_time || 0).getTime() || 0 });
+    }));
+    // Newest first; Array.prototype.sort is stable, so ties keep file order.
+    entries.sort((a, b) => b.ts - a.ts);
+
+    const byId = new Map();     // id -> surviving record
+    const byPmid = new Map();   // pmid -> surviving record
+    const drop = new Set();
+    entries.forEach(({ post }) => {
+        const pmid = extractPmid(post);
+        const survivor = byId.get(post.id) || (pmid && byPmid.get(pmid));
+        if (survivor) {
+            if (arrival(post) && (!arrival(survivor) || arrival(post) < arrival(survivor))) {
+                survivor.first_seen = post.first_seen || post.property_last_edited_time;
+            }
+            drop.add(post);
+            return;
+        }
+        byId.set(post.id, post);
+        if (pmid) byPmid.set(pmid, post);
+    });
+
+    chunks.forEach(chunk => { chunk.posts = chunk.posts.filter(post => !drop.has(post)); });
+    return drop.size;
 }
 
 /**
@@ -140,7 +189,7 @@ function buildPostIndex(chunks) {
         rows.push([
             post.id,
             String(post.name || post.property_name || '').trim(),
-            new Date(post.property_last_edited_time || 0).getTime() || 0,
+            new Date(post.first_seen || post.property_last_edited_time || 0).getTime() || 0,
             extractPmid(post) || '',
             chunk.number,
             specialtiesOf(post),
@@ -172,6 +221,10 @@ function writeAll(chunks) {
     const body = index.posts.map(r => JSON.stringify(r)).join(',\n');
     const head = JSON.stringify({ ...index, posts: [] }).replace(/"posts":\[\]\}$/, '"posts":[\n');
     writeIfChanged(POST_INDEX_FILE, `${head}${body}\n]}\n`);
+    // The homepage only needs to know which papers have a summary here, so it
+    // gets the PMIDs alone (about 16 KB) instead of the whole index.
+    const pmids = index.posts.map(r => r[3]).filter(Boolean).sort();
+    writeIfChanged(PMIDS_FILE, `${JSON.stringify(pmids)}\n`);
     return { rewritten, count: index.count };
 }
 
@@ -182,6 +235,13 @@ function run() {
     if (reindexOnly) {
         const out = writeAll(chunks);
         console.log(`Reindexed ${out.count} posts from ${chunks.length} chunks.`);
+        return;
+    }
+
+    if (process.argv.includes('--dedupe')) {
+        const removed = dedupe(chunks);
+        const out = writeAll(chunks);
+        console.log(`Removed ${removed} duplicate record(s); ${out.count} posts remain, ${out.rewritten} chunk file(s) rewritten.`);
         return;
     }
 
@@ -212,4 +272,4 @@ function run() {
 
 if (require.main === module) run();
 
-module.exports = { loadChunks, mergeUpdates, buildPostIndex, extractPmid, ITEMS_PER_FILE };
+module.exports = { loadChunks, mergeUpdates, dedupe, buildPostIndex, extractPmid, ITEMS_PER_FILE };
