@@ -1,6 +1,6 @@
 # NTWKKM Design System & Guidelines (DESIGN.md)
 
-Last updated: *2026-11-13*
+Last updated: *2026-11-14*
 
 This document serves as the **core design guideline** for any AI agent or developer modifying or creating new interfaces maintained in this repository (`index`, `blog`). All UI implementations MUST adhere strictly to these principles to maintain a cohesive, premium, and matte aesthetic across these modules. Note that the separately maintained `/pl/` sub-app follows its own dedicated design guidelines in the private `NTWKKM/pl` repository.
 
@@ -13,7 +13,7 @@ This document serves as the **core design guideline** for any AI agent or develo
 - **Nothing Moves By Itself**: No auto-scroll, no scroll-triggered reveals. Motion answers the pointer or a state change and lasts 0.15 to 0.25s.
 - **Interactive & Quiet**: Elements react smoothly to user hover (subtle border color highlights and shadow shifts) while preserving strict layout stability.
 - **First-Class Dark Mode (Ergonomic Navy)**: Dark mode preserves the signature deep navy canvas (`#121E36`) with elevated surfaces (`#1C2D4F`). To prevent eye fatigue and glare during long clinical sessions, text is rendered in soft slate white (`#E2E8F0`, contrast 10.8:1 PASS AAA) instead of harsh 100% white.
-- **Monochrome Print Editorial (Slate & Titanium Navy)**: Category colors and decorative colored left/top border stripes are retired in favor of monochrome Slate ink (`--text-main`, `--text-secondary`, `--text-muted`), Titanium Navy links/indicators (`--primary`), `1px solid var(--text-main)` section/index rules, and crisp `1px solid var(--border)` / `--border-strong` boundaries. Error icons reserve `--signal-orange`.
+- **Editorial Slate & Titanium Navy with Dual Clinical Accents**: Neutral surfaces and monochrome Slate/Navy typography (`--text-main`, `--text-secondary`, `--text-muted`, `--primary`) remain the foundation (>= 95% of every viewport), punctuated sparingly by two calibrated clinical accents — **Signal Vermilion** (`--accent-vermilion` / `--accent-vermilion-mark`) for high-priority clinical signals, active pager/filter indicators, and reading progress, and **Clinical Teal** (`--accent-teal` / `--accent-teal-mark`) for dates, study metadata, Thai summary links, and analytical tool icons. Decorative colored left/top border stripes on cards, multi-stop gradients, and saturated chip fills remain retired.
 
 ---
 
@@ -47,7 +47,8 @@ All colors MUST be referenced via CSS variables defined in `:root` and `[data-th
 - Card Shadow (`--shadow`): `0 4px 20px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.04)`
 - Surface Contrast (Canvas vs Card): 1.18:1 (Clean, modern card separation)
 - Active Row / Selection Surface (`--bg-paper-list`): `#E8E8EE`
-- Error Signal (`--signal-orange`): `#d84315` (used on `.error-icon`)
+- Error / High-Priority Signal (`--accent-vermilion` / `--accent-vermilion-mark`, aliased by `--signal-orange`): `#B8320D` ink (5.07:1 on Canvas, 6.00:1 on Card) / `#D84315` mark (3.88:1 on Canvas, 4.58:1 on Card) / `rgba(184, 50, 13, 0.08)` tint
+- Clinical Metadata Signal (`--accent-teal` / `--accent-teal-mark`): `#0B5D5B` ink (6.51:1 on Canvas, 7.69:1 on Card) / `#0F766E` mark (5.09:1 on Canvas, 5.74:1 on Card) / `rgba(11, 93, 91, 0.08)` tint
 - Shared Card Hover Tokens: `--card-hover-bg: #F8F8FA`, `--card-hover-border: #1E3C72`, `--card-hover-icon-bg: rgba(30, 60, 114, 0.08)`
 
 ### 3.2. Dark Theme (Titanium Precision Navy - Ergonomic Tone 1)
@@ -62,7 +63,8 @@ All colors MUST be referenced via CSS variables defined in `:root` and `[data-th
 - Card Shadow (`--shadow`): `0 4px 20px rgba(6, 12, 24, 0.55), 0 1px 3px rgba(6, 12, 24, 0.30)`
 - Surface Contrast (Canvas vs Card): 1.26:1 (Sharp clinical layer separation)
 - Active Row / Selection Surface (`--bg-paper-list`): `#22365E`
-- Error Signal (`--signal-orange`): `#FF7A45`
+- Error / High-Priority Signal (`--accent-vermilion` / `--accent-vermilion-mark`, aliased by `--signal-orange`): `#FF8A60` ink (5.68:1 on Card, 6.91:1 on Canvas) / `#FF7A45` mark (5.07:1 on Card, 6.17:1 on Canvas) / `rgba(255, 122, 69, 0.14)` tint
+- Clinical Metadata Signal (`--accent-teal` / `--accent-teal-mark`): `#5EEAD4` ink (8.91:1 on Card, 10.84:1 on Canvas) / `#2DD4BF` mark (7.41:1 on Card, 9.02:1 on Canvas) / `rgba(94, 234, 212, 0.13)` tint
 - Primary Link/Action (`--primary`): `#93c5fd`
 - Shared Card Hover Tokens: `--card-hover-bg: #243B68`, `--card-hover-border: #4E78BC`, `--card-hover-icon-bg: rgba(147, 197, 253, 0.20)`
 
@@ -87,9 +89,9 @@ All colors MUST be referenced via CSS variables defined in `:root` and `[data-th
 
 ### 4.3. Badges and Chips
 
-- Monochrome Slate / Navy only: no multi-color accents or colored edge stripes.
-- Chips (`.filter-tag`, `.tag-badge`) use background `var(--bg-card)` and a 1px border; they are `<button>`s with `aria-pressed`.
-- Active filters use high-contrast ink: background `var(--text-main)`, color `var(--bg-card)`.
+- Neutral surfaces (`var(--bg-card)`) with crisp `1px solid var(--border)` borders: no colored edge stripes or saturated chip fills.
+- Specialty chips (`.tag-badge`) use `--accent-teal` text; status pills (`.project-status`) use `--accent-vermilion` text and border; filter chips (`.filter-tag`) stay neutral and switch to high-contrast ink (`var(--text-main)` background, `var(--bg-card)` text) when `aria-pressed="true"`.
+- Filter `<button>`s carry `aria-pressed`.
 
 ### 4.4. AI Provenance Note
 
@@ -114,7 +116,7 @@ All colors MUST be referenced via CSS variables defined in `:root` and `[data-th
 2. [ ] "Use `var(--font-ui)` for UI/Latin, `var(--font-thai)` for Thai, and `var(--font-mono)` for dates, PMIDs and counts."
 3. [ ] "Set card border radius to `4px` and small elements to `2px` for harder industrial edges."
 4. [ ] "Rows answer hover with `var(--bg-card)` or `var(--card-hover-bg)`; no lifts, no shadows on in-flow content, never `transition: all`, animate only `transform`, `opacity` and colours."
-5. [ ] "Tags and badges stay monochrome Slate/Navy (`1px` neutral borders); never multi-colored edge stripes or saturated chip fills."
+5. [ ] "Use only the two calibrated accents (`--accent-vermilion*`, `--accent-teal*`) alongside Slate/Navy (`1px` uniform borders, soft icon tints, or typographic signals); never colored side/top stripes, multi-stop gradients, or saturated chip fills."
 6. [ ] "Ensure the layout is responsive and supports the Inverted Dark Theme color variables."
 7. [ ] "Run `node .github/scripts/lint-css.js` (also run in CI before every deploy), and `node ~/.claude/skills/hallmark/scripts/sloplint.mjs . --scope app --genre modern-minimal` when available; keep the stamp and waiver lines at the top of `shared.css`."
 8. [ ] "Every anchor link that opens in a new tab (`target="_blank"`) MUST strictly define `rel="noopener noreferrer"` to prevent tabnabbing security vulnerabilities."

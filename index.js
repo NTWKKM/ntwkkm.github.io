@@ -325,6 +325,11 @@ async function fetchProjects() {
     }
 
     // Categories appear in the order they first occur in the file.
+    const CATEGORY_TONES = {
+        'Clinical tools': 'vermilion',
+        'Simulators': 'teal',
+        'Research & statistics': 'teal',
+    };
     const groups = new Map();
     projects.forEach((project) => {
         const key = project.category || 'Other';
@@ -335,8 +340,11 @@ async function fetchProjects() {
     const worksMeta = document.getElementById('works-meta');
     if (worksMeta) worksMeta.textContent = `${projects.length} systems, ${groups.size} groups`;
 
-    container.innerHTML = Array.from(groups, ([category, items]) => `
-        <div class="project-group">
+    container.innerHTML = Array.from(groups, ([category, items]) => {
+        const tone = CATEGORY_TONES[category];
+        const toneAttr = tone ? ` data-tone="${tone}"` : '';
+        return `
+        <div class="project-group"${toneAttr}>
             <h3 class="project-group-title">${escapeHTML(category)}</h3>
             <ul class="project-list" role="list">
                 ${items.map(project => `
@@ -351,7 +359,8 @@ async function fetchProjects() {
                     </a>
                 </li>`).join('')}
             </ul>
-        </div>`).join('');
+        </div>`;
+    }).join('');
 }
 
 document.addEventListener('DOMContentLoaded', () => {

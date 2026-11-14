@@ -11,7 +11,7 @@
  * served from a stale copy held by this worker.
  */
 
-const VERSION = 'v9';
+const VERSION = 'v10';
 const SHELL_CACHE = `ntwkkm-shell-${VERSION}`;
 const DATA_CACHE = `ntwkkm-data-${VERSION}`;
 const FONTS_CACHE = 'ntwkkm-fonts-v2';

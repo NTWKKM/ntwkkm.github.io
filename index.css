@@ -1,5 +1,5 @@
 /* Hallmark · v2.0.0 · built: the project · redesign: full · scope: app · system: DESIGN.md (locked) · theme: Slate and Titanium Navy (brand) · genre: modern-minimal · hero: none (app screens) · nav: editorial masthead (display title and descriptor left, quiet utilities right, ink hairline under) · signature: horizontal scroll-snap paper ledger with dot marks and asymmetric tools bento */
-/* critique: replaced the paper CTA buttons with a native scroll-snap horizontal carousel driven by accessible dot marks and shifted the directory to pure monochrome print rules without accent stripes or decorative squares · finish-review: 2026-11-13 at 375, 1280 and 1440 · sloplint 0 FAIL */
+/* critique: replaced the paper CTA buttons with a native scroll-snap horizontal carousel driven by accessible dot marks and paired monochrome print rules with restrained Signal Vermilion and Clinical Teal functional accents · finish-review: 2026-11-14 at 320, 768 and 1440 · sloplint 0 FAIL */
 /* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · balanced both sections to comparable vertical footprints without sacrificing scannability */
 /* Hallmark · dropped "All Rights Reserved" · 19 names the stock footer line */
 
@@ -65,9 +65,13 @@
     transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
+.masthead-link svg {
+    color: var(--accent-teal);
+}
+
 .masthead-link:hover {
     background: var(--card-hover-bg);
-    border-color: var(--card-hover-border);
+    border-color: var(--accent-teal-mark);
 }
 
 .masthead-link:active {
@@ -176,7 +180,7 @@
 
 .paper-dot[aria-current="true"]::after {
     width: 16px;
-    background: var(--primary);
+    background: var(--accent-vermilion-mark);
 }
 
 .paper-count {
@@ -250,7 +254,7 @@
 .paper-date {
     padding-top: 2px;
     font-size: var(--text-xs);
-    color: var(--text-muted);
+    color: var(--accent-teal);
     white-space: nowrap;
 }
 
@@ -297,8 +301,12 @@
     padding-block: var(--s-1);
     font-size: var(--text-sm);
     font-weight: 600;
-    color: var(--primary);
+    color: var(--accent-teal);
     text-underline-offset: 3px;
+}
+
+.paper-summary-link:hover {
+    color: var(--accent-teal-mark);
 }
 
 /* --- Tools index (Asymmetric Bento) --- */
@@ -367,16 +375,16 @@
     place-items: center;
     width: 36px;
     height: 36px;
-    color: var(--primary);
-    background: var(--bg-card);
+    color: var(--tone-ink, var(--primary));
+    background: var(--tone-tint, var(--card-hover-icon-bg));
     border: 1px solid var(--border);
     border-radius: var(--radius);
     transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .project-card:hover .project-icon {
-    background: var(--card-hover-icon-bg);
-    border-color: var(--border-strong);
+    background: var(--tone-tint, var(--card-hover-icon-bg));
+    border-color: var(--tone-mark, var(--card-hover-border));
 }
 
 .project-body {
@@ -392,7 +400,7 @@
 }
 
 .project-card:hover .project-title {
-    color: var(--primary);
+    color: var(--tone-ink, var(--primary));
     text-decoration: underline;
     text-underline-offset: 3px;
 }
@@ -402,10 +410,10 @@
     margin-left: var(--s-1);
     padding: 2px var(--s-2);
     font-size: var(--text-xs);
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.3;
-    color: var(--text-muted);
-    border: 1px solid var(--border-strong);
+    color: var(--accent-vermilion);
+    border: 1px solid var(--accent-vermilion-mark);
     border-radius: var(--radius-sm);
 }
 
@@ -422,7 +430,7 @@
 }
 
 .project-card:hover .project-external-arrow {
-    color: var(--primary);
+    color: var(--tone-ink, var(--primary));
     transform: translate(2px, -2px);
 }
 
