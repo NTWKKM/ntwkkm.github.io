@@ -1,5 +1,82 @@
 [
   {
+    "date": "15 Nov",
+    "title": "Association Between Succinylated Gelatin Exposure and Acute Kidney Injury in Critically Ill Trauma Patients: A Retrospective Five-Year Cohort Study.",
+    "comment": "เตือนความเสี่ยง AKI จากการใช้ Gelatin Resuscitation ในผู้ป่วย Trauma วิกฤต",
+    "pmid": "43030740",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43030740/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Accurate Differentiation of Acute Aortic Syndrome from Acute Coronary Syndrome: A Machine Learning Diagnostic Model Based on Routine Admission Variables.",
+    "comment": "โมเดล AI ช่วยแยก Acute Aortic Syndrome ออกจาก ACS ในผู้ป่วยแน่นหน้าอกฉุกเฉินได้แม่นยำ",
+    "pmid": "43030849",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43030849/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Rethinking Mild Therapeutic Hypothermia After Out-of-Hospital Cardiac Arrest: Dead End or Missed Opportunity? An Expert Viewpoint.",
+    "comment": "ทบทวนบทบาท TTM ใน OHCA เพื่อการปรับแนวทางเพิ่มโอกาสรอดชีวิตของระบบประสาท",
+    "pmid": "43030819",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43030819/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "On-Scene Time-Dependent Probabilities of Return of Spontaneous Circulation and Favorable Neurological Outcome in Cases of Out-of-Hospital Cardiac Arrest with an Initial Shockable Rhythm: A Retrospective Study Using the National Utstein Data in Japan.",
+    "comment": "ใช้เวลาปั๊มหัวใจ ณ จุดเกิดเหตุทำนายโอกาส ROSC ช่วยตัดสินใจระยะเวลา CPR ใน OHCA",
+    "pmid": "43030628",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43030628/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Fluid Management in Patients with Concomitant Acute Brain Injury and ARDS.",
+    "comment": "สรุปแนวทางบริหารสารน้ำในผู้ป่วยวิกฤตที่มีทั้ง Acute Brain Injury และ ARDS พร้อมกัน",
+    "pmid": "43030814",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43030814/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Duration of Induced Hypothermia After Pediatric Cardiac Arrest: A Systematic Review and Network Meta-Analysis.",
+    "comment": "หลักฐานเปรียบเทียบระยะเวลาคุมอุณหภูมิ (TTM) ในเด็กหลังภาวะหัวใจหยุดเต้น",
+    "pmid": "43030508",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43030508/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Prehospital Detection of Acute Pulmonary Embolism and Its Association with Clinical Outcomes: A Retrospective Cohort Study.",
+    "comment": "การตรวจพบ Pulmonary Embolism ตั้งแต่ชั้นก่อนถึงโรงพยาบาลช่วยลดความล่าช้าในการรักษาและเพิ่มผลลัพธ์",
+    "pmid": "43030570",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43030570/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Predictors of Emergency Surgery in Acute Ischaemic Colitis: A Systematic Review and Meta-Analysis.",
+    "comment": "ตัวทำนายความจำเป็นในการผ่าตัดฉุกเฉินใน Ischemic Colitis ช่วยคัดกรองผู้ป่วยวิกฤตได้เร็วขึ้น",
+    "pmid": "43030683",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43030683/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Early Glycemic Variability from Routine Glucose Measurements, Diabetes Status, and In-Hospital Mortality in Sepsis: A 14-Year Retrospective Cohort Study.",
+    "comment": "ความผันผวนของระดับน้ำตาลช่วงแรกสัมพันธ์กับอัตราตายใน Sepsis ต้องเฝ้าระวังใกล้ชิด",
+    "pmid": "43030791",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43030791/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Drug-Induced Electrolyte Disturbances in Older Adults Presenting to the Emergency Department: Mechanisms, Recognition and Prevention.",
+    "comment": "แนวทางสังเกตและป้องกันเกลือแร่ผิดปกติจากยาในผู้สูงอายุที่มารับการรักษาในห้องฉุกเฉิน",
+    "pmid": "43030861",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43030861/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Diagnostic Value of Combined Biomarkers and the Shock Index for Predicting Febrile Neutropenia and Clinical Outcomes in the Emergency Department: A Multivariate Regression Analysis.",
+    "comment": "ใช้ Shock Index ร่วมกับ Biomarkers ทำนายความรุนแรงและผลลัพธ์ผู้ป่วย Febrile Neutropenia ใน ER",
+    "pmid": "43030378",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43030378/"
+  },
+  {
     "date": "13 Nov",
     "title": "Multimodal Nonopioid Analgesia Versus Opioid-First Approaches for Acute Pain in the Emergency Department: A Systematic Review of Randomized Controlled Trials.",
     "comment": "เปรียบเทียบยาแก้ปวด Non-opioid กับ Opioid ใน ER เปลี่ยนแนวทางการจัดการ acute pain ลดการใช้ยาเสพติด",
@@ -411,82 +488,5 @@
     "comment": "ข้อมูลสนับสนุนการใช้ NPWT ในแผลผ่าตัดฉุกเฉินเพื่อลด complication",
     "pmid": "42962611",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42962611/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Ticagrelor pretreatment and angiographic no-reflow in STEMI: a multicentre observational study.",
-    "comment": "ผลของ Ticagrelor ต่อปรากฏการณ์ no-reflow ใน STEMI มีผลต่อการตัดสินใจให้ยา",
-    "pmid": "42962950",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42962950/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "The Role of Oxygen Therapy in Acute Exacerbations of Chronic Pulmonary Diseases.",
-    "comment": "ทบทวนการให้ Oxygen ใน AE-COPD เพื่อป้องกัน hypercapnia และให้ dose ที่เหมาะสม",
-    "pmid": "42962680",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42962680/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Awake intubation in a Japanese tertiary emergency department: a single-center retrospective descriptive study.",
-    "comment": "เทคนิคการทำ Awake intubation ใน ER สำหรับผู้ป่วย Difficult airway",
-    "pmid": "42962443",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42962443/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Opioid-free analgesia for acute renal colic: a randomized, double-blind, head-to-head comparison of intravenous ibuprofen, dexketoprofen trometamol and paracetamol in the emergency department.",
-    "comment": "เปรียบเทียบยาแก้ปวด non-opioid ใน renal colic ใช้ปรับเปลี่ยน drug of choice ใน ER ได้",
-    "pmid": "42961621",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42961621/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "ESR Essentials: trauma whole-body CT imaging-practice recommendations by the European Society of Emergency Radiology.",
-    "comment": "คำแนะนำมาตรฐานการทำ whole-body CT ในผู้ป่วย trauma เพื่อปรับปรุง standard of care",
-    "pmid": "42961651",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42961651/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Diagnostic accuracy of point-of-care ultrasound for proximal lower-extremity deep vein thrombosis in emergency settings: A systematic review and meta-analysis.",
-    "comment": "ยืนยันความแม่นยำของ POCUS ในการวินิจฉัย DVT ซึ่งส่งผลต่อการตัดสินใจรักษาทันที",
-    "pmid": "42961238",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42961238/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Cefiderocol for the treatment of bloodstream infection due to MBL-producing Enterobacterales: a single-center retrospective cohort.",
-    "comment": "การใช้ยาฆ่าเชื้อตัวใหม่ในเชื้อดื้อยาขั้นรุนแรง (MBL) สำหรับภาวะ bloodstream infection",
-    "pmid": "42962939",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42962939/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Diagnostic performance of xylazine test strips in urine from fentanyl-positive hospitalized patients.",
-    "comment": "เครื่องมือใหม่ในการตรวจพบ Xylazine ที่ผสมในยาเสพติด ช่วยในการประเมินผู้ป่วย overdose",
-    "pmid": "42960873",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42960873/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Association Between Craniotomy and Outcomes in Patients With Acute Subdural Hematoma: Analysis of a Nationwide Trauma Registry in Japan.",
-    "comment": "ข้อมูลตัดสินใจเรื่องการผ่าตัดสมองในผู้ป่วย ASDH เพื่อปรับปรุง outcome ทางคลินิก",
-    "pmid": "42961038",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42961038/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "A modified Rapid Emergency Medicine Score incorporating C-reactive protein for mortality prediction in septic shock.",
-    "comment": "เครื่องมือพยากรณ์การเสียชีวิตใน septic shock ที่แม่นยำขึ้นโดยใช้ CRP ร่วมด้วย",
-    "pmid": "42961226",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42961226/"
-  },
-  {
-    "date": "25 Oct",
-    "title": "Precision medicine for futile recanalization after mechanical thrombectomy in acute ischemic stroke: mechanisms, diagnostics, and tailored therapies.",
-    "comment": "แนวทางการจัดการผู้ป่วย Stroke ที่ล้มเหลวจากการทำ MT ช่วยลดการรักษาที่สูญเปล่า",
-    "pmid": "42924239",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42924239/"
   }
 ]
