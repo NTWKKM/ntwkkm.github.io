@@ -2,58 +2,86 @@
   {
     "date": "15 Nov",
     "title": "Point-of-Care Ultrasound for Suspected Radiographically Occult Proximal Femoral Fracture in Adults With Acute Hip Pain: A Systematic Review of Diagnostic Accuracy Studies.",
-    "comment": "POCUS ช่วยวินิจฉัยกระดูกสะโพกหักชนิดมองไม่เห็นใน X-ray ช่วยลดเวลาและเพิ่มความแม่นยำใน ER",
+    "comment": "POCUS ช่วยวินิจฉัย occult hip fracture ที่ X-ray ปกติ เพิ่มความแม่นยำในการรักษาใน ER",
     "pmid": "43032835",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43032835/"
   },
   {
     "date": "15 Nov",
-    "title": "Overnight stay in the emergency department and mortality in sepsis patients.",
-    "comment": "การค้างคืนใน ER เพิ่มอัตราการเสียชีวิตในผู้ป่วย Sepsis เน้นย้ำความสำคัญของการย้ายเข้า ICU/Ward โดยเร็ว",
-    "pmid": "43032405",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43032405/"
-  },
-  {
-    "date": "15 Nov",
     "title": "Longer wait times after ED-initiated buprenorphine associated with lower appointment attendance.",
-    "comment": "ระยะเวลารอนัดหลังเริ่ม Buprenorphine ใน ER ที่นานขึ้น ลดการมาตามนัด ต้องเร่งนัดติดตามอาการ",
+    "comment": "ชี้ให้เห็นว่าระยะเวลารอคอยหลังเริ่ม Buprenorphine ใน ER มีผลตรงต่ออัตราการติดตามรักษา",
     "pmid": "43033608",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43033608/"
   },
   {
     "date": "15 Nov",
     "title": "Automated Risk Stratification for Corrected QT Interval (QTc) Prolongation Related to Haloperidol Use.",
-    "comment": "ระบบคัดกรองความเสี่ยง QTc ยาวอัตโนมัติจากการใช้ Haloperidol ช่วยเพิ่มความปลอดภัยในการสงบสติอารมณ์ผู้ป่วยใน ER",
+    "comment": "ระบบประเมินความเสี่ยง QTc prolongation อัตโนมัติ เพิ่มความปลอดภัยในการใช้ Haloperidol ใน ER",
     "pmid": "43032826",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43032826/"
   },
   {
     "date": "15 Nov",
+    "title": "Overnight stay in the emergency department and mortality in sepsis patients.",
+    "comment": "การค้างคืนใน ER (ED boarding) ส่งผลเพิ่มอัตราการเสียชีวิตในผู้ป่วย Sepsis อย่างมีนัยสำคัญ",
+    "pmid": "43032405",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43032405/"
+  },
+  {
+    "date": "15 Nov",
     "title": "Clinical and circumstantial predictors of intent to die among emergency department patients with intentional self-harm.",
-    "comment": "ปัจจัยทำนายความตั้งใจเสียชีวิตในผู้ป่วยพยายามทำร้ายตัวเองที่ ER ช่วยประเมินความเสี่ยงและคัดกรองทางจิตเวช",
+    "comment": "ปัจจัยทำนายความเสี่ยงการฆ่าตัวตายในผู้ป่วย self-harm ช่วยคัดกรองและประเมินผู้ป่วยใน ER ได้แม่นยำขึ้น",
     "pmid": "43033532",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43033532/"
   },
   {
     "date": "15 Nov",
-    "title": "Antibiotic prescribing trends and outcomes in outpatient low-risk diverticulitis: a retrospective analysis in Veterans Health Administration between 2016 and 2023.",
-    "comment": "ประเมินการให้ยาปฏิชีวนะใน Low-risk diverticulitis ผู้ป่วยนอก สนับสนุนแนวทางลดการใช้ยาปฏิชีวนะที่ไม่จำเป็น",
-    "pmid": "43032492",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43032492/"
-  },
-  {
-    "date": "15 Nov",
     "title": "Endovascular treatment for cervical internal carotid artery occlusion due to dissection: a multicenter analysis.",
-    "comment": "ข้อมูลประสิทธิภาพและความปลอดภัยของการรักษาผ่านหลอดเลือดใน Stroke จาก Carotid artery dissection ในภาวะฉุกเฉิน",
+    "comment": "การรักษาด้วยหลอดเลือดแบบส่งสายสวนในภาวะหลอดเลือดคอฉีกขาดและอุดตัน ช่วยเพิ่มอัตราการรอดชีวิตและฟื้นฟูสมอง",
     "pmid": "43033238",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43033238/"
   },
   {
     "date": "15 Nov",
+    "title": "Antibiotic prescribing trends and outcomes in outpatient low-risk diverticulitis: a retrospective analysis in Veterans Health Administration between 2016 and 2023.",
+    "comment": "ทบทวนการใช้ยาปฏิชีวนะใน low-risk diverticulitis ช่วยสนับสนุนแนวทางการรักษาที่ไม่จำเป็นต้องใช้ยาฆ่าเชื้อทุกราย",
+    "pmid": "43032492",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43032492/"
+  },
+  {
+    "date": "15 Nov",
     "title": "Retrospective, multicenter evaluation of stricter reflex urine culture criteria and workflow changes in emergency departments across six hospitals and three off-campus sites.",
-    "comment": "ปรับเกณฑ์การส่ง Urine culture ใน ER ช่วยลดการรักษาที่ไม่จำเป็นและลดการใช้ยาปฏิชีวนะโดยไม่กระทบความปลอดภัย",
+    "comment": "การปรับเกณฑ์ส่ง urine culture ใน ER ให้เข้มงวดขึ้น ช่วยลดการใช้ยาปฏิชีวนะพร่ำเพรื่อได้สำเร็จ",
     "pmid": "43032020",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43032020/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Emergencies at Sea: Sudden Death on Cruise Ships For the BELTRAN Study (BaskEtbaLl and soccer sTadiums: Registry on Automatic exterNal defibrillators).",
+    "comment": "ข้อมูลระบาดวิทยาและการใช้ AED ในผู้ป่วยหัวใจหยุดเต้นนอกโรงพยาบาลในพื้นที่เฉพาะเพื่อปรับปรุงการช่วยเหลือ",
+    "pmid": "43033899",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43033899/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Endothelial and Hemostatic Molecular Markers Associated With 28-Day Mortality in Sepsis: A Prospective Cohort Study.",
+    "comment": "มาร์กเกอร์หลอดเลือดและการแข็งตัวของเลือดช่วยทำนายอัตราตาย 28 วันในผู้ป่วย Sepsis ได้ตั้งแต่แรกรับ",
+    "pmid": "43033053",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43033053/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Trajectories of medication use after whiplash injury: high rates of persistent opioid and sedative use.",
+    "comment": "เตือนความเสี่ยงการติดยาแก้ปวดกลุ่มโอปิออยด์และยากดประสาทเรื้อรังหลังบาดเจ็บ Whiplash ใน ER",
+    "pmid": "43032870",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43032870/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Development and validation of a bedside nomogram for predicting severe hospital-acquired pneumonia in traumatic brain injury patients based on early semi-quantitative chest CT assessment.",
+    "comment": "Nomogram ประเมินความเสี่ยงปอดอักเสบติดเชื้อรุนแรงในผู้ป่วย TBI จาก CT ปอดระยะแรก ช่วยวางแผนการรักษา",
+    "pmid": "43032625",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43032625/"
   },
   {
     "date": "15 Nov",
@@ -61,13 +89,6 @@
     "comment": "ประเมินข้อบ่งชี้การส่ง Troponin ในภาวะฉุกเฉิน ช่วยลดการเจาะเลือดพร่ำเพรื่อและปรับปรุงการดูแลผู้ป่วยเจ็บหน้าอก",
     "pmid": "43032879",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43032879/"
-  },
-  {
-    "date": "15 Nov",
-    "title": "Trajectories of medication use after whiplash injury: high rates of persistent opioid and sedative use.",
-    "comment": "ผู้ป่วย Whiplash injury มีอัตราการใช้ Opioid และ Sedative ต่อเนื่องสูง เตือนแพทย์ ER ระวังการจ่ายยาแก้ปวดระยะยาว",
-    "pmid": "43032870",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43032870/"
   },
   {
     "date": "15 Nov",
@@ -467,26 +488,5 @@
     "comment": "นวัตกรรมระบบ Alert First Responder เพื่อให้ถึงที่เกิดเหตุก่อน EMS เพิ่มโอกาสรอดชีวิต",
     "pmid": "42998307",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42998307/"
-  },
-  {
-    "date": "8 Nov",
-    "title": "Upper airway morphometry in acute neck infections: Clinical associations and deep learning-based segmentation.",
-    "comment": "ใช้ AI วิเคราะห์ทางเดินหายใจใน acute neck infection ช่วยประเมินความเสี่ยง airway obstruction",
-    "pmid": "42998630",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42998630/"
-  },
-  {
-    "date": "8 Nov",
-    "title": "To cradle or not: assessing the use of a lumbar puncture cradle on lumbar puncture success rates.",
-    "comment": "ประเมินการใช้ cradle ในการทำ LP เพื่อเพิ่ม success rate ลดความล้มเหลวในการทำหัตถการ",
-    "pmid": "42998213",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42998213/"
-  },
-  {
-    "date": "8 Nov",
-    "title": "Long COVID: A Modified Delphi Consensus on Definition, Burden, Diagnosis and Management in Southeast Asia.",
-    "comment": "Consensus การจัดการ Long COVID ในภูมิภาค SEA ใช้เป็นแนวทางวินิจฉัยและส่งต่อผู้ป่วย",
-    "pmid": "42998216",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42998216/"
   }
 ]
