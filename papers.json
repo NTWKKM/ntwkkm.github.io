@@ -1,6 +1,76 @@
 [
   {
     "date": "15 Nov",
+    "title": "Point-of-Care Ultrasound for Suspected Radiographically Occult Proximal Femoral Fracture in Adults With Acute Hip Pain: A Systematic Review of Diagnostic Accuracy Studies.",
+    "comment": "POCUS ช่วยวินิจฉัยกระดูกสะโพกหักชนิดมองไม่เห็นใน X-ray ช่วยลดเวลาและเพิ่มความแม่นยำใน ER",
+    "pmid": "43032835",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43032835/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Overnight stay in the emergency department and mortality in sepsis patients.",
+    "comment": "การค้างคืนใน ER เพิ่มอัตราการเสียชีวิตในผู้ป่วย Sepsis เน้นย้ำความสำคัญของการย้ายเข้า ICU/Ward โดยเร็ว",
+    "pmid": "43032405",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43032405/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Longer wait times after ED-initiated buprenorphine associated with lower appointment attendance.",
+    "comment": "ระยะเวลารอนัดหลังเริ่ม Buprenorphine ใน ER ที่นานขึ้น ลดการมาตามนัด ต้องเร่งนัดติดตามอาการ",
+    "pmid": "43033608",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43033608/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Automated Risk Stratification for Corrected QT Interval (QTc) Prolongation Related to Haloperidol Use.",
+    "comment": "ระบบคัดกรองความเสี่ยง QTc ยาวอัตโนมัติจากการใช้ Haloperidol ช่วยเพิ่มความปลอดภัยในการสงบสติอารมณ์ผู้ป่วยใน ER",
+    "pmid": "43032826",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43032826/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Clinical and circumstantial predictors of intent to die among emergency department patients with intentional self-harm.",
+    "comment": "ปัจจัยทำนายความตั้งใจเสียชีวิตในผู้ป่วยพยายามทำร้ายตัวเองที่ ER ช่วยประเมินความเสี่ยงและคัดกรองทางจิตเวช",
+    "pmid": "43033532",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43033532/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Antibiotic prescribing trends and outcomes in outpatient low-risk diverticulitis: a retrospective analysis in Veterans Health Administration between 2016 and 2023.",
+    "comment": "ประเมินการให้ยาปฏิชีวนะใน Low-risk diverticulitis ผู้ป่วยนอก สนับสนุนแนวทางลดการใช้ยาปฏิชีวนะที่ไม่จำเป็น",
+    "pmid": "43032492",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43032492/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Endovascular treatment for cervical internal carotid artery occlusion due to dissection: a multicenter analysis.",
+    "comment": "ข้อมูลประสิทธิภาพและความปลอดภัยของการรักษาผ่านหลอดเลือดใน Stroke จาก Carotid artery dissection ในภาวะฉุกเฉิน",
+    "pmid": "43033238",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43033238/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Retrospective, multicenter evaluation of stricter reflex urine culture criteria and workflow changes in emergency departments across six hospitals and three off-campus sites.",
+    "comment": "ปรับเกณฑ์การส่ง Urine culture ใน ER ช่วยลดการรักษาที่ไม่จำเป็นและลดการใช้ยาปฏิชีวนะโดยไม่กระทบความปลอดภัย",
+    "pmid": "43032020",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43032020/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Troponin Request Indications and Subsequent Cardiac Management in Acute Care: A Retrospective Quality Improvement Project.",
+    "comment": "ประเมินข้อบ่งชี้การส่ง Troponin ในภาวะฉุกเฉิน ช่วยลดการเจาะเลือดพร่ำเพรื่อและปรับปรุงการดูแลผู้ป่วยเจ็บหน้าอก",
+    "pmid": "43032879",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43032879/"
+  },
+  {
+    "date": "15 Nov",
+    "title": "Trajectories of medication use after whiplash injury: high rates of persistent opioid and sedative use.",
+    "comment": "ผู้ป่วย Whiplash injury มีอัตราการใช้ Opioid และ Sedative ต่อเนื่องสูง เตือนแพทย์ ER ระวังการจ่ายยาแก้ปวดระยะยาว",
+    "pmid": "43032870",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43032870/"
+  },
+  {
+    "date": "15 Nov",
     "title": "Association Between Succinylated Gelatin Exposure and Acute Kidney Injury in Critically Ill Trauma Patients: A Retrospective Five-Year Cohort Study.",
     "comment": "เตือนความเสี่ยง AKI จากการใช้ Gelatin Resuscitation ในผู้ป่วย Trauma วิกฤต",
     "pmid": "43030740",
@@ -418,75 +488,5 @@
     "comment": "Consensus การจัดการ Long COVID ในภูมิภาค SEA ใช้เป็นแนวทางวินิจฉัยและส่งต่อผู้ป่วย",
     "pmid": "42998216",
     "link": "https://pubmed.ncbi.nlm.nih.gov/42998216/"
-  },
-  {
-    "date": "8 Nov",
-    "title": "Beyond endotoxin removal: redefining the role of polymyxin B hemoadsorption in septic shock.",
-    "comment": "ทบทวนบทบาท Polymyxin B hemoadsorption ใน Septic shock เพื่อปรับปรุงการรักษาภาวะ shock",
-    "pmid": "42996703",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42996703/"
-  },
-  {
-    "date": "8 Nov",
-    "title": "Design and application of PPTN-based fluorescence polarization probe for P2Y14 receptor antagonist screening.",
-    "comment": "เครื่องมือใหม่ในการตรวจคัดกรอง receptor ที่เกี่ยวข้องกับการอักเสบ (Novel Tool)",
-    "pmid": "42998543",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42998543/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Comparative Efficacy and Safety of Corticosteroids vs. No Corticosteroids in Septic Shock Intensive Care Unit Patients: A Systematic Review and Meta-Analysis.",
-    "comment": "ประเมินซ้ำการใช้ Steroid ใน Septic shock ซึ่งเป็นประเด็นถกเถียงสูงใน ICU/ER",
-    "pmid": "42964225",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42964225/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "The Pharmacologic Management of Cardiac Arrest.",
-    "comment": "Update การใช้ยาใน Cardiac arrest ซึ่งเป็น Standard of care ที่ต้องแม่นยำ",
-    "pmid": "42963150",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42963150/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Defibrillation in the Cardiac Arrest Patient.",
-    "comment": "ทบทวนหลักการ Defibrillation เพื่อเพิ่ม survival rate ในผู้ป่วย Cardiac arrest",
-    "pmid": "42963149",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42963149/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Missed abdominal injuries on initial trauma CT: pitfalls, mimickers and practical pearls.",
-    "comment": "ลด Error ในการอ่าน CT trauma ช่วยให้ไม่พลาดการวินิจฉัยที่วิกฤต",
-    "pmid": "42963514",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42963514/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Empirical linezolid target attainment in critically ill patients: integrating local susceptibility data and dosing strategies.",
-    "comment": "แนวทางการปรับโดส Linezolid ในผู้ป่วยวิกฤตเพื่อประสิทธิภาพสูงสุดในการรักษา",
-    "pmid": "42963486",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42963486/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Sepsis-Induced Coagulopathy (SIC) Update 2026: Simplifying the Diagnosis and Dynamic Monitoring of Sepsis-Associated DIC.",
-    "comment": "Update เกณฑ์วินิจฉัยและติดตาม SIC/DIC ใน Sepsis ให้ง่ายและใช้ได้จริง",
-    "pmid": "42962682",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42962682/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Outpatient management of uncomplicated acute diverticulitis: experience after implementing a protocol with selective antibiotic omission.",
-    "comment": "เปลี่ยนแนวทางรักษา diverticulitis แบบไม่ซับซ้อน โดยพิจารณาการงดยาปฏิชีวนะ",
-    "pmid": "42963293",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42963293/"
-  },
-  {
-    "date": "31 Oct",
-    "title": "Negative Pressure Wound Therapy for Emergency Laparotomy: A Meta-Analysis With Trial Sequential Analysis.",
-    "comment": "ข้อมูลสนับสนุนการใช้ NPWT ในแผลผ่าตัดฉุกเฉินเพื่อลด complication",
-    "pmid": "42962611",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42962611/"
   }
 ]
