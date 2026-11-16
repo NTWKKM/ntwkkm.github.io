@@ -1,5 +1,75 @@
 [
   {
+    "date": "16 Nov",
+    "title": "A Nomogram Based on MEWS, SpO2, Lactate, and Procalcitonin for Early Prediction of Septic Shock in Emergency Department Patients with Suspected Sepsis.",
+    "comment": "เครื่องมือช่วยประเมินความเสี่ยง Septic shock ใน ER ที่นำมาใช้จริงได้ง่ายและรวดเร็ว",
+    "pmid": "43036713",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43036713/"
+  },
+  {
+    "date": "16 Nov",
+    "title": "Rapid measurement of direct oral anticoagulants for clinical decision-making.",
+    "comment": "ข้อมูลสำคัญในการจัดการผู้ป่วยฉุกเฉินที่ได้รับ DOACs ช่วยตัดสินใจเรื่องการให้ยาต้านหรือการผ่าตัดด่วน",
+    "pmid": "43036672",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43036672/"
+  },
+  {
+    "date": "16 Nov",
+    "title": "The Scandinavian Neurotrauma Committee 2026 guidelines for initial management of minimal, mild and moderate head injuries in adults: a systematic review, meta-analysis and modified Delphi consensus study.",
+    "comment": "แนวทางปฏิบัติฉบับปรับปรุงใหม่สำหรับ Head injury ช่วยคัดกรองผู้ป่วยได้แม่นยำขึ้น",
+    "pmid": "43034829",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43034829/"
+  },
+  {
+    "date": "16 Nov",
+    "title": "Sex differences in bystander cardiopulmonary resuscitation and survival to hospital discharge for public out-of-hospital cardiac arrests in North Carolina and Singapore: a retrospective cohort study.",
+    "comment": "เน้นความเหลื่อมล้ำในการทำ CPR ระหว่างเพศ ซึ่งแพทย์ควรตระหนักเพื่อเพิ่มคุณภาพการกู้ชีพ",
+    "pmid": "43036684",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43036684/"
+  },
+  {
+    "date": "16 Nov",
+    "title": "External validation of an artificial intelligence-based ECG algorithm for the early diagnosis of acute myocardial infarction: a prospective diagnostic cohort study.",
+    "comment": "ยืนยันประสิทธิภาพ AI ในการช่วยตรวจจับ STEMI/NSTEMI ช่วยลดโอกาสการพลาดวินิจฉัยใน ER",
+    "pmid": "43036347",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43036347/"
+  },
+  {
+    "date": "16 Nov",
+    "title": "Advancements in stroke prevention for left ventricular thrombus: A global survey in the DOAC era and a call for updated guidelines.",
+    "comment": "ข้อแนะนำใหม่ในการใช้ DOAC ป้องกัน stroke จากภาวะ LV thrombus แทน warfarin เดิม",
+    "pmid": "43036357",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43036357/"
+  },
+  {
+    "date": "16 Nov",
+    "title": "Is Endovascular Thrombectomy Effective for Distal Medium Vessel Occlusion Stroke? A Meta-Analysis of Randomized Controlled Trials and Observational Studies.",
+    "comment": "ข้อมูลสำคัญในการตัดสินใจส่งทำหัตถการในผู้ป่วย Stroke กลุ่ม distal medium vessel occlusion",
+    "pmid": "43036087",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43036087/"
+  },
+  {
+    "date": "16 Nov",
+    "title": "Association Between Early Nucleated Red Blood Cell Percentage and 28-Day Mortality in Adult ICU Patients With Sepsis: A Retrospective Cohort Study.",
+    "comment": "Biomarker ใหม่ช่วยพยากรณ์ความรุนแรงและโอกาสรอดชีวิตในผู้ป่วย Sepsis ตั้งแต่แรกรับ",
+    "pmid": "43035408",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43035408/"
+  },
+  {
+    "date": "16 Nov",
+    "title": "Can Pediatric Emergency Medicine Clinicians Identify Solid Organ Injuries Using Contrast-Enhanced FAST in Abdominal Trauma?",
+    "comment": "การใช้ CEUS ในเด็กแทน CT ช่วยลดการได้รับรังสีและระบุการบาดเจ็บในอวัยวะภายในได้แม่นยำ",
+    "pmid": "43035326",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43035326/"
+  },
+  {
+    "date": "16 Nov",
+    "title": "Refractory ventricular tachyarrhythmia following a suicidal massive caffeine overdose: a case report and review of emergency management.",
+    "comment": "แนวทางการจัดการภาวะหัวใจเต้นผิดจังหวะรุนแรงจาก Caffeine overdose ที่พบได้บ่อยขึ้น",
+    "pmid": "43035483",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43035483/"
+  },
+  {
     "date": "15 Nov",
     "title": "Point-of-Care Ultrasound for Suspected Radiographically Occult Proximal Femoral Fracture in Adults With Acute Hip Pain: A Systematic Review of Diagnostic Accuracy Studies.",
     "comment": "POCUS ช่วยวินิจฉัย occult hip fracture ที่ X-ray ปกติ เพิ่มความแม่นยำในการรักษาใน ER",
@@ -418,75 +488,5 @@
     "comment": "ข้อมูลอัตราความสำเร็จและภาวะแทรกซ้อนของการจัดการทางเดินหายใจขั้นสูงใน ER",
     "pmid": "43001228",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43001228/"
-  },
-  {
-    "date": "10 Nov",
-    "title": "Azetukalner in Adults With Focal Seizures: The X-TOLE2 Phase 3 Randomized Clinical Trial.",
-    "comment": "ยาตัวใหม่สำหรับรักษา Focal Seizures ที่ผ่าน Phase 3 อาจเป็นทางเลือกใหม่ในอนาคต",
-    "pmid": "43002431",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43002431/"
-  },
-  {
-    "date": "10 Nov",
-    "title": "Community and EMS Interventions to Improve Survival in Cardiac Arrest.",
-    "comment": "การปรับปรุงระบบ EMS และชุมชนเพื่อเพิ่มอัตราการรอดชีวิตจาก Cardiac Arrest",
-    "pmid": "43001758",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43001758/"
-  },
-  {
-    "date": "10 Nov",
-    "title": "Carbon monoxide exposure and the risk of cardiac arrhythmia: a systematic review and meta-analysis.",
-    "comment": "ความเสี่ยงของ arrhythmia ในผู้ป่วย CO poisoning ซึ่งต้องเฝ้าระวังใน ER",
-    "pmid": "43001567",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43001567/"
-  },
-  {
-    "date": "10 Nov",
-    "title": "Educational Quality and Information Reliability of E-FAST Training Videos: A Multi-Rater Assessment Using an Overall Understandability and Actionability Composite.",
-    "comment": "การประเมินสื่อสอน E-FAST เพื่อให้แพทย์ ER ได้รับข้อมูลที่ถูกต้องนำไปใช้จริงได้",
-    "pmid": "43002636",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43002636/"
-  },
-  {
-    "date": "10 Nov",
-    "title": "Age Differences in the Discrimination and Level-Specific Risk of Emergency Severity Index Triage for Critical Outcomes in the Oldest-Old.",
-    "comment": "วิเคราะห์ความแม่นยำของ ESI Triage ในผู้สูงอายุมาก เพื่อลด Error ในการคัดกรอง",
-    "pmid": "43000685",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43000685/"
-  },
-  {
-    "date": "8 Nov",
-    "title": "Early recurrence of febrile seizures in the pediatric emergency department: development and internal validation of FSERS, a practical bedside risk score.",
-    "comment": "Bedside risk score สำหรับประเมินการกลับเป็นซ้ำของ Febrile Seizure ใช้คัดกรองผู้ป่วยใน ER ได้ทันที",
-    "pmid": "42998584",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42998584/"
-  },
-  {
-    "date": "8 Nov",
-    "title": "Association of tranexamic acid with early death or massive transfusion after severe pelvic ring fractures: A nationwide registry-based cohort study.",
-    "comment": "ข้อมูลความเสี่ยง/ประสิทธิผลของ TXA ใน pelvic fracture รุนแรง มีผลต่อการตัดสินใจให้ยาใน Trauma",
-    "pmid": "42998459",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42998459/"
-  },
-  {
-    "date": "8 Nov",
-    "title": "Point-of-Care Ultrasound for Suspected Rib Fractures in Blunt Thoracic Trauma: A Proposed Emergency Department Protocol.",
-    "comment": "โปรโตคอล POCUS สำหรับ rib fractures ช่วยลดการส่ง CT และเพิ่มความรวดเร็วในการวินิจฉัยที่ ER",
-    "pmid": "42997642",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42997642/"
-  },
-  {
-    "date": "8 Nov",
-    "title": "Analysis of tranexamic acid in hemoptysis: effectiveness in a noninterventional evaluation (ATHENE).",
-    "comment": "ประเมินการใช้ TXA ในผู้ป่วย Hemoptysis ซึ่งเป็นภาวะฉุกเฉินที่พบบ่อยใน ER",
-    "pmid": "42998371",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42998371/"
-  },
-  {
-    "date": "8 Nov",
-    "title": "Smart Alerting in Smartphone-Based First Responder Systems and Arrival Before Emergency Medical Services:The ALARM Randomized Clinical Trial.",
-    "comment": "นวัตกรรมระบบ Alert First Responder เพื่อให้ถึงที่เกิดเหตุก่อน EMS เพิ่มโอกาสรอดชีวิต",
-    "pmid": "42998307",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/42998307/"
   }
 ]
