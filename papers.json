@@ -2,37 +2,79 @@
   {
     "date": "18 Nov",
     "title": "Evaluation of the ESC Guideline based risk stratification of syncope patients in the emergency department A post-hoc analysis of the SYNERGY-trial.",
-    "comment": "ประเมินการแบ่งกลุ่มเสี่ยงผู้ป่วย Syncope ตาม ESC guideline ใน ER เพื่อช่วยการตัดสินใจ Admit หรือ Discharge",
+    "comment": "ประเมินความแม่นยำของ ESC guideline ในการแบ่งความเสี่ยงผู้ป่วย syncope ใน ER เพื่อความปลอดภัยในการให้กลับบ้าน",
     "pmid": "43046868",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43046868/"
   },
   {
     "date": "18 Nov",
-    "title": "Six Decades of Use, One Randomized Trial: A Systematic Review of Intravenous Sodium Bicarbonate for Acute Vertigo.",
-    "comment": "ทบทวนหลักฐานการใช้ IV Sodium Bicarbonate ใน Acute Vertigo ชี้ให้เห็นว่าขาดหลักฐานเชิงประจักษ์ชัดเจน",
-    "pmid": "43046802",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43046802/"
-  },
-  {
-    "date": "18 Nov",
-    "title": "Pediatric methemoglobinemia in the emergency department: etiology, treatment patterns, and short-term outcomes.",
-    "comment": "ข้อมูลสาเหตุ รูปแบบการรักษา และผลลัพธ์ของผู้ป่วยเด็ก Methemoglobinemia ในห้องฉุกเฉินเพื่อการดูแลที่แม่นยำ",
-    "pmid": "43046691",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43046691/"
-  },
-  {
-    "date": "18 Nov",
     "title": "Intravesical tranexamic acid for gross hematuria in the emergency department: a prospective cohort study.",
-    "comment": "การใช้ Intravesical TXA รักษา Gross hematuria ใน ER เป็นทางเลือกใหม่ที่ได้ผลดีและทำได้จริง",
+    "comment": "การใช้ TXA หยอดเข้ากระเพาะปัสสาวะรักษา gross hematuria ใน ER เป็นทางเลือกใหม่ที่ปลอดภัยและได้ผลดี",
     "pmid": "43046141",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43046141/"
   },
   {
     "date": "18 Nov",
+    "title": "Early Prehospital Prediction of Neurological Outcome After Out-of-Hospital Cardiac Arrest Derivation and External Validation of the MIRA-29 Score.",
+    "comment": "พัฒนาและประเมิน MIRA-29 score เพื่อทำนายผลลัพธ์ทางระบบประสาทหลังเกิด OHCA ตั้งแต่ระยะก่อนถึงโรงพยาบาล",
+    "pmid": "43044726",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43044726/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Six Decades of Use, One Randomized Trial: A Systematic Review of Intravenous Sodium Bicarbonate for Acute Vertigo.",
+    "comment": "ทบทวนหลักฐานการใช้ IV sodium bicarbonate ใน acute vertigo พบหลักฐานสนับสนุนน้อยมาก ชี้ให้เห็นถึงความจำเป็นต้องทบทวนการใช้",
+    "pmid": "43046802",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43046802/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Hypophosphatemia in Pediatric Diabetic Ketoacidosis: Incidence, Determinants, and Clinical Impact in a Tertiary Emergency and Intensive Care Cohort.",
+    "comment": "ข้อมูลอุบัติการณ์และความเสี่ยงของภาวะฟอสเฟตต่ำในเด็ก DKA ช่วยเตือนภัยเงียบและการเฝ้าระวัง electrolyte ใน ER",
+    "pmid": "43046510",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43046510/"
+  },
+  {
+    "date": "18 Nov",
     "title": "Risk factors of in-hospital mortality in adult emergency department patients with atraumatic acute abdominal pain: a retrospective cohort study.",
-    "comment": "ระบุปัจจัยเสี่ยงอัตราตายในโรงพยาบาลของผู้ป่วยปวดท้องเฉียบพลันใน ER ช่วยคัดกรองเคสความเสี่ยงสูง",
+    "comment": "ระบุปัจจัยเสี่ยงต่อการเสียชีวิตในผู้ป่วยปวดท้องเฉียบพลันที่ไม่ใช่จากอุบัติเหตุ ช่วยคัดกรองเคสเสี่ยงสูงใน ER",
     "pmid": "43045986",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43045986/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Pediatric methemoglobinemia in the emergency department: etiology, treatment patterns, and short-term outcomes.",
+    "comment": "สรุปสาเหตุ แนวทางการรักษา และผลลัพธ์ของ methemoglobinemia ในเด็กสำหรับแพทย์ห้องฉุกเฉิน",
+    "pmid": "43046691",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43046691/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Out-of-hospital cardiac arrests due to foreign body airway obstruction: A CanROC registry, retrospective cohort study.",
+    "comment": "ศึกษาลักษณะและผลลัพธ์ของ OHCA จากสิ่งแปลกปลอมอุดกั้นทางเดินหายใจ เพิ่มแนวทางรับมือภาวะฉุกเฉินนี้",
+    "pmid": "43044724",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43044724/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Survival after out of hospital cardiac arrest in relation to AED usage in a multi response system including AED equipped drones.",
+    "comment": "แสดงผลของระบบโดรนส่ง AED ต่ออัตราการรอดชีวิตใน OHCA ซึ่งเป็นนวัตกรรมระบบบริการฉุกเฉินยุคใหม่",
+    "pmid": "43044727",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43044727/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "[Chinese expert consensus on the emergency diagnosis and treatment of acute exacerbation of asthma (2026)].",
+    "comment": "ฉันทามติผู้เชี่ยวชาญสำหรับการวินิจฉัยและรักษาหอบหืดกำเริบเฉียบพลันในห้องฉุกเฉิน",
+    "pmid": "43045519",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43045519/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Community First Responder Activation Reduces the Negative Impact of AED Distance on Bystander Defibrillation After Out-of-Hospital Cardiac Arrest.",
+    "comment": "ชี้ให้เห็นความสำคัญของระบบอาสาสมัครตอบโต้ฉุกเฉินในการลดข้อจำกัดเรื่องระยะทางเครื่อง AED สำหรับ OHCA",
+    "pmid": "43044722",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43044722/"
   },
   {
     "date": "18 Nov",
@@ -47,41 +89,6 @@
     "comment": "งานวิจัยรวมหลักฐานยืนยันประสิทธิผลของ Lithium ในการลดความเสี่ยงการฆ่าตัวตายในผู้ป่วยวิกฤตจิตเวช",
     "pmid": "43046292",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43046292/"
-  },
-  {
-    "date": "18 Nov",
-    "title": "[Chinese expert consensus on the emergency diagnosis and treatment of acute exacerbation of asthma (2026)].",
-    "comment": "แนวทางฉันทามติล่าสุดในการตรวจวินิจฉัยและรักษาผู้ป่วยหอบหืดกำเริบเฉียบพลันในห้องฉุกเฉิน",
-    "pmid": "43045519",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43045519/"
-  },
-  {
-    "date": "18 Nov",
-    "title": "Early Prehospital Prediction of Neurological Outcome After Out-of-Hospital Cardiac Arrest Derivation and External Validation of the MIRA-29 Score.",
-    "comment": "เครื่องมือ MIRA-29 score ช่วยทำนายผลลัพธ์ทางระบบประสาทของผู้ป่วย OHCA ได้ตั้งแต่ระยะก่อนถึงโรงพยาบาล",
-    "pmid": "43044726",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43044726/"
-  },
-  {
-    "date": "18 Nov",
-    "title": "Out-of-hospital cardiac arrests due to foreign body airway obstruction: A CanROC registry, retrospective cohort study.",
-    "comment": "วิเคราะห์ผลลัพธ์และปัจจัยของการเกิด OHCA จากการสำลักสิ่งแปลกปลอมเพื่อปรับปรุงกระบวนการกู้ชีพ",
-    "pmid": "43044724",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43044724/"
-  },
-  {
-    "date": "18 Nov",
-    "title": "Community First Responder Activation Reduces the Negative Impact of AED Distance on Bystander Defibrillation After Out-of-Hospital Cardiac Arrest.",
-    "comment": "แสดงให้เห็นว่าระบบ Community First Responder ช่วยลดอุปสรรคเรื่องระยะทาง AED และเพิ่มการช็อกไฟฟ้าหัวใจ",
-    "pmid": "43044722",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43044722/"
-  },
-  {
-    "date": "18 Nov",
-    "title": "Survival after out of hospital cardiac arrest in relation to AED usage in a multi response system including AED equipped drones.",
-    "comment": "ประเมินผลลัพธ์การรอดชีวิตของ OHCA เมื่อใช้โดรนขนส่ง AED ในระบบกู้ชีพฉุกเฉินยุคใหม่",
-    "pmid": "43044727",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43044727/"
   },
   {
     "date": "16 Nov",
@@ -481,12 +488,5 @@
     "comment": "เกณฑ์ใหม่ช่วยคัดกรอง Acute Aortic Syndrome ใน ER ลดการทำ CT Scan ที่ไม่จำเป็นอย่างปลอดภัย",
     "pmid": "43006790",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43006790/"
-  },
-  {
-    "date": "11 Nov",
-    "title": "Operationalizing High-Sensitivity Cardiac Troponin Pathways.",
-    "comment": "แนวทางปฏิบัติที่ชัดเจนในการใช้ hs-Troponin ช่วยลดระยะเวลารอคอย (LOS) ในผู้ป่วย Chest pain ที่ห้องฉุกเฉิน",
-    "pmid": "43007682",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43007682/"
   }
 ]
