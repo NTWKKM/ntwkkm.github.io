@@ -1,5 +1,89 @@
 [
   {
+    "date": "18 Nov",
+    "title": "Evaluation of the ESC Guideline based risk stratification of syncope patients in the emergency department A post-hoc analysis of the SYNERGY-trial.",
+    "comment": "ประเมินการแบ่งกลุ่มเสี่ยงผู้ป่วย Syncope ตาม ESC guideline ใน ER เพื่อช่วยการตัดสินใจ Admit หรือ Discharge",
+    "pmid": "43046868",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43046868/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Six Decades of Use, One Randomized Trial: A Systematic Review of Intravenous Sodium Bicarbonate for Acute Vertigo.",
+    "comment": "ทบทวนหลักฐานการใช้ IV Sodium Bicarbonate ใน Acute Vertigo ชี้ให้เห็นว่าขาดหลักฐานเชิงประจักษ์ชัดเจน",
+    "pmid": "43046802",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43046802/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Pediatric methemoglobinemia in the emergency department: etiology, treatment patterns, and short-term outcomes.",
+    "comment": "ข้อมูลสาเหตุ รูปแบบการรักษา และผลลัพธ์ของผู้ป่วยเด็ก Methemoglobinemia ในห้องฉุกเฉินเพื่อการดูแลที่แม่นยำ",
+    "pmid": "43046691",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43046691/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Intravesical tranexamic acid for gross hematuria in the emergency department: a prospective cohort study.",
+    "comment": "การใช้ Intravesical TXA รักษา Gross hematuria ใน ER เป็นทางเลือกใหม่ที่ได้ผลดีและทำได้จริง",
+    "pmid": "43046141",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43046141/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Risk factors of in-hospital mortality in adult emergency department patients with atraumatic acute abdominal pain: a retrospective cohort study.",
+    "comment": "ระบุปัจจัยเสี่ยงอัตราตายในโรงพยาบาลของผู้ป่วยปวดท้องเฉียบพลันใน ER ช่วยคัดกรองเคสความเสี่ยงสูง",
+    "pmid": "43045986",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43045986/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "For emergency department patients with alcohol withdrawal syndrome, a comorbid mood disorder is associated with increased system utilization representing illness burden.",
+    "comment": "ชี้ให้เห็นว่า comorbidity ทางอารมณ์ใน Alcohol Withdrawal เพิ่มอัตราการครองเตียงและทรัพยากรใน ER",
+    "pmid": "43045941",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43045941/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Lithium for Suicide Prevention: Umbrella Review and Meta-Analysis.",
+    "comment": "งานวิจัยรวมหลักฐานยืนยันประสิทธิผลของ Lithium ในการลดความเสี่ยงการฆ่าตัวตายในผู้ป่วยวิกฤตจิตเวช",
+    "pmid": "43046292",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43046292/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "[Chinese expert consensus on the emergency diagnosis and treatment of acute exacerbation of asthma (2026)].",
+    "comment": "แนวทางฉันทามติล่าสุดในการตรวจวินิจฉัยและรักษาผู้ป่วยหอบหืดกำเริบเฉียบพลันในห้องฉุกเฉิน",
+    "pmid": "43045519",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43045519/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Early Prehospital Prediction of Neurological Outcome After Out-of-Hospital Cardiac Arrest Derivation and External Validation of the MIRA-29 Score.",
+    "comment": "เครื่องมือ MIRA-29 score ช่วยทำนายผลลัพธ์ทางระบบประสาทของผู้ป่วย OHCA ได้ตั้งแต่ระยะก่อนถึงโรงพยาบาล",
+    "pmid": "43044726",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43044726/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Out-of-hospital cardiac arrests due to foreign body airway obstruction: A CanROC registry, retrospective cohort study.",
+    "comment": "วิเคราะห์ผลลัพธ์และปัจจัยของการเกิด OHCA จากการสำลักสิ่งแปลกปลอมเพื่อปรับปรุงกระบวนการกู้ชีพ",
+    "pmid": "43044724",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43044724/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Community First Responder Activation Reduces the Negative Impact of AED Distance on Bystander Defibrillation After Out-of-Hospital Cardiac Arrest.",
+    "comment": "แสดงให้เห็นว่าระบบ Community First Responder ช่วยลดอุปสรรคเรื่องระยะทาง AED และเพิ่มการช็อกไฟฟ้าหัวใจ",
+    "pmid": "43044722",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43044722/"
+  },
+  {
+    "date": "18 Nov",
+    "title": "Survival after out of hospital cardiac arrest in relation to AED usage in a multi response system including AED equipped drones.",
+    "comment": "ประเมินผลลัพธ์การรอดชีวิตของ OHCA เมื่อใช้โดรนขนส่ง AED ในระบบกู้ชีพฉุกเฉินยุคใหม่",
+    "pmid": "43044727",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43044727/"
+  },
+  {
     "date": "16 Nov",
     "title": "A Nomogram Based on MEWS, SpO2, Lactate, and Procalcitonin for Early Prediction of Septic Shock in Emergency Department Patients with Suspected Sepsis.",
     "comment": "เครื่องมือช่วยประเมินความเสี่ยง Septic shock ใน ER ที่นำมาใช้จริงได้ง่ายและรวดเร็ว",
@@ -404,89 +488,5 @@
     "comment": "แนวทางปฏิบัติที่ชัดเจนในการใช้ hs-Troponin ช่วยลดระยะเวลารอคอย (LOS) ในผู้ป่วย Chest pain ที่ห้องฉุกเฉิน",
     "pmid": "43007682",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43007682/"
-  },
-  {
-    "date": "11 Nov",
-    "title": "Elevated Neutrophil-to-Lymphocyte Ratio Predicts Early Aggravation of Organ Dysfunction in Septic Patients in the Emergency Department.",
-    "comment": "ใช้ NLR ratio เป็น biomarker ง่ายๆ ในการประเมินความเสี่ยง sepsis รุนแรงในผู้ป่วยห้องฉุกเฉิน",
-    "pmid": "43007330",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43007330/"
-  },
-  {
-    "date": "11 Nov",
-    "title": "High-Sensitivity Troponin Pathway and Emergency Department Length of Stay.",
-    "comment": "ยืนยันผลกระทบของโปรโตคอล hs-Troponin ต่อการลดระยะเวลาอยู่ใน ER ซึ่งสำคัญต่อประสิทธิภาพการทำงาน",
-    "pmid": "43007673",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43007673/"
-  },
-  {
-    "date": "11 Nov",
-    "title": "Neurological Pupil Index and Delirium at Emergency Department Presentation: A Retrospective Analysis of Prospectively Collected Data.",
-    "comment": "การใช้ค่า NPi ช่วยประเมินภาวะ delirium ใน ER ช่วยแยกแยะสาเหตุความผิดปกติทางสมองได้ดีขึ้น",
-    "pmid": "43007244",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43007244/"
-  },
-  {
-    "date": "11 Nov",
-    "title": "Utilization of Medications for Alcohol Use Disorder in United States Emergency Departments.",
-    "comment": "ข้อมูลการใช้ยารักษาภาวะติดแอลกอฮอล์ใน ER ช่วยชี้ช่องทางการดูแลผู้ป่วยกลุ่มนี้ที่มีความเสี่ยงสูง",
-    "pmid": "43007247",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43007247/"
-  },
-  {
-    "date": "11 Nov",
-    "title": "Explainable Machine Learning for Predicting Hospital Admission at Emergency Department Triage: Retrospective Cohort Study.",
-    "comment": "AI ที่อธิบายเหตุผลได้ช่วยตัดสินใจรับผู้ป่วยเข้า Admit ที่จุดคัดกรอง เพิ่มความแม่นยำในการ triage",
-    "pmid": "43008270",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43008270/"
-  },
-  {
-    "date": "11 Nov",
-    "title": "Revisiting Mcconnell's Sign: Right Ventricular Infarction in the Absence of Pulmonary Embolism.",
-    "comment": "เตือนสติแพทย์ ER ว่า McConnell sign ไม่จำเพาะกับ PE อาจเกิดจาก RV Infarction ได้ ต้องระวังการวินิจฉัยผิดพลาด",
-    "pmid": "43005834",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43005834/"
-  },
-  {
-    "date": "10 Nov",
-    "title": "Prehospital Extracorporeal Life Support in Refractory Out-of-Hospital Cardiac Arrest.",
-    "comment": "Technique ขั้นสูงสำหรับ OHCA ที่ไม่ตอบสนองต่อการกู้ชีพปกติ เพิ่มโอกาสรอดชีวิต",
-    "pmid": "43001740",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43001740/"
-  },
-  {
-    "date": "10 Nov",
-    "title": "The CARE framework for traumatic cardiac arrest: integrating parallel priorities in resuscitation.",
-    "comment": "Framework ใหม่ในการจัดการ Traumatic CA เพื่อให้การกู้ชีพมีประสิทธิภาพและเป็นระบบขึ้น",
-    "pmid": "43001278",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43001278/"
-  },
-  {
-    "date": "10 Nov",
-    "title": "Pediatric Procedural Sedation Outside the Operating Room: A Practical Peds-SAFER Cognitive Aid for Emergency and Critical Care Clinicians.",
-    "comment": "เครื่องมือช่วยตัดสินใจ (Cognitive Aid) สำหรับการให้ยาระงับความรู้สึกในเด็กที่ ER เพื่อความปลอดภัย",
-    "pmid": "43000503",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43000503/"
-  },
-  {
-    "date": "10 Nov",
-    "title": "Initial management of mild traumatic brain injury in emergency departments and walk-in clinics in Argentina. Proposal by the Emergency Council of the Argentine Medical Society (SAM) and the Argentine Scientific Society of Emergency Medicine (SCEA).",
-    "comment": "แนวทางจัดการ mild TBI ใน ER ซึ่งเป็นเคสที่พบบ่อยเพื่อลดภาวะแทรกซ้อน",
-    "pmid": "43002187",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43002187/"
-  },
-  {
-    "date": "10 Nov",
-    "title": "Unintended Exposure to Medical Aid in Dying Drug Mixtures: Principles of Emergency Care.",
-    "comment": "Safety Signal: แนวทางการดูแลผู้ป่วยที่ได้รับยาช่วยให้การตายโดยไม่ตั้งใจ",
-    "pmid": "43002154",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43002154/"
-  },
-  {
-    "date": "10 Nov",
-    "title": "Success Rates and Adverse Events of Advanced Airway Management Techniques in the Emergency Department: A Prospective Observational Study.",
-    "comment": "ข้อมูลอัตราความสำเร็จและภาวะแทรกซ้อนของการจัดการทางเดินหายใจขั้นสูงใน ER",
-    "pmid": "43001228",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43001228/"
   }
 ]
