@@ -2,44 +2,79 @@
   {
     "date": "20 Nov",
     "title": "What the 2026 AHA acute ischemic stroke guideline changes in emergency care.",
-    "comment": "อัปเดตแนวทางเวชปฏิบัติ AHA 2026 ช่วยปรับปรุงการดูแลรักษาผู้ป่วย Acute Ischemic Stroke ใน ER",
+    "comment": "อัปเดตแนวทางรักษา Stroke 2026 ของ AHA สำหรับห้องฉุกเฉินโดยตรง ปรับมาตรฐานการดูแลผู้ป่วยหลอดเลือดสมองอุดตัน",
     "pmid": "43058480",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43058480/"
   },
   {
     "date": "20 Nov",
-    "title": "Bedside ECMO Cannulation by Intensivists and Emergency Physicians.",
-    "comment": "หลักฐานสนับสนุนความปลอดภัยและเป็นไปได้ของการหัตถการใส่สาย ECMO ข้างเตียงโดยแพทย์ ER",
-    "pmid": "43057568",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43057568/"
-  },
-  {
-    "date": "20 Nov",
     "title": "Discordant evidence on corticosteroids in sepsis: a meta-research study.",
-    "comment": "ชี้ความขัดแย้งของหลักฐานเชิงประจักษ์ในการใช้สเตียรอยด์ใน Sepsis เพื่อทบทวนข้อบ่งชี้การรักษา",
+    "comment": "ชี้ความขัดแย้งของหลักฐานการใช้คอร์ติโคสเตียรอยด์ในผู้ป่วย Sepsis ช่วยทบทวนข้อบ่งชี้ก่อนสั่งยาใน ER",
     "pmid": "43058869",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43058869/"
   },
   {
     "date": "20 Nov",
+    "title": "Bedside ECMO Cannulation by Intensivists and Emergency Physicians.",
+    "comment": "ยืนยันความปลอดภัยและความเป็นไปได้ในการทำ Bedside ECMO Cannulation โดยแพทย์ ER ในผู้ป่วยวิกฤต",
+    "pmid": "43057568",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43057568/"
+  },
+  {
+    "date": "20 Nov",
     "title": "Machine learning for optimizing the high-sensitivity troponin-based diagnostic pathway for myocardial infarction.",
-    "comment": "ใช้ Machine Learning เพิ่มความแม่นยำของ hs-cTn pathway ในการวินิจฉัย MI รวดเร็วขึ้นใน ER",
+    "comment": "ใช้ AI/ML เพิ่มความแม่นยำในการคัดกรอง hs-cTn เพื่อ Rule-in/Rule-out กล้ามเนื้อหัวใจขาดเลือดใน ER",
     "pmid": "43059464",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43059464/"
   },
   {
     "date": "20 Nov",
+    "title": "Early prediction of clinical deterioration in older adults with suspected infection admitted from the emergency department to general wards: a multicenter machine learning study.",
+    "comment": "โมเดล Machine Learning ทำนายภาวะทรุดลงของผู้สูงอายุที่สงสัยติดเชื้อใน ER ก่อนย้ายเข้าวอร์ด",
+    "pmid": "43058499",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43058499/"
+  },
+  {
+    "date": "20 Nov",
+    "title": "Research on a prediction model for outcomes of cardiopulmonary resuscitation in community out-of-hospital cardiac arrest patients based on the Utstein model.",
+    "comment": "ตัวทำนายผลลัพธ์การฟื้นคืนชีพ (CPR) สำหรับผู้ป่วยหัวใจหยุดเต้นนอกโรงพยาบาล (OHCA) เพื่อช่วยวางแผนการรักษาใน ER",
+    "pmid": "43058494",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43058494/"
+  },
+  {
+    "date": "20 Nov",
+    "title": "Association between polypharmacy, fall-risk increasing drugs, and fall characteristics in older adults discharged from the emergency department: cross-sectional data from the SeFallED study.",
+    "comment": "ระบุความเสี่ยงของการเกิดหกล้มในผู้สูงอายุจากยาที่ได้รับ ช่วยคัดกรองและปรับยาก่อนจำหน่ายกลับจาก ER",
+    "pmid": "43058489",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43058489/"
+  },
+  {
+    "date": "20 Nov",
+    "title": "Incremental prognostic value of inflammatory biomarkers for 28-day mortality in patients with sepsis presenting to the emergency department: a retrospective 24-hour landmark cohort study.",
+    "comment": "ประเมินค่าตัวชี้วัดการอักเสบใหม่เพื่อทำนายอัตราตาย 28 วันในผู้ป่วย Sepsis ที่ห้องฉุกเฉิน",
+    "pmid": "43058517",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43058517/"
+  },
+  {
+    "date": "20 Nov",
     "title": "Clopidogrel-Based Versus Aspirin-Based Double Antithrombotic Therapy After Percutaneous Coronary Intervention in Atrial Fibrillation Patients: Results of the ASAF-PCI Registry.",
-    "comment": "การศึกษาเปรียบเทียบ Clopidogrel vs Aspirin ใน double antithrombotic therapy หลัง PCI ในผู้ป่วย AF",
+    "comment": "เปรียบเทียบ Clopidogrel กับ Aspirin ในสูตรยาต้านเกล็ดเลือดคู่หลัง PCI ในผู้ป่วย AF เพื่อลดความเสี่ยงเลือดออก",
     "pmid": "43059318",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43059318/"
   },
   {
     "date": "20 Nov",
-    "title": "Early prediction of clinical deterioration in older adults with suspected infection admitted from the emergency department to general wards: a multicenter machine learning study.",
-    "comment": "โมเดล ML ทำนายการทรุดลงของผู้ป่วยสูงอายุติดเชื้อที่นอน รพ. จาก ER ช่วยเพิ่มความปลอดภัย",
-    "pmid": "43058499",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43058499/"
+    "title": "Sex Differences in Clinical Outcomes and Resource Utilization Among Emergency Department Patients With Unexplained Syncope or Presyncope.",
+    "comment": "ชี้ความแตกต่างทางเพศต่อผลลัพธ์และการใช้ทรัพยากรในผู้ป่วย วูบดับ/วูบคล้ายดับ ที่หาสาเหตุไม่ได้ใน ER",
+    "pmid": "43057821",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43057821/"
+  },
+  {
+    "date": "20 Nov",
+    "title": "Epidemiology of Severe Occupational Health Injuries: Making the Case for Bleeding Control Education in the Workplace Setting.",
+    "comment": "ข้อมูลระบาดวิทยาการบาดเจ็บรุนแรงจากการทำงาน เพื่อสนับสนุนการฝึกหัดการห้ามเลือดฉุกเฉินล่วงหน้า",
+    "pmid": "43059084",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43059084/"
   },
   {
     "date": "20 Nov",
@@ -47,20 +82,6 @@
     "comment": "Meta-analysis พบ AI ช่วยฟังเสียงหัวใจตรวจจับโรคลิ้นหัวใจได้แม่นยำ รวดเร็ว เหมาะใช้ข้างเตียง ER",
     "pmid": "43059005",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43059005/"
-  },
-  {
-    "date": "20 Nov",
-    "title": "Research on a prediction model for outcomes of cardiopulmonary resuscitation in community out-of-hospital cardiac arrest patients based on the Utstein model.",
-    "comment": "โมเดลทำนายผลลัพธ์การ CPR ในผู้ป่วย OHCA ตาม Utstein model ช่วยวางแผนดูแลรักษา",
-    "pmid": "43058494",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43058494/"
-  },
-  {
-    "date": "20 Nov",
-    "title": "Association between polypharmacy, fall-risk increasing drugs, and fall characteristics in older adults discharged from the emergency department: cross-sectional data from the SeFallED study.",
-    "comment": "เตือนความเสี่ยงการเกิดหกล้มในผู้สูงอายุจากยาร่วมหลายชนิดก่อนจำหน่ายผู้ป่วยกลับบ้านจาก ER",
-    "pmid": "43058489",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43058489/"
   },
   {
     "date": "20 Nov",
@@ -75,13 +96,6 @@
     "comment": "Nomogram ทำนายภาวะแทรกซ้อนทางหัวใจ (Stroke-Heart Syndrome) หลังเกิด Stroke ช่วยเฝ้าระวังผู้ป่วย",
     "pmid": "43058435",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43058435/"
-  },
-  {
-    "date": "20 Nov",
-    "title": "Incremental prognostic value of inflammatory biomarkers for 28-day mortality in patients with sepsis presenting to the emergency department: a retrospective 24-hour landmark cohort study.",
-    "comment": "ประเมินระดับการอักเสบพยากรณ์อัตราตาย 28 วันในผู้ป่วย Sepsis ที่ ER เพื่อช่วยวางแผนคัดกรอง",
-    "pmid": "43058517",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43058517/"
   },
   {
     "date": "20 Nov",
@@ -474,19 +488,5 @@
     "comment": "แนวทางสังเกตและป้องกันเกลือแร่ผิดปกติจากยาในผู้สูงอายุที่มารับการรักษาในห้องฉุกเฉิน",
     "pmid": "43030861",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43030861/"
-  },
-  {
-    "date": "15 Nov",
-    "title": "Diagnostic Value of Combined Biomarkers and the Shock Index for Predicting Febrile Neutropenia and Clinical Outcomes in the Emergency Department: A Multivariate Regression Analysis.",
-    "comment": "ใช้ Shock Index ร่วมกับ Biomarkers ทำนายความรุนแรงและผลลัพธ์ผู้ป่วย Febrile Neutropenia ใน ER",
-    "pmid": "43030378",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43030378/"
-  },
-  {
-    "date": "13 Nov",
-    "title": "Multimodal Nonopioid Analgesia Versus Opioid-First Approaches for Acute Pain in the Emergency Department: A Systematic Review of Randomized Controlled Trials.",
-    "comment": "เปรียบเทียบยาแก้ปวด Non-opioid กับ Opioid ใน ER เปลี่ยนแนวทางการจัดการ acute pain ลดการใช้ยาเสพติด",
-    "pmid": "43019972",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43019972/"
   }
 ]
