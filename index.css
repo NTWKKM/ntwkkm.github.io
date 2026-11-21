@@ -4,6 +4,7 @@
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R3 V4 · weakest: R, answered with poster scale and one field band rather than new sections */
 /* Hallmark · waive 77 · the before record holds four sections: hero, papers, tools, footer · a redesign adds no section the page did not have */
 /* Hallmark · answered F6 · .hero-count holds two counts that never change in place · tabular figures gave the comma in 1,507 a full digit of space */
+/* Hallmark · answered F8 · .hero, .hero-line, .hero-copy and .hero-figures share one scroll(root) timeline inside 0 to 80vh, one hero pattern in parts · the owner asked for the hero to move with the scroll both ways */
 /* Hallmark · waive 79 · .hero-copy ends at y 543 and the field at y 639 at 1440x900; the gate measures from the h1 alone · the gap below is the 120px section step */
 
 /* Homepage: an overprint banner, the paper index, the tools on an
@@ -130,15 +131,28 @@
     padding-block: var(--space-2xl) var(--space-3xl);
     --w: calc(min(100%, var(--page-max)) - 2 * var(--page-gutter));
     --line-8: calc((100% - var(--w)) / 2 + 7 * (var(--w) + var(--gap)) / 12);
+    --slant: clamp(40px, 6vw, 96px);
 }
 
+/* The field is a layer over the whole hero, cut to a slanted band by
+   clip-path, street-poster style. The white copy of the head lives
+   inside it, so whatever the band's shape or position, the letters turn
+   white exactly where they cross it. --field-shift slides the band. */
 .hero-field {
     position: absolute;
-    inset: 0 0 0 var(--line-8);
-    z-index: -1;
+    inset: 0;
+    z-index: 1;
+    padding-block: var(--space-2xl) var(--space-3xl);
     color: var(--color-field-ink);
     background: var(--color-field);
-    transform-origin: left center;
+    pointer-events: none;
+    --edge: calc(var(--line-8) + var(--field-shift, 0px));
+    clip-path: polygon(
+        min(calc(var(--edge) + var(--slant)), 100%) 0,
+        100% 0,
+        100% 100%,
+        min(calc(var(--edge) - var(--slant)), 100%) 100%
+    );
 }
 
 .hero-inner {
@@ -151,7 +165,6 @@
 .hero-head {
     position: relative;
     grid-column: 1 / -1;
-    --cut: calc(7 * (100% + var(--gap)) / 12);
 }
 
 .hero-title {
@@ -165,16 +178,8 @@
     text-wrap: initial;
 }
 
-/* The ink copy stops at the field's edge; the overprint copy starts there. */
-h1.hero-title {
-    clip-path: inset(-0.2em calc(100% - var(--cut)) -0.3em -0.1em);
-}
-
 .hero-overprint {
-    position: absolute;
-    inset: 0;
     color: var(--color-field-ink);
-    clip-path: inset(-0.2em -0.1em -0.3em var(--cut));
     user-select: none;
 }
 
@@ -246,6 +251,8 @@ h1.hero-title {
 }
 
 .hero-figures {
+    position: relative;
+    z-index: 2;
     grid-column: 8 / -1;
     align-self: end;
     display: flex;
@@ -308,27 +315,36 @@ h1.hero-title {
 }
 
 /* Scroll: the hero is choreographed by the scroll position, so it
-   plays forward as the page goes down and back as it comes up. At the
-   top every part is at rest and fully shown; no script, and browsers
-   without scroll timelines or with reduced motion keep the still page.
-   The field folds up from its foot (scaleY, top origin) and never moves
-   sideways, so the overprint stays on it; the head lifts, the copy and
-   figures fade first. */
+   plays forward as the page goes down and back as it comes up. Only on
+   screens that hold the whole hero, where it sticks to the top: there
+   the hero drifts up and shrinks a little, the band winds in a step and
+   then slides out to the right along its slant, the head lifts out of
+   its line and the copy and figures fade. Smaller screens, reduced
+   motion and browsers without scroll timelines keep the still page. */
+@property --field-shift {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 0px;
+}
+
 @supports (animation-timeline: scroll()) {
-    @media (prefers-reduced-motion: no-preference) {
-        .hero-field,
+    @media (prefers-reduced-motion: no-preference) and (min-width: 60rem) and (min-height: 640px) {
+        .hero {
+            position: sticky;
+            top: 0;
+            z-index: 0;
+            transform-origin: 50% 0;
+            animation: hero-stuck linear both;
+            animation-timeline: scroll(root);
+            animation-range: 0 80vh;
+        }
+
         .hero-line > span,
         .hero-copy,
         .hero-figures {
             animation-timing-function: linear;
             animation-fill-mode: both;
             animation-timeline: scroll(root);
-        }
-
-        .hero-field {
-            transform-origin: 50% 0;
-            animation-name: field-fold;
-            animation-range: 10vh 75vh;
         }
 
         .hero-line > span {
@@ -343,17 +359,7 @@ h1.hero-title {
 
         .hero-figures {
             animation-name: settle-out;
-            animation-range: 5vh 40vh;
-        }
-    }
-
-    /* On a screen that holds the whole hero, it also stays put while the
-       papers slide up over it on paper. */
-    @media (prefers-reduced-motion: no-preference) and (min-width: 60rem) and (min-height: 640px) {
-        .hero {
-            position: sticky;
-            top: 0;
-            z-index: 0;
+            animation-range: 0 22vh;
         }
 
         .page-sections,
@@ -366,8 +372,10 @@ h1.hero-title {
     }
 }
 
-@keyframes field-fold {
-    to { transform: scaleY(0.3); }
+@keyframes hero-stuck {
+    0% { --field-shift: 0px; }
+    30% { --field-shift: -48px; }
+    100% { --field-shift: 64vw; transform: translateY(-3%) scale(0.94); }
 }
 
 @keyframes line-lift {
@@ -377,7 +385,6 @@ h1.hero-title {
 @keyframes settle-out {
     to { opacity: 0; transform: translateY(-24px); }
 }
-
 
 /* ===================================================================
    Sections
@@ -838,13 +845,8 @@ h1.hero-title {
         padding-block: var(--space-xl) var(--space-2xl);
     }
 
-    .hero-field,
-    .hero-overprint {
+    .hero-field {
         display: none;
-    }
-
-    h1.hero-title {
-        clip-path: none;
     }
 
     .hero-inner {
@@ -942,12 +944,8 @@ h1.hero-title {
 }
 
 @media (forced-colors: active) {
-    .hero-overprint {
+    .hero-field {
         display: none;
-    }
-
-    h1.hero-title {
-        clip-path: none;
     }
 
     .paper-dot::after {
