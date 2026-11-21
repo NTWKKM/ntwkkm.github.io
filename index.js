@@ -29,11 +29,14 @@ const EXTERNAL_ICON = svg('<path d="M7 17L17 7M17 7H7M17 7V17"/>', 14);
 // AI summaries sometimes carry markdown bold markers; the ledger shows plain text.
 const stripMarkdown = str => String(str || '').replace(/\*\*/g, '').trim();
 
-// The paper grid holds one screen, so a long title is shortened at a word
-// boundary to what its cell shows in its clamped lines (index.css: three
-// across from 60rem, two from 40rem; two lines on short screens); the
-// full title stays on the link (title and aria-label). CSS line-clamp is
-// the fallback after a resize.
+// The paper grid holds one screen, so a long title or Thai note is shown
+// shortened at a word boundary to what its cell holds (index.css: three
+// across from 60rem, two from 40rem; two lines on short screens). The full
+// text is never lost: it stays in data-full (and the title on the link's
+// title and aria-label), and the shortening is worked out again on every
+// resize, so a phone-width window shows everything. Shortening in script,
+// not only line-clamp, keeps no hidden clamped line lying under the next
+// text; CSS line-clamp stays as the guard between resizes.
 function textBudget(container, charWidth) {
     const width = container.clientWidth || window.innerWidth;
     const vw = window.innerWidth;
@@ -50,7 +53,7 @@ function textBudget(container, charWidth) {
 }
 
 const shorten = (str, max) => {
-    if (str.length <= max) return str;
+    if (!Number.isFinite(max) || str.length <= max) return str;
     const cut = str.slice(0, max);
     const space = cut.lastIndexOf(' ');
     return `${(space > max * 0.6 ? cut.slice(0, space) : cut).replace(/[\s,.;:]+$/, '')}…`;
@@ -276,21 +279,18 @@ async function fetchPapers() {
         pages.push(papers.slice(i, i + PAPERS_PER_PAGE));
     }
 
-    const titleMax = textBudget(container, 10.5);
-    const noteMax = textBudget(container, 8);
     container.innerHTML = pages.map((pagePapers, pageIndex) => {
         const items = pagePapers.map((paper) => {
-            const fullTitle = stripMarkdown(paper.title);
-            const title = escapeHTML(shorten(fullTitle, titleMax));
-            const fullAttr = escapeHTML(fullTitle);
+            const fullAttr = escapeHTML(stripMarkdown(paper.title));
+            const noteAttr = escapeHTML(stripMarkdown(paper.comment));
             return `
                 <li class="paper-card" data-pmid="${escapeHTML(paper.pmid)}">
                     <time class="paper-date mono">${escapeHTML(paper.date)}</time>
                     <div class="paper-body">
                         <a href="${escapeHTML(sanitizeURL(paper.link))}" class="paper-link" target="_blank" rel="noopener noreferrer" title="${fullAttr}" aria-label="${fullAttr} (PubMed, opens in a new tab)">
-                            <span class="paper-title">${title}</span>${EXTERNAL_ICON}
+                            <span class="paper-title" data-full="${fullAttr}">${fullAttr}</span>${EXTERNAL_ICON}
                         </a>
-                        <p class="paper-comment thai-text" lang="th">${escapeHTML(shorten(stripMarkdown(paper.comment), noteMax))}</p>
+                        <p class="paper-comment thai-text" lang="th" data-full="${noteAttr}">${noteAttr}</p>
                     </div>
                 </li>`;
         }).join('');
@@ -299,6 +299,8 @@ async function fetchPapers() {
                 <ul class="paper-list" role="list">${items}</ul>
             </div>`;
     }).join('');
+
+    fitPaperText(container);
 
     document.getElementById('papers-meta').textContent = `${papers.length} papers, latest ${papers[0].date}`;
 
@@ -322,6 +324,18 @@ async function fetchPapers() {
 
     announceToScreenReader(`Loaded ${papers.length} research papers`);
     linkSummaries(container);
+}
+
+/** Show each title and note at what its cell holds now, from its full text. */
+function fitPaperText(container) {
+    const titleMax = textBudget(container, 10.5);
+    const noteMax = textBudget(container, 8);
+    container.querySelectorAll('.paper-title[data-full]').forEach((el) => {
+        el.textContent = shorten(el.dataset.full, titleMax);
+    });
+    container.querySelectorAll('.paper-comment[data-full]').forEach((el) => {
+        el.textContent = shorten(el.dataset.full, noteMax);
+    });
 }
 
 /**
@@ -413,6 +427,8 @@ async function fetchProjects() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('paper-container');
+    window.addEventListener('resize', debounce(() => fitPaperText(track), 150), { passive: true });
     fetchPapers();
     fetchProjects();
     const yearEl = document.getElementById('footer-year');
