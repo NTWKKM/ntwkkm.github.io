@@ -815,13 +815,13 @@
         .project-group {
             animation: group-rise linear both;
             animation-timeline: view();
-            animation-range: entry 0% entry 80%;
+            animation-range: entry 0% entry 50%;
         }
 
         .project-card {
             animation: card-slide linear both;
             animation-timeline: view();
-            animation-range: entry 20% cover 25%;
+            animation-range: entry 0% entry 70%;
         }
     }
 }
