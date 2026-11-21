@@ -4,7 +4,7 @@
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R3 V4 · weakest: R, answered with poster scale and one field band rather than new sections */
 /* Hallmark · waive 77 · the before record holds four sections: hero, papers, tools, footer · a redesign adds no section the page did not have */
 /* Hallmark · answered F6 · .hero-count holds two counts that never change in place · tabular figures gave the comma in 1,507 a full digit of space */
-/* Hallmark · answered F8 · .hero, .hero-head, .hero-copy and .hero-figures share one scroll(root) timeline inside 0 to 80vh, one hero pattern in parts · the owner asked for the hero to move with the scroll both ways */
+/* Hallmark · answered F8 · .hero, .hero-head, .hero-copy and .hero-figures share one scroll(root) timeline inside 0 to 80vh, one hero pattern in parts; the tools band answers it on view() timelines with the same slant · the owner asked for the hero to move with the scroll both ways */
 /* Hallmark · waive 79 · .hero-copy ends at y 543 and the field at y 639 at 1440x900; the gate measures from the h1 alone · the gap below is the 120px section step */
 
 /* Homepage: an overprint banner, the paper index, the tools on an
@@ -638,6 +638,7 @@
    beside them, Knowledge runs full width in three columns.
    =================================================================== */
 .works-section {
+    --tilt: clamp(48px, 9vw, 140px);
     padding-block: var(--section-gap-s);
     color: var(--color-field-ink);
     background: var(--color-field);
@@ -794,6 +795,48 @@
 
 .works-section .error-state {
     color: var(--color-ink);
+}
+
+/* Scroll: the tools band answers the scroll the way the hero does,
+   forward on the way down and back on the way up. Its top edge enters on
+   the same slant as the hero band and flattens as it rises; each group
+   rises into place and each tool row slides in from the left, every one
+   on its own view timeline, so they arrive in reading order. All end at
+   rest and fully shown; reduced motion and browsers without view
+   timelines keep the still band. */
+@supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+        .works-section {
+            animation: band-tilt linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 90%;
+        }
+
+        .project-group {
+            animation: group-rise linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 80%;
+        }
+
+        .project-card {
+            animation: card-slide linear both;
+            animation-timeline: view();
+            animation-range: entry 20% cover 25%;
+        }
+    }
+}
+
+@keyframes band-tilt {
+    from { clip-path: polygon(0 var(--tilt), 100% 0, 100% 100%, 0 100%); }
+    to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+@keyframes group-rise {
+    from { opacity: 0; transform: translateY(48px); }
+}
+
+@keyframes card-slide {
+    from { opacity: 0; transform: translateX(-32px); }
 }
 
 /* ===================================================================
