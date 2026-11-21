@@ -29,6 +29,33 @@ const EXTERNAL_ICON = svg('<path d="M7 17L17 7M17 7H7M17 7V17"/>', 14);
 // AI summaries sometimes carry markdown bold markers; the ledger shows plain text.
 const stripMarkdown = str => String(str || '').replace(/\*\*/g, '').trim();
 
+// The paper grid holds one screen, so a long title is shortened at a word
+// boundary to what its cell shows in its clamped lines (index.css: three
+// across from 60rem, two from 40rem; two lines on short screens); the
+// full title stays on the link (title and aria-label). CSS line-clamp is
+// the fallback after a resize.
+function textBudget(container, charWidth) {
+    const width = container.clientWidth || window.innerWidth;
+    const vw = window.innerWidth;
+    if (vw <= 640) return Infinity; // phones show the whole title
+    const columns = vw > 960 ? 3 : 2;
+    const gap = vw > 960 ? 32 : 24;
+    const cell = (width - gap * (columns - 1)) / columns;
+    const short = vw > 960 ? window.innerHeight <= 820 : window.innerHeight <= 1100;
+    const lines = short ? 2 : 3;
+    // charWidth: about 10.5px a character for a title at 19px in the
+    // display cut, about 8px for a Thai note at 14px; less a margin for
+    // words that wrap early and the external-link icon.
+    return Math.max(40, Math.floor((cell / charWidth) * lines * 0.85) - 3);
+}
+
+const shorten = (str, max) => {
+    if (str.length <= max) return str;
+    const cut = str.slice(0, max);
+    const space = cut.lastIndexOf(' ');
+    return `${(space > max * 0.6 ? cut.slice(0, space) : cut).replace(/[\s,.;:]+$/, '')}…`;
+};
+
 // ---------------------------------------------------------------------------
 // Latest papers: horizontal paged ledger with scroll-snap and dot marks
 // ---------------------------------------------------------------------------
@@ -249,17 +276,21 @@ async function fetchPapers() {
         pages.push(papers.slice(i, i + PAPERS_PER_PAGE));
     }
 
+    const titleMax = textBudget(container, 10.5);
+    const noteMax = textBudget(container, 8);
     container.innerHTML = pages.map((pagePapers, pageIndex) => {
         const items = pagePapers.map((paper) => {
-            const title = escapeHTML(stripMarkdown(paper.title));
+            const fullTitle = stripMarkdown(paper.title);
+            const title = escapeHTML(shorten(fullTitle, titleMax));
+            const fullAttr = escapeHTML(fullTitle);
             return `
                 <li class="paper-card" data-pmid="${escapeHTML(paper.pmid)}">
                     <time class="paper-date mono">${escapeHTML(paper.date)}</time>
                     <div class="paper-body">
-                        <a href="${escapeHTML(sanitizeURL(paper.link))}" class="paper-link" target="_blank" rel="noopener noreferrer">
+                        <a href="${escapeHTML(sanitizeURL(paper.link))}" class="paper-link" target="_blank" rel="noopener noreferrer" title="${fullAttr}" aria-label="${fullAttr} (PubMed, opens in a new tab)">
                             <span class="paper-title">${title}</span>${EXTERNAL_ICON}
                         </a>
-                        <p class="paper-comment thai-text" lang="th">${escapeHTML(stripMarkdown(paper.comment))}</p>
+                        <p class="paper-comment thai-text" lang="th">${escapeHTML(shorten(stripMarkdown(paper.comment), noteMax))}</p>
                     </div>
                 </li>`;
         }).join('');
@@ -319,8 +350,9 @@ async function linkSummaries(container) {
         link.href = `blog.html?pmid=${pmid}`;
         link.textContent = 'Read the Thai summary';
         // Thirty-odd links share that text; name each by its paper for screen readers.
-        const title = card.querySelector('.paper-title');
-        if (title) link.setAttribute('aria-label', `Read the Thai summary of ${title.textContent}`);
+        const paperLink = card.querySelector('.paper-link');
+        const name = paperLink?.getAttribute('title') || card.querySelector('.paper-title')?.textContent;
+        if (name) link.setAttribute('aria-label', `Read the Thai summary of ${name}`);
         card.querySelector('.paper-body').appendChild(link);
     });
 }

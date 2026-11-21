@@ -11,6 +11,12 @@
    ultramarine field. Tokens live in shared.css; this file adds layout. */
 
 /* --- Canvas: one capped container, twelve columns --- */
+/* No sticky nav on this page: anchors land on the section's top edge,
+   so a one-screen section fills the screen it is jumped to. */
+html {
+    scroll-padding-top: 0;
+}
+
 :root {
     --page-max: 1440px;
     --page-gutter: 64px;
@@ -87,8 +93,11 @@
 }
 
 /* --- Nav: edge-aligned, one line --- */
+/* The bar lies over the top of the hero, so the hero is one whole
+   screen from the page's top edge; the band starts under the bar. */
 .masthead {
-    position: relative;
+    position: absolute;
+    inset: 0 0 auto 0;
     z-index: var(--z-raised);
 }
 
@@ -210,8 +219,8 @@
     isolation: isolate;
     display: flex;
     flex-direction: column;
-    min-height: calc(100svh - 80px);
-    padding-block: var(--space-2xl) var(--space-3xl);
+    min-height: 100svh;
+    padding-block: calc(80px + var(--space-2xl)) var(--space-3xl);
     --w: calc(min(100%, var(--page-max)) - 2 * var(--page-gutter));
     --line-7: calc((100% - var(--w)) / 2 + 6 * (var(--w) + var(--gap)) / 12);
     --slant: clamp(56px, 7vw, 112px);
@@ -227,7 +236,7 @@
    white exactly where they cross it. --field-shift slides the band. */
 .hero-field {
     position: absolute;
-    inset: 0;
+    inset: 80px 0 0 0;
     z-index: 1;
     display: flex;
     flex-direction: column;
@@ -235,7 +244,7 @@
     color: var(--color-field-ink);
     background: var(--color-field);
     pointer-events: none;
-    --foot: calc(var(--band-foot) + var(--field-shift, 0px));
+    --foot: calc(var(--band-foot) + var(--field-shift, 0px) + var(--field-enter, 0px));
     clip-path: polygon(
         min(calc(var(--foot) + 2 * var(--slant)), 100%) 0,
         100% 0,
@@ -413,6 +422,51 @@
    then eases back out to the right along its slant (it never leaves),
    the head drifts up whole and dims, and the copy and figures fade. Smaller screens, reduced
    motion and browsers without scroll timelines keep the still page. */
+/* Load: the hero enters once, about 0.9s in all, from a visible end
+   state. The band slides in from the right along its slant
+   (--field-enter, on the band itself, so it adds to the scroll's
+   --field-shift instead of replacing it), the head rises line by line,
+   then the lead, the actions and the figures settle. The scroll
+   choreography below runs on the parents, so the two never fight. */
+@property --field-enter {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .hero-field {
+        animation: band-enter 0.9s var(--ease-out) both;
+    }
+
+    .hero-line > span {
+        animation: line-enter 0.7s var(--ease-out) 0.12s both;
+    }
+
+    .hero-lead,
+    .hero-actions,
+    .hero-figure {
+        animation: piece-enter 0.6s var(--ease-out) both;
+    }
+
+    .hero-lead { animation-delay: 0.28s; }
+    .hero-actions { animation-delay: 0.36s; }
+    .hero-figure { animation-delay: 0.44s; }
+    .hero-figure + .hero-figure { animation-delay: 0.52s; }
+}
+
+@keyframes band-enter {
+    from { --field-enter: 70vw; }
+}
+
+@keyframes line-enter {
+    from { opacity: 0; transform: translateY(0.3em); }
+}
+
+@keyframes piece-enter {
+    from { opacity: 0; transform: translateY(16px); }
+}
+
 @property --field-shift {
     syntax: "<length>";
     inherits: true;
@@ -485,9 +539,20 @@
 /* ===================================================================
    Sections
    =================================================================== */
+/* Each section after the hero is one screen: the papers and the tools
+   are sized to fit 100svh at desktop heights, and take their content's
+   height only where a phone cannot hold six papers at once. */
 .papers-section {
+    display: flex;
+    flex-direction: column;
     min-height: 100svh;
-    padding-block: var(--section-gap-s) var(--section-gap);
+    padding-block: var(--space-2xl) calc(var(--space-2xl) + var(--space-xs));
+}
+
+.papers-section > .container {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .section-header {
@@ -496,7 +561,7 @@
     column-gap: var(--gap);
     align-items: end;
     row-gap: var(--space-lg);
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
 }
 
 .section-heading {
@@ -624,46 +689,50 @@
     scroll-snap-align: start;
 }
 
+/* One page: six papers as a three-by-two grid of ruled cells. Titles
+   and Thai notes are clamped, so every page is the same height and the
+   section holds one screen. */
 .paper-list {
     list-style: none;
-    border-bottom: 1px solid var(--color-rule);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-xl) var(--gap);
 }
 
 .paper-card {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    column-gap: var(--gap);
-    padding-block: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    min-width: 0;
+    padding-top: var(--space-md);
     border-top: 1px solid var(--color-rule);
 }
 
-.paper-list .paper-card:first-child {
+.paper-list .paper-card:nth-child(-n + 3) {
     border-top-color: var(--color-ink);
 }
 
 .paper-date {
-    grid-column: 1 / 3;
-    padding-top: var(--space-2xs);
     font-size: var(--type-small);
     font-weight: 500;
     color: var(--color-muted);
 }
 
 .paper-body {
-    grid-column: 3 / -1;
-    display: grid;
-    grid-template-columns: repeat(10, minmax(0, 1fr));
-    column-gap: var(--gap);
-    row-gap: var(--space-xs);
-    align-content: start;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
 }
 
 .paper-link {
-    grid-column: 1 / 7;
-    grid-row: 1 / span 2;
-    align-self: start;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: 1.1875rem;
     font-weight: 500;
     letter-spacing: -0.01em;
     line-height: 1.3;
@@ -698,16 +767,18 @@
 }
 
 .paper-comment {
-    grid-column: 7 / -1;
-    grid-row: 1;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
     font-size: var(--type-small);
     color: var(--color-ink-2);
 }
 
 .paper-summary-link {
-    grid-column: 7 / -1;
-    grid-row: 2;
-    justify-self: start;
+    margin-top: auto;
+    align-self: flex-start;
     display: inline-flex;
     align-items: center;
     min-height: 44px;
@@ -722,8 +793,36 @@
     color: var(--color-mark-text);
 }
 
+/* Short desktop screens: two lines each, so six papers still fit. */
+@media (min-width: 60.0625rem) and (max-height: 820px) {
+    .paper-link,
+    .paper-comment {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+}
+
+/* Tablets, two across and three down: two lines each and a tighter row
+   gap on screens under 1100px tall. */
+@media (min-width: 40.0625rem) and (max-width: 60rem) and (max-height: 1100px) {
+    .paper-link,
+    .paper-comment {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+
+    .paper-list {
+        row-gap: var(--space-lg);
+    }
+
+    .papers-section {
+        padding-top: var(--space-xl);
+    }
+}
+
 .papers-section .ai-note {
-    margin-top: var(--space-lg);
+    margin-top: auto;
+    padding-top: var(--space-lg);
 }
 
 /* ===================================================================
@@ -733,8 +832,11 @@
    =================================================================== */
 .works-section {
     --tilt: clamp(48px, 9vw, 140px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     min-height: 100svh;
-    padding-block: var(--section-gap-s);
+    padding-block: var(--space-2xl);
     color: var(--color-field-ink);
     background: var(--color-field);
     --color-focus: var(--color-field-ink);
@@ -861,7 +963,7 @@
     transform: translate(2px, -2px);
 }
 
-@media (min-width: 860px) {
+@media (min-width: 48rem) {
     .portfolio-grid {
         grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
     }
@@ -943,7 +1045,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100svh;
-    padding-block: var(--section-gap-s) var(--space-xl);
+    padding-block: var(--section-gap-s) calc(var(--space-2xl) + var(--space-xs));
     color: var(--color-paper);
     background: var(--color-ink);
     --color-focus: var(--color-paper);
@@ -1024,16 +1126,6 @@
    the figure as its own block under the head.
    =================================================================== */
 @media (max-width: 60rem) {
-    /* A full-screen close only where the screen is wide; here it takes
-       its content's height. */
-    .site-footer {
-        min-height: 0;
-    }
-
-    .footer-inner {
-        grid-template-rows: auto auto auto;
-        gap: var(--space-2xl);
-    }
 
     :root {
         --page-gutter: clamp(24px, 8vw, 64px);
@@ -1043,7 +1135,7 @@
     }
 
     .hero {
-        padding-block: var(--space-xl) var(--space-2xl);
+        padding-block: calc(80px + var(--space-xl)) var(--space-2xl);
     }
 
     .hero-field {
@@ -1077,22 +1169,24 @@
         justify-content: space-between;
     }
 
-    .paper-date,
-    .paper-body,
-    .paper-link,
-    .paper-comment,
-    .paper-summary-link {
-        grid-column: 1 / -1;
-        grid-row: auto;
+    .paper-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .paper-body {
-        grid-template-columns: minmax(0, 1fr);
+    .paper-list .paper-card:nth-child(-n + 3) {
+        border-top-color: var(--color-rule);
+    }
+
+    .paper-list .paper-card:nth-child(-n + 2) {
+        border-top-color: var(--color-ink);
     }
 
 }
 
 @media (max-width: 40rem) {
+    /* Phones: six papers and twelve tools cannot share one screen, so
+       those two grow with what they hold; the close keeps its one. */
+
     :root {
         --page-gutter: 16px;
         --gap: 16px;
@@ -1127,6 +1221,20 @@
        between two full-size buttons instead. */
     .paper-dots {
         display: none;
+    }
+
+    .paper-list {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .paper-link,
+    .paper-comment {
+        display: block;
+        overflow: visible;
+    }
+
+    .paper-list .paper-card:nth-child(2) {
+        border-top-color: var(--color-rule);
     }
 
     .paper-count {
