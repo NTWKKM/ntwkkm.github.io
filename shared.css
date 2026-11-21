@@ -93,6 +93,7 @@
     --color-field-ink:  oklch(97.5% 0.005 90);
     --color-field-rule: oklch(58% 0.15 266);
     --color-field-dim:  oklch(88% 0.04 266);
+    --color-field-hover: oklch(48% 0.19 266);
     --color-mark:       oklch(57% 0.215 29);
     --color-mark-text:  oklch(51% 0.2 29);  /* red as small text, 5:1 on paper */
     --color-mark-ink:   oklch(97.5% 0.005 90);
@@ -217,6 +218,7 @@
     --color-field-ink:  oklch(96% 0.006 90);
     --color-field-rule: oklch(54% 0.13 266);
     --color-field-dim:  oklch(86% 0.04 266);
+    --color-field-hover: oklch(46% 0.16 266);
     --color-mark:       oklch(66% 0.19 29);
     --color-mark-text:  oklch(72% 0.16 29);
     --color-mark-ink:   oklch(17% 0.014 266);
