@@ -63,6 +63,20 @@
     white-space: nowrap;
 }
 
+/* The nav's wordmark runs on one line: square, name, line */
+.wordmark--line {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    min-height: 44px;
+}
+
+.wordmark--line::before {
+    width: 1.15em;
+    height: 1.15em;
+    margin-right: var(--space-2xs);
+}
+
 .wordmark-name {
     font-weight: var(--display-weight);
     letter-spacing: -0.01em;
@@ -76,6 +90,28 @@
 .masthead {
     position: relative;
     z-index: var(--z-raised);
+}
+
+/* The skip link sits on the container line inside the bar, hidden until
+   it takes focus, then shown over the wordmark. */
+.masthead .skip-to-content {
+    position: absolute;
+    top: 50%;
+    left: max(var(--page-gutter), (100% - var(--page-max)) / 2 + var(--page-gutter));
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    transform: none;
+}
+
+.masthead .skip-to-content:focus {
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    height: 44px;
+    clip-path: none;
+    transform: translateY(-50%);
 }
 
 .masthead-inner {
@@ -98,12 +134,11 @@
     gap: var(--space-xs);
     min-height: 44px;
     padding-inline: var(--space-sm);
-    font-size: var(--type-small);
+    font-size: var(--type-body);
     font-weight: 500;
-    text-decoration: underline;
-    text-decoration-color: transparent;
-    text-underline-offset: 0.3em;
-    transition: color var(--dur-short) var(--ease-out), text-decoration-color var(--dur-short) var(--ease-out);
+    text-decoration: none;
+    --u-inset: var(--space-sm);
+    transition: color var(--dur-short) var(--ease-out);
 }
 
 .masthead-link svg {
@@ -112,7 +147,52 @@
 
 .masthead-link:hover {
     color: var(--color-mark-text);
-    text-decoration-color: currentColor;
+}
+
+/* --- Drawn underline: a 1px line draws left to right on hover and
+   leaves to the right; links that rest underlined keep a faint line
+   under it. transform only. --- */
+.masthead-link,
+.hero-secondary,
+.paper-summary-link,
+.footer-line a {
+    position: relative;
+}
+
+.masthead-link::after,
+.hero-secondary::after,
+.paper-summary-link::after,
+.footer-line a::after {
+    content: "";
+    position: absolute;
+    left: var(--u-inset, 0);
+    right: var(--u-inset, 0);
+    bottom: calc(50% - 0.75em);
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform var(--dur-short) var(--ease-out);
+}
+
+.masthead-link:hover::after,
+.hero-secondary:hover::after,
+.paper-summary-link:hover::after,
+.footer-line a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+}
+
+.hero-secondary::before,
+.paper-summary-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(50% - 0.75em);
+    height: 1px;
+    background: currentColor;
+    opacity: 0.35;
 }
 
 .masthead-controls .icon-btn {
@@ -128,6 +208,9 @@
 .hero {
     position: relative;
     isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100svh - 80px);
     padding-block: var(--space-2xl) var(--space-3xl);
     --w: calc(min(100%, var(--page-max)) - 2 * var(--page-gutter));
     --line-7: calc((100% - var(--w)) / 2 + 6 * (var(--w) + var(--gap)) / 12);
@@ -146,6 +229,8 @@
     position: absolute;
     inset: 0;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
     padding-block: var(--space-2xl) var(--space-3xl);
     color: var(--color-field-ink);
     background: var(--color-field);
@@ -160,8 +245,10 @@
 }
 
 .hero-inner {
+    flex: 1 0 auto;
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: auto 1fr;
     column-gap: var(--gap);
     row-gap: var(--space-2xl);
 }
@@ -197,6 +284,7 @@
 
 .hero-copy {
     grid-column: 1 / 7;
+    align-self: end;
     display: grid;
     align-content: end;
     gap: var(--space-lg);
@@ -225,15 +313,19 @@
     color: var(--color-paper);
     background: var(--color-ink);
     text-decoration: none;
-    transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+    transition: background-color 150ms var(--ease-out), translate 150ms var(--ease-out), transform 90ms var(--ease-out);
 }
 
-.hero-primary:hover {
-    background: var(--color-ink-2);
+@media (hover: hover) and (pointer: fine) {
+    .hero-primary:hover {
+        background: var(--color-ink-2);
+        translate: 0 -1px;
+    }
 }
 
 .hero-primary:active {
-    transform: translateY(1px);
+    translate: 0 1px;
+    transform: scale(0.985);
 }
 
 .hero-secondary {
@@ -241,9 +333,7 @@
     align-items: center;
     min-height: 44px;
     font-weight: 500;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.32em;
+    text-decoration: none;
     transition: color var(--dur-short) var(--ease-out);
 }
 
@@ -305,7 +395,7 @@
 
 .hero-count {
     font-family: var(--font-display);
-    font-size: var(--type-display);
+    font-size: var(--type-section);
     font-weight: var(--display-weight);
     letter-spacing: -0.04em;
     line-height: 0.9;
@@ -364,10 +454,14 @@
             animation-range: 0 22vh;
         }
 
-        .page-sections,
+        .papers-section,
+        .works-section,
         .site-footer {
             position: relative;
             z-index: 1;
+        }
+
+        .papers-section {
             color: var(--color-ink);
             background: var(--color-paper);
         }
@@ -392,6 +486,7 @@
    Sections
    =================================================================== */
 .papers-section {
+    min-height: 100svh;
     padding-block: var(--section-gap-s) var(--section-gap);
 }
 
@@ -615,12 +710,11 @@
     justify-self: start;
     display: inline-flex;
     align-items: center;
-    min-height: 32px;
+    min-height: 44px;
     font-size: var(--type-small);
     font-weight: 500;
     color: var(--color-accent);
-    text-decoration: underline;
-    text-underline-offset: 0.3em;
+    text-decoration: none;
     transition: color var(--dur-short) var(--ease-out);
 }
 
@@ -639,6 +733,7 @@
    =================================================================== */
 .works-section {
     --tilt: clamp(48px, 9vw, 140px);
+    min-height: 100svh;
     padding-block: var(--section-gap-s);
     color: var(--color-field-ink);
     background: var(--color-field);
@@ -693,7 +788,7 @@
     padding: var(--space-sm);
     color: var(--color-field-ink);
     text-decoration: none;
-    transition: background-color var(--dur-short) var(--ease-out);
+    transition: background-color 180ms var(--ease-out), translate 180ms var(--ease-out);
 }
 
 .project-card:focus-visible {
@@ -702,6 +797,7 @@
 
 .project-card:hover {
     background: var(--color-field-hover);
+    translate: 0 -2px;
 }
 
 .project-icon {
@@ -840,13 +936,27 @@
 }
 
 /* ===================================================================
-   Footer: a colophon block
+   Close: one screen on the ink. The heading and the main action, then
+   the name set across the full width, then the colophon line.
    =================================================================== */
 .site-footer {
-    padding-block: var(--space-3xl) var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    padding-block: var(--section-gap-s) var(--space-xl);
+    color: var(--color-paper);
+    background: var(--color-ink);
+    --color-focus: var(--color-paper);
 }
 
 .footer-inner {
+    flex: 1 0 auto;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: var(--space-xl);
+}
+
+.close-head {
     display: flex;
     flex-wrap: wrap;
     align-items: end;
@@ -854,24 +964,59 @@
     gap: var(--space-lg);
 }
 
-.footer-inner .wordmark {
-    font-size: var(--type-title);
+.close-title {
+    max-width: 16ch;
+    font-size: var(--type-section);
+}
+
+.site-footer .hero-primary {
+    color: var(--color-ink);
+    background: var(--color-paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .site-footer .hero-primary:hover {
+        background: var(--color-paper-3);
+    }
+}
+
+.close-name {
+    align-self: end;
+    display: flex;
+    align-items: center;
+    gap: 0.06em;
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 17.5vw, 15.75rem);
+    font-weight: var(--display-weight);
+    letter-spacing: -0.06em;
+    line-height: 0.8;
+    white-space: nowrap;
+}
+
+.close-name::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 0.62em;
+    height: 0.62em;
+    margin-right: 0.08em;
+    background: var(--color-mark);
 }
 
 .footer-line {
+    padding-top: var(--space-md);
     font-size: var(--type-small);
-    color: var(--color-muted);
+    color: var(--color-paper-3);
     font-variant-numeric: tabular-nums;
+    border-top: 1px solid var(--color-ink-2);
 }
 
 .footer-line a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     font-weight: 500;
-    color: var(--color-ink);
-    transition: color var(--dur-short) var(--ease-out);
-}
-
-.footer-line a:hover {
-    color: var(--color-mark-text);
+    color: var(--color-paper);
+    text-decoration: none;
 }
 
 /* ===================================================================
@@ -879,8 +1024,19 @@
    the figure as its own block under the head.
    =================================================================== */
 @media (max-width: 60rem) {
+    /* A full-screen close only where the screen is wide; here it takes
+       its content's height. */
+    .site-footer {
+        min-height: 0;
+    }
+
+    .footer-inner {
+        grid-template-rows: auto auto auto;
+        gap: var(--space-2xl);
+    }
+
     :root {
-        --page-gutter: 24px;
+        --page-gutter: clamp(24px, 8vw, 64px);
         --gap: 24px;
         --section-gap: 96px;
         --section-gap-s: 80px;
@@ -904,6 +1060,7 @@
     }
 
     .hero-figures {
+        justify-content: flex-start;
         margin-inline: calc(-1 * var(--page-gutter));
         padding: var(--space-xl) var(--page-gutter);
         color: var(--color-field-ink);
@@ -955,6 +1112,15 @@
         min-width: 44px;
         justify-content: center;
         padding: 0;
+    }
+
+    .hero-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .close-head {
+        width: 100%;
     }
 
     /* Twelve marks cannot each be a 44px target on a phone: a count

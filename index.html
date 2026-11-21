@@ -53,13 +53,10 @@
 
 <body>
 
-    <a href="#papers-section" class="skip-to-content">Skip to content</a>
-
-    <noscript><p class="noscript-note">This page needs JavaScript to load its papers and tools. The projects are listed on <a href="https://github.com/NTWKKM">GitHub</a>.</p></noscript>
-
     <header class="masthead">
+        <a href="#papers-section" class="skip-to-content">Skip to content</a>
         <div class="container masthead-inner">
-            <a href="./" class="wordmark" aria-label="NTWKKM home">
+            <a href="./" class="wordmark wordmark--line" aria-label="NTWKKM home">
                 <span class="wordmark-name">NTWKKM</span>
                 <span class="wordmark-sub">Research archive</span>
             </a>
@@ -79,49 +76,51 @@
         </div>
     </header>
 
-    <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-field" aria-hidden="true">
+    <main class="page-sections">
+
+        <noscript><p class="noscript-note">This page needs JavaScript to load its papers and tools. The projects are listed on <a href="https://github.com/NTWKKM">GitHub</a>.</p></noscript>
+
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-field" aria-hidden="true">
+                <div class="container hero-inner">
+                    <div class="hero-head">
+                        <p class="hero-title hero-overprint">
+                            <span class="hero-line"><span>Emergency medicine &amp; clinical informatics</span></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
             <div class="container hero-inner">
                 <div class="hero-head">
-                    <p class="hero-title hero-overprint">
+                    <h1 class="hero-title" id="hero-title">
                         <span class="hero-line"><span>Emergency medicine &amp; clinical informatics</span></span>
+                    </h1>
+                </div>
+
+                <div class="hero-copy">
+                    <p class="hero-lead">PubMed papers summarised in Thai, alongside clinical systems and tools.</p>
+                    <div class="hero-actions">
+                        <a href="blog.html" class="hero-primary">Open the research reader</a>
+                        <a href="#works-section" class="hero-secondary">Clinical tools</a>
+                    </div>
+                </div>
+
+                <div class="hero-figures">
+                    <p class="hero-figure" id="hero-figure" hidden>
+                        <span class="hero-count" id="hero-count"></span>
+                        <span class="hero-count-label" id="hero-count-label"></span>
                     </p>
+                    <a class="hero-figure hero-figure-link" id="hero-blog-figure" href="blog.html" hidden>
+                        <span class="hero-count" id="hero-blog-count"></span>
+                        <span class="hero-count-label">Thai summaries in the reader</span>
+                    </a>
                 </div>
             </div>
-        </div>
-        <div class="container hero-inner">
-            <div class="hero-head">
-                <h1 class="hero-title" id="hero-title">
-                    <span class="hero-line"><span>Emergency medicine &amp; clinical informatics</span></span>
-                </h1>
-            </div>
-
-            <div class="hero-copy">
-                <p class="hero-lead">PubMed papers summarised in Thai, alongside clinical systems and tools.</p>
-                <div class="hero-actions">
-                    <a href="blog.html" class="hero-primary">Open the research reader</a>
-                    <a href="#works-section" class="hero-secondary">Clinical tools</a>
-                </div>
-            </div>
-
-            <div class="hero-figures">
-                <p class="hero-figure" id="hero-figure" hidden>
-                    <span class="hero-count" id="hero-count"></span>
-                    <span class="hero-count-label" id="hero-count-label"></span>
-                </p>
-                <a class="hero-figure hero-figure-link" id="hero-blog-figure" href="blog.html" hidden>
-                    <span class="hero-count" id="hero-blog-count"></span>
-                    <span class="hero-count-label">Thai summaries in the reader</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <main class="page-sections">
+        </section>
 
         <section id="papers-section" class="papers-section" aria-roledescription="carousel" aria-labelledby="papers-title">
             <div class="container">
-                <div class="section-header" data-reveal>
+                <div class="section-header">
                     <div class="section-heading">
                         <h2 class="section-title" id="papers-title">Latest research papers</h2>
                         <p class="section-meta" id="papers-meta"></p>
@@ -138,7 +137,7 @@
                     </nav>
                 </div>
 
-                <div id="paper-container" class="paper-track" tabindex="0" role="group" aria-label="Research paper pages" aria-busy="true" data-reveal style="--i: 2"></div>
+                <div id="paper-container" class="paper-track" tabindex="0" role="group" aria-label="Research paper pages" aria-busy="true"></div>
                 <p class="sr-only" id="papers-status" role="status" aria-live="polite"></p>
                 <p class="ai-note">Papers chosen and annotated by AI from PubMed. Check the original paper before acting on it.</p>
             </div>
@@ -146,7 +145,7 @@
 
         <section id="works-section" class="works-section" aria-labelledby="works-title">
             <div class="container">
-                <div class="section-header" data-reveal>
+                <div class="section-header">
                     <div class="section-heading">
                         <h2 class="section-title" id="works-title">Clinical systems &amp; tools</h2>
                         <p class="section-meta" id="works-meta"></p>
@@ -159,12 +158,13 @@
 
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer closing" aria-labelledby="close-title">
         <div class="container footer-inner">
-            <a href="./" class="wordmark" aria-label="NTWKKM home">
-                <span class="wordmark-name">NTWKKM</span>
-                <span class="wordmark-sub">Research archive</span>
-            </a>
+            <div class="close-head">
+                <h2 class="close-title" id="close-title">Every summary, in one reader</h2>
+                <a href="blog.html" class="hero-primary close-action">Open the research reader</a>
+            </div>
+            <p class="close-name" aria-hidden="true">NTWKKM</p>
             <p class="footer-line">
                 &copy; 2025-<span id="footer-year">2026</span>, code on <a href="https://github.com/NTWKKM/" target="_blank" rel="noopener noreferrer">GitHub</a>
             </p>

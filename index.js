@@ -380,28 +380,7 @@ async function fetchProjects() {
     }).join('');
 }
 
-// ---------------------------------------------------------------------------
-// One reveal: section heads and bodies ease in once as they enter the screen.
-// Content is visible without script and under reduced motion (see shared.css).
-// ---------------------------------------------------------------------------
-function initReveal() {
-    const items = document.querySelectorAll('[data-reveal]');
-    if (!('IntersectionObserver' in window)) {
-        items.forEach(el => el.classList.add('is-in'));
-        return;
-    }
-    const io = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('is-in');
-            io.unobserve(entry.target);
-        });
-    }, { rootMargin: '0px 0px -10% 0px' });
-    items.forEach(el => io.observe(el));
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    initReveal();
     fetchPapers();
     fetchProjects();
     const yearEl = document.getElementById('footer-year');
