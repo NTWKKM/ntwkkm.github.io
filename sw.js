@@ -11,10 +11,10 @@
  * served from a stale copy held by this worker.
  */
 
-const VERSION = 'v10';
+const VERSION = 'v11';
 const SHELL_CACHE = `ntwkkm-shell-${VERSION}`;
 const DATA_CACHE = `ntwkkm-data-${VERSION}`;
-const FONTS_CACHE = 'ntwkkm-fonts-v2';
+const FONTS_CACHE = 'ntwkkm-fonts-v3';
 const KEEP = [SHELL_CACHE, DATA_CACHE, FONTS_CACHE];
 
 const NETWORK_TIMEOUT_MS = 4000;
@@ -37,8 +37,8 @@ const SHELL = [
 // they are served cache-first and precached for the first offline visit.
 const FONTS_PREFIX = '/assets/fonts/';
 const FONTS = [
-    'inter-tight-latin.woff2',
-    'jetbrains-mono-latin-400.woff2',
+    'radio-canada-big-latin.woff2',
+    'radio-canada-latin.woff2',
     'sarabun-thai-400.woff2',
     'sarabun-latin-400.woff2',
     'sarabun-thai-600.woff2',

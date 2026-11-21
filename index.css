@@ -1,125 +1,422 @@
-/* Hallmark · v2.0.0 · built: the project · redesign: full · scope: app · system: DESIGN.md (locked) · theme: Slate and Titanium Navy (brand) · genre: modern-minimal · hero: none (app screens) · nav: editorial masthead (display title and descriptor left, quiet utilities right, ink hairline under) · signature: horizontal scroll-snap paper ledger with dot marks and asymmetric tools bento */
-/* critique: replaced the paper CTA buttons with a native scroll-snap horizontal carousel driven by accessible dot marks and paired monochrome print rules with restrained Signal Vermilion and Clinical Teal functional accents · finish-review: 2026-11-14 at 320, 768 and 1440 · sloplint 0 FAIL */
-/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · balanced both sections to comparable vertical footprints without sacrificing scannability */
-/* Hallmark · dropped "All Rights Reserved" · 19 names the stock footer line */
+/* Hallmark · shape: Letter (draw 7ae0b0, job swapped to read) · genre: editorial · theme: Grid (deal 1/3, seed physician-research-archive-emergency-ab06·a1087cb8·2026-11-21·r0) · redesign: full
+ * hero: Banner · nav: edge-aligned · footer: colophon block · imagery: none · signature: the overprint sheet, the heading crossing an ultramarine field that holds the live paper count
+ * axes: light/grotesk-sans/cool · posture: full-palette · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R3 V4 · weakest: R, answered with poster scale and one field band rather than new sections */
+/* Hallmark · waive 77 · the before record holds four sections: hero, papers, tools, footer · a redesign adds no section the page did not have */
+/* Hallmark · answered F6 · .hero-count holds two counts that never change in place · tabular figures gave the comma in 1,507 a full digit of space */
+/* Hallmark · waive 79 · .hero-copy ends at y 543 and the field at y 639 at 1440x900; the gate measures from the h1 alone · the gap below is the 120px section step */
 
-/* Homepage: editorial masthead, two-column paper ledger, and monochrome ruled tools directory.
-   Tokens live in shared.css; this file adds layout only. */
+/* Homepage: an overprint banner, the paper index, the tools on an
+   ultramarine field. Tokens live in shared.css; this file adds layout. */
+
+/* --- Canvas: one capped container, twelve columns --- */
+:root {
+    --page-max: 1440px;
+    --page-gutter: 64px;
+    --gap: 32px;
+    --section-gap: 144px;
+    --section-gap-s: 120px;
+}
 
 .container {
     width: 100%;
-    max-width: calc(var(--container) + 2 * var(--gutter));
+    max-width: var(--page-max);
     margin-inline: auto;
-    padding-inline: var(--gutter);
+    padding-inline: var(--page-gutter);
 }
 
-/* --- Editorial masthead (replaces the legacy navy topbar) --- */
+.grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gap);
+}
+
+/* --- Wordmark: a red square two lines tall beside the name --- */
+.wordmark {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    column-gap: var(--space-sm);
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: var(--type-body);
+    line-height: 0.95;
+    color: var(--color-ink);
+    text-decoration: none;
+}
+
+.wordmark::before {
+    content: "";
+    grid-row: span 2;
+    width: 1.9em;
+    height: 1.9em;
+    background: var(--color-mark);
+    transition: transform var(--dur-short) var(--ease-out);
+}
+
+.wordmark:hover::before {
+    transform: rotate(90deg);
+}
+
+.wordmark-name,
+.wordmark-sub {
+    white-space: nowrap;
+}
+
+.wordmark-name {
+    font-weight: var(--display-weight);
+    letter-spacing: -0.01em;
+}
+
+.wordmark-sub {
+    font-weight: 400;
+}
+
+/* --- Nav: edge-aligned, one line --- */
+.masthead {
+    position: relative;
+    z-index: var(--z-raised);
+}
+
 .masthead-inner {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
-    gap: var(--s-4);
-    padding-top: var(--s-6);
-    padding-bottom: var(--s-4);
-    border-bottom: 1px solid var(--text-main);
-}
-
-.brand-group {
-    min-width: 0;
-}
-
-.brand-group h1 {
-    font-size: clamp(1.375rem, 1.15rem + 0.8vw, 2rem);
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    color: var(--text-main);
-}
-
-.masthead-sub {
-    margin-top: var(--s-1);
-    font-size: var(--text-sm);
-    color: var(--text-muted);
+    gap: var(--space-md);
+    min-height: 80px;
 }
 
 .masthead-controls {
     display: flex;
     align-items: center;
-    gap: var(--s-2);
-    flex-shrink: 0;
+    gap: var(--space-xs);
 }
 
 .masthead-link {
     display: inline-flex;
     align-items: center;
-    gap: var(--s-2);
-    min-height: 40px;
-    padding: 0 var(--s-3);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    white-space: nowrap;
-    text-decoration: none;
-    color: var(--text-main);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: background-color 0.15s ease, border-color 0.15s ease;
+    gap: var(--space-xs);
+    min-height: 44px;
+    padding-inline: var(--space-sm);
+    font-size: var(--type-small);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.3em;
+    transition: color var(--dur-short) var(--ease-out), text-decoration-color var(--dur-short) var(--ease-out);
 }
 
 .masthead-link svg {
-    color: var(--accent-teal);
+    display: none;
 }
 
 .masthead-link:hover {
-    background: var(--card-hover-bg);
-    border-color: var(--accent-teal-mark);
+    color: var(--color-mark-text);
+    text-decoration-color: currentColor;
 }
 
-.masthead-link:active {
+.masthead-controls .icon-btn {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+/* ===================================================================
+   Hero: the overprint sheet. The head hangs from column 1 and runs
+   across an ultramarine field that starts on the column 8 line; where
+   it crosses, a second copy in field-ink shows through a clip.
+   =================================================================== */
+.hero {
+    position: relative;
+    isolation: isolate;
+    padding-block: var(--space-2xl) var(--space-3xl);
+    --w: calc(min(100%, var(--page-max)) - 2 * var(--page-gutter));
+    --line-8: calc((100% - var(--w)) / 2 + 7 * (var(--w) + var(--gap)) / 12);
+}
+
+.hero-field {
+    position: absolute;
+    inset: 0 0 0 var(--line-8);
+    z-index: -1;
+    color: var(--color-field-ink);
+    background: var(--color-field);
+    transform-origin: left center;
+}
+
+.hero-inner {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gap);
+    row-gap: var(--space-2xl);
+}
+
+.hero-head {
+    position: relative;
+    grid-column: 1 / -1;
+    --cut: calc(7 * (100% + var(--gap)) / 12);
+}
+
+.hero-title {
+    max-width: none;
+    font-family: var(--font-display);
+    font-size: var(--type-poster);
+    font-weight: var(--display-weight);
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+    color: var(--color-ink);
+    text-wrap: initial;
+}
+
+/* The ink copy stops at the field's edge; the overprint copy starts there. */
+h1.hero-title {
+    clip-path: inset(-0.2em calc(100% - var(--cut)) -0.3em -0.1em);
+}
+
+.hero-overprint {
+    position: absolute;
+    inset: 0;
+    color: var(--color-field-ink);
+    clip-path: inset(-0.2em -0.1em -0.3em var(--cut));
+    user-select: none;
+}
+
+.hero-line {
+    display: block;
+    overflow: clip;
+    padding-block: 0.04em 0.12em;
+    margin-block: -0.04em -0.12em;
+}
+
+.hero-line > span {
+    display: block;
+}
+
+.hero-copy {
+    grid-column: 1 / 7;
+    display: grid;
+    align-content: end;
+    gap: var(--space-lg);
+}
+
+.hero-lead {
+    max-width: 34ch;
+    font-size: var(--type-lead);
+    line-height: 1.4;
+    color: var(--color-ink-2);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md) var(--space-lg);
+}
+
+.hero-primary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 52px;
+    padding-inline: var(--space-lg);
+    font-weight: 500;
+    color: var(--color-paper);
+    background: var(--color-ink);
+    text-decoration: none;
+    transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+}
+
+.hero-primary:hover {
+    background: var(--color-ink-2);
+}
+
+.hero-primary:active {
     transform: translateY(1px);
 }
 
-/* --- Main sections stack --- */
-.page-sections {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--s-10);
-    padding-block: var(--s-8) var(--s-12);
+.hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.32em;
+    transition: color var(--dur-short) var(--ease-out);
 }
 
-/* --- Shared section header --- */
-.section-header {
+.hero-secondary:hover {
+    color: var(--color-mark-text);
+}
+
+.hero-figures {
+    grid-column: 8 / -1;
+    align-self: end;
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: var(--s-3) var(--s-4);
+    gap: var(--space-lg) var(--space-2xl);
+    padding-left: var(--space-xl);
+    color: var(--color-field-ink);
+}
+
+/* Nothing to show until a count loads: no empty field block */
+.hero-figures:not(:has(.hero-figure:not([hidden]))) {
+    display: none;
+}
+
+.hero-figure {
+    display: grid;
+    align-content: start;
+    gap: var(--space-xs);
+    color: inherit;
+}
+
+.hero-figure[hidden] {
+    display: none;
+}
+
+.hero-figure-link {
+    text-decoration: none;
+}
+
+.hero-figure-link .hero-count-label {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.3em;
+    transition: text-decoration-color var(--dur-short) var(--ease-out);
+}
+
+.hero-figure-link:hover .hero-count-label {
+    text-decoration-color: currentColor;
+}
+
+.hero-figure-link .hero-count {
+    transition: transform var(--dur-short) var(--ease-out);
+}
+
+.hero-figure-link:hover .hero-count {
+    transform: translateX(4px);
+}
+
+.hero-count {
+    font-family: var(--font-display);
+    font-size: var(--type-display);
+    font-weight: var(--display-weight);
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+}
+
+.hero-count-label {
+    font-size: var(--type-small);
+    font-weight: 500;
+}
+
+/* Entrance: the field sweeps in from its column line, the head rises
+   line by line, the rest settles. 0.75s in all, once, from a visible end. */
+@media (prefers-reduced-motion: no-preference) {
+    .hero-field {
+        animation: field-in 0.7s var(--ease-out) backwards;
+    }
+
+    .hero-line > span {
+        animation: line-in 0.6s var(--ease-out) backwards;
+        animation-delay: 80ms;
+    }
+
+    .hero-line + .hero-line > span {
+        animation-delay: 160ms;
+    }
+
+    .hero-copy,
+    .hero-figures {
+        animation: settle-in 0.5s var(--ease-out) backwards;
+        animation-delay: 260ms;
+    }
+}
+
+/* Scroll: on a screen tall and wide enough to hold the whole hero, it
+   stays put and recedes (shrinks and fades) while the papers slide up
+   over it, so the content takes the screen. Driven by the scroll
+   position itself, no script; browsers without scroll timelines get
+   the plain page. */
+@supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) and (min-width: 60rem) and (min-height: 640px) {
+        .hero {
+            position: sticky;
+            top: 0;
+            z-index: 0;
+            transform-origin: 50% 0;
+            animation: hero-recede linear both;
+            animation-timeline: scroll(root);
+            animation-range: 0 80vh;
+        }
+
+        .page-sections,
+        .site-footer {
+            position: relative;
+            z-index: 1;
+            color: var(--color-ink);
+            background: var(--color-paper);
+        }
+    }
+}
+
+@keyframes hero-recede {
+    to {
+        opacity: 0.15;
+        transform: translateY(-4%) scale(0.9);
+    }
+}
+
+@keyframes field-in {
+    from { transform: scaleX(0); }
+}
+
+@keyframes line-in {
+    from { transform: translateY(105%); }
+}
+
+@keyframes settle-in {
+    from { opacity: 0; transform: translateY(8px); }
+}
+
+/* ===================================================================
+   Sections
+   =================================================================== */
+.papers-section {
+    padding-block: var(--section-gap-s) var(--section-gap);
+}
+
+.section-header {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gap);
+    align-items: end;
+    row-gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
 }
 
 .section-heading {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: var(--s-1) var(--s-3);
-    min-width: 0;
+    grid-column: 1 / 9;
+    display: grid;
+    gap: var(--space-md);
 }
 
 .section-title {
-    font-size: var(--text-lg);
-    line-height: 1.2;
-    letter-spacing: -0.015em;
+    max-width: 18ch;
+    font-size: var(--type-section);
 }
 
 .section-meta {
-    font-size: var(--text-sm);
-    color: var(--text-muted);
+    font-size: var(--type-small);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-muted);
 }
 
-/* --- Section 1: Horizontal paged paper ledger --- */
+/* --- Pager: square marks, the current one red --- */
 .paper-pager {
+    grid-column: 9 / -1;
+    justify-self: end;
     display: flex;
     align-items: center;
-    gap: var(--s-1);
-    min-width: 0;
+    gap: var(--space-2xs);
 }
 
 .paper-pager[hidden] {
@@ -130,77 +427,69 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 32px;
-    min-height: 32px;
-    color: var(--text-secondary);
-    border-radius: var(--radius);
-    touch-action: manipulation;
-    transition: background-color 0.15s ease, color 0.15s ease;
+    min-width: 44px;
+    min-height: 44px;
+    color: var(--color-ink);
+    transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out);
 }
 
-.paper-nav-btn:hover:not(:disabled) {
-    color: var(--text-main);
-    background: var(--bg-surface);
+.paper-nav-btn:hover {
+    background: var(--color-paper-2);
+}
+
+.paper-nav-btn:active {
+    transform: scale(0.94);
 }
 
 .paper-dots {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2px;
     min-width: 0;
 }
 
 .paper-dot {
-    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 24px;
+    min-width: 20px;
     min-height: 32px;
     touch-action: manipulation;
 }
 
 .paper-dot::after {
     content: "";
-    width: 7px;
-    height: 7px;
-    border-radius: 999px;
-    background: var(--border-strong);
-    transition: background-color 0.15s ease;
+    width: 8px;
+    height: 8px;
+    background: var(--color-edge);
+    transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
 }
 
 .paper-dot:hover::after {
-    background: var(--text-secondary);
-}
-
-.paper-dot[aria-current="true"] {
-    min-width: 28px;
+    background: var(--color-ink);
 }
 
 .paper-dot[aria-current="true"]::after {
-    width: 16px;
-    background: var(--accent-vermilion-mark);
+    background: var(--color-mark);
+    transform: scale(1.5);
 }
 
 .paper-count {
     display: none;
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
+    min-width: 5ch;
+    font-size: var(--type-small);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
 }
 
-.papers-section .ai-note {
-    margin-top: var(--s-5);
-}
-
+/* --- The paper track: one page of six rows at a time --- */
 .paper-track {
-    position: relative;
     display: flex;
-    gap: var(--s-8);
+    gap: var(--gap);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    padding-top: var(--s-6);
     touch-action: pan-x pan-y;
 }
 
@@ -228,346 +517,411 @@
 }
 
 .paper-list {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--s-4);
     list-style: none;
-    min-width: 0;
-}
-
-@media (min-width: 860px) {
-    .paper-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        column-gap: var(--s-8);
-        row-gap: var(--s-5);
-    }
+    border-bottom: 1px solid var(--color-rule);
 }
 
 .paper-card {
     display: grid;
-    grid-template-columns: 60px minmax(0, 1fr);
-    gap: var(--s-3);
-    align-items: start;
-    min-width: 0;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gap);
+    padding-block: var(--space-lg);
+    border-top: 1px solid var(--color-rule);
+}
+
+.paper-list .paper-card:first-child {
+    border-top-color: var(--color-ink);
 }
 
 .paper-date {
-    padding-top: 2px;
-    font-size: var(--text-xs);
-    color: var(--accent-teal);
-    white-space: nowrap;
+    grid-column: 1 / 3;
+    padding-top: var(--space-2xs);
+    font-size: var(--type-small);
+    font-weight: 500;
+    color: var(--color-muted);
 }
 
 .paper-body {
-    min-width: 0;
+    grid-column: 3 / -1;
+    display: grid;
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    column-gap: var(--gap);
+    row-gap: var(--space-xs);
+    align-content: start;
 }
 
 .paper-link {
-    display: inline;
-    font-weight: 600;
-    line-height: 1.4;
-    color: var(--text-main);
+    grid-column: 1 / 7;
+    grid-row: 1 / span 2;
+    align-self: start;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
     text-decoration: none;
+    color: var(--color-ink);
+}
+
+.paper-title {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: color var(--dur-short) var(--ease-out), text-decoration-color var(--dur-short) var(--ease-out);
 }
 
 .paper-link svg {
     display: inline-block;
-    margin-left: var(--s-1);
-    vertical-align: -1px;
-    color: var(--text-muted);
-    transition: transform 0.15s ease, color 0.15s ease;
+    margin-left: var(--space-2xs);
+    vertical-align: 0.05em;
+    color: var(--color-muted);
+    transition: transform var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
 }
 
 .paper-link:hover .paper-title {
-    color: var(--primary);
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    color: var(--color-mark-text);
+    text-decoration-color: currentColor;
 }
 
 .paper-link:hover svg {
-    color: var(--primary);
+    color: var(--color-mark-text);
     transform: translate(2px, -2px);
 }
 
 .paper-comment {
-    margin-top: var(--s-1);
-    font-size: 0.9375rem;
-    color: var(--text-secondary);
-    max-width: 65ch;
+    grid-column: 7 / -1;
+    grid-row: 1;
+    font-size: var(--type-small);
+    color: var(--color-ink-2);
 }
 
 .paper-summary-link {
-    display: inline-block;
-    padding-block: var(--s-1);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--accent-teal);
-    text-underline-offset: 3px;
+    grid-column: 7 / -1;
+    grid-row: 2;
+    justify-self: start;
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    font-size: var(--type-small);
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+    transition: color var(--dur-short) var(--ease-out);
 }
 
 .paper-summary-link:hover {
-    color: var(--accent-teal-mark);
+    color: var(--color-mark-text);
 }
 
-/* --- Tools index (Asymmetric Bento) --- */
+.papers-section .ai-note {
+    margin-top: var(--space-lg);
+}
+
+/* ===================================================================
+   Tools: the ultramarine field. Each group's name hangs on columns 1
+   to 3, its systems as rows on 4 to 12.
+   =================================================================== */
 .works-section {
-    min-width: 0;
-    padding-top: var(--s-8);
-    border-top: 1px solid var(--border);
+    padding-block: var(--section-gap-s);
+    color: var(--color-field-ink);
+    background: var(--color-field);
+    --color-focus: var(--color-field-ink);
+}
+
+.works-section .section-meta {
+    color: var(--color-field-dim);
 }
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--s-6);
-    padding-top: var(--s-6);
+    gap: var(--space-2xl);
 }
 
 .project-group {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gap);
+    row-gap: var(--space-md);
 }
 
 .project-group-title {
-    padding-bottom: var(--s-2);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    letter-spacing: 0;
-    color: var(--text-main);
-    border-bottom: 1px solid var(--text-main);
+    grid-column: 1 / 4;
+    padding-top: var(--space-md);
+    font-size: var(--type-title);
+    line-height: 1.15;
 }
 
 .project-list {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
+    grid-column: 4 / -1;
     list-style: none;
+    border-top: 1px solid var(--color-field-ink);
 }
 
 .project-list li {
-    display: flex;
-    min-width: 0;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--color-field-rule);
 }
 
 .project-card {
-    flex: 1 1 auto;
     display: grid;
-    grid-template-columns: 36px minmax(0, 1fr) auto;
-    align-items: center;
-    gap: var(--s-3);
-    padding: var(--s-3);
+    grid-template-columns: minmax(0, 4fr) minmax(0, 4fr) auto;
+    align-items: baseline;
+    column-gap: var(--gap);
+    row-gap: var(--space-2xs);
+    min-height: 72px;
+    padding-block: var(--space-md);
+    color: var(--color-field-ink);
     text-decoration: none;
-    transition: background-color 0.15s ease;
-}
-
-.project-card:focus-visible {
-    outline-offset: -2px;
-}
-
-.project-card:hover {
-    background: var(--bg-card);
 }
 
 .project-icon {
-    display: grid;
-    place-items: center;
-    width: 36px;
-    height: 36px;
-    color: var(--tone-ink, var(--primary));
-    background: var(--tone-tint, var(--card-hover-icon-bg));
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: background-color 0.15s ease, border-color 0.15s ease;
-}
-
-.project-card:hover .project-icon {
-    background: var(--tone-tint, var(--card-hover-icon-bg));
-    border-color: var(--tone-mark, var(--card-hover-border));
+    display: none;
 }
 
 .project-body {
-    display: grid;
-    gap: 2px;
-    min-width: 0;
+    display: contents;
 }
 
 .project-title {
-    font-weight: 600;
-    line-height: 1.3;
-    transition: color 0.15s ease;
-}
-
-.project-card:hover .project-title {
-    color: var(--tone-ink, var(--primary));
-    text-decoration: underline;
-    text-underline-offset: 3px;
-}
-
-.project-status {
-    display: inline-block;
-    margin-left: var(--s-1);
-    padding: 2px var(--s-2);
-    font-size: var(--text-xs);
-    font-weight: 600;
-    line-height: 1.3;
-    color: var(--accent-vermilion);
-    border: 1px solid var(--accent-vermilion-mark);
-    border-radius: var(--radius-sm);
-}
-
-.project-desc {
-    font-size: var(--text-sm);
-    line-height: 1.4;
-    color: var(--text-secondary);
-}
-
-.project-external-arrow {
-    display: grid;
-    color: var(--text-muted);
-    transition: transform 0.15s ease, color 0.15s ease;
-}
-
-.project-card:hover .project-external-arrow {
-    color: var(--tone-ink, var(--primary));
-    transform: translate(2px, -2px);
-}
-
-@media (min-width: 860px) {
-    .portfolio-grid {
-        grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-        gap: var(--s-6);
-    }
-
-    .project-group:nth-child(1) {
-        grid-row: span 2;
-    }
-
-    .project-group:nth-child(1) .project-list {
-        display: grid;
-        grid-auto-rows: 1fr;
-    }
-
-    .project-group:nth-child(4) {
-        grid-column: 1 / -1;
-    }
-
-    .project-group:nth-child(4) .project-list {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .project-group:nth-child(4) .project-list li + li {
-        border-left: 1px solid var(--border);
-    }
-}
-
-/* --- Footer --- */
-.site-footer {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
+    gap: var(--space-xs) var(--space-sm);
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.2;
+    transition: transform var(--dur-short) var(--ease-out);
+}
+
+.project-status {
+    font-family: var(--font-body);
+    font-size: var(--type-small);
+    font-weight: 500;
+    letter-spacing: 0;
+    padding: 0 var(--space-xs);
+    border: 1px solid var(--color-field-ink);
+}
+
+.project-desc {
+    font-size: var(--type-small);
+    color: var(--color-field-dim);
+    transition: color var(--dur-short) var(--ease-out);
+}
+
+.project-external-arrow {
+    display: inline-flex;
+    color: var(--color-field-ink);
+    transition: transform var(--dur-short) var(--ease-out);
+}
+
+.project-card:hover .project-title {
+    transform: translateX(8px);
+}
+
+.project-card:hover .project-desc {
+    color: var(--color-field-ink);
+}
+
+.project-card:hover .project-external-arrow {
+    transform: translate(3px, -3px);
+}
+
+.works-section .error-state {
+    color: var(--color-ink);
+}
+
+/* ===================================================================
+   Footer: a colophon block
+   =================================================================== */
+.site-footer {
+    padding-block: var(--space-3xl) var(--space-2xl);
+}
+
+.footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
     justify-content: space-between;
-    gap: var(--s-2) var(--s-6);
-    padding-block: var(--s-8);
-    font-size: var(--text-sm);
-    color: var(--text-muted);
-    border-top: 1px solid var(--border);
+    gap: var(--space-lg);
 }
 
-.site-footer a {
-    font-weight: 600;
-    color: var(--text-secondary);
-    text-underline-offset: 3px;
+.footer-inner .wordmark {
+    font-size: var(--type-title);
 }
 
-/* --- Small screens --- */
-@media (max-width: 640px) {
-    .masthead-inner {
-        align-items: center;
-        padding-top: var(--s-5);
-        padding-bottom: var(--s-4);
+.footer-line {
+    font-size: var(--type-small);
+    color: var(--color-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.footer-line a {
+    font-weight: 500;
+    color: var(--color-ink);
+    transition: color var(--dur-short) var(--ease-out);
+}
+
+.footer-line a:hover {
+    color: var(--color-mark-text);
+}
+
+/* ===================================================================
+   Under 60rem: everything stacks; the field stops bleeding and holds
+   the figure as its own block under the head.
+   =================================================================== */
+@media (max-width: 60rem) {
+    :root {
+        --page-gutter: 24px;
+        --gap: 24px;
+        --section-gap: 96px;
+        --section-gap-s: 80px;
+    }
+
+    .hero {
+        padding-block: var(--space-xl) var(--space-2xl);
+    }
+
+    .hero-field,
+    .hero-overprint {
+        display: none;
+    }
+
+    h1.hero-title {
+        clip-path: none;
+    }
+
+    .hero-inner {
+        row-gap: var(--space-xl);
+    }
+
+    .hero-copy,
+    .hero-figures {
+        grid-column: 1 / -1;
+    }
+
+    .hero-figures {
+        margin-inline: calc(-1 * var(--page-gutter));
+        padding: var(--space-xl) var(--page-gutter);
+        color: var(--color-field-ink);
+        background: var(--color-field);
+    }
+
+    .section-heading,
+    .paper-pager {
+        grid-column: 1 / -1;
+    }
+
+    .paper-pager {
+        justify-self: stretch;
+        justify-content: space-between;
+    }
+
+    .paper-date,
+    .paper-body,
+    .paper-link,
+    .paper-comment,
+    .paper-summary-link {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .paper-body {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .project-group-title,
+    .project-list {
+        grid-column: 1 / -1;
+    }
+
+    .project-card {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .project-title {
+        grid-column: 1;
+    }
+
+    .project-desc {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .project-external-arrow {
+        grid-column: 2;
+        grid-row: 1;
+    }
+}
+
+@media (max-width: 40rem) {
+    :root {
+        --page-gutter: 16px;
+        --gap: 16px;
+        --section-gap: 72px;
+        --section-gap-s: 56px;
     }
 
     .masthead-link span {
         display: none;
     }
 
+    .masthead-link svg {
+        display: block;
+    }
+
     .masthead-link {
         min-width: 44px;
-        min-height: 44px;
         justify-content: center;
         padding: 0;
     }
 
-    .masthead-controls .icon-btn {
-        min-width: 44px;
-        min-height: 44px;
-    }
-
-    .page-sections {
-        gap: var(--s-10);
-        padding-block: var(--s-6) var(--s-10);
-    }
-
-    .section-header {
-        align-items: stretch;
-        gap: var(--s-3);
-    }
-
-    .paper-pager {
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    /* Twelve dots cannot each be a 44px target on a phone: show a count
+    /* Twelve marks cannot each be a 44px target on a phone: a count
        between two full-size buttons instead. */
     .paper-dots {
         display: none;
     }
 
     .paper-count {
-        display: block;
+        display: inline;
+    }
+}
+
+/* The smallest phones: the name alone, so the three controls keep 44px each */
+@media (max-width: 26rem) {
+    .masthead .wordmark-sub {
+        display: none;
     }
 
-    .paper-nav-btn {
-        min-width: 44px;
-        min-height: 44px;
-    }
-
-    .paper-card {
-        grid-template-columns: minmax(0, 1fr);
-        gap: var(--s-1);
-    }
-
-    .project-card {
-        min-height: 56px;
+    .masthead .wordmark::before {
+        grid-row: auto;
+        width: 1.4em;
+        height: 1.4em;
     }
 }
 
 @media (pointer: coarse) {
-    .masthead-controls .icon-btn,
-    .paper-nav-btn {
-        min-width: 44px;
-        min-height: 44px;
-    }
-
-    .masthead-link {
-        min-height: 44px;
-    }
-
     .paper-dot {
         min-width: 32px;
         min-height: 44px;
     }
-
-    .paper-dot[aria-current="true"] {
-        min-width: 36px;
-    }
 }
 
 @media (forced-colors: active) {
+    .hero-overprint {
+        display: none;
+    }
+
+    h1.hero-title {
+        clip-path: none;
+    }
+
+    .paper-dot::after {
+        background: CanvasText;
+    }
+
     .paper-dot[aria-current="true"]::after {
         background: Highlight;
     }

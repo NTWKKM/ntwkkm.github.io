@@ -271,6 +271,14 @@ async function fetchPapers() {
 
     document.getElementById('papers-meta').textContent = `${papers.length} papers, latest ${papers[0].date}`;
 
+    // The hero's figure is the real count from papers.json, never a set number.
+    const heroFigure = document.getElementById('hero-figure');
+    if (heroFigure) {
+        document.getElementById('hero-count').textContent = papers.length;
+        document.getElementById('hero-count-label').textContent = `papers, latest ${papers[0].date}`;
+        heroFigure.hidden = false;
+    }
+
     if (pager && dotsContainer && pages.length > 1) {
         dotsContainer.innerHTML = pages.map((_, idx) => `
             <button type="button" class="paper-dot" aria-label="Page ${idx + 1} of ${pages.length}" aria-current="${idx === 0 ? 'true' : 'false'}"></button>
@@ -290,10 +298,19 @@ async function fetchPapers() {
  * link to it. Runs after the ledger is on screen and fails silently: the
  * links are an extra, and the ledger must never wait on them.
  */
+/** The reader's own count, from the same list the summary links use. */
+function showReaderCount(count) {
+    const figure = document.getElementById('hero-blog-figure');
+    if (!figure || !count) return;
+    document.getElementById('hero-blog-count').textContent = count.toLocaleString('en-GB');
+    figure.hidden = false;
+}
+
 async function linkSummaries(container) {
     const pmids = await fetchWithFallback('./data/blog/pmids.json', null, 1);
     if (!Array.isArray(pmids)) return;
     const held = new Set(pmids);
+    showReaderCount(held.size);
     container.querySelectorAll('.paper-card[data-pmid]').forEach((card) => {
         const pmid = card.dataset.pmid;
         if (!/^\d+$/.test(pmid) || !held.has(pmid) || card.querySelector('.paper-summary-link')) return;
@@ -363,7 +380,28 @@ async function fetchProjects() {
     }).join('');
 }
 
+// ---------------------------------------------------------------------------
+// One reveal: section heads and bodies ease in once as they enter the screen.
+// Content is visible without script and under reduced motion (see shared.css).
+// ---------------------------------------------------------------------------
+function initReveal() {
+    const items = document.querySelectorAll('[data-reveal]');
+    if (!('IntersectionObserver' in window)) {
+        items.forEach(el => el.classList.add('is-in'));
+        return;
+    }
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+        });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    items.forEach(el => io.observe(el));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    initReveal();
     fetchPapers();
     fetchProjects();
     const yearEl = document.getElementById('footer-year');

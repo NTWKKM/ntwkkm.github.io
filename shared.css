@@ -1,11 +1,10 @@
-/* Hallmark · v2.0.0 · built: the project · redesign: full · scope: app · system: DESIGN.md (locked) · theme: Slate and Titanium Navy (brand) · genre: modern-minimal · hero: none (app screens) · signature: the dated paper ledger */
-/* critique: Slate & Titanium Navy editorial base with restrained Signal Vermilion and Clinical Teal functional accents; ruled lists instead of boxed cards or accent stripes; the reader leads with the paper, filters stay folded until asked for */
-/* Hallmark · waive 39b · .article-list-item holds a three-line title · list rows are buttons for keyboard reach, not single-line controls */
-/* Hallmark · dismissed F25 · checked 375px and 1440px: aside.sidebar folds into an off-canvas drawer opened by #mob-nav-menu (Papers) in .mobile-bottom-nav */
-/* Hallmark · dropped ${sanitizeURL(paper.link)}, https://pubmed.ncbi.nlm.nih.gov/43007682/ · both are data-driven links still rendered from papers.json and the index */
-/* Hallmark · dropped onclick="location.reload()", onclick="selectTag('all')", #citation-popover-dialog, #more-tags-btn · inline handlers became delegated listeners and the popover became a native dialog */
-/* Hallmark · dropped https://ntwkkm.github.io/, https://ntwkkm.github.io/blog.html · same destinations, now relative so they work on a local preview */
-/* Hallmark · dropped #slide-prev, #slide-next, #paper-indicators, #more-tags-dropdown · the auto-scrolling carousel became a dated list and the 1,100-tag cloud became two fixed facets */
+/* Hallmark · shape: Letter (draw 7ae0b0, job swapped to read) · genre: editorial · theme: Grid (deal 1/3, seed physician-research-archive-emergency-ab06·a1087cb8·2026-11-21·r0) · redesign: full · scope: page (/) + app (/blog.html) · modes: light+dark
+ * hero: Banner (/), none (/blog.html) · nav: edge-aligned · footer: colophon block · imagery: none · signature: the overprint sheet, the heading crossing an ultramarine field that holds the live paper count
+ * axes: light/grotesk-sans/cool · posture: full-palette · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R3 V4 · weakest: R (the page keeps only the sections it had), answered with poster scale and a field band instead of adding content */
+/* Hallmark · motion: the user asked for animation; Grid's "state only" yields to one hero entrance and one scroll reveal, both ending visible and both off under reduced motion */
+/* Hallmark · dropped NTWKKM · the name is now the wordmark link; the h1 is the old subtitle, "Emergency medicine & clinical informatics" */
+/* Hallmark · reworded "NTWKKM" to "GitHub" in the footer line · 67 names a capitalised name at 14px; the wordmark beside it carries the name */
 
 /* ===================================================================
    SHARED STYLES - ntwkkm.github.io
@@ -15,22 +14,22 @@
 
 /* --- Fonts: served from this origin so they load offline and nothing
    third-party blocks first paint. Files are the Google Fonts woff2 subsets
-   (SIL Open Font License); Inter Tight is one variable file for 400 to 700. --- */
+   (SIL Open Font License); the two Radio Canada files are variable. --- */
 @font-face {
-    font-family: "Inter Tight";
+    font-family: "Radio Canada Big";
     font-style: normal;
     font-weight: 400 700;
     font-display: swap;
-    src: url("assets/fonts/inter-tight-latin.woff2") format("woff2");
+    src: url("assets/fonts/radio-canada-big-latin.woff2") format("woff2");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-    font-family: "JetBrains Mono";
+    font-family: "Radio Canada";
     font-style: normal;
-    font-weight: 400;
+    font-weight: 400 500;
     font-display: swap;
-    src: url("assets/fonts/jetbrains-mono-latin-400.woff2") format("woff2");
+    src: url("assets/fonts/radio-canada-latin.woff2") format("woff2");
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -70,130 +69,172 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* ===================================================================
+   1. Grid tokens: white poster paper, blue-black ink, one ultramarine
+      field, one Swiss red mark. OKLCH throughout.
+   =================================================================== */
 :root {
     color-scheme: light;
 
-    /* Type */
-    --font-ui: "Inter Tight", "Neue Haas Grotesk", "Sarabun", system-ui, sans-serif;
-    --font-thai: "Sarabun", "Inter Tight", system-ui, sans-serif;
-    --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, "Courier New", monospace;
+    /* Paper, ink and neutrals */
+    --color-paper:   oklch(97.5% 0.005 90);
+    --color-paper-2: oklch(94.2% 0.006 90);
+    --color-paper-3: oklch(90.5% 0.008 90);
+    --color-ink:     oklch(19% 0.022 266);
+    --color-ink-2:   oklch(31% 0.02 266);
+    --color-muted:   oklch(47% 0.016 266);
+    --color-rule:    oklch(87.5% 0.008 90);
+    --color-edge:    oklch(58% 0.014 266); /* control edges, 3:1 on paper */
 
-    --text-xs: 0.75rem;
+    /* Field (ultramarine flood), mark (Swiss red), focus */
+    --color-accent:     oklch(44% 0.2 266);
+    --color-accent-ink: oklch(97.5% 0.005 90);
+    --color-field:      oklch(44% 0.2 266);
+    --color-field-ink:  oklch(97.5% 0.005 90);
+    --color-field-rule: oklch(58% 0.15 266);
+    --color-field-dim:  oklch(88% 0.04 266);
+    --color-mark:       oklch(57% 0.215 29);
+    --color-mark-text:  oklch(51% 0.2 29);  /* red as small text, 5:1 on paper */
+    --color-mark-ink:   oklch(97.5% 0.005 90);
+    --color-focus:      oklch(46% 0.2 266);
+    --color-warn:       oklch(50% 0.11 70);
+    --color-overlay:    oklch(19% 0.022 266 / 0.55);
+    --color-highlight:  oklch(57% 0.215 29 / 0.2);
+
+    /* Type */
+    --font-display: "Radio Canada Big", "Sarabun", ui-sans-serif, system-ui, sans-serif;
+    --font-body:    "Radio Canada", "Sarabun", ui-sans-serif, system-ui, sans-serif;
+    --font-thai:    "Sarabun", "Radio Canada", system-ui, sans-serif;
+    --font-mono:    ui-monospace, Menlo, monospace;
+    --tracking-display: -0.035em;
+    --display-weight: 700;
+
+    /* Type scale, 1.25 from a 16px body */
+    --type-poster:    clamp(2.75rem, 7.4vw, 7.25rem);
+    --type-display:   clamp(2.75rem, 5vw + 1rem, 5.25rem);
+    --type-section:   clamp(2rem, 2.5vw + 1rem, 3.5rem);
+    --type-title:     clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem);
+    --type-lead:      clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+    --type-body:      1.0625rem;
+    --type-small:     0.875rem;
+
+    /* Space */
+    --space-3xs: 2px;  --space-2xs: 4px;  --space-xs: 8px;   --space-sm: 12px;
+    --space-md: 16px;  --space-lg: 24px;  --space-xl: 40px;  --space-2xl: 64px;
+    --space-3xl: 96px; --space-4xl: 144px;
+
+    /* Motion */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+    --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    --dur-micro: 120ms;
+    --dur-short: 220ms;
+    --dur-long: 420ms;
+
+    /* Layers */
+    --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300;
+    --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+
+    /* ---------------------------------------------------------------
+       Legacy names, kept so the reader stylesheet reads the same
+       roles. Each one points at a Grid token.
+       --------------------------------------------------------------- */
+    --text-xs: 0.8125rem;
     --text-sm: 0.875rem;
     --text-base: 1rem;
-    --text-md: 1.125rem;
-    --text-lg: 1.375rem;
-    --text-xl: clamp(1.625rem, 1.3rem + 1.4vw, 2.25rem);
+    --text-md: 1.0625rem;
+    --text-lg: 1.25rem;
+    --text-xl: clamp(2rem, 1.2rem + 2.4vw, 3.25rem);
 
-    /* Space, 4px scale */
-    --s-1: 4px;
-    --s-2: 8px;
-    --s-3: 12px;
-    --s-4: 16px;
-    --s-5: 20px;
-    --s-6: 24px;
-    --s-8: 32px;
-    --s-10: 40px;
-    --s-12: 48px;
-    --s-16: 64px;
+    --s-1: 4px;  --s-2: 8px;   --s-3: 12px;  --s-4: 16px;  --s-5: 20px;
+    --s-6: 24px; --s-8: 32px;  --s-10: 40px; --s-12: 48px; --s-16: 64px;
 
-    --container: 1120px;
     --gutter: clamp(16px, 4vw, 40px);
 
-    /* Slate (light) + two calibrated clinical accents */
-    --accent-vermilion:      #B8320D; /* 5.07:1 on canvas, 6.00:1 on card */
-    --accent-vermilion-mark: #D84315; /* 3.88:1 on canvas, 4.58:1 on card */
-    --accent-vermilion-tint: rgba(184, 50, 13, 0.08);
-    --accent-teal:           #0B5D5B; /* 6.51:1 on canvas, 7.69:1 on card */
-    --accent-teal-mark:      #0F766E; /* 5.09:1 on canvas, 5.74:1 on card */
-    --accent-teal-tint:      rgba(11, 93, 91, 0.08);
-    --on-accent:             #ffffff;
-    --selection-bg:          rgba(11, 93, 91, 0.16);
+    --accent-vermilion:      var(--color-mark-text);
+    --accent-vermilion-mark: var(--color-mark);
+    --accent-vermilion-tint: oklch(57% 0.215 29 / 0.08);
+    --accent-teal:           var(--color-accent);
+    --accent-teal-mark:      var(--color-accent);
+    --accent-teal-tint:      oklch(44% 0.2 266 / 0.08);
+    --on-accent:             var(--color-accent-ink);
+    --signal-orange:         var(--color-mark);
+    --primary:               var(--color-accent);
+    --on-primary:            var(--color-accent-ink);
 
-    --signal-orange:  var(--accent-vermilion-mark);
-    --primary:        #1e3c72;
-    --on-primary:     #ffffff;
+    --bg-body:       var(--color-paper);
+    --bg-card:       var(--color-paper);
+    --bg-sidebar:    var(--color-paper-2);
+    --bg-paper-list: var(--color-paper-3);
+    --bg-surface:    var(--color-paper-2);
+    --input-bg:      var(--color-paper);
 
-    --bg-body:        #ECECEE;
-    --bg-card:        #FFFFFF;
-    --bg-sidebar:     #F7F7F8;
-    --bg-paper-list:  #E8E8EE;
-    --bg-surface:     #E5E5EA;
-    --input-bg:       #FFFFFF;
+    --text-main:      var(--color-ink);
+    --text-secondary: var(--color-ink-2);
+    --text-muted:     var(--color-muted);
 
-    --text-main:      #1d1d1f;
-    --text-secondary: #333333;
-    --text-muted:     #636368; /* 5.0:1 on canvas, 5.9:1 on card */
+    --border:        var(--color-rule);
+    --border-strong: var(--color-edge);
+    --border-light:  var(--color-paper-3);
 
-    --border:         #D8D8DC;
-    --border-strong:  #8E8E93; /* control edges, 3:1 on white */
-    --border-light:   #E5E5EA;
+    /* Floating layers only (dialog, update bar) */
+    --shadow:        0 1px 2px oklch(20% 0.01 266 / 0.08);
+    --shadow-hover:  0 1px 2px oklch(20% 0.01 266 / 0.08);
 
-    --shadow:         0 4px 20px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.04);
-    --shadow-hover:   0 8px 30px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.06);
+    --radius:    0;
+    --radius-sm: 0;
 
-    --radius:         4px;
-    --radius-sm:      2px;
+    --card-hover-bg:      var(--color-paper-2);
+    --card-hover-border:  var(--color-ink);
+    --card-hover-icon-bg: var(--color-paper-3);
 
-    --card-hover-bg:       #F8F8FA;
-    --card-hover-border:   #1e3c72;
-    --card-hover-icon-bg:  rgba(30, 60, 114, 0.08);
+    --state-warn: var(--color-warn);
+    --highlight:  var(--color-highlight);
+    --backdrop:   var(--color-overlay);
+    --ease:       var(--ease-out);
 
-    --state-warn:     #8a6220;
-    --highlight:      rgba(251, 191, 36, 0.35);
-    --backdrop:       rgba(18, 30, 54, 0.6);
-
-    --ease: cubic-bezier(0.16, 1, 0.3, 1);
-
-    scrollbar-color: var(--border-strong) transparent;
+    scrollbar-color: var(--color-edge) transparent;
     scrollbar-width: thin;
 }
 
+/* Dark: re-derived, never inverted. The hue never moves; surfaces step
+   lighter as they rise; the field and mark lift in L and drop in chroma. */
 [data-theme="dark"] {
     color-scheme: dark;
 
-    /* Titanium Navy (dark) + two calibrated clinical accents */
-    --accent-vermilion:      #FF8A60; /* 5.68:1 on card, 6.91:1 on canvas */
-    --accent-vermilion-mark: #FF7A45; /* 5.07:1 on card, 6.17:1 on canvas */
-    --accent-vermilion-tint: rgba(255, 122, 69, 0.14);
-    --accent-teal:           #5EEAD4; /* 8.91:1 on card, 10.84:1 on canvas */
-    --accent-teal-mark:      #2DD4BF; /* 7.41:1 on card, 9.02:1 on canvas */
-    --accent-teal-tint:      rgba(94, 234, 212, 0.13);
-    --on-accent:             #121E36;
-    --selection-bg:          rgba(94, 234, 212, 0.22);
+    --color-paper:   oklch(17% 0.014 266);
+    --color-paper-2: oklch(20.5% 0.016 266);
+    --color-paper-3: oklch(24.5% 0.018 266);
+    --color-ink:     oklch(94% 0.008 90);
+    --color-ink-2:   oklch(85% 0.012 266);
+    --color-muted:   oklch(72% 0.016 266);
+    --color-rule:    oklch(31% 0.018 266);
+    --color-edge:    oklch(52% 0.02 266);
 
-    --signal-orange:  var(--accent-vermilion-mark);
-    --primary:        #93c5fd;
-    --on-primary:     #121E36;
+    --color-accent:     oklch(74% 0.13 266);
+    --color-accent-ink: oklch(17% 0.014 266);
+    --color-field:      oklch(42% 0.17 266);
+    --color-field-ink:  oklch(96% 0.006 90);
+    --color-field-rule: oklch(54% 0.13 266);
+    --color-field-dim:  oklch(86% 0.04 266);
+    --color-mark:       oklch(66% 0.19 29);
+    --color-mark-text:  oklch(72% 0.16 29);
+    --color-mark-ink:   oklch(17% 0.014 266);
+    --color-focus:      oklch(76% 0.13 266);
+    --color-warn:       oklch(82% 0.11 80);
+    --color-overlay:    oklch(10% 0.01 266 / 0.7);
+    --color-highlight:  oklch(66% 0.19 29 / 0.3);
 
-    --bg-body:        #121E36;
-    --bg-card:        #1C2D4F;
-    --bg-sidebar:     #15223D;
-    --bg-paper-list:  #22365E;
-    --bg-surface:     #182744;
-    --input-bg:       #15223D;
+    --accent-vermilion-tint: oklch(66% 0.19 29 / 0.14);
+    --accent-teal-tint:      oklch(74% 0.13 266 / 0.14);
 
-    --text-main:      #E2E8F0;
-    --text-secondary: #B4C0D3;
-    --text-muted:     #94A3B8; /* 5.5:1 on card */
-
-    --border:         #2B406A;
-    --border-strong:  #5C78AD;
-    --border-light:   #182744;
-
-    --shadow:         0 4px 20px rgba(6, 12, 24, 0.55), 0 1px 3px rgba(6, 12, 24, 0.30);
-    --shadow-hover:   0 10px 32px rgba(0, 0, 0, 0.65), 0 0 18px rgba(147, 197, 253, 0.12);
-
-    --card-hover-bg:       #243B68;
-    --card-hover-border:   #4E78BC;
-    --card-hover-icon-bg:  rgba(147, 197, 253, 0.20);
-
-    --state-warn:     #e0b46d;
-    --highlight:      rgba(251, 191, 36, 0.40);
-    --backdrop:       rgba(6, 12, 24, 0.7);
+    --shadow:       none;
+    --shadow-hover: none;
 }
 
-/* --- Reset and base --- */
+/* ===================================================================
+   2. Reset and base
+   =================================================================== */
 *,
 *::before,
 *::after {
@@ -204,32 +245,40 @@
 
 html {
     overflow-x: clip;
-    accent-color: var(--primary);
-    text-rendering: optimizeLegibility;
+    accent-color: var(--color-accent);
     -webkit-text-size-adjust: 100%;
+    scroll-padding-top: var(--space-3xl);
 }
 
 ::selection {
-    background: var(--selection-bg);
-    color: var(--text-main);
+    background: var(--color-mark);
+    color: var(--color-mark-ink);
 }
 
 body {
     overflow-x: clip;
-    font-family: var(--font-ui);
+    font-family: var(--font-body);
     font-size: var(--text-base);
-    line-height: 1.5;
-    color: var(--text-main);
-    background: var(--bg-body);
+    line-height: 1.55;
+    color: var(--color-ink);
+    background: var(--color-paper);
+    caret-color: var(--color-accent);
+    font-synthesis: none;
     -webkit-font-smoothing: antialiased;
 }
 
+[data-theme="dark"] body {
+    font-weight: 350;
+}
+
 h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    letter-spacing: var(--tracking-display);
+    line-height: 1.05;
     text-wrap: balance;
     overflow-wrap: break-word;
     min-width: 0;
-    font-weight: 700;
-    letter-spacing: -0.01em;
 }
 
 p, li {
@@ -257,6 +306,8 @@ button:disabled {
 
 a {
     color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
 }
 
 svg {
@@ -270,9 +321,10 @@ svg {
     line-height: 1.75;
 }
 
+/* Dates and counts: the body face with figures that line up */
 .mono,
 time {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-variant-numeric: tabular-nums;
 }
 
@@ -290,22 +342,21 @@ time {
 }
 
 :focus-visible {
-    outline: 2px solid var(--primary);
+    outline: 2px solid var(--color-focus);
     outline-offset: 2px;
 }
 
 .skip-to-content {
     position: fixed;
-    top: var(--s-2);
-    left: var(--s-2);
-    z-index: 1000;
-    padding: var(--s-2) var(--s-4);
-    background: var(--primary);
-    color: var(--on-primary);
-    font-weight: 600;
+    top: var(--space-xs);
+    left: var(--space-xs);
+    z-index: var(--z-tooltip);
+    padding: var(--space-xs) var(--space-md);
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-weight: 500;
     text-decoration: none;
     white-space: nowrap;
-    border-radius: var(--radius);
     transform: translateY(-200%);
 }
 
@@ -313,23 +364,25 @@ time {
     transform: none;
 }
 
-/* --- Buttons --- */
+/* ===================================================================
+   3. Controls
+   =================================================================== */
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: var(--s-2);
+    gap: var(--space-xs);
     min-height: 40px;
-    padding: var(--s-2) var(--s-4);
+    padding: var(--space-xs) var(--space-md);
     font-size: var(--text-sm);
-    font-weight: 600;
+    font-weight: 500;
     white-space: nowrap;
     text-decoration: none;
-    color: var(--text-main);
-    background: var(--bg-card);
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius);
-    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    color: var(--color-ink);
+    background: var(--color-paper);
+    border: 1px solid var(--color-edge);
+    border-radius: 0;
+    transition: background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out);
 }
 
 /* .btn sets display, which would otherwise override the hidden attribute */
@@ -338,8 +391,8 @@ time {
 }
 
 .btn:hover:not(:disabled) {
-    background: var(--card-hover-bg);
-    border-color: var(--card-hover-border);
+    background: var(--color-paper-2);
+    border-color: var(--color-ink);
 }
 
 .btn:active:not(:disabled) {
@@ -347,15 +400,15 @@ time {
 }
 
 .btn-primary {
-    color: var(--bg-card);
-    background: var(--text-main);
-    border-color: var(--text-main);
+    color: var(--color-paper);
+    background: var(--color-ink);
+    border-color: var(--color-ink);
 }
 
 .btn-primary:hover:not(:disabled) {
-    color: var(--on-primary);
-    background: var(--primary);
-    border-color: var(--primary);
+    color: var(--color-paper);
+    background: var(--color-ink-2);
+    border-color: var(--color-ink-2);
 }
 
 .icon-btn {
@@ -364,45 +417,51 @@ time {
     justify-content: center;
     min-width: 36px;
     min-height: 36px;
-    color: var(--text-secondary);
+    color: var(--color-ink-2);
     border: 1px solid transparent;
-    border-radius: var(--radius);
-    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+    border-radius: 0;
+    transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
 }
 
 .icon-btn:hover:not(:disabled) {
-    color: var(--text-main);
-    background: var(--bg-surface);
+    color: var(--color-ink);
+    background: var(--color-paper-2);
 }
 
 .icon-btn:active:not(:disabled) {
-    background: var(--border);
+    background: var(--color-paper-3);
 }
 
 .theme-btn svg {
     width: 18px;
     height: 18px;
     fill: currentColor;
+    transition: transform var(--dur-long) var(--ease-out);
 }
 
-/* --- Loading and error states --- */
+.theme-btn:hover svg {
+    transform: rotate(-20deg);
+}
+
+/* ===================================================================
+   4. Loading and error states
+   =================================================================== */
 .skeleton-container {
     display: grid;
-    gap: var(--s-4);
-    padding: var(--s-4) 0;
+    gap: var(--space-md);
+    padding: var(--space-md) 0;
 }
 
 .skeleton-card,
 .skeleton-list-item {
     display: grid;
-    gap: var(--s-2);
+    gap: var(--space-xs);
 }
 
 .skeleton-line {
     height: 12px;
-    border-radius: var(--radius-sm);
-    background: var(--bg-surface);
-    animation: skeleton-pulse 1.4s ease-in-out infinite;
+    background: var(--color-paper-3);
+    animation: skeleton-pulse 1.4s var(--ease-in-out) infinite;
 }
 
 .w-40 { width: 40%; }
@@ -417,15 +476,13 @@ time {
 .error-state {
     display: grid;
     justify-items: start;
-    gap: var(--s-2);
-    padding: var(--s-6);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
+    gap: var(--space-xs);
+    padding: var(--space-lg);
+    background: var(--color-paper-2);
 }
 
 .error-icon {
-    color: var(--signal-orange);
+    color: var(--color-mark);
 }
 
 .error-title {
@@ -434,62 +491,57 @@ time {
 
 .error-message {
     font-size: var(--text-sm);
-    color: var(--text-secondary);
+    color: var(--color-ink-2);
     max-width: 44ch;
 }
 
 .retry-btn {
-    margin-top: var(--s-2);
+    min-height: 44px;
+    margin-top: var(--space-xs);
 }
 
 /* --- AI provenance and no-script notes --- */
 .ai-note {
     font-size: var(--text-sm);
-    color: var(--text-muted);
+    color: var(--color-muted);
 }
 
 .noscript-note {
-    padding: var(--s-4) var(--gutter);
+    padding: var(--space-md) var(--gutter);
     font-size: var(--text-sm);
-    color: var(--text-secondary);
+    color: var(--color-ink-2);
 }
 
 .noscript-note a {
-    font-weight: 600;
-    color: var(--primary);
-    text-underline-offset: 3px;
+    font-weight: 500;
+    color: var(--color-accent);
 }
 
 /* --- Search highlight --- */
 .search-highlight {
-    background: var(--highlight);
+    background: var(--color-highlight);
     color: inherit;
-    border-radius: var(--radius-sm);
 }
 
 /* --- Offline pill and update bar --- */
 .offline-pill,
 .pwa-update-bar {
     position: fixed;
-    z-index: 900;
+    z-index: var(--z-toast);
     display: flex;
     align-items: center;
-    gap: var(--s-2);
-    padding: var(--s-2) var(--s-4);
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-md);
     font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--text-main);
-    background: var(--bg-card);
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
+    font-weight: 500;
+    color: var(--color-paper);
+    background: var(--color-ink);
 }
 
 .offline-pill {
-    top: var(--s-3);
+    top: var(--space-sm);
     left: 50%;
     transform: translateX(-50%);
-    color: var(--state-warn);
 }
 
 .offline-pill:not(.is-offline) {
@@ -497,30 +549,37 @@ time {
 }
 
 .pwa-update-bar {
-    right: var(--s-4);
-    bottom: var(--s-4);
-    max-width: calc(100% - var(--s-8));
+    right: var(--space-md);
+    bottom: var(--space-md);
+    max-width: calc(100% - var(--space-xl));
 }
 
 .pwa-update-btn {
     min-height: 32px;
-    padding: var(--s-1) var(--s-3);
+    padding: var(--space-2xs) var(--space-sm);
 }
 
 /* --- Dialog --- */
 dialog {
     margin: auto;
-    width: min(600px, calc(100% - var(--s-8)));
-    max-height: calc(100dvh - var(--s-8));
-    padding: var(--s-6);
-    color: var(--text-main);
-    background: var(--bg-card);
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius);
+    width: min(600px, calc(100% - var(--space-xl)));
+    max-height: calc(100dvh - var(--space-xl));
+    padding: var(--space-lg);
+    color: var(--color-ink);
+    background: var(--color-paper);
+    border: 0;
+}
+
+dialog[open] {
+    animation: dialog-in var(--dur-long) var(--ease-out);
 }
 
 dialog::backdrop {
-    background: var(--backdrop);
+    background: var(--color-overlay);
+}
+
+@keyframes dialog-in {
+    from { opacity: 0; transform: translateY(12px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -534,17 +593,27 @@ dialog::backdrop {
     }
 }
 
-/* --- Semantic 2-accent tone binding --- */
-[data-tone="vermilion"] {
-    --tone-ink:  var(--accent-vermilion);
-    --tone-mark: var(--accent-vermilion-mark);
-    --tone-tint: var(--accent-vermilion-tint);
+/* ===================================================================
+   5. One reveal: visible by default, eased in once when script runs
+   =================================================================== */
+.js [data-reveal] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    transition-delay: calc(var(--i, 0) * 60ms);
 }
 
-[data-tone="teal"] {
-    --tone-ink:  var(--accent-teal);
-    --tone-mark: var(--accent-teal-mark);
-    --tone-tint: var(--accent-teal-tint);
+.js [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
 
 @media (forced-colors: active) {
