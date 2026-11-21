@@ -17,7 +17,7 @@ A unified portfolio and clinical tool hub for an **Emergency Medicine Physician 
 - **📝 Research Blog & Knowledge Base (`blog.html`)**: Interactive clinical informatics and research articles automatically synchronized and chunked from Notion databases.
 - **🛡️ NTWKKM Knowledge Vault (`/pl/`)**: Integrated knowledge repository and clinical informatics resource dashboard.
 - **⚡ Offline-First PWA**: Progressive Web App with Service Worker (`sw.js`) caching strategies, zero-cloud dependency for local utilities, and resilient fallback states.
-- **🎨 Slate & Titanium Navy**: Clean, high-legibility interface built on Vanilla HTML5, CSS custom properties, and WCAG 2.1 AA accessible typography.
+- **🎨 Grid (Swiss poster)**: Clean, animated, high-legibility interface built on Vanilla HTML5, CSS custom properties, and WCAG 2.1 AA accessible typography.
 
 ---
 

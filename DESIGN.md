@@ -1,122 +1,112 @@
 # NTWKKM Design System & Guidelines (DESIGN.md)
 
-Last updated: *2026-11-14*
+Last updated: *2026-11-21* (ADR-030, Grid redesign)
 
-This document serves as the **core design guideline** for any AI agent or developer modifying or creating new interfaces maintained in this repository (`index`, `blog`). All UI implementations MUST adhere strictly to these principles to maintain a cohesive, premium, and matte aesthetic across these modules. Note that the separately maintained `/pl/` sub-app follows its own dedicated design guidelines in the private `NTWKKM/pl` repository.
+This document is the **core design guideline** for any AI agent or developer changing or creating interfaces in this repository (`index`, `blog`). Every UI change MUST follow it. The separately maintained `/pl/` sub-app follows its own guidelines in the private `NTWKKM/pl` repository.
 
 ---
 
 ## 1. Core Philosophy
 
-- **Modern Apple / iPadOS Slate & Titanium Navy**: The design language pairs a crisp, digital **Modern Apple / iPadOS Slate** light theme with a deep **Titanium Precision Navy** dark theme. It delivers the clean, tactile feel of modern clinical operating systems (iPadOS / macOS HIG) with strict WCAG AAA contrast standards.
-- **Lists Before Cards**: Repeating content (papers, tools, summary sections) is set as ruled lists and ledger rows: a narrow rail for the label or date, the content beside it. A card (white surface, 1px border) is reserved for a grouped list or the one item that must stand out, such as Clinical relevance. Shadows are for floating layers only (dialog, drawer, update bar).
-- **Nothing Moves By Itself**: No auto-scroll, no scroll-triggered reveals. Motion answers the pointer or a state change and lasts 0.15 to 0.25s.
-- **Interactive & Quiet**: Elements react smoothly to user hover (subtle border color highlights and shadow shifts) while preserving strict layout stability.
-- **First-Class Dark Mode (Ergonomic Navy)**: Dark mode preserves the signature deep navy canvas (`#121E36`) with elevated surfaces (`#1C2D4F`). To prevent eye fatigue and glare during long clinical sessions, text is rendered in soft slate white (`#E2E8F0`, contrast 10.8:1 PASS AAA) instead of harsh 100% white.
-- **Editorial Slate & Titanium Navy with Dual Clinical Accents**: Neutral surfaces and monochrome Slate/Navy typography (`--text-main`, `--text-secondary`, `--text-muted`, `--primary`) remain the foundation (>= 95% of every viewport), punctuated sparingly by two calibrated clinical accents — **Signal Vermilion** (`--accent-vermilion` / `--accent-vermilion-mark`) for high-priority clinical signals, active pager/filter indicators, and reading progress, and **Clinical Teal** (`--accent-teal` / `--accent-teal-mark`) for dates, study metadata, Thai summary links, and analytical tool icons. Decorative colored left/top border stripes on cards, multi-stop gradients, and saturated chip fills remain retired.
+- **Grid, a Swiss poster material**: a white sheet, a blue-black ink, one neo-grotesque in two optical cuts, and two flat colours with separate jobs. Structure comes from the twelve-column system: type hung from column lines, fields that start and stop on them, big jumps in scale, white held on purpose.
+- **Three roles and the paper**: **Field** (ultramarine) floods a sheet, full width or from a column line to the bleed. **Mark** (Swiss red) marks the one chosen or current thing: the wordmark square, the active pager mark, a hovered link, the reading progress bar. **Ink** sets type and the primary control. Red never sits on the ultramarine; two fields never touch.
+- **Lists before cards**: repeating content (papers, tools, summary sections) is set as ruled rows. No boxed cards, no shadows on in-flow content, radius 0 everywhere. Sections part by space or a change of paper, never by a rule above the section; the only lines are 1px hairlines between rows.
+- **Motion with a reason**: a scroll-driven hero on large screens (`animation-timeline: scroll(root)`: the stuck hero drifts and shrinks, the slanted band winds in and eases back, the heading drifts up whole and dims, the copy and figures fade, all tied to scroll position so they play back on the way up) layered over a load entrance (about 0.9s once: the band slides in from the right through `--field-enter`, the head rises line by line, then the lead, actions and figures settle; on the children, so it never fights the scroll motion), the tools band on view timelines, reader summary sections that settle on each paper change, and state motion on hover (a colour step, an arrow nudge of 2 to 3px, a 1px underline that draws left to right and leaves to the right, linked tool rows that lift 2px with an icon square that fills with field-ink, buttons that step up 1px on hover and sink 1px and scale 0.985 on press). No section fades in on scroll. Content is visible with scripting off; under `prefers-reduced-motion: reduce` every motion shows its end state at once. Never parallax, auto-scroll, auto-rotating carousels or infinite loops other than the skeleton loader.
+- **First-class dark mode**: re-derived, never inverted. Paper `oklch(17% 0.014 266)`, surfaces step lighter as they rise, ink `oklch(94% 0.008 90)`, body weight drops to 350, the field and mark lift in L and lose chroma, shadows are off.
 
 ---
 
 ## 2. Typography
 
-We use a multi-font stack to separate UI labels, prose, Thai text, and technical data:
+- **Display** (`var(--font-display)`): Radio Canada Big, weight 700, sentence case, tracking `-0.035em` (`-0.045em` at poster size), line-height 0.92 at poster size, 1.05 at section size. Item titles (paper and tool titles) use the display cut at 500.
+- **Body and labels** (`var(--font-body)`): Radio Canada 400 for prose, 500 for labels, captions, nav links and meta, a step smaller, sentence case, untracked. No capitals in a label.
+- **Thai** (`var(--font-thai)`, also `.thai-text` / `lang="th"`): Sarabun 400 and 600 with line-height 1.75.
+- **Dates and counts**: the body face with `font-variant-numeric: tabular-nums` (`.mono` and `<time>` map here). `var(--font-mono)` is the system monospace stack, used only for the citation text box and the search key hint.
 
-- **Primary Text (UI & English Prose)**: `Inter Tight`, `Neue Haas Grotesk`, sans-serif
-- **Secondary Text (Thai Language)**: `Sarabun`
-- **Technical Data (Metrics, Logs, IDs, Status, Barcodes)**: `JetBrains Mono`, `Courier New`, monospace
+Fonts are self-hosted woff2 files in `assets/fonts/`, declared by `@font-face` at the top of `shared.css` with `font-display: swap`. Do not add a `<link>` to an external font service. A new weight or script means a new file there, a matching `@font-face`, and its name in the `FONTS` list of `sw.js` (bump `FONTS_CACHE`).
 
-The three families are self-hosted: woff2 files in `assets/fonts/`, declared by `@font-face` at the top of `shared.css` with `font-display: swap`. Do not add a `<link>` to an external font service. A new weight or script means a new file there, a matching `@font-face`, and its name in the `FONTS` list of `sw.js`.
-
-Use the tokens, never a literal family: `var(--font-ui)`, `var(--font-thai)` (also applied by `.thai-text` / `lang="th"`, with 1.75 line height), `var(--font-mono)` (also `.mono` and `<time>`). Sizes come from `--text-xs` (12px) to `--text-xl`; running text is never below 12px. Labels and section headings are sentence case, untracked, never uppercase.
+Scale tokens (homepage): `--type-poster` (hero head, about 106px at 1440), `--type-display` (the hero figure), `--type-section` (h2, about 52px at 1440), `--type-title`, `--type-lead`, `--type-body`, `--type-small`. The reader keeps the legacy `--text-xs` to `--text-xl` names. Running text is never below 13px.
 
 ---
 
 ## 3. Color Palette & CSS Variables
 
-All colors MUST be referenced via CSS variables defined in `:root` and `[data-theme="dark"]`. **Do not hardcode HEX or RGB values** in component styles.
+All colours MUST be tokens declared in `shared.css` (`:root` and `[data-theme="dark"]`), in OKLCH. **No literal colour or `font-family` outside the token block**; `lint-css.js` enforces it.
 
-### 3.1. Light Theme (Modern Apple / iPadOS Slate)
+### 3.1. Light
 
-- Canvas Background (`--bg-body`): `#ECECEE` (Neutral Cool Gray)
-- Card Container (`--bg-card`): `#FFFFFF` (Pure White)
-- Primary Text (`--text-main`): `#1d1d1f` on Card `#FFFFFF` (Contrast: 16.83:1, PASS WCAG AAA)
-- Secondary Text (`--text-secondary` / `--graphite`): `#333333` on Canvas `#ECECEE` (Contrast: 10.71:1, PASS WCAG AAA)
-- Muted Text (`--text-muted`): `#636368` (5.0:1 on Canvas, 5.9:1 on Card, PASS WCAG AA Normal Text)
-- Card Border (`--border` / `--rule`): `1px solid #D8D8DC`
-- Border Strong (`--border-strong`): `#8E8E93` (edges of inputs and buttons, 3:1 on white)
-- Card Shadow (`--shadow`): `0 4px 20px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.04)`
-- Surface Contrast (Canvas vs Card): 1.18:1 (Clean, modern card separation)
-- Active Row / Selection Surface (`--bg-paper-list`): `#E8E8EE`
-- Error / High-Priority Signal (`--accent-vermilion` / `--accent-vermilion-mark`, aliased by `--signal-orange`): `#B8320D` ink (5.07:1 on Canvas, 6.00:1 on Card) / `#D84315` mark (3.88:1 on Canvas, 4.58:1 on Card) / `rgba(184, 50, 13, 0.08)` tint
-- Clinical Metadata Signal (`--accent-teal` / `--accent-teal-mark`): `#0B5D5B` ink (6.51:1 on Canvas, 7.69:1 on Card) / `#0F766E` mark (5.09:1 on Canvas, 5.74:1 on Card) / `rgba(11, 93, 91, 0.08)` tint
-- Shared Card Hover Tokens: `--card-hover-bg: #F8F8FA`, `--card-hover-border: #1E3C72`, `--card-hover-icon-bg: rgba(30, 60, 114, 0.08)`
+| Token | Value | Role |
+| --- | --- | --- |
+| `--color-paper` | `oklch(97.5% 0.005 90)` | the sheet |
+| `--color-paper-2` / `-3` | `oklch(94.2% …)` / `oklch(90.5% …)` | wells, sidebar, active row |
+| `--color-ink` | `oklch(19% 0.022 266)` | type, primary control |
+| `--color-ink-2` | `oklch(31% 0.02 266)` | secondary text |
+| `--color-muted` | `oklch(47% 0.016 266)` | meta, captions |
+| `--color-rule` | `oklch(87.5% 0.008 90)` | hairlines between rows |
+| `--color-edge` | `oklch(58% 0.014 266)` | control edges, 3:1 on paper |
+| `--color-field` / `--color-accent` | `oklch(44% 0.2 266)` | ultramarine flood, links |
+| `--color-field-ink` | `oklch(97.5% 0.005 90)` | type on the field |
+| `--color-mark` | `oklch(57% 0.215 29)` | Swiss red, marks and fills |
+| `--color-mark-text` | `oklch(51% 0.2 29)` | red as small text (hover) |
+| `--color-focus` | `oklch(46% 0.2 266)` | 2px focus ring |
 
-### 3.2. Dark Theme (Titanium Precision Navy - Ergonomic Tone 1)
+### 3.2. Dark
 
-- Canvas Background (`--bg-body`): `#121E36` (Signature Deep Navy)
-- Card Container (`--bg-card`): `#1C2D4F` (Elevated Navy Surface)
-- Primary Text (`--text-main`): `#E2E8F0` on Card `#1C2D4F` (Soft Slate White, Anti-glare, Contrast: 10.8:1, PASS WCAG AAA)
-- Secondary Text (`--text-secondary`): `#B4C0D3` on Card `#1C2D4F`
-- Muted Text (`--text-muted`): `#94A3B8` on Card `#1C2D4F` (Contrast: 5.5:1, PASS WCAG AA Normal Text)
-- Card Border (`--border` / `--rule`): `1px solid #2B406A`
-- Border Strong (`--border-strong`): `#5C78AD`
-- Card Shadow (`--shadow`): `0 4px 20px rgba(6, 12, 24, 0.55), 0 1px 3px rgba(6, 12, 24, 0.30)`
-- Surface Contrast (Canvas vs Card): 1.26:1 (Sharp clinical layer separation)
-- Active Row / Selection Surface (`--bg-paper-list`): `#22365E`
-- Error / High-Priority Signal (`--accent-vermilion` / `--accent-vermilion-mark`, aliased by `--signal-orange`): `#FF8A60` ink (5.68:1 on Card, 6.91:1 on Canvas) / `#FF7A45` mark (5.07:1 on Card, 6.17:1 on Canvas) / `rgba(255, 122, 69, 0.14)` tint
-- Clinical Metadata Signal (`--accent-teal` / `--accent-teal-mark`): `#5EEAD4` ink (8.91:1 on Card, 10.84:1 on Canvas) / `#2DD4BF` mark (7.41:1 on Card, 9.02:1 on Canvas) / `rgba(94, 234, 212, 0.13)` tint
-- Primary Link/Action (`--primary`): `#93c5fd`
-- Shared Card Hover Tokens: `--card-hover-bg: #243B68`, `--card-hover-border: #4E78BC`, `--card-hover-icon-bg: rgba(147, 197, 253, 0.20)`
+Re-derived in `[data-theme="dark"]` from the same hues; see `shared.css` for values. Elevation is lighter paper, never a shadow.
+
+### 3.3. Legacy aliases
+
+`--bg-body`, `--bg-card`, `--text-main`, `--text-muted`, `--border`, `--primary`, `--accent-vermilion*`, `--accent-teal*` and the rest remain in `shared.css` as aliases of the Grid tokens so `blog.css` keeps its roles: vermilion maps to the mark, teal to the ultramarine. New work uses the `--color-*` names.
 
 ---
 
 ## 4. UI Components & Patterns
 
-### 4.1. Cards & Panels
+### 4.1. Rows and surfaces
 
-- **Border Radius**: `--radius: 4px` for outer cards, `--radius-sm: 2px` for inner elements, to give a harder industrial edge.
-- **Borders**: Thin `1px solid var(--border)`.
-- **Hover:** a list row shifts surface to `--bg-card` (homepage) or `--card-hover-bg`; a title turns `var(--primary)` and underlines; an external-link arrow nudges 2px up and right. Rows and cards do not lift, gain shadows, or draw colored side stripes. `.btn` darkens its border to `var(--card-hover-border)` and steps 1px down on press.
-- **Active list item** (`.article-list-item.active`): `var(--bg-paper-list)` background with a bold `var(--primary)` title (no colored edge bar).
-- **Spacing:** the 4px scale tokens `--s-1` to `--s-16` only.
+- **Radius** 0. **Borders**: 1px `--color-rule` hairlines between rows; the first row of a list takes an ink hairline. No boxed cards; the one well is `.section-clinical-relevance` on `--color-paper-2` with no border.
+- **Hover**: a paper title or link turns `--color-mark-text` and underlines; an external arrow nudges 2px up and right. Rows never lift or gain shadows.
+- **Spacing**: `--space-*` (2 to 144px) on the homepage, the legacy `--s-*` 4px scale in the reader.
 
 ### 4.2. Navigation & Masthead
 
-- **No Gradient Topbar:** Neither the homepage nor the reader uses a full-bleed navy gradient bar. Both pages sit directly on `--bg-body` (`#ECECEE` light / `#121E36` dark).
-- **Homepage Masthead:** The homepage opens with an editorial masthead (`NTWKKM` display title and subtitle left, quiet right-aligned controls for `Research Blog`, `#theme-toggle`, and GitHub), anchored by a `1px solid var(--text-main)` bottom rule; the footer states facts only. The reader (`blog.html`) carries its brand link inside the sidebar header and surfaces a compact home link (`.toolbar-home`) in the reader toolbar when the sidebar is collapsed or on narrow screens.
-- **Favicons / Icons:** SVGs used in favicons are standardized to the Rams color palette (background `#1e3c72`, rounded corners `rx="4"`, and warm off-white text `#F0EDE5`), ensuring brand alignment down to the browser tab indicator. The PWA icons are PNG files in `assets/icons/` in the same two colours: standard icons keep rounded corners, while maskable icons and the iOS `apple-touch-icon` are flat, full-bleed squares with a smaller letter so a circular or squircle mask does not clip it.
-- **Mobile:** Masthead controls maintain 44px touch targets at the right edge; `Research Blog` collapses to an icon button on narrow screens (`<= 640px`).
+- **Homepage nav**: edge-aligned, 80px: the wordmark left on one line (`.wordmark--line`: red square, `NTWKKM`, `Research archive`, 44px tall; under 26rem only the name), the skip link hidden on the container line inside the bar until focused, then `Research Blog`, `#theme-toggle` and GitHub right, each a 44px target.
+- **One screen per section**: from 768px up the hero, papers, tools and close are each exactly one screen (`min-height: 100svh`, content sized to fit, bottom padding 72px); on phones papers and tools grow with their content, the hero and close stay one screen. The nav lies over the top of the hero (`.masthead` absolute), so the hero starts at the page's top edge.
+- **Papers**: six to a page as a three-by-two grid of ruled cells (two across from 40rem, one on phones). `index.js` keeps every title and Thai note whole in `data-full` and shows it shortened at a word boundary to what its cell holds (`fitPaperText` with `textBudget`, from the grid width), worked out again on every resize; phone width shows the whole text; the full title is also on the link's `title` and `aria-label`; CSS line-clamp (3 lines, 2 on short screens) guards between resizes.
+- **Homepage hero**: fills the first screen (`min-height: 100svh`), inside `main` as its first section; the head at the top, the lead, actions and figures at the foot. `h1.hero-title` hangs from column 1 at `--type-poster`; `.hero-field` floods from the column 8 line to the right edge; `.hero-overprint` (an `aria-hidden` copy) shows the heading in field-ink where it crosses the field. `#hero-figure` shows the live count from `papers.json` and `#hero-blog-figure` the reader's count from `data/blog/pmids.json`, linking to `blog.html` (each hidden until loaded, never a typed number). `.hero-field` is a layer over the whole hero cut by `clip-path` to a slanted band (the edge leans by `--slant`, street-poster style: its foot on the column 7 line less the slant, never closer than 560px to the container edge so the lead stays on paper); the white copy of the head (`.hero-overprint`) lives inside it, so letters turn white exactly where the band crosses them, whatever its position. On screens at least 60rem wide and 640px tall, in browsers with scroll timelines and without reduced motion, the hero sticks to the top and is choreographed by scroll (`animation-timeline: scroll(root)`, 0 to 80vh): it drifts up 2% and shrinks to 0.95, the band winds in 40px then eases 18vw back to the right along its slant without leaving (registered property `--field-shift`), the head drifts up 24px whole and dims to 0.4, the copy and figures fade; scrolling up plays it back. Smaller screens keep the hero still. Under 60rem the field stops bleeding and the figure becomes its own ultramarine block.
+- **Tools**: `#works-section` is the ultramarine field band set as a dense index: from 768px, two columns (1.25fr and 1fr), Clinical tools spanning two rows on the left, Simulators and Research & statistics on the right, Knowledge & notes full width in three columns. Each row is a 40px outlined icon, title and description, and an arrow. On scroll (view timelines, both directions, all widths, off under reduced motion) the band's top edge enters on the hero's slant (`--tilt`) and flattens, each group rises 48px into place (done by half its entry) and each row slides in 32px from the left (done by 70% of its entry), so everything on screen is at rest once the band reaches the top; `.paper-track` keeps `position: relative` so slide `offsetLeft` matches `scrollLeft`.
+- **Close** (`footer.site-footer.closing`): one screen on the ink from 60rem up (content height below): the h2 and the main action word for word (`Open the research reader`, the paper-on-ink button), then `NTWKKM` set across the container (`clamp(3.5rem, 17.5vw, 15.75rem)`, a red square before it), then the copyright line over a hairline. Papers and tools sections are at least one screen tall.
+- **Reader** (`blog.html`): the brand link carries the red square in the sidebar header; `.toolbar-home` appears when the sidebar is collapsed or on narrow screens.
+- **Favicons / PWA icons**: unchanged from before the redesign (`#1e3c72` square, `#F0EDE5` letter); `manifest.json` background and theme colours follow the paper.
 
 ### 4.3. Badges and Chips
 
-- Neutral surfaces (`var(--bg-card)`) with crisp `1px solid var(--border)` borders: no colored edge stripes or saturated chip fills.
-- Specialty chips (`.tag-badge`) use `--accent-teal` text; status pills (`.project-status`) use `--accent-vermilion` text and border; filter chips (`.filter-tag`) stay neutral and switch to high-contrast ink (`var(--text-main)` background, `var(--bg-card)` text) when `aria-pressed="true"`.
+- Specialty chips (`.tag-badge`) take the ultramarine as text; status labels on the field (`.project-status`) are field-ink outlined; filter chips stay neutral and switch to ink fill with paper text when `aria-pressed="true"`.
 - Filter `<button>`s carry `aria-pressed`.
 
 ### 4.4. AI Provenance Note
 
-- Any block of AI-written text (reader summary, homepage paper comments) carries one `.ai-note` line: `--text-sm`, `--text-muted`, sentence case, no icon, no tinted background. It says what the AI did and tells the reader to check the original paper.
-- A date beside AI-summarized content is labelled for what it is (`Added 12 Nov 2026`), never left bare where it could be read as a publication date.
+- Any block of AI-written text (reader summary, homepage paper comments) carries one `.ai-note` line: `--text-sm`, `--color-muted`, sentence case, no icon, no tint. It says what the AI did and tells the reader to check the original paper.
+- A date beside AI-summarised content is labelled for what it is (`Added 12 Nov 2026`), never left bare where it could be read as a publication date.
 
 ### 4.5. Buttons & Controls
 
-- **Standard Button** (`.btn`): `var(--bg-card)`, border `var(--border-strong)`, 40px tall (44px on touch layouts).
-- **Primary Button** (`.btn.btn-primary`): solid ink (`var(--text-main)`), text `var(--bg-card)`, no shadow. One per view.
-- **Icon Button** (`.icon-btn`): 36px square (44px where the pointer is coarse, whatever the width), borderless; always carries an `aria-label`.
-- **Pagers on phones:** a row of dots that cannot give each dot a 44px target is replaced at `<= 640px` by a mono count (`1 / 12`) between two 44px previous/next buttons.
-- Every clickable thing is a `<button>` or `<a>`; `:focus-visible` shows a 2px `var(--primary)` ring; `:disabled` is 45% opacity.
+- **Hero primary** (`.hero-primary`): a square ink block with paper text, 52px tall, full width on phones; paper on ink in the close. One per view.
+- **Standard Button** (`.btn`): paper, 1px `--color-edge` border, 40px (44px on touch). **Primary** (`.btn.btn-primary`): ink fill, paper text.
+- **Secondary**: text with a 1px underline that turns red on hover.
+- **Icon Button** (`.icon-btn`): 36px square (44px in the masthead and on coarse pointers), borderless, always with an `aria-label`.
+- **Pager**: square marks, the current one red and scaled 1.5; at `<= 40rem` a count (`1 / 12`) between two 44px buttons replaces them.
+- Every clickable thing is a `<button>` or `<a>`; `:focus-visible` shows a 2px `--color-focus` ring (field-ink on the ultramarine); `:disabled` is 45% opacity.
 
 ---
 
 ## 5. AI Agent Instruction Checklist
 
-**When building a new component or page, strictly enforce these rules:**
-
-1. [ ] "Use the shared Slate/Titanium tokens from `shared.css` (`var(--bg-body)`, `var(--bg-card)`, `var(--text-main)`, `var(--border)`, `var(--card-hover-bg)`, etc.). No hardcoded HEX/RGB and no literal `font-family` outside the token block."
-2. [ ] "Use `var(--font-ui)` for UI/Latin, `var(--font-thai)` for Thai, and `var(--font-mono)` for dates, PMIDs and counts."
-3. [ ] "Set card border radius to `4px` and small elements to `2px` for harder industrial edges."
-4. [ ] "Rows answer hover with `var(--bg-card)` or `var(--card-hover-bg)`; no lifts, no shadows on in-flow content, never `transition: all`, animate only `transform`, `opacity` and colours."
-5. [ ] "Use only the two calibrated accents (`--accent-vermilion*`, `--accent-teal*`) alongside Slate/Navy (`1px` uniform borders, soft icon tints, or typographic signals); never colored side/top stripes, multi-stop gradients, or saturated chip fills."
-6. [ ] "Ensure the layout is responsive and supports the Inverted Dark Theme color variables."
-7. [ ] "Run `node .github/scripts/lint-css.js` (also run in CI before every deploy), and `node ~/.claude/skills/hallmark/scripts/sloplint.mjs . --scope app --genre modern-minimal` when available; keep the stamp and waiver lines at the top of `shared.css`."
-8. [ ] "Every anchor link that opens in a new tab (`target="_blank"`) MUST strictly define `rel="noopener noreferrer"` to prevent tabnabbing security vulnerabilities."
+1. [ ] Use the Grid tokens from `shared.css` (`--color-paper`, `--color-ink`, `--color-field`, `--color-mark`, …). No literal colour and no literal `font-family` outside the token block.
+2. [ ] `var(--font-display)` for heads and item titles, `var(--font-body)` for UI and prose, `var(--font-thai)` for Thai; dates and counts take `tabular-nums`.
+3. [ ] Radius 0, no shadows on in-flow content, hairlines only between rows.
+4. [ ] Red marks one chosen thing; it never sits on the ultramarine; two fields never touch.
+5. [ ] Motion: never `transition: all`, animate only `transform`, `opacity` and colours; every animation ends visible and has a reduced-motion fallback; scroll-linked motion only in the hero and the tools band; no fade-in on scroll elsewhere.
+6. [ ] Responsive at 320, 768 and 1440, and both themes re-derived, never inverted.
+7. [ ] Run `node .github/scripts/lint-css.js` (also in CI before every deploy) and `node ~/.claude/skills/hallmark/scripts/sloplint.mjs index.html index.css shared.css --genre editorial --render` when available; keep the stamp and waiver lines at the top of `shared.css`, `index.css` and `blog.css`.
+8. [ ] Every link that opens in a new tab (`target="_blank"`) MUST define `rel="noopener noreferrer"`.

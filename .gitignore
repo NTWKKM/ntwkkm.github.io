@@ -22,3 +22,5 @@ __pycache__/
 # Local tooling (agent preview config, design-lint records)
 .claude/
 .hallmark/
+.taste-skill/
+shots/

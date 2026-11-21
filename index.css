@@ -1,125 +1,594 @@
-/* Hallmark · v2.0.0 · built: the project · redesign: full · scope: app · system: DESIGN.md (locked) · theme: Slate and Titanium Navy (brand) · genre: modern-minimal · hero: none (app screens) · nav: editorial masthead (display title and descriptor left, quiet utilities right, ink hairline under) · signature: horizontal scroll-snap paper ledger with dot marks and asymmetric tools bento */
-/* critique: replaced the paper CTA buttons with a native scroll-snap horizontal carousel driven by accessible dot marks and paired monochrome print rules with restrained Signal Vermilion and Clinical Teal functional accents · finish-review: 2026-11-14 at 320, 768 and 1440 · sloplint 0 FAIL */
-/* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V5 · balanced both sections to comparable vertical footprints without sacrificing scannability */
-/* Hallmark · dropped "All Rights Reserved" · 19 names the stock footer line */
+/* Hallmark · shape: Letter (draw 7ae0b0, job swapped to read) · genre: editorial · theme: Grid (deal 1/3, seed physician-research-archive-emergency-ab06·a1087cb8·2026-11-21·r0) · redesign: full
+ * hero: Banner · nav: edge-aligned · footer: colophon block · imagery: none · signature: the overprint sheet, the heading crossing an ultramarine field that holds the live paper count
+ * axes: light/grotesk-sans/cool · posture: full-palette · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R3 V4 · weakest: R, answered with poster scale and one field band rather than new sections */
+/* Hallmark · waive 77 · the before record holds four sections: hero, papers, tools, footer · a redesign adds no section the page did not have */
+/* Hallmark · answered F6 · .hero-count holds two counts that never change in place · tabular figures gave the comma in 1,507 a full digit of space */
+/* Hallmark · answered F8 · .hero, .hero-head, .hero-copy and .hero-figures share one scroll(root) timeline inside 0 to 80vh, one hero pattern in parts; the tools band answers it on view() timelines with the same slant · the owner asked for the hero to move with the scroll both ways */
+/* Hallmark · waive 79 · .hero-copy ends at y 543 and the field at y 639 at 1440x900; the gate measures from the h1 alone · the gap below is the 120px section step */
 
-/* Homepage: editorial masthead, two-column paper ledger, and monochrome ruled tools directory.
-   Tokens live in shared.css; this file adds layout only. */
+/* Homepage: an overprint banner, the paper index, the tools on an
+   ultramarine field. Tokens live in shared.css; this file adds layout. */
+
+/* --- Canvas: one capped container, twelve columns --- */
+/* No sticky nav on this page: anchors land on the section's top edge,
+   so a one-screen section fills the screen it is jumped to. */
+html {
+    scroll-padding-top: 0;
+}
+
+:root {
+    --page-max: 1440px;
+    --page-gutter: 64px;
+    --gap: 32px;
+    --section-gap: 144px;
+    --section-gap-s: 120px;
+}
 
 .container {
     width: 100%;
-    max-width: calc(var(--container) + 2 * var(--gutter));
+    max-width: var(--page-max);
     margin-inline: auto;
-    padding-inline: var(--gutter);
+    padding-inline: var(--page-gutter);
 }
 
-/* --- Editorial masthead (replaces the legacy navy topbar) --- */
+.grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gap);
+}
+
+/* --- Wordmark: a red square two lines tall beside the name --- */
+.wordmark {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    column-gap: var(--space-sm);
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: var(--type-body);
+    line-height: 0.95;
+    color: var(--color-ink);
+    text-decoration: none;
+}
+
+.wordmark::before {
+    content: "";
+    grid-row: span 2;
+    width: 1.9em;
+    height: 1.9em;
+    background: var(--color-mark);
+    transition: transform var(--dur-short) var(--ease-out);
+}
+
+.wordmark:hover::before {
+    transform: rotate(90deg);
+}
+
+.wordmark-name,
+.wordmark-sub {
+    white-space: nowrap;
+}
+
+/* The nav's wordmark runs on one line: square, name, line */
+.wordmark--line {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    min-height: 44px;
+}
+
+.wordmark--line::before {
+    width: 1.15em;
+    height: 1.15em;
+    margin-right: var(--space-2xs);
+}
+
+.wordmark-name {
+    font-weight: var(--display-weight);
+    letter-spacing: -0.01em;
+}
+
+.wordmark-sub {
+    font-weight: 400;
+}
+
+/* --- Nav: edge-aligned, one line --- */
+/* The bar lies over the top of the hero, so the hero is one whole
+   screen from the page's top edge; the band starts under the bar. */
+.masthead {
+    position: absolute;
+    inset: 0 0 auto 0;
+    z-index: var(--z-raised);
+}
+
+/* The skip link sits on the container line inside the bar, hidden until
+   it takes focus, then shown over the wordmark. */
+.masthead .skip-to-content {
+    position: absolute;
+    top: 50%;
+    left: max(var(--page-gutter), (100% - var(--page-max)) / 2 + var(--page-gutter));
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    transform: none;
+}
+
+.masthead .skip-to-content:focus {
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    height: 44px;
+    clip-path: none;
+    transform: translateY(-50%);
+}
+
 .masthead-inner {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
-    gap: var(--s-4);
-    padding-top: var(--s-6);
-    padding-bottom: var(--s-4);
-    border-bottom: 1px solid var(--text-main);
-}
-
-.brand-group {
-    min-width: 0;
-}
-
-.brand-group h1 {
-    font-size: clamp(1.375rem, 1.15rem + 0.8vw, 2rem);
-    line-height: 1.05;
-    letter-spacing: -0.025em;
-    color: var(--text-main);
-}
-
-.masthead-sub {
-    margin-top: var(--s-1);
-    font-size: var(--text-sm);
-    color: var(--text-muted);
+    gap: var(--space-md);
+    min-height: 80px;
 }
 
 .masthead-controls {
     display: flex;
     align-items: center;
-    gap: var(--s-2);
-    flex-shrink: 0;
+    gap: var(--space-xs);
 }
 
 .masthead-link {
     display: inline-flex;
     align-items: center;
-    gap: var(--s-2);
-    min-height: 40px;
-    padding: 0 var(--s-3);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    white-space: nowrap;
+    gap: var(--space-xs);
+    min-height: 44px;
+    padding-inline: var(--space-sm);
+    font-size: var(--type-body);
+    font-weight: 500;
     text-decoration: none;
-    color: var(--text-main);
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: background-color 0.15s ease, border-color 0.15s ease;
+    --u-inset: var(--space-sm);
+    transition: color var(--dur-short) var(--ease-out);
 }
 
 .masthead-link svg {
-    color: var(--accent-teal);
+    display: none;
 }
 
 .masthead-link:hover {
-    background: var(--card-hover-bg);
-    border-color: var(--accent-teal-mark);
+    color: var(--color-mark-text);
 }
 
-.masthead-link:active {
-    transform: translateY(1px);
+/* --- Drawn underline: a 1px line draws left to right on hover and
+   leaves to the right; links that rest underlined keep a faint line
+   under it. transform only. --- */
+.masthead-link,
+.hero-secondary,
+.paper-summary-link,
+.footer-line a {
+    position: relative;
 }
 
-/* --- Main sections stack --- */
-.page-sections {
+.masthead-link::after,
+.hero-secondary::after,
+.paper-summary-link::after,
+.footer-line a::after {
+    content: "";
+    position: absolute;
+    left: var(--u-inset, 0);
+    right: var(--u-inset, 0);
+    bottom: calc(50% - 0.75em);
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform var(--dur-short) var(--ease-out);
+}
+
+.masthead-link:hover::after,
+.hero-secondary:hover::after,
+.paper-summary-link:hover::after,
+.footer-line a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+}
+
+.hero-secondary::before,
+.paper-summary-link::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(50% - 0.75em);
+    height: 1px;
+    background: currentColor;
+    opacity: 0.35;
+}
+
+.masthead-controls .icon-btn {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+/* ===================================================================
+   Hero: the overprint sheet. The head hangs from column 1 and runs
+   across an ultramarine field that starts on the column 8 line; where
+   it crosses, a second copy in field-ink shows through a clip.
+   =================================================================== */
+.hero {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    padding-block: calc(80px + var(--space-2xl)) var(--space-3xl);
+    --w: calc(min(100%, var(--page-max)) - 2 * var(--page-gutter));
+    --line-7: calc((100% - var(--w)) / 2 + 6 * (var(--w) + var(--gap)) / 12);
+    --slant: clamp(56px, 7vw, 112px);
+    /* The band's foot sits on the column 7 line less the slant, but never
+       closer than 560px to the container's left edge, so the lead and
+       the actions always stay on paper. */
+    --band-foot: max(calc(var(--line-7) - var(--slant)), calc((100% - var(--w)) / 2 + 560px));
+}
+
+/* The field is a layer over the whole hero, cut to a slanted band by
+   clip-path, street-poster style. The white copy of the head lives
+   inside it, so whatever the band's shape or position, the letters turn
+   white exactly where they cross it. --field-shift slides the band. */
+.hero-field {
+    position: absolute;
+    inset: 80px 0 0 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    padding-block: var(--space-2xl) var(--space-3xl);
+    color: var(--color-field-ink);
+    background: var(--color-field);
+    pointer-events: none;
+    --foot: calc(var(--band-foot) + var(--field-shift, 0px) + var(--field-enter, 0px));
+    clip-path: polygon(
+        min(calc(var(--foot) + 2 * var(--slant)), 100%) 0,
+        100% 0,
+        100% 100%,
+        min(var(--foot), 100%) 100%
+    );
+}
+
+.hero-inner {
+    flex: 1 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--s-10);
-    padding-block: var(--s-8) var(--s-12);
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: auto 1fr;
+    column-gap: var(--gap);
+    row-gap: var(--space-2xl);
 }
 
-/* --- Shared section header --- */
-.section-header {
+.hero-head {
+    position: relative;
+    grid-column: 1 / -1;
+}
+
+.hero-title {
+    max-width: none;
+    font-family: var(--font-display);
+    font-size: var(--type-poster);
+    font-weight: var(--display-weight);
+    letter-spacing: -0.045em;
+    line-height: 0.92;
+    color: var(--color-ink);
+    text-wrap: initial;
+}
+
+.hero-overprint {
+    color: var(--color-field-ink);
+    user-select: none;
+}
+
+.hero-line {
+    display: block;
+}
+
+.hero-line > span {
+    display: block;
+}
+
+.hero-copy {
+    grid-column: 1 / 7;
+    align-self: end;
+    display: grid;
+    align-content: end;
+    gap: var(--space-lg);
+}
+
+.hero-lead {
+    max-width: 34ch;
+    font-size: var(--type-lead);
+    line-height: 1.4;
+    color: var(--color-ink-2);
+}
+
+.hero-actions {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: var(--s-3) var(--s-4);
+    align-items: center;
+    gap: var(--space-md) var(--space-lg);
+}
+
+.hero-primary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 52px;
+    padding-inline: var(--space-lg);
+    font-weight: 500;
+    color: var(--color-paper);
+    background: var(--color-ink);
+    text-decoration: none;
+    transition: background-color 150ms var(--ease-out), translate 150ms var(--ease-out), transform 90ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .hero-primary:hover {
+        background: var(--color-ink-2);
+        translate: 0 -1px;
+    }
+}
+
+.hero-primary:active {
+    translate: 0 1px;
+    transform: scale(0.985);
+}
+
+.hero-secondary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--dur-short) var(--ease-out);
+}
+
+.hero-secondary:hover {
+    color: var(--color-mark-text);
+}
+
+.hero-figures {
+    position: relative;
+    z-index: 2;
+    grid-column: 8 / -1;
+    align-self: end;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--space-lg) var(--space-2xl);
+    padding-left: var(--space-xl);
+    color: var(--color-field-ink);
+}
+
+/* Nothing to show until a count loads: no empty field block */
+.hero-figures:not(:has(.hero-figure:not([hidden]))) {
+    display: none;
+}
+
+.hero-figure {
+    display: grid;
+    align-content: start;
+    gap: var(--space-xs);
+    color: inherit;
+}
+
+.hero-figure[hidden] {
+    display: none;
+}
+
+.hero-figure-link {
+    text-decoration: none;
+}
+
+.hero-figure-link .hero-count-label {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.3em;
+    transition: text-decoration-color var(--dur-short) var(--ease-out);
+}
+
+.hero-figure-link:hover .hero-count-label {
+    text-decoration-color: currentColor;
+}
+
+.hero-figure-link .hero-count {
+    transition: transform var(--dur-short) var(--ease-out);
+}
+
+.hero-figure-link:hover .hero-count {
+    transform: translateX(4px);
+}
+
+.hero-count {
+    font-family: var(--font-display);
+    font-size: var(--type-section);
+    font-weight: var(--display-weight);
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+}
+
+.hero-count-label {
+    font-size: var(--type-small);
+    font-weight: 500;
+}
+
+/* Scroll: the hero is choreographed by the scroll position, so it
+   plays forward as the page goes down and back as it comes up. Only on
+   screens that hold the whole hero, where it sticks to the top: there
+   the hero drifts up and shrinks a little, the band winds in a step and
+   then eases back out to the right along its slant (it never leaves),
+   the head drifts up whole and dims, and the copy and figures fade. Smaller screens, reduced
+   motion and browsers without scroll timelines keep the still page. */
+/* Load: the hero enters once, about 0.9s in all, from a visible end
+   state. The band slides in from the right along its slant
+   (--field-enter, on the band itself, so it adds to the scroll's
+   --field-shift instead of replacing it), the head rises line by line,
+   then the lead, the actions and the figures settle. The scroll
+   choreography below runs on the parents, so the two never fight. */
+@property --field-enter {
+    syntax: "<length>";
+    inherits: false;
+    initial-value: 0px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .hero-field {
+        animation: band-enter 0.9s var(--ease-out) both;
+    }
+
+    .hero-line > span {
+        animation: line-enter 0.7s var(--ease-out) 0.12s both;
+    }
+
+    .hero-lead,
+    .hero-actions,
+    .hero-figure {
+        animation: piece-enter 0.6s var(--ease-out) both;
+    }
+
+    .hero-lead { animation-delay: 0.28s; }
+    .hero-actions { animation-delay: 0.36s; }
+    .hero-figure { animation-delay: 0.44s; }
+    .hero-figure + .hero-figure { animation-delay: 0.52s; }
+}
+
+@keyframes band-enter {
+    from { --field-enter: 70vw; }
+}
+
+@keyframes line-enter {
+    from { opacity: 0; transform: translateY(0.3em); }
+}
+
+@keyframes piece-enter {
+    from { opacity: 0; transform: translateY(16px); }
+}
+
+@property --field-shift {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 0px;
+}
+
+@supports (animation-timeline: scroll()) {
+    @media (prefers-reduced-motion: no-preference) and (min-width: 60rem) and (min-height: 640px) {
+        .hero {
+            position: sticky;
+            top: 0;
+            z-index: 0;
+            transform-origin: 50% 0;
+            animation: hero-stuck linear both;
+            animation-timeline: scroll(root);
+            animation-range: 0 80vh;
+        }
+
+        .hero-head,
+        .hero-copy,
+        .hero-figures {
+            animation-timing-function: linear;
+            animation-fill-mode: both;
+            animation-timeline: scroll(root);
+        }
+
+        .hero-head {
+            animation-name: head-drift;
+            animation-range: 0 70vh;
+        }
+
+        .hero-copy {
+            animation-name: settle-out;
+            animation-range: 0 35vh;
+        }
+
+        .hero-figures {
+            animation-name: settle-out;
+            animation-range: 0 22vh;
+        }
+
+        .papers-section,
+        .works-section,
+        .site-footer {
+            position: relative;
+            z-index: 1;
+        }
+
+        .papers-section {
+            color: var(--color-ink);
+            background: var(--color-paper);
+        }
+    }
+}
+
+@keyframes hero-stuck {
+    0% { --field-shift: 0px; }
+    35% { --field-shift: -40px; }
+    100% { --field-shift: 18vw; transform: translateY(-2%) scale(0.95); }
+}
+
+@keyframes head-drift {
+    to { opacity: 0.4; transform: translateY(-24px); }
+}
+
+@keyframes settle-out {
+    to { opacity: 0; transform: translateY(-24px); }
+}
+
+/* ===================================================================
+   Sections
+   =================================================================== */
+/* Each section after the hero is one screen: the papers and the tools
+   are sized to fit 100svh at desktop heights, and take their content's
+   height only where a phone cannot hold six papers at once. */
+.papers-section {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    padding-block: var(--space-2xl) calc(var(--space-2xl) + var(--space-xs));
+}
+
+.papers-section > .container {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-header {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--gap);
+    align-items: end;
+    row-gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
 }
 
 .section-heading {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: var(--s-1) var(--s-3);
-    min-width: 0;
+    grid-column: 1 / 9;
+    display: grid;
+    gap: var(--space-md);
 }
 
 .section-title {
-    font-size: var(--text-lg);
-    line-height: 1.2;
-    letter-spacing: -0.015em;
+    max-width: 18ch;
+    font-size: var(--type-section);
 }
 
 .section-meta {
-    font-size: var(--text-sm);
-    color: var(--text-muted);
+    font-size: var(--type-small);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    color: var(--color-muted);
 }
 
-/* --- Section 1: Horizontal paged paper ledger --- */
+/* --- Pager: square marks, the current one red --- */
 .paper-pager {
+    grid-column: 9 / -1;
+    justify-self: end;
     display: flex;
     align-items: center;
-    gap: var(--s-1);
-    min-width: 0;
+    gap: var(--space-2xs);
 }
 
 .paper-pager[hidden] {
@@ -130,77 +599,70 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 32px;
-    min-height: 32px;
-    color: var(--text-secondary);
-    border-radius: var(--radius);
-    touch-action: manipulation;
-    transition: background-color 0.15s ease, color 0.15s ease;
+    min-width: 44px;
+    min-height: 44px;
+    color: var(--color-ink);
+    transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out);
 }
 
-.paper-nav-btn:hover:not(:disabled) {
-    color: var(--text-main);
-    background: var(--bg-surface);
+.paper-nav-btn:hover {
+    background: var(--color-paper-2);
+}
+
+.paper-nav-btn:active {
+    transform: scale(0.94);
 }
 
 .paper-dots {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2px;
     min-width: 0;
 }
 
 .paper-dot {
-    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 24px;
+    min-width: 20px;
     min-height: 32px;
     touch-action: manipulation;
 }
 
 .paper-dot::after {
     content: "";
-    width: 7px;
-    height: 7px;
-    border-radius: 999px;
-    background: var(--border-strong);
-    transition: background-color 0.15s ease;
+    width: 8px;
+    height: 8px;
+    background: var(--color-edge);
+    transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
 }
 
 .paper-dot:hover::after {
-    background: var(--text-secondary);
-}
-
-.paper-dot[aria-current="true"] {
-    min-width: 28px;
+    background: var(--color-ink);
 }
 
 .paper-dot[aria-current="true"]::after {
-    width: 16px;
-    background: var(--accent-vermilion-mark);
+    background: var(--color-mark);
+    transform: scale(1.5);
 }
 
 .paper-count {
     display: none;
-    font-size: var(--text-sm);
-    color: var(--text-secondary);
+    min-width: 5ch;
+    font-size: var(--type-small);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
 }
 
-.papers-section .ai-note {
-    margin-top: var(--s-5);
-}
-
+/* --- The paper track: one page of six rows at a time --- */
 .paper-track {
-    position: relative;
+    position: relative; /* offsetParent for the slides, so offsetLeft matches scrollLeft */
     display: flex;
-    gap: var(--s-8);
+    gap: var(--gap);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    padding-top: var(--s-6);
     touch-action: pan-x pan-y;
 }
 
@@ -227,100 +689,170 @@
     scroll-snap-align: start;
 }
 
+/* One page: six papers as a three-by-two grid of ruled cells. Titles
+   and Thai notes are clamped, so every page is the same height and the
+   section holds one screen. */
 .paper-list {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--s-4);
     list-style: none;
-    min-width: 0;
-}
-
-@media (min-width: 860px) {
-    .paper-list {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        column-gap: var(--s-8);
-        row-gap: var(--s-5);
-    }
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-xl) var(--gap);
 }
 
 .paper-card {
-    display: grid;
-    grid-template-columns: 60px minmax(0, 1fr);
-    gap: var(--s-3);
-    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
     min-width: 0;
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-rule);
+}
+
+.paper-list .paper-card:nth-child(-n + 3) {
+    border-top-color: var(--color-ink);
 }
 
 .paper-date {
-    padding-top: 2px;
-    font-size: var(--text-xs);
-    color: var(--accent-teal);
-    white-space: nowrap;
+    font-size: var(--type-small);
+    font-weight: 500;
+    color: var(--color-muted);
 }
 
 .paper-body {
-    min-width: 0;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
 }
 
 .paper-link {
-    display: inline;
-    font-weight: 600;
-    line-height: 1.4;
-    color: var(--text-main);
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    font-family: var(--font-display);
+    font-size: 1.1875rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
     text-decoration: none;
+    color: var(--color-ink);
+}
+
+.paper-title {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: color var(--dur-short) var(--ease-out), text-decoration-color var(--dur-short) var(--ease-out);
 }
 
 .paper-link svg {
     display: inline-block;
-    margin-left: var(--s-1);
-    vertical-align: -1px;
-    color: var(--text-muted);
-    transition: transform 0.15s ease, color 0.15s ease;
+    margin-left: var(--space-2xs);
+    vertical-align: 0.05em;
+    color: var(--color-muted);
+    transition: transform var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
 }
 
 .paper-link:hover .paper-title {
-    color: var(--primary);
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    color: var(--color-mark-text);
+    text-decoration-color: currentColor;
 }
 
 .paper-link:hover svg {
-    color: var(--primary);
+    color: var(--color-mark-text);
     transform: translate(2px, -2px);
 }
 
 .paper-comment {
-    margin-top: var(--s-1);
-    font-size: 0.9375rem;
-    color: var(--text-secondary);
-    max-width: 65ch;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    font-size: var(--type-small);
+    color: var(--color-ink-2);
 }
 
 .paper-summary-link {
-    display: inline-block;
-    padding-block: var(--s-1);
-    font-size: var(--text-sm);
-    font-weight: 600;
-    color: var(--accent-teal);
-    text-underline-offset: 3px;
+    margin-top: auto;
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: var(--type-small);
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--dur-short) var(--ease-out);
 }
 
 .paper-summary-link:hover {
-    color: var(--accent-teal-mark);
+    color: var(--color-mark-text);
 }
 
-/* --- Tools index (Asymmetric Bento) --- */
+/* Short desktop screens: two lines each, so six papers still fit. */
+@media (min-width: 60.0625rem) and (max-height: 820px) {
+    .paper-link,
+    .paper-comment {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+}
+
+/* Tablets, two across and three down: two lines each and a tighter row
+   gap on screens under 1100px tall. */
+@media (min-width: 40.0625rem) and (max-width: 60rem) and (max-height: 1100px) {
+    .paper-link,
+    .paper-comment {
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+
+    .paper-list {
+        row-gap: var(--space-lg);
+    }
+
+    .papers-section {
+        padding-top: var(--space-xl);
+    }
+}
+
+.papers-section .ai-note {
+    margin-top: auto;
+    padding-top: var(--space-lg);
+}
+
+/* ===================================================================
+   Tools: the ultramarine field, set as a dense index. Clinical tools
+   take the left column across two rows, Simulators and Research sit
+   beside them, Knowledge runs full width in three columns.
+   =================================================================== */
 .works-section {
-    min-width: 0;
-    padding-top: var(--s-8);
-    border-top: 1px solid var(--border);
+    --tilt: clamp(48px, 9vw, 140px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100svh;
+    padding-block: var(--space-2xl);
+    color: var(--color-field-ink);
+    background: var(--color-field);
+    --color-focus: var(--color-field-ink);
+}
+
+.works-section .section-header {
+    margin-bottom: var(--space-xl);
+}
+
+.works-section .section-meta {
+    color: var(--color-field-dim);
 }
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--s-6);
-    padding-top: var(--s-6);
+    gap: var(--space-xl) var(--gap);
 }
 
 .project-group {
@@ -330,12 +862,10 @@
 }
 
 .project-group-title {
-    padding-bottom: var(--s-2);
-    font-size: var(--text-sm);
-    font-weight: 700;
-    letter-spacing: 0;
-    color: var(--text-main);
-    border-bottom: 1px solid var(--text-main);
+    padding-bottom: var(--space-xs);
+    font-size: var(--type-body);
+    letter-spacing: -0.01em;
+    border-bottom: 1px solid var(--color-field-ink);
 }
 
 .project-list {
@@ -348,18 +878,19 @@
 .project-list li {
     display: flex;
     min-width: 0;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--color-field-rule);
 }
 
 .project-card {
     flex: 1 1 auto;
     display: grid;
-    grid-template-columns: 36px minmax(0, 1fr) auto;
+    grid-template-columns: 40px minmax(0, 1fr) auto;
     align-items: center;
-    gap: var(--s-3);
-    padding: var(--s-3);
+    gap: var(--space-md);
+    padding: var(--space-sm);
+    color: var(--color-field-ink);
     text-decoration: none;
-    transition: background-color 0.15s ease;
+    transition: background-color 180ms var(--ease-out), translate 180ms var(--ease-out);
 }
 
 .project-card:focus-visible {
@@ -367,77 +898,74 @@
 }
 
 .project-card:hover {
-    background: var(--bg-card);
+    background: var(--color-field-hover);
+    translate: 0 -2px;
 }
 
 .project-icon {
     display: grid;
     place-items: center;
-    width: 36px;
-    height: 36px;
-    color: var(--tone-ink, var(--primary));
-    background: var(--tone-tint, var(--card-hover-icon-bg));
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    transition: background-color 0.15s ease, border-color 0.15s ease;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--color-field-rule);
+    transition: color var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
 }
 
 .project-card:hover .project-icon {
-    background: var(--tone-tint, var(--card-hover-icon-bg));
-    border-color: var(--tone-mark, var(--card-hover-border));
+    color: var(--color-field);
+    background: var(--color-field-ink);
+    border-color: var(--color-field-ink);
 }
 
 .project-body {
     display: grid;
-    gap: 2px;
+    gap: var(--space-3xs);
     min-width: 0;
 }
 
 .project-title {
-    font-weight: 600;
-    line-height: 1.3;
-    transition: color 0.15s ease;
-}
-
-.project-card:hover .project-title {
-    color: var(--tone-ink, var(--primary));
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
 }
 
 .project-status {
     display: inline-block;
-    margin-left: var(--s-1);
-    padding: 2px var(--s-2);
+    margin-left: var(--space-2xs);
+    padding: 0 var(--space-xs);
+    font-family: var(--font-body);
     font-size: var(--text-xs);
-    font-weight: 600;
-    line-height: 1.3;
-    color: var(--accent-vermilion);
-    border: 1px solid var(--accent-vermilion-mark);
-    border-radius: var(--radius-sm);
+    font-weight: 500;
+    letter-spacing: 0;
+    vertical-align: 0.1em;
+    border: 1px solid var(--color-field-ink);
 }
 
 .project-desc {
-    font-size: var(--text-sm);
+    font-size: var(--type-small);
     line-height: 1.4;
-    color: var(--text-secondary);
+    color: var(--color-field-dim);
+    transition: color var(--dur-short) var(--ease-out);
 }
 
 .project-external-arrow {
     display: grid;
-    color: var(--text-muted);
-    transition: transform 0.15s ease, color 0.15s ease;
+    transition: transform var(--dur-short) var(--ease-out);
+}
+
+.project-card:hover .project-desc {
+    color: var(--color-field-ink);
 }
 
 .project-card:hover .project-external-arrow {
-    color: var(--tone-ink, var(--primary));
     transform: translate(2px, -2px);
 }
 
-@media (min-width: 860px) {
+@media (min-width: 48rem) {
     .portfolio-grid {
         grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-        gap: var(--s-6);
     }
 
     .project-group:nth-child(1) {
@@ -459,115 +987,290 @@
     }
 
     .project-group:nth-child(4) .project-list li + li {
-        border-left: 1px solid var(--border);
+        border-left: 1px solid var(--color-field-rule);
     }
 }
 
-/* --- Footer --- */
+.works-section .error-state {
+    color: var(--color-ink);
+}
+
+/* Scroll: the tools band answers the scroll the way the hero does,
+   forward on the way down and back on the way up. Its top edge enters on
+   the same slant as the hero band and flattens as it rises; each group
+   rises into place and each tool row slides in from the left, every one
+   on its own view timeline, so they arrive in reading order. All end at
+   rest and fully shown; reduced motion and browsers without view
+   timelines keep the still band. */
+@supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+        .works-section {
+            animation: band-tilt linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 90%;
+        }
+
+        .project-group {
+            animation: group-rise linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 50%;
+        }
+
+        .project-card {
+            animation: card-slide linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 70%;
+        }
+    }
+}
+
+@keyframes band-tilt {
+    from { clip-path: polygon(0 var(--tilt), 100% 0, 100% 100%, 0 100%); }
+    to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+@keyframes group-rise {
+    from { opacity: 0; transform: translateY(48px); }
+}
+
+@keyframes card-slide {
+    from { opacity: 0; transform: translateX(-32px); }
+}
+
+/* ===================================================================
+   Close: one screen on the ink. The heading and the main action, then
+   the name set across the full width, then the colophon line.
+   =================================================================== */
 .site-footer {
     display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    padding-block: var(--section-gap-s) calc(var(--space-2xl) + var(--space-xs));
+    color: var(--color-paper);
+    background: var(--color-ink);
+    --color-focus: var(--color-paper);
+}
+
+.footer-inner {
+    flex: 1 0 auto;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: var(--space-xl);
+}
+
+.close-head {
+    display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: end;
     justify-content: space-between;
-    gap: var(--s-2) var(--s-6);
-    padding-block: var(--s-8);
-    font-size: var(--text-sm);
-    color: var(--text-muted);
-    border-top: 1px solid var(--border);
+    gap: var(--space-lg);
 }
 
-.site-footer a {
-    font-weight: 600;
-    color: var(--text-secondary);
-    text-underline-offset: 3px;
+.close-title {
+    max-width: 16ch;
+    font-size: var(--type-section);
 }
 
-/* --- Small screens --- */
-@media (max-width: 640px) {
-    .masthead-inner {
-        align-items: center;
-        padding-top: var(--s-5);
-        padding-bottom: var(--s-4);
+.site-footer .hero-primary {
+    color: var(--color-ink);
+    background: var(--color-paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .site-footer .hero-primary:hover {
+        background: var(--color-paper-3);
+    }
+}
+
+.close-name {
+    align-self: end;
+    display: flex;
+    align-items: center;
+    gap: 0.06em;
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 17.5vw, 15.75rem);
+    font-weight: var(--display-weight);
+    letter-spacing: -0.06em;
+    line-height: 0.8;
+    white-space: nowrap;
+}
+
+.close-name::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 0.62em;
+    height: 0.62em;
+    margin-right: 0.08em;
+    background: var(--color-mark);
+}
+
+.footer-line {
+    padding-top: var(--space-md);
+    font-size: var(--type-small);
+    color: var(--color-paper-3);
+    font-variant-numeric: tabular-nums;
+    border-top: 1px solid var(--color-ink-2);
+}
+
+.footer-line a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-weight: 500;
+    color: var(--color-paper);
+    text-decoration: none;
+}
+
+/* ===================================================================
+   Under 60rem: everything stacks; the field stops bleeding and holds
+   the figure as its own block under the head.
+   =================================================================== */
+@media (max-width: 60rem) {
+
+    :root {
+        --page-gutter: clamp(24px, 8vw, 64px);
+        --gap: 24px;
+        --section-gap: 96px;
+        --section-gap-s: 80px;
+    }
+
+    .hero {
+        padding-block: calc(80px + var(--space-xl)) var(--space-2xl);
+    }
+
+    .hero-field {
+        display: none;
+    }
+
+    .hero-inner {
+        row-gap: var(--space-xl);
+    }
+
+    .hero-copy,
+    .hero-figures {
+        grid-column: 1 / -1;
+    }
+
+    .hero-figures {
+        justify-content: flex-start;
+        margin-inline: calc(-1 * var(--page-gutter));
+        padding: var(--space-xl) var(--page-gutter);
+        color: var(--color-field-ink);
+        background: var(--color-field);
+    }
+
+    .section-heading,
+    .paper-pager {
+        grid-column: 1 / -1;
+    }
+
+    .paper-pager {
+        justify-self: stretch;
+        justify-content: space-between;
+    }
+
+    .paper-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .paper-list .paper-card:nth-child(-n + 3) {
+        border-top-color: var(--color-rule);
+    }
+
+    .paper-list .paper-card:nth-child(-n + 2) {
+        border-top-color: var(--color-ink);
+    }
+
+}
+
+@media (max-width: 40rem) {
+    /* Phones: six papers and twelve tools cannot share one screen, so
+       those two grow with what they hold; the close keeps its one. */
+
+    :root {
+        --page-gutter: 16px;
+        --gap: 16px;
+        --section-gap: 72px;
+        --section-gap-s: 56px;
     }
 
     .masthead-link span {
         display: none;
     }
 
+    .masthead-link svg {
+        display: block;
+    }
+
     .masthead-link {
         min-width: 44px;
-        min-height: 44px;
         justify-content: center;
         padding: 0;
     }
 
-    .masthead-controls .icon-btn {
-        min-width: 44px;
-        min-height: 44px;
+    .hero-primary {
+        width: 100%;
+        justify-content: center;
     }
 
-    .page-sections {
-        gap: var(--s-10);
-        padding-block: var(--s-6) var(--s-10);
-    }
-
-    .section-header {
-        align-items: stretch;
-        gap: var(--s-3);
-    }
-
-    .paper-pager {
-        justify-content: space-between;
+    .close-head {
         width: 100%;
     }
 
-    /* Twelve dots cannot each be a 44px target on a phone: show a count
+    /* Twelve marks cannot each be a 44px target on a phone: a count
        between two full-size buttons instead. */
     .paper-dots {
         display: none;
     }
 
-    .paper-count {
-        display: block;
-    }
-
-    .paper-nav-btn {
-        min-width: 44px;
-        min-height: 44px;
-    }
-
-    .paper-card {
+    .paper-list {
         grid-template-columns: minmax(0, 1fr);
-        gap: var(--s-1);
     }
 
-    .project-card {
-        min-height: 56px;
+    .paper-link,
+    .paper-comment {
+        display: block;
+        overflow: visible;
+    }
+
+    .paper-list .paper-card:nth-child(2) {
+        border-top-color: var(--color-rule);
+    }
+
+    .paper-count {
+        display: inline;
+    }
+}
+
+/* The smallest phones: the name alone, so the three controls keep 44px each */
+@media (max-width: 26rem) {
+    .masthead .wordmark-sub {
+        display: none;
+    }
+
+    .masthead .wordmark::before {
+        grid-row: auto;
+        width: 1.4em;
+        height: 1.4em;
     }
 }
 
 @media (pointer: coarse) {
-    .masthead-controls .icon-btn,
-    .paper-nav-btn {
-        min-width: 44px;
-        min-height: 44px;
-    }
-
-    .masthead-link {
-        min-height: 44px;
-    }
-
     .paper-dot {
         min-width: 32px;
         min-height: 44px;
     }
-
-    .paper-dot[aria-current="true"] {
-        min-width: 36px;
-    }
 }
 
 @media (forced-colors: active) {
+    .hero-field {
+        display: none;
+    }
+
+    .paper-dot::after {
+        background: CanvasText;
+    }
+
     .paper-dot[aria-current="true"]::after {
         background: Highlight;
     }

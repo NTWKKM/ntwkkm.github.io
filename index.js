@@ -29,6 +29,36 @@ const EXTERNAL_ICON = svg('<path d="M7 17L17 7M17 7H7M17 7V17"/>', 14);
 // AI summaries sometimes carry markdown bold markers; the ledger shows plain text.
 const stripMarkdown = str => String(str || '').replace(/\*\*/g, '').trim();
 
+// The paper grid holds one screen, so a long title or Thai note is shown
+// shortened at a word boundary to what its cell holds (index.css: three
+// across from 60rem, two from 40rem; two lines on short screens). The full
+// text is never lost: it stays in data-full (and the title on the link's
+// title and aria-label), and the shortening is worked out again on every
+// resize, so a phone-width window shows everything. Shortening in script,
+// not only line-clamp, keeps no hidden clamped line lying under the next
+// text; CSS line-clamp stays as the guard between resizes.
+function textBudget(container, charWidth) {
+    const width = container.clientWidth || window.innerWidth;
+    const vw = window.innerWidth;
+    if (vw <= 640) return Infinity; // phones show the whole title
+    const columns = vw > 960 ? 3 : 2;
+    const gap = vw > 960 ? 32 : 24;
+    const cell = (width - gap * (columns - 1)) / columns;
+    const short = vw > 960 ? window.innerHeight <= 820 : window.innerHeight <= 1100;
+    const lines = short ? 2 : 3;
+    // charWidth: about 10.5px a character for a title at 19px in the
+    // display cut, about 8px for a Thai note at 14px; less a margin for
+    // words that wrap early and the external-link icon.
+    return Math.max(40, Math.floor((cell / charWidth) * lines * 0.85) - 3);
+}
+
+const shorten = (str, max) => {
+    if (!Number.isFinite(max) || str.length <= max) return str;
+    const cut = str.slice(0, max);
+    const space = cut.lastIndexOf(' ');
+    return `${(space > max * 0.6 ? cut.slice(0, space) : cut).replace(/[\s,.;:]+$/, '')}…`;
+};
+
 // ---------------------------------------------------------------------------
 // Latest papers: horizontal paged ledger with scroll-snap and dot marks
 // ---------------------------------------------------------------------------
@@ -251,15 +281,16 @@ async function fetchPapers() {
 
     container.innerHTML = pages.map((pagePapers, pageIndex) => {
         const items = pagePapers.map((paper) => {
-            const title = escapeHTML(stripMarkdown(paper.title));
+            const fullAttr = escapeHTML(stripMarkdown(paper.title));
+            const noteAttr = escapeHTML(stripMarkdown(paper.comment));
             return `
                 <li class="paper-card" data-pmid="${escapeHTML(paper.pmid)}">
                     <time class="paper-date mono">${escapeHTML(paper.date)}</time>
                     <div class="paper-body">
-                        <a href="${escapeHTML(sanitizeURL(paper.link))}" class="paper-link" target="_blank" rel="noopener noreferrer">
-                            <span class="paper-title">${title}</span>${EXTERNAL_ICON}
+                        <a href="${escapeHTML(sanitizeURL(paper.link))}" class="paper-link" target="_blank" rel="noopener noreferrer" title="${fullAttr}" aria-label="${fullAttr} (PubMed, opens in a new tab)">
+                            <span class="paper-title" data-full="${fullAttr}">${fullAttr}</span>${EXTERNAL_ICON}
                         </a>
-                        <p class="paper-comment thai-text" lang="th">${escapeHTML(stripMarkdown(paper.comment))}</p>
+                        <p class="paper-comment thai-text" lang="th" data-full="${noteAttr}">${noteAttr}</p>
                     </div>
                 </li>`;
         }).join('');
@@ -269,7 +300,17 @@ async function fetchPapers() {
             </div>`;
     }).join('');
 
+    fitPaperText(container);
+
     document.getElementById('papers-meta').textContent = `${papers.length} papers, latest ${papers[0].date}`;
+
+    // The hero's figure is the real count from papers.json, never a set number.
+    const heroFigure = document.getElementById('hero-figure');
+    if (heroFigure) {
+        document.getElementById('hero-count').textContent = papers.length;
+        document.getElementById('hero-count-label').textContent = `papers, latest ${papers[0].date}`;
+        heroFigure.hidden = false;
+    }
 
     if (pager && dotsContainer && pages.length > 1) {
         dotsContainer.innerHTML = pages.map((_, idx) => `
@@ -285,15 +326,36 @@ async function fetchPapers() {
     linkSummaries(container);
 }
 
+/** Show each title and note at what its cell holds now, from its full text. */
+function fitPaperText(container) {
+    const titleMax = textBudget(container, 10.5);
+    const noteMax = textBudget(container, 8);
+    container.querySelectorAll('.paper-title[data-full]').forEach((el) => {
+        el.textContent = shorten(el.dataset.full, titleMax);
+    });
+    container.querySelectorAll('.paper-comment[data-full]').forEach((el) => {
+        el.textContent = shorten(el.dataset.full, noteMax);
+    });
+}
+
 /**
  * Papers that already have a full Thai summary in the research reader get a
  * link to it. Runs after the ledger is on screen and fails silently: the
  * links are an extra, and the ledger must never wait on them.
  */
+/** The reader's own count, from the same list the summary links use. */
+function showReaderCount(count) {
+    const figure = document.getElementById('hero-blog-figure');
+    if (!figure || !count) return;
+    document.getElementById('hero-blog-count').textContent = count.toLocaleString('en-GB');
+    figure.hidden = false;
+}
+
 async function linkSummaries(container) {
     const pmids = await fetchWithFallback('./data/blog/pmids.json', null, 1);
     if (!Array.isArray(pmids)) return;
     const held = new Set(pmids);
+    showReaderCount(held.size);
     container.querySelectorAll('.paper-card[data-pmid]').forEach((card) => {
         const pmid = card.dataset.pmid;
         if (!/^\d+$/.test(pmid) || !held.has(pmid) || card.querySelector('.paper-summary-link')) return;
@@ -302,8 +364,9 @@ async function linkSummaries(container) {
         link.href = `blog.html?pmid=${pmid}`;
         link.textContent = 'Read the Thai summary';
         // Thirty-odd links share that text; name each by its paper for screen readers.
-        const title = card.querySelector('.paper-title');
-        if (title) link.setAttribute('aria-label', `Read the Thai summary of ${title.textContent}`);
+        const paperLink = card.querySelector('.paper-link');
+        const name = paperLink?.getAttribute('title') || card.querySelector('.paper-title')?.textContent;
+        if (name) link.setAttribute('aria-label', `Read the Thai summary of ${name}`);
         card.querySelector('.paper-body').appendChild(link);
     });
 }
@@ -364,6 +427,8 @@ async function fetchProjects() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('paper-container');
+    window.addEventListener('resize', debounce(() => fitPaperText(track), 150), { passive: true });
     fetchPapers();
     fetchProjects();
     const yearEl = document.getElementById('footer-year');
