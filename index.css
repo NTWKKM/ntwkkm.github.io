@@ -4,7 +4,7 @@
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R3 V4 · weakest: R, answered with poster scale and one field band rather than new sections */
 /* Hallmark · waive 77 · the before record holds four sections: hero, papers, tools, footer · a redesign adds no section the page did not have */
 /* Hallmark · answered F6 · .hero-count holds two counts that never change in place · tabular figures gave the comma in 1,507 a full digit of space */
-/* Hallmark · answered F8 · .hero, .hero-line, .hero-copy and .hero-figures share one scroll(root) timeline inside 0 to 80vh, one hero pattern in parts · the owner asked for the hero to move with the scroll both ways */
+/* Hallmark · answered F8 · .hero, .hero-head, .hero-copy and .hero-figures share one scroll(root) timeline inside 0 to 80vh, one hero pattern in parts · the owner asked for the hero to move with the scroll both ways */
 /* Hallmark · waive 79 · .hero-copy ends at y 543 and the field at y 639 at 1440x900; the gate measures from the h1 alone · the gap below is the 120px section step */
 
 /* Homepage: an overprint banner, the paper index, the tools on an
@@ -130,8 +130,12 @@
     isolation: isolate;
     padding-block: var(--space-2xl) var(--space-3xl);
     --w: calc(min(100%, var(--page-max)) - 2 * var(--page-gutter));
-    --line-8: calc((100% - var(--w)) / 2 + 7 * (var(--w) + var(--gap)) / 12);
-    --slant: clamp(40px, 6vw, 96px);
+    --line-7: calc((100% - var(--w)) / 2 + 6 * (var(--w) + var(--gap)) / 12);
+    --slant: clamp(56px, 7vw, 112px);
+    /* The band's foot sits on the column 7 line less the slant, but never
+       closer than 560px to the container's left edge, so the lead and
+       the actions always stay on paper. */
+    --band-foot: max(calc(var(--line-7) - var(--slant)), calc((100% - var(--w)) / 2 + 560px));
 }
 
 /* The field is a layer over the whole hero, cut to a slanted band by
@@ -146,12 +150,12 @@
     color: var(--color-field-ink);
     background: var(--color-field);
     pointer-events: none;
-    --edge: calc(var(--line-8) + var(--field-shift, 0px));
+    --foot: calc(var(--band-foot) + var(--field-shift, 0px));
     clip-path: polygon(
-        min(calc(var(--edge) + var(--slant)), 100%) 0,
+        min(calc(var(--foot) + 2 * var(--slant)), 100%) 0,
         100% 0,
         100% 100%,
-        min(calc(var(--edge) - var(--slant)), 100%) 100%
+        min(var(--foot), 100%) 100%
     );
 }
 
@@ -185,9 +189,6 @@
 
 .hero-line {
     display: block;
-    overflow: clip;
-    padding-block: 0.04em 0.12em;
-    margin-block: -0.04em -0.12em;
 }
 
 .hero-line > span {
@@ -257,6 +258,7 @@
     align-self: end;
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-end;
     gap: var(--space-lg) var(--space-2xl);
     padding-left: var(--space-xl);
     color: var(--color-field-ink);
@@ -318,8 +320,8 @@
    plays forward as the page goes down and back as it comes up. Only on
    screens that hold the whole hero, where it sticks to the top: there
    the hero drifts up and shrinks a little, the band winds in a step and
-   then slides out to the right along its slant, the head lifts out of
-   its line and the copy and figures fade. Smaller screens, reduced
+   then eases back out to the right along its slant (it never leaves),
+   the head drifts up whole and dims, and the copy and figures fade. Smaller screens, reduced
    motion and browsers without scroll timelines keep the still page. */
 @property --field-shift {
     syntax: "<length>";
@@ -339,7 +341,7 @@
             animation-range: 0 80vh;
         }
 
-        .hero-line > span,
+        .hero-head,
         .hero-copy,
         .hero-figures {
             animation-timing-function: linear;
@@ -347,9 +349,9 @@
             animation-timeline: scroll(root);
         }
 
-        .hero-line > span {
-            animation-name: line-lift;
-            animation-range: 0 60vh;
+        .hero-head {
+            animation-name: head-drift;
+            animation-range: 0 70vh;
         }
 
         .hero-copy {
@@ -374,12 +376,12 @@
 
 @keyframes hero-stuck {
     0% { --field-shift: 0px; }
-    30% { --field-shift: -48px; }
-    100% { --field-shift: 64vw; transform: translateY(-3%) scale(0.94); }
+    35% { --field-shift: -40px; }
+    100% { --field-shift: 18vw; transform: translateY(-2%) scale(0.95); }
 }
 
-@keyframes line-lift {
-    to { opacity: 0.2; transform: translateY(-40%); }
+@keyframes head-drift {
+    to { opacity: 0.4; transform: translateY(-24px); }
 }
 
 @keyframes settle-out {
