@@ -433,11 +433,14 @@ async function sharePaper() {
         try {
             await navigator.share({ title: post.title, text: post.title, url });
             triggerHaptic('success');
+            return;
         } catch (error) {
             // AbortError: the reader closed the share sheet. Nothing to report.
-            if (error.name !== 'AbortError') console.warn('[Share] Share sheet failed.', error);
+            if (error.name === 'AbortError') return;
+            // Any other failure (NotAllowedError, DataError ...) falls through
+            // to the clipboard so the reader still gets the link.
+            console.warn('[Share] Share sheet failed.', error);
         }
-        return;
     }
     try {
         await navigator.clipboard.writeText(`${post.title}\n${url}`);
