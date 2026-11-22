@@ -60,8 +60,6 @@ This content reflects the repository structure (updated by GitHub Actions):
 ```text
 |-- assets /
 |   |-- fonts /
-|   |   |-- inter-tight-latin.woff2
-|   |   |-- jetbrains-mono-latin-400.woff2
 |   |   |-- radio-canada-big-latin.woff2
 |   |   |-- radio-canada-latin.woff2
 |   |   |-- sarabun-latin-400.woff2

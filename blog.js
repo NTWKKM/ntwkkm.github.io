@@ -374,7 +374,7 @@ function updateNavButtons() {
     const atEnd = at === -1 || at >= state.filtered.length - 1;
     ['nav-prev-article', 'mob-nav-prev'].forEach((id) => { $(id).disabled = atStart; });
     ['nav-next-article', 'mob-nav-next'].forEach((id) => { $(id).disabled = atEnd; });
-    ['citation-btn', 'mob-nav-cite'].forEach((id) => { $(id).disabled = !state.currentId; });
+    ['citation-btn', 'mob-nav-cite', 'share-btn', 'mob-nav-share'].forEach((id) => { $(id).disabled = !state.currentId; });
 }
 
 function updateReadingProgress() {
@@ -418,6 +418,62 @@ async function copyCitation() {
         btn.textContent = 'Press Ctrl+C to copy';
     }
     setTimeout(() => { btn.textContent = 'Copy citation'; }, 2000);
+}
+
+/**
+ * Share the open paper. Phones get the system share sheet (LINE, Messages,
+ * mail); browsers without the Web Share API get the link on the clipboard.
+ * The link carries only ?id=, never the reader's own search or filters.
+ */
+async function sharePaper(btn) {
+    const post = state.byId.get(state.currentId);
+    if (!post) return;
+    const url = `${window.location.origin}${window.location.pathname}?id=${encodeURIComponent(post.id)}`;
+    if (navigator.share) {
+        try {
+            await navigator.share({ title: post.title, text: post.title, url });
+            triggerHaptic('success');
+            return;
+        } catch (error) {
+            // AbortError: the reader closed the share sheet. Nothing to report.
+            if (error.name === 'AbortError') return;
+            // Any other failure (NotAllowedError, DataError ...) falls through
+            // to the clipboard so the reader still gets the link.
+            console.warn('[Share] Share sheet failed.', error);
+        }
+    }
+    try {
+        await navigator.clipboard.writeText(`${post.title}\n${url}`);
+        triggerHaptic('success');
+        announceToScreenReader('Link copied to clipboard');
+        // Confirm on the button that was pressed: the toolbar one is hidden on phones.
+        flashLabel(btn || $('share-btn'), 'Link copied');
+    } catch (error) {
+        window.prompt('Copy this link', url);
+    }
+}
+
+// Per label node: its real text and the pending restore timer. A second
+// press during the 2 s window must not save "Link copied" as the original.
+const flashState = new WeakMap();
+
+/**
+ * Swap a button's text label for a moment, keeping its icon. The label is a
+ * direct text node (#share-btn) or a span.mob-text (#mob-nav-share). Repeated
+ * presses restart the timer; the label returns after the latest one ends.
+ */
+function flashLabel(btn, text) {
+    const label = btn.querySelector('.mob-text')
+        || Array.from(btn.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
+    if (!label) return;
+    const entry = flashState.get(label) || { original: label.textContent, timer: 0 };
+    clearTimeout(entry.timer);
+    label.textContent = text;
+    entry.timer = setTimeout(() => {
+        label.textContent = entry.original;
+        flashState.delete(label);
+    }, 2000);
+    flashState.set(label, entry);
 }
 
 // ---------------------------------------------------------------------------
@@ -594,11 +650,13 @@ function setupEventListeners() {
     $('nav-prev-article').addEventListener('click', () => navigateArticle(-1));
     $('nav-next-article').addEventListener('click', () => navigateArticle(1));
     $('citation-btn').addEventListener('click', openCitationModal);
+    $('share-btn').addEventListener('click', e => sharePaper(e.currentTarget));
 
     $('mob-nav-menu').addEventListener('click', () => { openSidebar(); triggerHaptic('light'); });
     $('mob-nav-prev').addEventListener('click', () => { navigateArticle(-1); triggerHaptic('light'); });
     $('mob-nav-next').addEventListener('click', () => { navigateArticle(1); triggerHaptic('light'); });
     $('mob-nav-cite').addEventListener('click', () => { openCitationModal(); triggerHaptic('light'); });
+    $('mob-nav-share').addEventListener('click', e => sharePaper(e.currentTarget));
 
     $('citation-close-btn').addEventListener('click', () => $('citation-dialog').close());
     $('citation-copy-btn').addEventListener('click', copyCitation);

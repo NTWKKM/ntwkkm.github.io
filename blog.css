@@ -78,10 +78,6 @@
     letter-spacing: -0.01em;
 }
 
-.brand svg {
-    display: none;
-}
-
 .brand::before {
     content: "";
     width: 18px;
@@ -90,7 +86,8 @@
     transition: transform var(--dur-short) var(--ease-out);
 }
 
-.brand:hover::before {
+.brand:hover::before,
+.brand:focus-visible::before {
     transform: rotate(90deg);
 }
 
@@ -424,8 +421,19 @@ html:not(.js) .main-content {
     border-radius: var(--radius);
 }
 
-.toolbar-home svg {
-    color: var(--primary);
+/* The homepage wordmark's red square, turning a quarter on hover like it */
+.toolbar-home::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 1.15em;
+    height: 1.15em;
+    background: var(--color-mark);
+    transition: transform var(--dur-short) var(--ease-out);
+}
+
+.toolbar-home:hover::before,
+.toolbar-home:focus-visible::before {
+    transform: rotate(90deg);
 }
 
 .toolbar-home:hover span {
@@ -882,7 +890,7 @@ html:not(.js) .main-content {
         inset: auto 0 0 0;
         z-index: 100;
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         padding-bottom: env(safe-area-inset-bottom);
         background: var(--bg-card);
         border-top: 1px solid var(--border);
