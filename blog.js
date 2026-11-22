@@ -425,7 +425,7 @@ async function copyCitation() {
  * mail); browsers without the Web Share API get the link on the clipboard.
  * The link carries only ?id=, never the reader's own search or filters.
  */
-async function sharePaper() {
+async function sharePaper(btn) {
     const post = state.byId.get(state.currentId);
     if (!post) return;
     const url = `${window.location.origin}${window.location.pathname}?id=${encodeURIComponent(post.id)}`;
@@ -446,15 +446,20 @@ async function sharePaper() {
         await navigator.clipboard.writeText(`${post.title}\n${url}`);
         triggerHaptic('success');
         announceToScreenReader('Link copied to clipboard');
-        flashLabel($('share-btn'), 'Link copied');
+        // Confirm on the button that was pressed: the toolbar one is hidden on phones.
+        flashLabel(btn || $('share-btn'), 'Link copied');
     } catch (error) {
         window.prompt('Copy this link', url);
     }
 }
 
-/** Swap a button's text label for a moment, keeping its icon. */
+/**
+ * Swap a button's text label for a moment, keeping its icon. The label is a
+ * direct text node (#share-btn) or a span.mob-text (#mob-nav-share).
+ */
 function flashLabel(btn, text) {
-    const label = Array.from(btn.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
+    const label = btn.querySelector('.mob-text')
+        || Array.from(btn.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
     if (!label) return;
     const original = label.textContent;
     label.textContent = text;
@@ -635,13 +640,13 @@ function setupEventListeners() {
     $('nav-prev-article').addEventListener('click', () => navigateArticle(-1));
     $('nav-next-article').addEventListener('click', () => navigateArticle(1));
     $('citation-btn').addEventListener('click', openCitationModal);
-    $('share-btn').addEventListener('click', sharePaper);
+    $('share-btn').addEventListener('click', e => sharePaper(e.currentTarget));
 
     $('mob-nav-menu').addEventListener('click', () => { openSidebar(); triggerHaptic('light'); });
     $('mob-nav-prev').addEventListener('click', () => { navigateArticle(-1); triggerHaptic('light'); });
     $('mob-nav-next').addEventListener('click', () => { navigateArticle(1); triggerHaptic('light'); });
     $('mob-nav-cite').addEventListener('click', () => { openCitationModal(); triggerHaptic('light'); });
-    $('mob-nav-share').addEventListener('click', sharePaper);
+    $('mob-nav-share').addEventListener('click', e => sharePaper(e.currentTarget));
 
     $('citation-close-btn').addEventListener('click', () => $('citation-dialog').close());
     $('citation-copy-btn').addEventListener('click', copyCitation);

@@ -4,7 +4,7 @@
 
 | Term | Definition |
 | --- | --- |
-| **Research Hub** | The clinical research blog reader module (`blog.html`) displaying curated emergency medicine and clinical informatics articles. |
+| **Research reader** | The clinical research blog reader module (`blog.html`) displaying curated emergency medicine and clinical informatics articles. Its sidebar brand reads `NTWKKM` with the red square, as on the homepage (formerly labelled "Research Hub"). |
 | **Toxico** | The clinical toxicology reference sub-app and project card link. |
 | **papers.json** | Automated file holding the top 12 emergency medicine papers, parsed daily via n8n. |
 | **latest_updates.json** | Ephemeral JSON file pushed from Notion to trigger GitHub Actions build, deduplicated and chunked. |

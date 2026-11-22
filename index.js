@@ -448,6 +448,11 @@ function setupBackToTop() {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
     link.addEventListener('click', (e) => {
         e.preventDefault();
+        // A hash left by an earlier jump (#papers-section ...) would point
+        // away from the top; drop it, keeping the query and history state.
+        if (window.location.hash) {
+            history.replaceState(history.state, '', window.location.pathname + window.location.search);
+        }
         link.classList.add('is-turning');
         setTimeout(() => link.classList.remove('is-turning'), 600);
         window.scrollTo({ top: 0, behavior: reduced.matches ? 'auto' : 'smooth' });
