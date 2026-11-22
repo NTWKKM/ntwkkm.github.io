@@ -453,17 +453,27 @@ async function sharePaper(btn) {
     }
 }
 
+// Per label node: its real text and the pending restore timer. A second
+// press during the 2 s window must not save "Link copied" as the original.
+const flashState = new WeakMap();
+
 /**
  * Swap a button's text label for a moment, keeping its icon. The label is a
- * direct text node (#share-btn) or a span.mob-text (#mob-nav-share).
+ * direct text node (#share-btn) or a span.mob-text (#mob-nav-share). Repeated
+ * presses restart the timer; the label returns after the latest one ends.
  */
 function flashLabel(btn, text) {
     const label = btn.querySelector('.mob-text')
         || Array.from(btn.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
     if (!label) return;
-    const original = label.textContent;
+    const entry = flashState.get(label) || { original: label.textContent, timer: 0 };
+    clearTimeout(entry.timer);
     label.textContent = text;
-    setTimeout(() => { label.textContent = original; }, 2000);
+    entry.timer = setTimeout(() => {
+        label.textContent = entry.original;
+        flashState.delete(label);
+    }, 2000);
+    flashState.set(label, entry);
 }
 
 // ---------------------------------------------------------------------------
