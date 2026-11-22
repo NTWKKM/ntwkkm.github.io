@@ -94,6 +94,7 @@ This content reflects the repository structure (updated by GitHub Actions):
 |-- index.js
 |-- manifest.json
 |-- papers.json
+|-- pnpm-workspace.yaml
 |-- projects.json
 |-- reader-core.js
 |-- README.md
