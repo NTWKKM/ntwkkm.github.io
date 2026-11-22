@@ -287,6 +287,8 @@ The NTWKKM Knowledge Vault is an automated, dynamic resource hub and clinical in
 | `.github/scripts/test-browser.js` | Loads both pages at 320, 768 and 1440px in headless Chrome; fails on a page error, an empty list, a showing error state, or content past the viewport |
 | `.github/scripts/generate_readme.js` | Generate repository file tree for README.md (collapses `data/blog/` to summary) |
 
+> **Local tooling:** `pnpm-workspace.yaml` makes the repository its own pnpm root, so a `pnpm-workspace.yaml` in a parent folder (such as the home directory) cannot capture the install. It sets `allowBuilds: { puppeteer: false }`, matching CI's `--ignore-scripts`; run `pnpm exec puppeteer browsers install chrome` once before `pnpm test:browser`. The file is excluded from Jekyll and Vercel.
+
 ## Theming
 
 All pages use `data-theme="light|dark"` on `<html>` with `localStorage.theme` persistence (`shared.js` also sets `<meta name="theme-color">` to the current `--bg-body`); first-time visitors inherit `prefers-color-scheme`. An inline script in `<head>` sets the attribute before first paint (no flash). Token values and usage rules live in `DESIGN.md`; `shared.css` is the only file that declares a colour or a font family.
@@ -316,8 +318,9 @@ All JSON data is escaped (`escapeHTML`) or protocol-checked (`sanitizeURL`) befo
 - **Default paper:** with no `id`, the first paper of the current list opens (ADR-010). An `id` or `pmid` that matches no paper also opens the first paper, under a notice (`#route-notice`) saying the linked paper is not held, with a PubMed link when a PMID was given (ADR-022).
 - **Summary sections:** `parseSummary()` in `blog.js` turns the AI summary into Objective / Methods / Results / Study design / Clinical relevance. A line is a heading only when a known label (Thai or English) is followed by a colon.
 - **Citation:** Vancouver, APA, BibTeX, Markdown, built from title + PMID only. Authors, journal and year are not stored, so none are printed; the dialog says so.
+- **Share:** `#share-btn` (toolbar) and `#mob-nav-share` (bottom bar) send a clean `?id=` link (the reader's search and filters left out) with the paper title. Where the Web Share API exists the system share sheet opens (LINE, Messages, mail); elsewhere the title and link go to the clipboard, and a refused clipboard falls back to a `prompt()` holding the link.
 - **List:** 20 per page; the page follows the open paper when stepping with the arrow buttons or ← / → keys. `/` focuses search, `Esc` closes the drawer.
-- **Layout:** ≥900px the list is docked as a fixed rail beside `.main-content` and can be folded (revealing `#sidebar-open-btn` and `.toolbar-home` in `.reader-toolbar`); below that it is an off-canvas drawer (`inert` while closed), `.toolbar-home` surfaces navigation in the top bar, and Papers / Prev / Cite / Next move to a bottom bar. While the drawer is open the article and the bottom bar are `inert`; closing it returns focus to the control that opened it.
+- **Layout:** ≥900px the list is docked as a fixed rail beside `.main-content` and can be folded (revealing `#sidebar-open-btn` and `.toolbar-home` in `.reader-toolbar`); below that it is an off-canvas drawer (`inert` while closed), `.toolbar-home` surfaces navigation in the top bar, and Papers / Prev / Cite / Share / Next move to a bottom bar. While the drawer is open the article and the bottom bar are `inert`; closing it returns focus to the control that opened it.
 - **Provenance and date:** a line above the summary states that it was written by AI from the PubMed abstract. The date reads `Added <date>`: when the paper entered the library, not when it was published.
 
 ## Caching & Offline Resilience

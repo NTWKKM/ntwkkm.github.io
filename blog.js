@@ -374,7 +374,7 @@ function updateNavButtons() {
     const atEnd = at === -1 || at >= state.filtered.length - 1;
     ['nav-prev-article', 'mob-nav-prev'].forEach((id) => { $(id).disabled = atStart; });
     ['nav-next-article', 'mob-nav-next'].forEach((id) => { $(id).disabled = atEnd; });
-    ['citation-btn', 'mob-nav-cite'].forEach((id) => { $(id).disabled = !state.currentId; });
+    ['citation-btn', 'mob-nav-cite', 'share-btn', 'mob-nav-share'].forEach((id) => { $(id).disabled = !state.currentId; });
 }
 
 function updateReadingProgress() {
@@ -418,6 +418,44 @@ async function copyCitation() {
         btn.textContent = 'Press Ctrl+C to copy';
     }
     setTimeout(() => { btn.textContent = 'Copy citation'; }, 2000);
+}
+
+/**
+ * Share the open paper. Phones get the system share sheet (LINE, Messages,
+ * mail); browsers without the Web Share API get the link on the clipboard.
+ * The link carries only ?id=, never the reader's own search or filters.
+ */
+async function sharePaper() {
+    const post = state.byId.get(state.currentId);
+    if (!post) return;
+    const url = `${window.location.origin}${window.location.pathname}?id=${encodeURIComponent(post.id)}`;
+    if (navigator.share) {
+        try {
+            await navigator.share({ title: post.title, text: post.title, url });
+            triggerHaptic('success');
+        } catch (error) {
+            // AbortError: the reader closed the share sheet. Nothing to report.
+            if (error.name !== 'AbortError') console.warn('[Share] Share sheet failed.', error);
+        }
+        return;
+    }
+    try {
+        await navigator.clipboard.writeText(`${post.title}\n${url}`);
+        triggerHaptic('success');
+        announceToScreenReader('Link copied to clipboard');
+        flashLabel($('share-btn'), 'Link copied');
+    } catch (error) {
+        window.prompt('Copy this link', url);
+    }
+}
+
+/** Swap a button's text label for a moment, keeping its icon. */
+function flashLabel(btn, text) {
+    const label = Array.from(btn.childNodes).find(n => n.nodeType === Node.TEXT_NODE && n.textContent.trim());
+    if (!label) return;
+    const original = label.textContent;
+    label.textContent = text;
+    setTimeout(() => { label.textContent = original; }, 2000);
 }
 
 // ---------------------------------------------------------------------------
@@ -594,11 +632,13 @@ function setupEventListeners() {
     $('nav-prev-article').addEventListener('click', () => navigateArticle(-1));
     $('nav-next-article').addEventListener('click', () => navigateArticle(1));
     $('citation-btn').addEventListener('click', openCitationModal);
+    $('share-btn').addEventListener('click', sharePaper);
 
     $('mob-nav-menu').addEventListener('click', () => { openSidebar(); triggerHaptic('light'); });
     $('mob-nav-prev').addEventListener('click', () => { navigateArticle(-1); triggerHaptic('light'); });
     $('mob-nav-next').addEventListener('click', () => { navigateArticle(1); triggerHaptic('light'); });
     $('mob-nav-cite').addEventListener('click', () => { openCitationModal(); triggerHaptic('light'); });
+    $('mob-nav-share').addEventListener('click', sharePaper);
 
     $('citation-close-btn').addEventListener('click', () => $('citation-dialog').close());
     $('citation-copy-btn').addEventListener('click', copyCitation);

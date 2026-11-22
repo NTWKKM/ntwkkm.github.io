@@ -13,6 +13,7 @@ exclude:
   - soul
   - package.json
   - pnpm-lock.yaml
+  - pnpm-workspace.yaml
   # --- the same documents inside the private pl/ checkout ---
   - pl/ARCHITECTURE.md
   - pl/CONTEXT.md

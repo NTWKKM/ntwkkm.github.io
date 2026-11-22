@@ -1,0 +1,9 @@
+# Makes this repository its own pnpm root. Without it, pnpm walks up to any
+# pnpm-workspace.yaml in a parent folder (for example one in the home
+# directory) and installs into that workspace instead.
+#
+# Puppeteer's postinstall (the Chrome download) stays off, as in CI. Install
+# the browser explicitly before the browser tests:
+#   pnpm exec puppeteer browsers install chrome
+allowBuilds:
+  puppeteer: false

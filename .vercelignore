@@ -4,5 +4,6 @@
 # Node project and run an install it does not need.
 package.json
 pnpm-lock.yaml
+pnpm-workspace.yaml
 node_modules
 .github
