@@ -1,10 +1,87 @@
 [
   {
-    "date": "21 Nov",
-    "title": "Real-time CPR feedback in out-of-hospital cardiac arrest: The device and its measurement technology matter.",
-    "comment": "เทคโนโลยี feedback CPR ที่ต่างกันส่งผลต่อคุณภาพการกดหน้าอกใน OHCA แพทย์ ER ควรเลือกใช้อย่างเหมาะสม",
+    "date": "22 Nov",
+    "title": "Prophylactic mesh augmentation in midline laparotomy in elective or emergency settings: a systematic review and network meta-analysis of randomized trials",
+    "comment": "ยืนยันการใช้ตาข่ายป้องกันภาวะไส้เลื่อนในแผลผ่าตัดฉุกเฉิน ช่วยลดอัตราการเกิด incisional hernia อย่างมีนัยสำคัญ",
+    "pmid": "43065540",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43065540/"
+  },
+  {
+    "date": "22 Nov",
+    "title": "A bicentric pilot study of apixaban and rivaroxaban quantification using a novel point-of-care system in the emergency department",
+    "comment": "นวัตกรรม POC test ตรวจระดับยา DOACs ในห้องฉุกเฉิน ช่วยตัดสินใจให้ยาแก้พิษหรือผ่าตัดได้เร็วขึ้น",
+    "pmid": "43065432",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43065432/"
+  },
+  {
+    "date": "22 Nov",
+    "title": "Ceftazidime-avibactam monotherapy versus combination therapy for carbapenem-resistant Gram-negative bacterial infections: a secondary meta-analysis of predominantly critically ill cohorts",
+    "comment": "ชี้ให้เห็นประสิทธิภาพยาเดี่ยวในการรักษากลุ่มดื้อยา carbapenem ลดความซับซ้อนในการใช้ยาปฏิชีวนะในผู้ป่วยวิกฤต",
+    "pmid": "43065403",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43065403/"
+  },
+  {
+    "date": "22 Nov",
+    "title": "Emergency Onlay Mesh Repair Does not Compromise Patient-Reported Outcomes: A Nationwide Survey- and Register-Based Study",
+    "comment": "สนับสนุนการทำผ่าตัดไส้เลื่อนฉุกเฉินด้วยตาข่ายโดยไม่เพิ่มผลกระทบเชิงลบต่อคุณภาพชีวิตผู้ป่วย",
+    "pmid": "43065134",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43065134/"
+  },
+  {
+    "date": "22 Nov",
+    "title": "Early serum uric acid decline and 30-day survival after out-of-hospital cardiac arrest",
+    "comment": "ระดับ uric acid ในเลือดเป็นตัวทำนายโอกาสรอดชีวิตที่น่าสนใจหลัง CPR ในภาวะ OHCA",
+    "pmid": "43065107",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43065107/"
+  },
+  {
+    "date": "22 Nov",
+    "title": "Real-time CPR feedback in out-of-hospital cardiac arrest: The device and its measurement technology matter",
+    "comment": "เน้นย้ำความสำคัญของอุปกรณ์ให้ feedback คุณภาพ CPR ที่แม่นยำเพื่อเพิ่มโอกาสรอดชีวิต",
     "pmid": "43064650",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43064650/"
+  },
+  {
+    "date": "22 Nov",
+    "title": "Stable imaging-to-visit ratios mask major shifts toward cross-sectional imaging in emergency departments: A multicenter 10-year study",
+    "comment": "สะท้อนแนวโน้มการเปลี่ยนผ่านไปสู่การใช้ CT scan มากขึ้นใน ER ซึ่งส่งผลต่อภาระงานและความเร็วในการวินิจฉัย",
+    "pmid": "43064553",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43064553/"
+  },
+  {
+    "date": "22 Nov",
+    "title": "Cannabis toxicology: a review of adverse effects of cannabis on children and adolescents",
+    "comment": "ข้อมูลสำคัญสำหรับกุมารเวชฉุกเฉินเกี่ยวกับความเป็นพิษจากกัญชาที่เพิ่มสูงขึ้นในกลุ่มเด็กและวัยรุ่น",
+    "pmid": "43064512",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43064512/"
+  },
+  {
+    "date": "22 Nov",
+    "title": "Management of intraprocedural complications from thoracic central venous recanalization: Hemothorax and pericardial tamponade",
+    "comment": "แนวทางการจัดการภาวะแทรกซ้อนฉุกเฉินจากการทำหัตถการหลอดเลือดดำส่วนกลางที่ต้องทราบ",
+    "pmid": "43064486",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43064486/"
+  },
+  {
+    "date": "22 Nov",
+    "title": "Prehospital Tourniquet Use in Rhode Island: High Rates of Unjustified Application with Low Complication Rates",
+    "comment": "ข้อมูลสำคัญเรื่องความปลอดภัยและการใช้สายรัดห้ามเลือดที่ไม่จำเป็นในระดับ Prehospital",
+    "pmid": "43063388",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43063388/"
+  },
+  {
+    "date": "22 Nov",
+    "title": "Impact of a point-of-care rapid diagnostic test on the dengue diagnostic cascade in an emergency department in a non-endemic setting: A before-after study (RaDDEO)",
+    "comment": "การใช้ Rapid test ช่วยลดขั้นตอนการวินิจฉัยไข้เลือดออกในห้องฉุกเฉินได้แม่นยำขึ้น",
+    "pmid": "43064030",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43064030/"
+  },
+  {
+    "date": "22 Nov",
+    "title": "Emergency Department Visits for Cannabinoid Hyperemesis Syndrome in Rhode Island - One Year of the New Diagnostic Code R11.16",
+    "comment": "การใช้รหัสโรคใหม่ช่วยคัดแยกกลุ่มอาการ Cannabinoid Hyperemesis Syndrome ใน ER ได้ชัดเจนขึ้น",
+    "pmid": "43063393",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43063393/"
   },
   {
     "date": "21 Nov",
@@ -15,24 +92,10 @@
   },
   {
     "date": "21 Nov",
-    "title": "Impact of a point-of-care rapid diagnostic test on the dengue diagnostic cascade in an emergency department in a non-endemic setting: A before-after study (RaDDEO).",
-    "comment": "การใช้ POC-RDT ตรวจไข้เลือดออกใน ER ช่วยลดเวลาการวินิจฉัยและเพิ่มความแม่นยำในการรักษา",
-    "pmid": "43064030",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43064030/"
-  },
-  {
-    "date": "21 Nov",
     "title": "Nitazene analogs in unintentional and undetermined intent drug overdose deaths - United States, 2019-2025.",
     "comment": "สารเตือนภัย! กลุ่ม Nitazenes มีฤทธิ์รุนแรงกว่ามอร์ฟีน เสี่ยงสูงต่อภาวะเกินขนาดและเสียชีวิตใน ER",
     "pmid": "43063795",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43063795/"
-  },
-  {
-    "date": "21 Nov",
-    "title": "Prehospital Tourniquet Use in Rhode Island: High Rates of Unjustified Application with Low Complication Rates.",
-    "comment": "การใช้ Tourniquet นอกโรงพยาบาลมีอัตราไม่จำเป็นสูง แต่ผลข้างเคียงต่ำ ต้องทบทวนข้อบ่งชี้การใช้",
-    "pmid": "43063388",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43063388/"
   },
   {
     "date": "21 Nov",
@@ -425,68 +488,5 @@
     "comment": "ชี้ให้เห็นว่าระยะเวลารอคอยหลังเริ่ม Buprenorphine ใน ER มีผลตรงต่ออัตราการติดตามรักษา",
     "pmid": "43033608",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43033608/"
-  },
-  {
-    "date": "15 Nov",
-    "title": "Automated Risk Stratification for Corrected QT Interval (QTc) Prolongation Related to Haloperidol Use.",
-    "comment": "ระบบประเมินความเสี่ยง QTc prolongation อัตโนมัติ เพิ่มความปลอดภัยในการใช้ Haloperidol ใน ER",
-    "pmid": "43032826",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43032826/"
-  },
-  {
-    "date": "15 Nov",
-    "title": "Overnight stay in the emergency department and mortality in sepsis patients.",
-    "comment": "การค้างคืนใน ER (ED boarding) ส่งผลเพิ่มอัตราการเสียชีวิตในผู้ป่วย Sepsis อย่างมีนัยสำคัญ",
-    "pmid": "43032405",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43032405/"
-  },
-  {
-    "date": "15 Nov",
-    "title": "Clinical and circumstantial predictors of intent to die among emergency department patients with intentional self-harm.",
-    "comment": "ปัจจัยทำนายความเสี่ยงการฆ่าตัวตายในผู้ป่วย self-harm ช่วยคัดกรองและประเมินผู้ป่วยใน ER ได้แม่นยำขึ้น",
-    "pmid": "43033532",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43033532/"
-  },
-  {
-    "date": "15 Nov",
-    "title": "Endovascular treatment for cervical internal carotid artery occlusion due to dissection: a multicenter analysis.",
-    "comment": "การรักษาด้วยหลอดเลือดแบบส่งสายสวนในภาวะหลอดเลือดคอฉีกขาดและอุดตัน ช่วยเพิ่มอัตราการรอดชีวิตและฟื้นฟูสมอง",
-    "pmid": "43033238",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43033238/"
-  },
-  {
-    "date": "15 Nov",
-    "title": "Antibiotic prescribing trends and outcomes in outpatient low-risk diverticulitis: a retrospective analysis in Veterans Health Administration between 2016 and 2023.",
-    "comment": "ทบทวนการใช้ยาปฏิชีวนะใน low-risk diverticulitis ช่วยสนับสนุนแนวทางการรักษาที่ไม่จำเป็นต้องใช้ยาฆ่าเชื้อทุกราย",
-    "pmid": "43032492",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43032492/"
-  },
-  {
-    "date": "15 Nov",
-    "title": "Retrospective, multicenter evaluation of stricter reflex urine culture criteria and workflow changes in emergency departments across six hospitals and three off-campus sites.",
-    "comment": "การปรับเกณฑ์ส่ง urine culture ใน ER ให้เข้มงวดขึ้น ช่วยลดการใช้ยาปฏิชีวนะพร่ำเพรื่อได้สำเร็จ",
-    "pmid": "43032020",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43032020/"
-  },
-  {
-    "date": "15 Nov",
-    "title": "Emergencies at Sea: Sudden Death on Cruise Ships For the BELTRAN Study (BaskEtbaLl and soccer sTadiums: Registry on Automatic exterNal defibrillators).",
-    "comment": "ข้อมูลระบาดวิทยาและการใช้ AED ในผู้ป่วยหัวใจหยุดเต้นนอกโรงพยาบาลในพื้นที่เฉพาะเพื่อปรับปรุงการช่วยเหลือ",
-    "pmid": "43033899",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43033899/"
-  },
-  {
-    "date": "15 Nov",
-    "title": "Endothelial and Hemostatic Molecular Markers Associated With 28-Day Mortality in Sepsis: A Prospective Cohort Study.",
-    "comment": "มาร์กเกอร์หลอดเลือดและการแข็งตัวของเลือดช่วยทำนายอัตราตาย 28 วันในผู้ป่วย Sepsis ได้ตั้งแต่แรกรับ",
-    "pmid": "43033053",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43033053/"
-  },
-  {
-    "date": "15 Nov",
-    "title": "Trajectories of medication use after whiplash injury: high rates of persistent opioid and sedative use.",
-    "comment": "เตือนความเสี่ยงการติดยาแก้ปวดกลุ่มโอปิออยด์และยากดประสาทเรื้อรังหลังบาดเจ็บ Whiplash ใน ER",
-    "pmid": "43032870",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43032870/"
   }
 ]
