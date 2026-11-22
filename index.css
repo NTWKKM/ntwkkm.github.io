@@ -1093,6 +1093,8 @@ html {
     letter-spacing: -0.06em;
     line-height: 0.8;
     white-space: nowrap;
+    color: inherit;
+    text-decoration: none;
 }
 
 .close-name::before {
@@ -1102,6 +1104,14 @@ html {
     height: 0.62em;
     margin-right: 0.08em;
     background: var(--color-mark);
+    transition: transform var(--dur-short) var(--ease-out);
+}
+
+/* Back to top: the square turns a quarter, as the wordmark's does */
+.close-name:hover::before,
+.close-name:focus-visible::before,
+.close-name.is-turning::before {
+    transform: rotate(90deg);
 }
 
 .footer-line {

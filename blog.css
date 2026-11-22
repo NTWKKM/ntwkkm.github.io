@@ -424,8 +424,19 @@ html:not(.js) .main-content {
     border-radius: var(--radius);
 }
 
-.toolbar-home svg {
-    color: var(--primary);
+/* The homepage wordmark's red square, turning a quarter on hover like it */
+.toolbar-home::before {
+    content: "";
+    flex: 0 0 auto;
+    width: 1.15em;
+    height: 1.15em;
+    background: var(--color-mark);
+    transition: transform var(--dur-short) var(--ease-out);
+}
+
+.toolbar-home:hover::before,
+.toolbar-home:focus-visible::before {
+    transform: rotate(90deg);
 }
 
 .toolbar-home:hover span {

@@ -433,4 +433,25 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchProjects();
     const yearEl = document.getElementById('footer-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+    setupBackToTop();
 });
+
+/**
+ * The footer name scrolls back to the top. Without JavaScript the #top link
+ * still jumps there. With it the scroll is smooth (instant under reduced
+ * motion), the URL keeps no hash, and focus lands on the top wordmark.
+ * The square turns on tap too, since touch screens have no hover.
+ */
+function setupBackToTop() {
+    const link = document.getElementById('back-to-top');
+    if (!link) return;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        link.classList.add('is-turning');
+        setTimeout(() => link.classList.remove('is-turning'), 600);
+        window.scrollTo({ top: 0, behavior: reduced.matches ? 'auto' : 'smooth' });
+        const home = document.querySelector('.masthead .wordmark');
+        if (home) home.focus({ preventScroll: true });
+    });
+}
