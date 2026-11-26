@@ -543,6 +543,8 @@ function setupSlideDeck() {
         '(prefers-reduced-motion: no-preference) and (min-width: 60rem) and (min-height: 640px)',
     );
     const supportsSnapChange = 'onscrollsnapchange' in document || 'onscrollsnapchange' in HTMLElement.prototype;
+    const supportsScrollEnd = 'onscrollend' in window;
+    const onScrollFallback = debounce(syncActiveSlide, 120);
 
     const onSnapChange = (e) => {
         const snapped = e.snapTargetBlock;
@@ -595,11 +597,21 @@ function setupSlideDeck() {
             unbindObserver();
             if (!snapListening) {
                 document.addEventListener('scrollsnapchange', onSnapChange);
+                if (supportsScrollEnd) {
+                    window.addEventListener('scrollend', syncActiveSlide, { passive: true });
+                } else {
+                    window.addEventListener('scroll', onScrollFallback, { passive: true });
+                }
                 snapListening = true;
             }
         } else {
             if (snapListening) {
                 document.removeEventListener('scrollsnapchange', onSnapChange);
+                if (supportsScrollEnd) {
+                    window.removeEventListener('scrollend', syncActiveSlide);
+                } else {
+                    window.removeEventListener('scroll', onScrollFallback);
+                }
                 snapListening = false;
             }
             bindObserver();
