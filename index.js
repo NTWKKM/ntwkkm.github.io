@@ -516,7 +516,7 @@ function setupSlideDeck() {
     // Select the latest slide in DOM order containing the viewport midline so a
     // covered, scaled sticky hero cannot override the visible slide.
     const syncActiveSlide = () => {
-        const mid = window.innerHeight * 0.5;
+        const mid = Math.floor(window.innerHeight * 0.5);
         let matched = -1;
         for (let i = slides.length - 1; i >= 0; i--) {
             const rect = slides[i].getBoundingClientRect();
@@ -538,7 +538,7 @@ function setupSlideDeck() {
     };
 
     // Sync active slide via native scrollsnapchange when supported, otherwise
-    // fall back to IntersectionObserver across the viewport midline.
+    // fall back to IntersectionObserver across a 1px viewport-midline band.
     if ('onscrollsnapchange' in document || 'onscrollsnapchange' in HTMLElement.prototype) {
         document.addEventListener('scrollsnapchange', (e) => {
             const snapped = e.snapTargetBlock;
@@ -546,16 +546,29 @@ function setupSlideDeck() {
             if (idx !== -1) setActiveSlide(idx);
         });
     } else {
-        const observer = new IntersectionObserver(
-            () => {
-                syncActiveSlide();
-            },
-            {
-                rootMargin: '-49% 0px -50% 0px',
-                threshold: 0,
-            },
-        );
-        slides.forEach((slide) => observer.observe(slide));
+        let observer = null;
+        let lastHeight = 0;
+        const bindObserver = () => {
+            const vh = window.innerHeight;
+            if (observer && vh === lastHeight) return;
+            lastHeight = vh;
+            if (observer) observer.disconnect();
+            const mid = Math.floor(vh * 0.5);
+            const topMargin = Math.max(0, mid - 1);
+            const bottomMargin = Math.max(0, vh - mid);
+            observer = new IntersectionObserver(
+                () => {
+                    syncActiveSlide();
+                },
+                {
+                    rootMargin: `-${topMargin}px 0px -${bottomMargin}px 0px`,
+                    threshold: 0,
+                },
+            );
+            slides.forEach((slide) => observer.observe(slide));
+        };
+        bindObserver();
+        window.addEventListener('resize', bindObserver, { passive: true });
     }
 
     // Ensure initial active slide matches current scroll position (e.g. reload or hash jump).
