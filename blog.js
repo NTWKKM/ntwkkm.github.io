@@ -387,17 +387,23 @@ function generateToC() {
         };
         const TOC_OFFSET_PX = 140;
         const orderedHeaders = Array.from(headers);
-        const syncActiveFromPositions = () => {
+        const above = new Set();
+        const syncActiveFromObserver = (entries) => {
+            for (const entry of entries) {
+                const rootTop = entry.rootBounds ? entry.rootBounds.top : TOC_OFFSET_PX;
+                const isAbove = entry.intersectionRatio < 1 && entry.boundingClientRect.top < rootTop;
+                if (isAbove) above.add(entry.target);
+                else above.delete(entry.target);
+            }
             let active = orderedHeaders[0];
             for (const header of orderedHeaders) {
-                if (header.getBoundingClientRect().top <= TOC_OFFSET_PX + 1) active = header;
-                else break;
+                if (above.has(header)) active = header;
             }
             setActive(active.id);
         };
         setActive(orderedHeaders[0].id);
         tocObserver = new IntersectionObserver(
-            syncActiveFromPositions,
+            syncActiveFromObserver,
             { rootMargin: `-${TOC_OFFSET_PX}px 0px 0px 0px`, threshold: [0, 1] }
         );
         orderedHeaders.forEach((h) => tocObserver.observe(h));
