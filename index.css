@@ -1083,7 +1083,7 @@ html {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .project-group:nth-child(4) .project-list li + li {
+    .project-group:nth-child(4) .project-list li:not(:nth-child(3n + 1)) {
         border-left: 1px solid var(--color-field-rule);
     }
 }
