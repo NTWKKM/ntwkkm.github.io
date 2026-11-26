@@ -385,12 +385,12 @@ function generateToC() {
                 link.setAttribute('aria-current', String(isActive));
             });
         };
+        const TOC_OFFSET_PX = 140;
         const orderedHeaders = Array.from(headers);
         const syncActiveFromPositions = () => {
-            const bandBottom = window.innerHeight * 0.35;
             let active = orderedHeaders[0];
             for (const header of orderedHeaders) {
-                if (header.getBoundingClientRect().top <= bandBottom) active = header;
+                if (header.getBoundingClientRect().top <= TOC_OFFSET_PX + 1) active = header;
                 else break;
             }
             setActive(active.id);
@@ -398,7 +398,7 @@ function generateToC() {
         setActive(orderedHeaders[0].id);
         tocObserver = new IntersectionObserver(
             syncActiveFromPositions,
-            { rootMargin: '-20% 0px -65% 0px', threshold: 0 }
+            { rootMargin: `-${TOC_OFFSET_PX}px 0px 0px 0px`, threshold: [0, 1] }
         );
         orderedHeaders.forEach((h) => tocObserver.observe(h));
     }

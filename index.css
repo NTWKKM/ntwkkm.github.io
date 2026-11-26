@@ -1203,11 +1203,22 @@ html {
     .close-name.is-turning::before,
     .hero-primary:hover,
     .hero-primary:active,
+    .hero-figure-link:hover .hero-count,
     .paper-nav-btn:active,
     .paper-link:hover svg,
-    .project-card:hover {
+    .project-card:hover,
+    .project-card:hover .project-external-arrow {
         transform: none;
         translate: none;
+    }
+
+    .masthead-link::after,
+    .hero-secondary::after,
+    .paper-summary-link::after,
+    .footer-line a::after,
+    .hero-figure-link .hero-count,
+    .project-external-arrow {
+        transition: none;
     }
 
     .paper-dot::after,
