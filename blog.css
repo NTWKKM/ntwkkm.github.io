@@ -1228,8 +1228,15 @@ html:not(.js) .main-content {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .filters-panel {
+    .filters-panel,
+    .sidebar,
+    .filters-toggle svg,
+    .article-list-item::before {
         transition: none;
+    }
+
+    .sidebar-overlay {
+        transition-duration: 100ms;
     }
 
     .brand:hover::before,

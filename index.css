@@ -1203,9 +1203,17 @@ html {
     .close-name.is-turning::before,
     .hero-primary:hover,
     .hero-primary:active,
-    .paper-nav-btn:active {
+    .paper-nav-btn:active,
+    .paper-link:hover svg,
+    .project-card:hover {
         transform: none;
         translate: none;
+    }
+
+    .paper-dot::after,
+    .paper-link svg,
+    .project-card {
+        transition: color var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out);
     }
 }
 

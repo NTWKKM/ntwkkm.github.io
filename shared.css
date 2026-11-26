@@ -698,6 +698,14 @@ dialog[open]:where(:not([data-closing]))::backdrop {
         transition-duration: 100ms;
     }
 
+    .sidebar {
+        transition: none;
+    }
+
+    .sidebar-overlay {
+        transition-duration: 100ms;
+    }
+
     .btn:active:not(:disabled),
     .icon-btn:active:not(:disabled),
     .theme-btn:hover svg,

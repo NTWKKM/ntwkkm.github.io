@@ -258,6 +258,7 @@ async function loadArticle(post, pushHistory = true, { keepNotice = false, direc
     const container = $('formatted-summary-container');
 
     const paintArticleShell = () => {
+        if (state.currentId !== post.id) return;
         $('empty-state').hidden = true;
         view.hidden = false;
 
@@ -294,13 +295,15 @@ async function loadArticle(post, pushHistory = true, { keepNotice = false, direc
         window.scrollTo(0, 0);
     };
 
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let shellReady = null;
+    const reduced = REDUCED_MOTION.matches;
     if (direction && document.startViewTransition && !reduced) {
         view.style.viewTransitionName = 'article-stage';
         const transition = document.startViewTransition({
             update: paintArticleShell,
             types: [direction],
         });
+        shellReady = transition.updateCallbackDone.catch(() => {});
         transition.finished.finally(() => {
             view.style.viewTransitionName = '';
             if (state.currentId === post.id) view.focus({ preventScroll: true });
@@ -316,6 +319,7 @@ async function loadArticle(post, pushHistory = true, { keepNotice = false, direc
 
     try {
         const chunk = await loadChunk(post.chunk);
+        if (shellReady) await shellReady;
         if (state.currentId !== post.id) return; // the reader moved on while this loaded
         const record = chunk.get(post.id);
         if (!record) throw new Error('Record missing from its chunk');
@@ -327,6 +331,7 @@ async function loadArticle(post, pushHistory = true, { keepNotice = false, direc
         generateToC();
         updateReadingProgress();
     } catch (error) {
+        if (shellReady) await shellReady;
         if (state.currentId !== post.id) return;
         console.error('[Reader] Could not load paper:', error);
         container.innerHTML = createErrorUI(
@@ -380,13 +385,22 @@ function generateToC() {
                 link.setAttribute('aria-current', String(isActive));
             });
         };
-        setActive(headers[0].id);
-        tocObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) setActive(entry.target.id);
-            });
-        }, { rootMargin: '-20% 0px -65% 0px', threshold: 0 });
-        headers.forEach((h) => tocObserver.observe(h));
+        const orderedHeaders = Array.from(headers);
+        const syncActiveFromPositions = () => {
+            const bandBottom = window.innerHeight * 0.35;
+            let active = orderedHeaders[0];
+            for (const header of orderedHeaders) {
+                if (header.getBoundingClientRect().top <= bandBottom) active = header;
+                else break;
+            }
+            setActive(active.id);
+        };
+        setActive(orderedHeaders[0].id);
+        tocObserver = new IntersectionObserver(
+            syncActiveFromPositions,
+            { rootMargin: '-20% 0px -65% 0px', threshold: 0 }
+        );
+        orderedHeaders.forEach((h) => tocObserver.observe(h));
     }
 }
 
@@ -430,15 +444,21 @@ function updateNavButtons() {
     ['citation-btn', 'mob-nav-cite', 'share-btn', 'mob-nav-share'].forEach((id) => { $(id).disabled = !state.currentId; });
 }
 
+const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)');
 const supportsNativeScrollProgress = Boolean(
     window.CSS?.supports?.('animation-timeline', 'scroll()')
 );
+const usesNativeScrollProgress = () => supportsNativeScrollProgress && !REDUCED_MOTION.matches;
 
 function updateReadingProgress() {
     const container = document.querySelector('.reading-progress');
     if (container) container.classList.toggle('is-active', Boolean(state.currentId));
-    if (supportsNativeScrollProgress) return;
     const bar = document.querySelector('.reading-progress-bar');
+    if (!bar) return;
+    if (usesNativeScrollProgress()) {
+        bar.style.transform = '';
+        return;
+    }
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     const progress = state.currentId && scrollable > 0 ? Math.min(1, window.scrollY / scrollable) : 0;
     bar.style.transform = `scaleX(${progress})`;
@@ -827,10 +847,23 @@ function setupEventListeners() {
     $('font-decrease').addEventListener('click', () => applyScale(scale - 0.1));
     $('font-increase').addEventListener('click', () => applyScale(scale + 0.1));
 
-    if (!supportsNativeScrollProgress) {
-        window.addEventListener('scroll', updateReadingProgress, { passive: true });
-        window.addEventListener('resize', debounce(updateReadingProgress, 100));
-    }
+    const onResizeProgress = debounce(updateReadingProgress, 100);
+    let scrollFallbackAttached = false;
+    const syncScrollProgressFallback = () => {
+        const needsFallback = !usesNativeScrollProgress();
+        if (needsFallback && !scrollFallbackAttached) {
+            window.addEventListener('scroll', updateReadingProgress, { passive: true });
+            window.addEventListener('resize', onResizeProgress);
+            scrollFallbackAttached = true;
+        } else if (!needsFallback && scrollFallbackAttached) {
+            window.removeEventListener('scroll', updateReadingProgress);
+            window.removeEventListener('resize', onResizeProgress);
+            scrollFallbackAttached = false;
+        }
+        updateReadingProgress();
+    };
+    syncScrollProgressFallback();
+    REDUCED_MOTION.addEventListener('change', syncScrollProgressFallback);
 
     // Shortcuts: arrows move between papers, "/" focuses search, "?" opens help, Escape closes the drawer
     document.addEventListener('keydown', (e) => {
