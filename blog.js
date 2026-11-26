@@ -249,55 +249,77 @@ function setRouteNotice(missing) {
  * @param {{ keepNotice?: boolean }} options - keepNotice: a retry of the same
  *   paper, which must not drop the "linked paper is not held" notice
  */
-async function loadArticle(post, pushHistory = true, { keepNotice = false } = {}) {
+async function loadArticle(post, pushHistory = true, { keepNotice = false, direction = null } = {}) {
     if (!keepNotice) setRouteNotice(null);
     state.currentId = post.id;
     document.title = `${post.title} | Medical Research Blog`;
 
-    $('empty-state').hidden = true;
     const view = $('article-view');
-    view.hidden = false;
+    const container = $('formatted-summary-container');
 
-    // The date a paper entered this library, not its publication date.
-    $('post-date').textContent = post.date ? `Added ${post.date}` : '';
-    $('post-date').dateTime = post.iso;
-    $('post-id').textContent = post.pmid ? `PMID ${post.pmid}` : '';
-    $('post-id').hidden = !post.pmid;
-    $('post-design').textContent = post.design !== -1 ? state.designs[post.design].label : '';
-    $('post-design').hidden = post.design === -1;
-    $('reading-time').hidden = true;
-    $('post-title').textContent = post.title;
+    const paintArticleShell = () => {
+        if (state.currentId !== post.id) return;
+        $('empty-state').hidden = true;
+        view.hidden = false;
 
-    $('post-tags').innerHTML =
-        post.spec.map(i => `<button type="button" class="tag-badge" data-spec="${i}">${escapeHTML(state.specialties[i].label)}</button>`).join('') +
-        post.tags.map(tag => `<button type="button" class="tag-link" data-tag="${escapeHTML(tag)}">${escapeHTML(tag)}</button>`).join('');
+        // The date a paper entered this library, not its publication date.
+        $('post-date').textContent = post.date ? `Added ${post.date}` : '';
+        $('post-date').dateTime = post.iso;
+        $('post-id').textContent = post.pmid ? `PMID ${post.pmid}` : '';
+        $('post-id').hidden = !post.pmid;
+        $('post-design').textContent = post.design !== -1 ? state.designs[post.design].label : '';
+        $('post-design').hidden = post.design === -1;
+        $('reading-time').hidden = true;
+        $('post-title').textContent = post.title;
 
-    const link = $('post-link');
-    const href = post.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${post.pmid}/` : '';
-    link.hidden = !href;
-    if (href) link.href = href;
+        $('post-tags').innerHTML =
+            post.spec.map(i => `<button type="button" class="tag-badge" data-spec="${i}">${escapeHTML(state.specialties[i].label)}</button>`).join('') +
+            post.tags.map(tag => `<button type="button" class="tag-link" data-tag="${escapeHTML(tag)}">${escapeHTML(tag)}</button>`).join('');
 
-    renderRelated(post);
+        const link = $('post-link');
+        const href = post.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${post.pmid}/` : '';
+        link.hidden = !href;
+        if (href) link.href = href;
 
-    document.querySelectorAll('.article-list-item').forEach((el) => {
-        const active = el.dataset.id === post.id;
-        el.classList.toggle('active', active);
-        if (active) el.setAttribute('aria-current', 'true');
-        else el.removeAttribute('aria-current');
-    });
+        renderRelated(post);
+
+        document.querySelectorAll('.article-list-item').forEach((el) => {
+            const active = el.dataset.id === post.id;
+            el.classList.toggle('active', active);
+            if (active) el.setAttribute('aria-current', 'true');
+            else el.removeAttribute('aria-current');
+        });
+
+        container.innerHTML = createSkeletonUI(3, 'card');
+        $('toc-container').hidden = true;
+        window.scrollTo(0, 0);
+    };
+
+    let shellReady = null;
+    const reduced = REDUCED_MOTION.matches;
+    if (direction && document.startViewTransition && !reduced) {
+        view.style.viewTransitionName = 'article-stage';
+        const transition = document.startViewTransition({
+            update: paintArticleShell,
+            types: [direction],
+        });
+        shellReady = transition.updateCallbackDone.catch(() => {});
+        transition.finished.finally(() => {
+            view.style.viewTransitionName = '';
+            if (state.currentId === post.id) view.focus({ preventScroll: true });
+        });
+    } else {
+        paintArticleShell();
+    }
 
     if (pushHistory) history.pushState({ id: post.id }, '', buildURL(post.id));
     updateNavButtons();
-    window.scrollTo(0, 0);
     updateReadingProgress();
     if (MOBILE.matches) closeSidebar();
 
-    const container = $('formatted-summary-container');
-    container.innerHTML = createSkeletonUI(3, 'card');
-    $('toc-container').hidden = true;
-
     try {
         const chunk = await loadChunk(post.chunk);
+        if (shellReady) await shellReady;
         if (state.currentId !== post.id) return; // the reader moved on while this loaded
         const record = chunk.get(post.id);
         if (!record) throw new Error('Record missing from its chunk');
@@ -309,6 +331,7 @@ async function loadArticle(post, pushHistory = true, { keepNotice = false } = {}
         generateToC();
         updateReadingProgress();
     } catch (error) {
+        if (shellReady) await shellReady;
         if (state.currentId !== post.id) return;
         console.error('[Reader] Could not load paper:', error);
         container.innerHTML = createErrorUI(
@@ -318,8 +341,21 @@ async function loadArticle(post, pushHistory = true, { keepNotice = false } = {}
     }
 }
 
+let tocObserver = null;
+const supportsScrollTargetGroup = Boolean(window.CSS?.supports?.('scroll-target-group: auto'));
+
+function syncToCAriaCurrent() {
+    const links = document.querySelectorAll('#toc-list .toc-link');
+    if (!links.length) return;
+    const current = document.querySelector('#toc-list .toc-link:target-current');
+    links.forEach((link) => {
+        link.setAttribute('aria-current', link === current ? 'true' : 'false');
+    });
+}
+
 function clearArticle() {
     state.currentId = null;
+    if (tocObserver) { tocObserver.disconnect(); tocObserver = null; }
     document.title = 'Medical Research Blog | NTWKKM';
     $('empty-state').hidden = false;
     $('article-view').hidden = true;
@@ -329,12 +365,49 @@ function clearArticle() {
 }
 
 function generateToC() {
+    if (tocObserver) { tocObserver.disconnect(); tocObserver = null; }
     const toc = $('toc-container');
     const headers = document.querySelectorAll('#formatted-summary-container .sec-header');
     if (headers.length < 2) { toc.hidden = true; return; }
+    headers.forEach((h) => { h.setAttribute('tabindex', '-1'); });
     $('toc-list').innerHTML = Array.from(headers)
         .map(h => `<a class="toc-link" href="#${h.id}">${escapeHTML(h.textContent)}</a>`).join('');
     toc.hidden = false;
+
+    const links = Array.from(document.querySelectorAll('#toc-list .toc-link'));
+    if (supportsScrollTargetGroup) {
+        syncToCAriaCurrent();
+    } else if ('IntersectionObserver' in window) {
+        const setActive = (id) => {
+            links.forEach((link) => {
+                const isActive = link.getAttribute('href') === `#${id}`;
+                link.classList.toggle('target-current', isActive);
+                link.setAttribute('aria-current', String(isActive));
+            });
+        };
+        const TOC_OFFSET_PX = 140;
+        const orderedHeaders = Array.from(headers);
+        const above = new Set();
+        const syncActiveFromObserver = (entries) => {
+            for (const entry of entries) {
+                const rootTop = entry.rootBounds ? entry.rootBounds.top : TOC_OFFSET_PX;
+                const isAbove = entry.intersectionRatio < 1 && entry.boundingClientRect.top < rootTop;
+                if (isAbove) above.add(entry.target);
+                else above.delete(entry.target);
+            }
+            let active = orderedHeaders[0];
+            for (const header of orderedHeaders) {
+                if (above.has(header)) active = header;
+            }
+            setActive(active.id);
+        };
+        setActive(orderedHeaders[0].id);
+        tocObserver = new IntersectionObserver(
+            syncActiveFromObserver,
+            { rootMargin: `-${TOC_OFFSET_PX}px 0px 0px 0px`, threshold: [0, 1] }
+        );
+        orderedHeaders.forEach((h) => tocObserver.observe(h));
+    }
 }
 
 /** Papers that share the most tags and specialties with the open one. */
@@ -365,7 +438,7 @@ function navigateArticle(direction) {
     if (at === -1 || !next) return;
     const page = Math.floor((at + direction) / PAGE_SIZE) + 1;
     if (page !== state.page) { state.page = page; renderList(); }
-    loadArticle(next);
+    loadArticle(next, true, { direction: direction > 0 ? 'forward' : 'backward' });
 }
 
 function updateNavButtons() {
@@ -377,16 +450,66 @@ function updateNavButtons() {
     ['citation-btn', 'mob-nav-cite', 'share-btn', 'mob-nav-share'].forEach((id) => { $(id).disabled = !state.currentId; });
 }
 
+const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)');
+const supportsNativeScrollProgress = Boolean(
+    window.CSS?.supports?.('animation-timeline', 'scroll()')
+);
+const usesNativeScrollProgress = () => supportsNativeScrollProgress && !REDUCED_MOTION.matches;
+
 function updateReadingProgress() {
+    const container = document.querySelector('.reading-progress');
+    if (container) container.classList.toggle('is-active', Boolean(state.currentId));
     const bar = document.querySelector('.reading-progress-bar');
+    if (!bar) return;
+    if (usesNativeScrollProgress()) {
+        bar.style.transform = '';
+        return;
+    }
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     const progress = state.currentId && scrollable > 0 ? Math.min(1, window.scrollY / scrollable) : 0;
     bar.style.transform = `scaleX(${progress})`;
 }
 
 // ---------------------------------------------------------------------------
-// Citation
+// Citation (with top-layer exit fallback for browsers without overlay/discrete)
 // ---------------------------------------------------------------------------
+
+let supportsDisplayTransition;
+function canTransitionDisplay() {
+    if (supportsDisplayTransition !== undefined) return supportsDisplayTransition;
+    if (!window.CSS?.supports?.('transition-behavior', 'allow-discrete') || !document.body) {
+        return false;
+    }
+    const probe = document.createElement('div');
+    probe.style.cssText = 'transition: display 1s allow-discrete !important; display: block;';
+    document.body.appendChild(probe);
+    getComputedStyle(probe).display;
+    probe.style.display = 'none';
+    supportsDisplayTransition = getComputedStyle(probe).display === 'block';
+    probe.remove();
+    return supportsDisplayTransition;
+}
+
+function supportsTopLayerExit() {
+    return Boolean(window.CSS?.supports?.('overlay', 'auto')) && canTransitionDisplay();
+}
+
+async function closeTopLayer(dialog) {
+    if (!dialog.open) return;
+    if (!supportsTopLayerExit()) {
+        dialog.setAttribute('data-closing', '');
+        const animations = dialog.getAnimations({ subtree: true });
+        if (animations.length > 0) {
+            await Promise.race([
+                Promise.allSettled(animations.map((a) => a.finished)),
+                new Promise((r) => setTimeout(r, 2000)),
+            ]);
+        }
+        if (!dialog.hasAttribute('data-closing')) return;
+        dialog.removeAttribute('data-closing');
+    }
+    dialog.close();
+}
 
 let citationFormat = 'vancouver';
 
@@ -402,7 +525,9 @@ function openCitationModal() {
     if (!state.currentId) return;
     renderCitation();
     $('citation-copy-btn').textContent = 'Copy citation';
-    $('citation-dialog').showModal();
+    const dialog = $('citation-dialog');
+    dialog.removeAttribute('data-closing');
+    dialog.showModal();
 }
 
 async function copyCitation() {
@@ -593,8 +718,27 @@ function setupEventListeners() {
 
     $('filters-toggle').addEventListener('click', () => {
         const panel = $('filters-panel');
-        panel.hidden = !panel.hidden;
-        $('filters-toggle').setAttribute('aria-expanded', String(!panel.hidden));
+        const toggle = $('filters-toggle');
+        const expanding = panel.hidden || panel.classList.contains('is-collapsed');
+        toggle.setAttribute('aria-expanded', String(expanding));
+
+        if (expanding) {
+            panel.hidden = false;
+            panel.classList.add('is-collapsed');
+            // Force style flush so the block-size: 0 -> auto transition starts cleanly.
+            panel.getBoundingClientRect();
+            panel.classList.remove('is-collapsed');
+        } else {
+            panel.classList.add('is-collapsed');
+            const transitions = panel.getAnimations().filter((a) => a instanceof CSSTransition);
+            if (transitions.length === 0) {
+                panel.hidden = true;
+            } else {
+                Promise.allSettled(transitions.map((t) => t.finished)).then(() => {
+                    if (panel.classList.contains('is-collapsed')) panel.hidden = true;
+                });
+            }
+        }
     });
 
     const resetAll = () => {
@@ -658,7 +802,36 @@ function setupEventListeners() {
     $('mob-nav-cite').addEventListener('click', () => { openCitationModal(); triggerHaptic('light'); });
     $('mob-nav-share').addEventListener('click', e => sharePaper(e.currentTarget));
 
-    $('citation-close-btn').addEventListener('click', () => $('citation-dialog').close());
+    const citationDialog = $('citation-dialog');
+    $('citation-close-btn').addEventListener('click', () => closeTopLayer(citationDialog));
+    citationDialog.addEventListener('cancel', (e) => {
+        e.preventDefault();
+        closeTopLayer(citationDialog);
+    });
+    citationDialog.addEventListener('click', (e) => {
+        if (e.target === citationDialog) closeTopLayer(citationDialog);
+    });
+
+    const shortcutsDialog = $('shortcuts-dialog');
+    const openShortcutsDialog = () => {
+        if (!shortcutsDialog || shortcutsDialog.open) return;
+        shortcutsDialog.removeAttribute('data-closing');
+        shortcutsDialog.showModal();
+    };
+    $('shortcuts-btn')?.addEventListener('click', openShortcutsDialog);
+    $('shortcuts-close-btn')?.addEventListener('click', () => closeTopLayer(shortcutsDialog));
+    shortcutsDialog?.addEventListener('cancel', (e) => {
+        e.preventDefault();
+        closeTopLayer(shortcutsDialog);
+    });
+    shortcutsDialog?.addEventListener('click', (e) => {
+        if (e.target === shortcutsDialog) closeTopLayer(shortcutsDialog);
+    });
+
+    if (supportsScrollTargetGroup) {
+        document.addEventListener('scrollend', syncToCAriaCurrent);
+    }
+
     $('citation-copy-btn').addEventListener('click', copyCitation);
     document.querySelectorAll('.citation-format-tab').forEach((tab) => {
         tab.addEventListener('click', () => { citationFormat = tab.dataset.format; renderCitation(); });
@@ -680,12 +853,27 @@ function setupEventListeners() {
     $('font-decrease').addEventListener('click', () => applyScale(scale - 0.1));
     $('font-increase').addEventListener('click', () => applyScale(scale + 0.1));
 
-    window.addEventListener('scroll', updateReadingProgress, { passive: true });
-    window.addEventListener('resize', debounce(updateReadingProgress, 100));
+    const onResizeProgress = debounce(updateReadingProgress, 100);
+    let scrollFallbackAttached = false;
+    const syncScrollProgressFallback = () => {
+        const needsFallback = !usesNativeScrollProgress();
+        if (needsFallback && !scrollFallbackAttached) {
+            window.addEventListener('scroll', updateReadingProgress, { passive: true });
+            window.addEventListener('resize', onResizeProgress);
+            scrollFallbackAttached = true;
+        } else if (!needsFallback && scrollFallbackAttached) {
+            window.removeEventListener('scroll', updateReadingProgress);
+            window.removeEventListener('resize', onResizeProgress);
+            scrollFallbackAttached = false;
+        }
+        updateReadingProgress();
+    };
+    syncScrollProgressFallback();
+    REDUCED_MOTION.addEventListener('change', syncScrollProgressFallback);
 
-    // Shortcuts: arrows move between papers, "/" focuses search, Escape closes the drawer
+    // Shortcuts: arrows move between papers, "/" focuses search, "?" opens help, Escape closes the drawer
     document.addEventListener('keydown', (e) => {
-        if ($('citation-dialog').open) return;
+        if ($('citation-dialog').open || $('shortcuts-dialog')?.open) return;
         const el = document.activeElement;
         const typing = el && (/^(input|textarea|select)$/i.test(el.tagName) || el.isContentEditable);
         if (typing) {
@@ -696,7 +884,10 @@ function setupEventListeners() {
         // Shift+Arrow extends a text selection; it must not change the paper.
         if (e.key === 'ArrowLeft' && !e.shiftKey) navigateArticle(-1);
         else if (e.key === 'ArrowRight' && !e.shiftKey) navigateArticle(1);
-        else if (e.key === '/') {
+        else if (e.key === '?') {
+            e.preventDefault();
+            openShortcutsDialog();
+        } else if (e.key === '/') {
             e.preventDefault();
             openSidebar();
             search.focus();
