@@ -453,7 +453,113 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearEl = document.getElementById('footer-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
     setupBackToTop();
+    setupSlideDeck();
 });
+
+/**
+ * Presentation slide deck: synchronises the right-edge slide rail and active
+ * slide surface with vertical scroll-snap. Uses the native `scrollsnapchange`
+ * event where supported, with an IntersectionObserver fallback elsewhere.
+ */
+function setupSlideDeck() {
+    const rail = document.getElementById('slide-rail');
+    const slides = Array.from(document.querySelectorAll('.deck-slide'));
+    if (!rail || slides.length === 0) return;
+
+    const links = Array.from(rail.querySelectorAll('.slide-rail-link'));
+    const countEl = document.getElementById('slide-rail-count');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const total = slides.length;
+    let activeIndex = 0;
+
+    const formatNum = (n) => String(n).padStart(2, '0');
+
+    const setActiveSlide = (idx) => {
+        const clamped = Math.max(0, Math.min(total - 1, idx));
+        activeIndex = clamped;
+        const slide = slides[clamped];
+        rail.setAttribute('data-surface', slide.dataset.slideSurface || 'paper');
+        if (countEl) countEl.textContent = `${formatNum(clamped + 1)}/${formatNum(total)}`;
+        slides.forEach((s, i) => {
+            s.dataset.slideActive = i === clamped ? 'true' : 'false';
+        });
+        links.forEach((link, i) => {
+            if (i === clamped) {
+                link.setAttribute('aria-current', 'location');
+            } else {
+                link.removeAttribute('aria-current');
+            }
+        });
+    };
+
+    const goToSlide = (idx) => {
+        const targetIdx = Math.max(0, Math.min(total - 1, idx));
+        const target = slides[targetIdx];
+        if (!target) return;
+        setActiveSlide(targetIdx);
+        const top = targetIdx === 0 ? 0 : target.offsetTop;
+        window.scrollTo({
+            top,
+            behavior: reducedMotion.matches ? 'auto' : 'smooth',
+        });
+        const heading = target.querySelector('[tabindex="-1"]');
+        if (heading) heading.focus({ preventScroll: true });
+    };
+
+    links.forEach((link, idx) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToSlide(idx);
+        });
+    });
+
+    // Sync active slide via native scrollsnapchange when supported, otherwise
+    // fall back to IntersectionObserver across the viewport midline.
+    if ('onscrollsnapchange' in document || 'onscrollsnapchange' in HTMLElement.prototype) {
+        document.addEventListener('scrollsnapchange', (e) => {
+            const snapped = e.snapTargetBlock;
+            const idx = snapped ? slides.indexOf(snapped) : -1;
+            if (idx !== -1) setActiveSlide(idx);
+        });
+    } else {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                let best = null;
+                for (const entry of entries) {
+                    if (entry.isIntersecting && (!best || entry.intersectionRatio > best.intersectionRatio)) {
+                        best = entry;
+                    }
+                }
+                if (best) {
+                    const idx = slides.indexOf(best.target);
+                    if (idx !== -1) setActiveSlide(idx);
+                }
+            },
+            {
+                rootMargin: '-25% 0px -25% 0px',
+                threshold: [0, 0.25, 0.5, 0.75],
+            },
+        );
+        slides.forEach((slide) => observer.observe(slide));
+    }
+
+    // Ensure initial active slide matches current scroll position (e.g. reload or hash jump).
+    const syncInitial = () => {
+        const mid = window.innerHeight * 0.45;
+        let bestIdx = 0;
+        let bestDist = Infinity;
+        slides.forEach((slide, i) => {
+            const dist = Math.abs(slide.getBoundingClientRect().top);
+            if (dist < bestDist && slide.getBoundingClientRect().top <= mid) {
+                bestDist = dist;
+                bestIdx = i;
+            }
+        });
+        setActiveSlide(bestIdx);
+    };
+
+    syncInitial();
+}
 
 /**
  * The footer name scrolls back to the top. Without JavaScript the #top link
