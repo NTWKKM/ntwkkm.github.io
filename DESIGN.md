@@ -106,7 +106,7 @@ Re-derived in `[data-theme="dark"]` from the same hues; see `shared.css` for val
 2. [ ] `var(--font-display)` for heads and item titles, `var(--font-body)` for UI and prose, `var(--font-thai)` for Thai; dates and counts take `tabular-nums`.
 3. [ ] Radius 0, no shadows on in-flow content, hairlines only between rows.
 4. [ ] Red marks one chosen thing; it never sits on the ultramarine; two fields never touch.
-5. [ ] Motion: never `transition: all`, animate only `transform`, `opacity` and colours; every animation ends visible and has a reduced-motion fallback; scroll-linked motion only in the hero and the tools band; no fade-in on scroll elsewhere.
+5. [ ] Motion: never `transition: all`, animate only `transform`, `opacity` and colours; every animation ends visible and has a reduced-motion fallback; scroll-driven motion in the hero, papers, tools band and footer.
 6. [ ] Responsive at 320, 768 and 1440, and both themes re-derived, never inverted.
 7. [ ] Run `node .github/scripts/lint-css.js` (also in CI before every deploy) and `node ~/.claude/skills/hallmark/scripts/sloplint.mjs index.html index.css shared.css --genre editorial --render` when available; keep the stamp and waiver lines at the top of `shared.css`, `index.css` and `blog.css`.
 8. [ ] Every link that opens in a new tab (`target="_blank"`) MUST define `rel="noopener noreferrer"`.

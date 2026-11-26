@@ -25,7 +25,7 @@ html {
     }
 }
 
-@media (min-width: 60rem) and (min-height: 640px) {
+@media (prefers-reduced-motion: no-preference) and (min-width: 60rem) and (min-height: 640px) {
     html {
         scroll-snap-type: y mandatory;
     }
