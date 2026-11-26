@@ -175,9 +175,33 @@ function initSharedTheme() {
 
     toggleBtn.addEventListener('click', () => {
         const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        // Applied synchronously: the switch must never wait on an animation.
-        paint(next);
-        try { localStorage.setItem('theme', next); } catch (e) { /* private mode */ }
+        const save = () => {
+            paint(next);
+            try { localStorage.setItem('theme', next); } catch (e) { /* private mode */ }
+        };
+
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!document.startViewTransition || reduced) {
+            save();
+            return;
+        }
+
+        const rect = toggleBtn.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+        const r = Math.hypot(
+            Math.max(x, window.innerWidth - x),
+            Math.max(y, window.innerHeight - y)
+        );
+        root.style.setProperty('--theme-x', `${x}px`);
+        root.style.setProperty('--theme-y', `${y}px`);
+        root.style.setProperty('--theme-r', `${Math.ceil(r)}px`);
+        root.setAttribute('data-theme-transition', '');
+
+        const transition = document.startViewTransition(save);
+        transition.finished.finally(() => {
+            root.removeAttribute('data-theme-transition');
+        });
     });
 }
 

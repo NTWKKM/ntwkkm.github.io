@@ -180,6 +180,25 @@ function setupPaperCarousel(track, pager, dotsContainer, statusEl, totalPages) {
     }, { signal });
 
     const supportsScrollEnd = 'onscrollend' in window;
+    const supportsScrollSnapChange = 'onscrollsnapchange' in HTMLElement.prototype;
+
+    if (supportsScrollSnapChange) {
+        track.addEventListener('scrollsnapchange', (e) => {
+            const snapped = e.snapTargetInline;
+            const idx = snapped ? slides.indexOf(snapped) : -1;
+            if (idx === -1) return;
+            clearTimeout(settleTimer);
+            pendingTarget = null;
+            suppressAbortUntil = 0;
+            updateDots(idx);
+            markSlides(idx);
+            if (idx !== settledIndex) {
+                settledIndex = idx;
+                if (statusEl) statusEl.textContent = `Page ${idx + 1} of ${totalPages}`;
+            }
+        }, { signal });
+    }
+
     track.addEventListener('scroll', () => {
         if (pendingTarget === null && !rafId) {
             rafId = requestAnimationFrame(() => {
@@ -187,7 +206,7 @@ function setupPaperCarousel(track, pager, dotsContainer, statusEl, totalPages) {
                 if (pendingTarget === null) updateDots(nearestSlideIndex());
             });
         }
-        if (!supportsScrollEnd) {
+        if (!supportsScrollEnd && !supportsScrollSnapChange) {
             clearTimeout(settleTimer);
             settleTimer = setTimeout(onSettle, 140);
         }

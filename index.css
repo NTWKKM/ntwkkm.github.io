@@ -57,10 +57,12 @@ html {
     width: 1.9em;
     height: 1.9em;
     background: var(--color-mark);
-    transition: transform var(--dur-short) var(--ease-out);
+    transition: transform 360ms var(--ease-out);
+    transition-timing-function: linear(0, 0.38 14%, 0.92 34%, 1.07 52%, 0.99 72%, 1);
 }
 
-.wordmark:hover::before {
+.wordmark:hover::before,
+.wordmark:focus-visible::before {
     transform: rotate(90deg);
 }
 
@@ -634,7 +636,8 @@ html {
     width: 8px;
     height: 8px;
     background: var(--color-edge);
-    transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
+    transition: background-color var(--dur-short) var(--ease-out), transform 340ms var(--ease-out);
+    transition-timing-function: var(--ease-out), linear(0, 0.42 15%, 1.09 38%, 0.98 62%, 1.01 80%, 1);
 }
 
 .paper-dot:hover::after {
@@ -689,6 +692,30 @@ html {
     scroll-snap-align: start;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+    @supports ((animation-timeline: view()) and (animation-range: entry)) {
+        .paper-slide {
+            animation: paper-slide-focus auto linear both;
+            animation-timeline: view(inline);
+        }
+    }
+}
+
+@keyframes paper-slide-focus {
+    0% {
+        opacity: 0.45;
+        scale: 0.985;
+    }
+    20%, 80% {
+        opacity: 1;
+        scale: 1;
+    }
+    100% {
+        opacity: 0.45;
+        scale: 0.985;
+    }
+}
+
 /* One page: six papers as a three-by-two grid of ruled cells. Titles
    and Thai notes are clamped, so every page is the same height and the
    section holds one screen. */
@@ -706,10 +733,44 @@ html {
     min-width: 0;
     padding-top: var(--space-md);
     border-top: 1px solid var(--color-rule);
+    transition: border-color var(--dur-short) var(--ease-out);
 }
 
 .paper-list .paper-card:nth-child(-n + 3) {
     border-top-color: var(--color-ink);
+}
+
+.paper-card:hover,
+.paper-card:focus-within {
+    border-top-color: var(--color-mark);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .paper-slide:first-child .paper-card {
+        --stagger-time: 40ms;
+        animation: paper-card-enter 420ms var(--ease-out) both;
+    }
+
+    @supports (animation-delay: calc(sibling-index() * 0.1s)) {
+        .paper-slide:first-child .paper-card {
+            animation-delay: calc((sibling-index() - 1) * var(--stagger-time));
+        }
+    }
+
+    @supports not (animation-delay: calc(sibling-index() * 0.1s)) {
+        .paper-slide:first-child .paper-card:nth-child(2) { animation-delay: 40ms; }
+        .paper-slide:first-child .paper-card:nth-child(3) { animation-delay: 80ms; }
+        .paper-slide:first-child .paper-card:nth-child(4) { animation-delay: 120ms; }
+        .paper-slide:first-child .paper-card:nth-child(5) { animation-delay: 160ms; }
+        .paper-slide:first-child .paper-card:nth-child(6) { animation-delay: 200ms; }
+    }
+}
+
+@keyframes paper-card-enter {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
 }
 
 .paper-date {
@@ -1002,7 +1063,7 @@ html {
    on its own view timeline, so they arrive in reading order. All end at
    rest and fully shown; reduced motion and browsers without view
    timelines keep the still band. */
-@supports (animation-timeline: view()) {
+@supports ((animation-timeline: view()) and (animation-range: entry)) {
     @media (prefers-reduced-motion: no-preference) {
         .works-section {
             animation: band-tilt linear both;
@@ -1021,6 +1082,25 @@ html {
             animation-timeline: view();
             animation-range: entry 0% entry 70%;
         }
+
+        .close-head {
+            animation: group-rise linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 55%;
+        }
+
+        .close-name {
+            animation: close-name-rise linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 65%;
+        }
+    }
+}
+
+@keyframes close-name-rise {
+    from {
+        opacity: 0.35;
+        transform: translateY(28px);
     }
 }
 
@@ -1104,7 +1184,8 @@ html {
     height: 0.62em;
     margin-right: 0.08em;
     background: var(--color-mark);
-    transition: transform var(--dur-short) var(--ease-out);
+    transition: transform 380ms var(--ease-out);
+    transition-timing-function: linear(0, 0.38 14%, 0.92 34%, 1.07 52%, 0.99 72%, 1);
 }
 
 /* Back to top: the square turns a quarter, as the wordmark's does */
@@ -1112,6 +1193,20 @@ html {
 .close-name:focus-visible::before,
 .close-name.is-turning::before {
     transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wordmark:hover::before,
+    .wordmark:focus-visible::before,
+    .close-name:hover::before,
+    .close-name:focus-visible::before,
+    .close-name.is-turning::before,
+    .hero-primary:hover,
+    .hero-primary:active,
+    .paper-nav-btn:active {
+        transform: none;
+        translate: none;
+    }
 }
 
 .footer-line {
