@@ -83,5 +83,19 @@
     "category": "Knowledge & notes",
     "icon": "cup",
     "url": "https://ntwkkm.github.io/ntwcoff/"
+  },
+  {
+    "title": "NTW Relay",
+    "desc": "Cross-device clipboard & file handoff workspace with QR pickup.",
+    "category": "Knowledge & notes",
+    "icon": "relay",
+    "url": "https://ntwkkm.github.io/ntw-relay/"
+  },
+  {
+    "title": "Plumb_Line",
+    "desc": "Automatic horizon leveling, clean cropping & photo framing utility.",
+    "category": "Knowledge & notes",
+    "icon": "crop",
+    "url": "https://ntwkkm.github.io/plumbline/"
   }
 ]

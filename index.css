@@ -4,7 +4,7 @@
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R3 V4 · weakest: R, answered with poster scale and one field band rather than new sections */
 /* Hallmark · waive 77 · the before record holds four sections: hero, papers, tools, footer · a redesign adds no section the page did not have */
 /* Hallmark · answered F6 · .hero-count holds two counts that never change in place · tabular figures gave the comma in 1,507 a full digit of space */
-/* Hallmark · answered F8 · .hero, .hero-head, .hero-copy and .hero-figures share one scroll(root) timeline inside 0 to 80vh, one hero pattern in parts; the tools band answers it on view() timelines with the same slant · the owner asked for the hero to move with the scroll both ways */
+/* Hallmark · answered F8 · presentation-slide scroll-snap deck on desktop: .hero uses scroll(root) inside 0 to 80vh, while .papers-section, .works-section and .site-footer share one unified view(block) slide-entry/exit choreography · the owner asked for slide-like section snapping and transitions both ways */
 /* Hallmark · waive 79 · .hero-copy ends at y 543 and the field at y 639 at 1440x900; the gate measures from the h1 alone · the gap below is the 120px section step */
 
 /* Homepage: an overprint banner, the paper index, the tools on an
@@ -12,9 +12,37 @@
 
 /* --- Canvas: one capped container, twelve columns --- */
 /* No sticky nav on this page: anchors land on the section's top edge,
-   so a one-screen section fills the screen it is jumped to. */
+   so a one-screen section fills the screen it is jumped to. On desktop
+   viewports where every section fits 100svh, root vertical scroll-snap
+   turns the four sections into a presentation slide deck. */
 html {
     scroll-padding-top: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-width: 60rem) and (min-height: 640px) {
+    html {
+        scroll-snap-type: y mandatory;
+    }
+
+    .deck-slide {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+}
+
+.deck-slide [tabindex="-1"]:focus {
+    outline: none;
+}
+
+.deck-slide [tabindex="-1"]:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 6px;
 }
 
 :root {
@@ -515,6 +543,14 @@ html {
         .site-footer {
             position: relative;
             z-index: 1;
+        }
+
+        .works-section {
+            z-index: 2;
+        }
+
+        .site-footer {
+            z-index: 3;
         }
 
         .papers-section {
@@ -1047,7 +1083,7 @@ html {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .project-group:nth-child(4) .project-list li + li {
+    .project-group:nth-child(4) .project-list li:not(:nth-child(3n + 1)) {
         border-left: 1px solid var(--color-field-rule);
     }
 }
@@ -1056,44 +1092,131 @@ html {
     color: var(--color-ink);
 }
 
-/* Scroll: the tools band answers the scroll the way the hero does,
-   forward on the way down and back on the way up. Its top edge enters on
-   the same slant as the hero band and flattens as it rises; each group
-   rises into place and each tool row slides in from the left, every one
-   on its own view timeline, so they arrive in reading order. All end at
-   rest and fully shown; reduced motion and browsers without view
-   timelines keep the still band. */
+/* Scroll: presentation-slide choreography across all sections, forward
+   on the way down and back on the way up. Each section's inner container
+   glides crisply into place as it enters, rests 100% solid while snapped,
+   and gently recedes as the next slide sweeps over it. The tools band
+   keeps its Swiss-poster slanted top edge; reduced motion and browsers
+   without view timelines keep the crisp static layout (with a gentle
+   active-slide settle fallback under .js). */
 @supports ((animation-timeline: view()) and (animation-range: entry)) {
     @media (prefers-reduced-motion: no-preference) {
+        .papers-section > .container {
+            animation: slide-sheet-flow auto linear both;
+            animation-timeline: view(block);
+        }
+
+        .papers-section .section-header {
+            animation: slide-head-enter auto linear both;
+            animation-timeline: view(block);
+            animation-range: entry 0% entry 65%;
+        }
+
+        .papers-section .paper-track {
+            animation: slide-body-enter auto linear both;
+            animation-timeline: view(block);
+            animation-range: entry 10% entry 80%;
+        }
+
         .works-section {
-            animation: band-tilt linear both;
-            animation-timeline: view();
-            animation-range: entry 0% entry 90%;
+            animation: band-tilt auto linear both;
+            animation-timeline: view(block);
+            animation-range: entry 0% entry 85%;
+        }
+
+        .works-section > .container {
+            animation: slide-sheet-exit auto linear both;
+            animation-timeline: view(block);
+            animation-range: exit 0% exit 100%;
         }
 
         .project-group {
-            animation: group-rise linear both;
-            animation-timeline: view();
-            animation-range: entry 0% entry 50%;
+            animation: group-rise auto linear both;
+            animation-timeline: view(block);
+            animation-range: entry 0% entry 55%;
         }
 
         .project-card {
-            animation: card-slide linear both;
-            animation-timeline: view();
+            animation: card-slide auto linear both;
+            animation-timeline: view(block);
             animation-range: entry 0% entry 70%;
         }
 
         .close-head {
-            animation: group-rise linear both;
-            animation-timeline: view();
+            animation: group-rise auto linear both;
+            animation-timeline: view(block);
             animation-range: entry 0% entry 55%;
         }
 
         .close-name {
-            animation: close-name-rise linear both;
-            animation-timeline: view();
-            animation-range: entry 0% entry 65%;
+            animation: close-name-rise auto linear both;
+            animation-timeline: view(block);
+            animation-range: entry 0% entry 75%;
         }
+
+        .footer-line {
+            animation: slide-body-enter auto linear both;
+            animation-timeline: view(block);
+            animation-range: entry 15% entry 85%;
+        }
+    }
+}
+
+@supports not ((animation-timeline: view()) and (animation-range: entry)) {
+    @media (prefers-reduced-motion: no-preference) and (min-width: 60rem) and (min-height: 640px) {
+        .js .deck-slide:not(.hero) > .container {
+            opacity: 0.4;
+            transform: translateY(20px) scale(0.985);
+            transition:
+                opacity var(--dur-long) var(--ease-out),
+                transform var(--dur-long) var(--ease-out);
+        }
+
+        .js .deck-slide[data-slide-active="true"] > .container {
+            opacity: 1;
+            transform: none;
+        }
+    }
+}
+
+@keyframes slide-sheet-flow {
+    entry 0% {
+        opacity: 0.45;
+        transform: translateY(28px) scale(0.985);
+    }
+    entry 75%,
+    exit 0% {
+        opacity: 1;
+        transform: none;
+    }
+    exit 100% {
+        opacity: 0.35;
+        transform: translateY(-28px) scale(0.96);
+    }
+}
+
+@keyframes slide-sheet-exit {
+    from {
+        opacity: 1;
+        transform: none;
+    }
+    to {
+        opacity: 0.35;
+        transform: translateY(-28px) scale(0.96);
+    }
+}
+
+@keyframes slide-head-enter {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+@keyframes slide-body-enter {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
     }
 }
 
@@ -1115,6 +1238,125 @@ html {
 
 @keyframes card-slide {
     from { opacity: 0; transform: translateX(-32px); }
+}
+
+/* ===================================================================
+   Presentation slide rail: right-edge Swiss square index, desktop only.
+   Adapts colour to the active slide's surface (paper, ultramarine field,
+   or dark ink); red never sits on the ultramarine field.
+   =================================================================== */
+.slide-rail {
+    display: none;
+}
+
+@media (min-width: 60rem) and (min-height: 640px) {
+    .slide-rail {
+        position: fixed;
+        right: max(12px, calc((100% - var(--page-max)) / 2 + 12px));
+        top: 50%;
+        z-index: var(--z-sticky);
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-sm);
+        --rail-dot: var(--color-edge);
+        --rail-dot-hover: var(--color-ink);
+        --rail-dot-active: var(--color-mark);
+        --rail-label-bg: var(--color-ink);
+        --rail-label-ink: var(--color-paper);
+        --rail-count: var(--color-muted);
+    }
+
+    .slide-rail[data-surface="field"] {
+        --rail-dot: var(--color-field-dim);
+        --rail-dot-hover: var(--color-field-ink);
+        --rail-dot-active: var(--color-field-ink);
+        --rail-label-bg: var(--color-field-ink);
+        --rail-label-ink: var(--color-field);
+        --rail-count: var(--color-field-dim);
+        --color-focus: var(--color-field-ink);
+    }
+
+    .slide-rail[data-surface="ink"] {
+        --rail-dot: var(--color-paper-3);
+        --rail-dot-hover: var(--color-paper);
+        --rail-dot-active: var(--color-mark);
+        --rail-label-bg: var(--color-paper);
+        --rail-label-ink: var(--color-ink);
+        --rail-count: var(--color-paper-3);
+        --color-focus: var(--color-paper);
+    }
+
+    .slide-rail-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-2xs);
+        list-style: none;
+    }
+
+    .slide-rail-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        text-decoration: none;
+    }
+
+    .slide-rail-link::after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        background: var(--rail-dot);
+        transition: background-color var(--dur-short) var(--ease-out), transform 340ms var(--ease-out);
+        transition-timing-function: var(--ease-out), linear(0, 0.42 15%, 1.09 38%, 0.98 62%, 1.01 80%, 1);
+    }
+
+    .slide-rail-link:hover::after,
+    .slide-rail-link:focus-visible::after {
+        background: var(--rail-dot-hover);
+        transform: scale(1.25);
+    }
+
+    .slide-rail-link[aria-current="location"]::after {
+        background: var(--rail-dot-active);
+        transform: scale(1.5);
+    }
+
+    .slide-rail-label {
+        position: absolute;
+        right: calc(100% + var(--space-xs));
+        padding: var(--space-2xs) var(--space-xs);
+        font-size: var(--type-small);
+        font-weight: 500;
+        line-height: 1.2;
+        white-space: nowrap;
+        color: var(--rail-label-ink);
+        background: var(--rail-label-bg);
+        pointer-events: none;
+        transition: opacity var(--dur-short) var(--ease-out), transform var(--dur-short) var(--ease-out);
+    }
+
+    .js .slide-rail-label {
+        opacity: 0;
+        transform: translateX(6px);
+    }
+
+    .js .slide-rail-link:hover .slide-rail-label,
+    .js .slide-rail-link:focus-visible .slide-rail-label {
+        opacity: 1;
+        transform: none;
+    }
+
+    .slide-rail-count {
+        font-size: var(--text-xs);
+        font-weight: 500;
+        color: var(--rail-count);
+        transition: color var(--dur-short) var(--ease-out);
+    }
 }
 
 /* ===================================================================
@@ -1223,8 +1465,14 @@ html {
 
     .paper-dot::after,
     .paper-link svg,
-    .project-card {
+    .project-card,
+    .slide-rail-link::after {
         transition: color var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out);
+    }
+
+    .slide-rail-label {
+        transform: none;
+        transition: opacity var(--dur-short) var(--ease-out);
     }
 }
 

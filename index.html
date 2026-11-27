@@ -80,7 +80,7 @@
 
         <noscript><p class="noscript-note">This page needs JavaScript to load its papers and tools. The projects are listed on <a href="https://github.com/NTWKKM">GitHub</a>.</p></noscript>
 
-        <section class="hero" aria-labelledby="hero-title" data-enter>
+        <section id="hero-section" class="hero deck-slide" data-slide="0" data-slide-surface="field" aria-labelledby="hero-title" data-enter>
             <div class="hero-field" aria-hidden="true">
                 <div class="container hero-inner">
                     <div class="hero-head">
@@ -92,7 +92,7 @@
             </div>
             <div class="container hero-inner">
                 <div class="hero-head">
-                    <h1 class="hero-title" id="hero-title">
+                    <h1 class="hero-title" id="hero-title" tabindex="-1">
                         <span class="hero-line"><span>Emergency medicine &amp; clinical informatics</span></span>
                     </h1>
                 </div>
@@ -118,11 +118,11 @@
             </div>
         </section>
 
-        <section id="papers-section" class="papers-section" aria-roledescription="carousel" aria-labelledby="papers-title">
+        <section id="papers-section" class="papers-section deck-slide" data-slide="1" data-slide-surface="paper" aria-roledescription="carousel" aria-labelledby="papers-title">
             <div class="container">
                 <div class="section-header">
                     <div class="section-heading">
-                        <h2 class="section-title" id="papers-title">Latest research papers</h2>
+                        <h2 class="section-title" id="papers-title" tabindex="-1">Latest research papers</h2>
                         <p class="section-meta" id="papers-meta"></p>
                     </div>
                     <nav class="paper-pager" id="papers-pager" aria-label="Paper pages" hidden>
@@ -143,11 +143,11 @@
             </div>
         </section>
 
-        <section id="works-section" class="works-section" aria-labelledby="works-title">
+        <section id="works-section" class="works-section deck-slide" data-slide="2" data-slide-surface="field" aria-labelledby="works-title">
             <div class="container">
                 <div class="section-header">
                     <div class="section-heading">
-                        <h2 class="section-title" id="works-title">Clinical systems &amp; tools</h2>
+                        <h2 class="section-title" id="works-title" tabindex="-1">Clinical systems &amp; tools</h2>
                         <p class="section-meta" id="works-meta"></p>
                     </div>
                 </div>
@@ -158,10 +158,10 @@
 
     </main>
 
-    <footer class="site-footer closing" aria-labelledby="close-title">
+    <footer id="close-section" class="site-footer closing deck-slide" data-slide="3" data-slide-surface="ink" aria-labelledby="close-title">
         <div class="container footer-inner">
             <div class="close-head">
-                <h2 class="close-title" id="close-title">Every summary, in one reader</h2>
+                <h2 class="close-title" id="close-title" tabindex="-1">Every summary, in one reader</h2>
                 <a href="blog.html" class="hero-primary close-action">Open the research reader</a>
             </div>
             <a href="#top" class="close-name" id="back-to-top" aria-label="NTWKKM, back to top">NTWKKM</a>
@@ -170,6 +170,32 @@
             </p>
         </div>
     </footer>
+
+    <nav class="slide-rail" id="slide-rail" aria-label="Page sections" data-surface="field">
+        <ol class="slide-rail-list">
+            <li>
+                <a href="#hero-section" class="slide-rail-link" data-slide-target="0" aria-current="location" aria-label="Slide 1: Overview">
+                    <span class="slide-rail-label" aria-hidden="true">Overview</span>
+                </a>
+            </li>
+            <li>
+                <a href="#papers-section" class="slide-rail-link" data-slide-target="1" aria-label="Slide 2: Latest research papers">
+                    <span class="slide-rail-label" aria-hidden="true">Papers</span>
+                </a>
+            </li>
+            <li>
+                <a href="#works-section" class="slide-rail-link" data-slide-target="2" aria-label="Slide 3: Clinical systems and tools">
+                    <span class="slide-rail-label" aria-hidden="true">Tools</span>
+                </a>
+            </li>
+            <li>
+                <a href="#close-section" class="slide-rail-link" data-slide-target="3" aria-label="Slide 4: Research reader">
+                    <span class="slide-rail-label" aria-hidden="true">Reader</span>
+                </a>
+            </li>
+        </ol>
+        <span class="slide-rail-count mono" id="slide-rail-count" aria-hidden="true">01/04</span>
+    </nav>
 
     <script src="shared.js"></script>
     <script src="index.js"></script>
