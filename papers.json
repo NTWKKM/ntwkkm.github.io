@@ -1,5 +1,75 @@
 [
   {
+    "date": "27 Nov",
+    "title": "Clinical predictors of hospital admission beyond imaging findings in older patients undergoing chest computed tomography in the emergency department: a retrospective cohort study.",
+    "comment": "ระบุปัจจัยทางคลินิกที่ช่วยทำนายการแอดมิทในผู้สูงอายุ แม้ผล CT ปกติ ช่วยลดการตัดสินใจผิดพลาดหน้างาน",
+    "pmid": "43097566",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43097566/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "The VITAL_MCE Score: A Simple Model for Predicting Malignant Cerebral Edema After Anterior Circulation Large Vessel Occlusion.",
+    "comment": "Score ใหม่ช่วยทำนาย Malignant Cerebral Edema ใน Stroke (LVO) ช่วยในการตัดสินใจปรึกษาศัลยกรรมประสาทหรือ Neuro-ICU ทันที",
+    "pmid": "43095200",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43095200/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Safety and Efficacy of Intravenous Thrombolysis after DOAC Use in Acute Ischemic Stroke: A Systematic Review and Meta-Analysis in Light of Current Guidelines.",
+    "comment": "Meta-analysis อัปเดตความปลอดภัยการให้ยาละลายลิ่มเลือดหลังใช้ DOAC ช่วยตัดสินใจในผู้ป่วย Stroke ที่มีประวัติกินยาละลายเลือด",
+    "pmid": "43095188",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43095188/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Acute Pulmonary Embolism in the ICU: A Twelve-Year Analysis of 195&#x2005;392 Hospitalizations Across United States Health Systems.",
+    "comment": "ข้อมูลวิเคราะห์ขนาดใหญ่เกี่ยวกับ Pulmonary Embolism ใน ICU ช่วยให้เข้าใจบริบทและการพยากรณ์โรคในภาวะวิกฤตได้ดียิ่งขึ้น",
+    "pmid": "43096175",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43096175/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Empirical broad-spectrum antibiotic use, de-escalation, and outcomes in Enterobacterales bloodstream infections: a retrospective observational study.",
+    "comment": "ย้ำความสำคัญของการทำ De-escalation ในภาวะติดเชื้อในกระแสเลือด ช่วยไกด์การใช้ยาปฏิชีวนะอย่างสมเหตุสมผลใน ER",
+    "pmid": "43095222",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43095222/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Should whole body CT be the default imaging technique in trauma?",
+    "comment": "การทบทวนประเด็น Whole-body CT ใน Trauma ว่าเป็นมาตรฐานที่เหมาะสมจริงหรือไม่ ช่วยปรับเกณฑ์การส่งตรวจใน ER",
+    "pmid": "43096668",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43096668/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Accuracy of Left Ventricular Ejection Fraction Assessment by Noncardiologists E-Point Septal Separation and Teichholz Methods: Simulation-Based Pre-Post Training Study.",
+    "comment": "ยืนยันประสิทธิภาพการสอน POCUS ให้แพทย์ที่ไม่ใช่หัวใจ ช่วยเพิ่มความแม่นยำในการประเมิน LV function หน้างาน",
+    "pmid": "43097718",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43097718/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Clinical characteristics and outcomes of ceftazidime/avibactam-resistant KPC-producing <i>Klebsiella pneumoniae</i> infections: impact of meropenem susceptibility and comparison with ceftazidime/avibactam-susceptible infections.",
+    "comment": "ข้อมูลสำคัญเรื่องดื้อยาใน Klebsiella ที่ต้องระวังในผู้ป่วยติดเชื้อรุนแรง ช่วยเลือกยาปฏิชีวนะสำรองให้แม่นยำขึ้น",
+    "pmid": "43095211",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43095211/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Ceftriaxone versus amikacin for the treatment of complicated urinary tract infections: a target trial emulation study.",
+    "comment": "เปรียบเทียบยารักษา UTI ซับซ้อน เป็นข้อมูลอ้างอิงในการเลือกใช้ยา Empiric therapy ใน ER",
+    "pmid": "43096859",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43096859/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Echocardiography in ARDS: beyond imaging, toward bedside decision-making.",
+    "comment": "เน้นบทบาท POCUS ใน ARDS ช่วยแพทย์ ER ตัดสินใจเรื่อง Hemodynamic management นอกเหนือจากการทำภาพวินิจฉัย",
+    "pmid": "43097150",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43097150/"
+  },
+  {
     "date": "26 Nov",
     "title": "Ticagrelor-aspirin versus clopidogrel-aspirin by pre-onset frailty status: a subgroup analysis of the CHANCE-2 trial.",
     "comment": "ช่วยเลือก DAPT ให้เหมาะสมกับระดับ frailty ในผู้ป่วย acute TIA/minor stroke เพื่อความปลอดภัยสูงสุด",
@@ -418,75 +488,5 @@
     "comment": "ยืนยันประสิทธิผลการให้ยาละลายลิ่มเลือดเข้าหลอดเลือดแดงร่วมกับ EVT ในผู้ป่วย stroke หลอดเลือดใหญ่อุดตัน",
     "pmid": "43054172",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43054172/"
-  },
-  {
-    "date": "20 Nov",
-    "title": "Stress hyperglycemia ratio-integrated index and 28-day mortality in sepsis: a dual-cohort study.",
-    "comment": "ดัชนีภาวะน้ำตาลในเลือดสูงจากความเครียดช่วยทำนายการเสียชีวิตในผู้ป่วย sepsis ได้แม่นยำขึ้น",
-    "pmid": "43054119",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43054119/"
-  },
-  {
-    "date": "20 Nov",
-    "title": "Association between early platelet aggregation function and 30-day mortality in patients with cerebral hemorrhage: a retrospective neurocritical care cohort study.",
-    "comment": "การทำงานของเกล็ดเลือดระยะแรกสัมพันธ์กับอัตราการเสียชีวิตในผู้ป่วยเลือดออกในสมอง ช่วยวางแผนการรักษา",
-    "pmid": "43054018",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43054018/"
-  },
-  {
-    "date": "20 Nov",
-    "title": "Endotracheal intubation practices, success rates and adverse events in four Dutch emergency departments: a multicentre retrospective study.",
-    "comment": "ข้อมูลอัตราความสำเร็จและภาวะแทรกซ้อนของการใส่ท่อช่วยหายใจในห้องฉุกเฉินเพื่อปรับปรุงความปลอดภัย",
-    "pmid": "43053187",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43053187/"
-  },
-  {
-    "date": "20 Nov",
-    "title": "[Battery Ingestion in Children: Incidence and Complications].",
-    "comment": "ข้อมูลระบาดวิทยาและภาวะแทรกซ้อนอันตรายจากการกลืนถ่านกระดุมในเด็กสำหรับแพทย์ฉุกเฉิน",
-    "pmid": "43055312",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43055312/"
-  },
-  {
-    "date": "20 Nov",
-    "title": "Mortality After Emergency versus Elective Ventral Hernia Repair: A Propensity-Matched ACHQC Study.",
-    "comment": "ชี้ความเสี่ยงการเสียชีวิตที่สูงขึ้นอย่างมีนัยสำคัญในการผ่าตัดไส้เลื่อนหน้าท้องแบบฉุกเฉินเทียบกับนัดหมาย",
-    "pmid": "43054858",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43054858/"
-  },
-  {
-    "date": "20 Nov",
-    "title": "Effects of enteral nutrition strategies on clinical outcomes in critically ill patients with shock: a systematic review and meta-analysis.",
-    "comment": "กลยุทธ์การให้อาหารทางสายในผู้ป่วยภาวะช็อกวิกฤต ช่วยแนวทางการดูแลโภชนาการระยะแรก",
-    "pmid": "43054040",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43054040/"
-  },
-  {
-    "date": "20 Nov",
-    "title": "Early and mid-term outcomes after surgical repair of post-infarction ventricular septal rupture from the Netherlands Heart Registration: a nationwide analysis.",
-    "comment": "ผลลัพธ์และอัตราการรอดชีวิตของการผ่าตัดซ่อมแซมผนังหัวใจห้องล่างรั่วหลังกล้ามเนื้อหัวใจขาดเลือดฉุกเฉิน",
-    "pmid": "43053828",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43053828/"
-  },
-  {
-    "date": "18 Nov",
-    "title": "Evaluation of the ESC Guideline based risk stratification of syncope patients in the emergency department A post-hoc analysis of the SYNERGY-trial.",
-    "comment": "ประเมินความแม่นยำของ ESC guideline ในการแบ่งความเสี่ยงผู้ป่วย syncope ใน ER เพื่อความปลอดภัยในการให้กลับบ้าน",
-    "pmid": "43046868",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43046868/"
-  },
-  {
-    "date": "18 Nov",
-    "title": "Intravesical tranexamic acid for gross hematuria in the emergency department: a prospective cohort study.",
-    "comment": "การใช้ TXA หยอดเข้ากระเพาะปัสสาวะรักษา gross hematuria ใน ER เป็นทางเลือกใหม่ที่ปลอดภัยและได้ผลดี",
-    "pmid": "43046141",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43046141/"
-  },
-  {
-    "date": "18 Nov",
-    "title": "Early Prehospital Prediction of Neurological Outcome After Out-of-Hospital Cardiac Arrest Derivation and External Validation of the MIRA-29 Score.",
-    "comment": "พัฒนาและประเมิน MIRA-29 score เพื่อทำนายผลลัพธ์ทางระบบประสาทหลังเกิด OHCA ตั้งแต่ระยะก่อนถึงโรงพยาบาล",
-    "pmid": "43044726",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43044726/"
   }
 ]
