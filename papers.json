@@ -1,24 +1,80 @@
 [
   {
     "date": "27 Nov",
-    "title": "Clinical predictors of hospital admission beyond imaging findings in older patients undergoing chest computed tomography in the emergency department: a retrospective cohort study.",
-    "comment": "ระบุปัจจัยทางคลินิกที่ช่วยทำนายการแอดมิทในผู้สูงอายุ แม้ผล CT ปกติ ช่วยลดการตัดสินใจผิดพลาดหน้างาน",
-    "pmid": "43097566",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43097566/"
+    "title": "Safety and Efficacy of Intravenous Thrombolysis after DOAC Use in Acute Ischemic Stroke: A Systematic Review and Meta-Analysis in Light of Current Guidelines.",
+    "comment": "ประเมินความปลอดภัยและประสิทธิผลของการให้ IV thrombolysis ในผู้ป่วย stroke ที่ได้รับ DOAC",
+    "pmid": "43095188",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43095188/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Should whole body CT be the default imaging technique in trauma?",
+    "comment": "ถกประเด็นสำคัญเรื่องการใช้ Whole-body CT เป็นมาตรฐานแรกในผู้ป่วย trauma ทุกราย ช่วยตัดสินใจส่งตรวจใน ER",
+    "pmid": "43096668",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43096668/"
   },
   {
     "date": "27 Nov",
     "title": "The VITAL_MCE Score: A Simple Model for Predicting Malignant Cerebral Edema After Anterior Circulation Large Vessel Occlusion.",
-    "comment": "Score ใหม่ช่วยทำนาย Malignant Cerebral Edema ใน Stroke (LVO) ช่วยในการตัดสินใจปรึกษาศัลยกรรมประสาทหรือ Neuro-ICU ทันที",
+    "comment": "เครื่องมือทำนายภาวะสมองบวมวิกฤตหลังเกิด LVO stroke ช่วยคัดแยกและวางแผนดูแลใน ER ได้เร็วขึ้น",
     "pmid": "43095200",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43095200/"
   },
   {
     "date": "27 Nov",
-    "title": "Safety and Efficacy of Intravenous Thrombolysis after DOAC Use in Acute Ischemic Stroke: A Systematic Review and Meta-Analysis in Light of Current Guidelines.",
-    "comment": "Meta-analysis อัปเดตความปลอดภัยการให้ยาละลายลิ่มเลือดหลังใช้ DOAC ช่วยตัดสินใจในผู้ป่วย Stroke ที่มีประวัติกินยาละลายเลือด",
-    "pmid": "43095188",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43095188/"
+    "title": "Retrospective Analysis of Simplified Compatibility Testing Process and Transfusion Adverse Reactions in Emergency Blood Transfusion.",
+    "comment": "ประเมินความปลอดภัยและอัตราการแพ้เลือดของกระบวนการตรวจความเข้ากันได้แบบรวดเร็วสำหรับการให้เลือดฉุกเฉิน",
+    "pmid": "43096088",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43096088/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Clinical predictors of hospital admission beyond imaging findings in older patients undergoing chest computed tomography in the emergency department: a retrospective cohort study.",
+    "comment": "ปัจจัยทางคลินิกช่วยทำนายการนอน รพ. ในผู้สูงอายุที่ทำ Chest CT ใน ER นอกเหนือจากผลภาพถ่ายรังสี",
+    "pmid": "43097566",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43097566/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Neurological severity at presentation, surgical timing and outcome after cauda equina syndrome: a retrospective cohort study.",
+    "comment": "ศึกษาความรุนแรงของระบบประสาทและระยะเวลาผ่าตัด Cauda Equina Syndrome เพื่อวางแผนส่งต่อฉุกเฉิน",
+    "pmid": "43097193",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43097193/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Non-operative management of penetrating abdominal trauma in a low-volume environment: a single center experience.",
+    "comment": "แนวทางการรักษา Penetrating Abdominal Trauma แบบไม่ผ่าตัดในโรงพยาบาลทั่วไป ช่วยประเมินเคสฉุกเฉิน",
+    "pmid": "43097167",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43097167/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Ceftriaxone versus amikacin for the treatment of complicated urinary tract infections: a target trial emulation study.",
+    "comment": "เปรียบเทียบประสิทธิผลของ Ceftriaxone และ Amikacin ใน cUTI เพื่อแนวทางการเลือกใช้ยาปฏิชีวนะใน ER",
+    "pmid": "43096859",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43096859/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Echocardiography in ARDS: beyond imaging, toward bedside decision-making.",
+    "comment": "การใช้ Echo ข้างเตียงประเมิน hemodynamics และช่วยตัดสินใจรักษาภาวะ ARDS ใน ER และ ICU",
+    "pmid": "43097150",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43097150/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Empirical broad-spectrum antibiotic use, de-escalation, and outcomes in Enterobacterales bloodstream infections: a retrospective observational study.",
+    "comment": "ประเมินผลลัพธ์ของการปรับลดขนาดยาปฏิชีวนะ (De-escalation) ในภาวะติดเชื้อ Enterobacterales ในกระแสเลือด",
+    "pmid": "43095222",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43095222/"
+  },
+  {
+    "date": "27 Nov",
+    "title": "Accuracy of Left Ventricular Ejection Fraction Assessment by Noncardiologists E-Point Septal Separation and Teichholz Methods: Simulation-Based Pre-Post Training Study.",
+    "comment": "การประเมิน LVEF ด้วย EPSS โดยแพทย์ทั่วไป ช่วยเพิ่มความแม่นยำของการทำ POCUS ประเมินภาวะฉุกเฉิน",
+    "pmid": "43097718",
+    "link": "https://pubmed.ncbi.nlm.nih.gov/43097718/"
   },
   {
     "date": "27 Nov",
@@ -29,45 +85,10 @@
   },
   {
     "date": "27 Nov",
-    "title": "Empirical broad-spectrum antibiotic use, de-escalation, and outcomes in Enterobacterales bloodstream infections: a retrospective observational study.",
-    "comment": "ย้ำความสำคัญของการทำ De-escalation ในภาวะติดเชื้อในกระแสเลือด ช่วยไกด์การใช้ยาปฏิชีวนะอย่างสมเหตุสมผลใน ER",
-    "pmid": "43095222",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43095222/"
-  },
-  {
-    "date": "27 Nov",
-    "title": "Should whole body CT be the default imaging technique in trauma?",
-    "comment": "การทบทวนประเด็น Whole-body CT ใน Trauma ว่าเป็นมาตรฐานที่เหมาะสมจริงหรือไม่ ช่วยปรับเกณฑ์การส่งตรวจใน ER",
-    "pmid": "43096668",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43096668/"
-  },
-  {
-    "date": "27 Nov",
-    "title": "Accuracy of Left Ventricular Ejection Fraction Assessment by Noncardiologists E-Point Septal Separation and Teichholz Methods: Simulation-Based Pre-Post Training Study.",
-    "comment": "ยืนยันประสิทธิภาพการสอน POCUS ให้แพทย์ที่ไม่ใช่หัวใจ ช่วยเพิ่มความแม่นยำในการประเมิน LV function หน้างาน",
-    "pmid": "43097718",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43097718/"
-  },
-  {
-    "date": "27 Nov",
     "title": "Clinical characteristics and outcomes of ceftazidime/avibactam-resistant KPC-producing <i>Klebsiella pneumoniae</i> infections: impact of meropenem susceptibility and comparison with ceftazidime/avibactam-susceptible infections.",
     "comment": "ข้อมูลสำคัญเรื่องดื้อยาใน Klebsiella ที่ต้องระวังในผู้ป่วยติดเชื้อรุนแรง ช่วยเลือกยาปฏิชีวนะสำรองให้แม่นยำขึ้น",
     "pmid": "43095211",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43095211/"
-  },
-  {
-    "date": "27 Nov",
-    "title": "Ceftriaxone versus amikacin for the treatment of complicated urinary tract infections: a target trial emulation study.",
-    "comment": "เปรียบเทียบยารักษา UTI ซับซ้อน เป็นข้อมูลอ้างอิงในการเลือกใช้ยา Empiric therapy ใน ER",
-    "pmid": "43096859",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43096859/"
-  },
-  {
-    "date": "27 Nov",
-    "title": "Echocardiography in ARDS: beyond imaging, toward bedside decision-making.",
-    "comment": "เน้นบทบาท POCUS ใน ARDS ช่วยแพทย์ ER ตัดสินใจเรื่อง Hemodynamic management นอกเหนือจากการทำภาพวินิจฉัย",
-    "pmid": "43097150",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43097150/"
   },
   {
     "date": "26 Nov",
@@ -467,26 +488,5 @@
     "comment": "Nomogram ทำนายภาวะแทรกซ้อนทางหัวใจ (Stroke-Heart Syndrome) หลังเกิด Stroke ช่วยเฝ้าระวังผู้ป่วย",
     "pmid": "43058435",
     "link": "https://pubmed.ncbi.nlm.nih.gov/43058435/"
-  },
-  {
-    "date": "20 Nov",
-    "title": "Prehospital Management of Pediatric Traumatic Out-of-Hospital Circulatory Arrest - A Joint Position Statement.",
-    "comment": "แนวทางเวชปฏิบัติระดับสมาคมเพื่อแนวทางการกู้ชีพเด็กหัวใจหยุดเต้นจากภยันตรายก่อนถึงโรงพยาบาล",
-    "pmid": "43055713",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43055713/"
-  },
-  {
-    "date": "20 Nov",
-    "title": "Predictive value of the modified geriatric trauma outcome score and Charlson Comorbidity Index for 30-day unfavorable outcome in geriatric patients with severe trauma (injury severity score &#x2265; 16).",
-    "comment": "ตัวช่วยทำนายพยากรณ์โรคผู้ป่วยสูงอายุบาดเจ็บรุนแรงใน ER ช่วยตัดสินใจคัดแยกและวางแผนการรักษา",
-    "pmid": "43055291",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43055291/"
-  },
-  {
-    "date": "20 Nov",
-    "title": "Adjunctive intra-arterial thrombolysis with endovascular thrombectomy for acute large-vessel occlusion stroke: a network meta-analysis of randomized trials.",
-    "comment": "ยืนยันประสิทธิผลการให้ยาละลายลิ่มเลือดเข้าหลอดเลือดแดงร่วมกับ EVT ในผู้ป่วย stroke หลอดเลือดใหญ่อุดตัน",
-    "pmid": "43054172",
-    "link": "https://pubmed.ncbi.nlm.nih.gov/43054172/"
   }
 ]
